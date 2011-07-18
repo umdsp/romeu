@@ -1,0 +1,187 @@
+{% extends "admin/app_index.html" %}
+{% load i18n %}
+{% block content %}
+
+<div id="content-main">
+        <h3>{% trans "Change language:" %}</h3>
+        <form action="/i18n/setlang/" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="/admin" />
+        <select name="language">
+            <option value="en">{% trans "English" %}</option>
+            <option value="es">{% trans "Spanish" %}</option>
+        </select>
+        <input type="submit" value="{% trans 'Go' %}" />
+        </form>
+
+        <div class="module">
+        <table summary="{% trans 'Main models available in the Archive application.' %}">
+        <caption><a href="#" class="section">{% trans "Main models" %}</a></caption>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/awardcandidate/">{% trans "Award Nominations / Wins" %}</a></th>
+                <td><a href="/admin/archive/awardcandidate/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/awardcandidate/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/bibliographicrecord/">{% trans "Bibliographic Records" %}</a></th>
+                <td><a href="/admin/archive/bibliographicrecord/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/bibliographicrecord/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+            
+            <tr>
+                <th scope="row"><a href="/admin/archive/collection/">{% trans "Collections" %}</a></th>
+                <td><a href="/admin/archive/collection/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/collection/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+            
+            <tr>
+                <th scope="row"><a href="/admin/archive/creator/">{% trans "Creators" %}</a></th>
+                <td><a href="/admin/archive/creator/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/creator/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+            
+            <tr>
+                <th scope="row"><a href="/admin/archive/festival/">{% trans "Festivals" %}</a></th>
+                <td><a href="/admin/archive/festival/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/festival/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+            
+            <tr>
+                <th scope="row"><a href="/admin/archive/festivaloccurrence/">{% trans "Festival Occurrences" %}</a></th>
+                <td><a href="/admin/archive/festivaloccurrence/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/festivaloccurrence/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+            
+            <tr>
+                <th scope="row"><a href="/admin/archive/location/">{% trans "Locations" %}</a></th>
+                <td><a href="/admin/archive/location/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/location/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+            
+            <tr>
+                <th scope="row"><a href="/admin/archive/digitalobject/">{% trans "Digital Objects" %}</a></th>
+                <td><a href="/admin/archive/digitalobject/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/digitalobject/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+            
+            <tr>
+                <th scope="row"><a href="/admin/archive/production/">{% trans "Productions" %}</a></th>
+                <td><a href="/admin/archive/production/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/production/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/workrecord/">{% trans "Work records" %}</a></th>
+                <td><a href="/admin/archive/workrecord/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/workrecord/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+        </table>
+        </div>
+        
+    
+        <div class="module">
+        <table summary="{% trans 'Controlled lists available in the Archive application.' %}">
+        <caption><a href="#" class="section">{% trans "Controlled lists" %}</a></caption>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/city/">{% trans "Cities" %}</a></th>
+                <td><a href="/admin/archive/city/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/city/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/country/">{% trans "Countries" %}</a></th>
+                <td><a href="/admin/archive/country/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/country/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/language/">{% trans "Languages" %}</a></th>
+                <td><a href="/admin/archive/language/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/language/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+
+            <tr>
+                <th scope="row"><a href="/admin/archive/award/">{% trans "Awards" %}</a></th>
+                <td><a href="/admin/archive/award/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/award/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+
+            <tr>
+                <th scope="row"><a href="/admin/archive/repository/">{% trans "Repositories" %}</a></th>
+                <td><a href="/admin/archive/repository/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/repository/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/subjectheading/">{% trans "Subject headings" %}</a></th>
+                <td><a href="/admin/archive/subjectheading/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/subjectheading/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/physicalobjecttype/">{% trans "Physical object types" %}</a></th>
+                <td><a href="/admin/archive/physicalobjecttype/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/physicalobjecttype/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/workrecordfunction/">{% trans "Work record functions" %}</a></th>
+                <td><a href="/admin/archive/workrecordfunction/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/workrecordfunction/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/directingteamfunction/">{% trans "Directing team functions" %}</a></th>
+                <td><a href="/admin/archive/directingteamfunction/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/directingteamfunction/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/castmemberfunction/">{% trans "Cast member functions" %}</a></th>
+                <td><a href="/admin/archive/castmemberfunction/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/castmemberfunction/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/designteamfunction/">{% trans "Design team functions" %}</a></th>
+                <td><a href="/admin/archive/designteamfunction/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/designteamfunction/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/techteamfunction/">{% trans "Tech team functions" %}</a></th>
+                <td><a href="/admin/archive/techteamfunction/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/techteamfunction/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/productionteamfunction/">{% trans "Production team functions" %}</a></th>
+                <td><a href="/admin/archive/productionteamfunction/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/productionteamfunction/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+            
+            <tr>
+                <th scope="row"><a href="/admin/archive/orgfunction/">{% trans "Organization functions" %}</a></th>
+                <td><a href="/admin/archive/orgfunction/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/orgfunction/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+            <tr>
+                <th scope="row"><a href="/admin/archive/festivalfunction/">{% trans "Festival functions" %}</a></th>
+                <td><a href="/admin/archive/festivalfunction/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/festivalfunction/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+        
+        </table>
+        </div>
+
+</div>
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+{% endblock %}

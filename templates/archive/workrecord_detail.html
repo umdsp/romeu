@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block article_header %}
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/writtenworks">Written Works</a></li>
+                </ul>
+            </nav>
+            <img src="{{ workrecordphoto }}" alt="Photo of {{ workrecord.title }}" />
+            <h1>{{ workrecord.title }}</h1>
+            <span>Written Work Info</span><br />
+            <span>Written Work dates?</span>
+{% endblock %}
+
+{% block content %}
+        <section class="objects">
+            
+        </section>
+        
+        <aside>
+            
+        </aside>
+        
+        <section class="data">
+            
+        </section>
+{% endblock %}

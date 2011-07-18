@@ -1,0 +1,29 @@
+{% load i18n %}
+<input type="text" name="{{name}}_text" id="{{html_id}}_text" value="{{current_name}}" {{ extra_attrs }} />
+{% if add_link %}
+        <a href="{{ add_link }}" class="add-another" id="add_{{ html_id }}" onclick="return showAddAnotherPopup(this);"> <img src="{{ admin_media_prefix }}img/admin/icon_addlink.gif" width="10" height="10" alt="Add Another"></a>
+{% endif %}
+{% block help %}{% if help_text %}<p class="help">{{help_text}}</p>{% endif %}{% endblock %}
+<p id="{{html_id}}_on_deck" class="results_on_deck"></p>
+<input type="hidden" name="{{name}}" id="{{html_id}}" value="{{current_ids}}" />
+<script type="text/javascript">
+
+jQuery(document).ready(function($){{% block script %}
+    useid = "{{html_id}}";
+    if (useid.search(/__prefix__/) >= 0) {
+        // we're adding another inline, let's try to correct ourselves:
+        prefix = 0;
+        newid = useid;
+        //alert(newid+'_text'+' '+$('#'+newid+'_text').length);
+        while ($('#'+newid+'_text').length) {
+            newid = useid.replace(/__prefix__/,prefix++);
+        }
+        useid = newid
+    }
+    autocompleteselectmultiplevalues[useid] = {{current_reprs}};
+    // call after 100ms so the new div gets situated
+    setTimeout("setup_autocompleteselectmultiple('"+useid+"','{{lookup_url}}')",100);
+
+{% block extra_script %}{% endblock %}
+{% endblock %}});
+</script>

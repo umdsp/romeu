@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+{% load list_extras %}
+
+{% block article_header %}
+        <h1>Written Works{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
+{% endblock %}
+
+{% block content %}
+        <ul id="random_thumbs">
+        {% for obj in digital_objects %}
+            <li>
+                <a href="/writtenwork/{{ obj.work_id }}">
+                        <img title="{{ obj.title }}" src="{{ MEDIA_URL }}/{{ obj.imagepath }}" />
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+        
+        {% alpha_list "writtenworks" %}
+        
+        <table id="writtenworks_list">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Creators</th>
+                    <th>Creation date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for work in writtenworks_list %}
+                    <tr>
+                        <td><a href="/writtenwork/{{work.id}}">{{ work.title }}</a></td>
+                        <td>{{ work.work_type.name }}</td>
+                        <td>{% if work.creators_display %}{{ work.creators_display }}{% endif %}</td>
+                        <td>{% if work.creation_date %}{{ work.creation_date_display }}{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        {% if is_paginated %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+    
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ paginator.num_pages }}.
+                </span>
+    
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+{% endblock %}

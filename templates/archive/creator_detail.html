@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block article_header %}
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/creators">Creators</a></li>
+                </ul>
+            </nav>
+            <img src="{{ creatorphoto }}" alt="Photo of {{ creator.display_name }}" />
+            <h1>{{ creator.display_name }}</h1>
+            <span>{{ creator.display_roles }}</span><br />
+            <span>{% if creator.birth_date %}{{ creator.birth_date_display }}&mdash;{% endif %}{% if creator.death_date %}{{ creator.death_date_display }}{% endif %}</span>
+{% endblock %}
+
+{% block content %}
+        <section class="objects">
+            
+        </section>
+        
+        <aside>
+            {% if creator.nationality %}
+                <h4>Nationality:</h4>
+                <span>{{ creator.nationality.demonym }}</span>
+            {% endif %}
+            {% if creator.birth_date %}
+                <h4>Birth date:</h4>
+                <span>{{ creator.birth_date_display }}</span>
+            {% endif %}
+            {% if creator.birth_location %}
+                <h4>Birthplace:</h4>
+                <span>{{ creator.birth_location }}</span>
+            {% endif %}
+            {% if creator.death_date %}
+                <h4>Death date:</h4>
+                <span>{{ creator.death_date_display }}</span>
+            {% endif %}
+            {% if creator.death_location %}
+                <h4>Place of death:</h4>
+                <span>{{ creator.death_location }}</span>
+            {% endif %}
+            {% if creator.has_related_creators %}
+                <h4>Related creators:</h4>
+                
+            {% endif %}
+        </aside>
+        
+        <section class="data">
+            {% if creator.biography %}
+                {{ creator.biography|autop }}
+            {% endif %}
+            
+            {% if creator.has_works %}
+            <div class="linkeditems">
+                <h3>Written texts</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Function</th>
+                            <th>Creation date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for work in creator.works %}
+                        <tr>
+                            <td><a href="{{ SITE_URL }}/writtenwork/{{ work.record_id }}">{{ work.record_title|safe }}</a></td>
+                            <td>{{ work.function }}</td>
+                            <td>{{ work.date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+            
+            {% if creator.has_productions %}
+            <div class="linkeditems">
+                <h3>Productions</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Venue</th>
+                            <th>Date range</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for production in creator.productions %}
+                            <tr>
+                                <td><a href="{{ SITE_URL }}/production/{{ production.prod_id }}">{{ production.prod_title }}</a></td>
+                                <td>{{ production.venue }}</td>
+                                <td>{{ production.date_range|safe }}</td>
+                                <td>{{ production.role }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+            
+        </section>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% load highlight %}
+<div class="post_result">
+    <h5><a href="/creator/{{ result.object.pk }}">{{ result.object.display_name }}</a></h5>
+    <p>Creator<br />
+    {% if result.object.display_roles %}{{ result.object.display_roles }}<br />{% endif %}
+    Relevance: {{ result.score|floatformat:"-2" }}</p>
+</div>

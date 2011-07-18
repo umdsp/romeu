@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+{% load list_extras %}
+
+{% block article_header %}
+        <h1>Creators{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
+{% endblock %}
+
+{% block content %}
+        <ul id="random_thumbs">
+        {% for obj in digital_objects %}
+            <li>
+                <a href="/creator/{{ obj.creator_id }}">
+                        <img title="{{ obj.title }}" src="{{ MEDIA_URL }}/{{ obj.imagepath }}" />
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+        
+        {% alpha_list "creators" %}
+        
+        <table id="creators_list">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roles</th>
+                    <th>Birth/death dates</th>
+                    <th>Nationality</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for creator in creators_list %}
+                    <tr>
+                        <td><a href="/creator/{{creator.id}}">{{ creator.creator_name }}</a></td>
+                        <td>{% if creator.display_roles %}{{ creator.display_roles }}{% endif %}</td>
+                        <td>{% if creator.birth_date %}{{ creator.birth_date_display }}&mdash;{% endif %}{% if creator.death_date %}{{ creator.death_date_display }}{% endif %}</td>
+                        <td>{% if creator.nationality %}{{ creator.nationality.demonym }}{% else %}N/A{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        {% if is_paginated %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+    
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ paginator.num_pages }}.
+                </span>
+    
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+{% endblock %}

@@ -1,0 +1,3879 @@
+[
+    {
+        "pk": 3,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Afghan",
+            "demonym_en": "Afghan",
+            "demonym_es": "Afgano/a",
+            "name": "Afghanistan",
+            "name_en": "Afghanistan",
+            "name_es": "Afganistan"
+        }
+    },
+    {
+        "pk": 31,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "\u00c5lander",
+            "name": "\u00c5land Islands",
+            "demonym_en": "\u00c5lander",
+            "demonym_es": "\u00c5land\u00e9s/-a",
+            "name_en": "\u00c5land Islands",
+            "name_es": "Islas de \u00c5land"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Albanian",
+            "name": "Albania",
+            "demonym_en": "Albanian",
+            "demonym_es": "Alban\u00e9s/-a",
+            "name_en": "Albania",
+            "name_es": "Albania"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Algerian",
+            "name": "Algeria",
+            "demonym_en": "Algerian",
+            "demonym_es": "Argelino/a",
+            "name_en": "Algeria",
+            "name_es": "Argelia"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "American Samoan",
+            "name": "American Samoa",
+            "demonym_en": "American Samoan",
+            "demonym_es": "Samoano/a Estadounidense",
+            "name_en": "American Samoa",
+            "name_es": "Samoa Estadounidense"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Andorran",
+            "name": "Andorra",
+            "demonym_en": "Andorran",
+            "demonym_es": "Andorrano/a",
+            "name_en": "Andorra",
+            "name_es": "Andorra"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Angolan",
+            "name": "Angola",
+            "demonym_en": "Angolan",
+            "demonym_es": "Angole\u00f1o/a",
+            "name_en": "Angola",
+            "name_es": "Angola"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Anguillan",
+            "name": "Anguilla",
+            "demonym_en": "Anguillan",
+            "demonym_es": "Anguilense",
+            "name_en": "Anguilla",
+            "name_es": "Anguila"
+        }
+    },
+    {
+        "pk": 32,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Antarctican",
+            "name": "Antarctica",
+            "demonym_en": "Antarctican",
+            "demonym_es": "Ant\u00e1rtico/a",
+            "name_en": "Antarctica",
+            "name_es": "Ant\u00e1rtida"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Antiguan / Barbudan",
+            "name": "Antigua and Barbuda",
+            "demonym_en": "Antiguan / Barbudan",
+            "demonym_es": "Antiguano/a",
+            "name_en": "Antigua and Barbuda",
+            "name_es": "Antigua y Barbuda"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Argentine",
+            "name": "Argentina",
+            "demonym_en": "Argentine",
+            "demonym_es": "Argentino/a",
+            "name_en": "Argentina",
+            "name_es": "Argentina"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Armenian",
+            "name": "Armenia",
+            "demonym_en": "Armenian",
+            "demonym_es": "Armenio/a",
+            "name_en": "Armenia",
+            "name_es": "Armenia"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Aruban",
+            "name": "Aruba",
+            "demonym_en": "Aruban",
+            "demonym_es": "Arubiano/a",
+            "name_en": "Aruba",
+            "name_es": "Aruba"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Australian",
+            "name": "Australia",
+            "demonym_en": "Australian",
+            "demonym_es": "Australiano/a",
+            "name_en": "Australia",
+            "name_es": "Australia"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Austrian",
+            "name": "Austria",
+            "demonym_en": "Austrian",
+            "demonym_es": "Austriaco/a",
+            "name_en": "Austria",
+            "name_es": "Austria"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Azerbaijani",
+            "name": "Azerbaijan",
+            "demonym_en": "Azerbaijani",
+            "demonym_es": "Azerbaiyano/a",
+            "name_en": "Azerbaijan",
+            "name_es": "Azerbaiy\u00e1n"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Bahamian",
+            "name": "Bahamas",
+            "demonym_en": "Bahamian",
+            "demonym_es": "Baham\u00e9s/-a",
+            "name_en": "Bahamas",
+            "name_es": "Bahamas"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Bahraini",
+            "name": "Bahrain",
+            "demonym_en": "Bahraini",
+            "demonym_es": "Bahrein\u00ed",
+            "name_en": "Bahrain",
+            "name_es": "Bahr\u00e9in"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Bangladeshi",
+            "name": "Bangladesh",
+            "demonym_en": "Bangladeshi",
+            "demonym_es": "Banglades\u00ed",
+            "name_en": "Bangladesh",
+            "name_es": "Bangladesh"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Barbadian",
+            "name": "Barbados",
+            "demonym_en": "Barbadian",
+            "demonym_es": "Barbadense",
+            "name_en": "Barbados",
+            "name_es": "Barbados"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Belarusian",
+            "name": "Belarus",
+            "demonym_en": "Belarusian",
+            "demonym_es": "Bielorruso/a",
+            "name_en": "Belarus",
+            "name_es": "Bielorrusia"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Belgian",
+            "name": "Belgium",
+            "demonym_en": "Belgian",
+            "demonym_es": "Belga",
+            "name_en": "Belgium",
+            "name_es": "B\u00e9lgica"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Belizean",
+            "name": "Belize",
+            "demonym_en": "Belizean",
+            "demonym_es": "Belice\u00f1o/a",
+            "name_en": "Belize",
+            "name_es": "Belice"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Beninese",
+            "name": "Benin",
+            "demonym_en": "Beninese",
+            "demonym_es": "Benin\u00e9s/-esa",
+            "name_en": "Benin",
+            "name_es": "Ben\u00edn"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Bermudian",
+            "name": "Bermuda",
+            "demonym_en": "Bermudian",
+            "demonym_es": "Bermude\u00f1o/a",
+            "name_en": "Bermuda",
+            "name_es": "Bermudas"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Bhutanese",
+            "name": "Bhutan",
+            "demonym_en": "Bhutanese",
+            "demonym_es": "Butan\u00e9s/-a",
+            "name_en": "Bhutan",
+            "name_es": "But\u00e1n"
+        }
+    },
+    {
+        "pk": 27,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Bolivian",
+            "name": "Bolivia",
+            "demonym_en": "Bolivian",
+            "demonym_es": "Boliviano/a",
+            "name_en": "Bolivia",
+            "name_es": "Bolivia"
+        }
+    },
+    {
+        "pk": 33,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Caribbean Dutch",
+            "name": "Bonaire, St. Eustatius and Saba",
+            "demonym_en": "Caribbean Dutch",
+            "demonym_es": "Holandesa del Caribe",
+            "name_en": "Bonaire, St. Eustatius and Saba",
+            "name_es": "Bonaire, San Eustaqio y Saba"
+        }
+    },
+    {
+        "pk": 28,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Bosnian",
+            "name": "Bosnia and Herzegovina",
+            "demonym_en": "Bosnian",
+            "demonym_es": "Bosnio/a",
+            "name_en": "Bosnia and Herzegovina",
+            "name_es": "Bosnia y Herzegovina"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Botswanan",
+            "name": "Botswana",
+            "demonym_en": "Botswanan",
+            "demonym_es": "Botsuano/a",
+            "name_en": "Botswana",
+            "name_es": "Botsuana"
+        }
+    },
+    {
+        "pk": 34,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Norwegian (Bouvet Island)",
+            "name": "Bouvet Island",
+            "demonym_en": "Norwegian (Bouvet Island)",
+            "demonym_es": "Noruego/a (Isla Bouvet)",
+            "name_en": "Bouvet Island",
+            "name_es": "Isla Bouvet"
+        }
+    },
+    {
+        "pk": 30,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Brazilian",
+            "name": "Brazil",
+            "demonym_en": "Brazilian",
+            "demonym_es": "Brasile\u00f1o/a",
+            "name_en": "Brazil",
+            "name_es": "Brasil"
+        }
+    },
+    {
+        "pk": 35,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Chagossian",
+            "name": "British Indian Ocean Territory",
+            "demonym_en": "Chagossian",
+            "demonym_es": "Chaguense",
+            "name_en": "British Indian Ocean Territory",
+            "name_es": "Territorio Brit\u00e1nico del Oc\u00e9ano \u00cdndico"
+        }
+    },
+    {
+        "pk": 36,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Bruneian",
+            "name": "Brunei",
+            "demonym_en": "Bruneian",
+            "demonym_es": "Bruneano/a",
+            "name_en": "Brunei",
+            "name_es": "Brun\u00e9i"
+        }
+    },
+    {
+        "pk": 37,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Bulgarian",
+            "name": "Bulgaria",
+            "demonym_en": "Bulgarian",
+            "demonym_es": "B\u00falgaro/a",
+            "name_en": "Bulgaria",
+            "name_es": "Bulgaria"
+        }
+    },
+    {
+        "pk": 38,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Burkinab\u00e9",
+            "name": "Burkina Faso",
+            "demonym_en": "Burkinab\u00e9",
+            "demonym_es": "Burquin\u00e9s/-a",
+            "name_en": "Burkina Faso",
+            "name_es": "Burkina Faso"
+        }
+    },
+    {
+        "pk": 39,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Burundian",
+            "name": "Burundi",
+            "demonym_en": "Burundian",
+            "demonym_es": "Burund\u00e9s/-a",
+            "name_en": "Burundi",
+            "name_es": "Burundi"
+        }
+    },
+    {
+        "pk": 40,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Cambodian",
+            "name": "Cambodia",
+            "demonym_en": "Cambodian",
+            "demonym_es": "Camboyano/a",
+            "name_en": "Cambodia",
+            "name_es": "Camboya"
+        }
+    },
+    {
+        "pk": 41,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Cameroonian",
+            "name": "Cameroon",
+            "demonym_en": "Cameroonian",
+            "demonym_es": "Camerun\u00e9s/-a",
+            "name_en": "Cameroon",
+            "name_es": "Camer\u00fan"
+        }
+    },
+    {
+        "pk": 42,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Canadian",
+            "name": "Canada",
+            "demonym_en": "Canadian",
+            "demonym_es": "Canadiense",
+            "name_en": "Canada",
+            "name_es": "Canad\u00e1"
+        }
+    },
+    {
+        "pk": 43,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Cape Verdean",
+            "name": "Cape Verde",
+            "demonym_en": "Cape Verdean",
+            "demonym_es": "Caboverdiano/a",
+            "name_en": "Cape Verde",
+            "name_es": "Cabo Verde"
+        }
+    },
+    {
+        "pk": 44,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Caymanian",
+            "name": "Cayman Islands",
+            "demonym_en": "Caymanian",
+            "demonym_es": "Caiman\u00e9s/-a",
+            "name_en": "Cayman Islands",
+            "name_es": "Islas Caim\u00e1n"
+        }
+    },
+    {
+        "pk": 45,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Central African",
+            "name": "Central African Republic",
+            "demonym_en": "Central African",
+            "demonym_es": "Centroafricano/a",
+            "name_en": "Central African Republic",
+            "name_es": "Rep\u00fablica Centroafricana"
+        }
+    },
+    {
+        "pk": 46,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Chadian",
+            "name": "Chad",
+            "demonym_en": "Chadian",
+            "demonym_es": "Chadiano/a",
+            "name_en": "Chad",
+            "name_es": "Chad"
+        }
+    },
+    {
+        "pk": 47,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Chilean",
+            "name": "Chile",
+            "demonym_en": "Chilean",
+            "demonym_es": "Chileano/a",
+            "name_en": "Chile",
+            "name_es": "Chile"
+        }
+    },
+    {
+        "pk": 48,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Chinese",
+            "name": "China",
+            "demonym_en": "Chinese",
+            "demonym_es": "Chino/a",
+            "name_en": "China",
+            "name_es": "China"
+        }
+    },
+    {
+        "pk": 49,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Christmas Islander",
+            "name": "Christmas Island",
+            "demonym_en": "Christmas Islander",
+            "demonym_es": "De la Isla de Navidad",
+            "name_en": "Christmas Island",
+            "name_es": "Isla de Navidad"
+        }
+    },
+    {
+        "pk": 50,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Cocossian",
+            "name": "Cocos (Keeling) Islands",
+            "demonym_en": "Cocossian",
+            "demonym_es": "Cocano/a",
+            "name_en": "Cocos (Keeling) Islands",
+            "name_es": "Islas Cocos (Keeling)"
+        }
+    },
+    {
+        "pk": 51,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Colombian",
+            "name": "Colombia",
+            "demonym_en": "Colombian",
+            "demonym_es": "Colombiano/a",
+            "name_en": "Colombia",
+            "name_es": "Colombia"
+        }
+    },
+    {
+        "pk": 52,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Comorian",
+            "name": "Comoros",
+            "demonym_en": "Comorian",
+            "demonym_es": "Comorense",
+            "name_en": "Comoros",
+            "name_es": "Comoras"
+        }
+    },
+    {
+        "pk": 53,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Congolese",
+            "name": "Congo",
+            "demonym_en": "Congolese",
+            "demonym_es": "Congol\u00e9s/-a",
+            "name_en": "Congo",
+            "name_es": "Congo"
+        }
+    },
+    {
+        "pk": 55,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Cook Islander",
+            "name": "Cook Islands",
+            "demonym_en": "Cook Islander",
+            "demonym_es": "Cookiano/a",
+            "name_en": "Cook Islands",
+            "name_es": "Islas Cook"
+        }
+    },
+    {
+        "pk": 56,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Costa Rican",
+            "name": "Costa Rica",
+            "demonym_en": "Costa Rican",
+            "demonym_es": "Costarricense",
+            "name_en": "Costa Rica",
+            "name_es": "Costa Rica"
+        }
+    },
+    {
+        "pk": 57,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Ivoirian",
+            "name": "C\u00f4te d'Ivoire",
+            "demonym_en": "Ivoirian",
+            "demonym_es": "Marfile\u00f1o/a",
+            "name_en": "C\u00f4te d'Ivoire",
+            "name_es": "Costa de Marfil"
+        }
+    },
+    {
+        "pk": 58,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Croatian",
+            "name": "Croatia",
+            "demonym_en": "Croatian",
+            "demonym_es": "Croata",
+            "name_en": "Croatia",
+            "name_es": "Croacia"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Cuban",
+            "name": "Cuba",
+            "demonym_en": "Cuban",
+            "demonym_es": "Cubano/a",
+            "name_en": "Cuba",
+            "name_es": "Cuba"
+        }
+    },
+    {
+        "pk": 59,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Dutch (Cura\u00e7ao)",
+            "name": "Cura\u00e7ao",
+            "demonym_en": "Dutch (Cura\u00e7ao)",
+            "demonym_es": "Curazole\u00f1o/a",
+            "name_en": "Cura\u00e7ao",
+            "name_es": "Curazao"
+        }
+    },
+    {
+        "pk": 60,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Cypriot",
+            "name": "Cyprus",
+            "demonym_en": "Cypriot",
+            "demonym_es": "Chipriota",
+            "name_en": "Cyprus",
+            "name_es": "Chipre"
+        }
+    },
+    {
+        "pk": 61,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Czech",
+            "name": "Czech Republic",
+            "demonym_en": "Czech",
+            "demonym_es": "Checo/a",
+            "name_en": "Czech Republic",
+            "name_es": "Rep\u00fablica Checa"
+        }
+    },
+    {
+        "pk": 54,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Congolese (DR Congo)",
+            "name": "Democratic Republic of the Congo (Zaire)",
+            "demonym_en": "Congolese (DR Congo)",
+            "demonym_es": "Congole\u00f1o/a (RD del Congo)",
+            "name_en": "Democratic Republic of the Congo (Zaire)",
+            "name_es": "Rep\u00fablica Democr\u00e1tica del Congo (Zaire)"
+        }
+    },
+    {
+        "pk": 62,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Danish",
+            "name": "Denmark",
+            "demonym_en": "Danish",
+            "demonym_es": "Dan\u00e9s/-a",
+            "name_en": "Denmark",
+            "name_es": "Dinamarca"
+        }
+    },
+    {
+        "pk": 63,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Djiboutian",
+            "name": "Djibouti",
+            "demonym_en": "Djiboutian",
+            "demonym_es": "Yibutiano/a",
+            "name_en": "Djibouti",
+            "name_es": "Yibuti"
+        }
+    },
+    {
+        "pk": 64,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Dominican (Dominica)",
+            "name": "Dominica",
+            "demonym_en": "Dominican (Dominica)",
+            "demonym_es": "Dominiqu\u00e9s/-a",
+            "name_en": "Dominica",
+            "name_es": "Dominica"
+            
+        }
+    },
+    {
+        "pk": 65,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Dominican",
+            "name": "Dominican Republic",
+            "demonym_en": "Dominican",
+            "demonym_es": "Dominicano/a",
+            "name_en": "Dominican Republic",
+            "name_es": "Rep\u00fablica Dominicana"
+        }
+    },
+    {
+        "pk": 66,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Ecuadorian",
+            "name": "Ecuador",
+            "demonym_en": "Ecuadorian",
+            "demonym_es": "Ecuatoriano/a",
+            "name_en": "Ecuador",
+            "name_es": "Ecuador"
+        }
+    },
+    {
+        "pk": 67,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Egyptian",
+            "name": "Egypt",
+            "demonym_en": "Egyptian",
+            "demonym_es": "Egipcio/a",
+            "name_en": "Egypt",
+            "name_es": "Egipto"
+        }
+    },
+    {
+        "pk": 68,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Salvadoran",
+            "name": "El Salvador",
+            "demonym_en": "Salvadoran",
+            "demonym_es": "Salvadore\u00f1o/a",
+            "name_en": "El Salvador",
+            "name_es": "El Salvador"
+        }
+    },
+    {
+        "pk": 69,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Equatoguinean",
+            "name": "Equatorial Guinea",
+            "demonym_en": "Equatoguinean",
+            "demonym_es": "Ecuatoguineano/a",
+            "name_en": "Equatorial Guinea",
+            "name_es": "Guinea Ecuatorial"
+        }
+    },
+    {
+        "pk": 70,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Eritrean",
+            "name": "Eritrea",
+            "demonym_en": "Eritrean",
+            "demonym_es": "Eritreo/a",
+            "name_en": "Eritrea",
+            "name_es": "Eritrea"
+        }
+    },
+    {
+        "pk": 71,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Estonian",
+            "name": "Estonia",
+            "demonym_en": "Estonian",
+            "demonym_es": "Estonio/a",
+            "name_en": "Estonia",
+            "name_es": "Estonia"
+        }
+    },
+    {
+        "pk": 72,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Ethiopian",
+            "name": "Ethiopia",
+            "demonym_en": "Ethiopian",
+            "demonym_es": "Et\u00edope",
+            "name_en": "Ethiopia",
+            "name_es": "Etiop\u00eda"
+        }
+    },
+    {
+        "pk": 73,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Falkland Islander",
+            "name": "Falkland Islands (Malvinas)",
+            "demonym_en": "Falkland Islander",
+            "demonym_es": "Malvinense",
+            "name_en": "Falkland Islands (Malvinas)",
+            "name_es": "Islas Malvinas"
+        }
+    },
+    {
+        "pk": 74,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Faroese",
+            "name": "Faroe Islands",
+            "demonym_en": "Faroese",
+            "demonym_es": "Fero\u00e9s/-esa",
+            "name_en": "Faroe Islands",
+            "name_es": "Islas Feroe"
+        }
+    },
+    {
+        "pk": 75,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Fijian",
+            "name": "Fiji",
+            "demonym_en": "Fijian",
+            "demonym_es": "Fiyiano/a",
+            "name_en": "Fiji",
+            "name_es": "Fiyi"
+        }
+    },
+    {
+        "pk": 76,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Finnish",
+            "name": "Finland",
+            "demonym_en": "Finnish",
+            "demonym_es": "Finland\u00e9s/-esa",
+            "name_en": "Finland",
+            "name_es": "Finlandia"
+        }
+    },
+    {
+        "pk": 77,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "French",
+            "name": "France",
+            "demonym_en": "French",
+            "demonym_es": "Franc\u00e9s/-esa",
+            "name_en": "France",
+            "name_es": "Francia"
+        }
+    },
+    {
+        "pk": 78,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "French (French Guiana)",
+            "name": "French Guiana",
+            "demonym_en": "French (French Guiana)",
+            "demonym_es": "Francoguayan\u00e9s/-esa",
+            "name_en": "French Guiana",
+            "name_es": "Guayana Francesa"
+        }
+    },
+    {
+        "pk": 79,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "French Polynesian",
+            "name": "French Polynesia",
+            "demonym_en": "French Polynesian",
+            "demonym_es": "Francopolinesio/a",
+            "name_en": "French Polynesia",
+            "name_es": "Polinesia Francesa"
+        }
+    },
+    {
+        "pk": 80,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "French (French Southern Territories)",
+            "name": "French Southern Territories",
+            "demonym_en": "French (French Southern Territories)",
+            "demonym_es": "De los Territorios Australes Franceses",
+            "name_en": "French Southern Territories",
+            "name_es": "Tierras Australes y Ant\u00e1rticas Francesas"
+        }
+    },
+    {
+        "pk": 81,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Gabonese",
+            "name": "Gabon",
+            "demonym_en": "Gabonese",
+            "demonym_es": "Gabon\u00e9s/-esa",
+            "name_en": "Gabon",
+            "name_es": "Gab\u00f3n"
+        }
+    },
+    {
+        "pk": 82,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Gambian",
+            "name": "Gambia",
+            "demonym_en": "Gambian",
+            "demonym_es": "Gambiano/a",
+            "name_en": "Gambia",
+            "name_es": "Gambia"
+        }
+    },
+    {
+        "pk": 83,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Georgian",
+            "name": "Georgia",
+            "demonym_en": "Georgian",
+            "demonym_es": "Georgiano/a",
+            "name_en": "Georgia",
+            "name_es": "Georgia"
+        }
+    },
+    {
+        "pk": 84,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "German",
+            "name": "Germany",
+            "demonym_en": "German",
+            "demonym_es": "Alem\u00e1n/-ana",
+            "name_en": "Germany",
+            "name_es": "Alemania"
+        }
+    },
+    {
+        "pk": 85,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Ghanaian",
+            "name": "Ghana",
+            "demonym_en": "Ghanaian",
+            "demonym_es": "Ghan\u00e9s/-esa",
+            "name_en": "Ghana",
+            "name_es": "Ghana"
+        }
+    },
+    {
+        "pk": 86,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Gibraltarian",
+            "name": "Gibraltar",
+            "demonym_en": "Gibraltarian",
+            "demonym_es": "Gibraltare\u00f1o/a",
+            "name_en": "Gibraltar",
+            "name_es": "Gibraltar"
+        }
+    },
+    {
+        "pk": 87,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Greek",
+            "name": "Greece",
+            "demonym_en": "Greek",
+            "demonym_es": "Griego/a",
+            "name_en": "Greece",
+            "name_es": "Grecia"
+        }
+    },
+    {
+        "pk": 88,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Greenlander",
+            "name": "Greenland",
+            "demonym_en": "Greenlander",
+            "demonym_es": "Groenland\u00e9s/-esa",
+            "name_en": "Greenland",
+            "name_es": "Groenlandia"
+        }
+    },
+    {
+        "pk": 89,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Grenadian",
+            "name": "Grenada",
+            "demonym_en": "Grenadian",
+            "demonym_es": "Granadino/a",
+            "name_en": "Grenada",
+            "name_es": "Granada"
+        }
+    },
+    {
+        "pk": 90,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "French (Guadeloupe)",
+            "name": "Guadeloupe",
+            "demonym_en": "French (Guadeloupe)",
+            "demonym_es": "Franc\u00e9s/-esa (Guadalupe)",
+            "name_en": "Guadeloupe",
+            "name_es": "Guadalupe"
+        }
+    },
+    {
+        "pk": 91,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Guamanian",
+            "name": "Guam",
+            "demonym_en": "Guamanian",
+            "demonym_es": "Guam\u00e9s/-esa",
+            "name_en": "Guam",
+            "name_es": "Guam"
+        }
+    },
+    {
+        "pk": 92,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Guatemalan",
+            "name": "Guatemala",
+            "demonym_en": "Guatemalan",
+            "demonym_es": "Guatemalteco/a",
+            "name_en": "Guatemala",
+            "name_es": "Guatemala"
+        }
+    },
+    {
+        "pk": 93,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "English (Guernsey)",
+            "name": "Guernsey",
+            "demonym_en": "English (Guernsey)",
+            "demonym_es": "Brit\u00e1nico/a (Guernsey)",
+            "name_en": "Guernsey",
+            "name_es": "Guernsey"
+        }
+    },
+    {
+        "pk": 94,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Guinean",
+            "name": "Guinea",
+            "demonym_en": "Guinean",
+            "demonym_es": "Guineano/a",
+            "name_en": "Guinea",
+            "name_es": "Guinea"
+        }
+    },
+    {
+        "pk": 95,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Bissau-Guinean",
+            "name": "Guinea-Bissau",
+            "demonym_en": "Bissau-Guinean",
+            "demonym_es": "Bissauguineano/a",
+            "name_en": "Guinea-Bissau",
+            "name_es": "Guinea-Bissau"
+        }
+    },
+    {
+        "pk": 96,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Guyanese",
+            "name": "Guyana",
+            "demonym_en": "Guyanese",
+            "demonym_es": "Guyan\u00e9s/-esa",
+            "name_en": "Guyana",
+            "name_es": "Guyana"
+        }
+    },
+    {
+        "pk": 97,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Haitian",
+            "name": "Haiti",
+            "demonym_en": "Haitian",
+            "demonym_es": "Haitiano/a",
+            "name_en": "Haiti",
+            "name_es": "Hait\u00ed"
+        }
+    },
+    {
+        "pk": 98,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Australian (Heard / McDonald Islands)",
+            "name": "Heard Island / McDonald Islands",
+            "demonym_en": "Australian (Heard / McDonald Islands)",
+            "demonym_es": "Australiano/a (Islas Heard y McDonald)",
+            "name_en": "Heard Island / McDonald Islands",
+            "name_es": "Islas Heard y McDonald"
+        }
+    },
+    {
+        "pk": 100,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Honduran",
+            "name": "Honduras",
+            "demonym_en": "Honduran",
+            "demonym_es": "Hondure\u00f1o/a",
+            "name_en": "Honduras",
+            "name_es": "Honduras"
+        }
+    },
+    {
+        "pk": 101,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Hong Konger",
+            "name": "Hong Kong",
+            "demonym_en": "Hong Konger",
+            "demonym_es": "Hongkon\u00e9s/-esa",
+            "name_en": "Hong Kong",
+            "name_es": "Hong Kong"
+        }
+    },
+    {
+        "pk": 102,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Hungarian",
+            "name": "Hungary",
+            "demonym_en": "Hungarian",
+            "demonym_es": "H\u00fangaro/a",
+            "name_en": "Hungary",
+            "name_es": "Hungr\u00eda"
+        }
+    },
+    {
+        "pk": 103,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Icelander",
+            "name": "Iceland",
+            "demonym_en": "Icelander",
+            "demonym_es": "Island\u00e9s/-esa",
+            "name_en": "Iceland",
+            "name_es": "Islandia"
+        }
+    },
+    {
+        "pk": 104,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Indian",
+            "name": "India",
+            "demonym_en": "Indian",
+            "demonym_es": "Indio/a",
+            "name_en": "India",
+            "name_es": "India"
+        }
+    },
+    {
+        "pk": 105,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Indonesian",
+            "name": "Indonesia",
+            "demonym_en": "Indonesian",
+            "demonym_es": "Indonesio/a",
+            "name_en": "Indonesia",
+            "name_es": "Indonesia"
+        }
+    },
+    {
+        "pk": 106,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Iranian",
+            "name": "Iran",
+            "demonym_en": "Iranian",
+            "demonym_es": "Iran\u00ed",
+            "name_en": "Iran",
+            "name_es": "Ir\u00e1n"
+        }
+    },
+    {
+        "pk": 107,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Iraqi",
+            "name": "Iraq",
+            "demonym_en": "Iraqi",
+            "demonym_es": "Iraqu\u00ed",
+            "name_en": "Iraq",
+            "name_es": "Irak"
+        }
+    },
+    {
+        "pk": 108,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Irish",
+            "name": "Ireland",
+            "demonym_en": "Irish",
+            "demonym_es": "Irland\u00e9s/-esa",
+            "name_en": "Ireland",
+            "name_es": "Irlanda"
+        }
+    },
+    {
+        "pk": 109,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Manx",
+            "name": "Isle of Man",
+            "demonym_en": "Manx",
+            "demonym_es": "Man\u00e9s/-esa",
+            "name_en": "Isle of Man",
+            "name_es": "Isla de Man"
+        }
+    },
+    {
+        "pk": 110,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Israeli",
+            "name": "Israel",
+            "demonym_en": "Israeli",
+            "demonym_es": "Israel\u00ed",
+            "name_en": "Israel",
+            "name_es": "Israel"
+        }
+    },
+    {
+        "pk": 111,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Italian",
+            "name": "Italy",
+            "demonym_en": "Italian",
+            "demonym_es": "Italiano/a",
+            "name_en": "Italy",
+            "name_es": "Italia"
+        }
+    },
+    {
+        "pk": 112,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Jamaican",
+            "name": "Jamaica",
+            "demonym_en": "Jamaican",
+            "demonym_es": "Jamaiquino/a",
+            "name_en": "Jamaica",
+            "name_es": "Jamaica"
+        }
+    },
+    {
+        "pk": 113,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Japanese",
+            "name": "Japan",
+            "demonym_en": "Japanese",
+            "demonym_es": "Japone\u00e9s/-esa",
+            "name_en": "Japan",
+            "name_es": "Jap\u00f3n"
+        }
+    },
+    {
+        "pk": 114,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "English (Jersey)",
+            "name": "Jersey",
+            "demonym_en": "English (Jersey)",
+            "demonym_es": "Brit\u00e1nico/a (Jersey)",
+            "name_en": "Jersey",
+            "name_es": "Jersey"
+        }
+    },
+    {
+        "pk": 115,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Jordanian",
+            "name": "Jordan",
+            "demonym_en": "Jordanian",
+            "demonym_es": "Jordano/a",
+            "name_en": "Jordan",
+            "name_es": "Jordania"
+        }
+    },
+    {
+        "pk": 116,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Kazakhstani",
+            "name": "Kazakhstan",
+            "demonym_en": "Kazakhstani",
+            "demonym_es": "Kazajo/a",
+            "name_en": "Kazakhstan",
+            "name_es": "Kazajist\u00e1n"
+        }
+    },
+    {
+        "pk": 117,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Kenyan",
+            "name": "Kenya",
+            "demonym_en": "Kenyan",
+            "demonym_es": "Keniano/a",
+            "name_en": "Kenya",
+            "name_es": "Kenia"
+        }
+    },
+    {
+        "pk": 118,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "I-Kiribati",
+            "name": "Kiribati",
+            "demonym_en": "I-Kiribati",
+            "demonym_es": "Kiribatiano/a",
+            "name_en": "Kiribati",
+            "name_es": "Kiribati"
+        }
+    },
+    {
+        "pk": 119,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Korean (DPRK)",
+            "name": "DPR Korea (North Korea)",
+            "demonym_en": "Korean (DPRK)",
+            "demonym_es": "Norcoreano/a",
+            "name_en": "DPR Korea (North Korea)",
+            "name_es": "Corea del Norta"
+        }
+    },
+    {
+        "pk": 120,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Korean",
+            "name": "Republic of Korea (South Korea)",
+            "demonym_en": "Korean",
+            "demonym_es": "Coreano/a",
+            "name_en": "Republic of Korea (South Korea)",
+            "name_es": "Corea del Sur"
+        }
+    },
+    {
+        "pk": 121,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Kuwaiti",
+            "name": "Kuwait",
+            "demonym_en": "Kuwaiti",
+            "demonym_es": "Kuwait\u00ed",
+            "name_en": "Kuwait",
+            "name_es": "Kuwait"
+        }
+    },
+    {
+        "pk": 122,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Kyrgyz",
+            "name": "Kyrgyzstan",
+            "demonym_en": "Kyrgyz",
+            "demonym_es": "Kirgu\u00eds",
+            "name_en": "Kyrgyzstan",
+            "name_es": "Kirguist\u00e1n"
+        }
+    },
+    {
+        "pk": 123,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Laotian",
+            "name": "Laos",
+            "demonym_en": "Laotian",
+            "demonym_es": "Laosiano/a",
+            "name_en": "Laos",
+            "name_es": "Laos"
+        }
+    },
+    {
+        "pk": 124,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Latvian",
+            "name": "Latvia",
+            "demonym_en": "Latvian",
+            "demonym_es": "Let\u00f3",
+            "name_en": "Latvia",
+            "name_es": "Letonia"
+        }
+    },
+    {
+        "pk": 125,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Lebanese",
+            "name": "Lebanon",
+            "demonym_en": "Lebanese",
+            "demonym_es": "Liban\u00e9s/-esa",
+            "name_en": "Lebanon",
+            "name_es": "L\u00edbano"
+        }
+    },
+    {
+        "pk": 126,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Mosotho",
+            "name": "Lesotho",
+            "demonym_en": "Mosotho",
+            "demonym_es": "Lesotense",
+            "name_en": "Lesotho",
+            "name_es": "Lesoto"
+        }
+    },
+    {
+        "pk": 127,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Liberian",
+            "name": "Liberia",
+            "demonym_en": "Liberian",
+            "demonym_es": "Liberiano/a",
+            "name_en": "Liberia",
+            "name_es": "Liberia"
+        }
+    },
+    {
+        "pk": 128,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Libyan",
+            "name": "Libya",
+            "demonym_en": "Libyan",
+            "demonym_es": "Libio/a",
+            "name_en": "Libya",
+            "name_es": "Libia"
+        }
+    },
+    {
+        "pk": 129,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Liechtensteiner",
+            "name": "Liechtenstein",
+            "demonym_en": "Liechtensteiner",
+            "demonym_es": "Liechtensteiniano/a",
+            "name_en": "Liechtenstein",
+            "name_es": "Liechtenstein"
+        }
+    },
+    {
+        "pk": 130,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Lithuanian",
+            "name": "Lithuania",
+            "demonym_en": "Lithuanian",
+            "demonym_es": "Lituano/a",
+            "name_en": "Lithuania",
+            "name_es": "Lituania"
+        }
+    },
+    {
+        "pk": 131,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Luxembourger",
+            "name": "Luxembourg",
+            "demonym_en": "Luxembourger",
+            "demonym_es": "Luxemburgu\u00e9s/-esa",
+            "name_en": "Luxembourg",
+            "name_es": "Luxemburgo"
+        }
+    },
+    {
+        "pk": 132,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Macanese",
+            "name": "Macao (Macau)",
+            "demonym_en": "Macanese",
+            "demonym_es": "Macaense",
+            "name_en": "Macao (Macau)",
+            "name_es": "Macao"
+        }
+    },
+    {
+        "pk": 133,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Macedonian",
+            "name": "Macedonia",
+            "demonym_en": "Macedonian",
+            "demonym_es": "Macedonio/a",
+            "name_en": "Macedonia",
+            "name_es": "Macedonia"
+        }
+    },
+    {
+        "pk": 134,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Malagasy",
+            "name": "Madagascar",
+            "demonym_en": "Malagasy",
+            "demonym_es": "Malgache",
+            "name_en": "Madagascar",
+            "name_es": "Madagascar"
+        }
+    },
+    {
+        "pk": 135,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Malawian",
+            "name": "Malawi",
+            "demonym_en": "Malawian",
+            "demonym_es": "Malau\u00ed",
+            "name_en": "Malawi",
+            "name_es": "Malaui"
+        }
+    },
+    {
+        "pk": 136,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Malaysian",
+            "name": "Malaysia",
+            "demonym_en": "Malaysian",
+            "demonym_es": "Malasio",
+            "name_en": "Malaysia",
+            "name_es": "Malasia"
+        }
+    },
+    {
+        "pk": 137,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Maldivian",
+            "name": "Maldives",
+            "demonym_en": "Maldivian",
+            "demonym_es": "Maldivo/a",
+            "name_en": "Maldives",
+            "name_es": "Maldivas"
+        }
+    },
+    {
+        "pk": 138,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Malian",
+            "name": "Mali",
+            "demonym_en": "Malian",
+            "demonym_es": "Maliense",
+            "name_en": "Mali",
+            "name_es": "Mal\u00ed"
+        }
+    },
+    {
+        "pk": 139,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Maltese",
+            "name": "Malta",
+            "demonym_en": "Maltese",
+            "demonym_es": "Malt\u00e9s/-esa",
+            "name_en": "Malta",
+            "name_es": "Malta"
+        }
+    },
+    {
+        "pk": 140,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Marshall Islander",
+            "name": "Marshall Islands",
+            "demonym_en": "Marshall Islander",
+            "demonym_es": "Marshal\u00e9s/-esa",
+            "name_en": "Marshall Islands",
+            "name_es": "Islas Marshall"
+        }
+    },
+    {
+        "pk": 141,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "French (Martinique)",
+            "name": "Martinique",
+            "demonym_en": "French (Martinique)",
+            "demonym_es": "Martinique\u00f1o/a",
+            "name_en": "Martinique",
+            "name_es": "Martinica"
+        }
+    },
+    {
+        "pk": 142,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Mauritanian",
+            "name": "Mauritania",
+            "demonym_en": "Mauritanian",
+            "demonym_es": "Mauritano/a",
+            "name_en": "Mauritania",
+            "name_es": "Mauritania"
+        }
+    },
+    {
+        "pk": 143,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Mauritian",
+            "name": "Mauritius",
+            "demonym_en": "Mauritian",
+            "demonym_es": "Mauriciano/a",
+            "name_en": "Mauritius",
+            "name_es": "Mauricio"
+        }
+    },
+    {
+        "pk": 144,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Mahoran",
+            "name": "Mayotte",
+            "demonym_en": "Mahoran",
+            "demonym_es": "Mayot\u00e9s/-esa",
+            "name_en": "Mayotte",
+            "name_es": "Mayotte"
+        }
+    },
+    {
+        "pk": 145,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Mexican",
+            "name": "Mexico",
+            "demonym_en": "Mexican",
+            "demonym_es": "Mexicano/a",
+            "name_en": "Mexico",
+            "name_es": "M\u00e9xico"
+        }
+    },
+    {
+        "pk": 146,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Micronesian",
+            "name": "Micronesia",
+            "demonym_en": "Micronesian",
+            "demonym_es": "Micronesio/a",
+            "name_en": "Micronesia",
+            "name_es": "Micronesia"
+        }
+    },
+    {
+        "pk": 147,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Moldovan",
+            "name": "Moldova",
+            "demonym_en": "Moldovan",
+            "demonym_es": "Moldavo/a",
+            "name_en": "Moldova",
+            "name_es": "Moldavia"
+        }
+    },
+    {
+        "pk": 148,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Monegasque",
+            "name": "Monaco",
+            "demonym_en": "Monegasque",
+            "demonym_es": "Monegasco/a",
+            "name_en": "Monaco",
+            "name_es": "M\u00f3naco"
+        }
+    },
+    {
+        "pk": 149,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Mongolian",
+            "name": "Mongolia",
+            "demonym_en": "Mongolian",
+            "demonym_es": "Mongol/-a",
+            "name_en": "Mongolia",
+            "name_es": "Mongolia"
+        }
+    },
+    {
+        "pk": 150,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Montenegrin",
+            "name": "Montenegro",
+            "demonym_en": "Montenegrin",
+            "demonym_es": "Montenegrino/a",
+            "name_en": "Montenegro",
+            "name_es": "Montenegro"
+        }
+    },
+    {
+        "pk": 151,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "English (Montserrat)",
+            "name": "Montserrat",
+            "demonym_en": "English (Montserrat)",
+            "demonym_es": "De Montserrat",
+            "name_en": "Montserrat",
+            "name_es": "Montserrat"
+        }
+    },
+    {
+        "pk": 152,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Moroccan",
+            "name": "Morocco",
+            "demonym_en": "Moroccan",
+            "demonym_es": "Marroqu\u00ed",
+            "name_en": "Morocco",
+            "name_es": "Marruecos"
+        }
+    },
+    {
+        "pk": 153,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Mozambican",
+            "name": "Mozambique",
+            "demonym_en": "Mozambican",
+            "demonym_es": "Mozambique\u00f1o/a",
+            "name_en": "Mozambique",
+            "name_es": "Mozambique"
+        }
+    },
+    {
+        "pk": 154,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Myanma",
+            "name": "Myanmar (Burma)",
+            "demonym_en": "Myanma",
+            "demonym_es": "Birmano/a",
+            "name_en": "Myanmar (Burma)",
+            "name_es": "Birmania"
+        }
+    },
+    {
+        "pk": 155,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Namibian",
+            "name": "Namibia",
+            "demonym_en": "Namibian",
+            "demonym_es": "Namibio/a",
+            "name_en": "Namibia",
+            "name_es": "Namibia"
+        }
+    },
+    {
+        "pk": 156,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Nauruan",
+            "name": "Nauru",
+            "demonym_en": "Nauruan",
+            "demonym_es": "Nauruano/a",
+            "name_en": "Nauru",
+            "name_es": "Nauru"
+        }
+    },
+    {
+        "pk": 157,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Nepalese",
+            "name": "Nepal",
+            "demonym_en": "Nepalese",
+            "demonym_es": "Nepal\u00ed",
+            "name_en": "Nepal",
+            "name_es": "Nepal"
+        }
+    },
+    {
+        "pk": 158,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Dutch",
+            "name": "Netherlands",
+            "demonym_en": "Dutch",
+            "demonym_es": "Neerland\u00e9s/-esa",
+            "name_en": "Netherlands",
+            "name_es": "Pa\u00edses Bajos"
+        }
+    },
+    {
+        "pk": 159,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "New Caledonian",
+            "name": "New Caledonia",
+            "demonym_en": "New Caledonian",
+            "demonym_es": "Neocaledonio/a",
+            "name_en": "New Caledonia",
+            "name_es": "Nueva Caledonia"
+        }
+    },
+    {
+        "pk": 160,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "New Zealander",
+            "name": "New Zealand",
+            "demonym_en": "New Zealander",
+            "demonym_es": "Neozeland\u00e9s/-esa",
+            "name_en": "New Zealand",
+            "name_es": "Nueva Zeland"
+        }
+    },
+    {
+        "pk": 161,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Nicaraguan",
+            "name": "Nicaragua",
+            "demonym_en": "Nicaraguan",
+            "demonym_es": "Nicarag\u00fcense",
+            "name_en": "Nicaragua",
+            "name_es": "Nicaragua"
+        }
+    },
+    {
+        "pk": 162,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Nigerien",
+            "name": "Niger",
+            "demonym_en": "Nigerien",
+            "demonym_es": "Nigerino/a",
+            "name_en": "Niger",
+            "name_es": "N\u00edger"
+        }
+    },
+    {
+        "pk": 163,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Nigerian",
+            "name": "Nigeria",
+            "demonym_en": "Nigerian",
+            "demonym_es": "Niggeriano/a",
+            "name_en": "Nigeria",
+            "name_es": "Nigeria"
+        }
+    },
+    {
+        "pk": 164,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Niuean",
+            "name": "Niue",
+            "demonym_en": "Niuean",
+            "demonym_es": "Niuano/a",
+            "name_en": "Niue",
+            "name_es": "Niue"
+        }
+    },
+    {
+        "pk": 165,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Norfolk Islander",
+            "name": "Norfolk Island",
+            "demonym_en": "Norfolk Islander",
+            "demonym_es": "Norfolkense",
+            "name_en": "Norfolk Island",
+            "name_es": "Isla Norfolk"
+        }
+    },
+    {
+        "pk": 166,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Northern Marianan",
+            "name": "Northern Mariana Islands",
+            "demonym_en": "Northern Marianan",
+            "demonym_es": "Normarianense",
+            "name_en": "Northern Mariana Islands",
+            "name_es": "Islas Marianas del Norte"
+        }
+    },
+    {
+        "pk": 167,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Norwegian",
+            "name": "Norway",
+            "demonym_en": "Norwegian",
+            "demonym_es": "Noruego/a",
+            "name_en": "Norway",
+            "name_es": "Noruega"
+        }
+    },
+    {
+        "pk": 168,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Omani",
+            "name": "Oman",
+            "demonym_en": "Omani",
+            "demonym_es": "Oman\u00e9s/-esa",
+            "name_en": "Oman",
+            "name_es": "Om\u00e1n"
+        }
+    },
+    {
+        "pk": 169,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Pakistani",
+            "name": "Pakistan",
+            "demonym_en": "Pakistani",
+            "demonym_es": "Pakistan\u00ed",
+            "name_en": "Pakistan",
+            "name_es": "Pakist\u00e1n"
+        }
+    },
+    {
+        "pk": 170,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Palauan",
+            "name": "Palau",
+            "demonym_en": "Palauan",
+            "demonym_es": "Palauano/a",
+            "name_en": "Palau",
+            "name_es": "Palaos"
+        }
+    },
+    {
+        "pk": 171,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Palestinian",
+            "name": "Palestine",
+            "demonym_en": "Palestinian",
+            "demonym_es": "Palestino/a",
+            "name_en": "Palestine",
+            "name_es": "Palestina"
+        }
+    },
+    {
+        "pk": 172,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Panamanian",
+            "name": "Panama",
+            "demonym_en": "Panamanian",
+            "demonym_es": "Paname\u00f1o/a",
+            "name_en": "Panama",
+            "name_es": "Panam\u00e1"
+        }
+    },
+    {
+        "pk": 173,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Papua New Guinean",
+            "name": "Papua New Guinea",
+            "demonym_en": "Papua New Guinean",
+            "demonym_es": "Pap\u00fa",
+            "name_en": "Papua New Guinea",
+            "name_es": "Pap\u00faa Nueva Guinea"
+        }
+    },
+    {
+        "pk": 174,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Paraguayan",
+            "name": "Paraguay",
+            "demonym_en": "Paraguayan",
+            "demonym_es": "Paraguayo/a",
+            "name_en": "Paraguay",
+            "name_es": "Paraguay"
+        }
+    },
+    {
+        "pk": 175,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Peruvian",
+            "name": "Peru",
+            "demonym_en": "Peruvian",
+            "demonym_es": "Peruano/a",
+            "name_en": "Peru",
+            "name_es": "Per\u00e9"
+        }
+    },
+    {
+        "pk": 176,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Filipino",
+            "name": "Philippines",
+            "demonym_en": "Filipino",
+            "demonym_es": "Filipino/a",
+            "name_en": "Philippines",
+            "name_es": "Filipinas"
+        }
+    },
+    {
+        "pk": 177,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Pitcairn Islander",
+            "name": "Pitcairn Islands",
+            "demonym_en": "Pitcairn Islander",
+            "demonym_es": "Pitcairn\u00e9s/-esa",
+            "name_en": "Pitcairn Islands",
+            "name_es": "Islas Pitcairn"
+        }
+    },
+    {
+        "pk": 178,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Polish",
+            "name": "Poland",
+            "demonym_en": "Polish",
+            "demonym_es": "Polaco/a",
+            "name_en": "Poland",
+            "name_es": "Polonia"
+        }
+    },
+    {
+        "pk": 179,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Portuguese",
+            "name": "Portugal",
+            "demonym_en": "Portuguese",
+            "demonym_es": "Portugu\u00e9s/-esa",
+            "name_en": "Portugal",
+            "name_es": "Portugal"
+        }
+    },
+    {
+        "pk": 180,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Puerto Rican",
+            "name": "Puerto Rico",
+            "demonym_en": "Puerto Rican",
+            "demonym_es": "Puertorrique\u00f1o/a",
+            "name_en": "Puerto Rico",
+            "name_es": "Puerto Rico"
+        }
+    },
+    {
+        "pk": 181,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Qatari",
+            "name": "Qatar",
+            "demonym_en": "Qatari",
+            "demonym_es": "Catar\u00ed",
+            "name_en": "Qatar",
+            "name_es": "Catar"
+        }
+    },
+    {
+        "pk": 182,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "French (R\u00e9union)",
+            "name": "R\u00e9union",
+            "demonym_en": "French (R\u00e9union)",
+            "demonym_es": "Reunion\u00e9s/-esa",
+            "name_en": "R\u00e9union",
+            "name_es": "Reuni\u00f3n"
+        }
+    },
+    {
+        "pk": 183,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Romanian",
+            "name": "Romania",
+            "demonym_en": "Romanian",
+            "demonym_es": "Rumano/a",
+            "name_en": "Romania",
+            "name_es": "Rumania"
+        }
+    },
+    {
+        "pk": 184,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Russian",
+            "name": "Russia",
+            "demonym_en": "Russian",
+            "demonym_es": "Ruso/a",
+            "name_en": "Russia",
+            "name_es": "Rusia"
+        }
+    },
+    {
+        "pk": 185,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Rwandan",
+            "name": "Rwanda",
+            "demonym_en": "Rwandan",
+            "demonym_es": "Ruand\u00e9s/-esa",
+            "name_en": "Rwanda",
+            "name_es": "Ruanda"
+        }
+    },
+    {
+        "pk": 186,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "French (Saint Barth\u00e9lemy)",
+            "name": "Saint Barth\u00e9lemy",
+            "demonym_en": "French (Saint Barth\u00e9lemy)",
+            "demonym_es": "Franc\u00e9/-esa (San Bartolom\u00e9)",
+            "name_en": "Saint Barth\u00e9lemy",
+            "name_es": "San Bartolom\u00e9"
+        }
+    },
+    {
+        "pk": 187,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "English (Saint Helena, Ascension and Tristan da Cunha)",
+            "name": "Saint Helena, Ascension and Tristan da Cunha",
+            "demonym_en": "English (Saint Helena, Ascension and Tristan da Cunha)",
+            "demonym_es": "Santaheleno/a",
+            "name_en": "Saint Helena, Ascension and Tristan da Cunha",
+            "name_es": "Santa Elena, Ascensi\u00f3n y Trist\u00e1n de Acu\u00f1a"
+        }
+    },
+    {
+        "pk": 188,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Kittitian",
+            "name": "Saint Kitts and Nevis",
+            "demonym_en": "Kittitian",
+            "demonym_es": "Sancristobale\u00f1o/a",
+            "name_en": "Saint Kitts and Nevis",
+            "name_es": "San Crist\u00f3bal y Nieves"
+        }
+    },
+    {
+        "pk": 189,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Saint Lucian",
+            "name": "Saint Lucia",
+            "demonym_en": "Saint Lucian",
+            "demonym_es": "Santaluciano/a",
+            "name_en": "Saint Lucia",
+            "name_es": "Santa Luc\u00eda"
+        }
+    },
+    {
+        "pk": 190,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "French (Saint Martin)",
+            "name": "Saint Martin",
+            "demonym_en": "French (Saint Martin)",
+            "demonym_es": "Sanmartinense",
+            "name_en": "Saint Martin",
+            "name_es": "San Mart\u00edn"
+        }
+    },
+    {
+        "pk": 192,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "French (Saint Pierre and Miquelon)",
+            "name": "Saint Pierre and Miquelon",
+            "demonym_en": "French (Saint Pierre and Miquelon)",
+            "demonym_es": "Sanpedrino/a",
+            "name_en": "Saint Pierre and Miquelon",
+            "name_es": "San Pedro y Miquel\u00f3n"
+        }
+    },
+    {
+        "pk": 193,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Vincentian",
+            "name": "Saint Vincent and the Grenadines",
+            "demonym_en": "Vincentian",
+            "demonym_es": "Sanvicentino/a",
+            "name_en": "Saint Vincent and the Grenadines",
+            "name_es": "San Vicente y las Granadinas"
+        }
+    },
+    {
+        "pk": 194,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Samoan",
+            "name": "Samoa",
+            "demonym_en": "Samoan",
+            "demonym_es": "Samoano/a",
+            "name_en": "Samoa",
+            "name_es": "Samoa"
+        }
+    },
+    {
+        "pk": 195,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Sammarinese",
+            "name": "San Marino",
+            "demonym_en": "Sammarinese",
+            "demonym_es": "Sanmarinense",
+            "name_en": "San Marino",
+            "name_es": "San Marino"
+        }
+    },
+    {
+        "pk": 196,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Santomean",
+            "name": "S\u00e3o Tom\u00e9 and Pr\u00edncipe",
+            "demonym_en": "Santomean",
+            "demonym_es": "Santotomense",
+            "name_en": "S\u00e3o Tom\u00e9 and Pr\u00edncipe",
+            "name_es": "Santo Tom\u00e9 y Pr\u00edncipe"
+        }
+    },
+    {
+        "pk": 197,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Saudi",
+            "name": "Saudi Arabia",
+            "demonym_en": "Saudi",
+            "demonym_es": "Saud\u00ed",
+            "name_en": "Saudi Arabia",
+            "name_es": "Arabia Saudita"
+        }
+    },
+    {
+        "pk": 198,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Senegalese",
+            "name": "Senegal",
+            "demonym_en": "Senegalese",
+            "demonym_es": "Senegal\u00e9s/-esa",
+            "name_en": "Senegal",
+            "name_es": "Senegal"
+        }
+    },
+    {
+        "pk": 199,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Serbian",
+            "name": "Serbia",
+            "demonym_en": "Serbian",
+            "demonym_es": "Serbio/a",
+            "name_en": "Serbia",
+            "name_es": "Serbia"
+        }
+    },
+    {
+        "pk": 200,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Seychellois",
+            "name": "Seychelles",
+            "demonym_en": "Seychellois",
+            "demonym_es": "Seychelense",
+            "name_en": "Seychelles",
+            "name_es": "Seychelles"
+        }
+    },
+    {
+        "pk": 201,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Sierra Leonean",
+            "name": "Sierra Leone",
+            "demonym_en": "Sierra Leonean",
+            "demonym_es": "Sierraleon\u00e9s/-esa",
+            "name_en": "Sierra Leone",
+            "name_es": "Sierra Leona"
+        }
+    },
+    {
+        "pk": 202,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Singaporean",
+            "name": "Singapore",
+            "demonym_en": "Singaporean",
+            "demonym_es": "Singapurense",
+            "name_en": "Singapore",
+            "name_es": "Singapur"
+        }
+    },
+    {
+        "pk": 191,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Dutch (Sint Maarten)",
+            "name": "Sint Maarten",
+            "demonym_en": "Dutch (Sint Maarten)",
+            "demonym_es": "Sanmartinense",
+            "name_en": "Sint Maarten",
+            "name_es": "Sint Maarten"
+        }
+    },
+    {
+        "pk": 203,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Slovakian",
+            "name": "Slovakia",
+            "demonym_en": "Slovakian",
+            "demonym_es": "Eslovaco/a",
+            "name_en": "Slovakia",
+            "name_es": "Eslovaquia"
+        }
+    },
+    {
+        "pk": 204,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Slovenian",
+            "name": "Slovenia",
+            "demonym_en": "Slovenian",
+            "demonym_es": "Esloveno/a",
+            "name_en": "Slovenia",
+            "name_es": "Eslovenia"
+        }
+    },
+    {
+        "pk": 205,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Solomon Islander",
+            "name": "Solomon Islands",
+            "demonym_en": "Solomon Islander",
+            "demonym_es": "Salomonense",
+            "name_en": "Solomon Islands",
+            "name_es": "Islas Salom\u00f3n"
+        }
+    },
+    {
+        "pk": 206,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Somalian",
+            "name": "Somalia",
+            "demonym_en": "Somalian",
+            "demonym_es": "Somal\u00ed",
+            "name_en": "Somalia",
+            "name_es": "Somalia"
+        }
+    },
+    {
+        "pk": 207,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "South African",
+            "name": "South Africa",
+            "demonym_en": "South African",
+            "demonym_es": "Sudafricano/a",
+            "name_en": "South African",
+            "name_es": "Sud\u00e1frica"
+        }
+    },
+    {
+        "pk": 208,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "English (South Georgia / South Sandwich Islands)",
+            "name": "South Georgia / South Sandwich Islands",
+            "demonym_en": "English (South Georgia / South Sandwich Islands)",
+            "demonym_es": "Brit\u00e1nico (Islas Georgias del Sur y Sandwich del Sur)",
+            "name_en": "South Georgia / South Sandwich Islands",
+            "name_es": "Islas Georgias del Sur y Sandwich del Sur"
+        }
+    },
+    {
+        "pk": 209,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Spanish",
+            "name": "Spain",
+            "demonym_en": "Spanish",
+            "demonym_es": "Espa\u00f1ol/-a",
+            "name_en": "Spain",
+            "name_es": "Espa\u00f1a"
+        }
+    },
+    {
+        "pk": 210,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Sri Lankan",
+            "name": "Sri Lanka",
+            "demonym_en": "Sri Lankan",
+            "demonym_es": "Cingal\u00e9s/-esa",
+            "name_en": "Sri Lanka",
+            "name_es": "Sri Lanka"
+        }
+    },
+    {
+        "pk": 211,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Sudanese",
+            "name": "Sudan",
+            "demonym_en": "Sudanese",
+            "demonym_es": "Sudan\u00e9s/-esa",
+            "name_en": "Sudan",
+            "name_es": "Sud\u00e1n"
+        }
+    },
+    {
+        "pk": 212,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Surinamese",
+            "name": "Suriname",
+            "demonym_en": "Surinamese",
+            "demonym_en": "Surinam\u00e9s/-esa",
+            "name_en": "Suriname",
+            "name_es": "Surinam"
+        }
+    },
+    {
+        "pk": 213,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Norwegian (Svalbard)",
+            "name": "Svalbard and Jan Mayen",
+            "demonym_en": "Norwegian (Svalbard)",
+            "demonym_es": "Svalbarense",
+            "name_en": "Svalbard and Jan Mayen",
+            "name_es": "Svalbard y Jan Mayen"
+        }
+    },
+    {
+        "pk": 214,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Swazi",
+            "name": "Swaziland",
+            "demonym_en": "Swazi",
+            "demonym_es": "Suazi",
+            "name_en": "Swaziland",
+            "name_es": "Suazilandia"
+        }
+    },
+    {
+        "pk": 215,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Swedish",
+            "name": "Sweden",
+            "demonym_en": "Swedish",
+            "demonym_es": "Sueco/a",
+            "name_en": "Sweden",
+            "name_es": "Suecia"
+        }
+    },
+    {
+        "pk": 216,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Swiss",
+            "name": "Switzerland",
+            "demonym_en": "Swiss",
+            "demonym_es": "Suizo/a",
+            "name_en": "Switzerland",
+            "name_es": "Suiza"
+        }
+    },
+    {
+        "pk": 217,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Syrian",
+            "name": "Syria",
+            "demonym_en": "Syrian",
+            "demonym_es": "Sirio/a",
+            "name_en": "Syria",
+            "name_es": "Siria"
+        }
+    },
+    {
+        "pk": 218,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Taiwanese",
+            "name": "Taiwan",
+            "demonym_en": "Taiwanese",
+            "demonym_es": "Taiwan\u00e9s/-esa",
+            "name_en": "Taiwan",
+            "name_es": "Taiw\u00e1n"
+        }
+    },
+    {
+        "pk": 219,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Tajik",
+            "name": "Tajikistan",
+            "demonym_en": "Tajik",
+            "demonym_es": "Tayiko/a",
+            "name_en": "Tajikistan",
+            "name_es": "Tayikist\u00e1n"
+        }
+    },
+    {
+        "pk": 220,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Tanzanian",
+            "name": "Tanzania",
+            "demonym_en": "Tanzanian",
+            "demonym_es": "Tanzano/a",
+            "name_en": "Tanzania",
+            "name_es": "Tanzania"
+        }
+    },
+    {
+        "pk": 221,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Thai",
+            "name": "Thailand",
+            "demonym_en": "Thai",
+            "demonym_es": "Tailand\u00e9s/-esa",
+            "name_en": "Thailand",
+            "name_es": "Tailandia"
+        }
+    },
+    {
+        "pk": 222,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "East Timorese",
+            "name": "Timor-Leste (East Timor)",
+            "demonym_en": "East Timorese",
+            "demonym_es": "Timorense",
+            "name_en": "Timor-Leste (East Timor)",
+            "name_es": "Timor Oriental"
+        }
+    },
+    {
+        "pk": 223,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Togolese",
+            "name": "Togo",
+            "demonym_en": "Togolese",
+            "demonym_es": "Togol\u00e9s/-esa",
+            "name_en": "Togo",
+            "name_es": "Togo"
+        }
+    },
+    {
+        "pk": 224,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Tokelauan",
+            "name": "Tokelau",
+            "demonym_en": "Tokelauan",
+            "demonym_es": "Tokelauano/a",
+            "name_en": "Tokelau",
+            "name_es": "Tokelau"
+        }
+    },
+    {
+        "pk": 225,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Tongan",
+            "name": "Tonga",
+            "demonym_en": "Tongan",
+            "demonym_es": "Tongano/a",
+            "name_en": "Tonga",
+            "name_es": "Tonga"
+        }
+    },
+    {
+        "pk": 226,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Trinidadian / Tobagonian",
+            "name": "Trinidad and Tobago",
+            "demonym_en": "Trinidadian / Tobagonian",
+            "demonym_es": "Trinitense / Tobaguense",
+            "name_en": "Trinidad and Tobago",
+            "name_es": "Trinidad y Tobago"
+        }
+    },
+    {
+        "pk": 227,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Tunisian",
+            "name": "Tunisia",
+            "demonym_en": "Tunisian",
+            "demonym_es": "Tunecino/a",
+            "name_en": "Tunisia",
+            "name_es": "T\u00fanez"
+        }
+    },
+    {
+        "pk": 228,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Turkish",
+            "name": "Turkey",
+            "demonym_en": "Turkish",
+            "demonym_es": "Turco/a",
+            "name_en": "Turkey",
+            "name_es": "Turqu\u00eda"
+        }
+    },
+    {
+        "pk": 229,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Turkmen",
+            "name": "Turkmenistan",
+            "demonym_en": "Turkmen",
+            "demonym_es": "Turcomano/a",
+            "name_en": "Turkmenistan",
+            "name_es": "Turkmenist\u00e1n"
+        }
+    },
+    {
+        "pk": 230,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Turks and Caicos Islander",
+            "name": "Turks and Caicos Islands",
+            "demonym_en": "Turks and Caicos Islander",
+            "demonym_es": "Turcocaicon\u00e9s/-esa",
+            "name_en": "Turks and Caicos Islands",
+            "name_es": "Islas Turcas y Caicos"
+        }
+    },
+    {
+        "pk": 231,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Tuvaluan",
+            "name": "Tuvalu",
+            "demonym_en": "Tuvaluan",
+            "demonym_es": "Tuvaluano/a",
+            "name_en": "Tuvalu",
+            "name_es": "Tuvalu"
+        }
+    },
+    {
+        "pk": 232,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Ugandan",
+            "name": "Uganda",
+            "demonym_en": "Ugandan",
+            "demonym_es": "Ugand\u00e9s/-esa",
+            "name_en": "Uganda",
+            "name_es": "Uganda"
+        }
+    },
+    {
+        "pk": 233,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Ukrainian",
+            "name": "Ukraine",
+            "demonym_en": "Ukrainian",
+            "demonym_es": "Ucranio/a",
+            "name_en": "Ukraine",
+            "name_es": "Ucrania"
+        }
+    },
+    {
+        "pk": 234,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Emirati",
+            "name": "United Arab Emirates",
+            "demonym_en": "Emirati",
+            "demonym_es": "Emirat\u00ed",
+            "name_en": "United Arab Emirates",
+            "name_es": "Emiratos \u00c1rabes Unidos"
+        }
+    },
+    {
+        "pk": 235,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "English",
+            "name": "United Kingdom",
+            "demonym_en": "English",
+            "demonym_es": "Brit\u00e1nico/a",
+            "name_en": "United Kingdom",
+            "name_es": "Reino Unido"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "American",
+            "name": "United States",
+            "demonym_en": "American",
+            "demonym_es": "Estadounidense",
+            "name_en": "United States",
+            "name_es": "Estados Unidos"
+        }
+    },
+    {
+        "pk": 237,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Uruguayan",
+            "name": "Uruguay",
+            "demonym_en": "Uruguayan",
+            "demonym_es": "uruguayo/a",
+            "name_en": "Uruguay",
+            "name_es": "Uruguay"
+        }
+    },
+    {
+        "pk": 236,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "American (Minor Outlying Islands)",
+            "name": "US Minor Outlying Islands",
+            "demonym_en": "American (Minor Outlying Islands)",
+            "demonym_es": "Estadounidense (Islas Ultramarinas de Estados Unidos)",
+            "name_en": "US Minor Outlying Islands",
+            "name_es": "Islas Ultramarinas de Estados Unidos"
+        }
+    },
+    {
+        "pk": 243,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "US Virgin Islander",
+            "name": "US Virgin Islands",
+            "demonym_en": "US Virgin Islander",
+            "demonym_es": "Virgenense estadounidense",
+            "name_en": "US Virgin Islands",
+            "name_es": "Islas V\u00edrgenes de los Estados Unidos"
+        }
+    },
+    {
+        "pk": 238,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Uzbek",
+            "name": "Uzbekistan",
+            "demonym_en": "Uzbek",
+            "demonym_es": "Uzbeko/a",
+            "name_en": "Uzbekistan",
+            "name_es": "Uzbekist\u00e1n"
+        }
+    },
+    {
+        "pk": 239,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Ni-Vanuatu",
+            "name": "Vanuatu",
+            "demonym_en": "Ni-Vanuatu",
+            "demonym_es": "Vanuatuense",
+            "name_en": "Vanuatu",
+            "name_es": "Vanuatu"
+        }
+    },
+    {
+        "pk": 99,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Vatican",
+            "name": "Vatican City",
+            "demonym_en": "Vatican",
+            "demonym_es": "Vaticano/a",
+            "name_en": "Vatican City",
+            "name_es": "Ciudad del Vaticano"
+        }
+    },
+    {
+        "pk": 240,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Venezuelan",
+            "name": "Venezuela",
+            "demonym_en": "Venezuelan",
+            "demonym_es": "Venezolano/a",
+            "name_en": "Venezuela",
+            "name_es": "Venezuela"
+        }
+    },
+    {
+        "pk": 241,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Vietnamese",
+            "name": "Vietnam",
+            "demonym_en": "Vietnamese",
+            "demonym_es": "Vietnamita",
+            "name_en": "Vietnam",
+            "name_es": "Vietnam"
+        }
+    },
+    {
+        "pk": 242,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "British Virgin Islander",
+            "name": "Virgin Islands (British)",
+            "demonym_en": "British Virgin Islander",
+            "demonym_es": "Virgenense brit\u00e1nico",
+            "name_en": "Virgin Islands (British)",
+            "name_es": "Islas V\u00edrgenes Brit\u00e1nicas"
+        }
+    },
+    {
+        "pk": 244,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Wallisian / Futunan",
+            "name": "Wallis and Futuna",
+            "demonym_en": "Wallisian / Futunan",
+            "demonym_es": "Walisiano/a",
+            "name_en": "Wallis and Futuna",
+            "name_es": "Wallis y Futuna"
+        }
+    },
+    {
+        "pk": 245,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Sahrawi",
+            "name": "Western Sahara",
+            "demonym_en": "Sahrawi",
+            "demonym_es": "Saharaui",
+            "name_en": "Western Sahara",
+            "name_es": "Sahara Occidental"
+        }
+    },
+    {
+        "pk": 246,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Yemeni",
+            "name": "Yemen",
+            "demonym_en": "Yemeni",
+            "demonym_es": "Yemen\u00ed",
+            "name_en": "Yemen",
+            "name_es": "Yemen"
+        }
+    },
+    {
+        "pk": 247,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Zambian",
+            "name": "Zambia",
+            "demonym_en": "Zambian",
+            "demonym_es": "Zambiano/a",
+            "name_en": "Zambia",
+            "name_es": "Zambia"
+        }
+    },
+    {
+        "pk": 248,
+        "model": "archive.country",
+        "fields": {
+            "demonym": "Zimbabwean",
+            "name": "Zimbabwe",
+            "demonym_en": "Zimbabwean",
+            "demonym_es": "Zimbabuense",
+            "name_en": "Zimbabwe",
+            "name_es": "Zimbabue"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.language",
+        "fields": {
+            "shortcode": "en",
+            "name": "English",
+            "name_en": "English",
+            "name_es": "Ingl\u00e9s",
+            "archival_code": "eng"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "archive.language",
+        "fields": {
+            "shortcode": "fr",
+            "name": "French",
+            "name_en": "French",
+            "name_es": "Franc\u00e9s",
+            "archival_code": "fra"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "archive.language",
+        "fields": {
+            "shortcode": "pt",
+            "name": "Portuguese",
+            "name_en": "Portuguese",
+            "name_es": "Portugu\u00e9s",
+            "archival_code": "por"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "archive.language",
+        "fields": {
+            "shortcode": "ru",
+            "name": "Russian",
+            "name_en": "Russian",
+            "name_es": "Ruso",
+            "archival_code": "rus"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.language",
+        "fields": {
+            "shortcode": "es",
+            "name": "Spanish",
+            "name_en": "Spanish",
+            "name_es": "Espa\u00f1ol",
+            "archival_code": "spa"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.workrecordtype",
+        "fields": {
+            "name": "Adaptation",
+            "name_en": "Adaptation",
+            "name_es": "Adaptaci\u00f3n"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "archive.workrecordtype",
+        "fields": {
+            "name": "Literary antecedent",
+            "name_en": "Literary antecedent",
+            "name_es": "Antecedente literario"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "archive.workrecordtype",
+        "fields": {
+            "name": "Musical",
+            "name_en": "Musical",
+            "name_es": "Musical"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "archive.workrecordtype",
+        "fields": {
+            "name": "Opera",
+            "name_en": "Opera",
+            "name_es": "\u00d3pera"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.workrecordtype",
+        "fields": {
+            "name": "Play",
+            "name_en": "Play",
+            "name_es": "Obra de teatro"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "archive.workrecordtype",
+        "fields": {
+            "name": "Radioplay",
+            "name_en": "Radioplay",
+            "name_es": "Comedia radiof\u00f3nica"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "archive.workrecordtype",
+        "fields": {
+            "name": "Translation",
+            "name_en": "Translation",
+            "name_es": "Traducci\u00f3n"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "archive.workrecordtype",
+        "fields": {
+            "name": "Zarzuela",
+            "name_en": "Zarzuela",
+            "name_es": "Zarzuela"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Annotator",
+            "title_en": "Annotator",
+            "title_es": "Anotador/-a"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Arranger",
+            "title_en": "Arranger",
+            "title_es": "Arreglista"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Author / Playwright",
+            "title_en": "Author / Playwright",
+            "title_es": "Autor / Escritor"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Composer",
+            "title_en": "Composer",
+            "title_es": "Compositor"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Critic",
+            "title_en": "Critic",
+            "title_es": "Cr\u00edtico"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Dramaturge",
+            "title_en": "Dramaturge",
+            "title_es": "Dramaturgo"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Editor",
+            "title_en": "Editor",
+            "title_es": "Editor"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Librettist",
+            "title_en": "Librettist",
+            "title_es": "Libretista"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Lyricist",
+            "title_en": "Lyricist",
+            "title_es": "Letrista"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Publisher",
+            "title_en": "Publisher",
+            "title_es": "Editorial"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.workrecordfunction",
+        "fields": {
+            "title": "Translator",
+            "title_en": "Translator",
+            "title_es": "Traductor"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.directingteamfunction",
+        "fields": {
+            "title": "Assistant director",
+            "title_en": "Assistant director",
+            "title_es": "Ayudante de direcci\u00f3n"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "archive.directingteamfunction",
+        "fields": {
+            "title": "Conductor",
+            "title_en": "Conductor",
+            "title_es": "Conductor"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.directingteamfunction",
+        "fields": {
+            "title": "Director",
+            "title_en": "Director",
+            "title_es": "Director"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Acrobat / stage fighter",
+            "title_en": "Acrobat / stage fighter",
+            "title_es": "Acrobat / Fase de combate"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Actor / actress",
+            "title_en": "Actor / actress",
+            "title_es": "Actor / actriz"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Animal handler",
+            "title_en": "Animal handler",
+            "title_es": "Cuidador de animales"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Chorus member",
+            "title_en": "Chorus member",
+            "title_es": "Miembro de coro"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Circus performer",
+            "title_en": "Circus performer",
+            "title_es": "Artista de circo"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Clown",
+            "title_en": "Clown",
+            "title_es": "Payaso"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Comedian",
+            "title_en": "Comedian",
+            "title_es": "Comediante"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Dancer",
+            "title_en": "Dancer",
+            "title_es": "Bailarina"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Extra",
+            "title_en": "Extra",
+            "title_es": "Extra"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Improvisationalist",
+            "title_en": "Improvisationalist",
+            "title_es": "Improvisador"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Jester",
+            "title_en": "Jester",
+            "title_es": "Buf\u00f3n"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Magician / illusionist",
+            "title_en": "Magician / illusionist",
+            "title_es": "Mago / ilusionista"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Mime",
+            "title_en": "Mime",
+            "title_es": "Mimo"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Minstrel",
+            "title_en": "Minstrel",
+            "title_es": "Juglar"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Musician",
+            "title_en": "Musician",
+            "title_es": "M\u00fasico"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Narrator",
+            "title_en": "Narrator",
+            "title_es": "Narrador"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Performance artist",
+            "title_en": "Performance artist",
+            "title_es": "Artista de performance"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Puppeteer",
+            "title_en": "Puppeteer",
+            "title_es": "Titiritero/a"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Singer",
+            "title_en": "Singer",
+            "title_es": "Cantante"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Storyteller",
+            "title_en": "Storyteller",
+            "title_es": "Cuentista"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Understudy",
+            "title_en": "Understudy",
+            "title_es": "Suplente"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "archive.castmemberfunction",
+        "fields": {
+            "title": "Ventriloquist",
+            "title_en": "Ventriloquist",
+            "title_es": "Ventr\u00edlocuo"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "archive.designteamfunction",
+        "fields": {
+            "title": "Art director",
+            "title_en": "Art director",
+            "title_es": "Director de arte"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.designteamfunction",
+        "fields": {
+            "title": "Choreographer",
+            "title_en": "Choreographer",
+            "title_es": "Core\u00f3grafo"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "archive.designteamfunction",
+        "fields": {
+            "title": "Costume designer",
+            "title_en": "Costume designer",
+            "title_es": "Dise\u00f1ador de vestuario"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.designteamfunction",
+        "fields": {
+            "title": "Music director",
+            "title_en": "Music director",
+            "title_es": "Director musical"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "archive.designteamfunction",
+        "fields": {
+            "title": "Set designer",
+            "title_en": "Set designer",
+            "title_es": "Dise\u00f1ador de escena"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "archive.designteamfunction",
+        "fields": {
+            "title": "Set lighting designer",
+            "title_en": "Set lighting designer",
+            "title_es": "Dise\u00f1ador de iluminaci\u00f3n"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "archive.designteamfunction",
+        "fields": {
+            "title": "Sound designer",
+            "title_en": "Sound designer",
+            "title_es": "Dise\u00f1ador de sonido"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "archive.designteamfunction",
+        "fields": {
+            "title": "Stage designer",
+            "title_en": "Stage designer",
+            "title_es": "Dise\u00f1ador de etapa"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Announcer",
+            "title_en": "Announcer",
+            "title_es": "Locutor"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Architect",
+            "title_en": "Architect",
+            "title_es": "Arquitecto"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Carpenter",
+            "title_en": "Carpenter",
+            "title_es": "Carpintero/a"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Costume crew",
+            "title_en": "Costume crew",
+            "title_es": "Equipo de vestuario"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Craftsman",
+            "title_en": "Craftsman",
+            "title_es": "Artesano"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Electrician",
+            "title_en": "Electrician",
+            "title_es": "Electricista"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Hairdresser",
+            "title_en": "Hairdresser",
+            "title_es": "Peluquero"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "House / theater manager",
+            "title_en": "Director de teatro"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Photographer",
+            "title_en": "Photographer",
+            "title_es": "Fot\u00f3grafo"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Property crew",
+            "title_en": "Property crew",
+            "title_es": "Equipo de propiedad"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Scene painter",
+            "title_en": "Scene painter",
+            "title_es": "Pintor de escena"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Stage crew",
+            "title_en": "Stage crew",
+            "title_es": "Equipo de etapa"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Stage / production manager",
+            "title_en": "Stage / production manager",
+            "title_es": "Director de escena / director de producci\u00f3n"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Technician",
+            "title_en": "Technician",
+            "title_es": "T\u00e9cnico"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "archive.techteamfunction",
+        "fields": {
+            "title": "Videographer",
+            "title_en": "Videographer",
+            "title_es": "Vide\u00f3grafo"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.productionteamfunction",
+        "fields": {
+            "title": "Producer",
+            "title_en": "Producer",
+            "title_es": "Productor"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.productionteamfunction",
+        "fields": {
+            "title": "Public relations",
+            "title_en": "Public relations",
+            "title_es": "Relaciones p\u00fablicas"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "member",
+            "title": "Agent",
+            "title_en": "Agent",
+            "title_es": "Agente"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "family",
+            "title": "Child",
+            "title_en": "Child",
+            "title_es": "Hijo"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "family",
+            "title": "Cousin",
+            "title_en": "Cousin",
+            "title_es": "Primo"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "member",
+            "title": "Founder",
+            "title_en": "Founder",
+            "title_es": "Fundador"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "family",
+            "title": "Grandchild",
+            "title_en": "Grandchild",
+            "title_es": "Nieto"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "family",
+            "title": "Grandparent",
+            "title_en": "Grandparent",
+            "title_es": "Abuelo"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "member",
+            "title": "Jury member",
+            "title_en": "Jury member",
+            "title_es": "Miembro del jurado"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "member",
+            "title": "Member",
+            "title_en": "Member",
+            "title_es": "Miembro"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "family",
+            "title": "Niece/Nephew",
+            "title_en": "Niece/Nephew",
+            "title_es": "Sobrino/a"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "family",
+            "title": "Parent",
+            "title_en": "Parent",
+            "title_es": "Padre"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "member",
+            "title": "Patron",
+            "title_en": "Patron",
+            "title_es": "Patr\u00f3n"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "member",
+            "title": "President / leader",
+            "title_en": "President / leader",
+            "title_es": "Presidente / l\u00edder"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "member",
+            "title": "Secretary",
+            "title_en": "Secretary",
+            "title_es": "Secretario"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "member",
+            "title": "Sponsor",
+            "title_en": "Sponsor",
+            "title_es": "Patrocinador"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "member",
+            "title": "Treasurer",
+            "title_en": "Treasurer",
+            "title_es": "Tesorero"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "family",
+            "title": "Uncle/Aunt",
+            "title_en": "Uncle/Aunt",
+            "title_es": "Tio/a"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "ident",
+            "title": "Earlier version of",
+            "title_en": "Earlier version of",
+            "title_es": "Versi\u00f3n anterior de"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "archive.orgfunction",
+        "fields": {
+            "func_type": "ident",
+            "title": "Later version of",
+            "title_en": "Later version of",
+            "title_es": "Versi\u00f3n posterior de"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "archive.festivalfunction",
+        "fields": {
+            "title": "Host",
+            "title_en": "Host",
+            "title_es": "Anfitri\u00f3n"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "archive.festivalfunction",
+        "fields": {
+            "title": "Promoter",
+            "title_en": "Promoter",
+            "title_es": "Promotor"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "archive.festivalfunction",
+        "fields": {
+            "title": "Sponsor",
+            "title_en": "Sponsor",
+            "title_es": "Patrocinador"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "archive.festivalfunction",
+        "fields": {
+            "title": "Critic",
+            "title_en": "Critic",
+            "title_es": "Cr\u00edtica"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "archive.festivalfunction",
+        "fields": {
+            "title": "Jury member",
+            "title_en": "Jury member",
+            "title_es": "Miembro del jurado"
+        }
+    }
+]

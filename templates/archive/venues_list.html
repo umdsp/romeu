@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+{% load list_extras %}
+
+{% block article_header %}
+        <h1>Venues{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
+{% endblock %}
+
+{% block content %}
+        <ul id="random_thumbs">
+        {% for obj in digital_objects %}
+            <li>
+                <a href="/venue/{{ obj.loc_id }}">
+                        <img title="{{ obj.title }}" src="{{ MEDIA_URL }}/{{ obj.imagepath }}" />
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+        
+        {% alpha_list "venues" %}
+        
+        <table id="venues_list">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>City</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for venue in venues_list %}
+                    <tr>
+                        <td><a href="/venue/{{venue.id}}">{{ venue.title }}</a></td>
+                        <td>{% if venue.city %}{{ venue.city.name }}{% if venue.city.state %}, {{ venue.city.state }}{% endif %}{% endif %}</td>
+                        <td>{{ venue.country.name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        {% if is_paginated %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+    
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ paginator.num_pages }}.
+                </span>
+    
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+{% endblock %}

@@ -1,0 +1,4 @@
+{{ object.title }}
+{{ object.ascii_title }}
+{{ object.title_variants }}
+{{ object.creators_display }}

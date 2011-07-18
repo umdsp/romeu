@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+{% load list_extras %}
+
+{% block article_header %}
+        <h1>Productions{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
+{% endblock %}
+
+{% block content %}
+        <ul id="random_thumbs">
+        {% for obj in digital_objects %}
+            <li>
+                <a href="/production/{{ obj.production_id }}">
+                        <img title="{{ obj.title }}" src="{{ MEDIA_URL }}/{{ obj.imagepath }}" />
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+        
+        {% alpha_list "productions" %}
+        
+        <table id="productions_list">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Venue</th>
+                    <th>Date range</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for production in productions_list %}
+                    <tr>
+                        <td><a href="/production/{{production.id}}">{{ production.title }}</a></td>
+                        <td>{% if production.venue %}{{ production.venue }}{% endif %}</td>
+                        <td>{% if production.begin_date %}{{ production.begin_date_display }}&mdash;{% endif %}{% if production.end_date %}{{ production.end_date_display }}{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        {% if is_paginated %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+    
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ paginator.num_pages }}.
+                </span>
+    
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+{% endblock %}

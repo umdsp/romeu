@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/redmond/jquery-ui.css" type="text/css" media="screen">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+{% endblock %}
+
+{% block title %}{{ title }} | {% trans 'CTDA site admin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'CTDA administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

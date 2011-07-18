@@ -1,0 +1,14144 @@
+(lp1
+(L7L
+VLila
+tp2
+a(L7L
+VHortensia
+tp3
+a(L7L
+VMarino
+tp4
+a(L7L
+VCotorrona
+tp5
+a(L7L
+VMeche
+tp6
+a(L7L
+VJuan Alberto
+tp7
+a(L7L
+VKabalita
+tp8
+a(L7L
+VCapitán
+tp9
+a(L7L
+VEnergúmeno
+tp10
+a(L7L
+VYerbero
+tp11
+a(L7L
+VLola
+tp12
+a(L7L
+VAdelfa
+tp13
+a(L7L
+VClara
+tp14
+a(L1L
+VGertrudis Gómez de Avellaneda
+tp15
+a(L1L
+VEscalada
+tp16
+a(L1L
+VLoynaz
+tp17
+a(L1L
+VRicafort
+tp18
+a(L1L
+VCepeda
+tp19
+a(L1L
+VTassara
+tp20
+a(L1L
+VSabater
+tp21
+a(L1L
+VZorrilla
+tp22
+a(L1L
+VVerdugo
+tp23
+a(L1L
+VFornaris
+tp24
+a(L1L
+VHeredia
+tp25
+a(L1L
+VMadre
+tp26
+a(L1L
+VMonja
+tp27
+a(L1L
+VAmiga
+tp28
+a(L1L
+VLorenza
+tp29
+a(L1L
+VMadrina
+tp30
+a(L26L
+VPucho
+tp31
+a(L172L
+VLuis
+tp32
+a(L25L
+VCecilia
+tp33
+a(L2L
+VCarlos
+tp34
+a(L2L
+VBerta
+tp35
+a(L2L
+VAngelito
+tp36
+a(L2L
+VCorifeo
+tp37
+a(L2L
+VOgún
+tp38
+a(L9L
+VAmalia
+tp39
+a(L9L
+VOctavio
+tp40
+a(L9L
+VDevoto
+tp41
+a(L9L
+VAparición
+tp42
+a(L9L
+VPedro
+tp43
+a(L9L
+VVon Muller
+tp44
+a(L10L
+VMintrel 4/ Star
+tp45
+a(L10L
+VTinoretta
+tp46
+a(L10L
+VInquistor
+tp47
+a(L10L
+VMinstrel 1 / Sun
+tp48
+a(L10L
+VCasimiro
+tp49
+a(L10L
+VInquisitor
+tp50
+a(L10L
+VGalileo / Magician
+tp51
+a(L10L
+VMinistrel 2 / Earth
+tp52
+a(L10L
+VBoy
+tp53
+a(L10L
+VMinstrel 3 / Star
+tp54
+a(L10L
+VMoon
+tp55
+a(L10L
+VBobbina
+tp56
+a(L31L
+VRita
+tp57
+a(L31L
+VBessie
+tp58
+a(L35L
+VSara
+tp59
+a(L35L
+VNidia
+tp60
+a(L35L
+VTony
+tp61
+a(L35L
+VNenita
+tp62
+a(L35L
+VCatalina
+tp63
+a(L35L
+VPeter
+tp64
+a(L35L
+VAurelito
+tp65
+a(L35L
+VAleida
+tp66
+a(L37L
+VTony
+tp67
+a(L37L
+VAleida
+tp68
+a(L37L
+VNenita
+tp69
+a(L37L
+VCatalino
+tp70
+a(L37L
+VNydia
+tp71
+a(L37L
+VSara
+tp72
+a(L37L
+VPeter
+tp73
+a(L37L
+VAurelito
+tp74
+a(L38L
+VCarmencita
+tp75
+a(L38L
+VMicaela
+tp76
+a(L38L
+VSergeant Zúñiga
+tp77
+a(L38L
+VPastor
+tp78
+a(L38L
+VForelady/Lucas' Girlfriend
+tp79
+a(L38L
+VManuela/Lilo/Queen of Chucifritos/Madrina
+tp80
+a(L38L
+VWorker No. 4/El Cubano
+tp81
+a(L38L
+VWorker No. 1/Queen of Spanish Harlem/El Remendado
+tp82
+a(L38L
+VMecho
+tp83
+a(L38L
+VPanchita
+tp84
+a(L38L
+VPepe
+tp85
+a(L39L
+VWorker No. 1/Queen of Spanish Harlem
+tp86
+a(L39L
+VCarmencita
+tp87
+a(L39L
+VPepe
+tp88
+a(L39L
+VSergeant Zúñiga/Pastor
+tp89
+a(L39L
+VMicaela
+tp90
+a(L39L
+VForelady/Lucas' Girlfriend
+tp91
+a(L39L
+VMecho
+tp92
+a(L39L
+VManuela/Lilo/Queen of Chuchifritos/Madrina
+tp93
+a(L39L
+VPanchita
+tp94
+a(L39L
+VWorker No. 4/ El Cubano
+tp95
+a(L39L
+VPrison Guard/ Worker No. 3/ Lucas
+tp96
+a(L39L
+VProsper/ Worker No. 2/El Danny
+tp97
+a(L1777L
+VMuchacha
+tp98
+a(L1777L
+VMadre de El Líder
+tp99
+a(L1777L
+VMujer del parque
+tp100
+a(L1777L
+VMujer del Carnicero
+tp101
+a(L1777L
+Vy Enfermera
+tp102
+a(L1557L
+V
+tp103
+a(L1777L
+VManuel El Johny
+tp104
+a(L1777L
+VMaria
+tp105
+a(L1777L
+VMadre de Johny
+tp106
+a(L1777L
+VAlberto El Zommby y El Carnicero
+tp107
+a(L1777L
+VAlfredo
+tp108
+a(L1777L
+Vel líder
+tp109
+a(L1777L
+VManolón
+tp110
+a(L1777L
+Vpadre de El Johny
+tp111
+a(L1777L
+VEl Suegro y Escorpión
+tp112
+a(L63L
+VOlga
+tp113
+a(L63L
+VManolo
+tp114
+a(L63L
+VMarilis
+tp115
+a(L63L
+VFefa
+tp116
+a(L63L
+VFanny
+tp117
+a(L63L
+VYarisa
+tp118
+a(L63L
+VJunior
+tp119
+a(L64L
+VJuan Julian
+tp120
+a(L64L
+VCheché
+tp121
+a(L64L
+VPalomo and Eliades
+tp122
+a(L64L
+VSantiago
+tp123
+a(L64L
+VMarela
+tp124
+a(L64L
+VConchita
+tp125
+a(L64L
+VOfelia
+tp126
+a(L65L
+VPalomo
+tp127
+a(L65L
+VSantiago
+tp128
+a(L65L
+VCheché
+tp129
+a(L65L
+VMarela
+tp130
+a(L65L
+VConchita
+tp131
+a(L65L
+VOfelia
+tp132
+a(L65L
+VJuan Julian
+tp133
+a(L66L
+VLucia
+tp134
+a(L66L
+VHermina
+tp135
+a(L66L
+VRebel No. 2
+tp136
+a(L66L
+VPresident of the Defense Committee
+tp137
+a(L66L
+VAunt
+tp138
+a(L66L
+VHortensia
+tp139
+a(L66L
+VEve
+tp140
+a(L66L
+VCristina
+tp141
+a(L66L
+VSister
+tp142
+a(L66L
+VWoman
+tp143
+a(L66L
+VYoung boy
+tp144
+a(L66L
+VCaptain
+tp145
+a(L66L
+VRebel No.1
+tp146
+a(L66L
+VJuancho
+tp147
+a(L66L
+VUncle
+tp148
+a(L66L
+VInvestigator
+tp149
+a(L66L
+VArmando
+tp150
+a(L66L
+VHugo
+tp151
+a(L66L
+VCain
+tp152
+a(L66L
+VBoy No.1
+tp153
+a(L66L
+VMan
+tp154
+a(L66L
+VMaria
+tp155
+a(L66L
+VAnita
+tp156
+a(L66L
+VTerrorist No. 1
+tp157
+a(L66L
+VJose Ramon
+tp158
+a(L66L
+VDanielito
+tp159
+a(L66L
+VMario
+tp160
+a(L66L
+VStudent
+tp161
+a(L66L
+VPolitical Prisoner
+tp162
+a(L66L
+VAntonio
+tp163
+a(L66L
+VPerico
+tp164
+a(L66L
+VEmilio
+tp165
+a(L66L
+VTerrorist No. 2
+tp166
+a(L66L
+VServando
+tp167
+a(L66L
+VDulce
+tp168
+a(L66L
+VOfficial at the Custom House
+tp169
+a(L66L
+VFlora
+tp170
+a(L66L
+VOnelia
+tp171
+a(L67L
+VVioleta
+tp172
+a(L67L
+VPlácido
+tp173
+a(L67L
+VEsther
+tp174
+a(L67L
+VDutch
+tp175
+a(L67L
+VThe Archangel St. Michael
+tp176
+a(L67L
+VAngel
+tp177
+a(L67L
+VBartender
+tp178
+a(L67L
+VManager
+tp179
+a(L67L
+VDonald
+tp180
+a(L67L
+VKong
+tp181
+a(L67L
+VBonino
+tp182
+a(L67L
+VVenancio
+tp183
+a(L67L
+VCarmen
+tp184
+a(L67L
+VAngelito
+tp185
+a(L67L
+VPianist
+tp186
+a(L69L
+VBeatrice Cenci*
+tp187
+a(L69L
+VPope Clement VIII
+tp188
+a(L69L
+VLucrezia Petronia
+tp189
+a(L69L
+VGlacomo Cenci
+tp190
+a(L69L
+VNarrator and Signor Diedi
+tp191
+a(L69L
+VFrancesco Cenci*
+tp192
+a(L69L
+VBernado Cenci
+tp193
+a(L69L
+VMaria di Spoleto
+tp194
+a(L69L
+VOlimpio Calvetti
+tp195
+a(L69L
+VMarzio Catalano
+tp196
+a(L70L
+VBernardo Cenci
+tp197
+a(L70L
+VMarzio Catalano*
+tp198
+a(L70L
+VFrancesco Cenci*
+tp199
+a(L70L
+VNarrador
+tp200
+a(L70L
+VBeatrice Cenci*
+tp201
+a(L70L
+VLucrezia Petronia
+tp202
+a(L70L
+VMaria di Spoleto
+tp203
+a(L70L
+VOlimpio Calvetti
+tp204
+a(L68L
+VConsuelo
+tp205
+a(L68L
+VValeria and Susana
+tp206
+a(L68L
+VDon Arturo/Don Miguel/Priest/Mr.McNeill
+tp207
+a(L68L
+VHoracio
+tp208
+a(L68L
+VAmparo
+tp209
+a(L73L
+VLa Estrella
+tp210
+a(L73L
+VLa Monja
+tp211
+a(L73L
+VLoco
+tp212
+a(L74L
+VPablo Neruda/Publisher/Super/Friend in Cuba
+tp213
+a(L74L
+VJuan Bosch and Tito
+tp214
+a(L74L
+VWoman
+tp215
+a(L74L
+VJulia
+tp216
+a(L74L
+VJuan Grullon
+tp217
+a(L74L
+VMother/Boss/Stranger
+tp218
+a(L57L
+VCamila
+tp219
+a(L57L
+VVioleta Imperial
+tp220
+a(L57L
+VHermaphrodite Prince
+tp221
+a(L57L
+VIphigenia
+tp222
+a(L57L
+VAchilles
+tp223
+a(L57L
+VFresa Girl
+tp224
+a(L57L
+VAdolfo
+tp225
+a(L57L
+VVirtual MC
+tp226
+a(L57L
+VSoldier X
+tp227
+a(L57L
+VGeneral's Ass
+tp228
+a(L57L
+VOrestes
+tp229
+a(L57L
+VNews Anchor
+tp230
+a(L57L
+VVirgin Puta
+tp231
+a(L58L
+V
+tp232
+a(L2185L
+Vvecina
+tp233
+a(L77L
+VAdolfo
+tp234
+a(L77L
+VVirtual MC
+tp235
+a(L77L
+VGeneral's Ass
+tp236
+a(L77L
+VSoldier X
+tp237
+a(L77L
+VFresa Girl 1
+tp238
+a(L77L
+VIphigenia
+tp239
+a(L77L
+VAchilles
+tp240
+a(L77L
+VCamila
+tp241
+a(L77L
+VVioleta Imperial
+tp242
+a(L77L
+VHermaphrodite Prince,
+tp243
+a(L77L
+VOrestes
+tp244
+a(L77L
+VNews Anchor
+tp245
+a(L77L
+VVirgin Puta
+tp246
+a(L77L
+VGlass-Eyed Man
+tp247
+a(L77L
+VFresa Girl 2
+tp248
+a(L77L
+VFresa Girl 3
+tp249
+a(L78L
+VIphigenia
+tp250
+a(L78L
+VAchilles
+tp251
+a(L78L
+VFresa Girl 3
+tp252
+a(L78L
+VAdolfo
+tp253
+a(L78L
+VVirtual MC
+tp254
+a(L78L
+VGeneral's Ass
+tp255
+a(L78L
+VSoldier X
+tp256
+a(L78L
+VFresa Girl 1
+tp257
+a(L78L
+VCamila
+tp258
+a(L78L
+VVioleta Imperial
+tp259
+a(L78L
+VHermaphrodite Prince
+tp260
+a(L78L
+VNews Anchor
+tp261
+a(L78L
+VVirgin Puta
+tp262
+a(L78L
+VGlass-Eyed Man
+tp263
+a(L78L
+VFresa Girl 2
+tp264
+a(L70L
+VPapa Clemente VIII
+tp265
+a(L70L
+VGiacomo Cenci
+tp266
+a(L70L
+VMarzio Catalana**
+tp267
+a(L36L
+V
+tp268
+a(L563L
+VLa Mujer
+tp269
+a(L82L
+V
+tp270
+a(L66L
+VNemesio
+tp271
+a(L66L
+VMilitia Man
+tp272
+a(L66L
+VG-2 Agent No. 2
+tp273
+a(L66L
+VAunt Hortensia
+tp274
+a(L66L
+VCándida
+tp275
+a(L66L
+VTita
+tp276
+a(L66L
+VMother
+tp277
+a(L66L
+VCarmela
+tp278
+a(L66L
+VCousin
+tp279
+a(L66L
+VAurora
+tp280
+a(L66L
+VGirl
+tp281
+a(L84L
+VMedea
+tp282
+a(L83L
+VYamilé
+tp283
+a(L87L
+VZenea
+tp284
+a(L87L
+VAdah Menken
+tp285
+a(L88L
+VLuz Marina
+tp286
+a(L89L
+VNorah
+tp287
+a(L93L
+VNina
+tp288
+a(L94L
+VNina
+tp289
+a(L95L
+VCecilia Valdés
+tp290
+a(L96L
+VCecilia
+tp291
+a(L96L
+VLeonardo
+tp292
+a(L96L
+VRosa Sandoval
+tp293
+a(L96L
+VPimienta
+tp294
+a(L96L
+VChepilla
+tp295
+a(L96L
+VGamboa
+tp296
+a(L96L
+VCharo
+tp297
+a(L96L
+VIsabel Ilincheta
+tp298
+a(L96L
+VNemesia
+tp299
+a(L97L
+VMilanés
+tp300
+a(L97L
+VCarlota
+tp301
+a(L97L
+VLa Madre
+tp302
+a(L97L
+VLola
+tp303
+a(L97L
+VEl Mendigo
+tp304
+a(L93L
+VConrado
+tp305
+a(L94L
+VConrado
+tp306
+a(L108L
+VRosa
+tp307
+a(L99L
+VCecilia
+tp308
+a(L99L
+VLeonardo
+tp309
+a(L99L
+VRosa
+tp310
+a(L99L
+VGamboa
+tp311
+a(L99L
+VCharo
+tp312
+a(L99L
+VIsabel Ilincheta
+tp313
+a(L100L
+VCarlota
+tp314
+a(L100L
+VLa Madre
+tp315
+a(L100L
+VLola
+tp316
+a(L100L
+VMilanés
+tp317
+a(L100L
+VEl Mendigo
+tp318
+a(L103L
+VNarrador: Ismael
+tp319
+a(L103L
+VSendo
+tp320
+a(L103L
+VTavito
+tp321
+a(L103L
+VAdela
+tp322
+a(L103L
+VNarradora: Antonia
+tp323
+a(L103L
+VNarradora: Anciana
+tp324
+a(L103L
+VDelfina
+tp325
+a(L103L
+VLucinda
+tp326
+a(L103L
+VLa Gallega
+tp327
+a(L103L
+VProstituta
+tp328
+a(L103L
+VNarrador: Siro
+tp329
+a(L103L
+VPiro
+tp330
+a(L673L
+VJosé Jacinto Milanés
+tp331
+a(L110L
+VEsteban
+tp332
+a(L110L
+VLaura
+tp333
+a(L110L
+VDiego
+tp334
+a(L110L
+VHiginio
+tp335
+a(L110L
+VFlora
+tp336
+a(L110L
+VDalia
+tp337
+a(L113L
+VEva
+tp338
+a(L47L
+VAdalina
+tp339
+a(L887L
+VEl afilador
+tp340
+a(L47L
+VNarrador
+tp341
+a(L887L
+VLa mozuela
+tp342
+a(L47L
+VCamelia
+tp343
+a(L887L
+VLa raposa
+tp344
+a(L47L
+VBarquín
+tp345
+a(L47L
+VCero
+tp346
+a(L887L
+VLa ventera
+tp347
+a(L61L
+VOlga
+tp348
+a(L59L
+VVerónica
+tp349
+a(L59L
+VChucky
+tp350
+a(L59L
+VTommy
+tp351
+a(L59L
+VLydia
+tp352
+a(L26L
+VCelestino
+tp353
+a(L116L
+VNemesia
+tp354
+a(L116L
+VBeatriz
+tp355
+a(L116L
+VSofía
+tp356
+a(L116L
+VTito
+tp357
+a(L116L
+VRicardo
+tp358
+a(L116L
+VAdrián
+tp359
+a(L116L
+VCharley
+tp360
+a(L116L
+VEl domador
+tp361
+a(L117L
+VElvira
+tp362
+a(L117L
+VMaría Luisa
+tp363
+a(L117L
+VPío Miranda
+tp364
+a(L117L
+VMatilde
+tp365
+a(L117L
+VCarlos Gardel
+tp366
+a(L117L
+VPlácido
+tp367
+a(L117L
+VLepera
+tp368
+a(L118L
+VEl visitante
+tp369
+a(L118L
+VEl profesor
+tp370
+a(L305L
+VRigoletto
+tp371
+a(L153L
+VZepo
+tp372
+a(L153L
+VCamillera
+tp373
+a(L315L
+VMerluza
+tp374
+a(L315L
+VEva
+tp375
+a(L323L
+VPatelín
+tp376
+a(L123L
+VLa reina
+tp377
+a(L123L
+VVarilla
+tp378
+a(L124L
+VYarini
+tp379
+a(L124L
+VLa javá
+tp380
+a(L124L
+VLa Macorina
+tp381
+a(L124L
+VBebo La Reposa.
+tp382
+a(L123L
+VEl bárbaro
+tp383
+a(L124L
+VIsmael
+tp384
+a(L124L
+VLotot
+tp385
+a(L125L
+VLa reina
+tp386
+a(L125L
+VEl bárbaro
+tp387
+a(L125L
+VVarilla
+tp388
+a(L126L
+VDulce
+tp389
+a(L126L
+VPucho
+tp390
+a(L126L
+VCelestino
+tp391
+a(L127L
+VLa Madre
+tp392
+a(L127L
+VEl ángel
+tp393
+a(L127L
+VLa ciega
+tp394
+a(L127L
+VEl hijo
+tp395
+a(L127L
+VBailarín
+tp396
+a(L127L
+VIsaac
+tp397
+a(L127L
+VSodomita
+tp398
+a(L127L
+VLa serpiente
+tp399
+a(L127L
+VAdán
+tp400
+a(L127L
+VPoeta cubierto de dardos
+tp401
+a(L127L
+VSara
+tp402
+a(L127L
+VLa repostera
+tp403
+a(L127L
+VEl adolescente
+tp404
+a(L127L
+VJob
+tp405
+a(L128L
+VLa Chunga
+tp406
+a(L172L
+VMaría
+tp407
+a(L128L
+VJosefino
+tp408
+a(L128L
+VEl Mono
+tp409
+a(L128L
+VLituma
+tp410
+a(L128L
+VJosé
+tp411
+a(L129L
+VLa Chunga
+tp412
+a(L129L
+VJosefino
+tp413
+a(L129L
+VEl Mono
+tp414
+a(L129L
+VLituma
+tp415
+a(L129L
+VJosé
+tp416
+a(L129L
+VLa Meche
+tp417
+a(L135L
+VAdah Menken
+tp418
+a(L130L
+VÑico
+tp419
+a(L130L
+Vel irreverente
+tp420
+a(L135L
+VEl poeta
+tp421
+a(L135L
+VZenea
+tp422
+a(L135L
+VLa guardiana del recuerdo
+tp423
+a(L135L
+VLa madre
+tp424
+a(L136L
+VElvira
+tp425
+a(L136L
+VMaría Luisa
+tp426
+a(L136L
+VPlácido
+tp427
+a(L136L
+VMatilde
+tp428
+a(L136L
+VPío Miranda
+tp429
+a(L137L
+VElvira
+tp430
+a(L137L
+VMaría Luisa
+tp431
+a(L137L
+VPlácido
+tp432
+a(L137L
+VPío Miranda
+tp433
+a(L137L
+VMatilde
+tp434
+a(L865L
+VAgustín
+tp435
+a(L865L
+VCésar
+tp436
+a(L865L
+VCarlota
+tp437
+a(L865L
+VAbuelo
+tp438
+a(L136L
+VAlfredo Lepera
+tp439
+a(L137L
+VAlfredo Lepera
+tp440
+a(L865L
+VJoaquín
+tp441
+a(L865L
+VAmelia
+tp442
+a(L137L
+VCarlos Gardel
+tp443
+a(L865L
+VMamaé
+tp444
+a(L140L
+VLa Chunga
+tp445
+a(L140L
+VLa Meche
+tp446
+a(L140L
+VJosefino
+tp447
+a(L140L
+VJosé
+tp448
+a(L140L
+VEl Mono
+tp449
+a(L140L
+VLituma
+tp450
+a(L141L
+VLa madre
+tp451
+a(L141L
+VEl novio
+tp452
+a(L141L
+VLeonardo
+tp453
+a(L141L
+VLa novia
+tp454
+a(L141L
+VEl padre
+tp455
+a(L141L
+VLa muerte
+tp456
+a(L141L
+VLa vecina
+tp457
+a(L141L
+VLa mujer de Leonardo
+tp458
+a(L141L
+VLa criada
+tp459
+a(L141L
+VLa luna
+tp460
+a(L142L
+VLa Chunga
+tp461
+a(L142L
+VLa Meche
+tp462
+a(L142L
+VJosefino
+tp463
+a(L142L
+VEl Mono
+tp464
+a(L142L
+VLituma
+tp465
+a(L142L
+VJosé
+tp466
+a(L143L
+VElectra Garrigó
+tp467
+a(L143L
+VClitemnestra Plá
+tp468
+a(L143L
+VEgisto Don
+tp469
+a(L143L
+VAgamenón Garrigó
+tp470
+a(L143L
+VEl pedagogo
+tp471
+a(L143L
+VCorifeo
+tp472
+a(L141L
+VLeñador
+tp473
+a(L305L
+VTeresa Trevijo
+tp474
+a(L83L
+VEl joven
+tp475
+a(L83L
+VEl sirviente
+tp476
+a(L438L
+VEl padre
+tp477
+a(L438L
+VGuirito
+tp478
+a(L751L
+VLa actriz
+tp479
+a(L438L
+VLa madre
+tp480
+a(L149L
+VThe Widow
+tp481
+a(L149L
+VThe Judge
+tp482
+a(L149L
+VThe Assassin
+tp483
+a(L152L
+VGabriel
+tp484
+a(L152L
+VMaestro de ceremonia
+tp485
+a(L153L
+VSeñora Tepán
+tp486
+a(L153L
+VSeñor Tepán
+tp487
+a(L153L
+VZapo
+tp488
+a(L154L
+VJohn Proctor
+tp489
+a(L154L
+VElizabeth Proctor
+tp490
+a(L154L
+VAbigail Williams
+tp491
+a(L154L
+VReverendo Hale
+tp492
+a(L154L
+VThomas Putnam
+tp493
+a(L154L
+VMary Warren
+tp494
+a(L154L
+VTituba
+tp495
+a(L154L
+VBetty Parris
+tp496
+a(L155L
+VEsther
+tp497
+a(L155L
+VPersonaje 2
+tp498
+a(L155L
+VLoulou
+tp499
+a(L155L
+VCharlotte
+tp500
+a(L155L
+VLiane
+tp501
+a(L156L
+VEsther
+tp502
+a(L156L
+VPersonaje 2
+tp503
+a(L156L
+VLiane
+tp504
+a(L156L
+VLoulou
+tp505
+a(L156L
+VCharlotte
+tp506
+a(L4L
+VDon Martín
+tp507
+a(L4L
+VDoña Juana/Doña Elvira/Don Gil de las Calzas Verdes
+tp508
+a(L4L
+VDoña Inés
+tp509
+a(L4L
+VDon Juan
+tp510
+a(L4L
+VDoña Clara
+tp511
+a(L4L
+VCaramanchel
+tp512
+a(L4L
+VPadre de Doña Inés
+tp513
+a(L157L
+VNinette
+tp514
+a(L158L
+VMedea
+tp515
+a(L159L
+VPanchita
+tp516
+a(L159L
+VSerafina
+tp517
+a(L159L
+VRosita
+tp518
+a(L159L
+VFelina
+tp519
+a(L160L
+VLa actriz
+tp520
+a(L160L
+VEl actor
+tp521
+a(L18L
+VAnnie Sullivan
+tp522
+a(L3L
+VCarlos Rabel (Pay)
+tp523
+a(L3L
+VNelson Rabel (Tatín)
+tp524
+a(L3L
+VDilia
+tp525
+a(L3L
+VAna
+tp526
+a(L3L
+VClara
+tp527
+a(L294L
+VHelena Ivanovna Popova
+tp528
+a(L323L
+VPastorcillo
+tp529
+a(L323L
+VJuez
+tp530
+a(L323L
+VPañero
+tp531
+a(L11L
+VCharlotte
+tp532
+a(L11L
+VViktor
+tp533
+a(L169L
+VAnciana 1
+tp534
+a(L169L
+VLa pianista
+tp535
+a(L158L
+VLa nodriza
+tp536
+a(L169L
+VLa prostituta
+tp537
+a(L169L
+VAnciana 2
+tp538
+a(L170L
+VLa marquesa
+tp539
+a(L170L
+VLa casera
+tp540
+a(L170L
+VEl escritor
+tp541
+a(L170L
+VEl gordo
+tp542
+a(L170L
+VEl flaco
+tp543
+a(L170L
+VMaestro de ceremonia
+tp544
+a(L170L
+VLa niña escondida debajo del camión
+tp545
+a(L171L
+VEl maestro de ceremonias
+tp546
+a(L171L
+VLa niña escondida debajo del camión
+tp547
+a(L172L
+VLuz Marina
+tp548
+a(L172L
+VAna
+tp549
+a(L172L
+VÁngel
+tp550
+a(L172L
+VOscar
+tp551
+a(L154L
+VReverendo Parris
+tp552
+a(L172L
+VMIranda
+tp553
+a(L172L
+VMarqués de Veguitas
+tp554
+a(L172L
+VLaura
+tp555
+a(L132L
+VLalo
+tp556
+a(L132L
+VCuca
+tp557
+a(L132L
+VBeba
+tp558
+a(L133L
+VDoña Rosita
+tp559
+a(L133L
+VDon Cristóbal
+tp560
+a(L133L
+VLa madre de Rosita
+tp561
+a(L133L
+VEl zapatero
+tp562
+a(L133L
+VDon Juan
+tp563
+a(L21L
+VGeorge
+tp564
+a(L21L
+VDoris
+tp565
+a(L13L
+VFernanda
+tp566
+a(L13L
+VPoncia
+tp567
+a(L13L
+VEsperanza
+tp568
+a(L19L
+VJorge
+tp569
+a(L19L
+VDulce
+tp570
+a(L2297L
+VNoemi
+tp571
+a(L19L
+VNick
+tp572
+a(L90L
+VShivskin - estudiante
+tp573
+a(L174L
+VEl enano
+tp574
+a(L175L
+VKiko Palomo
+tp575
+a(L176L
+VLuz Marina
+tp576
+a(L179L
+VObba Yurú
+tp577
+a(L180L
+VLagarto Pisabonito
+tp578
+a(L181L
+VHortensia Romero
+tp579
+a(L182L
+VNarradora
+tp580
+a(L184L
+VLa señora
+tp581
+a(L185L
+VCaraquito morao
+tp582
+a(L1746L
+VLa Lupe
+tp583
+a(L187L
+VEl actor
+tp584
+a(L188L
+VLa actriz
+tp585
+a(L189L
+VEl actor
+tp586
+a(L139L
+VPedagogo
+tp587
+a(L139L
+VElectra
+tp588
+a(L139L
+VClitemnestra
+tp589
+a(L139L
+VAgamenón
+tp590
+a(L139L
+VEgisto
+tp591
+a(L60L
+VLorca ensangrentado
+tp592
+a(L60L
+VEl guardia
+tp593
+a(L60L
+VEl general
+tp594
+a(L60L
+VLa mujer
+tp595
+a(L60L
+VEl traje blanco
+tp596
+a(L60L
+VEl vestido verde
+tp597
+a(L60L
+VPantalones bombachos para montar bicicleta
+tp598
+a(L61L
+VManolo
+tp599
+a(L61L
+VFefa
+tp600
+a(L61L
+VMarilis
+tp601
+a(L61L
+VYarisa
+tp602
+a(L61L
+VJunior
+tp603
+a(L61L
+VFanny
+tp604
+a(L191L
+VTatín
+tp605
+a(L192L
+VAurelia
+tp606
+a(L192L
+Vla loca de Chaillot
+tp607
+a(L192L
+VEl Prospector
+tp608
+a(L192L
+VMarcial
+tp609
+a(L192L
+Vel camarero
+tp610
+a(L192L
+VEl presidente
+tp611
+a(L192L
+VEl Barón
+tp612
+a(L192L
+VEl cantor
+tp613
+a(L192L
+VEl gendarme
+tp614
+a(L192L
+VEl trapero
+tp615
+a(L192L
+VEl sordomudo
+tp616
+a(L192L
+VIrma
+tp617
+a(L192L
+Vla fregona
+tp618
+a(L192L
+VEl vendedor de cordones
+tp619
+a(L192L
+VEl malabarista
+tp620
+a(L192L
+VLa florista
+tp621
+a(L192L
+VEl corredor
+tp622
+a(L194L
+VAgamenón Garrigó
+tp623
+a(L194L
+VClitemnestra Plá
+tp624
+a(L194L
+VPedagogo
+tp625
+a(L194L
+VElectra
+tp626
+a(L194L
+VOrestes
+tp627
+a(L194L
+VEgisto Don
+tp628
+a(L519L
+VWilly
+tp629
+a(L196L
+VLalo
+tp630
+a(L196L
+VCuca
+tp631
+a(L196L
+VBeba
+tp632
+a(L200L
+VAreche
+tp633
+a(L227L
+VJerry
+tp634
+a(L227L
+VPeter
+tp635
+a(L4L
+VOsorio
+tp636
+a(L294L
+VGregorio Stepanovitch Smirnov
+tp637
+a(L294L
+VLuka
+tp638
+a(L287L
+VGuatusi
+tp639
+a(L287L
+VÑafle
+tp640
+a(L287L
+VSonajera
+tp641
+a(L363L
+VReverendo Parris
+tp642
+a(L363L
+VBetty Parris
+tp643
+a(L363L
+VTituba
+tp644
+a(L363L
+VAbigail Williams
+tp645
+a(L363L
+VSra. Putnam
+tp646
+a(L363L
+VMercy Lewis
+tp647
+a(L363L
+VMary Warren
+tp648
+a(L363L
+VRuth Putnam
+tp649
+a(L363L
+VJohn Proctor
+tp650
+a(L363L
+VRebeca Nurse
+tp651
+a(L363L
+VGiles Corey
+tp652
+a(L363L
+VReverendo Hale
+tp653
+a(L363L
+VElizabeth Proctor
+tp654
+a(L363L
+VVice Gobernador Danforth
+tp655
+a(L363L
+VJuez Hathorne
+tp656
+a(L363L
+VMartha Corey
+tp657
+a(L363L
+VSoprano (Participación especial)
+tp658
+a(L381L
+VMarisa
+tp659
+a(L381L
+VPablo
+tp660
+a(L381L
+VLa madre
+tp661
+a(L389L
+VÉl
+tp662
+a(L389L
+VElla
+tp663
+a(L390L
+VTía Sidonia
+tp664
+a(L390L
+VRata pirata
+tp665
+a(L390L
+VPaloma
+tp666
+a(L390L
+VTilingo
+tp667
+a(L390L
+VTingo
+tp668
+a(L390L
+VGallina 1
+tp669
+a(L390L
+VGallina 2
+tp670
+a(L399L
+VVillana
+tp671
+a(L399L
+VReina
+tp672
+a(L399L
+VJuglar
+tp673
+a(L399L
+VSimón
+tp674
+a(L399L
+VJosé
+tp675
+a(L399L
+VCura
+tp676
+a(L399L
+VRey
+tp677
+a(L399L
+VPirata
+tp678
+a(L399L
+VVillano
+tp679
+a(L399L
+VPrimo
+tp680
+a(L399L
+VDoña Ana
+tp681
+a(L399L
+VVillano Principal
+tp682
+a(L399L
+VCartera
+tp683
+a(L400L
+VEl Príncipe
+tp684
+a(L400L
+VCaballo
+tp685
+a(L401L
+VEl primo
+tp686
+a(L402L
+VSegismundo
+tp687
+a(L402L
+VRosaura
+tp688
+a(L402L
+VClarín
+tp689
+a(L402L
+VRey Basilio
+tp690
+a(L402L
+VClotaldo
+tp691
+a(L402L
+VEstrella
+tp692
+a(L402L
+VAstolfo
+tp693
+a(L402L
+VCriado
+tp694
+a(L402L
+VSoldado 1
+tp695
+a(L402L
+VSoldado 2
+tp696
+a(L402L
+VDama de compañía
+tp697
+a(L403L
+VShite
+tp698
+a(L403L
+VGuenyi
+tp699
+a(L403L
+VLa dama del Publo de las Flores que caen
+tp700
+a(L403L
+VUkifire
+tp701
+a(L403L
+VChujo
+tp702
+a(L403L
+VWaki
+tp703
+a(L403L
+VMúsico
+tp704
+a(L403L
+VActor
+tp705
+a(L405L
+VChago de Guisa
+tp706
+a(L405L
+VAteidi
+tp707
+a(L405L
+VAtocha
+tp708
+a(L405L
+VEggun
+tp709
+a(L405L
+VBrazo
+tp710
+a(L405L
+VFuerte
+tp711
+a(L405L
+VPerro
+tp712
+a(L405L
+VRuandi
+tp713
+a(L405L
+VLuleno
+tp714
+a(L405L
+VSibi
+tp715
+a(L405L
+VEleggua
+tp716
+a(L405L
+VJosé Bután
+tp717
+a(L406L
+VJuan Candela
+tp718
+a(L406L
+VGudelia
+tp719
+a(L406L
+Vla esposa
+tp720
+a(L406L
+VPancho
+tp721
+a(L406L
+Vhermano de Juan
+tp722
+a(L407L
+VLila
+tp723
+a(L407L
+VHortensia
+tp724
+a(L407L
+VMarina
+tp725
+a(L407L
+VMarino
+tp726
+a(L407L
+VLa cotorrona
+tp727
+a(L407L
+VEnergúmeno
+tp728
+a(L407L
+VAdelfa
+tp729
+a(L407L
+VJuan Alberto
+tp730
+a(L407L
+VCápita
+tp731
+a(L407L
+VCaballita
+tp732
+a(L407L
+VMeche
+tp733
+a(L407L
+VClara
+tp734
+a(L407L
+VLola
+tp735
+a(L411L
+VActor
+tp736
+a(L411L
+VActriz
+tp737
+a(L412L
+VCuca
+tp738
+a(L412L
+VBeba
+tp739
+a(L412L
+VLalo
+tp740
+a(L413L
+VEnfermera
+tp741
+a(L413L
+VMadre
+tp742
+a(L413L
+VRey de la basura
+tp743
+a(L413L
+VMaría (Enfermera)
+tp744
+a(L413L
+VMujer que bota basura
+tp745
+a(L413L
+VHijo (Hombre que se resguarda de la lluvia)
+tp746
+a(L413L
+VReportero
+tp747
+a(L413L
+VHombre que recoge basura
+tp748
+a(L414L
+VElectra
+tp749
+a(L195L
+Vunknown
+tp750
+a(L529L
+VSelah
+tp751
+a(L195L
+VAgamenón
+tp752
+a(L195L
+VPedagogo
+tp753
+a(L414L
+VClitemnestra
+tp754
+a(L195L
+VOrestes
+tp755
+a(L414L
+VPedagogo
+tp756
+a(L414L
+VEgisto
+tp757
+a(L414L
+VAgamenón
+tp758
+a(L415L
+VActor
+tp759
+a(L416L
+VNieta
+tp760
+a(L416L
+VAbuelo
+tp761
+a(L417L
+VActor
+tp762
+a(L418L
+VActor
+tp763
+a(L419L
+VEl venerable Akpwoló oggun
+tp764
+a(L419L
+VYemayá
+tp765
+a(L419L
+VCotorra 1
+tp766
+a(L419L
+VCotorra 2
+tp767
+a(L419L
+VOchún
+tp768
+a(L448L
+VPepe
+tp769
+a(L448L
+VRenato
+tp770
+a(L448L
+VActor
+tp771
+a(L448L
+VActriz
+tp772
+a(L420L
+VMario Conde
+tp773
+a(L420L
+VAlberto Marquez
+tp774
+a(L420L
+VMayor del MININT
+tp775
+a(L420L
+VMilky Cara de Jeva
+tp776
+a(L420L
+VTravestí (La Divina
+tp777
+a(L420L
+VSalvador
+tp778
+a(L420L
+VFaustino Arayán
+tp779
+a(L420L
+VAlexis Arayán
+tp780
+a(L420L
+VTravestí
+tp781
+a(L420L
+VServidor de escena
+tp782
+a(L420L
+VManolo
+tp783
+a(L420L
+VForense
+tp784
+a(L420L
+VPoly
+tp785
+a(L420L
+Vculito de gorrión
+tp786
+a(L420L
+VTravestí cantante
+tp787
+a(L420L
+VAlquimio
+tp788
+a(L420L
+VMatilde
+tp789
+a(L420L
+VFotógrafo
+tp790
+a(L420L
+VMaría Antonia
+tp791
+a(L450L
+VFeo
+tp792
+a(L450L
+VGallina 1
+tp793
+a(L450L
+VMamá Pata
+tp794
+a(L450L
+VGata
+tp795
+a(L450L
+VPájaro
+tp796
+a(L450L
+VPatico 1
+tp797
+a(L450L
+VGato
+tp798
+a(L450L
+VPatico 2
+tp799
+a(L450L
+VSapo
+tp800
+a(L450L
+VPatico 3
+tp801
+a(L450L
+VPatico 4
+tp802
+a(L450L
+VLagarto
+tp803
+a(L450L
+VGallo
+tp804
+a(L450L
+VPerro
+tp805
+a(L450L
+VPato
+tp806
+a(L450L
+VEspantapájaros
+tp807
+a(L451L
+VGasparina
+tp808
+a(L451L
+VDoña Panchita
+tp809
+a(L451L
+VLucía
+tp810
+a(L451L
+VÑa Pascuala
+tp811
+a(L451L
+VYeniscelia
+tp812
+a(L451L
+VÚrsula
+tp813
+a(L451L
+VAniceto
+tp814
+a(L451L
+VForastero
+tp815
+a(L451L
+VFabricio
+tp816
+a(L451L
+VFransuga
+tp817
+a(L451L
+VVladimir
+tp818
+a(L451L
+VPolicía
+tp819
+a(L451L
+VTrasnochador
+tp820
+a(L451L
+VMujer de Antonio
+tp821
+a(L451L
+VEn el piquete de músicos y bailadores
+tp822
+a(L453L
+VEl enano
+tp823
+a(L525L
+VDowncast Mary
+tp824
+a(L558L
+V
+tp825
+a(L582L
+V
+tp826
+a(L507L
+V
+tp827
+a(L456L
+VTavito
+tp828
+a(L456L
+VAntonia
+tp829
+a(L456L
+VAdela
+tp830
+a(L456L
+VDelfina anciana
+tp831
+a(L456L
+VDelfina
+tp832
+a(L456L
+VLa gallega
+tp833
+a(L456L
+VSendo
+tp834
+a(L456L
+VSiro
+tp835
+a(L456L
+VIsmael
+tp836
+a(L386L
+VPilenio
+tp837
+a(L386L
+VGeneral del ejército
+tp838
+a(L386L
+VMicleto
+tp839
+a(L386L
+VFilósofo-Siervo
+tp840
+a(L386L
+VDimanisio
+tp841
+a(L386L
+Vseñor encubierto
+tp842
+a(L386L
+VZenón
+tp843
+a(L386L
+VPrimer ministro
+tp844
+a(L386L
+VSedicom
+tp845
+a(L386L
+Vespía
+tp846
+a(L386L
+VNiño
+tp847
+a(L386L
+VActriz asistente
+tp848
+a(L457L
+VActor
+tp849
+a(L457L
+VActriz
+tp850
+a(L458L
+VActriz
+tp851
+a(L458L
+VActor
+tp852
+a(L460L
+VFausto
+tp853
+a(L460L
+VMefistófeles
+tp854
+a(L460L
+VMargarita
+tp855
+a(L460L
+VHelena
+tp856
+a(L460L
+VEl perro
+tp857
+a(L521L
+VMario
+tp858
+a(L470L
+VEdwin Booth
+tp859
+a(L470L
+Vvideo performance as John Wilkes Booth
+tp860
+a(L470L
+V
+tp861
+a(L471L
+VEjecutiva
+tp862
+a(L471L
+VSecretaria
+tp863
+a(L471L
+VOficinista
+tp864
+a(L471L
+VEl mudo
+tp865
+a(L461L
+VAgave
+tp866
+a(L529L
+VJamie
+tp867
+a(L529L
+VCaroline
+tp868
+a(L529L
+VMiranda
+tp869
+a(L509L
+VTommy
+tp870
+a(L509L
+VVeronica
+tp871
+a(L509L
+VChucky
+tp872
+a(L509L
+VLydia
+tp873
+a(L79L
+VIsrafel and multiple roles
+tp874
+a(L79L
+VTroubled John
+tp875
+a(L79L
+VDowncast Mary
+tp876
+a(L519L
+VDelia
+tp877
+a(L519L
+VTati
+tp878
+a(L542L
+VElectra-Oyá
+tp879
+a(L542L
+VOrestes-Ochosi
+tp880
+a(L542L
+VAgamenón-Oggún
+tp881
+a(L542L
+VClitemnestra -Yemayá
+tp882
+a(L80L
+VProvidence
+tp883
+a(L80L
+VIsrafel and multiple ghosts
+tp884
+a(L80L
+VTroubled John
+tp885
+a(L80L
+VDowncast Mary
+tp886
+a(L525L
+VGhost
+tp887
+a(L525L
+VProvidence
+tp888
+a(L525L
+VIsrafel
+tp889
+a(L525L
+VTroubled John
+tp890
+a(L408L
+Vunknown
+tp891
+a(L503L
+Vunknown
+tp892
+a(L529L
+V Simone
+tp893
+a(L529L
+VTirasol
+tp894
+a(L537L
+VSelah
+tp895
+a(L537L
+VCaroline
+tp896
+a(L537L
+VTirasol
+tp897
+a(L537L
+VSimone
+tp898
+a(L195L
+VClitemnestra
+tp899
+a(L519L
+VManolito
+tp900
+a(L521L
+VPatria
+tp901
+a(L521L
+VGwen
+tp902
+a(L521L
+VLi Ming
+tp903
+a(L522L
+VAntigone
+tp904
+a(L522L
+VArchivist
+tp905
+a(L522L
+VNarration
+tp906
+a(L523L
+VEliades
+tp907
+a(L523L
+VPalomo
+tp908
+a(L523L
+VSantiago
+tp909
+a(L523L
+VCheché
+tp910
+a(L523L
+VMarela
+tp911
+a(L523L
+VOfelia
+tp912
+a(L523L
+VConchita
+tp913
+a(L523L
+VJuan Julian
+tp914
+a(L537L
+VMiranda
+tp915
+a(L537L
+VJamie
+tp916
+a(L532L
+VSimone
+tp917
+a(L532L
+VTirasol
+tp918
+a(L532L
+VJamie
+tp919
+a(L532L
+VSelah
+tp920
+a(L532L
+VMiranda
+tp921
+a(L532L
+VCaroline
+tp922
+a(L528L
+VSimone
+tp923
+a(L528L
+VJamie
+tp924
+a(L578L
+VTom 3
+tp925
+a(L578L
+VViv 2
+tp926
+a(L578L
+VViv 1
+tp927
+a(L578L
+VTom 1
+tp928
+a(L578L
+VTom 2
+tp929
+a(L584L
+VPerformer
+tp930
+a(L604L
+V
+tp931
+a(L581L
+VLili
+tp932
+a(L581L
+V
+tp933
+a(L581L
+VAzu
+tp934
+a(L581L
+VNen
+tp935
+a(L607L
+VBernadine
+tp936
+a(L618L
+VYoung Girl
+tp937
+a(L618L
+VThe Wife
+tp938
+a(L655L
+VServant
+tp939
+a(L655L
+VFather
+tp940
+a(L655L
+VHarlequin
+tp941
+a(L655L
+VBoy
+tp942
+a(L655L
+VSecond Friend
+tp943
+a(L655L
+VFirst Player
+tp944
+a(L655L
+VTypist
+tp945
+a(L655L
+VManequin
+tp946
+a(L655L
+VGirl
+tp947
+a(L655L
+VFiancee
+tp948
+a(L655L
+VThird Player
+tp949
+a(L655L
+VYoung Man
+tp950
+a(L655L
+VOld Man
+tp951
+a(L655L
+VFriend
+tp952
+a(L655L
+VRugby Player
+tp953
+a(L655L
+VClown
+tp954
+a(L655L
+VSecond Player
+tp955
+a(L655L
+VCat
+tp956
+a(L655L
+VMaid
+tp957
+a(L655L
+VMask
+tp958
+a(L618L
+VOld Man
+tp959
+a(L618L
+VHenry
+tp960
+a(L658L
+V
+tp961
+a(L661L
+VDon Perlimplín
+tp962
+a(L661L
+VBelisa
+tp963
+a(L661L
+VMarcolfa
+tp964
+a(L661L
+VMother
+tp965
+a(L732L
+VQuindelán
+tp966
+a(L666L
+VEsteban
+tp967
+a(L666L
+VLaura
+tp968
+a(L666L
+VDalia
+tp969
+a(L666L
+VDiego
+tp970
+a(L666L
+VFlora
+tp971
+a(L666L
+VHiginio
+tp972
+a(L666L
+VOnelia
+tp973
+a(L667L
+VAbel
+tp974
+a(L667L
+VCain
+tp975
+a(L667L
+VAdam
+tp976
+a(L667L
+VEve
+tp977
+a(L669L
+VAdan
+tp978
+a(L669L
+VEva
+tp979
+a(L669L
+VCaín
+tp980
+a(L669L
+VAbel
+tp981
+a(L671L
+VAdam
+tp982
+a(L671L
+VCain
+tp983
+a(L671L
+VAbel
+tp984
+a(L671L
+VEve
+tp985
+a(L111L
+VEva
+tp986
+a(L111L
+VCaín
+tp987
+a(L111L
+VAdán
+tp988
+a(L111L
+VAbel
+tp989
+a(L589L
+VEsteban
+tp990
+a(L589L
+VDiego
+tp991
+a(L589L
+VLaura
+tp992
+a(L589L
+VOnelia
+tp993
+a(L589L
+VHiginio
+tp994
+a(L589L
+VFlora
+tp995
+a(L589L
+VDalia
+tp996
+a(L682L
+VDoña Inés
+tp997
+a(L682L
+VDoña Juana
+tp998
+a(L682L
+VDon Martín
+tp999
+a(L682L
+VDon Pedro
+tp1000
+a(L682L
+VCaramanchel
+tp1001
+a(L682L
+VDon Juan
+tp1002
+a(L682L
+VDoña Clara
+tp1003
+a(L682L
+VQuintana
+tp1004
+a(L682L
+VOsorio
+tp1005
+a(L682L
+VDon Diego
+tp1006
+a(L682L
+VDon Antonio
+tp1007
+a(L682L
+VFabio
+tp1008
+a(L682L
+VDecio
+tp1009
+a(L682L
+VCelio
+tp1010
+a(L682L
+VAlguacil
+tp1011
+a(L682L
+VAguilar
+tp1012
+a(L682L
+VEnanas
+tp1013
+a(L356L
+VPío Miranda
+tp1014
+a(L356L
+VMaría Luisa Ancízar
+tp1015
+a(L356L
+VElvira Ancízar
+tp1016
+a(L356L
+VMatilde
+tp1017
+a(L356L
+VPlácido Ancízar
+tp1018
+a(L356L
+VAlfredo Le Pera
+tp1019
+a(L356L
+VCarlos Gardel
+tp1020
+a(L380L
+VPablo
+tp1021
+a(L380L
+VMarisa
+tp1022
+a(L380L
+VJuana
+tp1023
+a(L327L
+VAbby
+tp1024
+a(L327L
+VMarta
+tp1025
+a(L327L
+VElena
+tp1026
+a(L327L
+VMortimer
+tp1027
+a(L327L
+VTeddy
+tp1028
+a(L327L
+VEinstein
+tp1029
+a(L327L
+VHarper
+tp1030
+a(L327L
+VKlein
+tp1031
+a(L327L
+VBrophy
+tp1032
+a(L327L
+VGibbs
+tp1033
+a(L327L
+VO´Hara
+tp1034
+a(L327L
+VRooney
+tp1035
+a(L327L
+VWitherspoon
+tp1036
+a(L673L
+VCarlota
+tp1037
+a(L673L
+Vla madre
+tp1038
+a(L673L
+VLola
+tp1039
+a(L673L
+VMendigo
+tp1040
+a(L673L
+VDon Simón de Ximeno
+tp1041
+a(L673L
+VTía Pastora
+tp1042
+a(L673L
+VEl Sereno
+tp1043
+a(L673L
+VDomingo del Monte
+tp1044
+a(L673L
+VPlácido
+tp1045
+a(L673L
+VNegro Slave
+tp1046
+a(L673L
+VIsa
+tp1047
+a(L673L
+VNarrator
+tp1048
+a(L689L
+VEsteban
+tp1049
+a(L93L
+VFabrizio
+tp1050
+a(L94L
+VFabrizio
+tp1051
+a(L102L
+VMefistófeles - un personaje teatral
+tp1052
+a(L102L
+VJuan Celeiro - Juani
+tp1053
+a(L102L
+VJuanillo
+tp1054
+a(L102L
+VEl Johnny
+tp1055
+a(L102L
+Vlos amigos : Yeyo
+tp1056
+a(L102L
+VMecánico
+tp1057
+a(L102L
+VJuan Alberto - fascinador en sus cuarenta
+tp1058
+a(L102L
+VWichi - médico
+tp1059
+a(L102L
+VChalo - padre humillado
+tp1060
+a(L102L
+VElvira - la amante de Juani
+tp1061
+a(L102L
+VAna Josefa - Nani 
+tp1062
+a(L102L
+Vla pasión de Juani
+tp1063
+a(L694L
+VBelén
+tp1064
+a(L694L
+VRegla
+tp1065
+a(L694L
+VTrina
+tp1066
+a(L694L
+VDon Enrique Cruz
+tp1067
+a(L694L
+VLola
+tp1068
+a(L694L
+VAurelia
+tp1069
+a(L694L
+VClara
+tp1070
+a(L694L
+VChacho
+tp1071
+a(L694L
+VFederico
+tp1072
+a(L694L
+VRicardo
+tp1073
+a(L694L
+VBrigadier Cortegada
+tp1074
+a(L694L
+VVíctor
+tp1075
+a(L694L
+Vamiga de Trina
+tp1076
+a(L694L
+VConcha Cuesta
+tp1077
+a(L694L
+VDamisela
+tp1078
+a(L694L
+VPepe Robles
+tp1079
+a(L694L
+VPresidente del Liceo
+tp1080
+a(L694L
+VMambi
+tp1081
+a(L694L
+VEsclavo
+tp1082
+a(L106L
+VAndrea
+tp1083
+a(L106L
+VInés
+tp1084
+a(L106L
+V1er. Vendedor de periódicos
+tp1085
+a(L106L
+V1er. Tramoyista
+tp1086
+a(L106L
+V2o. Vendedor de periódicos
+tp1087
+a(L106L
+V2o. Tramoyista
+tp1088
+a(L106L
+V3er. Vendedor de periódicos
+tp1089
+a(L694L
+VVendedor
+tp1090
+a(L694L
+VMerenguilo
+tp1091
+a(L106L
+VRevendedor
+tp1092
+a(L106L
+VGuajiro
+tp1093
+a(L106L
+VRomualdo
+tp1094
+a(L106L
+VMuchacho
+tp1095
+a(L106L
+VMilagros
+tp1096
+a(L106L
+VRodolfo
+tp1097
+a(L106L
+VLázaro
+tp1098
+a(L106L
+VGarcía
+tp1099
+a(L106L
+VPérez
+tp1100
+a(L106L
+VJiribilla
+tp1101
+a(L106L
+VNené
+tp1102
+a(L106L
+VChelo
+tp1103
+a(L106L
+VMiss. Skinner
+tp1104
+a(L106L
+VAmanda
+tp1105
+a(L106L
+VRosa María
+tp1106
+a(L106L
+VGermán
+tp1107
+a(L106L
+VBlanca
+tp1108
+a(L106L
+VElsie
+tp1109
+a(L106L
+VHortensia
+tp1110
+a(L106L
+VGuillermito
+tp1111
+a(L106L
+VDomingo
+tp1112
+a(L106L
+VHerminia
+tp1113
+a(L106L
+VModista
+tp1114
+a(L685L
+VTeresa
+tp1115
+a(L685L
+VRigoleto
+tp1116
+a(L685L
+VFlora
+tp1117
+a(L685L
+VCarmela - La Aviadora
+tp1118
+a(L685L
+VCarlota
+tp1119
+a(L685L
+VAzuquita
+tp1120
+a(L685L
+VSoldado
+tp1121
+a(L685L
+VAnita
+tp1122
+a(L685L
+VPancho
+tp1123
+a(L685L
+VRogelio
+tp1124
+a(L685L
+VDominga
+tp1125
+a(L685L
+VMarinero
+tp1126
+a(L685L
+VHombre
+tp1127
+a(L685L
+VChivero
+tp1128
+a(L685L
+VProstituta
+tp1129
+a(L685L
+VFlorista
+tp1130
+a(L685L
+VLlillina
+tp1131
+a(L685L
+VFlorinda
+tp1132
+a(L685L
+VMáscara
+tp1133
+a(L685L
+VLa Sardina
+tp1134
+a(L685L
+VPaco
+tp1135
+a(L685L
+VCamarero
+tp1136
+a(L685L
+VVictorino
+tp1137
+a(L685L
+VMujer
+tp1138
+a(L685L
+VBilletero
+tp1139
+a(L685L
+VPolicía
+tp1140
+a(L685L
+VFico
+tp1141
+a(L685L
+VVeneno
+tp1142
+a(L685L
+VSra. de Mongo Lucas
+tp1143
+a(L685L
+VMongo Lucas
+tp1144
+a(L685L
+VArmando
+tp1145
+a(L685L
+VFotógrafo
+tp1146
+a(L685L
+VRudesindo
+tp1147
+a(L685L
+VFelicia
+tp1148
+a(L685L
+VJiménez
+tp1149
+a(L109L
+VEsteban
+tp1150
+a(L109L
+VLaura
+tp1151
+a(L109L
+VDalia
+tp1152
+a(L109L
+VDiego
+tp1153
+a(L109L
+VFlora
+tp1154
+a(L109L
+VHiginio
+tp1155
+a(L109L
+VOnelia
+tp1156
+a(L692L
+VLola
+tp1157
+a(L692L
+VRosa
+tp1158
+a(L692L
+VCristóbal
+tp1159
+a(L692L
+VJuanelo
+tp1160
+a(L692L
+VMaestra
+tp1161
+a(L692L
+VRodríguez
+tp1162
+a(L692L
+VNiño
+tp1163
+a(L102L
+VInés - esposa de Juani
+tp1164
+a(L695L
+VJosé Jacinto Milanés
+tp1165
+a(L695L
+VEl Mendigo
+tp1166
+a(L695L
+VEl Sereno
+tp1167
+a(L695L
+VDomingo del Monte
+tp1168
+a(L695L
+VEl recuerdo de su madre
+tp1169
+a(L695L
+VEl recuerdo de su padre
+tp1170
+a(L695L
+VSu hermana Carlota
+tp1171
+a(L695L
+VSu hermano Federico
+tp1172
+a(L695L
+VSu tía Pastora
+tp1173
+a(L695L
+VCandelaria
+tp1174
+a(L695L
+VSu prima Isa  ... la musa del poeta
+tp1175
+a(L695L
+VLa adorada Lola
+tp1176
+a(L695L
+VEl Esclavo
+tp1177
+a(L695L
+VEl poeta Plácido
+tp1178
+a(L695L
+VPolonia
+tp1179
+a(L695L
+V
+tp1180
+a(L90L
+VNil - ahijado de Bessemenov
+tp1181
+a(L90L
+Vmecánico
+tp1182
+a(L676L
+VSendo
+tp1183
+a(L676L
+VTavito
+tp1184
+a(L676L
+VLucinda
+tp1185
+a(L676L
+VDelfina
+tp1186
+a(L676L
+VProstituta
+tp1187
+a(L676L
+VCampesina
+tp1188
+a(L676L
+VSiro
+tp1189
+a(L676L
+VNarrador: Siro
+tp1190
+a(L676L
+VNarrador: Ismael
+tp1191
+a(L676L
+VLa Gallega
+tp1192
+a(L676L
+V Adela
+tp1193
+a(L676L
+VAdela
+tp1194
+a(L676L
+VAntonia
+tp1195
+a(L676L
+VLa Gallega,
+tp1196
+a(L676L
+VLa anciana
+tp1197
+a(L676L
+VPiro
+tp1198
+a(L676L
+VPedroso
+tp1199
+a(L676L
+VCompadre
+tp1200
+a(L676L
+VTramoyista
+tp1201
+a(L676L
+VCampesino
+tp1202
+a(L676L
+VGuardia Rural
+tp1203
+a(L676L
+VJugador
+tp1204
+a(L676L
+VLa Vieja
+tp1205
+a(L676L
+VUtilero
+tp1206
+a(L676L
+VNiño
+tp1207
+a(L674L
+VConchita
+tp1208
+a(L674L
+VPalomo
+tp1209
+a(L674L
+VMarela
+tp1210
+a(L674L
+VSantiago
+tp1211
+a(L106L
+VBailarina
+tp1212
+a(L106L
+VBailarín
+tp1213
+a(L674L
+VJuan Julián
+tp1214
+a(L103L
+VIsmael ... narrador
+tp1215
+a(L103L
+VNarradora: Adela
+tp1216
+a(L103L
+VPedroso
+tp1217
+a(L103L
+VLa Vieja
+tp1218
+a(L103L
+VJugador
+tp1219
+a(L103L
+VCampesino
+tp1220
+a(L103L
+VGuardia Rural
+tp1221
+a(L456L
+VProstituta
+tp1222
+a(L686L
+VRosa
+tp1223
+a(L686L
+VLola
+tp1224
+a(L686L
+VCristóbal
+tp1225
+a(L686L
+VJuanelo
+tp1226
+a(L686L
+VMaestra
+tp1227
+a(L684L
+VTío Enrique
+tp1228
+a(L684L
+VMago de Oz
+tp1229
+a(L684L
+VTía Luisa
+tp1230
+a(L684L
+VBruja del Sur
+tp1231
+a(L684L
+VMariana
+tp1232
+a(L684L
+VNiña de la vecina
+tp1233
+a(L684L
+VMunchín primero
+tp1234
+a(L684L
+VPantera primera
+tp1235
+a(L684L
+VMunchín segundo
+tp1236
+a(L684L
+VPantera segunda
+tp1237
+a(L684L
+VMunchín tercero
+tp1238
+a(L684L
+VPantera tercera
+tp1239
+a(L684L
+VEspantapájaros
+tp1240
+a(L684L
+VHombre de Lata
+tp1241
+a(L684L
+VLeón
+tp1242
+a(L684L
+VHombre de los Espejuelos
+tp1243
+a(L684L
+VBruja del Norte
+tp1244
+a(L684L
+VMunchín que baila
+tp1245
+a(L689L
+VLaura
+tp1246
+a(L689L
+VDalia
+tp1247
+a(L689L
+VDiego
+tp1248
+a(L689L
+VHiginio
+tp1249
+a(L691L
+V
+tp1250
+a(L689L
+VOnelia
+tp1251
+a(L674L
+VOfelia
+tp1252
+a(L674L
+VCheché
+tp1253
+a(L674L
+VEliades
+tp1254
+a(L704L
+V3rd. Washerwoman
+tp1255
+a(L704L
+VThe Child
+tp1256
+a(L704L
+VDolores
+tp1257
+a(L704L
+VYerma
+tp1258
+a(L704L
+VJuan
+tp1259
+a(L704L
+VMaría
+tp1260
+a(L704L
+VVíctor
+tp1261
+a(L704L
+VOld Pagan Woman
+tp1262
+a(L704L
+V1st. Girl
+tp1263
+a(L704L
+V1st. Washerwoman
+tp1264
+a(L704L
+V2 nd. Girl
+tp1265
+a(L704L
+V2 nd. Washerwoman
+tp1266
+a(L704L
+V4 th. Washerwoman
+tp1267
+a(L704L
+V1st. Woman
+tp1268
+a(L704L
+V5 th. Washerwoman
+tp1269
+a(L704L
+V2 nd. Woman
+tp1270
+a(L704L
+V6 th. Washerwoman
+tp1271
+a(L704L
+V3 rd. Woman
+tp1272
+a(L704L
+V1 st. Sister-in-Law
+tp1273
+a(L704L
+V2 nd. Sister-in-Law
+tp1274
+a(L704L
+VDancer
+tp1275
+a(L704L
+VOld Woman
+tp1276
+a(L704L
+VThe Boy
+tp1277
+a(L704L
+V1 st. Man
+tp1278
+a(L704L
+VFemale Mask - Devil's Wife
+tp1279
+a(L704L
+VHembra
+tp1280
+a(L704L
+VMale Mask - Devil
+tp1281
+a(L704L
+VMacho
+tp1282
+a(L690L
+VPachencho - ex-estudiante
+tp1283
+a(L690L
+Vactual desempleado
+tp1284
+a(L690L
+VRodolfo - estudiante de Medicina
+tp1285
+a(L690L
+Vsu primo
+tp1286
+a(L690L
+VRodolfo - estudiante de Medicina su primo
+tp1287
+a(L690L
+VArturo - estudiante de Derecho y amigo de Pachencho y Rodolfo
+tp1288
+a(L690L
+VRosalía - mulata costurera novia de Pachencho
+tp1289
+a(L690L
+VSimplicia - encargada del solar
+tp1290
+a(L690L
+VRomelia - empleada de Madame
+tp1291
+a(L690L
+Venamorada de Arturo
+tp1292
+a(L690L
+VDon Pepe - gallego almacenista
+tp1293
+a(L690L
+VCabrizas - negrito dueño de la funeraria <i>El largo viaje</i>
+tp1294
+a(L690L
+VAngelito - ayudante de Cabrizas
+tp1295
+a(L690L
+VRemolino - amiga de Rodolfo y Arturo
+tp1296
+a(L690L
+VDon Matías - concejal pinareño
+tp1297
+a(L690L
+VDon Matías - Concejal pinareño
+tp1298
+a(L690L
+VDon Tadeo - representante
+tp1299
+a(L690L
+VDon Tadeo - Representante
+tp1300
+a(L690L
+VRosaura - hija de Don Tadeo y prometida de Rodolfo
+tp1301
+a(L690L
+VJenny - amiguita de Rosaura
+tp1302
+a(L690L
+VMadame Josephine - dueña de un prostíbulo
+tp1303
+a(L690L
+VLa Quisquiyosa - vecina del solar
+tp1304
+a(L690L
+VCapitán de la policía
+tp1305
+a(L95L
+VChepilla Alarcón
+tp1306
+a(L95L
+VCharo Alarcón
+tp1307
+a(L95L
+VRosa Sandoval
+tp1308
+a(L95L
+VCándido Gamboa
+tp1309
+a(L95L
+VLeonardo Gamboa
+tp1310
+a(L95L
+VJosé Dolores Pimienta
+tp1311
+a(L95L
+VNemesia Pimienta
+tp1312
+a(L95L
+VIsabel Ilincheta
+tp1313
+a(L95L
+VTondá
+tp1314
+a(L104L
+VElla
+tp1315
+a(L104L
+VEl
+tp1316
+a(L104L
+VLa Madre
+tp1317
+a(L104L
+VEl Padre
+tp1318
+a(L104L
+VLa Otra
+tp1319
+a(L104L
+VEl Otro
+tp1320
+a(L700L
+VEsteban
+tp1321
+a(L700L
+VLaura
+tp1322
+a(L700L
+VDiego
+tp1323
+a(L700L
+VDelia
+tp1324
+a(L700L
+VFlora
+tp1325
+a(L687L
+VCucarachita Martina
+tp1326
+a(L687L
+VVendedor 1
+tp1327
+a(L687L
+VVendedor 2
+tp1328
+a(L687L
+VVendedor 3
+tp1329
+a(L687L
+VVendedor 4
+tp1330
+a(L687L
+VGallo
+tp1331
+a(L687L
+VGato
+tp1332
+a(L687L
+VSapo
+tp1333
+a(L687L
+VChivo
+tp1334
+a(L687L
+VRatoncito Pérez
+tp1335
+a(L683L
+VTramoyista: Girasol
+tp1336
+a(L683L
+VTramoyista: Piña
+tp1337
+a(L683L
+VCucarachita
+tp1338
+a(L683L
+VVendedor Primero
+tp1339
+a(L683L
+VVendedor Segundo
+tp1340
+a(L683L
+VVendedor Tercero
+tp1341
+a(L683L
+VGallo
+tp1342
+a(L683L
+VGato
+tp1343
+a(L683L
+VSapo
+tp1344
+a(L683L
+VRatoncito
+tp1345
+a(L675L
+VMae
+tp1346
+a(L675L
+VLola
+tp1347
+a(L675L
+VMendigo
+tp1348
+a(L675L
+VPácido
+tp1349
+a(L675L
+VEscravo
+tp1350
+a(L675L
+VTia Pastora
+tp1351
+a(L675L
+VCarlota
+tp1352
+a(L675L
+VJosé Jacinto Milanés
+tp1353
+a(L675L
+VDon Simón
+tp1354
+a(L675L
+VDomingo
+tp1355
+a(L167L
+VElla
+tp1356
+a(L167L
+VEl Padre
+tp1357
+a(L167L
+VEl
+tp1358
+a(L167L
+VLa Otra
+tp1359
+a(L167L
+VEl Otro
+tp1360
+a(L167L
+VLa Madre
+tp1361
+a(L706L
+VRosa
+tp1362
+a(L706L
+VLola
+tp1363
+a(L706L
+VCristóbal
+tp1364
+a(L706L
+VJuanelo
+tp1365
+a(L706L
+VMaestra
+tp1366
+a(L706L
+VRodríguez
+tp1367
+a(L708L
+VSebastián
+tp1368
+a(L708L
+VJulián
+tp1369
+a(L708L
+VJuan
+tp1370
+a(L708L
+VPompina
+tp1371
+a(L708L
+VPompín
+tp1372
+a(L708L
+VPomposo
+tp1373
+a(L708L
+VMaribel
+tp1374
+a(L708L
+VCapa Negra
+tp1375
+a(L708L
+VPompe
+tp1376
+a(L708L
+VSombra Primera
+tp1377
+a(L708L
+VSombra Segunda
+tp1378
+a(L113L
+VAdán
+tp1379
+a(L113L
+VCaín
+tp1380
+a(L113L
+VVoz en off
+tp1381
+a(L113L
+VAbel
+tp1382
+a(L113L
+VSerpiente
+tp1383
+a(L702L
+VJosé J. Milanés
+tp1384
+a(L702L
+VCarlota
+tp1385
+a(L702L
+VLa Madre
+tp1386
+a(L702L
+VLola.
+tp1387
+a(L700L
+VHiginio
+tp1388
+a(L709L
+VGretta
+tp1389
+a(L710L
+V
+tp1390
+a(L101L
+VGretta
+tp1391
+a(L711L
+VRosa
+tp1392
+a(L711L
+VCristóbal
+tp1393
+a(L711L
+VHilaria
+tp1394
+a(L711L
+VCarmela
+tp1395
+a(L712L
+VAmelia
+tp1396
+a(L712L
+VEl Viejo
+tp1397
+a(L712L
+VAmelia - la hija
+tp1398
+a(L712L
+VAmelia - la nieta
+tp1399
+a(L713L
+VMuchacha
+tp1400
+a(L713L
+VVecina
+tp1401
+a(L90L
+VTeterev - cantante
+tp1402
+a(L724L
+VRosa
+tp1403
+a(L724L
+VHilaria
+tp1404
+a(L724L
+VCarmela
+tp1405
+a(L724L
+VCristóbal
+tp1406
+a(L724L
+VVoz del locutor
+tp1407
+a(L563L
+VEl Hombre
+tp1408
+a(L725L
+VZoila
+tp1409
+a(L725L
+VQuindelión
+tp1410
+a(L725L
+VAnuncia
+tp1411
+a(L725L
+VPeruco
+tp1412
+a(L725L
+VYiyo
+tp1413
+a(L725L
+VMuchacho
+tp1414
+a(L725L
+VIrma
+tp1415
+a(L725L
+VMarquesa
+tp1416
+a(L727L
+VConde Alarcos
+tp1417
+a(L727L
+VLeonor
+tp1418
+a(L727L
+VRey
+tp1419
+a(L727L
+VBlanca
+tp1420
+a(L727L
+VMatilde
+tp1421
+a(L727L
+VFlorisa
+tp1422
+a(L727L
+VEl Trovador
+tp1423
+a(L727L
+VPelayo
+tp1424
+a(L727L
+VElvira
+tp1425
+a(L727L
+VCapitán
+tp1426
+a(L727L
+VVerdugo
+tp1427
+a(L727L
+VSoldado
+tp1428
+a(L728L
+VBernarda Alba
+tp1429
+a(L728L
+VLa Poncia
+tp1430
+a(L728L
+VAngustias
+tp1431
+a(L728L
+VMagdalena
+tp1432
+a(L728L
+VAmelia
+tp1433
+a(L728L
+VMartirio
+tp1434
+a(L728L
+VAdela
+tp1435
+a(L728L
+VMaría Josefa
+tp1436
+a(L728L
+VCriada
+tp1437
+a(L728L
+VPrudencia
+tp1438
+a(L728L
+VNiña
+tp1439
+a(L278L
+VAna Dowey
+tp1440
+a(L278L
+VAnimador
+tp1441
+a(L278L
+VEl utilero del teatro
+tp1442
+a(L278L
+VEl que regresó de Salonica
+tp1443
+a(L278L
+VLa Señora Emma
+tp1444
+a(L278L
+VLa Señora Bruja
+tp1445
+a(L278L
+VLa Señora Amelia
+tp1446
+a(L278L
+VEl Reverendo Wiling
+tp1447
+a(L278L
+VT. Dowey
+tp1448
+a(L278L
+Vsoldado
+tp1449
+a(L726L
+V
+tp1450
+a(L301L
+VJuana
+tp1451
+a(L301L
+VManuel Ascencio Padilla
+tp1452
+a(L301L
+VAbelardo Acuña
+tp1453
+a(L301L
+VHermana Gervasia
+tp1454
+a(L301L
+VRosalía Azurduy
+tp1455
+a(L301L
+VSoldado Realista
+tp1456
+a(L301L
+VJuan José Castelli
+tp1457
+a(L301L
+VBiznieto y Abuela joven
+tp1458
+a(L301L
+VAuditor Villegar
+tp1459
+a(L301L
+VUn teniente
+tp1460
+a(L301L
+VAlferez Acuña
+tp1461
+a(L301L
+VCampesino
+tp1462
+a(L301L
+VMonja del convento
+tp1463
+a(L1295L
+V
+tp1464
+a(L1294L
+V
+tp1465
+a(L1296L
+V
+tp1466
+a(L543L
+VElectra Garrigó
+tp1467
+a(L543L
+VPedagogo
+tp1468
+a(L543L
+VEgisto Don
+tp1469
+a(L543L
+VAgamenón Garrigó
+tp1470
+a(L543L
+VClitemnestra Plá
+tp1471
+a(L543L
+VOrestes Garrigó
+tp1472
+a(L543L
+VCoro
+tp1473
+a(L319L
+VLa Poncia
+tp1474
+a(L319L
+VCriada
+tp1475
+a(L319L
+VMendiga
+tp1476
+a(L319L
+VBernarda
+tp1477
+a(L319L
+VAngustias
+tp1478
+a(L319L
+VMagdalena
+tp1479
+a(L319L
+VAmelia
+tp1480
+a(L319L
+VMartirio
+tp1481
+a(L319L
+VAdela
+tp1482
+a(L319L
+VMaría Josefa
+tp1483
+a(L319L
+VMujeres de luto
+tp1484
+a(L319L
+Vsombra
+tp1485
+a(L281L
+V
+tp1486
+a(L734L
+V
+tp1487
+a(L318L
+VSergio
+tp1488
+a(L306L
+VNovia
+tp1489
+a(L318L
+VElena
+tp1490
+a(L318L
+VFelipe
+tp1491
+a(L318L
+VCarmen
+tp1492
+a(L318L
+VNora
+tp1493
+a(L318L
+VCelia
+tp1494
+a(L318L
+VEl jefe
+tp1495
+a(L318L
+VAlberto
+tp1496
+a(L318L
+VTony
+tp1497
+a(L730L
+VRosa
+tp1498
+a(L730L
+VLola
+tp1499
+a(L730L
+VCristóbal
+tp1500
+a(L730L
+VJuanelo
+tp1501
+a(L730L
+VMaestra
+tp1502
+a(L730L
+VRodríguez
+tp1503
+a(L864L
+VMaría
+tp1504
+a(L864L
+VOchun
+tp1505
+a(L864L
+VNovia
+tp1506
+a(L864L
+VMacorina
+tp1507
+a(L864L
+VCaridad
+tp1508
+a(L864L
+VEntrevistadora.
+tp1509
+a(L732L
+VMarquesa
+tp1510
+a(L732L
+VZoila
+tp1511
+a(L732L
+VAnuncia
+tp1512
+a(L732L
+VPedro
+tp1513
+a(L732L
+VYiyo
+tp1514
+a(L732L
+VIrma
+tp1515
+a(L108L
+VCarmela
+tp1516
+a(L108L
+VCristóbal
+tp1517
+a(L108L
+VHilaria
+tp1518
+a(L90L
+VMasha - maestra
+tp1519
+a(L90L
+Vamiga de Tatiana
+tp1520
+a(L90L
+VMédico
+tp1521
+a(L90L
+VUna Mujer
+tp1522
+a(L90L
+VEstefanía - cocinera
+tp1523
+a(L90L
+VVasili Vasillovich Bessemenov - acaudalado presidente de gremio de pintores
+tp1524
+a(L90L
+VAculina Ivanova - esposa de Bessemenov
+tp1525
+a(L90L
+VPedro - ex-estudiante
+tp1526
+a(L90L
+VPaula - hija de Bassemenov trabaja con la familia 
+tp1527
+a(L90L
+VTatiana - maestra
+tp1528
+a(L90L
+VPorchijin - pariente lejano de Bessemenov
+tp1529
+a(L90L
+VPaula - hija de Bassemenov
+tp1530
+a(L90L
+Vtrabaja con la familia
+tp1531
+a(L90L
+VElena Nicolaevna Krivizova - inquilina de los Bessemenov
+tp1532
+a(L733L
+VKárel Darín
+tp1533
+a(L733L
+VMiguel Depás
+tp1534
+a(L733L
+VFelipe Alejo
+tp1535
+a(L733L
+VNarrador
+tp1536
+a(L733L
+VRoberta López
+tp1537
+a(L733L
+VSaúl Álter
+tp1538
+a(L733L
+VAlejandro Depás
+tp1539
+a(L733L
+VSilvia Depás
+tp1540
+a(L733L
+VLa Paco
+tp1541
+a(L734L
+VRichard Henry
+tp1542
+a(L734L
+VParnell
+tp1543
+a(L734L
+VMamá D
+tp1544
+a(L734L
+VHazel
+tp1545
+a(L734L
+VLorenzo
+tp1546
+a(L734L
+VReverendo Felps
+tp1547
+a(L734L
+VLyl Briten
+tp1548
+a(L734L
+VReverendo Meridian
+tp1549
+a(L734L
+VMadre Henry
+tp1550
+a(L734L
+VJo
+tp1551
+a(L734L
+VJuanita
+tp1552
+a(L306L
+VMadre
+tp1553
+a(L306L
+VMujer de Leonardo
+tp1554
+a(L306L
+VCriada
+tp1555
+a(L306L
+VSuegra
+tp1556
+a(L306L
+VMendiga
+tp1557
+a(L306L
+VVecina
+tp1558
+a(L306L
+VMuchacha 1a.
+tp1559
+a(L306L
+VMuchacha de azul 1a.
+tp1560
+a(L306L
+VMuchacha 2a.
+tp1561
+a(L306L
+VMuchacha de azul 2a.
+tp1562
+a(L306L
+VMuchacha 3a.
+tp1563
+a(L306L
+VNiña
+tp1564
+a(L306L
+VLeonardo
+tp1565
+a(L306L
+VNovio
+tp1566
+a(L306L
+VPadre
+tp1567
+a(L306L
+VLuna
+tp1568
+a(L306L
+VMozo 1o.
+tp1569
+a(L306L
+VMozo 2o.
+tp1570
+a(L306L
+VLeñador 1o.
+tp1571
+a(L306L
+VLeñador 2o.
+tp1572
+a(L306L
+VLeñador 3o.
+tp1573
+a(L306L
+VCoro
+tp1574
+a(L286L
+VLala
+tp1575
+a(L286L
+VAnselmo
+tp1576
+a(L286L
+VFefa
+tp1577
+a(L286L
+VAnselmito
+tp1578
+a(L286L
+VLalita
+tp1579
+a(L286L
+VPepe
+tp1580
+a(L286L
+VFermina
+tp1581
+a(L286L
+VJoven - Alfredo
+tp1582
+a(L735L
+VDivina Flor
+tp1583
+a(L735L
+VFlora Miguel
+tp1584
+a(L735L
+VHermana 2a.
+tp1585
+a(L735L
+VSantiago Nasar
+tp1586
+a(L735L
+VVictoria Guzmán
+tp1587
+a(L735L
+VLuisa Santiaga
+tp1588
+a(L735L
+VClotilde Armenta
+tp1589
+a(L735L
+VAlberta Simmonds
+tp1590
+a(L735L
+VBayardo San Román
+tp1591
+a(L735L
+VPolo Carrillo
+tp1592
+a(L735L
+VJuez
+tp1593
+a(L735L
+VViudo Xius
+tp1594
+a(L735L
+VPetronio San Román
+tp1595
+a(L735L
+VAngela Vicario
+tp1596
+a(L735L
+VCoronel Lázaro Aponte
+tp1597
+a(L735L
+VNahir Miguel
+tp1598
+a(L735L
+VCarnicero 2o.
+tp1599
+a(L735L
+VPedro Vicario
+tp1600
+a(L735L
+VPablo Vicario
+tp1601
+a(L735L
+VPadre Amador
+tp1602
+a(L735L
+VCristo Bedoya
+tp1603
+a(L735L
+VLuis Enrique
+tp1604
+a(L735L
+VPolicía Leandro Pornoy
+tp1605
+a(L735L
+VMargot
+tp1606
+a(L735L
+VPrudencia Cortés
+tp1607
+a(L735L
+VHermana 1a.
+tp1608
+a(L735L
+VMujer
+tp1609
+a(L735L
+VCeleste Dangond
+tp1610
+a(L735L
+VFaustino Santos
+tp1611
+a(L735L
+VPoncio Vicario
+tp1612
+a(L735L
+VIndalecio Pardo
+tp1613
+a(L735L
+VPlácida Linero
+tp1614
+a(L735L
+VPura Vicario
+tp1615
+a(L735L
+VMaría Alejandrina Cervantes
+tp1616
+a(L735L
+VMonja
+tp1617
+a(L735L
+VMeme Loaiza
+tp1618
+a(L729L
+VCocinero: Peter - alemán
+tp1619
+a(L729L
+VCocinero: Kevin - irlandés
+tp1620
+a(L317L
+V
+tp1621
+a(L435L
+VLa Coreana
+tp1622
+a(L461L
+VCadmo
+tp1623
+a(L461L
+VTiresias
+tp1624
+a(L461L
+VDionisio
+tp1625
+a(L461L
+VPastores - sátiros
+tp1626
+a(L461L
+VSoldados
+tp1627
+a(L461L
+VSemele
+tp1628
+a(L461L
+VCoro de Bacantes
+tp1629
+a(L461L
+VLykas - Zeus
+tp1630
+a(L461L
+VAutonea
+tp1631
+a(L461L
+VCorteguera Penteo
+tp1632
+a(L461L
+VAntino
+tp1633
+a(L461L
+VIno
+tp1634
+a(L462L
+VPapalotera
+tp1635
+a(L462L
+VPapalotico
+tp1636
+a(L462L
+VMensajera
+tp1637
+a(L462L
+VGente de pueblo
+tp1638
+a(L462L
+VTrovador
+tp1639
+a(L462L
+VAnciano jefe
+tp1640
+a(L463L
+VTota
+tp1641
+a(L463L
+VTabo
+tp1642
+a(L464L
+VSra. Frank
+tp1643
+a(L464L
+VSr. Van Dean
+tp1644
+a(L464L
+VDussel
+tp1645
+a(L464L
+VKraler
+tp1646
+a(L464L
+VMiep
+tp1647
+a(L464L
+VMargot
+tp1648
+a(L464L
+VAna Frank
+tp1649
+a(L464L
+VPeter
+tp1650
+a(L464L
+VSr. Frank
+tp1651
+a(L464L
+VSra. Van Daan
+tp1652
+a(L688L
+V
+tp1653
+a(L465L
+VLa Total
+tp1654
+a(L465L
+VLiborio Hurtado
+tp1655
+a(L465L
+VVoz en off
+tp1656
+a(L465L
+VFigura velada
+tp1657
+a(L465L
+VMario
+tp1658
+a(L465L
+VFigurante
+tp1659
+a(L465L
+VTommy Livais
+tp1660
+a(L465L
+VDirectora de trío
+tp1661
+a(L465L
+VIsolda
+tp1662
+a(L465L
+VMusico
+tp1663
+a(L466L
+VElla
+tp1664
+a(L466L
+VEl
+tp1665
+a(L693L
+V
+tp1666
+a(L740L
+V
+tp1667
+a(L746L
+VLa mujer
+tp1668
+a(L467L
+VJoven
+tp1669
+a(L467L
+VVieja
+tp1670
+a(L467L
+VOlvidado
+tp1671
+a(L467L
+VMarchante
+tp1672
+a(L472L
+V
+tp1673
+a(L473L
+VContador
+tp1674
+a(L473L
+VActriz
+tp1675
+a(L473L
+VJacques Hippolite
+tp1676
+a(L473L
+VTimothy
+tp1677
+a(L473L
+VRosa
+tp1678
+a(L473L
+VBernard
+tp1679
+a(L473L
+VCarlos
+tp1680
+a(L473L
+VAmigo de Jacques
+tp1681
+a(L473L
+VAmiga de Jacques
+tp1682
+a(L473L
+VMúsico
+tp1683
+a(L480L
+V
+tp1684
+a(L481L
+VJuancito
+tp1685
+a(L481L
+VMaría
+tp1686
+a(L481L
+VFantasma I
+tp1687
+a(L481L
+VFantasma II
+tp1688
+a(L481L
+VDiablo
+tp1689
+a(L482L
+VRatoncito Pérez
+tp1690
+a(L482L
+VEl Gato
+tp1691
+a(L482L
+VEl Vendedor
+tp1692
+a(L482L
+VEl Chivo
+tp1693
+a(L482L
+VEl Sapo
+tp1694
+a(L482L
+VEl Gallo
+tp1695
+a(L482L
+VCucarachita Martina
+tp1696
+a(L699L
+V
+tp1697
+a(L483L
+VVeinte pesos
+tp1698
+a(L483L
+VPeseta
+tp1699
+a(L483L
+VCoro
+tp1700
+a(L483L
+VDollar
+tp1701
+a(L483L
+VChavito
+tp1702
+a(L483L
+VPeso macho
+tp1703
+a(L483L
+VKilo prieto
+tp1704
+a(L483L
+VRublo
+tp1705
+a(L475L
+V
+tp1706
+a(L484L
+VCalímaco
+tp1707
+a(L484L
+VSeñor Nicia
+tp1708
+a(L484L
+VLucrecia
+tp1709
+a(L484L
+VSostrata
+tp1710
+a(L484L
+VSyro
+tp1711
+a(L484L
+VLigurio
+tp1712
+a(L484L
+VFray Timoteo
+tp1713
+a(L484L
+VDevota
+tp1714
+a(L484L
+VHija de Devota
+tp1715
+a(L484L
+VCoro
+tp1716
+a(L476L
+VJuan
+tp1717
+a(L476L
+VCristina
+tp1718
+a(L476L
+VJulia
+tp1719
+a(L485L
+VIreme I
+tp1720
+a(L485L
+VIreme II
+tp1721
+a(L485L
+VIreme III
+tp1722
+a(L485L
+VIbbó
+tp1723
+a(L485L
+VIdobbé
+tp1724
+a(L485L
+VDiablo
+tp1725
+a(L485L
+VChivo
+tp1726
+a(L485L
+VJicotea
+tp1727
+a(L485L
+VJutía
+tp1728
+a(L485L
+VEnanos
+tp1729
+a(L485L
+VCalabazas
+tp1730
+a(L485L
+VLagartija
+tp1731
+a(L697L
+V
+tp1732
+a(L504L
+VLadrón
+tp1733
+a(L504L
+VGallo
+tp1734
+a(L504L
+VLadrona
+tp1735
+a(L504L
+VMolinera
+tp1736
+a(L504L
+VGata
+tp1737
+a(L504L
+VBurro
+tp1738
+a(L504L
+VPerro
+tp1739
+a(L504L
+VMolinero
+tp1740
+a(L504L
+VTabernero
+tp1741
+a(L504L
+VPeriodiquero 1o.
+tp1742
+a(L504L
+VPeriodiquero 2o.
+tp1743
+a(L696L
+V
+tp1744
+a(L505L
+VPuppeteer
+tp1745
+a(L479L
+V
+tp1746
+a(L506L
+VPelusín del Monte
+tp1747
+a(L506L
+VAbuela Pirula
+tp1748
+a(L506L
+VPaloma
+tp1749
+a(L506L
+VCotorrón
+tp1750
+a(L506L
+VLechuza
+tp1751
+a(L506L
+VTotí
+tp1752
+a(L506L
+VTodos los animales del campo
+tp1753
+a(L86L
+VDolores
+tp1754
+a(L86L
+VRafael
+tp1755
+a(L86L
+VPadre
+tp1756
+a(L86L
+VMadre
+tp1757
+a(L86L
+VFermín
+tp1758
+a(L86L
+VJuan Pedro
+tp1759
+a(L747L
+VLa cantante
+tp1760
+a(L747L
+VEl hermano
+tp1761
+a(L747L
+VMendigo
+tp1762
+a(L747L
+VMendiga
+tp1763
+a(L702L
+VMendigo
+tp1764
+a(L702L
+VDon Simón de Ximeno
+tp1765
+a(L702L
+VTía Pastora
+tp1766
+a(L702L
+VDomingo del Monte
+tp1767
+a(L702L
+VPlácido
+tp1768
+a(L99L
+VNemesia
+tp1769
+a(L99L
+VPimienta
+tp1770
+a(L99L
+VChepilla
+tp1771
+a(L85L
+VAretea
+tp1772
+a(L291L
+VNise
+tp1773
+a(L99L
+VLeonardo*
+tp1774
+a(L99L
+VPimienta*
+tp1775
+a(L762L
+VEl profesor
+tp1776
+a(L762L
+VLa visitante
+tp1777
+a(L766L
+VEugenia
+tp1778
+a(L766L
+VOfficer
+tp1779
+a(L766L
+VVillegas Soldier
+tp1780
+a(L767L
+VGretta
+tp1781
+a(L771L
+VBlind son
+tp1782
+a(L771L
+VDeaf Mother
+tp1783
+a(L771L
+VLazarillo
+tp1784
+a(L771L
+VTarzán
+tp1785
+a(L771L
+VCoyote/Pollero
+tp1786
+a(L771L
+VCrisóforo Pineda
+tp1787
+a(L771L
+VSaurino
+tp1788
+a(L771L
+VGirl
+tp1789
+a(L771L
+VIllegal Inmigrant
+tp1790
+a(L772L
+VMabel
+tp1791
+a(L772L
+VEdgardo
+tp1792
+a(L773L
+VRoly
+tp1793
+a(L773L
+VRemy
+tp1794
+a(L773L
+VMadame Hortense
+tp1795
+a(L773L
+VMonsieur León
+tp1796
+a(L773L
+VSuzanne
+tp1797
+a(L773L
+VFabiola
+tp1798
+a(L783L
+VEl rey
+tp1799
+a(L773L
+VNinón
+tp1800
+a(L773L
+VBibí
+tp1801
+a(L774L
+VDoña Pito Piturra
+tp1802
+a(L774L
+VSeñor Atropelli
+tp1803
+a(L778L
+VInocencio
+tp1804
+a(L778L
+VAmada
+tp1805
+a(L778L
+VAlicia
+tp1806
+a(L778L
+VHerminia
+tp1807
+a(L778L
+VJosé Luis
+tp1808
+a(L778L
+VAna María
+tp1809
+a(L780L
+VDon Alonso (Don Quixote)
+tp1810
+a(L780L
+VHousekeeper
+tp1811
+a(L780L
+VSancho
+tp1812
+a(L780L
+VPriest
+tp1813
+a(L780L
+VFarmer
+tp1814
+a(L780L
+VSinging Prisioner
+tp1815
+a(L780L
+VPuppeteer
+tp1816
+a(L780L
+VKnight of the White Moon.
+tp1817
+a(L783L
+VMatías
+tp1818
+a(L783L
+VEl aviador
+tp1819
+a(L783L
+VRosa
+tp1820
+a(L773L
+V
+tp1821
+a(L783L
+VEl vanidoso
+tp1822
+a(L783L
+VEl curda
+tp1823
+a(L783L
+VEl negociante
+tp1824
+a(L783L
+VEl semásforo
+tp1825
+a(L783L
+VEl geógrafo
+tp1826
+a(L783L
+VLa poderosa
+tp1827
+a(L783L
+VUn fulano
+tp1828
+a(L787L
+VSpecial Guest
+tp1829
+a(L787L
+VCourtesy of Actor's Equity Association
+tp1830
+a(L788L
+VLa vieja
+tp1831
+a(L790L
+VActor
+tp1832
+a(L792L
+VFauna
+tp1833
+a(L792L
+VÁngela
+tp1834
+a(L792L
+VMinino
+tp1835
+a(L792L
+VArlequino
+tp1836
+a(L792L
+VGargolino
+tp1837
+a(L792L
+VRey de Gargolaria
+tp1838
+a(L792L
+VGargarita
+tp1839
+a(L792L
+VPrincesa
+tp1840
+a(L792L
+Vhija de Gargolino
+tp1841
+a(L792L
+VEspanto
+tp1842
+a(L792L
+VAbuelita del ogro Malogro
+tp1843
+a(L792L
+VMalogro
+tp1844
+a(L792L
+Vogro
+tp1845
+a(L326L
+VCamila
+tp1846
+a(L821L
+V
+tp1847
+a(L822L
+V
+tp1848
+a(L832L
+VLa que cuenta
+tp1849
+a(L832L
+VLa mujer
+tp1850
+a(L832L
+VEl celoso
+tp1851
+a(L832L
+VSuandende
+tp1852
+a(L832L
+VElla
+tp1853
+a(L832L
+VYo
+tp1854
+a(L832L
+VUna mujer
+tp1855
+a(L832L
+VLa jovencita
+tp1856
+a(L832L
+VUno que parece militar
+tp1857
+a(L832L
+VUn jovencito
+tp1858
+a(L832L
+VEl que parece un profesor
+tp1859
+a(L832L
+VEl rapado
+tp1860
+a(L832L
+VUno de por ahí
+tp1861
+a(L833L
+VOdiseo
+tp1862
+a(L833L
+VGloria
+tp1863
+a(L833L
+VAndrés
+tp1864
+a(L854L
+VJuana de Arco
+tp1865
+a(L854L
+Vactriz
+tp1866
+a(L854L
+Vbailarina
+tp1867
+a(L856L
+VTito
+tp1868
+a(L854L
+VHermano Domingo
+tp1869
+a(L854L
+VSanta Catalina
+tp1870
+a(L854L
+VSanta Margarita
+tp1871
+a(L854L
+VVirgen María
+tp1872
+a(L854L
+V
+tp1873
+a(L856L
+VSoulmate
+tp1874
+a(L854L
+VBajo solo
+tp1875
+a(L854L
+VCoro
+tp1876
+a(L857L
+VOrlando
+tp1877
+a(L857L
+VLeticia
+tp1878
+a(L857L
+VAlejo
+tp1879
+a(L857L
+VNena
+tp1880
+a(L857L
+VOlimpia
+tp1881
+a(L858L
+VHombre
+tp1882
+a(L858L
+VMarlene
+tp1883
+a(L858L
+VGabriela
+tp1884
+a(L858L
+VCamarero
+tp1885
+a(L858L
+VClienta
+tp1886
+a(L858L
+VPeluquero
+tp1887
+a(L859L
+VTota
+tp1888
+a(L859L
+VTabo
+tp1889
+a(L860L
+VPiedad
+tp1890
+a(L860L
+VLucas
+tp1891
+a(L860L
+VToletole
+tp1892
+a(L860L
+VMarcela
+tp1893
+a(L860L
+VBobby
+tp1894
+a(L860L
+VAlí Babá
+tp1895
+a(L860L
+VEl cojo
+tp1896
+a(L860L
+VChina
+tp1897
+a(L862L
+VLisette
+tp1898
+a(L862L
+VMimi
+tp1899
+a(L862L
+VSonia
+tp1900
+a(L862L
+VManuela
+tp1901
+a(L862L
+VMiriam
+tp1902
+a(L862L
+VOsvaldo
+tp1903
+a(L862L
+VAlfredo
+tp1904
+a(L899L
+VTito
+tp1905
+a(L863L
+VDon Manuel
+tp1906
+a(L863L
+VCosme
+tp1907
+a(L863L
+VDoña Ángela
+tp1908
+a(L863L
+VIsabel
+tp1909
+a(L863L
+VDon Luis
+tp1910
+a(L863L
+VDon Juan
+tp1911
+a(L863L
+VDoña Beatriz
+tp1912
+a(L863L
+VRodrigo
+tp1913
+a(L844L
+VOscar
+tp1914
+a(L844L
+VTony
+tp1915
+a(L844L
+VTita
+tp1916
+a(L844L
+VPaco
+tp1917
+a(L864L
+VIgnacio
+tp1918
+a(L864L
+VYarini
+tp1919
+a(L864L
+VLeonardo
+tp1920
+a(L864L
+VPapa Montero.
+tp1921
+a(L865L
+VLa abuela
+tp1922
+a(L865L
+VCoro
+tp1923
+a(L866L
+VEva
+tp1924
+a(L866L
+VHuinca
+tp1925
+a(L869L
+VFrancisco Guerra
+tp1926
+a(L869L
+VJosé
+tp1927
+a(L869L
+VLaura
+tp1928
+a(L871L
+VCarmelo
+tp1929
+a(L871L
+VMaría
+tp1930
+a(L871L
+VMarta
+tp1931
+a(L871L
+VChicho
+tp1932
+a(L871L
+VAnyula
+tp1933
+a(L871L
+VDon Francisco
+tp1934
+a(L871L
+VLa nonna
+tp1935
+a(L872L
+VYoly
+tp1936
+a(L872L
+VNegro
+tp1937
+a(L872L
+VMabel
+tp1938
+a(L872L
+VOsvaldo
+tp1939
+a(L873L
+VClaudia
+tp1940
+a(L873L
+VPaco
+tp1941
+a(L873L
+VNina
+tp1942
+a(L873L
+VAndrés
+tp1943
+a(L873L
+VRicardo
+tp1944
+a(L873L
+VMagda
+tp1945
+a(L196L
+VLalo (Substitute)
+tp1946
+a(L196L
+VNiño 1
+tp1947
+a(L196L
+VNiño 2
+tp1948
+a(L876L
+VCristina
+tp1949
+a(L876L
+VRicardo
+tp1950
+a(L876L
+VJacqueline
+tp1951
+a(L876L
+VPatricia
+tp1952
+a(L876L
+VDoña Meche
+tp1953
+a(L876L
+VEstela
+tp1954
+a(L876L
+VTramoyista
+tp1955
+a(L878L
+VEva
+tp1956
+a(L878L
+VHake
+tp1957
+a(L879L
+VKathryn
+tp1958
+a(L879L
+VFred
+tp1959
+a(L879L
+VMaría Elena
+tp1960
+a(L879L
+VTato
+tp1961
+a(L879L
+VClara
+tp1962
+a(L879L
+VRose
+tp1963
+a(L879L
+VNick
+tp1964
+a(L879L
+VConga Player
+tp1965
+a(L881L
+VGabriela José
+tp1966
+a(L881L
+VAlina
+tp1967
+a(L881L
+VSandro
+tp1968
+a(L881L
+VCósima
+tp1969
+a(L881L
+VAlejandra
+tp1970
+a(L881L
+VIgor
+tp1971
+a(L881L
+VEl nene
+tp1972
+a(L881L
+VEl joven
+tp1973
+a(L882L
+VHortensia Romero
+tp1974
+a(L882L
+VEl sociólogo
+tp1975
+a(L883L
+VPalma
+tp1976
+a(L883L
+VSergio
+tp1977
+a(L883L
+VJuana
+tp1978
+a(L883L
+VAlameda
+tp1979
+a(L883L
+VCaridad
+tp1980
+a(L883L
+VRobert
+tp1981
+a(L883L
+VAyudante de Robert
+tp1982
+a(L883L
+VNena
+tp1983
+a(L883L
+Vla rubia
+tp1984
+a(L883L
+VSantizo
+tp1985
+a(L883L
+VEl placero
+tp1986
+a(L883L
+VLuis
+tp1987
+a(L883L
+Vel chino
+tp1988
+a(L883L
+VRenata
+tp1989
+a(L883L
+Vla silenciosa
+tp1990
+a(L883L
+VLa sombra
+tp1991
+a(L883L
+VJosé
+tp1992
+a(L883L
+Vel mexicano
+tp1993
+a(L884L
+VEl Emperador de Asiria
+tp1994
+a(L884L
+VEl arquitecto
+tp1995
+a(L127L
+VMujer de Alabastro
+tp1996
+a(L128L
+VMeche
+tp1997
+a(L26L
+VDulce
+tp1998
+a(L886L
+V
+tp1999
+a(L886L
+VMagdalena
+tp2000
+a(L887L
+VUn bulto de manta y retaco - Coro
+tp2001
+a(L887L
+VUn mozo - Coro
+tp2002
+a(L887L
+VCoro
+tp2003
+a(L888L
+VLa bruja de los mandados - Pedro Maside
+tp2004
+a(L888L
+VJuanito Ventolera
+tp2005
+a(L888L
+VUna daifa
+tp2006
+a(L888L
+VLa madre Celestina
+tp2007
+a(L888L
+VUn galopín
+tp2008
+a(L888L
+VUn gato
+tp2009
+a(L888L
+VEl boticario Don Sócrates Galindo - Un sacristán
+tp2010
+a(L888L
+VDoña Terita
+tp2011
+a(L888L
+Vla boticaria
+tp2012
+a(L888L
+VFranco Ricote
+tp2013
+a(L888L
+VBizco Maluenda
+tp2014
+a(L888L
+VLa mujer del rapista
+tp2015
+a(L888L
+VEl rapista
+tp2016
+a(L888L
+VLas niñas del pecado
+tp2017
+a(L889L
+VEl lobo
+tp2018
+a(L889L
+VEl árbol
+tp2019
+a(L889L
+VMamá cerda
+tp2020
+a(L889L
+VCerdito I
+tp2021
+a(L889L
+VCerdito II
+tp2022
+a(L889L
+VCerdito III
+tp2023
+a(L889L
+VNiña
+tp2024
+a(L889L
+VNiño
+tp2025
+a(L135L
+VEl padre
+tp2026
+a(L135L
+VJuez 1
+tp2027
+a(L135L
+VJuez 2 - Enmascarado
+tp2028
+a(L135L
+VJuez 2
+tp2029
+a(L135L
+VJuez 3 - Enmascarada
+tp2030
+a(L135L
+VJuez 3
+tp2031
+a(L135L
+VConde de Valmaseda
+tp2032
+a(L135L
+VMujer de Valmaseda - Enmascarado
+tp2033
+a(L135L
+VAcólito de la guardiana
+tp2034
+a(L891L
+VCristina Beatriz
+tp2035
+a(L891L
+VLuis Alberto
+tp2036
+a(L893L
+V
+tp2037
+a(L894L
+V
+tp2038
+a(L895L
+VClara
+tp2039
+a(L895L
+VRaúl
+tp2040
+a(L896L
+VEstela
+tp2041
+a(L896L
+VJosé
+tp2042
+a(L897L
+VCristóbal
+tp2043
+a(L897L
+VIsabel
+tp2044
+a(L899L
+VMayito
+tp2045
+a(L899L
+VAbuela
+tp2046
+a(L899L
+VCarmen
+tp2047
+a(L899L
+VEnrique
+tp2048
+a(L899L
+VManolo
+tp2049
+a(L899L
+VHeather
+tp2050
+a(L395L
+VCelestino
+tp2051
+a(L395L
+VPucho
+tp2052
+a(L395L
+VDulce
+tp2053
+a(L396L
+VEl bárbaro
+tp2054
+a(L396L
+VVarilla
+tp2055
+a(L396L
+VLa reina
+tp2056
+a(L905L
+VEl niño de la mancha roja
+tp2057
+a(L905L
+VTomasita
+tp2058
+a(L905L
+VDon Mariano
+tp2059
+a(L905L
+VEtienne/Danza de la muerte
+tp2060
+a(L905L
+VEulogio Sagasta
+tp2061
+a(L905L
+VLucila
+tp2062
+a(L905L
+VAurora
+tp2063
+a(L905L
+VEl hombre de la mancha roja
+tp2064
+a(L905L
+VAdelaida
+tp2065
+a(L905L
+VEggungun
+tp2066
+a(L906L
+V
+tp2067
+a(L907L
+V
+tp2068
+a(L908L
+VChaguito
+tp2069
+a(L908L
+VDoña Gabriela
+tp2070
+a(L908L
+VJuanita
+tp2071
+a(L908L
+VDon Chago
+tp2072
+a(L908L
+VLuis
+tp2073
+a(L908L
+VGermana
+tp2074
+a(L908L
+VLito
+tp2075
+a(L908L
+VMatilde
+tp2076
+a(L908L
+VDoña Isa
+tp2077
+a(L908L
+VPaco
+tp2078
+a(L908L
+VLidia
+tp2079
+a(L908L
+VMr. Parkington
+tp2080
+a(L915L
+VEloisa (vieja)
+tp2081
+a(L915L
+VJuan José (viejo)
+tp2082
+a(L915L
+VLiduvina
+tp2083
+a(L915L
+VJuan Antonio
+tp2084
+a(L915L
+VEloisa (joven)
+tp2085
+a(L915L
+VÁgueda
+tp2086
+a(L915L
+VJuan José (joven)
+tp2087
+a(L915L
+VEnrique
+tp2088
+a(L922L
+VRubencio
+tp2089
+a(L922L
+VMarcelo
+tp2090
+a(L922L
+VPeposón
+tp2091
+a(L922L
+VBaldomero
+tp2092
+a(L922L
+VGallina loca
+tp2093
+a(L922L
+VDulcinea
+tp2094
+a(L925L
+VRosita Luna
+tp2095
+a(L925L
+VDon Crisol
+tp2096
+a(L925L
+VEsther
+tp2097
+a(L925L
+VPinta
+tp2098
+a(L925L
+VCheo
+tp2099
+a(L925L
+VCasimiro
+tp2100
+a(L925L
+VJuan García
+tp2101
+a(L928L
+VPútrida
+tp2102
+a(L928L
+VSolavaya
+tp2103
+a(L928L
+VLas Marías (La tierra)
+tp2104
+a(L928L
+VLa madre superiora
+tp2105
+a(L928L
+VManengue
+tp2106
+a(L928L
+VEl ciego de la bahía
+tp2107
+a(L928L
+VLa conga
+tp2108
+a(L928L
+VRuperta
+tp2109
+a(L928L
+VAndrajosa I
+tp2110
+a(L928L
+VAndrajosa II
+tp2111
+a(L928L
+VSoldado I
+tp2112
+a(L928L
+VSoldado II
+tp2113
+a(L928L
+V
+tp2114
+a(L931L
+VMae-Ema
+tp2115
+a(L931L
+VÁngel
+tp2116
+a(L931L
+VPae
+tp2117
+a(L932L
+VEl león
+tp2118
+a(L932L
+VLa domadora
+tp2119
+a(L933L
+V
+tp2120
+a(L934L
+V
+tp2121
+a(L935L
+VCarlos
+tp2122
+a(L935L
+VBerta
+tp2123
+a(L935L
+VAngelito
+tp2124
+a(L940L
+VLeonardo Gamboa
+tp2125
+a(L940L
+VCecilia Valdés
+tp2126
+a(L940L
+VDoña Rosa Sandoval
+tp2127
+a(L940L
+VIsabel Ilincheta
+tp2128
+a(L940L
+VNemesia Pimienta
+tp2129
+a(L941L
+V
+tp2130
+a(L942L
+V
+tp2131
+a(L943L
+V
+tp2132
+a(L944L
+VRita Lancaster
+tp2133
+a(L944L
+VMayra Morgan
+tp2134
+a(L945L
+V
+tp2135
+a(L946L
+VMarisol
+tp2136
+a(L946L
+VAngel
+tp2137
+a(L946L
+VYoung Woman
+tp2138
+a(L946L
+VRadio Voice
+tp2139
+a(L946L
+VMan with Ice Cream
+tp2140
+a(L946L
+VMan with Scar Tissue
+tp2141
+a(L946L
+VJune
+tp2142
+a(L946L
+VLenny
+tp2143
+a(L946L
+VWoman With Furs
+tp2144
+a(L948L
+VAfar
+tp2145
+a(L948L
+VPelayo
+tp2146
+a(L948L
+VFefé
+tp2147
+a(L948L
+VMomó
+tp2148
+a(L948L
+VElisenda
+tp2149
+a(L948L
+VThe Man with a Panama Hat/ Don Galante
+tp2150
+a(L948L
+VJustina
+tp2151
+a(L948L
+VBonafacia
+tp2152
+a(L948L
+VJuan José
+tp2153
+a(L948L
+VWoman Who's Been Crying
+tp2154
+a(L948L
+VWorker
+tp2155
+a(L949L
+VChirinos
+tp2156
+a(L949L
+VLa prima
+tp2157
+a(L949L
+VTeresa Repolla
+tp2158
+a(L949L
+VRabelín
+tp2159
+a(L949L
+VChanfalla
+tp2160
+a(L949L
+VEl gobernador Gomecillos
+tp2161
+a(L949L
+VEscribano Pedro Capacho
+tp2162
+a(L949L
+VConcejal Juan Castrado
+tp2163
+a(L949L
+VAlcalde Benito Repollo
+tp2164
+a(L949L
+VLa novia
+tp2165
+a(L949L
+VJuana Castrada
+tp2166
+a(L949L
+VEl sobrino Repollo
+tp2167
+a(L949L
+VEl Furrier
+tp2168
+a(L950L
+V
+tp2169
+a(L951L
+V
+tp2170
+a(L952L
+VLazarillo
+tp2171
+a(L953L
+VLa Chunga
+tp2172
+a(L953L
+VLa Meche
+tp2173
+a(L953L
+VEl Mono
+tp2174
+a(L953L
+VJosé
+tp2175
+a(L953L
+VJosefino
+tp2176
+a(L953L
+VLituma
+tp2177
+a(L954L
+VAna
+tp2178
+a(L954L
+VGuarda 3
+tp2179
+a(L954L
+VUna revolucionaria
+tp2180
+a(L954L
+VUna gitana
+tp2181
+a(L954L
+VAna joven.
+tp2182
+a(L954L
+VUn anarquista
+tp2183
+a(L954L
+VUn revolucionario
+tp2184
+a(L954L
+VEl médico
+tp2185
+a(L954L
+VGuarda 4
+tp2186
+a(L954L
+VUn amante
+tp2187
+a(L954L
+VUn africano negro
+tp2188
+a(L954L
+VGuarda 1
+tp2189
+a(L954L
+VUn japonés
+tp2190
+a(L954L
+VGuarda 2
+tp2191
+a(L954L
+VEl hermano
+tp2192
+a(L954L
+VMaría
+tp2193
+a(L954L
+VUna geisha
+tp2194
+a(L954L
+VLa ciega
+tp2195
+a(L954L
+VLa mujer de rojo
+tp2196
+a(L954L
+VUna yemenita
+tp2197
+a(L954L
+VLa madre
+tp2198
+a(L954L
+VEl padre
+tp2199
+a(L955L
+VMaruja
+tp2200
+a(L955L
+VGerardo
+tp2201
+a(L955L
+VAníbal
+tp2202
+a(L955L
+VZulema
+tp2203
+a(L955L
+VSalomé
+tp2204
+a(L956L
+VRaquel/Celso
+tp2205
+a(L956L
+VDorotea
+tp2206
+a(L956L
+VAnselmo
+tp2207
+a(L956L
+VRamón
+tp2208
+a(L979L
+VFederico
+tp2209
+a(L979L
+VFred
+tp2210
+a(L979L
+Vtaxi driver
+tp2211
+a(L979L
+Vpercussionist
+tp2212
+a(L981L
+V
+tp2213
+a(L1L
+Vnovia
+tp2214
+a(L982L
+VLa Profe
+tp2215
+a(L982L
+VLa Snobby
+tp2216
+a(L982L
+VRosita
+tp2217
+a(L982L
+VEl chofer
+tp2218
+a(L982L
+VEl borracho
+tp2219
+a(L982L
+VAndy
+tp2220
+a(L982L
+VManny
+tp2221
+a(L982L
+VMaría
+tp2222
+a(L982L
+VEl cliente
+tp2223
+a(L982L
+VSatanela
+tp2224
+a(L982L
+VTiro al aire
+tp2225
+a(L982L
+VBobby
+tp2226
+a(L982L
+VLa siempre viva
+tp2227
+a(L982L
+VEl tímido
+tp2228
+a(L982L
+VPolicía 1
+tp2229
+a(L982L
+VPolicía 2
+tp2230
+a(L992L
+VPaulina Salas
+tp2231
+a(L992L
+VGerardo Escobar
+tp2232
+a(L992L
+VRoberto Miranda
+tp2233
+a(L993L
+V
+tp2234
+a(L994L
+V
+tp2235
+a(L995L
+VHumbolt
+tp2236
+a(L995L
+VBonpland
+tp2237
+a(L995L
+VSeifert
+tp2238
+a(L995L
+VCalibán
+tp2239
+a(L995L
+VLacayo
+tp2240
+a(L996L
+V
+tp2241
+a(L997L
+VEl director
+tp2242
+a(L997L
+VEl otro
+tp2243
+a(L997L
+VUno
+tp2244
+a(L997L
+VLa joven
+tp2245
+a(L997L
+VPupi
+tp2246
+a(L997L
+VRodolfo
+tp2247
+a(L997L
+VLudovina
+tp2248
+a(L997L
+VEl muchacho de paso
+tp2249
+a(L997L
+VLa gordita
+tp2250
+a(L997L
+VEl hombre de la barba
+tp2251
+a(L997L
+VEl autor
+tp2252
+a(L997L
+VAzul
+tp2253
+a(L997L
+VAmarillo
+tp2254
+a(L998L
+V
+tp2255
+a(L999L
+VTito
+tp2256
+a(L999L
+VCharlie
+tp2257
+a(L999L
+VSkinny Woman
+tp2258
+a(L999L
+VSoldier
+tp2259
+a(L999L
+VBloody Butcher
+tp2260
+a(L999L
+VOrderly
+tp2261
+a(L999L
+VCanadian Tourist
+tp2262
+a(L999L
+VPionera
+tp2263
+a(L1000L
+VDoña Margarita
+tp2264
+a(L1001L
+VNiña
+tp2265
+a(L1001L
+VMadre panadera
+tp2266
+a(L1001L
+VPadre panadero
+tp2267
+a(L1001L
+VPrima rica
+tp2268
+a(L1001L
+VPrimo rico
+tp2269
+a(L1001L
+VTía profesora
+tp2270
+a(L1001L
+VTío capitán
+tp2271
+a(L1001L
+VPrima pobre
+tp2272
+a(L1001L
+VPrimo pobre
+tp2273
+a(L1001L
+VHermana hongo
+tp2274
+a(L1001L
+VHermano piloto
+tp2275
+a(L1001L
+VAmiga de mamá
+tp2276
+a(L1001L
+VAmigo de papá
+tp2277
+a(L1002L
+VDon Diego
+tp2278
+a(L1002L
+VSimone
+tp2279
+a(L1002L
+VChivis
+tp2280
+a(L1002L
+VDoña Irene
+tp2281
+a(L1002L
+VFrancisca
+tp2282
+a(L1002L
+VRita
+tp2283
+a(L1002L
+VCalamocha
+tp2284
+a(L1002L
+VCarlos
+tp2285
+a(L1003L
+VDon Quijote - Payaso 2
+tp2286
+a(L1003L
+VSancho - Payaso 3
+tp2287
+a(L1003L
+VSobrina - Adivino - Payaso 1
+tp2288
+a(L1003L
+VCura - Caballero - Payaso director
+tp2289
+a(L1003L
+VAma - Hechicera - Payaso 5
+tp2290
+a(L1004L
+V
+tp2291
+a(L1006L
+V
+tp2292
+a(L427L
+VAmbrosia
+tp2293
+a(L427L
+VEnrique
+tp2294
+a(L427L
+VDirector de la televisión
+tp2295
+a(L427L
+VLa enfermera
+tp2296
+a(L980L
+VGladys
+tp2297
+a(L980L
+VCarlos
+tp2298
+a(L980L
+VJulio
+tp2299
+a(L980L
+V
+tp2300
+a(L980L
+VRosa/ Elena
+tp2301
+a(L980L
+VAdria/ Lourdes
+tp2302
+a(L1011L
+V
+tp2303
+a(L1014L
+V
+tp2304
+a(L1009L
+VIphigenia
+tp2305
+a(L1009L
+VAchilles
+tp2306
+a(L1009L
+VFresa Girl 2
+tp2307
+a(L1009L
+VVirtual MC
+tp2308
+a(L1009L
+VAdolfo
+tp2309
+a(L1009L
+VFresa Girl 1
+tp2310
+a(L1009L
+VCamila
+tp2311
+a(L1009L
+VVioleta Imperial
+tp2312
+a(L1009L
+VFresa Girl 3
+tp2313
+a(L1009L
+VNews Anchor
+tp2314
+a(L1009L
+VOrestes
+tp2315
+a(L1009L
+VSoldier X
+tp2316
+a(L1009L
+VCamera Man
+tp2317
+a(L1009L
+VExtra Raver
+tp2318
+a(L1017L
+VTirasol
+tp2319
+a(L1017L
+VSelah
+tp2320
+a(L1017L
+VCaroline
+tp2321
+a(L1017L
+VMiranda
+tp2322
+a(L1017L
+VJamie
+tp2323
+a(L1017L
+VSimone
+tp2324
+a(L650L
+VOld Man
+tp2325
+a(L650L
+VYoung Man
+tp2326
+a(L650L
+VTypist
+tp2327
+a(L650L
+VServant/ Maid
+tp2328
+a(L650L
+VFiancée/ Girl/ Maid
+tp2329
+a(L650L
+VFirst Friend/ Football Player/ Card Player
+tp2330
+a(L650L
+VBoy
+tp2331
+a(L650L
+VCat/ Mannequin/ Ensemble
+tp2332
+a(L650L
+VSecond Friend/  Card Player/ Ensemble
+tp2333
+a(L650L
+VFiancée/ Card Player/ Ensemble
+tp2334
+a(L650L
+VHarlequin/ Ensemble
+tp2335
+a(L650L
+VClown/ Ensemble
+tp2336
+a(L650L
+VYellow Mask/ Ensemble
+tp2337
+a(L612L
+V
+tp2338
+a(L610L
+VHope
+tp2339
+a(L610L
+VFaith
+tp2340
+a(L610L
+VCharity
+tp2341
+a(L610L
+VOshun
+tp2342
+a(L535L
+V
+tp2343
+a(L522L
+V
+tp2344
+a(L642L
+VEileen
+tp2345
+a(L642L
+VStevie
+tp2346
+a(L642L
+VPete
+tp2347
+a(L1020L
+VSimone
+tp2348
+a(L1020L
+VJamie
+tp2349
+a(L1020L
+VSelah
+tp2350
+a(L1020L
+VTirasol
+tp2351
+a(L1020L
+VFemale U/S
+tp2352
+a(L1020L
+VChorus Member
+tp2353
+a(L1020L
+VGrandmother
+tp2354
+a(L1020L
+VMale U/S
+tp2355
+a(L1020L
+VSelah's Dead Husband
+tp2356
+a(L1022L
+V
+tp2357
+a(L568L
+VWitness/Press
+tp2358
+a(L568L
+VPonce the U.S. Senator
+tp2359
+a(L568L
+VJohn/ Adam/Jim/ Bob Dylan/ Lee Harvey Oswald/ Good Humor Man
+tp2360
+a(L568L
+VJFK/ Jackie Gleason
+tp2361
+a(L568L
+VMother/ Martha/ Fidel Catro
+tp2362
+a(L568L
+VMandy/ Patsy Cline/ Perry Como/ Petula Clark
+tp2363
+a(L568L
+VHenry/ Gideon/ Simon/ Andy Warhol/ John Lennon
+tp2364
+a(L568L
+VLouella/ Edith Piaf/ Jackie  Kennedy
+tp2365
+a(L646L
+VChris
+tp2366
+a(L646L
+VAriel
+tp2367
+a(L646L
+VNeff
+tp2368
+a(L646L
+VStewart
+tp2369
+a(L540L
+VSimone
+tp2370
+a(L540L
+VTirasol
+tp2371
+a(L540L
+VCaroline
+tp2372
+a(L540L
+VSelah
+tp2373
+a(L540L
+VMiranda
+tp2374
+a(L540L
+VJamie
+tp2375
+a(L573L
+VPerdita
+tp2376
+a(L573L
+VHermione
+tp2377
+a(L573L
+VFlori
+tp2378
+a(L573L
+VBosco
+tp2379
+a(L573L
+VAxl/ Time
+tp2380
+a(L573L
+VLeon
+tp2381
+a(L573L
+VRaven 1
+tp2382
+a(L573L
+VRaven 2
+tp2383
+a(L573L
+VRaven 3
+tp2384
+a(L1025L
+V
+tp2385
+a(L1026L
+VFirst Son
+tp2386
+a(L1026L
+VSecond Son
+tp2387
+a(L1026L
+VHusband
+tp2388
+a(L1026L
+VNurse
+tp2389
+a(L1027L
+V
+tp2390
+a(L1032L
+V
+tp2391
+a(L1033L
+V
+tp2392
+a(L1034L
+V
+tp2393
+a(L1035L
+VYemayá
+tp2394
+a(L1035L
+VCoralia
+tp2395
+a(L1035L
+VIluminada
+tp2396
+a(L1035L
+VSan Roque
+tp2397
+a(L1035L
+VDiosdada
+tp2398
+a(L1036L
+V
+tp2399
+a(L1038L
+VEladio/ La chicana
+tp2400
+a(L1038L
+VMiguel
+tp2401
+a(L1038L
+VJairo
+tp2402
+a(L1038L
+VAntonio
+tp2403
+a(L1038L
+VMike
+tp2404
+a(L1038L
+VGustavo
+tp2405
+a(L1038L
+VFreddy
+tp2406
+a(L1038L
+VPadre
+tp2407
+a(L1040L
+VEladio/ La chicana
+tp2408
+a(L1040L
+VMiguel
+tp2409
+a(L1040L
+VJairo
+tp2410
+a(L1040L
+VAntonio
+tp2411
+a(L1040L
+VMike
+tp2412
+a(L1040L
+VGustavo
+tp2413
+a(L1040L
+VFreddy
+tp2414
+a(L1040L
+VPadre
+tp2415
+a(L1039L
+VEladio/ La chicana
+tp2416
+a(L1039L
+VMiguel
+tp2417
+a(L1039L
+VJairo
+tp2418
+a(L1039L
+VAntonio
+tp2419
+a(L1039L
+VMike
+tp2420
+a(L1039L
+VGustavo
+tp2421
+a(L1039L
+VFreddy
+tp2422
+a(L1039L
+VPadre
+tp2423
+a(L1043L
+V
+tp2424
+a(L1037L
+VLaura
+tp2425
+a(L1037L
+VIrene
+tp2426
+a(L1037L
+VAndrew
+tp2427
+a(L1037L
+VHugo
+tp2428
+a(L1047L
+VCuca
+tp2429
+a(L1047L
+VCarmen
+tp2430
+a(L1047L
+VMailman
+tp2431
+a(L1047L
+VOfficial 1
+tp2432
+a(L1047L
+VAltagracia
+tp2433
+a(L1047L
+VJunior
+tp2434
+a(L1047L
+VTulia
+tp2435
+a(L1047L
+VOfficial 2
+tp2436
+a(L1055L
+VJuan Julián
+tp2437
+a(L1055L
+VConchita
+tp2438
+a(L1055L
+VOfelia
+tp2439
+a(L1055L
+VPalomo
+tp2440
+a(L1055L
+VEliades
+tp2441
+a(L1055L
+VSantiago
+tp2442
+a(L1055L
+VCheche
+tp2443
+a(L1055L
+VMarela
+tp2444
+a(L1055L
+VCigarrero
+tp2445
+a(L1055L
+VCigarrera
+tp2446
+a(L314L
+V
+tp2447
+a(L1058L
+VOfelina
+tp2448
+a(L1058L
+VFifo
+tp2449
+a(L1058L
+VPilar
+tp2450
+a(L1058L
+VCamilo
+tp2451
+a(L1058L
+VHilario - Ofelina's husband
+tp2452
+a(L1058L
+VDimitri Yefimovich Kruschov - a young Russian scientist
+tp2453
+a(L1059L
+VPaquita
+tp2454
+a(L1059L
+VMarina
+tp2455
+a(L1059L
+VFederico García Lorca
+tp2456
+a(L1059L
+VEmiliano
+tp2457
+a(L1059L
+VKarim
+tp2458
+a(L1051L
+VFaust
+tp2459
+a(L1051L
+VDiablo
+tp2460
+a(L1051L
+VMargarita
+tp2461
+a(L1062L
+VGhost of Federico García Lorca
+tp2462
+a(L1062L
+VPaquita
+tp2463
+a(L1062L
+VHakim
+tp2464
+a(L1062L
+VMarina
+tp2465
+a(L1062L
+VEmiliano
+tp2466
+a(L1064L
+VFefu
+tp2467
+a(L1064L
+VCindy
+tp2468
+a(L1064L
+VChristina
+tp2469
+a(L1064L
+VJulia
+tp2470
+a(L1064L
+VEmma
+tp2471
+a(L1064L
+VPaula
+tp2472
+a(L1064L
+VSue
+tp2473
+a(L1064L
+VCecilia
+tp2474
+a(L1065L
+VMadre Superiora
+tp2475
+a(L1065L
+VSor Angela
+tp2476
+a(L1065L
+VSor Inés
+tp2477
+a(L1065L
+VSeñora
+tp2478
+a(L1068L
+V
+tp2479
+a(L1067L
+V
+tp2480
+a(L1019L
+V
+tp2481
+a(L510L
+V
+tp2482
+a(L1092L
+VTia Meim
+tp2483
+a(L1098L
+VLizzie
+tp2484
+a(L1098L
+VFred
+tp2485
+a(L1098L
+VSenador Clarke
+tp2486
+a(L1098L
+VEl negro
+tp2487
+a(L1099L
+V
+tp2488
+a(L1100L
+V
+tp2489
+a(L543L
+Vdoble de Clitemnestra
+tp2490
+a(L543L
+VCamarista primera
+tp2491
+a(L543L
+VCamarista segunda
+tp2492
+a(L543L
+Vdoble de Agamenón
+tp2493
+a(L543L
+VCriado primero
+tp2494
+a(L543L
+VCriado segundo
+tp2495
+a(L543L
+VGuitarrista
+tp2496
+a(L1136L
+VFlaco
+tp2497
+a(L1136L
+VDaniel
+tp2498
+a(L1136L
+VLee
+tp2499
+a(L1136L
+VKayla
+tp2500
+a(L1136L
+VLeslie
+tp2501
+a(L1136L
+VMonica
+tp2502
+a(L1136L
+VCory
+tp2503
+a(L1138L
+V
+tp2504
+a(L1144L
+VTroubled John
+tp2505
+a(L1144L
+VIsrafel
+tp2506
+a(L1144L
+VProvidence
+tp2507
+a(L1144L
+VDowncast Mary
+tp2508
+a(L1145L
+VIleana
+tp2509
+a(L1145L
+VLeonor
+tp2510
+a(L1145L
+VIsidro
+tp2511
+a(L1145L
+VZulema
+tp2512
+a(L1145L
+VAdolfo
+tp2513
+a(L1145L
+VMuñeca
+tp2514
+a(L1153L
+VShe
+tp2515
+a(L1153L
+VHusband
+tp2516
+a(L1153L
+VLover
+tp2517
+a(L1153L
+VPilar
+tp2518
+a(L1153L
+VMother
+tp2519
+a(L1153L
+VBrother
+tp2520
+a(L1154L
+VHe: a man who does his job: torture
+tp2521
+a(L1154L
+VShe: a woman from Santiago
+tp2522
+a(L1154L
+VInterlocutor
+tp2523
+a(L1154L
+VLover: an urban guerilla
+tp2524
+a(L1154L
+VPilar: a laundress
+tp2525
+a(L1154L
+VMother: of She
+tp2526
+a(L1154L
+Vwho lives on a pension
+tp2527
+a(L1156L
+VOnofre
+tp2528
+a(L1156L
+VCelia
+tp2529
+a(L1156L
+VJusta
+tp2530
+a(L1156L
+VAnnsheridan
+tp2531
+a(L1158L
+VPura
+tp2532
+a(L1158L
+VCora
+tp2533
+a(L1158L
+VNilo
+tp2534
+a(L1159L
+VGabriel
+tp2535
+a(L1159L
+VFlora
+tp2536
+a(L1159L
+VInocencia
+tp2537
+a(L1159L
+VJesús
+tp2538
+a(L1159L
+VPérez
+tp2539
+a(L1159L
+VArmando
+tp2540
+a(L1159L
+VVoice of Police
+tp2541
+a(L1160L
+VClara
+tp2542
+a(L1160L
+VNuno
+tp2543
+a(L1160L
+VLola
+tp2544
+a(L1160L
+VMau
+tp2545
+a(L1160L
+VAlberto
+tp2546
+a(L1160L
+VYuya
+tp2547
+a(L1233L
+V
+tp2548
+a(L1165L
+VNardo
+tp2549
+a(L1165L
+VHippolyta
+tp2550
+a(L1165L
+VFedora
+tp2551
+a(L1176L
+VLorca with Blood
+tp2552
+a(L1176L
+VLorca as a Woman
+tp2553
+a(L1176L
+VLorca in a White Suit
+tp2554
+a(L1176L
+VLorca in a Green Dress
+tp2555
+a(L1176L
+VLorca in Bicycle Pants
+tp2556
+a(L1176L
+VGuard
+tp2557
+a(L1176L
+VGeneral
+tp2558
+a(L1176L
+VDancer
+tp2559
+a(L1177L
+VSelf
+tp2560
+a(L802L
+VCoco
+tp2561
+a(L802L
+VMotica
+tp2562
+a(L802L
+VBella
+tp2563
+a(L802L
+VSultán
+tp2564
+a(L802L
+VKing
+tp2565
+a(L565L
+V
+tp2566
+a(L566L
+VMarcela
+tp2567
+a(L566L
+VIgnacio
+tp2568
+a(L566L
+VRafael
+tp2569
+a(L566L
+VPaco
+tp2570
+a(L566L
+VCoral
+tp2571
+a(L566L
+VWoman on Road
+tp2572
+a(L566L
+VMiriam
+tp2573
+a(L566L
+VMocha
+tp2574
+a(L566L
+VRider
+tp2575
+a(L566L
+VCarlo
+tp2576
+a(L566L
+VHalf-Dressed Man
+tp2577
+a(L587L
+VJeff Metzner
+tp2578
+a(L587L
+VGina Metzner
+tp2579
+a(L587L
+VTodd Neely
+tp2580
+a(L1587L
+VRafael
+tp2581
+a(L1587L
+V
+tp2582
+a(L1196L
+VCarmen Zayas Bazán
+tp2583
+a(L1196L
+VJosé Martí
+tp2584
+a(L1196L
+VLucía Jerez
+tp2585
+a(L1197L
+V
+tp2586
+a(L1168L
+V
+tp2587
+a(L1198L
+V
+tp2588
+a(L1199L
+VOchún
+tp2589
+a(L1199L
+VEurídice - Yemayá
+tp2590
+a(L1199L
+V
+tp2591
+a(L1200L
+V
+tp2592
+a(L1685L
+V
+tp2593
+a(L1203L
+VMomó
+tp2594
+a(L1203L
+VFefé
+tp2595
+a(L1203L
+VAfar
+tp2596
+a(L1203L
+VElisenda
+tp2597
+a(L1203L
+VPelayo
+tp2598
+a(L1204L
+V
+tp2599
+a(L1210L
+VBetty
+tp2600
+a(L1210L
+VAlma
+tp2601
+a(L1210L
+VMilagros (Mickey)
+tp2602
+a(L1210L
+VSol
+tp2603
+a(L1210L
+VGeorge
+tp2604
+a(L1211L
+VBetty
+tp2605
+a(L1211L
+VAlma
+tp2606
+a(L1211L
+VSol
+tp2607
+a(L1211L
+VMilagros (Mickey)
+tp2608
+a(L1211L
+VGeorge
+tp2609
+a(L1212L
+VBetty
+tp2610
+a(L1212L
+VAlma
+tp2611
+a(L1212L
+VMilagros (Mickey)
+tp2612
+a(L1212L
+VSol
+tp2613
+a(L1212L
+VGeorge
+tp2614
+a(L1212L
+VCrystal/ Radio Announcer
+tp2615
+a(L1217L
+VJulian
+tp2616
+a(L1217L
+VNatalie
+tp2617
+a(L1218L
+VNardo
+tp2618
+a(L1218L
+VHipólita
+tp2619
+a(L1218L
+VFedora
+tp2620
+a(L1222L
+VThe Dream Bookie
+tp2621
+a(L1222L
+VLele
+tp2622
+a(L1222L
+VGuanche
+tp2623
+a(L1222L
+VLa Contessa
+tp2624
+a(L1222L
+VMenelio
+tp2625
+a(L1223L
+VMario
+tp2626
+a(L1223L
+VRoberto
+tp2627
+a(L1226L
+V
+tp2628
+a(L1234L
+VRosa
+tp2629
+a(L1234L
+VMario
+tp2630
+a(L1237L
+VMaría Celia
+tp2631
+a(L1237L
+VSofía
+tp2632
+a(L1237L
+VLieutenant Portuondo
+tp2633
+a(L1237L
+VVictor Manuel
+tp2634
+a(L1238L
+VEmilia
+tp2635
+a(L1238L
+VVicente
+tp2636
+a(L1238L
+VLaura
+tp2637
+a(L1239L
+VMaría Celia
+tp2638
+a(L1239L
+VSofía
+tp2639
+a(L1239L
+VLieutenant Portuondo
+tp2640
+a(L1239L
+VVictor Manuel
+tp2641
+a(L1240L
+VMaría Celia
+tp2642
+a(L1240L
+VSofía
+tp2643
+a(L1240L
+VLieutenant Portuondo
+tp2644
+a(L1240L
+VVictor Manuel
+tp2645
+a(L1241L
+VLorca with Blood
+tp2646
+a(L1241L
+VGuard
+tp2647
+a(L1241L
+VGeneral
+tp2648
+a(L1241L
+VLorca with Bicycle Pants
+tp2649
+a(L1241L
+VLorca as a Woman
+tp2650
+a(L1241L
+VLorca in a White Suit
+tp2651
+a(L1241L
+VLorca in a Green Dress
+tp2652
+a(L1241L
+VFlamenco Dancer
+tp2653
+a(L647L
+VServant
+tp2654
+a(L647L
+VPoncia
+tp2655
+a(L647L
+VMaría Josefa (Bernarda's Mother)
+tp2656
+a(L647L
+VMourners
+tp2657
+a(L647L
+VBeggar Woman
+tp2658
+a(L647L
+VPrudencia
+tp2659
+a(L647L
+VYoung Girl
+tp2660
+a(L647L
+VAngustias (Bernarda's Daughter)
+tp2661
+a(L647L
+VAmelia (Bernarda's Daughter)
+tp2662
+a(L647L
+VMagdalena (Bernarda's Daughter)
+tp2663
+a(L647L
+VAdela (Bernarda's Daughter)
+tp2664
+a(L647L
+VMartirio (Bernarda's Daughter)
+tp2665
+a(L547L
+V
+tp2666
+a(L602L
+VBritt
+tp2667
+a(L602L
+VMisclaida
+tp2668
+a(L602L
+VAzucena
+tp2669
+a(L1245L
+VA Traveler
+tp2670
+a(L1249L
+V
+tp2671
+a(L1251L
+V
+tp2672
+a(L1252L
+VLaurencia
+tp2673
+a(L1252L
+VFrondoso
+tp2674
+a(L1252L
+VComendador
+tp2675
+a(L1252L
+VPascuala
+tp2676
+a(L1252L
+VAlcalde de Fuenteovejuna
+tp2677
+a(L1252L
+VMengo
+tp2678
+a(L1253L
+V
+tp2679
+a(L1254L
+VMaría
+tp2680
+a(L1254L
+VLa muchacha
+tp2681
+a(L1255L
+VLa Novia
+tp2682
+a(L1255L
+VLa Madre
+tp2683
+a(L1255L
+VLa Mendiga
+tp2684
+a(L1255L
+VLeonardo
+tp2685
+a(L1255L
+VBailadora
+tp2686
+a(L1255L
+VLuna
+tp2687
+a(L1255L
+VEl Novio
+tp2688
+a(L1255L
+VLa Criada
+tp2689
+a(L1255L
+VEl Padre de la novia
+tp2690
+a(L1267L
+VSterile woman
+tp2691
+a(L1267L
+VNonato (the fetus)
+tp2692
+a(L1267L
+Vone of the altered embryos
+tp2693
+a(L1267L
+VMorbo
+tp2694
+a(L1267L
+Vone of the genetically altered fetuses
+tp2695
+a(L1268L
+VLa Lupe
+tp2696
+a(L1271L
+VMonologue
+tp2697
+a(L1272L
+VFelicia
+tp2698
+a(L1272L
+VPetra
+tp2699
+a(L1272L
+VOdalys
+tp2700
+a(L1272L
+VLazarito
+tp2701
+a(L1272L
+VLaurel
+tp2702
+a(L1272L
+VChicho
+tp2703
+a(L1273L
+V
+tp2704
+a(L1275L
+V
+tp2705
+a(L1276L
+V
+tp2706
+a(L1277L
+V
+tp2707
+a(L1279L
+VEstela
+tp2708
+a(L1279L
+VCarmen
+tp2709
+a(L1279L
+VAna
+tp2710
+a(L1279L
+VRosalí
+tp2711
+a(L1279L
+VPancha
+tp2712
+a(L1280L
+V
+tp2713
+a(L1281L
+V
+tp2714
+a(L1284L
+V
+tp2715
+a(L1286L
+VRasha
+tp2716
+a(L1286L
+VIgor
+tp2717
+a(L1286L
+VRasha's Father
+tp2718
+a(L1286L
+VIvan
+tp2719
+a(L1286L
+VMila
+tp2720
+a(L1290L
+V
+tp2721
+a(L618L
+V
+tp2722
+a(L1291L
+V
+tp2723
+a(L1297L
+VNiño de la Plaza
+tp2724
+a(L1298L
+VSoldado joven
+tp2725
+a(L1299L
+VAliocha
+tp2726
+a(L1300L
+VPeriquín
+tp2727
+a(L1301L
+VAbraham
+tp2728
+a(L1302L
+VAntonio
+tp2729
+a(L1303L
+VFedersoni
+tp2730
+a(L383L
+VBasilio
+tp2731
+a(L1304L
+VToñito
+tp2732
+a(L1305L
+VCoro
+tp2733
+a(L1306L
+VAuxiliar
+tp2734
+a(L1307L
+VPepe
+tp2735
+a(L1308L
+VIsmael
+tp2736
+a(L1310L
+VDaniel
+tp2737
+a(L1311L
+VRecluta
+tp2738
+a(L1312L
+VCiencias
+tp2739
+a(L1313L
+VTabernero
+tp2740
+a(L1314L
+VBebo Barrendero
+tp2741
+a(L1315L
+VMacher
+tp2742
+a(L1316L
+V
+tp2743
+a(L1317L
+VIgnacio
+tp2744
+a(L1318L
+VEmilio
+tp2745
+a(L1319L
+VNeruda
+tp2746
+a(L373L
+VCleanto
+tp2747
+a(L1321L
+V
+tp2748
+a(L1327L
+V
+tp2749
+a(L1328L
+V
+tp2750
+a(L1329L
+VVarilla
+tp2751
+a(L1329L
+VEl Bárbaro
+tp2752
+a(L1329L
+VLa Reina
+tp2753
+a(L1286L
+VDoole
+tp2754
+a(L1330L
+VLeandro Ars
+tp2755
+a(L1330L
+VHenry Colina
+tp2756
+a(L1330L
+VLaura María
+tp2757
+a(L1330L
+VMarcos Viera
+tp2758
+a(L1331L
+VClaudia
+tp2759
+a(L1331L
+VJavier
+tp2760
+a(L1331L
+VAmante de Javier
+tp2761
+a(L1331L
+VAngelina
+tp2762
+a(L1331L
+VPalomo
+tp2763
+a(L1332L
+V
+tp2764
+a(L1333L
+V
+tp2765
+a(L1334L
+V
+tp2766
+a(L1335L
+V
+tp2767
+a(L1336L
+V
+tp2768
+a(L1337L
+V
+tp2769
+a(L1340L
+V
+tp2770
+a(L1341L
+VAlcibiar
+tp2771
+a(L1341L
+Vdame
+tp2772
+a(L1341L
+VJilguero
+tp2773
+a(L1341L
+Vhomme
+tp2774
+a(L1342L
+V
+tp2775
+a(L1338L
+V
+tp2776
+a(L1343L
+VAura
+tp2777
+a(L1343L
+VAsundiansam
+tp2778
+a(L1345L
+VSister Inez
+tp2779
+a(L1345L
+VMother Superior
+tp2780
+a(L1345L
+VSister Angela
+tp2781
+a(L1345L
+VWealthy Benefactress
+tp2782
+a(L1346L
+V
+tp2783
+a(L1347L
+V
+tp2784
+a(L1348L
+V
+tp2785
+a(L1351L
+V
+tp2786
+a(L1354L
+VKárel Darín
+tp2787
+a(L1354L
+VSilvia Depás
+tp2788
+a(L1354L
+VAlejandro Depás
+tp2789
+a(L1354L
+VSaúl Alter
+tp2790
+a(L1354L
+VRoberta López
+tp2791
+a(L1354L
+Vguardaparque
+tp2792
+a(L1366L
+VBárbara
+tp2793
+a(L1354L
+VMiguel Depás
+tp2794
+a(L1354L
+VLa Paco
+tp2795
+a(L1354L
+Vflorista
+tp2796
+a(L1355L
+V
+tp2797
+a(L1356L
+V
+tp2798
+a(L1357L
+VSanta Camila
+tp2799
+a(L1358L
+VVerónica
+tp2800
+a(L1359L
+V
+tp2801
+a(L1360L
+V
+tp2802
+a(L201L
+V
+tp2803
+a(L1364L
+VTomás Stockman
+tp2804
+a(L1366L
+VSeverina
+tp2805
+a(L1364L
+VCatalina
+tp2806
+a(L1364L
+VObstad
+tp2807
+a(L1364L
+VAslaksen
+tp2808
+a(L1364L
+VPetra
+tp2809
+a(L1364L
+VBilling
+tp2810
+a(L1354L
+VFelipe Alejo
+tp2811
+a(L1364L
+VPedro Stockman
+tp2812
+a(L1366L
+VJazmín
+tp2813
+a(L1366L
+VAmado
+tp2814
+a(L1366L
+VFeliciano
+tp2815
+a(L1367L
+VPedro Navaja
+tp2816
+a(L1367L
+VLola
+tp2817
+a(L1367L
+VCambalache
+tp2818
+a(L1367L
+VSra. Cambalache
+tp2819
+a(L1367L
+VLily Cambalanche
+tp2820
+a(L1367L
+VTacón Cristal
+tp2821
+a(L1368L
+VKarl Marx
+tp2822
+a(L1372L
+V
+tp2823
+a(L1373L
+VCecilia
+tp2824
+a(L1373L
+V
+tp2825
+a(L1375L
+V
+tp2826
+a(L1371L
+VLizzie
+tp2827
+a(L1098L
+VThomas
+tp2828
+a(L1098L
+VPolicía
+tp2829
+a(L1383L
+V
+tp2830
+a(L1113L
+V
+tp2831
+a(L1113L
+VReiderico
+tp2832
+a(L1400L
+VMario Conde
+tp2833
+a(L1400L
+VCandito el Rojo
+tp2834
+a(L1400L
+VKarina
+tp2835
+a(L1400L
+VYuri Samper
+tp2836
+a(L1400L
+VLázaro San Juan
+tp2837
+a(L1400L
+VJosé Luís
+tp2838
+a(L1400L
+VElvis
+tp2839
+a(L1400L
+VLuís Gustavo
+tp2840
+a(L1400L
+V Pupy
+tp2841
+a(L1400L
+VEl flaco Carlos
+tp2842
+a(L1400L
+V Andrés
+tp2843
+a(L1400L
+VLando el ruso
+tp2844
+a(L1373L
+VIsabel
+tp2845
+a(L1373L
+VCándido Gamboa
+tp2846
+a(L1373L
+VLeonardo
+tp2847
+a(L1373L
+VCharo
+tp2848
+a(L1373L
+VChepilla
+tp2849
+a(L1373L
+VClitemnestra Plá
+tp2850
+a(L1411L
+V
+tp2851
+a(L1412L
+VPedro
+tp2852
+a(L1412L
+VFreddo
+tp2853
+a(L1412L
+VRicardo
+tp2854
+a(L1412L
+V
+tp2855
+a(L1269L
+VVicky
+tp2856
+a(L1269L
+VRey
+tp2857
+a(L1413L
+VVicky
+tp2858
+a(L1408L
+VElla
+tp2859
+a(L284L
+V
+tp2860
+a(L1436L
+V
+tp2861
+a(L247L
+V
+tp2862
+a(L1435L
+V
+tp2863
+a(L1434L
+V
+tp2864
+a(L1408L
+VÉl
+tp2865
+a(L1305L
+VMariana
+tp2866
+a(L1305L
+Vuna mujer que va atada a la cola de un caballo
+tp2867
+a(L1305L
+VLorca
+tp2868
+a(L1305L
+Vel poeta
+tp2869
+a(L1305L
+Vevoca a Fernand Conspirador Alegrito
+tp2870
+a(L1305L
+VLa Clavela
+tp2871
+a(L1305L
+VPedrosa
+tp2872
+a(L1305L
+VPedro Sotomayor
+tp2873
+a(L1305L
+VNiño
+tp2874
+a(L1305L
+VNiña
+tp2875
+a(L1305L
+VÁngeles de la muerte
+tp2876
+a(L1305L
+VVerdugo
+tp2877
+a(L1305L
+VCoro de conspiradores y enlutados
+tp2878
+a(L1455L
+VLalo
+tp2879
+a(L1455L
+VCuca
+tp2880
+a(L1455L
+VBeba
+tp2881
+a(L1456L
+VElectra
+tp2882
+a(L1456L
+VAgamenon
+tp2883
+a(L1456L
+VClitemnestra
+tp2884
+a(L1456L
+VCaronte
+tp2885
+a(L1450L
+VTota
+tp2886
+a(L1450L
+Vuna vieja de sesenta años
+tp2887
+a(L1450L
+VTabo
+tp2888
+a(L1450L
+Vun viejo de sesenta años
+tp2889
+a(L1440L
+VVioleta
+tp2890
+a(L1440L
+V
+tp2891
+a(L1440L
+VGermont
+tp2892
+a(L1481L
+V
+tp2893
+a(L1462L
+VSantiago Mariño
+tp2894
+a(L1462L
+V
+tp2895
+a(L1462L
+VConde de las Vegas
+tp2896
+a(L1462L
+VMarquesa del Palmar
+tp2897
+a(L1462L
+VMaría La O
+tp2898
+a(L1481L
+VMaría La O
+tp2899
+a(L1462L
+VNiña Tula
+tp2900
+a(L1462L
+VFernando de Alcázar
+tp2901
+a(L1462L
+VJosé Inocente
+tp2902
+a(L1482L
+VVictorial Real
+tp2903
+a(L1482L
+VÚrsula García Real
+tp2904
+a(L1482L
+VBertha García Real
+tp2905
+a(L1485L
+V
+tp2906
+a(L1486L
+V
+tp2907
+a(L1487L
+VNicolasa
+tp2908
+a(L1488L
+VIsabel I
+tp2909
+a(L1488L
+Vde Inglaterra
+tp2910
+a(L1488L
+VLord Enrique
+tp2911
+a(L1488L
+VLady Carolina
+tp2912
+a(L1488L
+VLord Norfok
+tp2913
+a(L1488L
+VDavid Moore
+tp2914
+a(L1488L
+V
+tp2915
+a(L1488L
+VLord Moore
+tp2916
+a(L1072L
+V
+tp2917
+a(L1489L
+V
+tp2918
+a(L1490L
+V
+tp2919
+a(L1491L
+VAlberto
+tp2920
+a(L1491L
+VMelania
+tp2921
+a(L1491L
+V
+tp2922
+a(L1492L
+VGardel
+tp2923
+a(L1492L
+VGardel's mother
+tp2924
+a(L1488L
+VAna Bolena (Presentación Mefisto)
+tp2925
+a(L1488L
+VConstancio
+tp2926
+a(L1494L
+V
+tp2927
+a(L1495L
+VJuana Reina de Bachiche
+tp2928
+a(L1495L
+VIrene
+tp2929
+a(L1495L
+VPresidente
+tp2930
+a(L1495L
+VAntón
+tp2931
+a(L1495L
+VLa hija muda
+tp2932
+a(L1495L
+VLa reina de Bolondrón
+tp2933
+a(L1495L
+VGenoveva
+tp2934
+a(L1495L
+VLa reina de Perico
+tp2935
+a(L1495L
+VJuan Bimba
+tp2936
+a(L1495L
+VAbelardo
+tp2937
+a(L1495L
+VLa reina de Jovellanos
+tp2938
+a(L1495L
+VLa reina de Manguitos
+tp2939
+a(L1495L
+VLa reina de Simpson
+tp2940
+a(L1495L
+VLa reina de Versalles
+tp2941
+a(L1495L
+VLa reina de Colón
+tp2942
+a(L362L
+V
+tp2943
+a(L1496L
+V
+tp2944
+a(L1497L
+VAmma
+tp2945
+a(L1497L
+VSalim
+tp2946
+a(L1497L
+VMoshran
+tp2947
+a(L1497L
+VSara
+tp2948
+a(L1497L
+VPrometeo
+tp2949
+a(L1497L
+VGulan Ruani
+tp2950
+a(L1497L
+VMédicos cubanos
+tp2951
+a(L1498L
+V
+tp2952
+a(L1507L
+V
+tp2953
+a(L1512L
+VKárel Darín
+tp2954
+a(L1512L
+VAlejandro Depás
+tp2955
+a(L1512L
+VMiguel Depás
+tp2956
+a(L1512L
+VSilvia Depás
+tp2957
+a(L1512L
+VRoberta López
+tp2958
+a(L1512L
+VFelipe Alejo
+tp2959
+a(L1512L
+VLa Paco
+tp2960
+a(L1512L
+VNarrador
+tp2961
+a(L1515L
+VMaria Celia Obispo
+tp2962
+a(L1515L
+VSofía Obispo
+tp2963
+a(L1515L
+VTeniente Portuondo
+tp2964
+a(L1515L
+VAfinador de piano
+tp2965
+a(L1516L
+VClaudia
+tp2966
+a(L1516L
+VAngelina
+tp2967
+a(L1516L
+V
+tp2968
+a(L1517L
+VDueña de la Compañía
+tp2969
+a(L1517L
+VSeñora
+tp2970
+a(L1517L
+VGalán añoso y gastado
+tp2971
+a(L1517L
+VSmirnov
+tp2972
+a(L1517L
+VPadre
+tp2973
+a(L1517L
+VLa Sexy
+tp2974
+a(L1517L
+VJulia
+tp2975
+a(L1517L
+VCriada
+tp2976
+a(L1517L
+VLa Casada Infiel
+tp2977
+a(L1517L
+VLady M
+tp2978
+a(L1517L
+VLa Motorista
+tp2979
+a(L1517L
+VHermafrodita
+tp2980
+a(L1517L
+VLa Profesora
+tp2981
+a(L1517L
+VHipocondríaca
+tp2982
+a(L1517L
+VElena
+tp2983
+a(L1517L
+VNina
+tp2984
+a(L1517L
+VLa Abaniquera
+tp2985
+a(L1517L
+VMarqués de Rojo
+tp2986
+a(L1517L
+VCriado
+tp2987
+a(L1517L
+VAntón
+tp2988
+a(L1518L
+V
+tp2989
+a(L1520L
+VSor Inés
+tp2990
+a(L1520L
+VMadre Superiora
+tp2991
+a(L1520L
+VSor Angela
+tp2992
+a(L1520L
+VLa Señora
+tp2993
+a(L1364L
+VElij
+tp2994
+a(L1364L
+VObrero
+tp2995
+a(L1549L
+VDepredador
+tp2996
+a(L1549L
+VEmbajador y Alta voz
+tp2997
+a(L1549L
+VRestaurador
+tp2998
+a(L1549L
+Vintérprete
+tp2999
+a(L1549L
+VMarine Relacionadora
+tp3000
+a(L1549L
+VSoldado golpista
+tp3001
+a(L1549L
+VPueblo
+tp3002
+a(L1549L
+VCentinela
+tp3003
+a(L1550L
+VOgrito
+tp3004
+a(L1550L
+VMadre
+tp3005
+a(L1550L
+VPadre
+tp3006
+a(L1550L
+VLobo
+tp3007
+a(L1550L
+VAyudantía
+tp3008
+a(L1551L
+VGuapy
+tp3009
+a(L1551L
+VTina
+tp3010
+a(L1551L
+VFina
+tp3011
+a(L1551L
+VVigilante
+tp3012
+a(L1551L
+VAyudantía
+tp3013
+a(L1088L
+VMarat
+tp3014
+a(L1088L
+VSade
+tp3015
+a(L1088L
+VSimona
+tp3016
+a(L1088L
+VCharlotte
+tp3017
+a(L1088L
+VRoux
+tp3018
+a(L1088L
+VSanson
+tp3019
+a(L1088L
+VToussaint
+tp3020
+a(L1088L
+VMarquesa
+tp3021
+a(L1088L
+VNapoleoncito
+tp3022
+a(L1088L
+VAntonieta
+tp3023
+a(L1088L
+VJuana
+tp3024
+a(L1562L
+V
+tp3025
+a(L1563L
+VWinnie
+tp3026
+a(L1563L
+VWillie
+tp3027
+a(L1566L
+V
+tp3028
+a(L1090L
+VAmalia
+tp3029
+a(L1090L
+VBuenaventura
+tp3030
+a(L1567L
+VTomasa
+tp3031
+a(L1350L
+V
+tp3032
+a(L1568L
+VGallo
+tp3033
+a(L1568L
+VBuzones
+tp3034
+a(L1568L
+VFlores
+tp3035
+a(L1568L
+VBarco
+tp3036
+a(L1568L
+VBicitaxi
+tp3037
+a(L1568L
+VVentana
+tp3038
+a(L1568L
+VCorazón
+tp3039
+a(L1569L
+VJicotea Dorotea
+tp3040
+a(L1569L
+VRana 2
+tp3041
+a(L1569L
+VChipojo de Agua
+tp3042
+a(L1569L
+VJicoteo Danilo
+tp3043
+a(L1569L
+VRana 1
+tp3044
+a(L1569L
+VLombriz de Tierra 
+tp3045
+a(L1569L
+VLuna
+tp3046
+a(L1571L
+VDon Quijote
+tp3047
+a(L1571L
+VSancho Panza
+tp3048
+a(L1571L
+VEl Tomeguín
+tp3049
+a(L1571L
+VCantante
+tp3050
+a(L1571L
+VEl Gavilán
+tp3051
+a(L320L
+VViola
+tp3052
+a(L1568L
+VMartina
+tp3053
+a(L1568L
+VPérez
+tp3054
+a(L1568L
+VEscoba
+tp3055
+a(L1568L
+VSapo
+tp3056
+a(L1568L
+VGato
+tp3057
+a(L1568L
+VCartero
+tp3058
+a(L1568L
+VVendedora 1
+tp3059
+a(L1568L
+VVendedora 2
+tp3060
+a(L1568L
+VVendedora 3
+tp3061
+a(L1572L
+VCocinera
+tp3062
+a(L1572L
+VRuiseñor
+tp3063
+a(L1572L
+VCamarero
+tp3064
+a(L1572L
+VRuiseñor de Oro
+tp3065
+a(L1572L
+VEmperador
+tp3066
+a(L1572L
+VAyudantía
+tp3067
+a(L1556L
+VFlorentino
+tp3068
+a(L1620L
+VPsicóloga
+tp3069
+a(L1555L
+VColin
+tp3070
+a(L1777L
+VRingo Hijo de El Escorpión y Joven
+tp3071
+a(L1560L
+VSalieri
+tp3072
+a(L1589L
+VRomántico
+tp3073
+a(L1589L
+VEl Gruñón
+tp3074
+a(L1589L
+VEl Loco
+tp3075
+a(L1589L
+VEl Bromista
+tp3076
+a(L1590L
+VEsposa
+tp3077
+a(L1590L
+Voruga
+tp3078
+a(L1590L
+VPoeta
+tp3079
+a(L1590L
+Vsapo
+tp3080
+a(L1590L
+VExplorador
+tp3081
+a(L1590L
+Vcocuyo
+tp3082
+a(L1590L
+VMujer del tablero
+tp3083
+a(L1590L
+Vlagarta
+tp3084
+a(L940L
+VDon Cándido Gamboa
+tp3085
+a(L940L
+VChepilla
+tp3086
+a(L940L
+VJosé D.Pimienta
+tp3087
+a(L1567L
+VMaría
+tp3088
+a(L1567L
+VRaysa
+tp3089
+a(L1567L
+VRaquel
+tp3090
+a(L1567L
+VPadrino
+tp3091
+a(L1567L
+VLorenzo
+tp3092
+a(L1567L
+VCachirulo
+tp3093
+a(L1567L
+VMadre de María
+tp3094
+a(L1591L
+VEsther
+tp3095
+a(L1591L
+VJosefa
+tp3096
+a(L1591L
+VYoli
+tp3097
+a(L1591L
+VRené
+tp3098
+a(L1591L
+VRosa
+tp3099
+a(L1591L
+VChucho
+tp3100
+a(L1591L
+VAbogado
+tp3101
+a(L1591L
+VCartera
+tp3102
+a(L1591L
+VPolicía
+tp3103
+a(L1592L
+VLalo
+tp3104
+a(L1592L
+VBeba
+tp3105
+a(L1592L
+VCuca
+tp3106
+a(L1364L
+VCapitán Hoster
+tp3107
+a(L1594L
+VJosé Jacinto Milanés
+tp3108
+a(L1594L
+VCarlota 
+tp3109
+a(L1594L
+VMadre
+tp3110
+a(L1594L
+VLola
+tp3111
+a(L1594L
+VCarlota
+tp3112
+a(L1594L
+VTía Pastora
+tp3113
+a(L1594L
+VMendigo 1
+tp3114
+a(L1594L
+VTío Ximeno
+tp3115
+a(L1594L
+VDomingo del Monte
+tp3116
+a(L1594L
+VPlacido
+tp3117
+a(L1594L
+VMendigo 2
+tp3118
+a(L1594L
+VSerena
+tp3119
+a(L1089L
+VMartí
+tp3120
+a(L1089L
+VLa Reina
+tp3121
+a(L1089L
+VEl Conquistador
+tp3122
+a(L1089L
+VEl Decimista
+tp3123
+a(L1089L
+VEl Pescador
+tp3124
+a(L1089L
+VLa Ciudad
+tp3125
+a(L1089L
+VLa Ochun
+tp3126
+a(L1089L
+VLezama
+tp3127
+a(L1205L
+V
+tp3128
+a(L1600L
+V
+tp3129
+a(L1601L
+V
+tp3130
+a(L1602L
+V
+tp3131
+a(L1603L
+V
+tp3132
+a(L1252L
+VCiego
+tp3133
+a(L1252L
+VLabrador
+tp3134
+a(L1252L
+VRey
+tp3135
+a(L1252L
+VLazarillo
+tp3136
+a(L1252L
+VFlores
+tp3137
+a(L1252L
+VMaestre de Calatrava
+tp3138
+a(L1252L
+VRegidor de Cuidad Real
+tp3139
+a(L1252L
+VInquisidor
+tp3140
+a(L1252L
+VReina
+tp3141
+a(L1252L
+VManrique
+tp3142
+a(L1252L
+VUn mozo
+tp3143
+a(L1252L
+VCimbranos
+tp3144
+a(L1621L
+VMadre Maria
+tp3145
+a(L1621L
+VCaballero de la Force
+tp3146
+a(L1621L
+VLa señora de Croissy
+tp3147
+a(L1621L
+VPriora
+tp3148
+a(L1621L
+VBlanca de la Force
+tp3149
+a(L1621L
+VSor Constanza
+tp3150
+a(L1621L
+VSor Genoveva
+tp3151
+a(L1621L
+VSor San Carlos
+tp3152
+a(L1621L
+VSor Matilde
+tp3153
+a(L1621L
+VSor Ana
+tp3154
+a(L1621L
+VSor Gerarda
+tp3155
+a(L1621L
+VSor Valentina
+tp3156
+a(L1621L
+VSor Gertrudis
+tp3157
+a(L1621L
+VMadre Clotilde
+tp3158
+a(L1621L
+VComisario I
+tp3159
+a(L1621L
+VComisario II
+tp3160
+a(L1621L
+VCapellán
+tp3161
+a(L1621L
+VGuardiana
+tp3162
+a(L1622L
+VEl Personaje
+tp3163
+a(L1622L
+VEl Esposo
+tp3164
+a(L1622L
+VLa Mujer
+tp3165
+a(L1623L
+VEl
+tp3166
+a(L1623L
+VElla
+tp3167
+a(L1624L
+VEstelvina
+tp3168
+a(L1624L
+VVendedor de periodicos
+tp3169
+a(L1625L
+VHombre Joven
+tp3170
+a(L1626L
+VPetronila
+tp3171
+a(L1626L
+VElisiria
+tp3172
+a(L1626L
+VHiginio
+tp3173
+a(L1626L
+VEl Mayor General
+tp3174
+a(L1627L
+VLa Señorita
+tp3175
+a(L1627L
+V El Novio
+tp3176
+a(L1627L
+VLa prostituta
+tp3177
+a(L1627L
+VEl chulo
+tp3178
+a(L1627L
+VLa Mujer Gorda
+tp3179
+a(L1627L
+VEl Hombre Flaco
+tp3180
+a(L1627L
+VLa Mujer Rica
+tp3181
+a(L1629L
+VVoz
+tp3182
+a(L1624L
+VMaestro de Ceremonias
+tp3183
+a(L1630L
+VMadrina
+tp3184
+a(L1630L
+VTila
+tp3185
+a(L1630L
+VTata
+tp3186
+a(L1630L
+VCheo
+tp3187
+a(L1630L
+VPregones
+tp3188
+a(L1631L
+VCésar
+tp3189
+a(L1631L
+VCatalina
+tp3190
+a(L1631L
+VDoña Francisca
+tp3191
+a(L1631L
+VSeñora Ramírez
+tp3192
+a(L1631L
+VCampesino
+tp3193
+a(L1631L
+VNotario
+tp3194
+a(L1632L
+VPascuala
+tp3195
+a(L1632L
+VAndréa
+tp3196
+a(L1632L
+VHeliodoro
+tp3197
+a(L1633L
+VSerafina
+tp3198
+a(L1633L
+VRosita
+tp3199
+a(L1633L
+VPanchita
+tp3200
+a(L1633L
+VVoz de Armando
+tp3201
+a(L1633L
+VFelina
+tp3202
+a(L1634L
+V
+tp3203
+a(L1635L
+VMatrona
+tp3204
+a(L1636L
+VTiburcia
+tp3205
+a(L1636L
+VNatalia
+tp3206
+a(L1636L
+VPolicarpo Macdollar
+tp3207
+a(L1636L
+VLomoeyagua
+tp3208
+a(L1636L
+VMujer del cubito
+tp3209
+a(L1235L
+V
+tp3210
+a(L1656L
+VEl Hombre
+tp3211
+a(L1656L
+VLa Madre
+tp3212
+a(L1656L
+VLa Mujer
+tp3213
+a(L1657L
+VRaimundo
+tp3214
+a(L1657L
+VDomitila
+tp3215
+a(L1658L
+VObrero
+tp3216
+a(L1658L
+VFuncionario 3
+tp3217
+a(L1658L
+VFuncionario 1
+tp3218
+a(L1658L
+VFuncionario 2
+tp3219
+a(L1658L
+VPintor 1
+tp3220
+a(L1658L
+VPintor 2
+tp3221
+a(L1658L
+VPintor 3
+tp3222
+a(L1658L
+VPintor 4
+tp3223
+a(L1659L
+VMarieta
+tp3224
+a(L1659L
+VMartel
+tp3225
+a(L1659L
+VAlicia
+tp3226
+a(L1529L
+V
+tp3227
+a(L1661L
+V
+tp3228
+a(L1258L
+V
+tp3229
+a(L1532L
+V
+tp3230
+a(L1620L
+VOrlando
+tp3231
+a(L1693L
+VArlequín
+tp3232
+a(L1556L
+VEl niño
+tp3233
+a(L1379L
+VSolange
+tp3234
+a(L1377L
+VGonerila
+tp3235
+a(L1761L
+VSarah
+tp3236
+a(L1771L
+VEtéocles
+tp3237
+a(L1771L
+VPolinice
+tp3238
+a(L1771L
+VIrene
+tp3239
+a(L1771L
+VAntígona
+tp3240
+a(L1771L
+VIsmene
+tp3241
+a(L1771L
+VCassandra
+tp3242
+a(L1771L
+VEspía I
+tp3243
+a(L1771L
+VEspía II
+tp3244
+a(L1771L
+VPolionte
+tp3245
+a(L1771L
+VHiperbio
+tp3246
+a(L1771L
+VLástenes
+tp3247
+a(L1090L
+VMonje agonizante
+tp3248
+a(L1090L
+VMefisto (Presentación)
+tp3249
+a(L1090L
+VEnrique Faber
+tp3250
+a(L1090L
+VEnriqueta Faber
+tp3251
+a(L1090L
+VCarmen
+tp3252
+a(L1090L
+VSanta
+tp3253
+a(L1090L
+VHortensia
+tp3254
+a(L1090L
+VPablo
+tp3255
+a(L1090L
+VDon Teodoro
+tp3256
+a(L1090L
+Vel Gobernador
+tp3257
+a(L1090L
+VPresbítero
+tp3258
+a(L1090L
+VLicenciado Vidaurre
+tp3259
+a(L1090L
+VMercedes
+tp3260
+a(L1090L
+VJuez
+tp3261
+a(L1090L
+VSargento de Dragones
+tp3262
+a(L1090L
+VCapitán de Dragones
+tp3263
+a(L1090L
+VMonje de la trapa
+tp3264
+a(L1772L
+VEsteban
+tp3265
+a(L1772L
+Vhombre que sueña
+tp3266
+a(L1772L
+VClotilde
+tp3267
+a(L1772L
+Vmadre de Esteban
+tp3268
+a(L1772L
+Vsiempre joven en el recuerdo de Esteban
+tp3269
+a(L1772L
+VTobías
+tp3270
+a(L1772L
+Vel padre
+tp3271
+a(L1772L
+Vun pescador envejecido
+tp3272
+a(L1772L
+VMáximo Cruz
+tp3273
+a(L1772L
+Vgeneral retirado y alcalde del pueblo
+tp3274
+a(L1772L
+VDamiana
+tp3275
+a(L1772L
+Vvieja del pueblo
+tp3276
+a(L1772L
+Vadivina y hierbera
+tp3277
+a(L1772L
+VVisitación
+tp3278
+a(L1772L
+Vmujer madura
+tp3279
+a(L1772L
+Vcartomántica
+tp3280
+a(L1772L
+VCura
+tp3281
+a(L1772L
+Vcon una vieja sotana y unas alas perdidas
+tp3282
+a(L1772L
+VPetra
+tp3283
+a(L1772L
+V13 años y enamorada de Esteban
+tp3284
+a(L1772L
+VJuan Pedro
+tp3285
+a(L1772L
+Vjoven pescador
+tp3286
+a(L1772L
+VJuan Pablo
+tp3287
+a(L1772L
+VJuan Lucas
+tp3288
+a(L1772L
+VRebeca
+tp3289
+a(L1772L
+Vla puta triste. Una mujer de 40 años vividos
+tp3290
+a(L1772L
+VPilar
+tp3291
+a(L1772L
+Vsoltera
+tp3292
+a(L1772L
+Vmuy religiosa
+tp3293
+a(L1400L
+VDirector del tecnológico
+tp3294
+a(L1400L
+VManolo
+tp3295
+a(L1400L
+VCaridad Delgado
+tp3296
+a(L1400L
+VLissette
+tp3297
+a(L1400L
+VAndrés
+tp3298
+a(L1773L
+VMefisto (Presentación)
+tp3299
+a(L1773L
+VKraler
+tp3300
+a(L1773L
+VDussel
+tp3301
+a(L1773L
+VMiep
+tp3302
+a(L1773L
+VMargot
+tp3303
+a(L1773L
+VPeter
+tp3304
+a(L1773L
+VAnna Frank
+tp3305
+a(L1773L
+VSr. Frank
+tp3306
+a(L1773L
+VSra. Frank
+tp3307
+a(L1773L
+VSr. Van Daan
+tp3308
+a(L1773L
+VSra. Van Daan
+tp3309
+a(L1776L
+VNorma
+tp3310
+a(L1776L
+VHoracio
+tp3311
+a(L1776L
+VOfelia
+tp3312
+a(L1776L
+VVenus
+tp3313
+a(L1776L
+VMerlina
+tp3314
+a(L1776L
+VOtto
+tp3315
+a(L1777L
+VRingo Hijo de El Escorpión y John Lennon
+tp3316
+a(L1777L
+VJoven
+tp3317
+a(L62L
+VJohny
+tp3318
+a(L62L
+VOld Woman
+tp3319
+a(L62L
+VNurse
+tp3320
+a(L62L
+VMother
+tp3321
+a(L62L
+VWife
+tp3322
+a(L62L
+VMachucha
+tp3323
+a(L62L
+VThe Butcher
+tp3324
+a(L62L
+VFather -in - law
+tp3325
+a(L62L
+VThe Leader
+tp3326
+a(L62L
+VFather
+tp3327
+a(L62L
+VThe scorpion
+tp3328
+a(L62L
+VYoung Man
+tp3329
+a(L1780L
+VTomás Enríquez / Marín
+tp3330
+a(L1780L
+V Gabriel Zintor / Otavio / Soldado
+tp3331
+a(L1780L
+VAlonso de Osuna / Celia
+tp3332
+a(L1780L
+VJuan de Villegas / Máscara / Lidio / Capitán
+tp3333
+a(L1780L
+VAntonia Manuela de Romero / Dorotea
+tp3334
+a(L1780L
+VDamián Arias de Peñafiel / Anselmo / Arnaldo
+tp3335
+a(L1780L
+VFrancisco de Velazco / Teobaldo / Señor de Verona
+tp3336
+a(L1780L
+VOydor / Julia
+tp3337
+a(L1780L
+VBartolomé Romero / Antonio
+tp3338
+a(L1780L
+VPedro Manuel de Castilla / Roselo
+tp3339
+a(L1748L
+VPedro Sánchez de Vaquero / Máscara 2 / Fesenio
+tp3340
+a(L1749L
+VJesús
+tp3341
+a(L1749L
+VEl Cliente
+tp3342
+a(L1749L
+VDetective 1/Sacerdote/ Agente Publicitario
+tp3343
+a(L1749L
+VMadre /Prostituta
+tp3344
+a(L1749L
+VMarquesa
+tp3345
+a(L1749L
+VDetective / Profesor
+tp3346
+a(L1749L
+VÁngel
+tp3347
+a(L1749L
+VAsesino
+tp3348
+a(L1749L
+VApóstol
+tp3349
+a(L1787L
+V
+tp3350
+a(L1697L
+VGraciela Sotomayor
+tp3351
+a(L1697L
+VEfraín Amaro
+tp3352
+a(L1697L
+VYya Flores de Piedra
+tp3353
+a(L1697L
+VQuimito Piedra
+tp3354
+a(L1257L
+VDiógenes Feria
+tp3355
+a(L1257L
+VEstánfor Vera
+tp3356
+a(L1257L
+VJuana Feria
+tp3357
+a(L1257L
+VInés Mercado
+tp3358
+a(L1257L
+VSerafina
+tp3359
+a(L1257L
+VEvangelina Chi
+tp3360
+a(L1789L
+VInés Mercado
+tp3361
+a(L1789L
+VJuana Feria
+tp3362
+a(L1789L
+VDiógenes Feria
+tp3363
+a(L1789L
+VEstánfor Vera
+tp3364
+a(L1789L
+VLibrado Esquivel
+tp3365
+a(L1789L
+VSerafina
+tp3366
+a(L1795L
+VEmelina Cundiamor
+tp3367
+a(L1796L
+VEl masigüere
+tp3368
+a(L1797L
+V
+tp3369
+a(L1799L
+VLa abuela desalmada
+tp3370
+a(L1799L
+VLa cándida Eréndira
+tp3371
+a(L1799L
+V
+tp3372
+a(L1380L
+VCalígula
+tp3373
+a(L1697L
+VEstanislao Torres
+tp3374
+a(L1697L
+Valias Pisa bonito
+tp3375
+a(L1697L
+VAdela
+tp3376
+a(L1697L
+VLala Cifuentes
+tp3377
+a(L1697L
+VGil
+tp3378
+a(L1697L
+VGenaro
+tp3379
+a(L1697L
+VRoque
+tp3380
+a(L1697L
+VDr. Ramos
+tp3381
+a(L1697L
+VJavier Galano
+tp3382
+a(L1697L
+VEduviges Masa
+tp3383
+a(L1697L
+VVecina
+tp3384
+a(L1697L
+VArquímides Piedra
+tp3385
+a(L1697L
+VAurelia
+tp3386
+a(L1381L
+VDiego
+tp3387
+a(L1381L
+VDavid
+tp3388
+a(L1381L
+VMiguel
+tp3389
+a(L1724L
+VDiego
+tp3390
+a(L1717L
+V
+tp3391
+a(L1807L
+VEmilito
+tp3392
+a(L1807L
+VEugenio
+tp3393
+a(L1807L
+VOfelia
+tp3394
+a(L1807L
+VAurora
+tp3395
+a(L1807L
+VEsteban
+tp3396
+a(L1807L
+VConsuelo
+tp3397
+a(L1808L
+V
+tp3398
+a(L1809L
+V
+tp3399
+a(L1810L
+V
+tp3400
+a(L1811L
+V
+tp3401
+a(L1812L
+V
+tp3402
+a(L1703L
+V
+tp3403
+a(L1813L
+V
+tp3404
+a(L1814L
+V
+tp3405
+a(L1815L
+V
+tp3406
+a(L1785L
+V
+tp3407
+a(L1445L
+V
+tp3408
+a(L1817L
+V
+tp3409
+a(L1821L
+V
+tp3410
+a(L1816L
+VÑico
+tp3411
+a(L1816L
+Vel grillo
+tp3412
+a(L1816L
+VPepe
+tp3413
+a(L1816L
+VPatuco
+tp3414
+a(L1816L
+VTato
+tp3415
+a(L1831L
+V
+tp3416
+a(L1832L
+V
+tp3417
+a(L1835L
+VJenny
+tp3418
+a(L1859L
+V
+tp3419
+a(L1867L
+VMary Magdalene
+tp3420
+a(L1867L
+VJesus of Nazareth
+tp3421
+a(L1867L
+VJudas Iscariot
+tp3422
+a(L1867L
+VKing Herod
+tp3423
+a(L1867L
+VMerchant
+tp3424
+a(L1867L
+VLeper
+tp3425
+a(L1867L
+VCaiaphas
+tp3426
+a(L1867L
+VPontius Pilate
+tp3427
+a(L1867L
+VApostle
+tp3428
+a(L1867L
+VReporter
+tp3429
+a(L1867L
+VJudas' Tormentor
+tp3430
+a(L1867L
+VSoldier
+tp3431
+a(L1867L
+VThird Priest
+tp3432
+a(L1867L
+VApostle Woman
+tp3433
+a(L1867L
+VTemple Lady
+tp3434
+a(L1867L
+VFirst Priest
+tp3435
+a(L1867L
+VCured Leper
+tp3436
+a(L1867L
+VSimon Zealotes
+tp3437
+a(L1867L
+VSoul Girl
+tp3438
+a(L1867L
+VPeter
+tp3439
+a(L1867L
+VAnnas
+tp3440
+a(L1867L
+VSecond Priest
+tp3441
+a(L1867L
+VMaid by the Fire
+tp3442
+a(L1867L
+VOld Man
+tp3443
+a(L1879L
+VObispo Agustín
+tp3444
+a(L1879L
+VSacerdote
+tp3445
+a(L1882L
+VCharles
+tp3446
+a(L1881L
+VVirgin of Charity
+tp3447
+a(L1944L
+VJean Baptiste
+tp3448
+a(L1944L
+VJuan
+tp3449
+a(L1944L
+VLanquisha
+tp3450
+a(L1944L
+VSammy Dread
+tp3451
+a(L1944L
+VTey Tey
+tp3452
+a(L1944L
+VCarlito Goldberg
+tp3453
+a(L1944L
+VJim
+tp3454
+a(L1944L
+VCarmencita
+tp3455
+a(L1944L
+VWynwood
+tp3456
+a(L1979L
+VConchita
+tp3457
+a(L2092L
+VLorca en verde
+tp3458
+a(L2092L
+VEl general
+tp3459
+a(L1961L
+V
+tp3460
+a(L1960L
+V
+tp3461
+a(L1979L
+VCheche
+tp3462
+a(L1979L
+VOfelia
+tp3463
+a(L1979L
+VSantiago
+tp3464
+a(L1966L
+V
+tp3465
+a(L1882L
+VTijuanita
+tp3466
+a(L1882L
+VTwo brothers of Tijuanita
+tp3467
+a(L1958L
+V
+tp3468
+a(L258L
+V
+tp3469
+a(L1964L
+V
+tp3470
+a(L1963L
+V
+tp3471
+a(L1962L
+V
+tp3472
+a(L1959L
+V
+tp3473
+a(L1956L
+V
+tp3474
+a(L1911L
+VRoberto
+tp3475
+a(L1911L
+VAurelia
+tp3476
+a(L1923L
+VLena Horne
+tp3477
+a(L1923L
+VFlower Girl #2
+tp3478
+a(L1923L
+VMrs. Voice of America
+tp3479
+a(L1923L
+VChicken
+tp3480
+a(L1923L
+VAttorney
+tp3481
+a(L1923L
+VOffice Boy #1
+tp3482
+a(L1923L
+VEnzyme
+tp3483
+a(L1923L
+VLenin
+tp3484
+a(L1923L
+VHuck Finn
+tp3485
+a(L1923L
+VRonald Reagan
+tp3486
+a(L1923L
+VWhittaker Chambers
+tp3487
+a(L1923L
+VOwen Lattimore
+tp3488
+a(L1923L
+VMarshall
+tp3489
+a(L1923L
+VRosenberg
+tp3490
+a(L1923L
+VRicardo
+tp3491
+a(L1923L
+VJoe McCarthy
+tp3492
+a(L1923L
+VBess Truman
+tp3493
+a(L1923L
+VApplause Girl
+tp3494
+a(L1923L
+VDorothy Kenyon
+tp3495
+a(L1923L
+VEthel Rosenberg
+tp3496
+a(L1923L
+VLucy Ricardo
+tp3497
+a(L1923L
+VEggene Celeste
+tp3498
+a(L1923L
+VMamie Eisenhower
+tp3499
+a(L1923L
+VFatty Deposit
+tp3500
+a(L1923L
+VSnake
+tp3501
+a(L1923L
+VEdward R. Murrow
+tp3502
+a(L1923L
+VRichard Nixon
+tp3503
+a(L1923L
+VMao Tse Tung
+tp3504
+a(L1923L
+VWelch
+tp3505
+a(L1923L
+VPriest
+tp3506
+a(L1923L
+VNatasha
+tp3507
+a(L1923L
+VMajor Domo
+tp3508
+a(L1923L
+VFlower Girl #1
+tp3509
+a(L1923L
+VStatue of Liberty
+tp3510
+a(L1923L
+VHarry Truman
+tp3511
+a(L1923L
+VStalin
+tp3512
+a(L1923L
+VVoice Of America Man
+tp3513
+a(L1923L
+VBobby Kennedy
+tp3514
+a(L1923L
+VSecretary Stevens
+tp3515
+a(L1923L
+VOffice Boy #2
+tp3516
+a(L1923L
+VAlger Hiss
+tp3517
+a(L1923L
+VDrew Pearson
+tp3518
+a(L1923L
+VDean Acheson
+tp3519
+a(L1923L
+VSchine
+tp3520
+a(L1923L
+VJackie Gleason
+tp3521
+a(L1923L
+VEleanor Roosevelt
+tp3522
+a(L1923L
+VJeanne Kerr
+tp3523
+a(L1923L
+VProfessor
+tp3524
+a(L1923L
+VRoy Cohn
+tp3525
+a(L1930L
+VLulu
+tp3526
+a(L629L
+VTimothy
+tp3527
+a(L629L
+VNadja
+tp3528
+a(L1911L
+VAurelita
+tp3529
+a(L1911L
+VPancho
+tp3530
+a(L1911L
+VOfelia
+tp3531
+a(L1911L
+VPredicador
+tp3532
+a(L1945L
+VFranklin
+tp3533
+a(L1912L
+V
+tp3534
+a(L1945L
+VHarry
+tp3535
+a(L1945L
+VCharlotte
+tp3536
+a(L1945L
+VHeather
+tp3537
+a(L1945L
+VFreddie
+tp3538
+a(L1945L
+VGuidance counselor
+tp3539
+a(L1929L
+VLolita
+tp3540
+a(L1929L
+VBear
+tp3541
+a(L1929L
+VMother
+tp3542
+a(L1929L
+V
+tp3543
+a(L1952L
+VCarmen
+tp3544
+a(L1952L
+VEmilio
+tp3545
+a(L1952L
+VStepan
+tp3546
+a(L1952L
+VYolanda
+tp3547
+a(L1952L
+VMaria
+tp3548
+a(L1952L
+VAlvaro
+tp3549
+a(L1978L
+VRoberto
+tp3550
+a(L1978L
+VAurelia
+tp3551
+a(L1978L
+VPancho
+tp3552
+a(L1978L
+VCuco
+tp3553
+a(L1978L
+V
+tp3554
+a(L1939L
+VElizabeth/Stewardess
+tp3555
+a(L1979L
+VJuan Julian
+tp3556
+a(L1979L
+VMarela
+tp3557
+a(L2006L
+VTulita
+tp3558
+a(L2006L
+V Sra. Vda. del Coronel Llorente del Ejército Libertador
+tp3559
+a(L2006L
+VLópez
+tp3560
+a(L2006L
+V comisionista sin comisiones
+tp3561
+a(L2006L
+VDon Paco
+tp3562
+a(L2006L
+V "el marqués," caballero venido a menos 
+tp3563
+a(L2006L
+VDionisio Pérez García
+tp3564
+a(L2006L
+V maestro de escuela
+tp3565
+a(L2006L
+Vpadre de Gisela
+tp3566
+a(L2006L
+VFriedrich von Fachner
+tp3567
+a(L2006L
+VSergio Bermúdez
+tp3568
+a(L2006L
+V el del No. 21
+tp3569
+a(L2006L
+VCharo
+tp3570
+a(L2006L
+V amiga de Gisela
+tp3571
+a(L2006L
+VLorenzo Izquierdo
+tp3572
+a(L2006L
+V30 años; ocupación
+tp3573
+a(L2006L
+Vse ignora
+tp3574
+a(L2006L
+VGisela
+tp3575
+a(L2006L
+Vestudiante
+tp3576
+a(L2006L
+VGonzalo de Trueba
+tp3577
+a(L2006L
+V artista pintor
+tp3578
+a(L2006L
+VMatilde
+tp3579
+a(L2007L
+VIsabel Tudor
+tp3580
+a(L2007L
+VReina de Inglaterra
+tp3581
+a(L2007L
+VLord Cecil
+tp3582
+a(L2007L
+Vconsejero de Estado
+tp3583
+a(L2007L
+VMaría Estuardo
+tp3584
+a(L2007L
+VReina de Escocia
+tp3585
+a(L2007L
+VJuana
+tp3586
+a(L2007L
+Vdama de compañía
+tp3587
+a(L2008L
+VVicente
+tp3588
+a(L2008L
+VGraciela
+tp3589
+a(L2008L
+VAscensorista
+tp3590
+a(L2008L
+VMaría
+tp3591
+a(L2008L
+VEnfermero
+tp3592
+a(L2008L
+VJulio
+tp3593
+a(L2008L
+VMario
+tp3594
+a(L2008L
+VCristina
+tp3595
+a(L2008L
+VAsunción
+tp3596
+a(L2010L
+VFefa
+tp3597
+a(L2010L
+VLala
+tp3598
+a(L2010L
+VLalita
+tp3599
+a(L2010L
+VFermina
+tp3600
+a(L2010L
+VAnselmo
+tp3601
+a(L2010L
+VAnselmito
+tp3602
+a(L2010L
+VPepe
+tp3603
+a(L2010L
+VAlfredo
+tp3604
+a(L2010L
+VVoces
+tp3605
+a(L2011L
+VErnesto  
+tp3606
+a(L2011L
+VArturo Sutton
+tp3607
+a(L2011L
+VPatricia Sutton
+tp3608
+a(L2011L
+VBigane
+tp3609
+a(L2011L
+VCarlos Ardale
+tp3610
+a(L2014L
+V
+tp3611
+a(L2028L
+VLa vecina
+tp3612
+a(L6L
+VLola
+tp3613
+a(L913L
+VLucrecia
+tp3614
+a(L2030L
+VMother Superior
+tp3615
+a(L2031L
+VMimi
+tp3616
+a(L2032L
+VJuda's Mother
+tp3617
+a(L153L
+VMadame Tepan
+tp3618
+a(L2034L
+VBlanche
+tp3619
+a(L2033L
+VEsther
+tp3620
+a(L1084L
+VLuzmarina
+tp3621
+a(L2035L
+VElla
+tp3622
+a(L2036L
+VJudy
+tp3623
+a(L2050L
+VIris
+tp3624
+a(L2062L
+VCory
+tp3625
+a(L2063L
+VLaura
+tp3626
+a(L2064L
+VMrs. Potts
+tp3627
+a(L2065L
+VJane
+tp3628
+a(L2066L
+VCherie
+tp3629
+a(L2067L
+VCarina
+tp3630
+a(L2068L
+VIrene
+tp3631
+a(L2069L
+VMordeen
+tp3632
+a(L2070L
+VAlarcia
+tp3633
+a(L2071L
+VSylvia
+tp3634
+a(L2072L
+VAntigona
+tp3635
+a(L38L
+VAngela
+tp3636
+a(L38L
+VEl Danny
+tp3637
+a(L38L
+VWorker #5
+tp3638
+a(L38L
+VLucas
+tp3639
+a(L2047L
+VInes
+tp3640
+a(L2047L
+VMaestre
+tp3641
+a(L2047L
+VPedro I
+tp3642
+a(L2047L
+VLa Infanta
+tp3643
+a(L2047L
+VEl Rey Alfonso IV
+tp3644
+a(L2047L
+VAmaranta
+tp3645
+a(L2091L
+VLorca ensangrentado
+tp3646
+a(L2091L
+VLorca en verde
+tp3647
+a(L2091L
+VEl general
+tp3648
+a(L2091L
+VLorca en el traje blanco
+tp3649
+a(L2091L
+VGuardia
+tp3650
+a(L2092L
+VLorca ensangrentado
+tp3651
+a(L2092L
+VLorca en el traje blanco
+tp3652
+a(L2092L
+VLorca como mujer
+tp3653
+a(L2092L
+VLa bailaora
+tp3654
+a(L2094L
+VLorca with Blood
+tp3655
+a(L2094L
+VLorca in a Green Dress
+tp3656
+a(L2094L
+VLorca in Bicycle Pants
+tp3657
+a(L2094L
+VLorca as a Woman
+tp3658
+a(L2094L
+VFlamenco Dancer
+tp3659
+a(L2094L
+VGeneral
+tp3660
+a(L2094L
+VGuard
+tp3661
+a(L2094L
+VLorca in a White Suit
+tp3662
+a(L2110L
+VCuca
+tp3663
+a(L2110L
+VBeba
+tp3664
+a(L2110L
+VLalo
+tp3665
+a(L2078L
+VRey Alfonso
+tp3666
+a(L1171L
+VFelipe Sadurna
+tp3667
+a(L1170L
+VFelipe Sadurna
+tp3668
+a(L2095L
+VSantiago
+tp3669
+a(L1270L
+VPascual-Tomas
+tp3670
+a(L2111L
+V
+tp3671
+a(L2087L
+VMiguel Angel
+tp3672
+a(L2087L
+VVictoria
+tp3673
+a(L2087L
+VRoman
+tp3674
+a(L2087L
+VBeba
+tp3675
+a(L2087L
+VRubén
+tp3676
+a(L2086L
+VMiguel Angel
+tp3677
+a(L2086L
+VVictoria
+tp3678
+a(L2086L
+VRubén
+tp3679
+a(L2086L
+VRomán
+tp3680
+a(L2086L
+VBeba
+tp3681
+a(L2089L
+VVictoria
+tp3682
+a(L2089L
+VRubén
+tp3683
+a(L2089L
+VRomán
+tp3684
+a(L2089L
+VBeba
+tp3685
+a(L2089L
+VMiguel Angel
+tp3686
+a(L2134L
+VJacobo
+tp3687
+a(L2158L
+VDon Hilarion
+tp3688
+a(L2025L
+V
+tp3689
+a(L1271L
+V
+tp3690
+a(L962L
+VVictor
+tp3691
+a(L6L
+VCarlos Jr.
+tp3692
+a(L2160L
+VSantiago
+tp3693
+a(L2161L
+VDon Hilarion
+tp3694
+a(L2162L
+V
+tp3695
+a(L970L
+V
+tp3696
+a(L2028L
+VEl vendedor
+tp3697
+a(L2028L
+VLa muchacha
+tp3698
+a(L2160L
+VCheché
+tp3699
+a(L2160L
+VOfelia
+tp3700
+a(L2160L
+VMarela
+tp3701
+a(L2160L
+VCheche
+tp3702
+a(L2160L
+VConchita
+tp3703
+a(L2160L
+VJuan Julian
+tp3704
+a(L2091L
+VLorca como mujer
+tp3705
+a(L2091L
+VPantalones bombachos para montar bicicleta
+tp3706
+a(L2091L
+VLa bailaora
+tp3707
+a(L1979L
+VPalomo
+tp3708
+a(L1979L
+VEliades
+tp3709
+a(L2100L
+VFando
+tp3710
+a(L2172L
+VFran
+tp3711
+a(L2168L
+VAntonio
+tp3712
+a(L2168L
+VDorcomia
+tp3713
+a(L2168L
+VMerdufo
+tp3714
+a(L2168L
+VDolores
+tp3715
+a(L2168L
+VObispo
+tp3716
+a(L2168L
+VSor Casta
+tp3717
+a(L2168L
+VMonja
+tp3718
+a(L2168L
+VCura
+tp3719
+a(L2172L
+VMarc
+tp3720
+a(L2172L
+VLuis
+tp3721
+a(L2172L
+VJoseph
+tp3722
+a(L2172L
+VJerry
+tp3723
+a(L2172L
+VGerardo
+tp3724
+a(L2172L
+VEnrique
+tp3725
+a(L2173L
+VLloyd
+tp3726
+a(L2173L
+VMae
+tp3727
+a(L2173L
+VHenry
+tp3728
+a(L2174L
+VStephen
+tp3729
+a(L2174L
+VRoe
+tp3730
+a(L2174L
+VPea
+tp3731
+a(L2104L
+VGumersindo Tabares
+tp3732
+a(L2180L
+VTeniente republicano
+tp3733
+a(L2101L
+VTeresa
+tp3734
+a(L2101L
+Vobrero
+tp3735
+a(L2101L
+VJosé
+tp3736
+a(L2101L
+Vherido
+tp3737
+a(L2101L
+VManuela
+tp3738
+a(L2101L
+Vcura
+tp3739
+a(L2101L
+VCarmen
+tp3740
+a(L2101L
+VJuan
+tp3741
+a(L2101L
+Vpescador primero
+tp3742
+a(L2101L
+Vpescador segundo
+tp3743
+a(L2101L
+Vpescador tercero
+tp3744
+a(L2097L
+VAna
+tp3745
+a(L2097L
+VJoaquín
+tp3746
+a(L2097L
+VAndrés
+tp3747
+a(L2097L
+VTomasa
+tp3748
+a(L2097L
+VCarmelo
+tp3749
+a(L2097L
+VMariano
+tp3750
+a(L2097L
+VAlejo
+tp3751
+a(L2097L
+VCamarero
+tp3752
+a(L2097L
+VCarlos
+tp3753
+a(L2097L
+VProstituta
+tp3754
+a(L2097L
+VBlanca
+tp3755
+a(L2097L
+VDolores
+tp3756
+a(L2097L
+VAgustín
+tp3757
+a(L2097L
+VMargarita
+tp3758
+a(L2097L
+VLuis
+tp3759
+a(L2097L
+VPolicía
+tp3760
+a(L2097L
+VLuisa
+tp3761
+a(L2097L
+VJuan
+tp3762
+a(L2097L
+VRosa
+tp3763
+a(L2097L
+VLocutor
+tp3764
+a(L2097L
+VMuchacho
+tp3765
+a(L2097L
+VDirector de aduana
+tp3766
+a(L2097L
+VCapitán
+tp3767
+a(L2097L
+VSargento
+tp3768
+a(L2097L
+VJosefina
+tp3769
+a(L2105L
+VCoronel Norwood
+tp3770
+a(L2105L
+VCora
+tp3771
+a(L2105L
+VWilliam
+tp3772
+a(L2105L
+VSally
+tp3773
+a(L2105L
+VFred Higgins
+tp3774
+a(L2105L
+VRobert
+tp3775
+a(L2105L
+VTalbot
+tp3776
+a(L2105L
+VShorty
+tp3777
+a(L2105L
+VEnterrador
+tp3778
+a(L2105L
+VPeter
+tp3779
+a(L2105L
+VLivonia
+tp3780
+a(L2107L
+VMédico 1
+tp3781
+a(L2107L
+VPimenta
+tp3782
+a(L2107L
+VMédico 2
+tp3783
+a(L2107L
+VMozo de limpieza
+tp3784
+a(L2107L
+VRedactor
+tp3785
+a(L2107L
+VProstituta 1
+tp3786
+a(L2107L
+VProstituta 2
+tp3787
+a(L2107L
+VProstituta 3
+tp3788
+a(L2107L
+VAlaide
+tp3789
+a(L2107L
+VMédico de Clessi
+tp3790
+a(L2107L
+VMadame Clessi
+tp3791
+a(L2107L
+VGastón -padre de Alaide
+tp3792
+a(L2107L
+VDoña Ligia -madre de Alaide
+tp3793
+a(L2107L
+VPedro -marido de Alaide
+tp3794
+a(L2107L
+VDoña Laura -suegra de Alaide
+tp3795
+a(L2107L
+VLucía
+tp3796
+a(L2107L
+VEnamorado de Clessi
+tp3797
+a(L2107L
+VPrestamista
+tp3798
+a(L2107L
+VCriada de Clessi
+tp3799
+a(L2107L
+VMadre del enamorado
+tp3800
+a(L2107L
+VCecilia
+tp3801
+a(L2181L
+VProserpine Garnett
+tp3802
+a(L2181L
+VRev.James Mayor Morell
+tp3803
+a(L2181L
+VRev.Alexander Mill
+tp3804
+a(L2181L
+VBurgess
+tp3805
+a(L2181L
+VCándida
+tp3806
+a(L2181L
+VEugenio Marchbanks
+tp3807
+a(L2100L
+VLis
+tp3808
+a(L2100L
+Vla mujer del carrito
+tp3809
+a(L2100L
+VToso
+tp3810
+a(L2100L
+VMitaro
+tp3811
+a(L2100L
+VNamur
+tp3812
+a(L2182L
+VFando
+tp3813
+a(L2182L
+VToso
+tp3814
+a(L2182L
+VMitaro
+tp3815
+a(L2182L
+VNamur
+tp3816
+a(L2182L
+VLis
+tp3817
+a(L2183L
+VLa madre
+tp3818
+a(L2183L
+VFernando
+tp3819
+a(L2183L
+VIsabel
+tp3820
+a(L2183L
+VEl padre
+tp3821
+a(L2183L
+Vverdugo
+tp3822
+a(L2098L
+VProserpina Garnett
+tp3823
+a(L2098L
+VReverendo Jaime Morell
+tp3824
+a(L2098L
+VCoadjutor Alejandro Nill
+tp3825
+a(L2098L
+VBurgess
+tp3826
+a(L2098L
+VCándida
+tp3827
+a(L2098L
+VEugenio Marchbanks
+tp3828
+a(L2184L
+VProserpina Garnett
+tp3829
+a(L2184L
+VReverendo Jaime Mayor Morell
+tp3830
+a(L2184L
+VCoadjutor Reverendo Alejandro Mill
+tp3831
+a(L2184L
+VBurgess
+tp3832
+a(L2184L
+VCándida
+tp3833
+a(L2184L
+VEugenio Marchbanks
+tp3834
+a(L2180L
+VSargento Orozco
+tp3835
+a(L2180L
+Vmaestro
+tp3836
+a(L2180L
+Vmiliciano 1ro
+tp3837
+a(L2180L
+Vmiliciano 2do
+tp3838
+a(L2180L
+Vmiliciano 3ro
+tp3839
+a(L2180L
+Vteniente falangista
+tp3840
+a(L2180L
+Vsargento falangista
+tp3841
+a(L2180L
+Vfalangista 1ro
+tp3842
+a(L2180L
+Vfalangista 2do
+tp3843
+a(L2180L
+Vla madre
+tp3844
+a(L2180L
+Vla palmito
+tp3845
+a(L2180L
+Vla pelona
+tp3846
+a(L2180L
+VSeverio
+tp3847
+a(L2180L
+VPaulino
+tp3848
+a(L107L
+VRosa
+tp3849
+a(L107L
+VLola
+tp3850
+a(L107L
+VCristóbal
+tp3851
+a(L107L
+VJuanelo
+tp3852
+a(L107L
+VMaestra
+tp3853
+a(L107L
+VRodriguez
+tp3854
+a(L2096L
+VZoila
+tp3855
+a(L2096L
+VQuindelán
+tp3856
+a(L2096L
+VAnuncia
+tp3857
+a(L2096L
+VPedro
+tp3858
+a(L2096L
+VYiyi
+tp3859
+a(L2096L
+VIrma
+tp3860
+a(L2096L
+VMarquesa
+tp3861
+a(L2096L
+VNiña
+tp3862
+a(L2096L
+VNiño
+tp3863
+a(L2179L
+VEL
+tp3864
+a(L2179L
+VElla
+tp3865
+a(L2179L
+VSu esposo
+tp3866
+a(L2102L
+Vemperador
+tp3867
+a(L2102L
+Vmandarín mayor
+tp3868
+a(L2102L
+Vprimer mandarín
+tp3869
+a(L2102L
+Vsegundo mandarín
+tp3870
+a(L2102L
+Vtercer mandarín
+tp3871
+a(L2102L
+Vcocinerita
+tp3872
+a(L2102L
+Vlabrador
+tp3873
+a(L2102L
+Vsombra de ruiseñor
+tp3874
+a(L2102L
+Vcantante
+tp3875
+a(L2102L
+Vmujer primera
+tp3876
+a(L2102L
+Vmujer segunda
+tp3877
+a(L2102L
+Vhombre primero
+tp3878
+a(L2102L
+Vvaca
+tp3879
+a(L2102L
+Vembajador del Japón
+tp3880
+a(L2102L
+Vrelojero
+tp3881
+a(L2102L
+Vhombre segundo
+tp3882
+a(L2102L
+Vrana
+tp3883
+a(L2102L
+Vpoeta
+tp3884
+a(L2102L
+Vmédico
+tp3885
+a(L2102L
+Vhombre tercero
+tp3886
+a(L2102L
+Vmaestro de música
+tp3887
+a(L2102L
+Vsombra primera
+tp3888
+a(L2102L
+Vtártaro primero
+tp3889
+a(L2102L
+Vniño
+tp3890
+a(L2102L
+Vbailarín
+tp3891
+a(L2102L
+Vsombra segunda
+tp3892
+a(L2102L
+Vtártaro segundo
+tp3893
+a(L2102L
+Vhombre del palanquín
+tp3894
+a(L2102L
+Vsombra tercera
+tp3895
+a(L2102L
+Vtártaro tercero
+tp3896
+a(L2103L
+Vtío Enrique
+tp3897
+a(L2103L
+Vtía Luisa
+tp3898
+a(L2103L
+VMariana
+tp3899
+a(L2103L
+Vniña de la vecina
+tp3900
+a(L2103L
+Vmunchín
+tp3901
+a(L2103L
+Vpantera
+tp3902
+a(L2103L
+Vespantapájaros
+tp3903
+a(L2103L
+Vhombre de lata
+tp3904
+a(L2103L
+Vleón
+tp3905
+a(L2103L
+Vbruja del sur
+tp3906
+a(L2103L
+Vayudante del mago
+tp3907
+a(L2103L
+Vmago de Oz
+tp3908
+a(L2103L
+Vbruja del norte
+tp3909
+a(L2185L
+Vmadre
+tp3910
+a(L2185L
+Vnovio
+tp3911
+a(L2185L
+Vleñador 1
+tp3912
+a(L2185L
+Vleñador 2
+tp3913
+a(L2185L
+Vleñador 3
+tp3914
+a(L2185L
+Vmujer de Leonardo
+tp3915
+a(L2185L
+Vsuegra
+tp3916
+a(L2185L
+VLeonardo
+tp3917
+a(L2185L
+Vniña
+tp3918
+a(L2185L
+Vnovia
+tp3919
+a(L2185L
+Vcriada
+tp3920
+a(L2185L
+Vpadre
+tp3921
+a(L2185L
+Vmuchacha 1
+tp3922
+a(L2185L
+Vmuchacha 2
+tp3923
+a(L2185L
+Vmozo 1
+tp3924
+a(L2185L
+Vmozo 2
+tp3925
+a(L2185L
+Vmozo 3
+tp3926
+a(L2185L
+Vluna
+tp3927
+a(L2185L
+Vmuerte
+tp3928
+a(L2185L
+Vpoder
+tp3929
+a(L2185L
+Vsexo
+tp3930
+a(L2185L
+Vreligión
+tp3931
+a(L2185L
+Vconvidado
+tp3932
+a(L2186L
+Vcoro
+tp3933
+a(L2186L
+Vel profesor
+tp3934
+a(L2186L
+Vel niño
+tp3935
+a(L2186L
+Vla madre
+tp3936
+a(L2186L
+Vestudiante
+tp3937
+a(L2187L
+Vel comerciante Karl Lagmann
+tp3938
+a(L2187L
+Vel guía
+tp3939
+a(L2187L
+Vel peón
+tp3940
+a(L2187L
+Vpolicía 1ro
+tp3941
+a(L2187L
+Vpolicía 2do
+tp3942
+a(L2187L
+Vel hotelero
+tp3943
+a(L2187L
+Vla mujer del peón
+tp3944
+a(L2187L
+Vel juez
+tp3945
+a(L2187L
+Vprimer juez adjunto
+tp3946
+a(L2187L
+Vsegundo juez adjunto
+tp3947
+a(L2187L
+Vel jefe de la segunda expedición
+tp3948
+a(L2187L
+Vgente del pueblo
+tp3949
+a(L2188L
+VEl arquitecto
+tp3950
+a(L2188L
+VEl emperador
+tp3951
+a(L2189L
+VRegina
+tp3952
+a(L2189L
+VEngstrand
+tp3953
+a(L2189L
+VPastor Manders
+tp3954
+a(L2189L
+VElena Alving
+tp3955
+a(L2189L
+VOswaldo Alving
+tp3956
+a(L2190L
+VNana
+tp3957
+a(L2190L
+VAstrov
+tp3958
+a(L2190L
+VVania
+tp3959
+a(L2190L
+VSerebriakov
+tp3960
+a(L2190L
+VTeleguín
+tp3961
+a(L2190L
+VSonia
+tp3962
+a(L2190L
+VElena
+tp3963
+a(L2190L
+VMaría
+tp3964
+a(L2190L
+VPetrushka
+tp3965
+a(L2191L
+VDimas
+tp3966
+a(L2191L
+VLa Jabá
+tp3967
+a(L2191L
+VBebo la Reposa
+tp3968
+a(L2191L
+VIsmael Prado
+tp3969
+a(L2191L
+VLa Dama del velo
+tp3970
+a(L2191L
+Vla Santiaguera
+tp3971
+a(L2191L
+VAlejandro Yarini
+tp3972
+a(L2191L
+VDomingo Rivas
+tp3973
+a(L2191L
+VLuis Lotot
+tp3974
+a(L2192L
+VLa raposa
+tp3975
+a(L2192L
+Vel jorobado de Salnés
+tp3976
+a(L2192L
+Vla comadre
+tp3977
+a(L2192L
+VLa mozuela
+tp3978
+a(L2192L
+Vla pepona
+tp3979
+a(L2192L
+Vla encamada
+tp3980
+a(L2192L
+VEl afilador
+tp3981
+a(L2192L
+Vel jándalo
+tp3982
+a(L2192L
+Vun vecino
+tp3983
+a(L2192L
+VLa ventera
+tp3984
+a(L2192L
+Vla musa
+tp3985
+a(L2192L
+VUn bulto
+tp3986
+a(L2192L
+Vdon Igi El Indiano
+tp3987
+a(L2192L
+VSimeón Julepe
+tp3988
+a(L2192L
+VValerio
+tp3989
+a(L2192L
+VPepe el Tendero
+tp3990
+a(L2192L
+VEl barbero
+tp3991
+a(L2192L
+Vla disa
+tp3992
+a(L2192L
+Vasistente en la escena
+tp3993
+a(L2192L
+VLudovina
+tp3994
+a(L2192L
+Vcoro de críos
+tp3995
+a(L2193L
+VCuria
+tp3996
+a(L2193L
+VBanca
+tp3997
+a(L2193L
+Vcomuna
+tp3998
+a(L2193L
+VLaura
+tp3999
+a(L2193L
+Vvendedor
+tp4000
+a(L2193L
+Vtopo
+tp4001
+a(L2193L
+Vflorista
+tp4002
+a(L2193L
+Vsordomudo
+tp4003
+a(L2193L
+VMárgara
+tp4004
+a(L2193L
+Vguardia
+tp4005
+a(L2193L
+VHugo
+tp4006
+a(L2193L
+VSara
+tp4007
+a(L2193L
+VEleonora
+tp4008
+a(L2194L
+VLa dama del velo
+tp4009
+a(L2194L
+VDimas
+tp4010
+a(L2194L
+VLa jabá
+tp4011
+a(L2194L
+VCira
+tp4012
+a(L2194L
+VRaquel
+tp4013
+a(L2194L
+VHelena
+tp4014
+a(L2194L
+VIsmael Prado
+tp4015
+a(L2194L
+VLa santiaguera
+tp4016
+a(L2194L
+VAlejandro Yarini
+tp4017
+a(L2194L
+VDomingo Rivas
+tp4018
+a(L2194L
+VJosé Bastarrechea
+tp4019
+a(L2194L
+VLuis Lotot
+tp4020
+a(L2194L
+VPetit Jean
+tp4021
+a(L2194L
+VRaúl Finet
+tp4022
+a(L2195L
+VArturo de Varville
+tp4023
+a(L2195L
+VNanine
+tp4024
+a(L2195L
+VPrudencia Duvernoy
+tp4025
+a(L2195L
+VMargarita Gautier
+tp4026
+a(L2195L
+VOlimpia
+tp4027
+a(L2195L
+VSaint Gaudens
+tp4028
+a(L2195L
+VGastón Rieux
+tp4029
+a(L2195L
+VArmando Duval
+tp4030
+a(L2195L
+VValentín
+tp4031
+a(L2195L
+VJorge Duval (padre)
+tp4032
+a(L2196L
+VPedro Pondal
+tp4033
+a(L2196L
+VOctavia Goldoni
+tp4034
+a(L2196L
+VJuan de la Plata
+tp4035
+a(L2196L
+VSabel
+tp4036
+a(L2196L
+VJuan Manuel
+tp4037
+a(L2196L
+VEl padre Rojas
+tp4038
+a(L2196L
+VEl médico
+tp4039
+a(L2196L
+VMaría Antonia
+tp4040
+a(L2196L
+VDoña Soledad
+tp4041
+a(L2197L
+VBlondin
+tp4042
+a(L2197L
+VCarlo
+tp4043
+a(L2198L
+VLa madre
+tp4044
+a(L2198L
+VMarta
+tp4045
+a(L2198L
+VJesús
+tp4046
+a(L2198L
+VMaría
+tp4047
+a(L2198L
+VUn viejo llamado Nada
+tp4048
+a(L2199L
+Vnodriza
+tp4049
+a(L2199L
+Vmaestro
+tp4050
+a(L2199L
+Vniña
+tp4051
+a(L2199L
+Vcoro
+tp4052
+a(L2199L
+Vniño
+tp4053
+a(L2199L
+Vcorifeo
+tp4054
+a(L2199L
+VMedea
+tp4055
+a(L2199L
+VCreonte
+tp4056
+a(L2199L
+VJason
+tp4057
+a(L2199L
+VEgeo
+tp4058
+a(L2199L
+Vmensajero
+tp4059
+a(L670L
+VRosa
+tp4060
+a(L670L
+VLola
+tp4061
+a(L670L
+VCristóbal
+tp4062
+a(L670L
+VJuanelo
+tp4063
+a(L670L
+Vmaestra
+tp4064
+a(L670L
+VRodríguez
+tp4065
+a(L2200L
+VCamila
+tp4066
+a(L2200L
+VCuca
+tp4067
+a(L2200L
+VNico
+tp4068
+a(L2200L
+VAntonia
+tp4069
+a(L2200L
+VPirey
+tp4070
+a(L2200L
+VBocachula
+tp4071
+a(L2200L
+Vmadrina
+tp4072
+a(L2200L
+VLeonor
+tp4073
+a(L2200L
+VJacinta
+tp4074
+a(L2200L
+VTeodoro
+tp4075
+a(L2201L
+V
+tp4076
+a(L2202L
+VCristina
+tp4077
+a(L2202L
+VJuan
+tp4078
+a(L2202L
+VJulia
+tp4079
+a(L2202L
+Vcriada
+tp4080
+a(L2202L
+Vcriado
+tp4081
+a(L2204L
+V
+tp4082
+a(L2205L
+V
+tp4083
+a(L2203L
+V
+tp4084
+a(L2206L
+VLina
+tp4085
+a(L2206L
+VTony
+tp4086
+a(L2207L
+VRosa
+tp4087
+a(L2207L
+VBrian
+tp4088
+a(L2208L
+VGilberto
+tp4089
+a(L2208L
+VRamón
+tp4090
+a(L2209L
+VEva
+tp4091
+a(L2209L
+VSimone
+tp4092
+a(L2210L
+VJoven Militar
+tp4093
+a(L2210L
+VPepe
+tp4094
+a(L2087L
+VLa sombra
+tp4095
+a(L2211L
+VCuca
+tp4096
+a(L2211L
+VBeba
+tp4097
+a(L2211L
+VLalo
+tp4098
+a(L2212L
+V
+tp4099
+a(L2213L
+VCamila
+tp4100
+a(L2213L
+VCuca
+tp4101
+a(L2213L
+VNico
+tp4102
+a(L2213L
+VAntonia
+tp4103
+a(L2213L
+VPiray
+tp4104
+a(L2213L
+VBocachula
+tp4105
+a(L2213L
+Vmadrina
+tp4106
+a(L2213L
+VLeonor
+tp4107
+a(L2213L
+VTeodoro
+tp4108
+a(L2214L
+VMigdalia
+tp4109
+a(L2214L
+VAna María
+tp4110
+a(L2214L
+VCheíto
+tp4111
+a(L2214L
+Vsargento
+tp4112
+a(L2214L
+VCipriano
+tp4113
+a(L2214L
+VJuana Machete
+tp4114
+a(L2214L
+Vplomero
+tp4115
+a(L2214L
+VPaco
+tp4116
+a(L2215L
+VVladimir
+tp4117
+a(L2215L
+VEstragón
+tp4118
+a(L2215L
+VPozzo
+tp4119
+a(L2215L
+VLucky
+tp4120
+a(L2215L
+Vboy
+tp4121
+a(L2216L
+VLa celestina
+tp4122
+a(L2216L
+VCalisto
+tp4123
+a(L2216L
+VMelibea
+tp4124
+a(L2216L
+VSempronio
+tp4125
+a(L2216L
+VPármeno
+tp4126
+a(L2216L
+VElicia
+tp4127
+a(L2216L
+VAreúsa
+tp4128
+a(L2216L
+VPleberio
+tp4129
+a(L2216L
+VLucresia
+tp4130
+a(L2216L
+VAlisa
+tp4131
+a(L2216L
+VCenturio
+tp4132
+a(L2216L
+VTristán
+tp4133
+a(L2217L
+VMaría Antonia
+tp4134
+a(L2217L
+VJulián
+tp4135
+a(L2217L
+VCarlos
+tp4136
+a(L2217L
+VLa muerte Cumachela
+tp4137
+a(L1452L
+VChopa
+tp4138
+a(L2217L
+Vmadrina
+tp4139
+a(L2217L
+VBatabio
+tp4140
+a(L2217L
+VYuyo
+tp4141
+a(L2217L
+VTino
+tp4142
+a(L2217L
+VCipri
+tp4143
+a(L2217L
+VChama
+tp4144
+a(L2217L
+VCoral
+tp4145
+a(L2217L
+VSonia
+tp4146
+a(L2217L
+VNena
+tp4147
+a(L2218L
+VCelia
+tp4148
+a(L2218L
+VElena
+tp4149
+a(L2218L
+VDimas
+tp4150
+a(L2218L
+VLa dama del velo
+tp4151
+a(L2218L
+VLa macorina
+tp4152
+a(L2218L
+VLa jabá
+tp4153
+a(L2218L
+VBebo la Reposa
+tp4154
+a(L2218L
+VIsmael Prado
+tp4155
+a(L2218L
+VLa santiaguera
+tp4156
+a(L2218L
+VAlejandro Yarini
+tp4157
+a(L2218L
+VBasterrechea
+tp4158
+a(L2218L
+VLuis Lotot
+tp4159
+a(L2218L
+VPetit Jean
+tp4160
+a(L2219L
+VRomán
+tp4161
+a(L2219L
+VInés
+tp4162
+a(L2219L
+VEstella
+tp4163
+a(L2220L
+VLucien
+tp4164
+a(L2220L
+VSolange
+tp4165
+a(L2220L
+VJean
+tp4166
+a(L2220L
+VClaire
+tp4167
+a(L2221L
+VTeresa
+tp4168
+a(L2221L
+VSantiago
+tp4169
+a(L2222L
+VPalma Solares
+tp4170
+a(L2222L
+Votros
+tp4171
+a(L2222L
+VManuel José
+tp4172
+a(L2222L
+VPatria Nuñez
+tp4173
+a(L2222L
+VSantiago Paloma
+tp4174
+a(L2224L
+VMauricio
+tp4175
+a(L2224L
+VOjos Bellos
+tp4176
+a(L2224L
+VLefranc
+tp4177
+a(L2224L
+Vguardia
+tp4178
+a(L2225L
+Vpregonero
+tp4179
+a(L2225L
+VPepe el moro
+tp4180
+a(L2225L
+VCuso
+tp4181
+a(L2225L
+VMaricusa
+tp4182
+a(L2225L
+VKiko
+tp4183
+a(L2225L
+VBellita
+tp4184
+a(L2225L
+VCarily
+tp4185
+a(L2225L
+VKrafka
+tp4186
+a(L2225L
+VZazo
+tp4187
+a(L2225L
+VPong Pong
+tp4188
+a(L2225L
+VJuan Carlos
+tp4189
+a(L2225L
+VAyita
+tp4190
+a(L2226L
+VAzabache Moraleja
+tp4191
+a(L2226L
+VRoberto
+tp4192
+a(L2226L
+VJonás- viejo pescador
+tp4193
+a(L2226L
+VDoña Totomoya-ballena
+tp4194
+a(L2226L
+VTriii Pequeñito
+tp4195
+a(L2226L
+VDoña Pomposa-ballena
+tp4196
+a(L2226L
+VTreee Mediano
+tp4197
+a(L2226L
+VTraaa grande
+tp4198
+a(L2226L
+VPapá Oso
+tp4199
+a(L2226L
+VMamá Osa
+tp4200
+a(L2226L
+VHijito Osito
+tp4201
+a(L2227L
+VChum-Min
+tp4202
+a(L2227L
+VChoen-Lai
+tp4203
+a(L2227L
+VMing-Tai
+tp4204
+a(L2228L
+Vcucarachita Martina
+tp4205
+a(L2228L
+Vpregonero
+tp4206
+a(L2228L
+Vel gallo
+tp4207
+a(L2228L
+Vel gato
+tp4208
+a(L2228L
+Vel toro
+tp4209
+a(L2228L
+Vel sapo
+tp4210
+a(L2228L
+Vel ratoncito Pérez
+tp4211
+a(L2229L
+Valdeano malo
+tp4212
+a(L2229L
+Valdeano sabio
+tp4213
+a(L2229L
+Vpaje
+tp4214
+a(L2229L
+Vrey
+tp4215
+a(L2229L
+Vcomadre
+tp4216
+a(L2230L
+VRiflar
+tp4217
+a(L2230L
+VFinete
+tp4218
+a(L2233L
+VWoman 1
+tp4219
+a(L2233L
+VWoman 2
+tp4220
+a(L2234L
+VHerself
+tp4221
+a(L2236L
+VSara
+tp4222
+a(L2236L
+VJon
+tp4223
+a(L2236L
+VLes
+tp4224
+a(L2236L
+VLeslie
+tp4225
+a(L2236L
+VDon
+tp4226
+a(L2236L
+VThe Girl
+tp4227
+a(L2237L
+V
+tp4228
+a(L2238L
+VEsteban García -soldado
+tp4229
+a(L2238L
+VAlba
+tp4230
+a(L2238L
+VClara
+tp4231
+a(L2238L
+VBarrabás -el perro de Clara-
+tp4232
+a(L2238L
+VPedro Tercero
+tp4233
+a(L2238L
+Vsoldado
+tp4234
+a(L2238L
+VRosa la bella -hermana de Clara-
+tp4235
+a(L2238L
+VBlanca -hija de Clara
+tp4236
+a(L2238L
+VEsteban Trueba
+tp4237
+a(L2238L
+VNívea -madre de Clara y Rosa la bella-
+tp4238
+a(L2238L
+Vmujer de protesta
+tp4239
+a(L2238L
+VSevero -marido de Nívea-
+tp4240
+a(L2238L
+VPedro García
+tp4241
+a(L2238L
+VPadre Antonio
+tp4242
+a(L2238L
+VMujer 1
+tp4243
+a(L2238L
+VPancha García
+tp4244
+a(L2238L
+VMujer 2
+tp4245
+a(L2238L
+VFérula -hermana de Esteban Trueba-
+tp4246
+a(L2238L
+VConde Satigny
+tp4247
+a(L2238L
+VTránsito Soto
+tp4248
+a(L2239L
+VLoti
+tp4249
+a(L2239L
+VSerena
+tp4250
+a(L2240L
+VIphigenia
+tp4251
+a(L2240L
+VAchilles
+tp4252
+a(L2240L
+V
+tp4253
+a(L2241L
+VIphigenia
+tp4254
+a(L2241L
+VAchilles
+tp4255
+a(L2241L
+VAdolfo
+tp4256
+a(L2241L
+VFresa Girl
+tp4257
+a(L2241L
+VSoldier X
+tp4258
+a(L2241L
+VGeneral's Ass
+tp4259
+a(L2241L
+VCamila
+tp4260
+a(L2241L
+VVioletta Imperial
+tp4261
+a(L2241L
+VHermaphrodite Prince
+tp4262
+a(L2241L
+VNews Anchor
+tp4263
+a(L2241L
+VOrestes
+tp4264
+a(L2241L
+VCamera Man
+tp4265
+a(L2241L
+VVirtual MC
+tp4266
+a(L2241L
+VWatching Man-video cast
+tp4267
+a(L2241L
+VSecretary -video cast
+tp4268
+a(L2241L
+VAbductor -video cast
+tp4269
+a(L2241L
+VReporter/Boy-video cast
+tp4270
+a(L2241L
+VReporter-video cast
+tp4271
+a(L2241L
+VReporter -video cast
+tp4272
+a(L2241L
+VDead Girl-video cast
+tp4273
+a(L2241L
+VDead Girl -video cast
+tp4274
+a(L1502L
+V
+tp4275
+a(L2242L
+VSimone
+tp4276
+a(L2242L
+VTirasol
+tp4277
+a(L2242L
+VCaroline
+tp4278
+a(L2242L
+VSelah
+tp4279
+a(L2242L
+VMiranda
+tp4280
+a(L2242L
+VJamie
+tp4281
+a(L2175L
+VRoberta López -guardaparques
+tp4282
+a(L2175L
+VLa Paco -florista
+tp4283
+a(L2175L
+VSaúl Alter -policía
+tp4284
+a(L2175L
+VKárel Darín -muchacho
+tp4285
+a(L2175L
+VMiguel Depás -hijo de Alejandro
+tp4286
+a(L2175L
+VAlejandro Depás -juez
+tp4287
+a(L2175L
+VSilvia Depás -hija de Alejandro
+tp4288
+a(L2175L
+VFelipe Alejo -tío de Kárel
+tp4289
+a(L2262L
+VSalomé
+tp4290
+a(L2268L
+VArturo
+tp4291
+a(L2268L
+VAdriana
+tp4292
+a(L2268L
+VOmar
+tp4293
+a(L2268L
+VCuqui
+tp4294
+a(L2268L
+VLenny
+tp4295
+a(L2268L
+VCynthia
+tp4296
+a(L2269L
+VGerardo
+tp4297
+a(L2269L
+VPaulina
+tp4298
+a(L2269L
+VDr. Miranda
+tp4299
+a(L2266L
+V
+tp4300
+a(L2270L
+V
+tp4301
+a(L2271L
+V
+tp4302
+a(L948L
+VAgracelio
+tp4303
+a(L948L
+VShowman
+tp4304
+a(L948L
+VSpider Woman
+tp4305
+a(L948L
+VGirl with a box of prayers
+tp4306
+a(L948L
+VMoon
+tp4307
+a(L948L
+VSelim al Din
+tp4308
+a(L948L
+VTownsperson
+tp4309
+a(L2275L
+VGhost of Federico García Lorca
+tp4310
+a(L2275L
+VEmiliano
+tp4311
+a(L2275L
+VPaquita
+tp4312
+a(L2275L
+VMarina
+tp4313
+a(L2275L
+VKarim
+tp4314
+a(L2276L
+VDimitri
+tp4315
+a(L2276L
+VPilar
+tp4316
+a(L2276L
+VCamilo
+tp4317
+a(L2276L
+VOfelina
+tp4318
+a(L2276L
+VHilario
+tp4319
+a(L2276L
+VFifo
+tp4320
+a(L2277L
+VFrancine
+tp4321
+a(L2277L
+VRamona
+tp4322
+a(L2277L
+VFederico
+tp4323
+a(L2277L
+VRosario del Cielo
+tp4324
+a(L2277L
+VAnuncio
+tp4325
+a(L2277L
+VMatthias
+tp4326
+a(L2278L
+VCamilo
+tp4327
+a(L2278L
+VOfelina
+tp4328
+a(L2278L
+VHilario
+tp4329
+a(L2278L
+VFifo
+tp4330
+a(L2278L
+VPilar
+tp4331
+a(L2278L
+VDimitri
+tp4332
+a(L2279L
+VSofia
+tp4333
+a(L2279L
+VMaría
+tp4334
+a(L2279L
+VLt. Portuondo
+tp4335
+a(L2279L
+VVictor Manuel
+tp4336
+a(L2280L
+V
+tp4337
+a(L2281L
+V
+tp4338
+a(L1990L
+V
+tp4339
+a(L2285L
+V
+tp4340
+a(L2289L
+VBobby
+tp4341
+a(L2289L
+VMujer I
+tp4342
+a(L2289L
+VAnton Schill
+tp4343
+a(L2289L
+VMujer III
+tp4344
+a(L2289L
+VMaestro
+tp4345
+a(L2289L
+VCiego I
+tp4346
+a(L2289L
+VHombre II
+tp4347
+a(L2289L
+VCiego II
+tp4348
+a(L2289L
+VClara Zachanassian
+tp4349
+a(L2289L
+VHombre I
+tp4350
+a(L2289L
+VCarlos
+tp4351
+a(L2289L
+VAlcalde
+tp4352
+a(L2289L
+VPolicía
+tp4353
+a(L2289L
+VMédico
+tp4354
+a(L2289L
+VPedro
+tp4355
+a(L2289L
+VPeriodista
+tp4356
+a(L2289L
+VOlalla
+tp4357
+a(L2289L
+VSra. Schill
+tp4358
+a(L2289L
+VMujer II
+tp4359
+a(L2289L
+VConductor
+tp4360
+a(L2289L
+VPastor
+tp4361
+a(L2290L
+V
+tp4362
+a(L2296L
+VTatiana
+tp4363
+a(L2296L
+VCarlos
+tp4364
+a(L2296L
+VJuana Estanquillo
+tp4365
+a(L2296L
+VManuel
+tp4366
+a(L2296L
+VRaúl
+tp4367
+a(L2296L
+VKatia
+tp4368
+a(L2296L
+Vla madre de Tatiana
+tp4369
+a(L2296L
+VSerguei
+tp4370
+a(L2296L
+Vel padre de Tatiana
+tp4371
+a(L2296L
+VCarlos Igor
+tp4372
+a(L2296L
+VEl violinista
+tp4373
+a(L19L
+VMarta
+tp4374
+a(L2297L
+VGarapito
+tp4375
+a(L2297L
+VAccos
+tp4376
+a(L2297L
+VElisee
+tp4377
+a(L2297L
+VZiza
+tp4378
+a(L2297L
+VTallarin
+tp4379
+a(L2297L
+VSamir
+tp4380
+a(L2297L
+VIoga
+tp4381
+a(L2297L
+VCis
+tp4382
+a(L2298L
+VRosalía
+tp4383
+a(L1657L
+VFlora 
+tp4384
+a(L2299L
+VLa Cuñada 
+tp4385
+a(L2300L
+VDoña Isabel 
+tp4386
+a(L217L
+VSolterana III
+tp4387
+a(L2301L
+VLucresia 
+tp4388
+a(L558L
+VLa madre 
+tp4389
+a(L2303L
+VNastasia Fedorovna Merchurtkina
+tp4390
+a(L2302L
+VNatalia Stepanovna
+tp4391
+a(L239L
+VLa mujer del médico
+tp4392
+a(L238L
+VSusan Brady
+tp4393
+a(L243L
+VDoña Luciana 
+tp4394
+a(L2305L
+VMamá Pomposo
+tp4395
+a(L2306L
+VEdna Shaft
+tp4396
+a(L2307L
+VLa hija
+tp4397
+a(L2308L
+VSalome
+tp4398
+a(L234L
+VLa Viuda Sra. Chin 
+tp4399
+a(L235L
+VAlejandrina 
+tp4400
+a(L237L
+VMicaela 
+tp4401
+a(L92L
+VLa criada 
+tp4402
+a(L207L
+VJenny
+tp4403
+a(L2311L
+VUna dama
+tp4404
+a(L2312L
+VMaría
+tp4405
+a(L2315L
+VMuchacho 3
+tp4406
+a(L229L
+VEnfermera 2 
+tp4407
+a(L232L
+VAnarda
+tp4408
+a(L2317L
+VDoña Orgullos 
+tp4409
+a(L2315L
+VMuchacho 1
+tp4410
+a(L2315L
+VMuchacha 2
+tp4411
+a(L2315L
+VVoz de la niña Doralina
+tp4412
+a(L558L
+VAna
+tp4413
+a(L558L
+VEnrique
+tp4414
+a(L558L
+VMiranda
+tp4415
+a(L558L
+VUn niño
+tp4416
+a(L558L
+VDon Benigno
+tp4417
+a(L558L
+VCobrador
+tp4418
+a(L558L
+VPepe
+tp4419
+a(L558L
+VFotógrafo
+tp4420
+a(L558L
+VLuis
+tp4421
+a(L558L
+VMaría
+tp4422
+a(L234L
+VWang
+tp4423
+a(L234L
+Vel aguador
+tp4424
+a(L234L
+VPrimer Dios
+tp4425
+a(L234L
+VSegundo Dios
+tp4426
+a(L234L
+VTercer Dios
+tp4427
+a(L234L
+VChen-Te - Chui-Ta
+tp4428
+a(L234L
+VLa esposa
+tp4429
+a(L234L
+VEl Esposo
+tp4430
+a(L234L
+VEl Sobrino
+tp4431
+a(L234L
+VEl Hermano
+tp4432
+a(L234L
+VLa Cuñada
+tp4433
+a(L234L
+VLa Sobrina
+tp4434
+a(L234L
+VEl niño
+tp4435
+a(L234L
+VEl Carpintero Lin-to
+tp4436
+a(L234L
+VEl Carpintero Lin-To
+tp4437
+a(L234L
+VEl Desempleado
+tp4438
+a(L234L
+VLa Propietaria Mit-Zú
+tp4439
+a(L234L
+VEl Policía
+tp4440
+a(L234L
+VEl Policía 
+tp4441
+a(L234L
+VLa Esposa del Mercader
+tp4442
+a(L234L
+VProstituta vieja
+tp4443
+a(L234L
+VYang Sun
+tp4444
+a(L234L
+Vel aviador sin
+tp4445
+a(L234L
+VEl barbero Chu-Fu
+tp4446
+a(L234L
+VSra. Yang
+tp4447
+a(L234L
+VEl mercader de alfombras
+tp4448
+a(L234L
+VEl sacerdote
+tp4449
+a(L234L
+VUn hijo del carpintero
+tp4450
+a(L92L
+VLa prostituta 
+tp4451
+a(L92L
+VEl soldado
+tp4452
+a(L92L
+VEl joven
+tp4453
+a(L92L
+VLa esposa
+tp4454
+a(L92L
+VEl esposo
+tp4455
+a(L92L
+VLa muchacha
+tp4456
+a(L92L
+VEl poeta
+tp4457
+a(L92L
+VElla
+tp4458
+a(L92L
+VEl
+tp4459
+a(L92L
+VTarugo
+tp4460
+a(L2313L
+VNelson Cruz
+tp4461
+a(L2313L
+VDolores Cantú
+tp4462
+a(L2319L
+VFederico niño y Don Cristóbal
+tp4463
+a(L2313L
+VDahlia Cruz
+tp4464
+a(L2319L
+VHormiga 1
+tp4465
+a(L2319L
+VLa Vieja
+tp4466
+a(L2319L
+VPeregrinita Rana y Rosita
+tp4467
+a(L2319L
+VHormiga 2
+tp4468
+a(L2319L
+VPeregrinito Sapo
+tp4469
+a(L2319L
+VViento malo
+tp4470
+a(L2319L
+VTitiritero ambulante
+tp4471
+a(L2319L
+VPintor de bigotes dormidos y Federico joven
+tp4472
+a(L2319L
+VHormiga 3
+tp4473
+a(L2319L
+Vla Luna en silueta de sombras
+tp4474
+a(L2319L
+Vy ayudantía en animación de figuras
+tp4475
+a(L2320L
+VDama 1
+tp4476
+a(L2320L
+VCaballero 2
+tp4477
+a(L2320L
+VCaballero 3
+tp4478
+a(L2320L
+VDama 4
+tp4479
+a(L2321L
+V
+tp4480
+a(L2322L
+VNarrador
+tp4481
+a(L2322L
+VTitiritera
+tp4482
+a(L2323L
+VTítiritera
+tp4483
+a(L2323L
+VLíbelula y Jutía (acción)
+tp4484
+a(L2323L
+VTitiritero I
+tp4485
+a(L2323L
+VSr Mascuello
+tp4486
+a(L2323L
+VGuajiro y Caimán (acción)
+tp4487
+a(L2323L
+VPayaso del acordeón
+tp4488
+a(L2326L
+V
+tp4489
+a(L2327L
+V
+tp4490
+a(L2328L
+V
+tp4491
+a(L2329L
+V
+tp4492
+a(L2330L
+V
+tp4493
+a(L2331L
+V
+tp4494
+a(L2332L
+V
+tp4495
+a(L2333L
+V
+tp4496
+a(L2334L
+V
+tp4497
+a(L2335L
+VLa luna
+tp4498
+a(L2335L
+VLa Muñeca
+tp4499
+a(L2335L
+VEl polichinela
+tp4500
+a(L2335L
+VEl soldadito
+tp4501
+a(L2318L
+VNan Lowell
+tp4502
+a(L2318L
+VCarleton Fitzgerald
+tp4503
+a(L2318L
+VFrances Black
+tp4504
+a(L2318L
+VSidney Black
+tp4505
+a(L2318L
+VStella Livingston
+tp4506
+a(L2318L
+VPeter Sloan
+tp4507
+a(L2318L
+VTyler Rayburn
+tp4508
+a(L2318L
+VWilliam H. Gallagher
+tp4509
+a(L2318L
+VOwen Turner
+tp4510
+a(L2318L
+VIrene Livingston
+tp4511
+a(L2318L
+VMax
+tp4512
+a(L2318L
+VA Plain-Clothes Man
+tp4513
+a(L2318L
+VSven
+tp4514
+a(L232L
+VTristán -lacayo
+tp4515
+a(L232L
+VTeodoro -secretario
+tp4516
+a(L232L
+VDiana -condesa de Belflor
+tp4517
+a(L232L
+VFabio -gentil hombre
+tp4518
+a(L232L
+VOctavio -mayordomo
+tp4519
+a(L232L
+VDorotea
+tp4520
+a(L232L
+VMarcela
+tp4521
+a(L232L
+VEl marqués Ricardo
+tp4522
+a(L232L
+VCelio -criado
+tp4523
+a(L232L
+VEl conde Federico
+tp4524
+a(L232L
+VLeonido -criado
+tp4525
+a(L232L
+VEl conde Ludovico
+tp4526
+a(L232L
+VCamilo -criado
+tp4527
+a(L232L
+Vcriado
+tp4528
+a(L207L
+VWilly Loman
+tp4529
+a(L207L
+VLinda
+tp4530
+a(L207L
+VBiff
+tp4531
+a(L207L
+VHappy
+tp4532
+a(L207L
+VBernard
+tp4533
+a(L207L
+VLa mujer
+tp4534
+a(L207L
+VCharley
+tp4535
+a(L207L
+VTío Ben
+tp4536
+a(L207L
+VHoward Wagner
+tp4537
+a(L207L
+VStanley
+tp4538
+a(L207L
+VSrta Forsythe
+tp4539
+a(L207L
+VLetta
+tp4540
+a(L207L
+Vcamarero
+tp4541
+a(L2345L
+VCecilia
+tp4542
+a(L2346L
+VGuillermina
+tp4543
+a(L2351L
+VLa Mujer
+tp4544
+a(L2352L
+VVoz 2 and Madrina
+tp4545
+a(L2355L
+VCeleste
+tp4546
+a(L2356L
+VFana
+tp4547
+a(L2357L
+VEquin
+tp4548
+a(L2357L
+VLeticía
+tp4549
+a(L2357L
+VCaluisa
+tp4550
+a(L2356L
+VCiampa
+tp4551
+a(L2356L
+VSeñora Beatriz Fiorica
+tp4552
+a(L2356L
+VSra. Asunción La Bella
+tp4553
+a(L2356L
+VFifi La Bella
+tp4554
+a(L2356L
+Vhermano de Beatriz
+tp4555
+a(L2356L
+VEl Delegado Spano
+tp4556
+a(L2356L
+VLa Saracena
+tp4557
+a(L2356L
+Vcelestina
+tp4558
+a(L2356L
+VNina Ciampa
+tp4559
+a(L2346L
+VJuana
+tp4560
+a(L2346L
+VIgnacia
+tp4561
+a(L2346L
+VFlora
+tp4562
+a(L2346L
+VFroilán
+tp4563
+a(L2346L
+VMaría Lionza
+tp4564
+a(L2346L
+VPedro
+tp4565
+a(L2346L
+VFacundo
+tp4566
+a(L2346L
+VJuan de los cabrones
+tp4567
+a(L2346L
+VJuan de la luz
+tp4568
+a(L2358L
+VNarrador y Locutor
+tp4569
+a(L2358L
+VInspector
+tp4570
+a(L2358L
+VEulalia
+tp4571
+a(L2358L
+VEugenia
+tp4572
+a(L2358L
+VAmelia
+tp4573
+a(L2352L
+VVoz 1 y Cheo
+tp4574
+a(L2352L
+VTila
+tp4575
+a(L2352L
+VTata y Pregonero
+tp4576
+a(L2351L
+VEl Hombre
+tp4577
+a(L2359L
+VEngracia
+tp4578
+a(L2359L
+VOlimpia
+tp4579
+a(L2359L
+VLola
+tp4580
+a(L2359L
+VAmérica
+tp4581
+a(L2359L
+VCinta
+tp4582
+a(L2359L
+VMargarita
+tp4583
+a(L2359L
+VMarta
+tp4584
+a(L2359L
+VRomualda
+tp4585
+a(L2359L
+VRoas
+tp4586
+a(L2359L
+VCarlota
+tp4587
+a(L2359L
+VBerta
+tp4588
+a(L2359L
+VLilí
+tp4589
+a(L2359L
+VPerico
+tp4590
+a(L2359L
+VBelisario
+tp4591
+a(L2359L
+VArmando
+tp4592
+a(L2359L
+VDoctor Aguado
+tp4593
+a(L2359L
+VEl Speaker
+tp4594
+a(L2359L
+VCasiano
+tp4595
+a(L2359L
+VDuval
+tp4596
+a(L2359L
+VDon Antonio
+tp4597
+a(L2359L
+VGroom
+tp4598
+a(L2306L
+VBen Butley
+tp4599
+a(L2306L
+VJosé Keyston
+tp4600
+a(L2306L
+VSeñorita Heasman
+tp4601
+a(L2306L
+VAna Butley
+tp4602
+a(L2306L
+VRey Nuttal
+tp4603
+a(L2306L
+VGardner
+tp4604
+a(L2360L
+VGrace
+tp4605
+a(L2360L
+VSheila
+tp4606
+a(L2360L
+VBrian
+tp4607
+a(L2360L
+VPamela
+tp4608
+a(L2360L
+VJoe
+tp4609
+a(L2360L
+VFreddy
+tp4610
+a(L2361L
+VSeñora Davis
+tp4611
+a(L2361L
+VRosie Davis
+tp4612
+a(L2361L
+Vy Carmen Miranda
+tp4613
+a(L2361L
+VRosie Davis y Rosie
+tp4614
+a(L2361L
+VMary y La enfermera
+tp4615
+a(L2361L
+VSr. Jones
+tp4616
+a(L2361L
+VEl taxista
+tp4617
+a(L2361L
+VUn marinero
+tp4618
+a(L2361L
+VJean Harlow
+tp4619
+a(L2361L
+VSr. Robert
+tp4620
+a(L2361L
+VJoe
+tp4621
+a(L2361L
+VEl hombre de Nueva York
+tp4622
+a(L2361L
+VEl macró
+tp4623
+a(L2361L
+VUn galán
+tp4624
+a(L2362L
+VBerta
+tp4625
+a(L2362L
+VJesús
+tp4626
+a(L2362L
+VAmalia
+tp4627
+a(L2362L
+VLala
+tp4628
+a(L2393L
+V
+tp4629
+a(L2392L
+VElvira
+tp4630
+a(L2395L
+V
+tp4631
+a(L2396L
+V
+tp4632
+a(L2397L
+V
+tp4633
+a(L296L
+V
+tp4634
+a(L2398L
+V
+tp4635
+a(L291L
+V
+tp4636
+a(L312L
+V
+tp4637
+a(L2399L
+V
+tp4638
+a(L2400L
+V
+tp4639
+a(L2426L
+V
+tp4640
+a(L368L
+V
+tp4641
+a(L2402L
+V
+tp4642
+a(L2407L
+V
+tp4643
+a(L2408L
+V
+tp4644
+a(L305L
+V
+tp4645
+a(L2417L
+V
+tp4646
+a(L2410L
+V
+tp4647
+a(L85L
+V
+tp4648
+a(L2413L
+V
+tp4649
+a(L2414L
+V
+tp4650
+a(L2415L
+V
+tp4651
+a(L2416L
+V
+tp4652
+a(L2418L
+V
+tp4653
+a(L2419L
+V
+tp4654
+a(L2433L
+V
+tp4655
+a(L2421L
+V
+tp4656
+a(L248L
+V
+tp4657
+a(L2422L
+V
+tp4658
+a(L2424L
+V
+tp4659
+a(L2425L
+V
+tp4660
+a(L2447L
+VSomolinos
+tp4661
+a(L2447L
+VPdte. de la F.E.U.
+tp4662
+a(L2428L
+V
+tp4663
+a(L2429L
+V
+tp4664
+a(L2430L
+V
+tp4665
+a(L2431L
+V
+tp4666
+a(L2432L
+V
+tp4667
+a(L347L
+V
+tp4668
+a(L1441L
+V
+tp4669
+a(L2435L
+V
+tp4670
+a(L19L
+V
+tp4671
+a(L2447L
+VLuis Augilar
+tp4672
+a(L2447L
+VFlora Duán
+tp4673
+a(L2447L
+VMiguel Rivera y Húngaro
+tp4674
+a(L2447L
+VLalo Figueras
+tp4675
+a(L2447L
+VMario Ferrán
+tp4676
+a(L2447L
+VNatalia Valdés
+tp4677
+a(L2447L
+VSr. Santiago
+tp4678
+a(L2447L
+VRector de la Universidad y Húngaro
+tp4679
+a(L2447L
+VFélix Sandoval
+tp4680
+a(L2447L
+VSeñorita Crespo
+tp4681
+a(L2447L
+VFrancisco
+tp4682
+a(L2447L
+VConserje del Reformatorio
+tp4683
+a(L2447L
+VEncarna Méndez
+tp4684
+a(L2447L
+VEducanda del Reformatorio
+tp4685
+a(L2447L
+VFina López
+tp4686
+a(L2447L
+VMarga Viñales y María
+tp4687
+a(L2447L
+VEducanda 1
+tp4688
+a(L2447L
+VEducanda 2
+tp4689
+a(L2447L
+VJuan
+tp4690
+a(L2447L
+VPresidente del Patronato de "Las Damas Azules"
+tp4691
+a(L2447L
+VLobo de la Balada de "Atta Troll"
+tp4692
+a(L2447L
+VZorro
+tp4693
+a(L2448L
+VMadre
+tp4694
+a(L2448L
+VFelipe
+tp4695
+a(L2448L
+Vamigo de la casa
+tp4696
+a(L2448L
+VRolando
+tp4697
+a(L2448L
+Vhijo major
+tp4698
+a(L2448L
+VTeresita
+tp4699
+a(L2448L
+Vhija
+tp4700
+a(L2448L
+VAgente del SIM 1
+tp4701
+a(L2448L
+VAgente del SIM 2
+tp4702
+a(L2448L
+VEnlutada
+tp4703
+a(L2448L
+Vuna vecina
+tp4704
+a(L2448L
+VPadre
+tp4705
+a(L2448L
+VNoel
+tp4706
+a(L2448L
+Vhijo menor
+tp4707
+a(L2486L
+V
+tp4708
+a(L2487L
+VGallo
+tp4709
+a(L2487L
+VMarieta
+tp4710
+a(L2487L
+VJuan
+tp4711
+a(L2487L
+VPerro y Cabecitorcido
+tp4712
+a(L2487L
+VGata y Narizona
+tp4713
+a(L2487L
+VBurro y Plumitercido
+tp4714
+a(L2487L
+VChivo y Cuellitorcido
+tp4715
+a.

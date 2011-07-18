@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+{% block article_header %}
+
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/productions">Productions</a></li>
+                </ul>
+            </nav>
+            <h1>{{ production.title }}</h1>
+            <span>{{ production.venue.title }}{% if production.venue.city %}, {{ production.venue.city.name }}{% if production.venue.city.state %}, {{ production.venue.city.state }}{% endif %}{% endif %}, {{ production.venue.country }}</span><br />
+            <span>{% if production.begin_date %}{{ production.begin_date_display }}&mdash;{% endif %}{% if production.end_date %}{{ production.end_date_display }}{% endif %}</span>
+
+{% endblock %}
+
+{% block content %}
+        <section class="objects">
+            
+            {% if productionobjects %}
+                {% thumbnail productionobjects.0.filepath "400x400" crop="center" upscale=False as im %}
+                <img id="largepreview" src="{{ im.url }}" alt='' />
+                {% endthumbnail %}
+                
+                <div>
+                <ul>
+                {% for obj in productionobjects %}
+                    <li>
+                        {% thumbnail obj.filepath "x120" upscale=False as im %}
+                        <a href="/digitalobject/{{ obj.digital_object.pk }}"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt='' title="{{ obj.digital_object.title }}" /></a>
+                        {% endthumbnail %}
+                        {% thumbnail obj.filepath "400x400" crop="center" upscale=False as im %}
+                        <span>{{ im.url }}</span>
+                        {% endthumbnail %}
+                    </li>
+                {% endfor %}
+                </ul>
+                {% if viewmore %}<a href="#">View more digital objects from this production &raquo;</a>{% endif %}
+                </div>
+            {% endif %}
+        </section>
+        
+        <aside>
+            
+        </aside>
+        
+        <section class="data">
+            {# Directors / cast / etc. go here #}
+            {% if directing_team %}
+                <h4>Directing team:</h4>
+                <table><tbody>
+                {% for member in directing_team %}
+                    <tr>
+                        <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                        <td>{{ member.function.title }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody></table>
+            {% endif %}
+            {% if cast %}
+                <h4>Cast:</h4>
+                <table><tbody>
+                {% for member in cast %}
+                    <tr>
+                        <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                        <td>{{ member.function.title }}</td>
+                        <td>{% if member.role %}{{ member.role.title }}{% endif %}</td>
+                    </tr>
+                {% endfor %}
+                </tbody></table>
+            {% endif %}
+        </section>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        $(window).load(function() {
+            $('.objects ul').isotope({
+                itemSelector: 'li',
+                layoutMode: 'masonryHorizontal'
+            });
+            
+            $('.objects ul li').mouseover(function() {
+                current = $(this);
+                $('#largepreview').attr('src', current.children('span').text());
+            });
+        });
+    </script>
+{% endblock %}

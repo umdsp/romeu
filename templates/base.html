@@ -1,0 +1,34 @@
+{% load autop %}{% load thumbnail %}{% load i18n %}<!DOCTYPE html>
+<html>
+<head>
+    <title>Cuban Theater Digital Archive</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/museo-slab.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/cabin.css" />
+</head>
+<body class="detail">
+    <header>
+        {% block site_header %}
+        {% endblock %}
+    </header>
+    
+    <article>
+        <header>
+            {% block article_header %}
+            {% endblock %}
+        </header>
+        
+        {% block content %}
+        {% endblock %}
+    </article>
+    
+    <footer>
+        {% block footer %}
+        {% endblock %}
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.isotope.min.js"></script>
+    {% block extra_js %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block article_header %}
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/venues">Venues</a></li>
+                </ul>
+            </nav>
+            <img src="{{ venuephoto }}" alt="Photo of {{ venue.title }}" />
+            <h1>{{ venue.title }}</h1>
+            <span>{% if venue.city %}{{ venue.city.name }}, {% if venue.city.state %}{{ venue.city.state }}, {% endif %}{% endif %}{{ venue.country.name }}</span><br />
+{% endblock %}
+
+{% block content %}
+        <section class="objects">
+            
+        </section>
+        
+        <aside>
+        
+        </aside>
+        
+        <section class="data">
+            
+        </section>
+{% endblock %}

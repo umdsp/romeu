@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+{% block article_header %}
+
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/digitalobjects">Digital Objects</a></li>
+                </ul>
+            </nav>
+            <h1>{{ digital_object.title }}</h1>
+{% endblock %}
+
+{% block content %}
+        <section class="objects">
+                {% thumbnail digital_object.files.all.0.filepath "640" upscale=False as im %}
+                <img id="largepreview" src="{{ im.url }}" alt='' style="display:block;float:none;" /><br />
+                {% endthumbnail %}
+                
+                <div>
+                <ul>
+                {% for obj in digital_object.files.all %}
+                    <li>
+                        {% thumbnail obj.filepath "x120" upscale=False as im %}
+                        <img style="cursor:pointer;" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt='' title="{{ digital_object.title }}" />
+                        {% endthumbnail %}
+                        {% thumbnail obj.filepath "640" upscale=False as im %}
+                        <span>{{ im.url }}</span>
+                        {% endthumbnail %}
+                    </li>
+                {% endfor %}
+                </ul>
+                </div>
+        </section>
+        
+        <aside>
+            
+        </aside>
+        
+        <section class="data">
+            
+        </section>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        $(window).load(function() {
+            $('.objects ul').isotope({
+                itemSelector: 'li',
+                layoutMode: 'masonryHorizontal'
+            });
+            
+            $('.objects ul li').click(function() {
+                current = $(this);
+                $('#largepreview').attr('src', current.children('span').text());
+            });
+        });
+    </script>
+{% endblock %}

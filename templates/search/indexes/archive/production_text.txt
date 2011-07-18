@@ -1,0 +1,6 @@
+{{ object.title }}
+{{ object.subtitle }}
+{{ object.ascii_title }}
+{{ object.title_variants }}
+{{ object.source_work.title }}
+{{ object.source_work.ascii_title }}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+{% load list_extras %}
+
+{% block article_header %}
+        <h1>Digital Objects</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="digiobjs" style="width:960px; overflow: hidden;">
+    <ul style="list-style-type: none;">
+        {% for obj in digital_objects %}
+            <li style="display:block;overflow:hidden;margin: 0 0.3em 0.3em 0;">
+                {% thumbnail obj.filepath "x160" upscale=False as im %}
+                <a href="/digitalobject/{{ obj.digital_object.pk }}"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt='' title="{{ obj.digital_object.title }}" /></a>
+                {% endthumbnail %}
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+    
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ paginator.num_pages }}.
+                </span>
+    
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        $(window).load(function() {
+            $('.digiobjs ul').isotope({
+                itemSelector: 'li',
+                layoutMode: 'fitRows'
+            });
+        });
+    </script>
+{% endblock %}
