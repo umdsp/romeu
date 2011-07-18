@@ -285,3 +285,4 @@ class DigitalObjectDetailView(DetailView):
     context_object_name = "digital_object"
     template_name = "archive/digitalobject_detail.html"
     
+# testing comment
