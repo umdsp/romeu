@@ -285,17 +285,3 @@ class DigitalObjectDetailView(DetailView):
     context_object_name = "digital_object"
     template_name = "archive/digitalobject_detail.html"
     
-def archive_search(request):
-    try:
-        sTerm = request.GET['q']
-	except:
-        pass
-    
-    matches = []
-    
-    if sTerm:
-        results = SearchQuerySet().auto_query(sTerm)
-        for r in results: 
-            matches.append(r.object)
-    
-    return render_to_response()
