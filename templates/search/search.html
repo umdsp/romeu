@@ -46,15 +46,30 @@
                     {% endfor %}
                 {% endif %}
                 </div>
-            {% if location_matches %}
-                <h4>Got {{ location_matches.count }} venues</h4>
-            {% endif %}
-            {% if production_matches %}
-                <h4>Got {{ production_matches.count }} productions</h4>
-            {% endif %}
-            {% if workrecord_matches %}
-                <h4>Got {{ workrecord_matches.count }} written texts</h4>
-            {% endif %}
+                <div>
+                {% if location_matches %}
+                    <h4>Got {{ location_matches.count }} venues</h4>
+                    {% for result in location_matches %}
+                        {% include "search/includes/archive/location.html" %}
+                    {% endfor %}
+                {% endif %}
+                </div>
+                <div>
+                {% if production_matches %}
+                    <h4>Got {{ production_matches.count }} productions</h4>
+                    {% for result in production_matches %}
+                        {% include "search/includes/archive/production.html" %}
+                    {% endfor %}
+                {% endif %}
+                </div>
+                <div>
+                {% if workrecord_matches %}
+                    <h4>Got {{ workrecord_matches.count }} written texts</h4>
+                    {% for result in workrecord_matches %}
+                        {% include "search/includes/archive/workrecord.html" %}
+                    {% endfor %}
+                {% endif %}
+                </div>
             </div>
 
             <!-- <h3>Results ({{ paginator.count }})</h3>
