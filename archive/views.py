@@ -291,18 +291,18 @@ def get_search_results(modeltype, query):
     
 def search_view(request):
     query = creator_matches = location_matches = production_matches = workrecord_matches = False
-    if request.GET['q']:
+    if request.GET.has_key('q'):
         # User submitted a search term.
         query = request.GET['q']
-        if request.GET['models'] and 'archive.creator' in request.GET.getlist('models'):
+        if request.GET.has_key('models') and 'archive.creator' in request.GET.getlist('models'):
             creator_matches = get_search_results(Creator, query)
-        if request.GET['models'] and 'archive.location' in request.GET.getlist('models'):
+        if request.GET.has_key('models') and 'archive.location' in request.GET.getlist('models'):
             location_matches = get_search_results(Location, query)
-        if request.GET['models'] and 'archive.production' in request.GET.getlist('models'):
+        if request.GET.has_key('models') and 'archive.production' in request.GET.getlist('models'):
             production_matches = get_search_results(Production, query)
-        if request.GET['models'] and 'archive.workrecord' in request.GET.getlist('models'):
+        if request.GET.has_key('models') and 'archive.workrecord' in request.GET.getlist('models'):
             workrecord_matches = get_search_results(WorkRecord, query)
-        if not request.GET['models']:
+        if not request.GET.has_key('models'):
             creator_matches = get_search_results(Creator, query)
             location_matches = get_search_results(Location, query)
             production_matches = get_search_results(Production, query)
