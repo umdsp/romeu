@@ -52,7 +52,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     
-    (r'^search/', 'search_view'),
+    (r'^search/', search_view),
     
     (r'^selectable/', include('selectable.urls')),
     
