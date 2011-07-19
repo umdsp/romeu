@@ -37,9 +37,15 @@
 
             <h3>Testing for query "{{ q }}"</h3>
 
-            {% if creator_matches %}
-                <h4>Got {{ creator_matches.count }} creators</h4>
-            {% endif %}
+            <div id="results">
+                <div>
+                {% if creator_matches %}
+                    <h4>Got {{ creator_matches.count }} creators</h4>
+                    {% for result in creator_matches %}
+                        {% include "search/includes/archive/creator.html" %}
+                    {% endfor %}
+                {% endif %}
+                </div>
             {% if location_matches %}
                 <h4>Got {{ location_matches.count }} venues</h4>
             {% endif %}
@@ -49,6 +55,7 @@
             {% if workrecord_matches %}
                 <h4>Got {{ workrecord_matches.count }} written texts</h4>
             {% endif %}
+            </div>
 
             <!-- <h3>Results ({{ paginator.count }})</h3>
 
