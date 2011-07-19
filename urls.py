@@ -9,6 +9,8 @@ from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView, search_view_factory
 
+sqs = SearchQuerySet().order_by('django_ct')
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -63,7 +65,8 @@ urlpatterns = patterns('',
 urlpatterns += patterns('haystack.views',
     url(r'^search/', search_view_factory(
         view_class=SearchView,
-        form_class=ModelSearchForm
+        form_class=ModelSearchForm,
+        searchqueryset=sqs
     ), name='haystack_search'),
 )
 
