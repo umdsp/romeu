@@ -310,13 +310,23 @@ def search_view(request):
     context = {}
     if query:
         context['q'] = query
+    else:
+        context['q'] = False
     if creator_matches:
         context['creator_matches'] = creator_matches
+    else:
+        context['creator_matches'] = False
     if location_matches:
         context['location_matches'] = location_matches
+    else:
+        context['location_matches'] = False
     if production_matches:
         context['production_matches'] = production_matches
+    else:
+        context['production_matches'] = False
     if workrecord_matches:
         context['workrecord_matches'] = workrecord_matches
+    else:
+        context['workrecord_matches'] = False
         
     return render_to_response('search/search.html', context, RequestContext(request))
