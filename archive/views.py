@@ -290,7 +290,7 @@ def get_search_results(modeltype, query):
     return SearchQuerySet().models(modeltype).auto_query(query)
     
 def search_view(request):
-    query, creator_matches, location_matches, production_matches, workrecord_matches = False
+    query = creator_matches = location_matches = production_matches = workrecord_matches = False
     if request.GET['q']:
         # User submitted a search term.
         query = request.GET['q']
