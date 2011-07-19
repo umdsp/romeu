@@ -285,3 +285,38 @@ class DigitalObjectDetailView(DetailView):
     context_object_name = "digital_object"
     template_name = "archive/digitalobject_detail.html"
     
+# Utility function for search view
+def get_search_results(modeltype, query):
+    return SearchQuerySet().models(modeltype).auto_query(query)
+    
+def search_view(request):
+    if request.GET['q']:
+        # User submitted a search term.
+        query = request.GET['q']
+        if request.GET['models'] and 'archive.creator' in request.GET.getlist('models'):
+            creator_matches = get_search_results(Creator, query)
+        if request.GET['models'] and 'archive.location' in request.GET.getlist('models'):
+            location_matches = get_search_results(Location, query)
+        if request.GET['models'] and 'archive.production' in request.GET.getlist('models'):
+            production_matches = get_search_results(Production, query)
+        if request.GET['models'] and 'archive.workrecord' in request.GET.getlist('models'):
+            workrecord_matches = get_search_results(WorkRecord, query)
+        if not request.GET['models']:
+            creator_matches = get_search_results(Creator, query)
+            location_matches = get_search_results(Location, query)
+            production_matches = get_search_results(Production, query)
+            workrecord_matches = get_search_results(WorkRecord, query)
+            
+    context = {}
+    if query:
+        context['q'] = query
+    if creator_matches:
+        context['creator_matches'] = creator_matches
+    if location_matches:
+        context['location_matches'] = location_matches
+    if production_matches:
+        context['production_matches'] = production_matches
+    if workrecord_matches:
+        context['workrecord_matches'] = workrecord_matches
+        
+    return render_to_response('search/search.html', context, RequestContext(request))

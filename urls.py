@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
 
-from archive.views import CreatorsListView, CreatorsAlphaListView, CreatorDetailView, ProductionsListView, ProductionsAlphaListView, ProductionDetailView, WorkRecordsListView, WorkRecordsAlphaListView, WorkRecordDetailView, VenuesListView, VenuesAlphaListView, VenueDetailView, DigitalObjectsListView, DigitalObjectDetailView
+from archive.views import CreatorsListView, CreatorsAlphaListView, CreatorDetailView, ProductionsListView, ProductionsAlphaListView, ProductionDetailView, WorkRecordsListView, WorkRecordsAlphaListView, WorkRecordDetailView, VenuesListView, VenuesAlphaListView, VenueDetailView, DigitalObjectsListView, DigitalObjectDetailView, search_view
 
 DEFAULT_LANG = settings.DEFAULT_LANG
 
@@ -52,7 +52,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     
-#     (r'^search/', include('haystack.urls')),
+    (r'^search/', 'search_view'),
     
     (r'^selectable/', include('selectable.urls')),
     
@@ -62,13 +62,13 @@ urlpatterns = patterns('',
     #(r'^images/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/kzurawel/webapps/ctda_media/images'}),
 )
 
-urlpatterns += patterns('haystack.views',
-    url(r'^search/', search_view_factory(
-        view_class=SearchView,
-        form_class=ModelSearchForm,
-        searchqueryset=sqs
-    ), name='haystack_search'),
-)
+#urlpatterns += patterns('haystack.views',
+#    url(r'^search/', search_view_factory(
+#        view_class=SearchView,
+#        form_class=ModelSearchForm,
+#        searchqueryset=sqs
+#    ), name='haystack_search'),
+#)
 
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += patterns('',
