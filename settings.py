@@ -104,7 +104,7 @@ MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
-INTERNAL_IPS = ('127.0.0.1', '129.171.249.144', '10.221.14.57',)
+INTERNAL_IPS = ('127.0.0.1', '129.171.249.144', '10.221.14.57', '10.179.1.200',)
 
 ROOT_URLCONF = 'urls'
 
