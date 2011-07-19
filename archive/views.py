@@ -291,17 +291,23 @@ def get_search_results(modeltype, query):
     
 def search_view(request):
     query = creator_matches = location_matches = production_matches = workrecord_matches = False
+    checked_boxes = []
     if request.GET.has_key('q'):
         # User submitted a search term.
         query = request.GET['q']
         if request.GET.has_key('models') and 'archive.creator' in request.GET.getlist('models'):
             creator_matches = get_search_results(Creator, query)
+            checked_boxes.append('creators')
         if request.GET.has_key('models') and 'archive.location' in request.GET.getlist('models'):
             location_matches = get_search_results(Location, query)
+            checked_boxes.append('locations')
         if request.GET.has_key('models') and 'archive.production' in request.GET.getlist('models'):
             production_matches = get_search_results(Production, query)
+            checked_boxes.append('productions')
         if request.GET.has_key('models') and 'archive.workrecord' in request.GET.getlist('models'):
             workrecord_matches = get_search_results(WorkRecord, query)
+            checked_boxes.append('workrecords')
+            
         if not request.GET.has_key('models'):
             creator_matches = get_search_results(Creator, query)
             location_matches = get_search_results(Location, query)
@@ -319,5 +325,6 @@ def search_view(request):
         context['production_matches'] = production_matches
     if workrecord_matches:
         context['workrecord_matches'] = workrecord_matches
+    context['checked_boxes'] = checked_boxes
         
     return render_to_response('search/search.html', context, RequestContext(request))
