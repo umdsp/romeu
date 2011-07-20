@@ -38,33 +38,35 @@
             <h3>Testing for query "{{ q }}"</h3>
 
             <div id="results">
-                <div>
+                <ul>
+                    <li><a href="#creatortab">Creators ({% firstof creator_matches.count "0" %})</a></li>
+                    <li><a href="#locationtab">Venues ({% firstof location_matches.count "0" %})</a></li>
+                    <li><a href="#productiontab">Productions ({% firstof production_matches.count "0" %})</a></li>
+                    <li><a href="#workrecordtab">Written Texts ({% firstof workrecord_matches.count "0" %})</a></li>
+                </ul>
+                <div id="creatortab">
                 {% if creator_matches %}
-                    <h4>Got {{ creator_matches.count }} creators</h4>
                     {% for result in creator_matches %}
                         {% include "search/includes/archive/creator.html" %}
                     {% endfor %}
                 {% endif %}
                 </div>
-                <div>
+                <div id="locationtab">
                 {% if location_matches %}
-                    <h4>Got {{ location_matches.count }} venues</h4>
                     {% for result in location_matches %}
                         {% include "search/includes/archive/location.html" %}
                     {% endfor %}
                 {% endif %}
                 </div>
-                <div>
+                <div id="productiontab">
                 {% if production_matches %}
-                    <h4>Got {{ production_matches.count }} productions</h4>
                     {% for result in production_matches %}
                         {% include "search/includes/archive/production.html" %}
                     {% endfor %}
                 {% endif %}
                 </div>
-                <div>
+                <div id="workrecordtab">
                 {% if workrecord_matches %}
-                    <h4>Got {{ workrecord_matches.count }} written texts</h4>
                     {% for result in workrecord_matches %}
                         {% include "search/includes/archive/workrecord.html" %}
                     {% endfor %}
