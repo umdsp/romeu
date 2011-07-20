@@ -46,56 +46,39 @@
                 </div>
                 <div id="locationtab">
                 {% if location_matches %}
+                    <table><tbody>
                     {% for result in location_matches %}
                         {% include "search/includes/archive/location.html" %}
                     {% endfor %}
+                    </tbody></table>
+                {% else %}
+                <h3>No matching venues for {{ q }}.</h3>
                 {% endif %}
                 </div>
                 <div id="productiontab">
                 {% if production_matches %}
+                    <table><tbody>
                     {% for result in production_matches %}
                         {% include "search/includes/archive/production.html" %}
                     {% endfor %}
+                    </tbody></table>
+                {% else %}
+                <h3>No matching productions for {{ q }}.</h3>
                 {% endif %}
                 </div>
                 <div id="workrecordtab">
                 {% if workrecord_matches %}
+                    <table><tbody>
                     {% for result in workrecord_matches %}
                         {% include "search/includes/archive/workrecord.html" %}
                     {% endfor %}
+                    </tbody></table>
+                {% else %}
+                <h3>No matching written texts for {{ q }}.</h3>
                 {% endif %}
                 </div>
             </div>
 
-            <!-- <h3>Results ({{ paginator.count }})</h3>
-
-            {% for result in page.object_list %}
-                {% if result.content_type == "archive.creator" %}
-                {% include "search/includes/archive/creator.html" %}
-                {% endif %}
-                
-                {% if result.content_type == "archive.production" %}
-                {% include "search/includes/archive/production.html" %}
-                {% endif %}
-                
-                {% if result.content_type == "archive.location" %}
-                {% include "search/includes/archive/location.html" %}
-                {% endif %}
-                
-                {% if result.content_type == "archive.workrecord" %}
-                {% include "search/includes/archive/workrecord.html" %}
-                {% endif %}
-            {% empty %}
-                <p>No results found.</p>
-            {% endfor %}
-
-            {% if page.has_previous or page.has_next %}
-                <div>
-                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-                    |
-                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-                </div>
-            {% endif %} -->
         {% else %}
             {# Show some example queries to run, maybe query syntax, something else? #}
         {% endif %}

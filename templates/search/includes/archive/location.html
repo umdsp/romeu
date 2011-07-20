@@ -1,5 +1,4 @@
-<div class="post_result">
-    <h5><a href="/venue/{{ result.object.pk }}">{{ result.object.title }}</a></h5>
-
-    <p>Relevance: {{ result.score|floatformat:"-2" }}</p>
-</div>
+<tr class="post_result">
+    <td><a href="/venue/{{ result.object.pk }}">{{ result.object.title }}</a></td>
+    <td>Relevance: {{ result.score|floatformat:"-2" }}</td>
+</tr>

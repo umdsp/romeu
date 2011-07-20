@@ -1,6 +1,5 @@
-<div class="post_result">
-    <h5><a href="/production/{{ result.object.pk }}">{{ result.object.title }}</a></h5>
-
-    <p>{{ result.object.venue.title }}{% if result.object.venue.city %}, {{ result.object.venue.city.name }}{% if result.object.venue.city.state %}, {{ result.object.venue.city.state }}{% endif %}{% endif %}, {{ result.object.venue.country }}<br />
-    Relevance: {{ result.score|floatformat:"-2" }}</p>
-</div>
+<tr class="post_result">
+    <td><a href="/production/{{ result.object.pk }}">{{ result.object.title }}</a></td>
+    <td>{{ result.object.venue.title }}{% if result.object.venue.city %}, {{ result.object.venue.city.name }}{% if result.object.venue.city.state %}, {{ result.object.venue.city.state }}{% endif %}{% endif %}, {{ result.object.venue.country }}</td>
+    <td>Relevance: {{ result.score|floatformat:"-2" }}</td>
+</tr>
