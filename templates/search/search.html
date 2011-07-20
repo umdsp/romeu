@@ -35,9 +35,13 @@
                 </ul>
                 <div id="creatortab">
                 {% if creator_matches %}
+                    <table><tbody>
                     {% for result in creator_matches %}
                         {% include "search/includes/archive/creator.html" %}
                     {% endfor %}
+                    </tbody></table>
+                {% else %}
+                <h3>No matching creators for {{ q }}.</h3>
                 {% endif %}
                 </div>
                 <div id="locationtab">

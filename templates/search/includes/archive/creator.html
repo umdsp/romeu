@@ -1,6 +1,6 @@
 {% load highlight %}
-<ul class="post_result">
-    <li><a href="/creator/{{ result.object.pk }}">{{ result.object.display_name }}</a></li>
-    {% if result.object.display_roles %}<li>{{ result.object.display_roles }}</li>{% endif %}
-    <li>Relevance: {{ result.score|floatformat:"-2" }}</li>
-</ul>
+<tr class="post_result">
+    <td><a href="/creator/{{ result.object.pk }}">{{ result.object.display_name }}</a></td>
+    {% if result.object.display_roles %}<td>{{ result.object.display_roles }}</td>{% else %}<td></td>{% endif %}
+    <td>Relevance: {{ result.score|floatformat:"-2" }}</td>
+</tr>
