@@ -157,6 +157,12 @@ AJAX_LOOKUP_CHANNELS = {
     'role': ('archive.lookups', 'RoleLookup')
 }
 
+# Django debug toolbar settings
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+    'HIDE_DJANGO_SQL': True,
+}
+
 DEFAULT_LANG = "en"
 
 HAYSTACK_SITECONF = 'archive.search_sites'
