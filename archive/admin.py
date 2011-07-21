@@ -172,7 +172,7 @@ class ProductionMemberInline(admin.TabularInline):
 class FestivalParticipantInline(admin.TabularInline):
     form = arcforms.FestivalParticipantAdminForm
     model = FestivalParticipant
-    extra = 1
+    extra = 0
 
     def __init__(self, model, admin_site):
         super(FestivalParticipantInline, self).__init__(model, admin_site)
