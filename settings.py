@@ -100,8 +100,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'reversion.middleware.RevisionMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'reversion.middleware.RevisionMiddleware',
 )
 
 INTERNAL_IPS = ('127.0.0.1', '129.171.249.144', '10.221.14.57', '10.179.1.200',)
@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'modeltranslation',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'debug_toolbar',
     'ajax_select',
     'selectable',
     'smart_selects',
@@ -138,7 +139,6 @@ INSTALLED_APPS = (
     'tinymce',
     'haystack',
     'south',
-    'debug_toolbar',
 )
 
 # Modeltranslation settings
