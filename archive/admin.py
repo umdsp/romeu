@@ -294,7 +294,7 @@ class WorkRecordAdmin(TranslatingVersioningAdmin):
     inlines = (WorkRecordCreatorInline, RoleInline, RelatedWorkInline,)
     list_display = ('title', 'creators_display', 'work_type', 'genre', 'culture', 'style')
     list_filter = ('work_type', 'lang', 'genre', 'culture', 'style', 'has_attention',)
-    search_fields = ['title', 'title_variants']
+    search_fields = ['title', 'ascii_title', 'title_variants']
     filter_horizontal = ['subject', 'lang']
     fieldsets = (
         ('Titles', {
@@ -340,7 +340,7 @@ class ProductionAdmin(TranslatingVersioningAdmin):
     inlines = (DirectingMemberInline, CastMemberInline, DesignMemberInline, TechMemberInline, ProductionMemberInline,)
     list_display = ('title', 'venue', 'begin_date_display', 'end_date_display',)
     date_hierarchy = 'begin_date'
-    search_fields = ['title', 'title_variants', 'notes']
+    search_fields = ['title', 'ascii_title', 'title_variants', 'notes']
     list_filter = ('has_attention',)
     filter_horizontal = ['source_work', 'secondary_bibliography',]
     fieldsets = (
