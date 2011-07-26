@@ -607,6 +607,14 @@ class Production(models.Model):
     def end_date_display(self):
         return display_date(self.end_date, self.end_date_precision, self.end_date_BC)
 
+    def display_directors(self):
+        ds = ""
+        for person in self.directing_team.all():
+            ds += person.display_name
+            ds += ", "
+        ds -= ", "
+        return ds
+
     def __unicode__(self):
         if self.begin_date:
             return "%s (%s, %s)" % (self.title, self.venue.title, self.begin_date_display())
