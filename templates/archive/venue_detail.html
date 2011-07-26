@@ -25,9 +25,26 @@
         </aside>
         
         <section class="data">
+            <h3>Productions</h3>
+            <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Directing team</th>
+                    <th>Date range</th>
+                </tr>
+            </thead>
+            <tbody>
             {% for prod in venue.productions.all %}
-            {# TESTING #}
-            <span>{{ prod.title }}</span>
+                <tr>
+                    <td>{{ prod.title }}</td>
+                    <td>{{ prod.display_directors }}</td>
+                    <td>{% if production.begin_date %}{{ production.begin_date_display }}&mdash;{% endif %}{% if production.end_date %}{{ production.end_date_display }}{% endif %}</td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="">
+                    No production records for this venue.
+                </td></tr>
             {% endfor %}
         </section>
 {% endblock %}
