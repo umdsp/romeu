@@ -610,9 +610,9 @@ class Production(models.Model):
     def display_directors(self):
         ds = ""
         for person in self.directing_team.all():
-            ds += person.display_name
+            ds += person.display_name()
             ds += ", "
-        ds -= ", "
+        ds = ds[:-2]
         return ds
 
     def __unicode__(self):
