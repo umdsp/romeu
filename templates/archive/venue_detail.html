@@ -25,6 +25,9 @@
         </aside>
         
         <section class="data">
-            
+            {% for prod in venue.productions %}
+            {# TESTING #}
+            <span>{{ prod.title }}</span>
+            {% endfor %}
         </section>
 {% endblock %}
