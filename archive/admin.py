@@ -240,7 +240,7 @@ class BibliographicRecordAdmin(FkAutocompleteAdmin):
 
 class LocationAdmin(TranslatingVersioningAdmin):
     form = arcforms.LocationAdminForm
-    list_display = ('title', 'address', 'city', 'state', 'country',)
+    list_display = ('title', 'address', 'city', 'state', 'country', 'has_system_links',)
     search_fields = ['title_ascii', 'title', 'title_variants', 'city__name', 'state', 'summary', 'notes']
     inlines = (StageInline,)
     list_filter = ('has_attention',)
