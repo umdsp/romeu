@@ -11,7 +11,7 @@
                 </ul>
             </nav>
             <h1>{{ production.title }}</h1>
-            <span><a href="/production/{{ production.venue.pk }}">{{ production.venue.title }}{% if production.venue.city %}, {{ production.venue.city.name }}{% if production.venue.city.state %}, {{ production.venue.city.state }}{% endif %}{% endif %}, {{ production.venue.country }}</a></span><br />
+            <span><a href="/venue/{{ production.venue.pk }}">{{ production.venue.title }}{% if production.venue.city %}, {{ production.venue.city.name }}{% if production.venue.city.state %}, {{ production.venue.city.state }}{% endif %}{% endif %}, {{ production.venue.country }}</a></span><br />
             <span>{% if production.begin_date %}{{ production.begin_date_display }}&mdash;{% endif %}{% if production.end_date %}{{ production.end_date_display }}{% endif %}</span>
 
 {% endblock %}
