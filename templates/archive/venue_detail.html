@@ -42,7 +42,7 @@
                     <td>{% if prod.begin_date %}{{ prod.begin_date_display }}&mdash;{% endif %}{% if prod.end_date %}{{ prod.end_date_display }}{% endif %}</td>
                 </tr>
             {% empty %}
-                <tr><td colspan="">
+                <tr><td colspan="3">
                     No production records for this venue.
                 </td></tr>
             {% endfor %}
