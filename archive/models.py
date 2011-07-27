@@ -443,6 +443,29 @@ class Location(models.Model):
     def __unicode__(self):
         return "%s (%s)" % (self.title, self.country.name)
 
+    def has_system_links(self):
+        if Stage.objects.filter(venue=self).exists():
+            return True
+        if Production.objects.filter(venue=self).exists():
+            return True
+        if FestivalOccurrence.objects.filter(venue=self).exists():
+            return True
+        if Repository.objects.filter(location=self).exists():
+            return True
+        if DigitalObject.objects.filter(phys_obj_location=self).exists():
+            return True
+        if DigitalObject.objects.filter(related_venue=self).exists():
+            return True
+        if AwardCandidate.objects.filter(place=self).exists():
+            return True
+        if Creator.objects.filter(birth_location=self).exists():
+            return True
+        if Creator.objects.filter(death_location=self).exists():
+            return True
+        if Creator.objects.filter(location=self).exists():
+            return True
+        return False
+
 def update_location_name(sender, **kwargs):
     obj = kwargs['instance']
     obj.title_ascii = unidecode(obj.title)
