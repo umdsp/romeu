@@ -9,7 +9,7 @@ GENDER_CHOICES = (
 
 DATE_PRECISION_CHOICES = (
 	(u'f', _(u'Full date')),
-	(u'm', _(u'Month')),
+	(u'm', _(u'Month and year')),
 	(u'y', _(u'Year')),
 	(u'd', _(u'Decade')),
 	(u'e', _(u'Era')),
