@@ -98,7 +98,7 @@ make_unpublished.short_description = "Mark selected items as unpublished"
 class RelatedWorkInline(admin.TabularInline):
     form = arcforms.RelatedWorkAdminForm
     model = RelatedWork
-    extra = 1
+    extra = 0
     fk_name = 'work_1'
     
     def __init__(self, model, admin_site):
@@ -108,7 +108,7 @@ class RelatedWorkInline(admin.TabularInline):
 class RelatedCreatorInline(admin.TabularInline):
     form = arcforms.RelatedCreatorAdminForm
     model = RelatedCreator
-    extra = 1
+    extra = 0
     fk_name = 'creator_1'
     
     def __init__(self, model, admin_site):
@@ -118,7 +118,7 @@ class RelatedCreatorInline(admin.TabularInline):
 class WorkRecordCreatorInline(admin.TabularInline):
     form = arcforms.WorkRecordCreatorAdminForm
     model = WorkRecordCreator
-    extra = 1
+    extra = 0
     
     def __init__(self, model, admin_site):
         super(WorkRecordCreatorInline, self).__init__(model, admin_site)
@@ -184,7 +184,7 @@ class RoleInline(admin.TabularInline):
 
 class StageInline(admin.StackedInline):
     model = Stage
-    extra = 1
+    extra = 0
 
 class DigitalFileInline(admin.TabularInline):
     model = DigitalFile
