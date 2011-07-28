@@ -45,5 +45,12 @@ def display_date(datefield, dateprecision, dateBC):
         else:
             century = century + "th century" + bcstring
         return century
+    if dateprecision == u'n':
+        # Month and day, no year
+        return MONTHS[str(datefield.month)] + " " + str(datefield.day)
+    if dateprecision == u'b':
+        # Month, day, and decade
+        return MONTHS[str(datefield.month)] + " " + str(datefield.day) + ", " + str(datefield.year)[0:3] + "0's" + bcstring
+        
     return MONTHS[str(datefield.month)] + " " + str(datefield.day) + ", " + str(datefield.year) + bcstring # exception handling - return full date
     

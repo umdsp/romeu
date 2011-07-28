@@ -14,6 +14,8 @@ DATE_PRECISION_CHOICES = (
 	(u'd', _(u'Decade')),
 	(u'e', _(u'Era')),
 	(u'c', _(u'Century')),
+    (u'n', _(u'Month and day (no year)')),
+    (u'b', _(u'Month, day, and decade')),
 )
 
 NAME_PART_CHOICES = (
