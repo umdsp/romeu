@@ -877,7 +877,7 @@ class DigitalObject(models.Model):
         return num
     
     def __unicode__(self):
-        return self.title
+        return "%s (%s)" % (self.title, str(self.object_number()))
 
 class DigitalObjectType(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))
