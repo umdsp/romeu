@@ -175,9 +175,9 @@ class Creator(models.Model):
         return name
     
     def has_system_links(self):
-        if RelatedCreator.objects.filter(creator_1=self).exists():
+        if RelatedCreator.objects.filter(first_creator=self).exists():
             return True
-        if RelatedCreator.objects.filter(creator_2=self).exists():
+        if RelatedCreator.objects.filter(second_creator=self).exists():
             return True
         if WorkRecordCreator.objects.filter(creator=self).exists():
             return True
@@ -211,11 +211,11 @@ class Creator(models.Model):
     
     def system_links(self):
         works = ''
-        if RelatedCreator.objects.filter(creator_1=self).exists():
-            for obj in RelatedCreator.objects.filter(creator_1=self):
+        if RelatedCreator.objects.filter(first_creator=self).exists():
+            for obj in RelatedCreator.objects.filter(first_creator=self):
                 works += "RelatedCreator: " + str(obj.pk) + "\n"
-        if RelatedCreator.objects.filter(creator_2=self).exists():
-            for obj in RelatedCreator.objects.filter(creator_2=self):
+        if RelatedCreator.objects.filter(second_creator=self).exists():
+            for obj in RelatedCreator.objects.filter(second_creator=self):
                 works += "RelatedCreator: " + str(obj.pk) + "\n"
         if WorkRecordCreator.objects.filter(creator=self).exists():
             for obj in WorkRecordCreator.objects.filter(creator=self):
@@ -373,7 +373,7 @@ class Creator(models.Model):
         return rolestring
     
     def has_related_creators(self):
-        if self.creator_1.all() or self.creator_2.all():
+        if self.first_creator_to.all() or self.second_creator_to.all():
             return True
         else:
             return False
