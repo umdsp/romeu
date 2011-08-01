@@ -626,9 +626,11 @@ class Production(models.Model):
 
     def begin_date_display(self):
         return display_date(self.begin_date, self.begin_date_precision, self.begin_date_BC)
+    begin_date_display.short_description = _("Begin date")
     
     def end_date_display(self):
         return display_date(self.end_date, self.end_date_precision, self.end_date_BC)
+    end_date_display.short_description = _("End date")
 
     def display_directors(self):
         ds = ""
@@ -637,6 +639,7 @@ class Production(models.Model):
             ds += ", "
         ds = ds[:-2]
         return ds
+    display_directors.short_description = _("Directors")
 
     def __unicode__(self):
         if self.begin_date:
