@@ -338,7 +338,7 @@ class RoleAdmin(admin.ModelAdmin):
 class ProductionAdmin(TranslatingVersioningAdmin):
     form = arcforms.ProductionAdminForm
     inlines = (DirectingMemberInline, CastMemberInline, DesignMemberInline, TechMemberInline, ProductionMemberInline,)
-    list_display = ('title', 'venue', 'begin_date_display', 'end_date_display',)
+    list_display = ('title', 'venue', 'display_directors', 'begin_date_display', 'end_date_display',)
     date_hierarchy = 'begin_date'
     search_fields = ['title', 'ascii_title', 'title_variants', 'notes']
     list_filter = ('has_attention',)
