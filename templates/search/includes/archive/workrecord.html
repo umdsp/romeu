@@ -1,5 +1,6 @@
 <tr class="post_result">
     <td><a href="/writtenwork/{{ result.object.pk }}">{{ result.object.title }}</a></td>
+    <td>{{ result.object.work_type }}</td>
     <td>by {{ result.object.creators_display }}</td>
     <td>Relevance: {{ result.score|floatformat:"-2" }}</td>
 </tr>
