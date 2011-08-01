@@ -396,14 +396,14 @@ pre_save.connect(update_creator_name, sender=Creator)
 class RelatedCreator(models.Model):
     """Information about relationships between creators - members of organizations, family members, etc.
     """
-    creator_1 = models.ForeignKey(Creator, related_name="creator_1", verbose_name=_("creator 1"))
+    first_creator = models.ForeignKey(Creator, related_name="first_creator_to", verbose_name=_("creator 1"))
     relationship = models.CharField(max_length=12, choices=constants.CREATOR_RELATIONSHIP_TYPES, verbose_name=_("relationship"))
-    creator_2 = models.ForeignKey(Creator, related_name="creator_2", verbose_name=_("related creator"))
+    second_creator = models.ForeignKey(Creator, related_name="second_creator_to", verbose_name=_("related creator"))
     function = models.ForeignKey("OrgFunction", null=True, blank=True, help_text=_("If the relationship is membership in an organization, select the member's function in the organization here."), verbose_name=_("function"))
-    relationship_since = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("relationship since"))
+    relationship_since = models.DateField(null=True, blank=True, help_text=_("Click 'Today' to see today's date in the proper date format."), verbose_name=_("relationship since"))
     relationship_since_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'y', null=True, blank=True, verbose_name=_("precision"))
     relationship_since_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
-    relationship_until = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("relationship until"))
+    relationship_until = models.DateField(null=True, blank=True, help_text=_("Click 'Today' to see today's date in the proper date format."), verbose_name=_("relationship until"))
     relationship_until_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'y', null=True, blank=True, verbose_name=_("precision"))
     relationship_until_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
     
@@ -414,7 +414,7 @@ class RelatedCreator(models.Model):
         return display_date(self.relationship_until, self.relationship_until_precision, self.relationship_until_BC)
     
     def __unicode__(self):
-        return "%s %s %s" % (self.creator_1.display_name(), self.get_relationship_display(), self.creator_2.display_name())
+        return "%s %s %s" % (self.first_creator.display_name(), self.get_relationship_display(), self.second_creator.display_name())
 
 class Location(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))
@@ -547,12 +547,12 @@ def update_workrecord_creators(sender, **kwargs):
     record.save()
 
 class RelatedWork(models.Model):
-    work_1 = models.ForeignKey(WorkRecord, related_name="text_1", verbose_name=_("work"))
+    first_work = models.ForeignKey(WorkRecord, related_name="first_work_to", verbose_name=_("work"))
     relationship = models.CharField(max_length=5, choices=constants.RELATIONSHIP_TYPE_CHOICES, verbose_name=_("relationship"))
-    work_2 = models.ForeignKey(WorkRecord, related_name="text_2", verbose_name=_("related work"))
+    second_work = models.ForeignKey(WorkRecord, related_name="second_work_to", verbose_name=_("related work"))
     
     def __unicode__(self):
-        return "%s %s %s" % (self.work_1.title, self.get_relationship_display(), self.work_2.title)
+        return "%s %s %s" % (self.first_work.title, self.get_relationship_display(), self.second_work.title)
 
 class WorkRecordCreator(models.Model):
     creator = models.ForeignKey(Creator, verbose_name=_("creator"))

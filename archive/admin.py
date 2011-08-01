@@ -99,7 +99,7 @@ class RelatedWorkInline(admin.TabularInline):
     form = arcforms.RelatedWorkAdminForm
     model = RelatedWork
     extra = 0
-    fk_name = 'work_1'
+    fk_name = 'first_work'
     
     def __init__(self, model, admin_site):
         super(RelatedWorkInline, self).__init__(model, admin_site)
@@ -109,7 +109,7 @@ class RelatedCreatorInline(admin.TabularInline):
     form = arcforms.RelatedCreatorAdminForm
     model = RelatedCreator
     extra = 0
-    fk_name = 'creator_1'
+    fk_name = 'second_work'
     
     def __init__(self, model, admin_site):
         super(RelatedCreatorInline, self).__init__(model, admin_site)

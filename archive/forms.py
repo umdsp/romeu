@@ -112,12 +112,12 @@ class CreatorAdminForm(ModelForm):
         model = Creator
         
 class RelatedCreatorAdminForm(ModelForm):
-    creator_2 = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, label=_(u"Related creator"))
+    second_creator = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, label=_(u"Related creator"))
     
     def __init__(self, *args, **kwargs):
         super(RelatedCreatorAdminForm, self).__init__(*args, **kwargs)
         crel = ManyToOneRel(Creator, 'id')
-        self.fields['creator_2'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['creator_2'].widget, crel, self.admin_site)
+        self.fields['second_creator'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['second_creator'].widget, crel, self.admin_site)
         
     class Meta(object):
         model = RelatedCreator
@@ -181,12 +181,12 @@ class WorkRecordAdminForm(ModelForm):
         model = WorkRecord
         
 class RelatedWorkAdminForm(ModelForm):
-    work_2 = selectable_forms.AutoCompleteSelectField(lookup_class=WorkRecordLookup, label=_(u"Related work"))
+    second_work = selectable_forms.AutoCompleteSelectField(lookup_class=WorkRecordLookup, label=_(u"Related work"))
     
     def __init__(self, *args, **kwargs):
         super(RelatedWorkAdminForm, self).__init__(*args, **kwargs)
         wrel = ManyToOneRel(WorkRecord, 'id')
-        self.fields['work_2'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['work_2'].widget, wrel, self.admin_site)
+        self.fields['second_work'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['second_work'].widget, wrel, self.admin_site)
         
     class Meta(object):
         model = RelatedWork
