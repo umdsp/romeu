@@ -122,15 +122,19 @@ class Creator(models.Model):
     
     def birth_date_display(self):
         return display_date(self.birth_date, self.birth_date_precision, self.birth_date_BC)
+    birth_date_display.short_description = _("Birth date")
         
     def death_date_display(self):
         return display_date(self.death_date, self.death_date_precision, self.death_date_BC)
+    death_date_display.short_description = _("Death date")
         
     def earliest_active_display(self):
         return display_date(self.earliest_active, self.earliest_active_precision, self.earliest_active_BC)
+    earliest_active_display.short_description = _("Earliest active")
     
     def latest_active_display(self):
         return display_date(self.latest_active, self.latest_active_precision, self.latest_active_BC)
+    latest_active_display.short_description = _("Latest active")
     
     def display_name_lastfirst(self):
         if self.creator_type == u'corp':
@@ -371,6 +375,7 @@ class Creator(models.Model):
         rolestring = rolestring.capitalize()
         
         return rolestring
+    display_roles.short_description = _("Roles")
     
     def has_related_creators(self):
         if self.first_creator_to.all() or self.second_creator_to.all():
@@ -409,9 +414,11 @@ class RelatedCreator(models.Model):
     
     def relationship_since_display(self):
         return display_date(self.relationship_since, self.relationship_since_precision, self.relationship_since_BC)
+    relationship_since_display.short_description = _("Relationship since")
     
     def relationship_until_display(self):
         return display_date(self.relationship_until, self.relationship_until_precision, self.relationship_until_BC)
+    relationship_until_display.short_description = _("Relationship until")
     
     def __unicode__(self):
         return "%s %s %s" % (self.first_creator.display_name(), self.get_relationship_display(), self.second_creator.display_name())
@@ -523,9 +530,11 @@ class WorkRecord(models.Model):
 
     def creation_date_display(self):
         return display_date(self.creation_date, self.creation_date_precision, self.creation_date_BC)
+    creation_date_display.short_description = _("Creation date")
     
     def publication_date_display(self):
         return display_date(self.publication_date, self.publication_date_precision, self.publication_date_BC)
+    publication_date_display.short_description = _("Publication date")
 
     def __unicode__(self):
         return "%s (%s)" % (self.title, self.work_type.name)
