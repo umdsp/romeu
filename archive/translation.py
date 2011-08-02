@@ -1,5 +1,5 @@
 from modeltranslation.translator import translator, TranslationOptions
-from archive.models import SubjectSource, SubjectHeading, Creator, RelatedCreator, Location, Stage, WorkRecord, WorkRecordCreator, Production, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, Festival, FestivalOccurrence, FestivalParticipant, Repository, Collection, DigitalObject, Award, AwardCandidate, Country, City, Language, WorkRecordType, WorkRecordFunction, DirectingTeamFunction, CastMemberFunction, DesignTeamFunction, TechTeamFunction, ProductionTeamFunction, OrgFunction, FestivalFunction, PhysicalObjectType, VenueType
+from archive.models import SubjectSource, SubjectHeading, Creator, RelatedCreator, Location, Stage, WorkRecord, WorkRecordCreator, Production, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, Festival, FestivalOccurrence, FestivalParticipant, Repository, Collection, DigitalObject, Award, AwardCandidate, Country, City, Language, WorkRecordType, WorkRecordFunction, DirectingTeamFunction, CastMemberFunction, DesignTeamFunction, TechTeamFunction, ProductionTeamFunction, OrgFunction, FestivalFunction, PhysicalObjectType, VenueType, License
 
 class SubjectSourceTranslationOptions(TranslationOptions):
     fields = ('title',)
