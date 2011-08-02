@@ -549,6 +549,18 @@ class LanguageAdmin(TranslationAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
+class LicenseAdmin(TranslationAdmin):
+    class Media:
+        css = {
+            'all': ('/media/css/tabbed_translation_fields.css',)
+        }
+        js = (
+            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
+            '/media/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            '/media/js/tabbed_translation_fields.js',
+        )
+
 class AwardAdmin(TranslationAdmin):
     class Media:
         css = {
