@@ -833,8 +833,8 @@ class DigitalObject(models.Model):
     subject = models.ManyToManyField(SubjectHeading, null=True, blank=True, related_name="collection_objects", verbose_name=_("subject"))
     object_id = models.CharField(max_length=6, null=True, blank=True, verbose_name=_("object ID"))
     digital_id = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("digital ID"))
-    rights = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("rights"))
-    copyright = models.ForeignKey("License", null=True, blank=True, verbose_name=_("copyright"))
+    rights_statement = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("rights statement"))
+    license_type = models.ForeignKey("License", null=True, blank=True, verbose_name=_("license type"))
     # Physical object info
     identifier = models.CharField(max_length=60, help_text=_("e.g. ISBN, ISSN, DOI"), null=True, blank=True, verbose_name=_("identifier"))
     marks = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("marks/inscriptions"))
