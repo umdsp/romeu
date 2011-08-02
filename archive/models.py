@@ -834,7 +834,7 @@ class DigitalObject(models.Model):
     object_id = models.CharField(max_length=6, null=True, blank=True, verbose_name=_("object ID"))
     digital_id = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("digital ID"))
     rights = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("rights"))
-    copyright = models.ForeignKey("License", verbose_name=_("copyright"))
+    copyright = models.ForeignKey("License", null=True, blank=True, verbose_name=_("copyright"))
     # Physical object info
     identifier = models.CharField(max_length=60, help_text=_("e.g. ISBN, ISSN, DOI"), null=True, blank=True, verbose_name=_("identifier"))
     marks = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("marks/inscriptions"))
