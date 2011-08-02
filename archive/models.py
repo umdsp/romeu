@@ -834,7 +834,7 @@ class DigitalObject(models.Model):
     object_id = models.CharField(max_length=6, null=True, blank=True, verbose_name=_("object ID"))
     digital_id = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("digital ID"))
     rights = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("rights"))
-    copyright = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("copyright"))
+    copyright = models.ForeignKey("License", verbose_name=_("copyright"))
     # Physical object info
     identifier = models.CharField(max_length=60, help_text=_("e.g. ISBN, ISSN, DOI"), null=True, blank=True, verbose_name=_("identifier"))
     marks = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("marks/inscriptions"))
@@ -890,6 +890,14 @@ class DigitalObject(models.Model):
     
     def __unicode__(self):
         return "%s (%s)" % (self.title, str(self.object_number()))
+
+class License(models.Model):
+    title = models.CharField(max_length=255, verbose_name=_("title"))
+    description = models.TextField(verbose_name=_("description"))
+    image = models.FileField(upload_to='license_images', verbose_name=_("image"), null=True, blank=True)
+
+    def __unicode__(self):
+        return self.title
 
 class DigitalObjectType(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))

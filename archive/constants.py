@@ -78,6 +78,18 @@ RELATIONSHIP_TYPE_CHOICES = (
 	(u'after', _(u'follows after')),
 )
 
+LICENSE_TYPE_CHOICES = (
+    (u'narrum', _(u'Copyright UM')),
+    (u'nonearr', _(u'None (all rights reserved)')),
+    (u'pubdom', _(u'Public domain')),
+    (u'ccby', _(u'CC-BY')),
+    (u'ccbysa', _(u'CC-BY-SA')),
+    (u'ccbynd', _(u'CC-BY-ND')),
+    (u'ccbync', _(u'CC-BY-NC')),
+    (u'ccbyncsa', _(u'CC-BY-NC-SA')),
+    (u'ccbyncnd', _(u'CC-BY-NC-ND')),
+)
+
 PREMIER_CHOICES = (
 	(u'w', _(u'World')),
 	(u'u', _(u'US')),
