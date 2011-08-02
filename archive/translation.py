@@ -87,6 +87,9 @@ class PhysicalObjectTypeTranslationOptions(TranslationOptions):
 class VenueTypeTranslationOptions(TranslationOptions):
     fields = ('title',)
 
+class LicenseTranslationOptions(TranslationOptions):
+    fields = ('title', 'description',)
+
 translator.register(SubjectSource, SubjectSourceTranslationOptions)
 translator.register(SubjectHeading, SubjectHeadingTranslationOptions)
 translator.register(Creator, CreatorTranslationOptions)
@@ -116,3 +119,4 @@ translator.register(OrgFunction, OrgFunctionTranslationOptions)
 translator.register(FestivalFunction, FestivalFunctionTranslationOptions)
 translator.register(PhysicalObjectType, PhysicalObjectTypeTranslationOptions)
 translator.register(VenueType, VenueTypeTranslationOptions)
+translator.register(License, LicenseTranslationOptions)
