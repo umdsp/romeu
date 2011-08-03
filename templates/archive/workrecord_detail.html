@@ -12,7 +12,8 @@
             </nav>
             <img src="{{ workrecordphoto }}" alt="Photo of {{ workrecord.title }}" />
             <h1>{{ workrecord.title }}</h1>
-            <span>{{ workrecord.work_type.title }}</span><br />
+            <span>By {{ workrecord.creators_display }}</span><br />
+            <span>{{ workrecord.work_type }}</span><br />
             <span>{% if workrecord.creation_date %}Created {{ workrecord.creation_date_display }} {% endif %}{% if workrecord.publication_date %}Published {{ workrecord.publication_date_display }}{% endif %}</span>
 {% endblock %}
 
@@ -26,6 +27,15 @@
         </aside
         
         <section class="data">
-            
+            {% if workrecord.performances %}
+                <h3>Performances</h3>
+                <table>
+                {% for perf in workrecord.performances %}
+                    <tr>
+                        <td><a href="/production/{{ perf.pk }}">{{ perf.title }}</a></td>
+                    </tr>
+                {% endfor %}
+                </table>
+            {% endif %}
         </section>
 {% endblock %}
