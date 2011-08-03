@@ -30,7 +30,7 @@
             {% if workrecord.performances %}
                 <h3>Performances</h3>
                 <table>
-                {% for perf in workrecord.performances %}
+                {% for perf in workrecord.performances.all %}
                     <tr>
                         <td><a href="/production/{{ perf.pk }}">{{ perf.title }}</a></td>
                     </tr>
