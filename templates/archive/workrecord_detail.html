@@ -12,8 +12,8 @@
             </nav>
             <img src="{{ workrecordphoto }}" alt="Photo of {{ workrecord.title }}" />
             <h1>{{ workrecord.title }}</h1>
-            <span>Written Work Info</span><br />
-            <span>Written Work dates?</span>
+            <span>{{ workrecord.work_type.title }}</span><br />
+            <span>{% if workrecord.creation_date %}Created {{ workrecord.creation_date_display }} {% endif %}{% if workrecord.publication_date %}Published {{ workrecord.publication_date_display }}{% endif %}</span>
 {% endblock %}
 
 {% block content %}
@@ -23,7 +23,7 @@
         
         <aside>
             
-        </aside>
+        </aside
         
         <section class="data">
             
