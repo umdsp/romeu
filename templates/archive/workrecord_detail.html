@@ -43,7 +43,7 @@
                     <tr>
                         <td><a href="/production/{{ perf.pk }}">{{ perf.title }}</a></td>
                         <td>{{ perf.display_directors_links|safe }}</td>
-                        <td>{% if perf.venue %}<a href="/production/{{ perf.venue.id }}">{{ perf.venue }}</a>{% endif %}</td>
+                        <td>{% if perf.venue %}<a href="/venue/{{ perf.venue.id }}">{{ perf.venue }}</a>{% endif %}</td>
                         <td>{% if perf.begin_date %}{{ perf.begin_date_display }}&mdash;{% endif %}{% if perf.end_date %}{{ perf.end_date_display }}{% endif %}</td>
                     </tr>
                 {% endfor %}
