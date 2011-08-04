@@ -536,6 +536,15 @@ class WorkRecord(models.Model):
         return display_date(self.publication_date, self.publication_date_precision, self.publication_date_BC)
     publication_date_display.short_description = _("Publication date")
 
+    def creators_display_links(self):
+        cs = ""
+        for wrc in WorkRecordCreator.objects.filter(work_record=self):
+            cs += "<a href='/creator/" + str(wrc.creator.id) + "'>"
+            cs += wrc.creator.creator_name
+            cs += "</a>, "
+        cs = cs.rstrip(', ')
+        return cs
+
     def __unicode__(self):
         return "%s (%s)" % (self.title, self.work_type.name)
 

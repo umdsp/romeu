@@ -12,7 +12,7 @@
             </nav>
             <img src="{{ workrecordphoto }}" alt="Photo of {{ workrecord.title }}" />
             <h1>{{ workrecord.title }}</h1>
-            <span>By {{ workrecord.creators_display }}</span><br />
+            <span>By {{ workrecord.creators_display_links|safe }}</span><br />
             <span>{{ workrecord.work_type }}</span><br />
             <span>{% if workrecord.creation_date %}Created {{ workrecord.creation_date_display }} {% endif %}{% if workrecord.publication_date %}Published {{ workrecord.publication_date_display }}{% endif %}</span>
 {% endblock %}

@@ -35,7 +35,7 @@
                     <tr>
                         <td><a href="/writtenwork/{{work.id}}">{{ work.title }}</a></td>
                         <td>{{ work.work_type.name }}</td>
-                        <td>{% if work.creators_display %}{{ work.creators_display }}{% endif %}</td>
+                        <td>{% if work.creators_display %}{{ work.creators_display_links|safe }}{% endif %}</td>
                         <td>{% if work.creation_date %}{{ work.creation_date_display }}{% endif %}</td>
                     </tr>
                 {% endfor %}
