@@ -35,7 +35,7 @@
                     <tr>
                         <td><a href="/production/{{production.id}}">{{ production.title }}</a></td>
                         <td>{{ production.display_directors_links|safe }}</td>
-                        <td>{% if production.venue %}{{ production.venue }}{% endif %}</td>
+                        <td>{% if production.venue %}<a href="/production/{{ production.venue.id }}">{{ production.venue }}</a>{% endif %}</td>
                         <td>{% if production.begin_date %}{{ production.begin_date_display }}&mdash;{% endif %}{% if production.end_date %}{{ production.end_date_display }}{% endif %}</td>
                     </tr>
                 {% endfor %}
