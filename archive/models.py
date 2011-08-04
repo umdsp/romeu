@@ -653,7 +653,7 @@ class Production(models.Model):
     def display_directors_links(self):
         ds = ""
         for person in self.directing_team.all():
-            ds += "<a href='/creator/" + person.id + "'>"
+            ds += "<a href='/creator/" + str(person.id) + "'>"
             ds += person.display_name()
             ds += "</a>, "
         ds = ds[:-2]
