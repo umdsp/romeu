@@ -540,7 +540,7 @@ class WorkRecord(models.Model):
         cs = ""
         for wrc in WorkRecordCreator.objects.filter(work_record=self):
             cs += "<a href='/creator/" + str(wrc.creator.id) + "'>"
-            cs += wrc.creator.display_name
+            cs += wrc.creator.display_name()
             cs += "</a>, "
         cs = cs.rstrip(', ')
         return cs
