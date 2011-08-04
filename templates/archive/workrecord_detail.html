@@ -42,7 +42,7 @@
                 {% for perf in workrecord.performances.all %}
                     <tr>
                         <td><a href="/production/{{ perf.pk }}">{{ perf.title }}</a></td>
-                        <td>{{ perf.display_directors }}</td>
+                        <td>{{ perf.display_directors_links }}</td>
                         <td>{% if perf.venue %}{{ perf.venue }}{% endif %}</td>
                         <td>{% if perf.begin_date %}{{ perf.begin_date_display }}&mdash;{% endif %}{% if perf.end_date %}{{ perf.end_date_display }}{% endif %}</td>
                     </tr>

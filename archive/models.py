@@ -650,6 +650,16 @@ class Production(models.Model):
         return ds
     display_directors.short_description = _("Directors")
 
+    def display_directors_links(self):
+        ds = ""
+        for person in self.directing_team.all():
+            ds += "<a href='/creator/" + person.id + "'>"
+            ds += person.display_name()
+            ds += "</a>, "
+        ds = ds[:-2]
+        return ds
+    display_directors_links.short_description = _("Directors")
+
     def __unicode__(self):
         if self.begin_date:
             return "%s (%s, %s)" % (self.title, self.venue.title, self.begin_date_display())
