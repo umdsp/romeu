@@ -39,7 +39,7 @@ class QueueAdmin(admin.ModelAdmin):
         )
 
 class QueueItemAdmin(admin.ModelAdmin):
-    list_display = ('object', 'object_number', 'phys_assessed', 'captured', 'post_proc', 'supervisor_qc', 'edited', 'metadata', 'prepped', 'link_to')
+    list_display = ('object', 'phys_assessed', 'captured', 'post_proc', 'supervisor_qc', 'edited', 'metadata', 'prepped', 'link_to')
     list_editable = ('phys_assessed', 'captured', 'post_proc', 'supervisor_qc', 'edited', 'metadata', 'prepped')
     list_filter = ('high_priority', 'queue')
     ordering = ['-high_priority']
