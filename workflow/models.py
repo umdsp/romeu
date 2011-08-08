@@ -15,9 +15,9 @@ class Queue(models.Model):
 
 class QueueItem(models.Model):
     object = models.ForeignKey(DigitalObject, related_name="queue_item", verbose_name=_("digital object"))
-    phys_assessed = models.BooleanField(default=False, verbose_name=_("physical assessment"))
+    phys_assessed = models.BooleanField(default=False, verbose_name=_("phys assessment"))
     captured = models.BooleanField(default=False, verbose_name=_("capture"))
-    post_proc = models.BooleanField(default=False, verbose_name=_("post-processing"))
+    post_proc = models.BooleanField(default=False, verbose_name=_("post-proc"))
     supervisor_qc = models.BooleanField(default=False, verbose_name=_("supervisor QC"))
     edited = models.BooleanField(default=False, verbose_name=_("editing"))
     metadata = models.BooleanField(default=False, verbose_name=_("final metadata"))
