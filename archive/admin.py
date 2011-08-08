@@ -452,7 +452,7 @@ class DigitalObjectAdmin(TranslatingVersioningAdmin):
     filter_horizontal = ['subject', 'related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work']
     fieldsets = (
         ('Basic info', {
-            'fields': ('title', 'title_variants', 'collection', 'object_creator', 'language', 'subject', 'rights_holders', 'license_type')
+            'fields': ('title', 'title_variants', 'collection', 'object_creator', 'language', 'subject', 'rights_holders', 'license_type', 'permission_form')
         },),
         ('Identification', {
             'fields': ('object_id', 'digital_id', 'identifier',)
