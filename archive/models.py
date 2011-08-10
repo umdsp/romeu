@@ -383,6 +383,21 @@ class Creator(models.Model):
         else:
             return False
     
+    def same_birthplace_creators(self):
+        if not self.birth_location:
+            return False
+        else:
+            bp = self.birth_location
+            rc = Creator.objects.filter(birth_location=bp).filter(published=True)
+            rel = 'location'
+        if not rc:
+            bc = bp.city
+            rc = Creator.objects.filter(birth_location__city=bc).filter(published=True)
+            rel = 'city'
+        
+        x = {'rc': rc, 'rel': rel}
+        return x
+    
     def __unicode__(self):
         if self.birth_date and self.death_date:
             return "%s, %s-%s" % (self.creator_name, self.birth_date_display(), self.death_date_display())
