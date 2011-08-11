@@ -1,4 +1,5 @@
 {{ object.creator_name }}
 {{ object.creator_ascii_name }}
+{{ object.display_name }}
 {{ object.name_variants }}
 {{ object.biography }}

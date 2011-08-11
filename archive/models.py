@@ -17,6 +17,8 @@ from archive import constants
 
 import reversion
 
+from random import choice
+
 class OverwriteStorage(FileSystemStorage):
     """
     Returns same name for existing file and deletes existing file on save.
@@ -397,6 +399,18 @@ class Creator(models.Model):
         
         x = {'rc': rc, 'rel': rel}
         return x
+    
+    def same_production_creators(self):
+        if not self.has_productions():
+            return False
+        else:
+            productions = self.productions()
+            # Pick one at random
+            p = choice(productions)['prod_id']
+            p = Production.objects.get(id=p)
+            # TODO: Pick up here after you write the function to get people from a production
+        
+            return True
     
     def __unicode__(self):
         if self.birth_date and self.death_date:
