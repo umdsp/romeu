@@ -698,6 +698,28 @@ class Production(models.Model):
         return ds
     display_directors_links.short_description = _("Directors")
 
+    def all_production_creators(self):
+        """
+        Return a list of IDs of all creators attached to this production (directors, cast, tech, etc.) with function
+        Format: [{'id': 123, 'function': x}, {'id': 124, 'function': y}]
+        """
+        allpeople = []
+        for p in DirectingMember.objects.filter(production=self).filter(published=True):
+            allpeople.append({'id': p.person.id, 'function': p.function})
+        for p in CastMember.objects.filter(production=self).filter(published=True):
+            allpeople.append({'id': p.person.id, 'function': p.function})
+        for p in DesignMember.objects.filter(production=self).filter(published=True):
+            allpeople.append({'id': p.person.id, 'function': p.function})
+        for p in TechMember.objects.filter(production=self).filter(published=True):
+            allpeople.append({'id': p.person.id, 'function': p.function})
+        for p in ProductionMember.objects.filter(production=self).filter(published=True):
+            allpeople.append({'id': p.person.id, 'function': p.function})
+        for p in DocumentationMember.objects.filter(production=self).filter(published=True):
+            allpeople.append({'id': p.person.id, 'function': p.function})
+        for p in AdvisoryMember.objects.filter(production=self).filter(published=True):
+            allpeople.append({'id': p.person.id, 'function': p.function})
+        return allpeople
+
     def __unicode__(self):
         if self.begin_date:
             return "%s (%s, %s)" % (self.title, self.venue.title, self.begin_date_display())
