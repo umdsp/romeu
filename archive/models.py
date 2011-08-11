@@ -17,7 +17,7 @@ from archive import constants
 
 import reversion
 
-from random import choice
+from random import choice, shuffle
 
 class OverwriteStorage(FileSystemStorage):
     """
@@ -408,9 +408,16 @@ class Creator(models.Model):
             # Pick one at random
             p = choice(productions)['prod_id']
             p = Production.objects.get(id=p)
-            # TODO: Pick up here after you write the function to get people from a production
+            people = p.all_production_creators()
+            # Remove yourself from the list
+            for x in people:
+              if x['person'] == self:
+                people.remove(x)
+            # Shuffle it up
+            shuffle(people)
+            people = people[:3]
         
-            return True
+            return { 'title': p.title, 'creators': people }
     
     def __unicode__(self):
         if self.birth_date and self.death_date:
@@ -700,24 +707,24 @@ class Production(models.Model):
 
     def all_production_creators(self):
         """
-        Return a list of IDs of all creators attached to this production (directors, cast, tech, etc.) with function
-        Format: [{'id': 123, 'function': x}, {'id': 124, 'function': y}]
+        Return a list of all creators attached to this production (directors, cast, tech, etc.) with function
+        Format: [{'person': i, 'function': x}, {'person': j, 'function': y}]
         """
         allpeople = []
         for p in DirectingMember.objects.filter(production=self).filter(published=True):
-            allpeople.append({'id': p.person.id, 'function': p.function})
+            allpeople.append({'person': p.person, 'function': p.function})
         for p in CastMember.objects.filter(production=self).filter(published=True):
-            allpeople.append({'id': p.person.id, 'function': p.function})
+            allpeople.append({'person': p.person, 'function': p.function})
         for p in DesignMember.objects.filter(production=self).filter(published=True):
-            allpeople.append({'id': p.person.id, 'function': p.function})
+            allpeople.append({'person': p.person, 'function': p.function})
         for p in TechMember.objects.filter(production=self).filter(published=True):
-            allpeople.append({'id': p.person.id, 'function': p.function})
+            allpeople.append({'person': p.person, 'function': p.function})
         for p in ProductionMember.objects.filter(production=self).filter(published=True):
-            allpeople.append({'id': p.person.id, 'function': p.function})
+            allpeople.append({'person': p.person, 'function': p.function})
         for p in DocumentationMember.objects.filter(production=self).filter(published=True):
-            allpeople.append({'id': p.person.id, 'function': p.function})
+            allpeople.append({'person': p.person, 'function': p.function})
         for p in AdvisoryMember.objects.filter(production=self).filter(published=True):
-            allpeople.append({'id': p.person.id, 'function': p.function})
+            allpeople.append({'person': p.person, 'function': p.function})
         return allpeople
 
     def __unicode__(self):
