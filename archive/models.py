@@ -650,7 +650,7 @@ class Production(models.Model):
     ascii_title = models.CharField(max_length=255, verbose_name=_("ASCII title"))
     title_variants = models.CharField(max_length=300, null=True, blank=True, verbose_name=_("title variants"))
     venue = models.ForeignKey(Location, related_name="productions", verbose_name=_("venue"))
-    stage = ChainedForeignKey(Stage, chained_field="venue", chained_model_field="venue", show_all=False, auto_choose=False, null=True, blank=True, verbose_name=_("stage"))
+    stage = ChainedForeignKey(Stage, chained_field="venue", chained_model_field="venue", show_all=True, auto_choose=False, null=True, blank=True, verbose_name=_("stage"))
     begin_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("begin date"))
     begin_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', verbose_name=_("Precision"))
     begin_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
