@@ -37,7 +37,7 @@ class DirectingMemberAdminForm(ModelForm):
 
 class CastMemberAdminForm(ModelForm):
     person = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, label=_(u"Person"))
-    role = selectable_forms.AutoCompleteSelectField(lookup_class=RoleLookup, allow_new=False, label=_(u"Role"))
+    role = selectable_forms.AutoCompleteSelectField(lookup_class=RoleLookup, allow_new=False, required=False, label=_(u"Role"))
     
     def __init__(self, *args, **kwargs): 
         super(CastMemberAdminForm, self).__init__(*args, **kwargs) 
