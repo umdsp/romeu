@@ -448,7 +448,7 @@ class DigitalObjectAdmin(TranslatingVersioningAdmin):
     form = arcforms.DigitalObjectAdminForm
     inlines = (DigitalFileInline,)
     search_fields = ['title', 'title_variants']
-    list_filter = ('has_attention', 'collection',)
+    list_filter = ('has_attention', 'collection', 'digi_object_format')
     filter_horizontal = ['subject', 'related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work']
     fieldsets = (
         ('Basic info', {
