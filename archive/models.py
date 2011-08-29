@@ -532,7 +532,7 @@ class Stage(models.Model):
     has_attention = models.BooleanField(default=False)
     
     def __unicode__(self):
-        return "%s (%s)" % (self.title, self.venue.country.name)
+        return "%s" % (self.title)
     
 class WorkRecord(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))
