@@ -8,6 +8,17 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
 {% dajaxice_js_import %}
 <script type="text/javascript" src="{{ MEDIA_URL }}/js/jquery.dajax.core.js" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+            if ($('body.archive-production.change-form').length) {
+                $('.form-row.venue div').append($('<a href="#" id="updatestages">Update stages list</a>'));
+                $('#updatestages').click(function(e) {
+                    e.preventDefault();
+                    Dajaxice.archive.updatestages(Dajax.process, { 'option': $('#id_venue_1').val()});
+                })
+            }
+    })
+</script>
 {% endblock %}
 
 {% block title %}{{ title }} | {% trans 'CTDA site admin' %}{% endblock %}
