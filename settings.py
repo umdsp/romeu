@@ -81,7 +81,7 @@ SECRET_KEY = 'w#sjwc#ov(g*a)_b+sa31raerncoi7@5pt@algjc0@9^soqrc*'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -131,9 +131,11 @@ INSTALLED_APPS = (
     #'debug_toolbar',
     'ajax_select',
     'selectable',
-    'smart_selects',
+    #'smart_selects',
     # Uncomment the next line to enable admin documentation:
     #'django.contrib.admindocs',
+    'dajaxice',
+    'dajax',
     'rosetta',
     'taggit',
     'tinymce',
@@ -170,3 +172,6 @@ HAYSTACK_SITECONF = 'archive.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH = '/ctda/django/django_whoosh_index'
 HAYSTACK_INCLUDE_SPELLING = False
+
+# Dajax settings
+DAJAXICE_MEDIA_PREFIX="dajaxice"

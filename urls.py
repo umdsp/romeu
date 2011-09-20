@@ -9,6 +9,9 @@ from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView, search_view_factory
 
+from dajaxice.core import dajaxice_autodiscover
+dajaxice_autodiscover()
+
 sqs = SearchQuerySet().order_by('django_ct')
 
 # Uncomment the next two lines to enable the admin:
@@ -48,6 +51,8 @@ urlpatterns = patterns('',
     (r'^chaining/', include('smart_selects.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
+
+    (r'^%s/' % settings.DAJAXICE_MEDIA_PREFIX, include('dajaxice.urls')),
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
