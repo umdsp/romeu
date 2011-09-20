@@ -87,6 +87,8 @@ class Creator(models.Model):
     org_name = models.CharField(max_length=255, null=True, blank=True, help_text=_("For corporate creators, enter an organization name here instead of using the other name fields."), verbose_name=_("organization / corporate name"))
     creator_name = models.CharField(max_length=255, verbose_name=_("creator name"))
     creator_ascii_name = models.CharField(max_length=255, verbose_name=_("creator ASCII name"))
+    creator_display_name = models.CharField(max_length=255, verbose_name=_("creator display name"))
+    creator_display_ascii_name = models.CharField(max_length=255, verbose_name=_("creator display ASCII name"))
     name_variants = models.CharField(max_length=200, null=True, blank=True, verbose_name=_("name variants"))
     # Dates
     birth_location = models.ForeignKey("Location", null=True, blank=True, related_name="born_here", verbose_name=_("birth location"))
@@ -431,6 +433,8 @@ def update_creator_name(sender, **kwargs):
     obj = kwargs['instance']
     obj.creator_name = obj.display_name_lastfirst()
     obj.creator_ascii_name = unidecode(obj.creator_name)
+    obj.creator_display_name = obj.display_name()
+    obj.creator_display_ascii_name = unidecode(obj.creator_display_name)
 
 pre_save.connect(update_creator_name, sender=Creator)
 
