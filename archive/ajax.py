@@ -5,7 +5,7 @@ from archive.models import Location, Stage
 @dajaxice_register
 def updatestages(request, option):
     dajax = Dajax()
-    loc = Location.objects.get(int(option))
+    loc = Location.objects.get(pk=int(option))
     stages = Stage.objects.filter(venue=loc)
     out = "<option value selected='selected'>--------------</option>"
     for stage in stages:
