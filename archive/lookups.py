@@ -31,7 +31,7 @@ class ArchiveLookup(LookupBase):
 class CreatorLookup(ArchiveLookup):
     model = Creator
     def get_query(self,request,term):
-        return Creator.objects.filter(Q(creator_ascii_name__icontains=term) | Q(creator_name__icontains=term) | Q(name_variants__icontains=term))
+        return Creator.objects.filter(Q(creator_ascii_name__icontains=term) | Q(creator_name__icontains=term) | Q(name_variants__icontains=term) | Q(creator_display_name__icontains=term) | Q(creator_display_ascii_name__icontains=term))
     
     
 class LocationLookup(ArchiveLookup):
