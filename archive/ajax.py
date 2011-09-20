@@ -10,5 +10,6 @@ def updatestages(request, option):
     out = "<option value selected='selected'>------------</option>"
     for stage in stages:
         out += "<option value='%d'>%s</option>" % (stage.pk, stage.__unicode__())
+    dajax.remove('#id_stage option')
     dajax.assign('#id_stage', 'innerHTML', out)
     return dajax.json()
