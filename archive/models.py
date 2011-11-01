@@ -324,7 +324,7 @@ class Creator(models.Model):
                 prods.append(x)
         if self.design_team_for.count() > 0:
             for dt in self.design_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.begin_date_display() + '&mdash;' + dt.end_date_display(), 'role': DirectingMember.objects.filter(person=self, production=dt)[0].function.title }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.begin_date_display() + '&mdash;' + dt.end_date_display(), 'role': DesignMember.objects.filter(person=self, production=dt)[0].function.title }
                 prods.append(x)
         if self.technical_team_for.count() > 0:
             for dt in self.technical_team_for.all():
