@@ -31,3 +31,5 @@ You will need the following installed on your server:
 You can install any of the packages above using pip.
 
 Please note that Romeu is currently alpha software and is undergoing rapid development.
+
+[Cuban Theater Digital Archive]: http://cubantheater.org
