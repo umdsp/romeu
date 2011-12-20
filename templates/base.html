@@ -1,36 +1,89 @@
 {% load autop %}{% load thumbnail %}{% load i18n %}<!DOCTYPE html>
-<html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-    <title>Cuban Theater Digital Archive</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% trans "Cuban Theater Digital Archive" %}</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="Cuban Theater Digital Archive at the University of Miami Libraries">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/museo-slab.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/cabin.css" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css" type="text/css" media="screen">
+    <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
+    <link rel="apple-touch-icon" href="{{ STATIC_URL }}apple-touch-icon.png" />
+    <script src="{{ STATIC_URL }}js/libs/modernizr-2.0.6.min.js"></script>
 </head>
-<body class="detail">
-    <header>
-        {% block site_header %}
-        {% endblock %}
-    </header>
-    
-    <article>
+<body class="{{ LANGUAGE_CODE }} {% block body_class %}{% endblock %}">
+    <div id="wrapper">
+      <div id="langselect">
+            <form action="/i18n/setlang/" method="post">
+                {% csrf_token %}
+                <select name="language">
+                    <option value="en">{% trans "English" %}</option>
+                    <option value="es">{% trans "Spanish" %}</option>
+                </select>
+                <input type="submit" value="{% trans 'Go' %}" />
+            </form>
+            <ul>
+              <li><a href="#" id="setlang-en">English</a></li>
+              <li><a href="#" id="setlang-es">Espa&ntilde;ol</a></li>
+            </ul>
+        </div>
         <header>
-            {% block article_header %}
-            {% endblock %}
+            <a href="/"><h1 id="logo">{% trans "Cuban Theater Digital Archive" %}</h1></a>
+            <form id="globalsearch" method="get" action="/search">
+                <label for="q">{% trans "Search" %}</label>
+                <input type="search" id="q" name="q" placeholder="{% trans "Search..." %}" />
+                <input type="submit" value="{% trans "Go" %}" />
+            </form>
+            <nav id="pagenav">
+                <ul>
+                    <li><a href="/about">{% trans "About" %}</a></li>
+                    <li><a href="/people">{% trans "People" %}</a></li>
+                    <li><a href="/participate">{% trans "Participate" %}</a></li>
+                </ul>
+            </nav>
         </header>
+
+        <nav id="archivenav">
+            <h3>{% trans "The Archive" %}</h3>
+            <ul>
+                <li><a href="/creators">{% trans "Creators" %}</a></li>
+                <li><a href="/productions">{% trans "Productions" %}</a></li>
+                <li><a href="/festivals">{% trans "Festivals" %}</a></li>
+                <li><a href="/venues">{% trans "Venues" %}</a></li>
+                <li><a href="/writtenworks">{% trans "Written Works" %}</a></li>
+            </ul>
+        </nav>
         
-        {% block content %}
+        <article id="maincontent">
+            {% block content %}
+            {% endblock %}
+        </article>
+
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="http://www.miami.edu">{% trans "University of Miami" %}</a></li>
+                    <li><a href="http://www.as.miami.edu">{% trans "UM College of Arts &amp; Sciences" %}</a></li>
+                    <li><a href="http://www.library.miami.edu">{% trans "UM Libraries" %}</a></li>
+                    <li><a href="http://www.library.miami.edu/services/digitalprograms">{% trans "UM Digital Scholarship" %}</a></li>
+                    <li><a href="http://www.library.miami.edu/chc">{% trans "Cuban Heritage Collection" %}</a></li>
+                    <li><a href="#">{% trans "Legal" %}</a></li>
+                    <li>{% trans "Copyright" %} &copy;2011</li>
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+        <script src="{{ STATIC_URL }}js/jquery.isotope.min.js"></script>
+        <script src="{{ STATIC_URL }}js/script.js"></script>
+        {% block extra_js %}
         {% endblock %}
-    </article>
-    
-    <footer>
-        {% block footer %}
-        {% endblock %}
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
-    <script src="{{ STATIC_URL }}js/jquery.isotope.min.js"></script>
-    {% block extra_js %}
-    {% endblock %}
+    </div>
 </body>
 </html>

@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cuban Theater Digital Archive</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+<article>
     <h1>Looking for the <a href="/admin">admin</a> page?</h1>
-    <h2>Search</h2>
-    <form method="get" action="/search">
-        <input type="text" name="q" id="q" />
-        <button type="submit">Search</button>
-    </form>
     <a href="/search">Advanced Search</a>
-    <ul>
-        <li><a href="/creators">Creators</a></li>
-        <li><a href="/productions">Productions</a></li>
-        <li><a href="/writtenworks">Written Works</a></li>
-        <li><a href="/venues">Venues</a></li>
-        <li><a href="/digitalobjects">Browse Digital Objects</a></li>
-    </ul>
-</body>
-</html>
+</article>
+{% endblock %}

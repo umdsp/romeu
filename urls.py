@@ -1,7 +1,11 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
 
-from archive.views import CreatorsListView, CreatorsAlphaListView, CreatorDetailView, ProductionsListView, ProductionsAlphaListView, ProductionDetailView, WorkRecordsListView, WorkRecordsAlphaListView, WorkRecordDetailView, VenuesListView, VenuesAlphaListView, VenueDetailView, DigitalObjectsListView, DigitalObjectDetailView, search_view
+from archive.views import CreatorsListView, CreatorsAlphaListView, CreatorDetailView, \
+                          ProductionsListView, ProductionsAlphaListView, ProductionDetailView, \
+                          WorkRecordsListView, WorkRecordsAlphaListView, WorkRecordDetailView, \
+                          VenuesListView, VenuesAlphaListView, VenueDetailView, \
+                          DigitalObjectsListView, DigitalObjectDetailView, search_view, flatpage
 
 DEFAULT_LANG = settings.DEFAULT_LANG
 
@@ -9,10 +13,14 @@ from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView, search_view_factory
 
+from django.contrib.flatpages.views import flatpage
+
 from dajaxice.core import dajaxice_autodiscover
 dajaxice_autodiscover()
 
 sqs = SearchQuerySet().order_by('django_ct')
+
+DEFAULT_TEMPLATE = 'flatpages/default.html'
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -21,8 +29,10 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Example:
     # (r'^ctda/', include('ctda.foo.urls')),
-    
-    (r'^/?$', 'archive.views.index'),
+
+    # static pages
+    (r'^$', flatpage, {'url': '/'}),
+
     (r'^creators/?$', CreatorsListView.as_view()),
     (r'^creators/(?P<alpha>[a-z0]{1})/?$', CreatorsAlphaListView.as_view()),
     (r'^creator/(?P<pk>\d+)/?$', CreatorDetailView.as_view()),
@@ -45,7 +55,7 @@ urlpatterns = patterns('',
     # Set up i18n functions
     (r'^i18n/', include('django.conf.urls.i18n')),
 
-	(r'^tinymce/', include('tinymce.urls')),
+    (r'^tinymce/', include('tinymce.urls')),
 
     (r'^ajax_select/', include('ajax_select.urls')),
     (r'^chaining/', include('smart_selects.urls')),

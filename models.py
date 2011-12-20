@@ -3,6 +3,7 @@ from django.core.cache import cache
 from django.db import models
 from django.db.models import signals
 from django.db.models.query import QuerySet
+from django.contrib.flatpages.models import FlatPage
 
 from hashlib import sha1
 

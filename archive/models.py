@@ -19,6 +19,9 @@ import reversion
 
 from random import choice, shuffle
 
+from django.contrib.flatpages.models import FlatPage
+
+
 class OverwriteStorage(FileSystemStorage):
     """
     Returns same name for existing file and deletes existing file on save.
@@ -115,11 +118,17 @@ class Creator(models.Model):
     photo = models.ForeignKey("DigitalObject", null=True, blank=True, verbose_name=_("photo"))
     primary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="primary_bibliography_for", verbose_name=_("primary bibliography"))
     secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="secondary_bibliography_for", verbose_name=_("secondary bibliography"))
+    biblio_text = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text)"))
+    biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text, Spanish)"))
+    secondary_biblio_text = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text)"))
+    secondary_biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text, Spanish)"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
+    profiler_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profiler name"))
+    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profile entry date"))
     
     class Meta:
         ordering = ['creator_name']
@@ -469,6 +478,12 @@ class Location(models.Model):
     title_variants = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("title variants"))
     is_venue = models.BooleanField(default=False, verbose_name=_("Is a venue"), help_text=_("Check this box if productions / festivals occur at this location"))
     venue_type = models.ForeignKey("VenueType", null=True, blank=True, verbose_name=_("venue type"))
+    begin_date = models.DateField(null=True, blank=True, help_text=_("Click 'Today' to see today's date in the proper date format."), verbose_name=_(u"begin date"))
+    begin_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'y', null=True, blank=True, verbose_name=_(u"precision"))
+    begin_date_BC = models.BooleanField(default=False, verbose_name=_(u"Is B.C. date"))
+    end_date = models.DateField(null=True, blank=True, help_text=_("Click 'Today' to see today's date in the proper date format."), verbose_name=_(u"end date"))
+    end_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'y', null=True, blank=True, verbose_name=_(u"precision"))
+    end_date_BC = models.BooleanField(default=False, verbose_name=_(u"Is B.C. date"))
     address = models.CharField(max_length=100, verbose_name=_("street address"), null=True, blank=True)
     address2 = models.CharField(max_length=100, verbose_name=_("street address (line 2)"), null=True, blank=True)
     city = models.ForeignKey("City", null=True, blank=True, verbose_name=_("city"))
@@ -487,8 +502,16 @@ class Location(models.Model):
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
 
+    def begin_date_display(self):
+        return display_date(self.begin_date, self.begin_date_precision, self.begin_date_BC)
+    begin_date_display.short_description = _("Begin date")
+    
+    def end_date_display(self):
+        return display_date(self.end_date, self.end_date_precision, self.end_date_BC)
+    end_date_display.short_description = _("End date")
+
     def __unicode__(self):
-        return "%s (%s)" % (self.title, self.country.name)
+        return "%s (%s), %s-%s" % (self.title, self.country.name, self.begin_date_display(), self.end_date_display())
 
     def has_system_links(self):
         if Stage.objects.filter(venue=self).exists():
@@ -567,6 +590,10 @@ class WorkRecord(models.Model):
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
+    biblio_text = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text)"))
+    biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text, Spanish)"))
+    secondary_biblio_text = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text)"))
+    secondary_biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text, Spanish)"))
 
     def creation_date_display(self):
         return display_date(self.creation_date, self.creation_date_precision, self.creation_date_BC)
@@ -584,6 +611,26 @@ class WorkRecord(models.Model):
             cs += "</a>, "
         cs = cs.rstrip(', ')
         return cs
+
+    def has_system_links(self):
+        if AwardCandidate.objects.filter(work_record=self).exists():
+            return True
+        elif RelatedWork.objects.filter(first_work=self).exists():
+            return True
+        elif RelatedWork.objects.filter(second_work=self).exists():
+            return True
+        elif WorkRecordCreator.objects.filter(work_record=self).exists():
+            return True
+        elif Role.objects.filter(source_text=self).exists():
+            return True
+        elif Production.objects.filter(source_work=self).exists():
+            return True
+        elif DigitalObject.objects.filter(related_work=self).exists():
+            return True
+        elif BibliographicRecord.objects.filter(work_record=self).exists():
+            return True
+        else:
+            return False
 
     def __unicode__(self):
         return "%s (%s)" % (self.title, self.work_type.name)
@@ -676,12 +723,16 @@ class Production(models.Model):
     premier = models.CharField(max_length=2, choices=constants.PREMIER_CHOICES, null=True, blank=True, verbose_name=_("premier"))
     website = models.URLField(null=True, blank=True, verbose_name=_("website"))
     secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="production_secondary_bibliography_for", verbose_name=_("secondary bibliography"))
+    biblio_text = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text)"))
+    biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text, Spanish)"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
     theater_company = models.ForeignKey(Creator, null=True, blank=True, related_name="company_productions")
+    profiler_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profiler name"))
+    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profile entry date"))
 
     def begin_date_display(self):
         return display_date(self.begin_date, self.begin_date_precision, self.begin_date_BC)
@@ -731,6 +782,30 @@ class Production(models.Model):
         for p in AdvisoryMember.objects.filter(production=self).filter(published=True):
             allpeople.append({'person': p.person, 'function': p.function})
         return allpeople
+
+    def has_system_links(self):
+        if DirectingMember.objects.filter(production=self).exists():
+            return True
+        elif CastMember.objects.filter(production=self).exists():
+            return True
+        elif DesignMember.objects.filter(production=self).exists():
+            return True
+        elif TechMember.objects.filter(production=self).exists():
+            return True
+        elif ProductionMember.objects.filter(production=self).exists():
+            return True
+        elif DocumentationMember.objects.filter(production=self).exists():
+            return True
+        elif AdvisoryMember.objects.filter(production=self).exists():
+            return True
+        elif AwardCandidate.objects.filter(production=self).exists():
+            return True
+        elif FestivalOccurrence.objects.filter(productions=self).exists():
+            return True
+        elif DigitalObject.objects.filter(related_production=self).exists():
+            return True
+        else:
+            return False
 
     def __unicode__(self):
         if self.begin_date:
@@ -826,6 +901,7 @@ class FestivalOccurrence(models.Model):
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
+    profiler_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profiler name"))
 
     def begin_date_display(self):
         return display_date(self.begin_date, self.begin_date_precision, self.begin_date_BC)
@@ -881,9 +957,12 @@ def object_upload_path(instance, filename):
     seq_code = instance.seq_id
     
     new_filename = ''.join([rep_code, col_code, obj_code, seq_code, '001.', extension])
-    
-    instance.digital_object.attention += ''.join(['File: ', new_filename, 'Original filename: ', filename])
-    
+
+    if instance.digital_object.attention:
+        instance.digital_object.attention += ''.join(['File: ', new_filename, 'Original filename: ', filename])
+    else:
+        instance.digital_object.attention = ''.join(['File: ', new_filename, 'Original filename: ', filename])
+
     return '/'.join(['digitalobjects', rep_code, col_code, new_filename])
 
 def setup_new_object(sender, **kwargs):
@@ -907,7 +986,7 @@ def setup_digital_file(sender, **kwargs):
             instance.seq_id = '0001'
 
 class DigitalObject(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("title"))
+    title = models.CharField(max_length=255, verbose_name=_("title"))
     title_variants = models.CharField(max_length=300, null=True, blank=True, verbose_name=_("title variants"))
     collection = models.ForeignKey(Collection, related_name="collection_objects", verbose_name=_("collection"))
     object_creator = models.ForeignKey(Creator, null=True, blank=True, related_name="objects_created", verbose_name=_("object creator"))
@@ -920,10 +999,10 @@ class DigitalObject(models.Model):
     permission_form = models.FileField(upload_to='permissionforms', verbose_name=_("permission form"), null=True, blank=True)
     # Physical object info
     identifier = models.CharField(max_length=60, help_text=_("e.g. ISBN, ISSN, DOI"), null=True, blank=True, verbose_name=_("identifier"))
-    marks = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("marks/inscriptions"))
-    measurements = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("physical description"))
+    marks = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("marks/inscriptions"))
+    measurements = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("physical description"))
     phys_object_type = models.ForeignKey("PhysicalObjectType", verbose_name=_("Physical object type"), null=True, blank=True)
-    donor = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("donor"))
+    donor = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("donor"))
     sponsor_note = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("sponsor note"))
     phys_obj_date = models.DateField(null=True, blank=True, verbose_name=_("physical object date"))
     phys_obj_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', null=True, blank=True, verbose_name=_("Precision"))
@@ -933,13 +1012,13 @@ class DigitalObject(models.Model):
     digi_object_format = models.ForeignKey("DigitalObjectType", verbose_name=_("Digital object format"), null=True, blank=True)
     # Container info
     series_num = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("series #"))
-    series_name = models.CharField(max_length=200, null=True, blank=True, verbose_name=_("series name"))
+    series_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("series name"))
     subseries_num = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("subseries #"))
-    subseries_name = models.CharField(max_length=200, null=True, blank=True, verbose_name=_("subseries name"))
+    subseries_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("subseries name"))
     box_num = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("box #"))
     folder_num = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("folder #"))
-    folder_name = models.CharField(max_length=200, null=True, blank=True, verbose_name=_("folder name"))
-    folder_date = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("folder date"))
+    folder_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("folder name"))
+    folder_date = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("folder date"))
     # Relationships
     related_production = models.ManyToManyField(Production, related_name="related_objects", null=True, blank=True, verbose_name=_("related production"))
     related_festival = models.ManyToManyField(FestivalOccurrence, related_name="related_objects", null=True, blank=True, verbose_name=_("related festival"))
@@ -953,6 +1032,10 @@ class DigitalObject(models.Model):
     creation_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("creation date"))
     creation_date_precision = models.CharField(max_length=1, null=True, blank=True, choices=constants.DATE_PRECISION_CHOICES, default=u'y', verbose_name=_("Precision"))
     creation_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
+    restricted = models.BooleanField(default=False, verbose_name=_("Restricted?"))
+    restricted_description = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Details of restrictions"))
+    ready_to_stream = models.BooleanField(default=False, verbose_name=_("Uploaded to streaming server"))
+    poster_image = models.FileField(upload_to='poster_images', storage=OverwriteStorage(), verbose_name=_("Poster image (for videos)"), null=True, blank=True)
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
@@ -1292,7 +1375,13 @@ class BibliographicRecordType(models.Model):
     has_publisher = models.BooleanField(default=False, verbose_name=_("has a publisher"))
     has_address = models.BooleanField(default=False, verbose_name=_("has a publisher's address"))
     has_workrecord = models.BooleanField(default=False, verbose_name=_("is linked to a work record"))
-    
+
+class TranslatingFlatPage(FlatPage):
+    order = models.IntegerField(default=0, verbose_name=_("page order"), help_text=_("Where in the list this page should show up - 0 comes first, then 1, etc."))
+    child_of = models.ForeignKey('TranslatingFlatPage', null=True, blank=True, default=None, verbose_name=_("child of"), related_name="flatpage_parent", help_text=_("This page's parent, if any"))
+    class Meta:
+        verbose_name = _("Static page")
+
 # register version control
 reversion.register(Creator)
 reversion.register(Location)

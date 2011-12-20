@@ -1,29 +1,28 @@
-# Django settings for ctda project.
 import os
 import sys
 
 gettext = lambda s: s
 
 DEBUG = True
+THUMBNAIL_DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
-    ('Kevin Zurawel', 'hello@arborwebsolutions.com'),
 )
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'ctda',                      # Or path to database file if using sqlite3.
-        'USER': 'ctdauser',                      # Not used with sqlite3.
-        'PASSWORD': 'b0@rdwalk',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+#        'NAME': 'database',                      # Or path to database file if using sqlite3.
+#        'USER': 'user',                      # Not used with sqlite3.
+#        'PASSWORD': 'password',                  # Not used with sqlite3.
+#        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+#        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+#    }
+#}
 
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 # adding the apps directory to the first position of the PYTHON_PATH, but keeping our dir in the top too
@@ -52,30 +51,31 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-# Absolute path to the directory that holds media.
+# Absolute path to the directory that holds media (uploads, video files, etc.)
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/ctda/www/html/media/'
+#MEDIA_ROOT = ''
 
-STATICFILES_DIRS = (
-	'/ctda/www/html/static',
-)
+# Absolute path to the directory that holds static assets (site design, etc.)
+#STATICFILES_DIRS = (
+#	'/ctda/www/html/static',
+#)
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = 'http://ctda.miami.edu/media/'
+#MEDIA_URL = 'http://example.com/media/'
 
-STATIC_URL = 'http://ctda.miami.edu/static/'
+#STATIC_URL = 'http://example.com/static/'
 
-STATIC_ROOT = '/ctda/www/html/static'
+#STATIC_ROOT = '/path/to/static'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = 'http://ctda.miami.edu/media/admin/'
+#ADMIN_MEDIA_PREFIX = 'http://example.com/media/admin/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'w#sjwc#ov(g*a)_b+sa31raerncoi7@5pt@algjc0@9^soqrc*'
+#SECRET_KEY = 'w#sjwc#ov(g*a)_b+sa31raerncoi7@5pt@algjc0@9^soqrc*'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -100,20 +100,20 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    #'debug_toolbar.middleware.DebugToolbarMiddleware',
     'reversion.middleware.RevisionMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
-#INTERNAL_IPS = ('127.0.0.1', '129.171.249.144', '10.221.14.57', '10.179.1.200',)
+#INTERNAL_IPS = ('127.0.0.1',)
 
 ROOT_URLCONF = 'urls'
 
-TEMPLATE_DIRS = (
+#TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/ctda/django/templates',
-)
+    #'/path/to/templates',
+#)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -121,19 +121,15 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.flatpages',
     'sorl.thumbnail',
     'reversion',
     'archive',
     'workflow',
     'modeltranslation',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    #'debug_toolbar',
     'ajax_select',
     'selectable',
-    #'smart_selects',
-    # Uncomment the next line to enable admin documentation:
-    #'django.contrib.admindocs',
     'dajaxice',
     'dajax',
     'rosetta',
@@ -168,10 +164,8 @@ AJAX_LOOKUP_CHANNELS = {
 
 DEFAULT_LANG = "en"
 
-HAYSTACK_SITECONF = 'archive.search_sites'
-HAYSTACK_SEARCH_ENGINE = 'whoosh'
-HAYSTACK_WHOOSH_PATH = '/ctda/django/django_whoosh_index'
-HAYSTACK_INCLUDE_SPELLING = False
 
-# Dajax settings
-DAJAXICE_MEDIA_PREFIX="dajaxice"
+try:
+    from local_settings import *
+except ImportError:
+    pass

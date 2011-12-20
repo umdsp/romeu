@@ -4,19 +4,29 @@ from django.template import RequestContext, loader, Context
 from django.views.generic import TemplateView, ListView, DetailView
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
+import re
+
+from django.conf import settings
+from django.core.urlresolvers import reverse
+from django.core.xheaders import populate_xheaders
+from django.shortcuts import get_object_or_404
+from django.template import loader, RequestContext
+from django.utils.safestring import mark_safe
+from django.views.decorators.csrf import csrf_protect
+
+
 from settings import MEDIA_URL, STATIC_URL
 
 from sorl.thumbnail import default
 
-from archive.models import Creator, Location, Production, WorkRecord, DigitalObject, DigitalFile, Festival, FestivalOccurrence, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, DocumentationMember, AdvisoryMember
+from archive.models import Creator, Location, Production, WorkRecord, DigitalObject, DigitalFile, Festival, FestivalOccurrence, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, DocumentationMember, AdvisoryMember, TranslatingFlatPage, DigitalObjectType
 
 from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView
 
-def index(request):
-    return render_to_response('index.html', {}, RequestContext(request))
-    
+from random import randrange
+
 class CreatorsListView(ListView):
     queryset = Creator.objects.filter(published=True).select_related().order_by('creator_name')
     context_object_name = "creators_list"
@@ -27,19 +37,20 @@ class CreatorsListView(ListView):
         context = super(CreatorsListView, self).get_context_data(**kwargs)
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
-        alldos = DigitalObject.objects.filter(related_creator__isnull=False).order_by('?')
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        alldos = DigitalObject.objects.filter(related_creator__isnull=False, digi_object_format=imagetype)
+        length = len(alldos) - 1
         count = 0
         dos = []
-        for obj in alldos:
-            if count > 5:
-                break
-            if obj.files.count() > 0:
-                dos.append(obj)
+        while count < 3:
+            num = randrange(0, length)
+            if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+                dos.append(alldos[num])
                 count += 1
         if dos:
             for obj in dos:
                 item = {}
-                item['imagepath'] = default.backend.get_thumbnail(obj.files.order_by('?')[0].filepath, "x150", crop="center")
+                item['image'] = obj.files.all()[0].filepath
                 item['title'] = obj.title
                 item['creator_id'] = obj.related_creator.all()[0].pk
                 objects_list.append(item)
@@ -89,19 +100,20 @@ class ProductionsListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ProductionsListView, self).get_context_data(**kwargs)
         objects_list = []
-        alldos = DigitalObject.objects.filter(related_production__isnull=False).filter(files__isnull=False).order_by('?')
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        alldos = DigitalObject.objects.filter(related_production__isnull=False, files__isnull=False, digi_object_format=imagetype)
         count = 0
+        length = len(alldos) - 1
         dos = []
-        for obj in alldos:
-            if count > 5:
-                break
-            if obj.files.count() > 0 and obj.files.all()[0]:
-                dos.append(obj)
+        while count < 3:
+            num = randrange(0, length)
+            if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+                dos.append(alldos[num])
                 count += 1
         if dos:
             for obj in dos:
                 item = {}
-                item['imagepath'] = default.backend.get_thumbnail(obj.files.order_by('?')[0].filepath, "x150", crop="center")
+                item['image'] = obj.files.all()[0].filepath
                 item['title'] = obj.title
                 item['production_id'] = obj.related_production.all()[0].pk
                 objects_list.append(item)
@@ -313,3 +325,26 @@ def search_view(request):
         context['workrecord_matches'] = workrecord_matches
         
     return render_to_response('search/search.html', context, RequestContext(request))
+
+def flatpage(request, url, **kwargs):
+    if not url.endswith('/') and settings.APPEND_SLASH:
+        return HttpResponseRedirect("%s/" % request.path)
+    if not url.startswith('/'):
+        url = "/" + url
+    f = get_object_or_404(TranslatingFlatPage, url__exact=url, sites__id__exact=settings.SITE_ID)
+    return render_flatpage(request, f)
+
+@csrf_protect
+def render_flatpage(request, f):
+    if f.template_name:
+        t = loader.select_template(f.template_name, DEFAULT_TEMPLATE)
+    else:
+        t = loader.get_template(DEFAULT_TEMPLATE)
+
+    f.title = mark_safe(f.title)
+    f.content = mark_safe(f.content)
+
+    c = RequestContext(request, { 'flatpage': f })
+    response = HttpResponse(t.render(c))
+    populate_xheaders(request, response, TranslatingFlatPage, f.id)
+    return response

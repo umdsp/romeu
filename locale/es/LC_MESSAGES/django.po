@@ -8,24 +8,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-04 09:22-0500\n"
-"PO-Revision-Date: 2011-02-04 09:39\n"
-"Last-Translator: <k.zurawel@miami.edu>\n"
+"POT-Creation-Date: 2011-12-13 16:15-0500\n"
+"PO-Revision-Date: 2011-12-14 14:57\n"
+"Last-Translator: Lillian Manzor <ctda@mail.as.miami.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
-"X-Translated-Using: django-rosetta 0.5.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.6.2\n"
 
-#: settings.py:117 templates/admin/index.html:66
+#: settings.py:143 templates/base.html:27 templates/admin/index.html:18
+#: templates/admin/archive/app_index.html:11
 msgid "English"
 msgstr "Inglés"
 
-#: settings.py:118 templates/admin/index.html:67
+#: settings.py:144 templates/base.html:28 templates/admin/index.html:19
+#: templates/admin/archive/app_index.html:12
 msgid "Spanish"
 msgstr "Español"
+
+#: ajax_select/fields.py:81 ajax_select/fields.py:182
+#: ajax_select/fields.py:244
+msgid "Enter text to search."
+msgstr "texto para la búsqueda"
 
 #: archive/autocomplete_admin.py:412 archive/autocomplete_admin.py:526
 #: archive/autocomplete_admin.py:646 archive/autocomplete_admin.py:752
@@ -35,33 +42,35 @@ msgstr "y"
 #: archive/autocomplete_admin.py:414 archive/autocomplete_admin.py:528
 #: archive/autocomplete_admin.py:648 archive/autocomplete_admin.py:754
 #, python-format
-msgid "Use the left field to do %(model_name)s lookups in the fields %(field_list)s."
+msgid ""
+"Use the left field to do %(model_name)s lookups in the fields "
+"%(field_list)s."
 msgstr ""
 
 #: archive/constants.py:4
 msgid "Male"
-msgstr "Varón"
+msgstr "Masculino"
 
 #: archive/constants.py:5
 msgid "Female"
-msgstr "Hembra"
+msgstr "Femenino"
 
-#: archive/constants.py:6 archive/constants.py:43 archive/constants.py:83
-#: archive/constants.py:90
+#: archive/constants.py:6 archive/constants.py:45 archive/constants.py:98
+#: archive/constants.py:105
 msgid "Other"
 msgstr "Otro"
 
 #: archive/constants.py:7
 msgid "Not applicable"
-msgstr "No aplicable"
+msgstr "No es pertinente"
 
 #: archive/constants.py:11
 msgid "Full date"
 msgstr "Fecha completa"
 
 #: archive/constants.py:12
-msgid "Month"
-msgstr "Mes"
+msgid "Month and year"
+msgstr "Mes y año"
 
 #: archive/constants.py:13
 msgid "Year"
@@ -79,1167 +88,1786 @@ msgstr "Época"
 msgid "Century"
 msgstr "Siglo"
 
-#: archive/constants.py:20
+#: archive/constants.py:17
+msgid "Month and day (no year)"
+msgstr "Mes y día (sin año)"
+
+#: archive/constants.py:18
+msgid "Month, day, and decade"
+msgstr "Mes, día y década"
+
+#: archive/constants.py:22
 msgid "Prefix"
 msgstr "Prefijo"
 
-#: archive/constants.py:21
+#: archive/constants.py:23
 msgid "Given name"
 msgstr "Nombre de pila"
 
-#: archive/constants.py:22
+#: archive/constants.py:24
 msgid "Middle name"
 msgstr "Segundo nombre"
 
-#: archive/constants.py:23 archive/constants.py:30
+#: archive/constants.py:25 archive/constants.py:32
 msgid "Family name"
-msgstr "Nombre de familia"
+msgstr "Apellido"
 
-#: archive/constants.py:24
+#: archive/constants.py:26
 msgid "Suffix"
 msgstr "Sufijo"
 
-#: archive/constants.py:25
+#: archive/constants.py:27
 msgid "Organization name"
 msgstr "Nombre de organización"
 
-#: archive/constants.py:29
+#: archive/constants.py:31
 msgid "Personal name"
 msgstr "Nombre personal"
 
-#: archive/constants.py:31
+#: archive/constants.py:33
 msgid "Corporate name"
 msgstr "Nombre corporativo"
 
-#: archive/constants.py:35
+#: archive/constants.py:37
 msgid "Member of"
 msgstr "Miembro de"
 
-#: archive/constants.py:36
+#: archive/constants.py:38
 msgid "Related to"
 msgstr "Relacionado a"
 
-#: archive/constants.py:37
+#: archive/constants.py:39
 #, fuzzy
 msgid "Identical to"
-msgstr "equipo técnico"
+msgstr "Idéntico a"
 
-#: archive/constants.py:41
+#: archive/constants.py:43
 msgid "Book"
 msgstr "Libro"
 
-#: archive/constants.py:42
+#: archive/constants.py:44
 msgid "Journal article"
 msgstr "Artículo de revista"
 
-#: archive/constants.py:47
-msgid "Reading"
-msgstr "Recitación"
-
-#: archive/constants.py:48
-msgid "Staged reading"
-msgstr "Lectura por etapas"
-
 #: archive/constants.py:49
-msgid "Workshop"
-msgstr "Cursillo"
+msgid "Reading"
+msgstr "Lectura"
 
 #: archive/constants.py:50
+msgid "Staged reading"
+msgstr "Lectura semi-montada"
+
+#: archive/constants.py:51
+msgid "Workshop"
+msgstr "Taller"
+
+#: archive/constants.py:52
 msgid "Performance art"
 msgstr "Performance"
 
-#: archive/constants.py:51
+#: archive/constants.py:53
 msgid "Collaboration"
 msgstr "Colaboración"
 
-#: archive/constants.py:52
+#: archive/constants.py:54
 msgid "Online performance"
 msgstr "Performance en la red"
 
-#: archive/constants.py:53
+#: archive/constants.py:55
 msgid "Online collaboration"
 msgstr "Colaboración en la red"
 
-#: archive/constants.py:57
+#: archive/constants.py:59
 msgid "Corporate Name"
 msgstr "Nombre corporativo"
 
-#: archive/constants.py:58
+#: archive/constants.py:60
 msgid "Date"
 msgstr "Fecha"
 
-#: archive/constants.py:59
+#: archive/constants.py:61
 msgid "Family Name"
-msgstr "Nombre de familia"
+msgstr "Apellido"
 
-#: archive/constants.py:60
+#: archive/constants.py:62
 msgid "Function"
 msgstr "Función"
 
-#: archive/constants.py:61
+#: archive/constants.py:63
 msgid "Genre/Form of Material"
 msgstr "Género/Forma de material"
 
-#: archive/constants.py:62
+#: archive/constants.py:64
 msgid "Geographic Name"
 msgstr "Nombre geográfico"
 
-#: archive/constants.py:63
+#: archive/constants.py:65
 msgid "Occupation"
 msgstr "Ocupación"
 
-#: archive/constants.py:64
+#: archive/constants.py:66
 msgid "Personal Name"
 msgstr "Nombre personal"
 
-#: archive/constants.py:65 templates/digitalcontent.html:10
-#: templates/productions.html:8
+#: archive/constants.py:67
 msgid "Title"
 msgstr "Título"
 
-#: archive/constants.py:66
+#: archive/constants.py:68
 msgid "Topical Term"
 msgstr "Tema"
 
-#: archive/constants.py:70
+#: archive/constants.py:72
 msgid "is part of"
 msgstr "es parte de"
 
-#: archive/constants.py:71
+#: archive/constants.py:73
 msgid "is a translation of"
 msgstr "es una traducción de"
 
-#: archive/constants.py:72
+#: archive/constants.py:74
 msgid "is an adaptation of"
 msgstr "es una adaptación de"
 
-#: archive/constants.py:73
-msgid "is a version/edition of"
+#: archive/constants.py:75
+#, fuzzy
+msgid "is a version of"
 msgstr "es una versión/edición de"
 
-#: archive/constants.py:74
+#: archive/constants.py:76
 msgid "is referenced by"
 msgstr "es mencionado en"
 
-#: archive/constants.py:75
+#: archive/constants.py:77
 msgid "is similar to"
 msgstr "es similar a"
 
-#: archive/constants.py:79
+#: archive/constants.py:78
+msgid "follows after"
+msgstr ""
+
+#: archive/constants.py:82
+#, fuzzy
+msgid "Copyright UM"
+msgstr "derechos"
+
+#: archive/constants.py:83
+msgid "None (all rights reserved)"
+msgstr "Ninguno (derechos reservados)"
+
+#: archive/constants.py:84
+msgid "Public domain"
+msgstr "dominio público"
+
+#: archive/constants.py:85
+msgid "CC-BY"
+msgstr "CC-BY"
+
+#: archive/constants.py:86
+msgid "CC-BY-SA"
+msgstr "CC-BY-SA"
+
+#: archive/constants.py:87
+msgid "CC-BY-ND"
+msgstr "CC-BY-ND"
+
+#: archive/constants.py:88
+msgid "CC-BY-NC"
+msgstr "CC-BY-NC"
+
+#: archive/constants.py:89
+msgid "CC-BY-NC-SA"
+msgstr ""
+
+#: archive/constants.py:90
+msgid "CC-BY-NC-ND"
+msgstr ""
+
+#: archive/constants.py:94
 msgid "World"
 msgstr "Mundial"
 
-#: archive/constants.py:80
+#: archive/constants.py:95
 msgid "US"
 msgstr "EEUU"
 
-#: archive/constants.py:81
+#: archive/constants.py:96
 msgid "Cuba"
 msgstr "Cubano"
 
-#: archive/constants.py:82
+#: archive/constants.py:97
 msgid "Florida"
 msgstr "Florida"
 
-#: archive/constants.py:87
+#: archive/constants.py:102
 msgid "Winner"
 msgstr "Ganador"
 
-#: archive/constants.py:88
+#: archive/constants.py:103
 msgid "Nominee"
 msgstr "Candidato"
 
-#: archive/constants.py:89
+#: archive/constants.py:104
 msgid "Honorable mention"
 msgstr "Mención de honor"
 
-#: archive/models.py:17 archive/models.py:24 archive/models.py:34
-#: archive/models.py:176 archive/models.py:200 archive/models.py:218
-#: archive/models.py:281 archive/models.py:287 archive/models.py:293
-#: archive/models.py:299 archive/models.py:306 archive/models.py:369
-#: archive/models.py:376 archive/models.py:409 archive/models.py:424
-#: archive/models.py:460 archive/models.py:514 archive/models.py:532
-#: archive/models.py:609 archive/models.py:620 archive/models.py:631
-#: archive/models.py:642 archive/models.py:653 archive/models.py:664
-#: archive/models.py:675 archive/models.py:687 archive/models.py:698
-#: archive/models.py:709 modeltranslation/tests.py:27
+#: archive/forms.py:14 archive/forms.py:229 archive/forms.py:261
+#, fuzzy
+msgid "Venue"
+msgstr "local"
+
+#: archive/forms.py:15
+msgid "Theater company"
+msgstr ""
+
+#: archive/forms.py:28 archive/forms.py:39 archive/forms.py:53
+#: archive/forms.py:64 archive/forms.py:75
+#, fuzzy
+msgid "Person"
+msgstr "persona"
+
+#: archive/forms.py:40
+#, fuzzy
+msgid "Role"
+msgstr "papel"
+
+#: archive/forms.py:86
+#, fuzzy
+msgid "Source text"
+msgstr "obra de procedencia"
+
+#: archive/forms.py:94
+#, fuzzy
+msgid "Birth location"
+msgstr "lugar de nacimiento"
+
+#: archive/forms.py:95
+#, fuzzy
+msgid "Death location"
+msgstr "lugar de muerte"
+
+#: archive/forms.py:96
+#, fuzzy
+msgid "Nationality"
+msgstr "nacionalidad"
+
+#: archive/forms.py:97
+#, fuzzy
+msgid "Office / headquarters"
+msgstr "oficina / sede"
+
+#: archive/forms.py:98 archive/forms.py:158
+#, fuzzy
+msgid "Photo"
+msgstr "foto"
+
+#: archive/forms.py:115 archive/forms.py:126
+#, fuzzy
+msgid "Related creator"
+msgstr "creador relacionado"
+
+#: archive/forms.py:127
+#, fuzzy
+msgid "Related production"
+msgstr "producción relacionada"
+
+#: archive/forms.py:128
+#, fuzzy
+msgid "Related festival"
+msgstr "festival relacionado"
+
+#: archive/forms.py:129
+#, fuzzy
+msgid "Related venue"
+msgstr "local relacionado"
+
+#: archive/forms.py:130 archive/forms.py:184
+#, fuzzy
+msgid "Related work"
+msgstr "obra relacionada"
+
+#: archive/forms.py:131
+#, fuzzy
+msgid "Collection"
+msgstr "Colecciones"
+
+#: archive/forms.py:132
+#, fuzzy
+msgid "Object creator"
+msgstr "creador relacionado"
+
+#: archive/forms.py:133
+#, fuzzy
+msgid "Physical object location"
+msgstr "formato del objeto físico"
+
+#: archive/forms.py:156
+#, fuzzy
+msgid "City"
+msgstr "ciudad"
+
+#: archive/forms.py:157 archive/forms.py:206
+#, fuzzy
+msgid "Country"
+msgstr "pais"
+
+#: archive/forms.py:173
+#, fuzzy
+msgid "Digital copy"
+msgstr "copia digital"
+
+#: archive/forms.py:195
+#, fuzzy
+msgid "Creator"
+msgstr "Creadores"
+
+#: archive/forms.py:217
+#, fuzzy
+msgid "Location"
+msgstr "Ubicaciónes"
+
+#: archive/forms.py:228
+#, fuzzy
+msgid "Festival series"
+msgstr "festival"
+
+#: archive/forms.py:242
+#, fuzzy
+msgid "Participant"
+msgstr "participante"
+
+#: archive/forms.py:253 archive/forms.py:274
+#, fuzzy
+msgid "Work record"
+msgstr "Expedientes de obras"
+
+#: archive/forms.py:269
+#, fuzzy
+msgid "Award"
+msgstr "premio"
+
+#: archive/forms.py:270
+#, fuzzy
+msgid "Recipient"
+msgstr "recipiente"
+
+#: archive/forms.py:271
+msgid "Production"
+msgstr "Producción"
+
+#: archive/forms.py:272
+#, fuzzy
+msgid "Place"
+msgstr "lugar"
+
+#: archive/forms.py:273
+#, fuzzy
+msgid "Festival"
+msgstr "Festivales"
+
+#: archive/models.py:68 archive/models.py:75 archive/models.py:476
+#: archive/models.py:546 archive/models.py:565 archive/models.py:654
+#: archive/models.py:660 archive/models.py:666 archive/models.py:672
+#: archive/models.py:679 archive/models.py:836 archive/models.py:843
+#: archive/models.py:878 archive/models.py:894 archive/models.py:945
+#: archive/models.py:1017 archive/models.py:1025 archive/models.py:1044
+#: archive/models.py:1122 archive/models.py:1133 archive/models.py:1144
+#: archive/models.py:1155 archive/models.py:1166 archive/models.py:1177
+#: archive/models.py:1188 archive/models.py:1199 archive/models.py:1210
+#: archive/models.py:1222 archive/models.py:1233 archive/models.py:1244
+#: archive/models.py:1257 archive/models.py:1312 modeltranslation/tests.py:27
 #: modeltranslation/tests.py:42 modeltranslation/tests.py:58
 msgid "title"
 msgstr "título"
 
-#: archive/models.py:18
+#: archive/models.py:69
 msgid "EAD title"
 msgstr "EAD título"
 
-#: archive/models.py:25
+#: archive/models.py:76
 msgid "subject type"
 msgstr "tipo de sujeto"
 
-#: archive/models.py:26
+#: archive/models.py:77
 msgid "source"
 msgstr "procedencia"
 
-#: archive/models.py:27
+#: archive/models.py:78
 msgid "parent subject"
 msgstr "padre sujeto"
 
-#: archive/models.py:33
-msgid "bibliography type"
-msgstr "tipo de bibliografía"
-
-#: archive/models.py:35
-msgid "Only for works contained in a larger book"
-msgstr "Solo para obras contenidas en un libro más grande"
-
-#: archive/models.py:35
-msgid "book title"
-msgstr "título del libro"
-
-#: archive/models.py:36
-msgid "journal title"
-msgstr "título de la revista"
-
-#: archive/models.py:37
-msgid "author"
-msgstr "autor"
-
-#: archive/models.py:38
-msgid "editor"
-msgstr "editor"
-
-#: archive/models.py:39
-msgid "volume"
-msgstr "volumen"
-
-#: archive/models.py:40
-msgid "Issue number or book series number"
-msgstr "Número de tirada o número en una serie de libros"
-
-#: archive/models.py:40
-msgid "number"
-msgstr "número"
-
-#: archive/models.py:41
-msgid "Book series title"
-msgstr "título de la serie de libros"
-
-#: archive/models.py:41
-msgid "series"
-msgstr "serie"
-
-#: archive/models.py:42
-msgid "chapter"
-msgstr "capítulo"
-
-#: archive/models.py:43
-msgid "Enter as an ordinal number ('Second', 'Third')"
-msgstr "Entra como un número ordinal ('Segundo', 'Tercero')"
-
-#: archive/models.py:43
-msgid "edition"
-msgstr "edición"
-
-#: archive/models.py:44
-msgid "Use a 3-letter abbreviation if possible"
-msgstr "Si es posible, usa una abreviación de 3 letras"
-
-#: archive/models.py:44
-msgid "month"
-msgstr "mes"
-
-#: archive/models.py:45
-msgid "May also include 'about', etc."
-msgstr "Se puede incluir 'cerca de', etcétera"
-
-#: archive/models.py:45 archive/models.py:541
-msgid "year"
-msgstr "año"
-
-#: archive/models.py:46
-msgid "Enter one or more pages / page ranges"
-msgstr "Entra uno o más páginas / intervalos de páginas"
-
-#: archive/models.py:46
-msgid "pages"
-msgstr "páginas"
-
-#: archive/models.py:47
-msgid "publisher"
-msgstr "editorial"
-
-#: archive/models.py:48
-msgid "Publisher's address; omit for major publishers"
-msgstr "dirección de la editorial; omite para editoriales principales"
-
-#: archive/models.py:48
-msgid "address"
-msgstr "dirección"
-
-#: archive/models.py:49 archive/models.py:271 archive/models.py:549
-msgid "work record"
-msgstr "expediente de la obra"
-
-#: archive/models.py:52
-msgid "bibliography"
-msgstr "bibliografía"
-
-#: archive/models.py:53
-msgid "bibliographies"
-msgstr "bibliografías"
-
-#: archive/models.py:62
+#: archive/models.py:84
 msgid "creator type"
 msgstr "tipo del creador"
 
-#: archive/models.py:63
+#: archive/models.py:85
 msgid "name prefix"
 msgstr ""
 
-#: archive/models.py:64
+#: archive/models.py:86
 #, fuzzy
 msgid "given name(s)"
 msgstr "Nombre de pila"
 
-#: archive/models.py:65
+#: archive/models.py:87
 #, fuzzy
 msgid "middle name(s)"
 msgstr "Segundo nombre"
 
-#: archive/models.py:66
+#: archive/models.py:88
 #, fuzzy
 msgid "family name(s)"
 msgstr "Nombre de familia"
 
-#: archive/models.py:67
+#: archive/models.py:89
 msgid "name suffix"
 msgstr ""
 
-#: archive/models.py:68
+#: archive/models.py:90
 #, fuzzy
-msgid "For corporate creators, enter an organization name here instead of using the other name fields."
+msgid ""
+"For corporate creators, enter an organization name here instead of "
+"using the other name fields."
 msgstr "Para creadores corporativos, entra una nota histórica (opcional)"
 
-#: archive/models.py:68
+#: archive/models.py:90
 #, fuzzy
 msgid "organization / corporate name"
 msgstr "Nombre de organización"
 
-#: archive/models.py:69
+#: archive/models.py:91
 msgid "creator name"
 msgstr "nombre del creador"
 
-#: archive/models.py:70
+#: archive/models.py:92
 #, fuzzy
 msgid "creator ASCII name"
 msgstr "nombre del creador"
 
-#: archive/models.py:71
+#: archive/models.py:93
+#, fuzzy
+msgid "creator display name"
+msgstr "nombre del creador"
+
+#: archive/models.py:94
+#, fuzzy
+msgid "creator display ASCII name"
+msgstr "nombre del creador"
+
+#: archive/models.py:95
 msgid "name variants"
 msgstr ""
 
-#: archive/models.py:73
+#: archive/models.py:97
 msgid "birth location"
 msgstr "lugar de nacimiento"
 
-#: archive/models.py:74
+#: archive/models.py:98
 msgid "birth date"
 msgstr "fecha de nacimiento"
 
-#: archive/models.py:75 archive/models.py:79 archive/models.py:82
-#: archive/models.py:85 archive/models.py:229 archive/models.py:311
-#: archive/models.py:314 archive/models.py:380 archive/models.py:383
-#: archive/models.py:498
+#: archive/models.py:99 archive/models.py:103 archive/models.py:106
+#: archive/models.py:109 archive/models.py:577 archive/models.py:580
+#: archive/models.py:687 archive/models.py:690 archive/models.py:847
+#: archive/models.py:850 archive/models.py:964 archive/models.py:989
 msgid "Precision"
 msgstr "precisión"
 
-#: archive/models.py:76 archive/models.py:80 archive/models.py:83
-#: archive/models.py:86 archive/models.py:161 archive/models.py:164
-#: archive/models.py:230 archive/models.py:312 archive/models.py:315
-#: archive/models.py:381 archive/models.py:384 archive/models.py:499
+#: archive/models.py:100 archive/models.py:104 archive/models.py:107
+#: archive/models.py:110 archive/models.py:459 archive/models.py:462
+#: archive/models.py:483 archive/models.py:486 archive/models.py:578
+#: archive/models.py:581 archive/models.py:688 archive/models.py:691
+#: archive/models.py:848 archive/models.py:851 archive/models.py:965
+#: archive/models.py:990
 msgid "Is B.C. date"
 msgstr ""
 
-#: archive/models.py:77
+#: archive/models.py:101
 msgid "death location"
 msgstr "lugar de muerte"
 
-#: archive/models.py:78
+#: archive/models.py:102
 msgid "death date"
 msgstr "fecha de muerte"
 
-#: archive/models.py:81
+#: archive/models.py:105
 msgid "earliest active"
 msgstr "fecha de actividad primera"
 
-#: archive/models.py:84
+#: archive/models.py:108
 msgid "latest active"
 msgstr "fecha de actividad final"
 
-#: archive/models.py:88
+#: archive/models.py:112
 msgid "gender"
 msgstr "género"
 
-#: archive/models.py:89
+#: archive/models.py:113
 msgid "nationality"
 msgstr "nacionalidad"
 
-#: archive/models.py:90
+#: archive/models.py:114
 msgid "Office / headquarters location (for corporate creators only)"
-msgstr "Ubicación de oficina / oficina central (solo para creadores corporativos)"
+msgstr ""
+"Ubicación de oficina / oficina central (solo para creadores "
+"corporativos)"
 
-#: archive/models.py:90
+#: archive/models.py:114
 msgid "office / headquarters"
 msgstr "oficina / sede"
 
-#: archive/models.py:91
+#: archive/models.py:115
 msgid "related creators"
 msgstr "creadores relacionados"
 
-#: archive/models.py:92
+#: archive/models.py:116
 msgid "biographical / historical note"
 msgstr ""
 
-#: archive/models.py:93 archive/models.py:189 archive/models.py:233
-#: archive/models.py:326
+#: archive/models.py:117 archive/models.py:497 archive/models.py:584
+#: archive/models.py:704
 msgid "website"
 msgstr "página web"
 
-#: archive/models.py:94 archive/models.py:190
+#: archive/models.py:118 archive/models.py:498
 msgid "photo"
 msgstr "foto"
 
-#: archive/models.py:95
+#: archive/models.py:119
 msgid "primary bibliography"
 msgstr "bibliografía primaria"
 
-#: archive/models.py:96 archive/models.py:327 archive/models.py:387
+#: archive/models.py:120 archive/models.py:705 archive/models.py:854
 msgid "secondary bibliography"
 msgstr "bibliografía secundaria"
 
-#: archive/models.py:97 archive/models.py:191 archive/models.py:211
-#: archive/models.py:236 archive/models.py:328 archive/models.py:388
-#: archive/models.py:412 archive/models.py:429 archive/models.py:496
-#: archive/models.py:534 archive/models.py:545
+#: archive/models.py:121 archive/models.py:593 archive/models.py:706
+#, fuzzy
+msgid "bibliography (plain text)"
+msgstr "tipo de bibliografía"
+
+#: archive/models.py:122 archive/models.py:594 archive/models.py:707
+msgid "bibliography (plain text, Spanish)"
+msgstr ""
+
+#: archive/models.py:123 archive/models.py:595
+#, fuzzy
+msgid "secondary bibliography (plain text)"
+msgstr "bibliografía secundaria"
+
+#: archive/models.py:124 archive/models.py:596
+#, fuzzy
+msgid "secondary bibliography (plain text, Spanish)"
+msgstr "bibliografía secundaria"
+
+#: archive/models.py:125 archive/models.py:499 archive/models.py:557
+#: archive/models.py:587 archive/models.py:708 archive/models.py:855
+#: archive/models.py:881 archive/models.py:899 archive/models.py:987
+#: archive/models.py:1046 archive/models.py:1057
 msgid "notes"
 msgstr "notas"
 
-#: archive/models.py:98 archive/models.py:192 archive/models.py:212
-#: archive/models.py:238 archive/models.py:329 archive/models.py:389
-#: archive/models.py:413 archive/models.py:430 archive/models.py:500
-#: archive/models.py:550
+#: archive/models.py:126 archive/models.py:500 archive/models.py:558
+#: archive/models.py:589 archive/models.py:709 archive/models.py:856
+#: archive/models.py:882 archive/models.py:900 archive/models.py:995
+#: archive/models.py:1062
 msgid "attention"
 msgstr "atención"
 
-#: archive/models.py:99 archive/models.py:193 archive/models.py:239
-#: archive/models.py:330 archive/models.py:390 archive/models.py:414
-#: archive/models.py:431 archive/models.py:501
+#: archive/models.py:128 archive/models.py:502 archive/models.py:591
+#: archive/models.py:711 archive/models.py:858 archive/models.py:884
+#: archive/models.py:902 archive/models.py:997
 msgid "needs editing"
 msgstr "se necesita edición"
 
-#: archive/models.py:100 archive/models.py:194 archive/models.py:240
-#: archive/models.py:331 archive/models.py:391 archive/models.py:415
-#: archive/models.py:432 archive/models.py:502
+#: archive/models.py:129 archive/models.py:503 archive/models.py:592
+#: archive/models.py:712 archive/models.py:859 archive/models.py:885
+#: archive/models.py:903 archive/models.py:998
 msgid "published"
 msgstr "publicado"
 
-#: archive/models.py:155
+#: archive/models.py:130 archive/models.py:714 archive/models.py:860
+#, fuzzy
+msgid "profiler name"
+msgstr "nombre de carpeta"
+
+#: archive/models.py:131 archive/models.py:715
+#, fuzzy
+msgid "profile entry date"
+msgstr "nombre de carpeta"
+
+#: archive/models.py:138
+#, fuzzy
+msgid "Birth date"
+msgstr "fecha de nacimiento"
+
+#: archive/models.py:142
+#, fuzzy
+msgid "Death date"
+msgstr "fecha de muerte"
+
+#: archive/models.py:146
+#, fuzzy
+msgid "Earliest active"
+msgstr "fecha de actividad primera"
+
+#: archive/models.py:150
+#, fuzzy
+msgid "Latest active"
+msgstr "fecha de actividad final"
+
+#: archive/models.py:391 templates/admin/index.html:91
+#, fuzzy
+msgid "Roles"
+msgstr "papel"
+
+#: archive/models.py:453
 msgid "creator 1"
 msgstr "creador 1"
 
-#: archive/models.py:156 archive/models.py:263
+#: archive/models.py:454 archive/models.py:636
 msgid "relationship"
 msgstr "relación"
 
-#: archive/models.py:157 archive/models.py:491
+#: archive/models.py:455 archive/models.py:982
 msgid "related creator"
 msgstr "creador relacionado"
 
-#: archive/models.py:158
-msgid "If the relationship is membership in an organization, select the member's function in the organization here."
-msgstr "Si la relación es afiliación en una organización, selecciona la función en la organización del miembro aqui."
+#: archive/models.py:456
+msgid ""
+"If the relationship is membership in an organization, select the "
+"member's function in the organization here."
+msgstr ""
+"Si la relación es afiliación en una organización, selecciona la "
+"función en la organización del miembro aqui."
 
-#: archive/models.py:158 archive/models.py:272 archive/models.py:345
-#: archive/models.py:350 archive/models.py:356 archive/models.py:361
-#: archive/models.py:366 archive/models.py:405
+#: archive/models.py:456 archive/models.py:645 archive/models.py:781
+#: archive/models.py:789 archive/models.py:798 archive/models.py:806
+#: archive/models.py:814 archive/models.py:822 archive/models.py:830
+#: archive/models.py:874
 msgid "function"
 msgstr "función"
 
-#: archive/models.py:159
+#: archive/models.py:457 archive/models.py:460 archive/models.py:481
+#: archive/models.py:484
+msgid "Click 'Today' to see today's date in the proper date format."
+msgstr ""
+
+#: archive/models.py:457
 msgid "relationship since"
 msgstr "relación desde"
 
-#: archive/models.py:160 archive/models.py:163
+#: archive/models.py:458 archive/models.py:461 archive/models.py:482
+#: archive/models.py:485
 msgid "precision"
 msgstr "precisión"
 
-#: archive/models.py:162
+#: archive/models.py:460
 msgid "relationship until"
 msgstr "relación hasta"
 
-#: archive/models.py:177 archive/models.py:201 archive/models.py:219
-#: archive/models.py:307 archive/models.py:377 archive/models.py:461
+#: archive/models.py:466
+#, fuzzy
+msgid "Relationship since"
+msgstr "relación desde"
+
+#: archive/models.py:470
+#, fuzzy
+msgid "Relationship until"
+msgstr "relación hasta"
+
+#: archive/models.py:477
+msgid "title (ASCII)"
+msgstr ""
+
+#: archive/models.py:478 archive/models.py:547 archive/models.py:566
+#: archive/models.py:682 archive/models.py:844 archive/models.py:946
 msgid "title variants"
 msgstr ""
 
-#: archive/models.py:178
+#: archive/models.py:479
 msgid "Is a venue"
 msgstr "Es un local"
 
-#: archive/models.py:178
+#: archive/models.py:479
 msgid "Check this box if productions / festivals occur at this location"
-msgstr "Selecciona este caja si producciónes / festivales se pueden occurir a este lugar"
+msgstr ""
+"Selecciona este caja si producciónes / festivales se pueden occurir a "
+"este lugar"
 
-#: archive/models.py:179
+#: archive/models.py:480 archive/models.py:1247
+#, fuzzy
+msgid "venue type"
+msgstr "local"
+
+#: archive/models.py:481 archive/models.py:686 archive/models.py:846
+msgid "begin date"
+msgstr "fecha de empezar"
+
+#: archive/models.py:484 archive/models.py:689 archive/models.py:849
+msgid "end date"
+msgstr "fecha de terminar"
+
+#: archive/models.py:487
 msgid "street address"
 msgstr "dirección"
 
-#: archive/models.py:180
+#: archive/models.py:488
 msgid "street address (line 2)"
 msgstr "dirección (línea 2)"
 
-#: archive/models.py:181 archive/models.py:574
+#: archive/models.py:489 archive/models.py:1087
 msgid "city"
 msgstr "ciudad"
 
-#: archive/models.py:182
+#: archive/models.py:490
 msgid "state/province"
 msgstr "estado/provincia"
 
-#: archive/models.py:183
+#: archive/models.py:491
 msgid "postal code"
 msgstr "código postal"
 
-#: archive/models.py:184 archive/models.py:561 archive/models.py:571
+#: archive/models.py:492 archive/models.py:1074 archive/models.py:1084
 msgid "country"
 msgstr "pais"
 
-#: archive/models.py:185
+#: archive/models.py:493
 msgid "latitude"
 msgstr "latitud"
 
-#: archive/models.py:186
+#: archive/models.py:494
 msgid "longitude"
 msgstr "longitud"
 
-#: archive/models.py:187
+#: archive/models.py:495
 msgid "altitude"
 msgstr "altitud"
 
-#: archive/models.py:188 archive/models.py:235 archive/models.py:411
-#: archive/models.py:428 archive/models.py:495
+#: archive/models.py:496 archive/models.py:586 archive/models.py:880
+#: archive/models.py:898 archive/models.py:986
 msgid "summary"
 msgstr "resumen"
 
-#: archive/models.py:202 archive/models.py:308 archive/models.py:378
+#: archive/models.py:507 archive/models.py:719
+#, fuzzy
+msgid "Begin date"
+msgstr "fecha de empezar"
+
+#: archive/models.py:511 archive/models.py:723
+#, fuzzy
+msgid "End date"
+msgstr "fecha de terminar"
+
+#: archive/models.py:548 archive/models.py:683 archive/models.py:845
 msgid "venue"
 msgstr "local"
 
-#: archive/models.py:203
+#: archive/models.py:549
 msgid "Number only, no commas"
 msgstr "Solo numeros, no comas ni puntos"
 
-#: archive/models.py:203
+#: archive/models.py:549
 msgid "square footage"
 msgstr "pies cuadrados"
 
-#: archive/models.py:204
+#: archive/models.py:550
 msgid "stage type"
 msgstr "tipo de etapa"
 
-#: archive/models.py:205
+#: archive/models.py:551
 msgid "Width of the stage, in feet"
 msgstr "Ancho de la etapa, en pies"
 
-#: archive/models.py:205
+#: archive/models.py:551
 msgid "stage width"
 msgstr "ancho de etapa"
 
-#: archive/models.py:206
+#: archive/models.py:552
 msgid "Depth of the stage, in feet"
 msgstr "Longitud de la etapa, en pies"
 
-#: archive/models.py:206
+#: archive/models.py:552
 msgid "stage depth"
 msgstr "longitud de etapa"
 
-#: archive/models.py:207
+#: archive/models.py:553
 msgid "Amount of vertical space on stage, in feet"
 msgstr "Altura de la etapa, en pies"
 
-#: archive/models.py:207
+#: archive/models.py:553
 msgid "stage height"
 msgstr "altura de etapa"
 
-#: archive/models.py:208
+#: archive/models.py:554
 msgid "stage lighting"
 msgstr "iluminación escénica"
 
-#: archive/models.py:209
+#: archive/models.py:555
 msgid "stage sound"
 msgstr "sistema de sonido de etapa"
 
-#: archive/models.py:210
+#: archive/models.py:556
 msgid "Number of audience members that can be accommodated"
 msgstr "Numero de miembros de la audiencia que se puede acomodar"
 
-#: archive/models.py:210
+#: archive/models.py:556
 msgid "seating"
 msgstr "asientos"
 
-#: archive/models.py:220 archive/models.py:221
+#: archive/models.py:567 archive/models.py:681
+#, fuzzy
+msgid "ASCII title"
+msgstr "EAD título"
+
+#: archive/models.py:568 archive/models.py:569
 msgid "creators"
 msgstr "creadores"
 
-#: archive/models.py:222
+#: archive/models.py:570
 #, fuzzy
 msgid "work type"
 msgstr "tipo de expedientes de obras"
 
-#: archive/models.py:223 archive/models.py:464
+#: archive/models.py:571 archive/models.py:950
 msgid "subject"
 msgstr "sujeto"
 
-#: archive/models.py:224
+#: archive/models.py:572
 msgid "The work's genre - e.g. drama, comedy"
 msgstr "El género de la obra - por ejemplo, drama, comedia"
 
-#: archive/models.py:224
+#: archive/models.py:572
 msgid "genre"
 msgstr "género"
 
-#: archive/models.py:225
+#: archive/models.py:573
 msgid "The culture the work is a part of"
 msgstr "La cultura que la obra es una parte de"
 
-#: archive/models.py:225
+#: archive/models.py:573
 msgid "culture"
 msgstr "cultura"
 
-#: archive/models.py:226
+#: archive/models.py:574
 msgid "A movement or period the work belongs to"
 msgstr "Un movimiento o periodo que la obra es una parte de"
 
-#: archive/models.py:226
+#: archive/models.py:574
 msgid "style"
 msgstr "estilo"
 
-#: archive/models.py:227 archive/models.py:463 archive/models.py:590
+#: archive/models.py:575 archive/models.py:949 archive/models.py:1103
+#: archive/models.py:1277
 msgid "language"
 msgstr "lengua"
 
-#: archive/models.py:228 archive/models.py:497
+#: archive/models.py:576 archive/models.py:579 archive/models.py:988
 msgid "creation date"
 msgstr "fecha de creación"
 
-#: archive/models.py:231
+#: archive/models.py:582
 msgid "publication rights"
 msgstr "derechos de publicación"
 
-#: archive/models.py:232
+#: archive/models.py:583
 msgid "performance rights"
 msgstr "derechos de rendimiento"
 
-#: archive/models.py:233
+#: archive/models.py:584
 msgid "A site where users can find the text of this work"
 msgstr "Una página donde usuarios pueden obtener el texto de la obra"
 
-#: archive/models.py:234
+#: archive/models.py:585
 msgid "digital copy"
 msgstr "copia digital"
 
-#: archive/models.py:237
+#: archive/models.py:588
 msgid "related works"
 msgstr "obras relacionadas"
 
-#: archive/models.py:262
+#: archive/models.py:600
+#, fuzzy
+msgid "Creation date"
+msgstr "fecha de creación"
+
+#: archive/models.py:604
+#, fuzzy
+msgid "Publication date"
+msgstr "fecha de publicación"
+
+#: archive/models.py:635
 msgid "work"
 msgstr "obra"
 
-#: archive/models.py:264 archive/models.py:492
+#: archive/models.py:637 archive/models.py:983
 msgid "related work"
 msgstr "obra relacionada"
 
-#: archive/models.py:270
+#: archive/models.py:643
 msgid "creator"
 msgstr "creador"
 
-#: archive/models.py:280
+#: archive/models.py:644 archive/models.py:1061 archive/models.py:1299
+msgid "work record"
+msgstr "expediente de la obra"
+
+#: archive/models.py:653
 msgid "source text"
 msgstr "obra de procedencia"
 
-#: archive/models.py:305
+#: archive/models.py:678
 msgid "source work"
 msgstr "obra de procedencia"
 
-#: archive/models.py:309
+#: archive/models.py:680
+#, fuzzy
+msgid "subtitle"
+msgstr "título"
+
+#: archive/models.py:685
 msgid "stage"
 msgstr "etapa"
 
-#: archive/models.py:310 archive/models.py:379
-msgid "begin date"
-msgstr "fecha de empezar"
-
-#: archive/models.py:313 archive/models.py:382
-msgid "end date"
-msgstr "fecha de terminar"
-
-#: archive/models.py:316
+#: archive/models.py:692
 #, fuzzy
 msgid "Number of performances"
 msgstr "Rendimiento en línea"
 
-#: archive/models.py:317
+#: archive/models.py:693
 msgid "Special performance?"
 msgstr "¿Rendimiento especial?"
 
-#: archive/models.py:318 templates/digitalcontent.html:9
+#: archive/models.py:694
 msgid "Type"
 msgstr "Tipo"
 
-#: archive/models.py:319
+#: archive/models.py:695
 msgid "directing team"
 msgstr "equipo de dirección"
 
-#: archive/models.py:320
+#: archive/models.py:696
 msgid "cast"
 msgstr "elenco"
 
-#: archive/models.py:321
+#: archive/models.py:697
 msgid "design team"
 msgstr "equipo de diseño"
 
-#: archive/models.py:322
+#: archive/models.py:698
 msgid "technical team"
 msgstr "equipo técnico"
 
-#: archive/models.py:323
+#: archive/models.py:699
 msgid "production team"
 msgstr "equipo de producción"
 
-#: archive/models.py:324
+#: archive/models.py:700
+#, fuzzy
+msgid "documentation team"
+msgstr "equipo de producción"
+
+#: archive/models.py:701
+msgid "advisory team"
+msgstr ""
+
+#: archive/models.py:702
 msgid "related organizations"
 msgstr "organizaciones relacionadas"
 
-#: archive/models.py:325
+#: archive/models.py:703
 msgid "premier"
 msgstr "rendimiento de primera"
 
-#: archive/models.py:343 archive/models.py:348 archive/models.py:354
-#: archive/models.py:359 archive/models.py:364
+#: archive/models.py:732 archive/models.py:742
+#, fuzzy
+msgid "Directors"
+msgstr "creadores"
+
+#: archive/models.py:779 archive/models.py:787 archive/models.py:796
+#: archive/models.py:804 archive/models.py:812 archive/models.py:820
+#: archive/models.py:828
 msgid "person"
 msgstr "persona"
 
-#: archive/models.py:344 archive/models.py:349 archive/models.py:355
-#: archive/models.py:360 archive/models.py:365 archive/models.py:546
+#: archive/models.py:780 archive/models.py:788 archive/models.py:797
+#: archive/models.py:805 archive/models.py:813 archive/models.py:821
+#: archive/models.py:829 archive/models.py:1058
 msgid "production"
 msgstr "producción"
 
-#: archive/models.py:351
+#: archive/models.py:790
 msgid "role"
 msgstr "papel"
 
-#: archive/models.py:375
+#: archive/models.py:842
 #, fuzzy
 msgid "festival series"
 msgstr "festival"
 
-#: archive/models.py:385
+#: archive/models.py:852
 msgid "participants"
 msgstr "participantes"
 
-#: archive/models.py:386
+#: archive/models.py:853
 msgid "productions"
 msgstr "producciones"
 
-#: archive/models.py:403
+#: archive/models.py:872
 msgid "participant"
 msgstr "participante"
 
-#: archive/models.py:404 archive/models.py:548
+#: archive/models.py:873 archive/models.py:1060
 msgid "festival"
 msgstr "festival"
 
-#: archive/models.py:408
+#: archive/models.py:877
 msgid "repository ID"
 msgstr "ID de repositorio"
 
-#: archive/models.py:410
+#: archive/models.py:879
 msgid "location"
 msgstr "ubicación"
 
-#: archive/models.py:425
+#: archive/models.py:895
 msgid "repository"
 msgstr "repositorio"
 
-#: archive/models.py:426
+#: archive/models.py:896
 msgid "collection ID"
 msgstr "ID de colección"
 
-#: archive/models.py:427
+#: archive/models.py:897 archive/models.py:1261
 msgid "URL"
 msgstr "URL"
 
-#: archive/models.py:462
+#: archive/models.py:947
 msgid "collection"
 msgstr "colección"
 
-#: archive/models.py:465
+#: archive/models.py:948
+#, fuzzy
+msgid "object creator"
+msgstr "creador relacionado"
+
+#: archive/models.py:951
 msgid "object ID"
 msgstr "ID de objeto"
 
-#: archive/models.py:466
+#: archive/models.py:952
 msgid "digital ID"
 msgstr "ID digital"
 
-#: archive/models.py:467
-msgid "rights"
-msgstr "derechos"
+#: archive/models.py:953
+msgid "rights holder(s)"
+msgstr ""
 
-#: archive/models.py:468
+#: archive/models.py:954
 #, fuzzy
-msgid "copyright"
-msgstr "derechos"
+msgid "license type"
+msgstr "tipo de etapa"
 
-#: archive/models.py:470
+#: archive/models.py:955
+msgid "permission form"
+msgstr ""
+
+#: archive/models.py:957
 msgid "e.g. ISBN, ISSN, DOI"
 msgstr "Por ejemplo, ISBN, ISSN, DOI"
 
-#: archive/models.py:470
+#: archive/models.py:957
 msgid "identifier"
 msgstr "identificador"
 
-#: archive/models.py:471
+#: archive/models.py:958
 msgid "marks/inscriptions"
 msgstr "marcas / inscripciones"
 
-#: archive/models.py:472
-msgid "measurements"
-msgstr "medidas"
+#: archive/models.py:959
+#, fuzzy
+msgid "physical description"
+msgstr "tipo del objeto físico"
 
-#: archive/models.py:473
+#: archive/models.py:960
 msgid "Physical object type"
 msgstr "tipo del objeto físico"
 
-#: archive/models.py:474
+#: archive/models.py:961
 msgid "donor"
 msgstr ""
 
-#: archive/models.py:475
+#: archive/models.py:962
 msgid "sponsor note"
 msgstr ""
 
-#: archive/models.py:477
+#: archive/models.py:963
+#, fuzzy
+msgid "physical object date"
+msgstr "tipo del objeto físico"
+
+#: archive/models.py:966
+#, fuzzy
+msgid "physical object location"
+msgstr "formato del objeto físico"
+
+#: archive/models.py:968
 msgid "Digital object format"
 msgstr "Formato de objeto digital"
 
-#: archive/models.py:479
+#: archive/models.py:970
 msgid "series #"
 msgstr "número de serie"
 
-#: archive/models.py:480
+#: archive/models.py:971
 msgid "series name"
 msgstr "nombre de serie"
 
-#: archive/models.py:481
+#: archive/models.py:972
 msgid "subseries #"
 msgstr "número de subserie"
 
-#: archive/models.py:482
+#: archive/models.py:973
 msgid "subseries name"
 msgstr "nombre de subserie"
 
-#: archive/models.py:483
+#: archive/models.py:974
 msgid "box #"
 msgstr "número de caja"
 
-#: archive/models.py:484
+#: archive/models.py:975
 msgid "folder #"
 msgstr "número de carpeta"
 
-#: archive/models.py:485
+#: archive/models.py:976
 msgid "folder name"
 msgstr "nombre de carpeta"
 
-#: archive/models.py:486
+#: archive/models.py:977
 #, fuzzy
 msgid "folder date"
 msgstr "nombre de carpeta"
 
-#: archive/models.py:488
+#: archive/models.py:979
 msgid "related production"
 msgstr "producción relacionada"
 
-#: archive/models.py:489
+#: archive/models.py:980
 msgid "related festival"
 msgstr "festival relacionado"
 
-#: archive/models.py:490
+#: archive/models.py:981
 msgid "related venue"
 msgstr "local relacionado"
 
-#: archive/models.py:494
+#: archive/models.py:985
 msgid "tags"
 msgstr ""
 
-#: archive/models.py:515 archive/models.py:542
+#: archive/models.py:991
+#, fuzzy
+msgid "Restricted?"
+msgstr "Repositorios"
+
+#: archive/models.py:992
+msgid "Details of restrictions"
+msgstr ""
+
+#: archive/models.py:993
+msgid "Uploaded to streaming server"
+msgstr ""
+
+#: archive/models.py:994
+msgid "Poster image (for videos)"
+msgstr ""
+
+#: archive/models.py:1018
+#, fuzzy
+msgid "description"
+msgstr "edición"
+
+#: archive/models.py:1019
+#, fuzzy
+msgid "image"
+msgstr "páginas"
+
+#: archive/models.py:1026 archive/models.py:1054
 msgid "category"
 msgstr "categoría"
 
-#: archive/models.py:521
+#: archive/models.py:1032
 msgid "File"
 msgstr "Archivo"
 
-#: archive/models.py:522
+#: archive/models.py:1033
 msgid "sequence ID"
 msgstr ""
 
-#: archive/models.py:523
+#: archive/models.py:1034 workflow/models.py:17
 #, fuzzy
 msgid "digital object"
 msgstr "Tipo de objeto digital"
 
-#: archive/models.py:532
-msgid "For a series of awards (e.g. Tony Award, Drama Desk Award), not award categories (Tony Award for Best Musical, etc.)"
+#: archive/models.py:1044
+msgid ""
+"For a series of awards (e.g. Tony Award, Drama Desk Award), not award "
+"categories (Tony Award for Best Musical, etc.)"
 msgstr ""
 
-#: archive/models.py:533
+#: archive/models.py:1045
 msgid "award organization"
 msgstr "organización de premios"
 
-#: archive/models.py:540
+#: archive/models.py:1052
 msgid "award"
 msgstr "premio"
 
-#: archive/models.py:541
+#: archive/models.py:1053
 msgid "Please enter a 4-digit year (e.g. 1999, not 99)"
 msgstr "Entra un año como cuatro números (por ejemplo, '1999', no '99')"
 
-#: archive/models.py:542
+#: archive/models.py:1053
+msgid "year"
+msgstr "año"
+
+#: archive/models.py:1054
 msgid "e.g. Best Performance, Best Musical"
 msgstr "Por ejemplo, 'Mejor Rendimiento', 'Mejor Musical'"
 
-#: archive/models.py:543
+#: archive/models.py:1055
 msgid "result"
 msgstr "resulta"
 
-#: archive/models.py:544
+#: archive/models.py:1056
 msgid "A specific person or organization receiving the award"
 msgstr "Una persona u organización específicamente que va a recibir el premio"
 
-#: archive/models.py:544
+#: archive/models.py:1056
 msgid "recipient"
 msgstr "recipiente"
 
-#: archive/models.py:547
+#: archive/models.py:1059
 msgid "place"
 msgstr "lugar"
 
-#: archive/models.py:557
+#: archive/models.py:1070
 msgid "Name of the country (e.g. Cuba)"
 msgstr "Nombre del pais (por ejemplo, 'Cuba')"
 
-#: archive/models.py:557 archive/models.py:569 archive/models.py:585
-#: archive/models.py:598
+#: archive/models.py:1070 archive/models.py:1082 archive/models.py:1098
+#: archive/models.py:1111
 msgid "name"
 msgstr "nombre"
 
-#: archive/models.py:558
+#: archive/models.py:1071
 msgid "What someone from this country is called (e.g. Cuban)"
 msgstr "Lo que una persona desde este pais se llama (por ejemplo, 'Cubano')"
 
-#: archive/models.py:558
+#: archive/models.py:1071
 msgid "demonym"
 msgstr "gentilicio"
 
-#: archive/models.py:562
+#: archive/models.py:1075
 msgid "countries"
 msgstr "paises"
 
-#: archive/models.py:570
+#: archive/models.py:1083
 msgid "state"
 msgstr "estado"
 
-#: archive/models.py:575
+#: archive/models.py:1088
 msgid "cities"
 msgstr "ciudades"
 
-#: archive/models.py:586
+#: archive/models.py:1099
 msgid "This language's 2-letter shortcode ('en', 'es', etc.)"
-msgstr "Código de dos letras para esta lengua (por ejemplo, 'en', 'es', etcétera)"
+msgstr ""
+"Código de dos letras para esta lengua (por ejemplo, 'en', 'es', "
+"etcétera)"
 
-#: archive/models.py:586
+#: archive/models.py:1099
 msgid "shortcode"
 msgstr "código corto"
 
-#: archive/models.py:587
+#: archive/models.py:1100
 msgid "A longer archival language code ('eng', 'spa', etc.)"
-msgstr "Un código de lenguas archivo más largo (por ejemplo, 'eng', 'spa', etcétera)"
+msgstr ""
+"Un código de lenguas archivo más largo (por ejemplo, 'eng', 'spa', "
+"etcétera)"
 
-#: archive/models.py:587
+#: archive/models.py:1100
 msgid "archival code"
 msgstr "código archivo"
 
-#: archive/models.py:591
+#: archive/models.py:1104
 msgid "languages"
 msgstr "lenguas"
 
-#: archive/models.py:601
+#: archive/models.py:1114
 msgid "work record type"
 msgstr "tipo de expedientes de obras"
 
-#: archive/models.py:602
+#: archive/models.py:1115
 msgid "work record types"
 msgstr "tipos de expedientes de obras"
 
-#: archive/models.py:612
+#: archive/models.py:1125
 msgid "work record function"
 msgstr "función de expedientes de obras"
 
-#: archive/models.py:613
+#: archive/models.py:1126
 msgid "work record functions"
 msgstr "funciones de expedientes de obras"
 
-#: archive/models.py:623
+#: archive/models.py:1136
 msgid "directing team function"
 msgstr "función del equipo de dirección"
 
-#: archive/models.py:624
+#: archive/models.py:1137
 msgid "directing team functions"
 msgstr "funciones del equipo de dirección"
 
-#: archive/models.py:634
+#: archive/models.py:1147
 msgid "cast member function"
 msgstr "función del elenco"
 
-#: archive/models.py:635
+#: archive/models.py:1148
 msgid "cast member functions"
 msgstr "funciones del elenco"
 
-#: archive/models.py:645
+#: archive/models.py:1158
 msgid "design team function"
 msgstr "función del equipo de diseño"
 
-#: archive/models.py:646
+#: archive/models.py:1159
 msgid "design team functions"
 msgstr "funciones del equipo de diseño"
 
-#: archive/models.py:656
+#: archive/models.py:1169
 msgid "technical team function"
 msgstr "función del equipo técnico"
 
-#: archive/models.py:657
+#: archive/models.py:1170
 msgid "technical team functions"
 msgstr "funciones del equipo técnico"
 
-#: archive/models.py:667
+#: archive/models.py:1180
 msgid "production team function"
 msgstr "función del equipo de producción"
 
-#: archive/models.py:668
+#: archive/models.py:1181
 msgid "production team functions"
 msgstr "funciones del equipo de producción"
 
-#: archive/models.py:676
+#: archive/models.py:1191
+#, fuzzy
+msgid "documentation team function"
+msgstr "función del equipo de producción"
+
+#: archive/models.py:1192
+#, fuzzy
+msgid "documentation team functions"
+msgstr "funciones del equipo de producción"
+
+#: archive/models.py:1202
+#, fuzzy
+msgid "advisory team function"
+msgstr "función del equipo de diseño"
+
+#: archive/models.py:1203
+#, fuzzy
+msgid "advisory team functions"
+msgstr "funciones del equipo de diseño"
+
+#: archive/models.py:1211
 msgid "function type"
 msgstr "tipo de función"
 
-#: archive/models.py:679
+#: archive/models.py:1214
 msgid "organizational function"
 msgstr "función de organización"
 
-#: archive/models.py:680
+#: archive/models.py:1215
 msgid "organizational functions"
 msgstr "funciones de organización"
 
-#: archive/models.py:690
+#: archive/models.py:1225
 msgid "festival function"
 msgstr "función de festival"
 
-#: archive/models.py:691
+#: archive/models.py:1226
 msgid "festival functions"
 msgstr "funciones de festival"
 
-#: archive/models.py:701
+#: archive/models.py:1236
 #, fuzzy
 msgid "physical object type"
 msgstr "tipo del objeto físico"
 
-#: archive/models.py:702
+#: archive/models.py:1237
 #, fuzzy
 msgid "physical object types"
 msgstr "tipo del objeto físico"
 
-#: archive/models.py:710
+#: archive/models.py:1248
+#, fuzzy
+msgid "venue types"
+msgstr "local"
+
+#: archive/models.py:1255
+msgid "bibliography type"
+msgstr "tipo de bibliografía"
+
+#: archive/models.py:1256
+#, fuzzy
+msgid "abstract"
+msgstr "estado"
+
+#: archive/models.py:1258
+#, fuzzy
+msgid "short title"
+msgstr "título del libro"
+
+#: archive/models.py:1259
+msgid "Only for works contained in a larger book"
+msgstr "Solo para obras contenidas en un libro más grande"
+
+#: archive/models.py:1259
+msgid "book title"
+msgstr "título del libro"
+
+#: archive/models.py:1260
+#, fuzzy
+msgid "publication title"
+msgstr "fecha de publicación"
+
+#: archive/models.py:1262
+#, fuzzy
+msgid "author(s)"
+msgstr "autor"
+
+#: archive/models.py:1263
+#, fuzzy
+msgid "editor(s)"
+msgstr "editor"
+
+#: archive/models.py:1264
+msgid "translator(s)"
+msgstr ""
+
+#: archive/models.py:1265
+msgid "volume"
+msgstr "volumen"
+
+#: archive/models.py:1266
+#, fuzzy
+msgid "number of volumes"
+msgstr "Rendimiento en línea"
+
+#: archive/models.py:1267
+#, fuzzy
+msgid "Issue number"
+msgstr "número"
+
+#: archive/models.py:1267
+#, fuzzy
+msgid "issue number"
+msgstr "número"
+
+#: archive/models.py:1268
+#, fuzzy
+msgid "Series title"
+msgstr "título de la serie de libros"
+
+#: archive/models.py:1268
+msgid "series"
+msgstr "serie"
+
+#: archive/models.py:1269
+#, fuzzy
+msgid "Series subtitle"
+msgstr "título de la serie de libros"
+
+#: archive/models.py:1269
+#, fuzzy
+msgid "series text"
+msgstr "número de serie"
+
+#: archive/models.py:1270
+#, fuzzy
+msgid "series number"
+msgstr "nombre de serie"
+
+#: archive/models.py:1271
+msgid "chapter"
+msgstr "capítulo"
+
+#: archive/models.py:1272
+msgid "Enter as an ordinal number ('Second', 'Third')"
+msgstr "Entra como un número ordinal ('Segundo', 'Tercero')"
+
+#: archive/models.py:1272
+msgid "edition"
+msgstr "edición"
+
+#: archive/models.py:1273
+#, fuzzy
+msgid "section"
+msgstr "edición"
+
+#: archive/models.py:1274
+msgid "publication date"
+msgstr "fecha de publicación"
+
+#: archive/models.py:1275
+#, fuzzy
+msgid "access date"
+msgstr "fecha de terminar"
+
+#: archive/models.py:1276
+#, fuzzy
+msgid "number of pages"
+msgstr "Rendimiento en línea"
+
+#: archive/models.py:1278
+msgid "ISBN"
+msgstr ""
+
+#: archive/models.py:1279
+msgid "ISSN"
+msgstr ""
+
+#: archive/models.py:1280
+msgid "DOI"
+msgstr ""
+
+#: archive/models.py:1281
+msgid "Enter one or more pages / page ranges"
+msgstr "Entra uno o más páginas / intervalos de páginas"
+
+#: archive/models.py:1281
+msgid "pages"
+msgstr "páginas"
+
+#: archive/models.py:1282
+msgid "publisher"
+msgstr "editorial"
+
+#: archive/models.py:1283
+msgid "Publisher's address; omit for major publishers"
+msgstr "dirección de la editorial; omite para editoriales principales"
+
+#: archive/models.py:1283
+msgid "address"
+msgstr "dirección"
+
+#: archive/models.py:1284
+msgid "medium"
+msgstr ""
+
+#: archive/models.py:1285
+msgid "format"
+msgstr ""
+
+#: archive/models.py:1286
+msgid "artwork size"
+msgstr ""
+
+#: archive/models.py:1287
+#, fuzzy
+msgid "label"
+msgstr "lugar"
+
+#: archive/models.py:1288
+msgid "running time"
+msgstr ""
+
+#: archive/models.py:1289
+msgid "An archive that holds this item"
+msgstr ""
+
+#: archive/models.py:1289
+#, fuzzy
+msgid "archive"
+msgstr "código archivo"
+
+#: archive/models.py:1290
+msgid "A call number or location within the archive holding this item"
+msgstr ""
+
+#: archive/models.py:1290
+msgid "location in archive"
+msgstr ""
+
+#: archive/models.py:1291
+#, fuzzy
+msgid "version"
+msgstr "persona"
+
+#: archive/models.py:1292
+msgid "system"
+msgstr ""
+
+#: archive/models.py:1293
+#, fuzzy
+msgid "type"
+msgstr "Tipo"
+
+#: archive/models.py:1294
+msgid "university"
+msgstr ""
+
+#: archive/models.py:1295
+msgid "A library that holds this item"
+msgstr ""
+
+#: archive/models.py:1295
+msgid "library"
+msgstr ""
+
+#: archive/models.py:1296
+msgid "The catalog call number for the library holding this item"
+msgstr ""
+
+#: archive/models.py:1296
+msgid "library catalog number"
+msgstr ""
+
+#: archive/models.py:1297
+msgid "rights"
+msgstr "derechos"
+
+#: archive/models.py:1298
+msgid "extra"
+msgstr ""
+
+#: archive/models.py:1302
+#, fuzzy
+msgid "bibliographic record"
+msgstr "Bibliografías"
+
+#: archive/models.py:1303
+#, fuzzy
+msgid "bibliographic records"
+msgstr "Bibliografías"
+
+#: archive/models.py:1313
+#, fuzzy
+msgid "has an abstract"
+msgstr "editor"
+
+#: archive/models.py:1314
 #, fuzzy
 msgid "has a title"
 msgstr "título"
 
-#: archive/models.py:711
+#: archive/models.py:1315
+#, fuzzy
+msgid "has a short title"
+msgstr "título del libro"
+
+#: archive/models.py:1316
 #, fuzzy
 msgid "has a book title"
 msgstr "título del libro"
 
-#: archive/models.py:712
+#: archive/models.py:1317
 #, fuzzy
-msgid "has a journal title"
-msgstr "título de la revista"
+msgid "has a publication title"
+msgstr "título del libro"
 
-#: archive/models.py:713
+#: archive/models.py:1318
+#, fuzzy
+msgid "has a URL"
+msgstr "título"
+
+#: archive/models.py:1319
 msgid "has an author / creator"
 msgstr ""
 
-#: archive/models.py:714
+#: archive/models.py:1320
 #, fuzzy
 msgid "has an editor"
 msgstr "editor"
 
-#: archive/models.py:715
+#: archive/models.py:1321
+#, fuzzy
+msgid "has a translator"
+msgstr "es una traducción de"
+
+#: archive/models.py:1322
 #, fuzzy
 msgid "has a volume number"
 msgstr "Es un local"
 
-#: archive/models.py:716
+#: archive/models.py:1323
+msgid "has a fixed number of volumes"
+msgstr ""
+
+#: archive/models.py:1324
 #, fuzzy
-msgid "has an issue / series number"
+msgid "has an issue number"
 msgstr "Número de tirada o número en una serie de libros"
 
-#: archive/models.py:717
+#: archive/models.py:1325
 #, fuzzy
 msgid "has a book series title"
 msgstr "título de la serie de libros"
 
-#: archive/models.py:718
+#: archive/models.py:1326
 msgid "has chapter numbers"
 msgstr ""
 
-#: archive/models.py:719
+#: archive/models.py:1327
 #, fuzzy
 msgid "has editions"
 msgstr "edición"
 
-#: archive/models.py:720
+#: archive/models.py:1328
 msgid "has a month designation"
 msgstr ""
 
-#: archive/models.py:721
+#: archive/models.py:1329
 msgid "has a year designation"
 msgstr ""
 
-#: archive/models.py:722
+#: archive/models.py:1330
 msgid "has a page range / ranges"
 msgstr ""
 
-#: archive/models.py:723
+#: archive/models.py:1331
 #, fuzzy
 msgid "has a publisher"
 msgstr "editorial"
 
-#: archive/models.py:724
+#: archive/models.py:1332
 msgid "has a publisher's address"
 msgstr ""
 
-#: archive/models.py:725
+#: archive/models.py:1333
 msgid "is linked to a work record"
+msgstr ""
+
+#: archive/models.py:1336
+#, fuzzy
+msgid "page order"
+msgstr "género"
+
+#: archive/models.py:1336
+msgid ""
+"Where in the list this page should show up - 0 comes first, then 1, "
+"etc."
+msgstr ""
+
+#: archive/models.py:1337
+msgid "child of"
+msgstr ""
+
+#: archive/models.py:1337
+msgid "This page's parent, if any"
+msgstr ""
+
+#: archive/models.py:1339
+msgid "Static page"
 msgstr ""
 
 #: modeltranslation/tests.py:23
@@ -1250,237 +1878,555 @@ msgstr "Título relacionado"
 msgid "Sorry, translation is not available."
 msgstr "Lo siento, pero la traducción no está disponible."
 
-#: templates/base.html:10
+#: selectable/base.py:89
+msgid "Show more results"
+msgstr ""
+
+#: selectable/forms/fields.py:21 selectable/forms/fields.py:63
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: templates/base.html:9 templates/base.html.py:38
 msgid "Cuban Theater Digital Archive"
 msgstr "Archivo Digital de Teatro Cubano"
 
-#: templates/base.html:12
-msgid "View this page in:"
-msgstr "Ver este página en:"
-
-#: templates/base.html:32
-msgid "Home"
-msgstr "Inicio"
-
-#: templates/base.html:33 templates/productions.html:4
-#: templates/admin/index.html:125
-msgid "Productions"
-msgstr "Producciones"
-
-#: templates/base.html:34 templates/digitalcontent.html:4
-msgid "Digital Content"
-msgstr "Contenidos Digitales"
-
-#: templates/digitalcontent.html:8
-msgid "Production"
-msgstr "Producción"
-
-#: templates/index.html:4
-msgid "Welcome to the Cuban Theater Digital Archive. Please explore our collection of productions and digital content using the links above."
-msgstr "Bienvenido al Archivo Digital de Teatro Cubano. Por favor, consulte nuestra colección de producciones y contenidos digitales usando los enlaces de arriba."
-
-#: templates/production.html:10
-msgid "Date range:"
-msgstr "Rango de fechas:"
-
-#: templates/production.html:13
-msgid "Summary:"
-msgstr "Resumen:"
-
-#: templates/production.html:16
-msgid "Related digital content:"
-msgstr "Contenidos digitales:"
-
-#: templates/production.html:27
-msgid "No digital content is available for this production."
-msgstr "No hay contenidos digitales disponibles para este producción."
-
-#: templates/productions.html:10
-msgid "Date range"
-msgstr "Rango de fechas"
-
-#: templates/admin/index.html:25
-msgid "Django administration"
-msgstr "Administración de Django"
-
-#: templates/admin/index.html:30
-msgid "Welcome"
-msgstr "Bienvenidos"
-
-#: templates/admin/index.html:38
-msgid "Change password"
-msgstr "Cambiar contraseña"
-
-#: templates/admin/index.html:43
-msgid "Log out"
-msgstr "Terminar sesión"
-
-#: templates/admin/index.html:58
-msgid "Site administration"
-msgstr "Sitio administrativo"
-
-#: templates/admin/index.html:61
-msgid "Change language:"
-msgstr "Cambiar lengua:"
-
-#: templates/admin/index.html:69
+#: templates/base.html:30 templates/base.html.py:42
+#: templates/admin/index.html:21 templates/admin/archive/app_index.html:14
 msgid "Go"
 msgstr "Cambiar"
 
-#: templates/admin/index.html:73
+#: templates/base.html:40
+#, fuzzy
+msgid "Search"
+msgstr "Año"
+
+#: templates/base.html:41
+msgid "Search..."
+msgstr ""
+
+#: templates/base.html:46
+#, fuzzy
+msgid "Information"
+msgstr "ubicación"
+
+#: templates/base.html:47
+#, fuzzy
+msgid "People"
+msgstr "papel"
+
+#: templates/base.html:48
+#, fuzzy
+msgid "Participate"
+msgstr "participante"
+
+#: templates/base.html:55 templates/admin/index.html:49
+#: templates/admin/archive/app_index.html:40
+msgid "Creators"
+msgstr "Creadores"
+
+#: templates/base.html:56 templates/admin/index.html:79
+#: templates/admin/archive/app_index.html:70
+msgid "Productions"
+msgstr "Producciones"
+
+#: templates/base.html:57 templates/admin/index.html:55
+#: templates/admin/archive/app_index.html:46
+msgid "Festivals"
+msgstr "Festivales"
+
+#: templates/base.html:58
+#, fuzzy
+msgid "Venues"
+msgstr "local"
+
+#: templates/base.html:59
+#, fuzzy
+msgid "Written Works"
+msgstr "obras relacionadas"
+
+#: templates/base.html:69
+msgid "University of Miami"
+msgstr ""
+
+#: templates/base.html:70
+msgid "University of Miami Libraries"
+msgstr ""
+
+#: templates/base.html:71
+msgid "Cuban Heritage Collection"
+msgstr ""
+
+#: templates/base.html:72
+msgid "Department of Modern Languages and Literature"
+msgstr ""
+
+#: templates/base.html:73
+msgid "Legal"
+msgstr ""
+
+#: templates/base.html:74
+#, fuzzy
+msgid "Copyright"
+msgstr "derechos"
+
+#: templates/admin/base_site.html:26
+msgid "CTDA site admin"
+msgstr ""
+
+#: templates/admin/base_site.html:29
+#, fuzzy
+msgid "CTDA administration"
+msgstr "Administración de Django"
+
+#: templates/admin/delete_confirmation.html:6
+#: templates/admin/delete_selected_confirmation.html:6
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/admin/delete_confirmation.html:10
+#, fuzzy
+msgid "Delete"
+msgstr "Fecha"
+
+#: templates/admin/delete_confirmation.html:17
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would result in "
+"deleting related objects, but your account doesn't have permission to "
+"delete the following types of objects:"
+msgstr ""
+
+#: templates/admin/delete_confirmation.html:25
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would require "
+"deleting the following protected related objects:"
+msgstr ""
+
+#: templates/admin/delete_confirmation.html:33
+#, python-format
+msgid ""
+"Are you sure you want to delete the %(object_name)s "
+"\"%(escaped_object)s\"? The %(object_name)s and the following links "
+"between it and other objects will be deleted:"
+msgstr ""
+
+#: templates/admin/delete_confirmation.html:38
+#: templates/admin/delete_selected_confirmation.html:43
+msgid "Yes, I'm sure"
+msgstr ""
+
+#: templates/admin/delete_selected_confirmation.html:9
+msgid "Delete multiple objects"
+msgstr ""
+
+#: templates/admin/delete_selected_confirmation.html:16
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would result in deleting related"
+" objects, but your account doesn't have permission to delete the "
+"following types of objects:"
+msgstr ""
+
+#: templates/admin/delete_selected_confirmation.html:24
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would require deleting the "
+"following protected related objects:"
+msgstr ""
+
+#: templates/admin/delete_selected_confirmation.html:32
+#, python-format
+msgid ""
+"Are you sure you want to delete the selected %(objects_name)s? The "
+"%(objects_name)s below and the following links between it and other "
+"objects will be deleted:"
+msgstr ""
+
+#: templates/admin/index.html:14 templates/admin/archive/app_index.html:6
+msgid "Change language:"
+msgstr "Cambiar lengua:"
+
+#: templates/admin/index.html:27 templates/admin/archive/app_index.html:18
 msgid "Main models available in the Archive application."
 msgstr "Modelos primeras disponibles en la aplicación Archivo"
 
-#: templates/admin/index.html:74
+#: templates/admin/index.html:28 templates/admin/archive/app_index.html:19
 msgid "Main models"
 msgstr "Modelos principales"
 
-#: templates/admin/index.html:77
+#: templates/admin/index.html:31 templates/admin/archive/app_index.html:22
 msgid "Award Nominations / Wins"
 msgstr ""
 
-#: templates/admin/index.html:78 templates/admin/index.html.py:84
-#: templates/admin/index.html:90 templates/admin/index.html.py:96
-#: templates/admin/index.html:102 templates/admin/index.html.py:108
-#: templates/admin/index.html:114 templates/admin/index.html.py:120
-#: templates/admin/index.html:126 templates/admin/index.html.py:132
-#: templates/admin/index.html:146 templates/admin/index.html.py:152
-#: templates/admin/index.html:158 templates/admin/index.html.py:164
-#: templates/admin/index.html:170 templates/admin/index.html.py:176
-#: templates/admin/index.html:182 templates/admin/index.html.py:188
-#: templates/admin/index.html:194 templates/admin/index.html.py:200
-#: templates/admin/index.html:206 templates/admin/index.html.py:212
-#: templates/admin/index.html:218 templates/admin/index.html.py:224
-#: templates/admin/index.html:230
+#: templates/admin/index.html:32 templates/admin/index.html.py:38
+#: templates/admin/index.html:44 templates/admin/index.html.py:50
+#: templates/admin/index.html:56 templates/admin/index.html.py:62
+#: templates/admin/index.html:68 templates/admin/index.html.py:74
+#: templates/admin/index.html:80 templates/admin/index.html.py:86
+#: templates/admin/index.html:92 templates/admin/index.html.py:106
+#: templates/admin/index.html:112 templates/admin/index.html.py:118
+#: templates/admin/index.html:124 templates/admin/index.html.py:130
+#: templates/admin/index.html:136 templates/admin/index.html.py:142
+#: templates/admin/index.html:148 templates/admin/index.html.py:154
+#: templates/admin/index.html:160 templates/admin/index.html.py:166
+#: templates/admin/index.html:172 templates/admin/index.html.py:178
+#: templates/admin/index.html:184 templates/admin/index.html.py:190
+#: templates/admin/index.html:196 templates/admin/index.html.py:209
+#: templates/admin/index.html:230 templates/admin/archive/app_index.html:23
+#: templates/admin/archive/app_index.html:29
+#: templates/admin/archive/app_index.html:35
+#: templates/admin/archive/app_index.html:41
+#: templates/admin/archive/app_index.html:47
+#: templates/admin/archive/app_index.html:53
+#: templates/admin/archive/app_index.html:59
+#: templates/admin/archive/app_index.html:65
+#: templates/admin/archive/app_index.html:71
+#: templates/admin/archive/app_index.html:77
+#: templates/admin/archive/app_index.html:91
+#: templates/admin/archive/app_index.html:97
+#: templates/admin/archive/app_index.html:103
+#: templates/admin/archive/app_index.html:109
+#: templates/admin/archive/app_index.html:115
+#: templates/admin/archive/app_index.html:121
+#: templates/admin/archive/app_index.html:127
+#: templates/admin/archive/app_index.html:133
+#: templates/admin/archive/app_index.html:139
+#: templates/admin/archive/app_index.html:145
+#: templates/admin/archive/app_index.html:151
+#: templates/admin/archive/app_index.html:157
+#: templates/admin/archive/app_index.html:163
+#: templates/admin/archive/app_index.html:169
+#: templates/admin/archive/app_index.html:175
 msgid "Add"
 msgstr "Añadir"
 
-#: templates/admin/index.html:79 templates/admin/index.html.py:85
-#: templates/admin/index.html:91 templates/admin/index.html.py:97
-#: templates/admin/index.html:103 templates/admin/index.html.py:109
-#: templates/admin/index.html:115 templates/admin/index.html.py:121
-#: templates/admin/index.html:127 templates/admin/index.html.py:133
-#: templates/admin/index.html:147 templates/admin/index.html.py:153
-#: templates/admin/index.html:159 templates/admin/index.html.py:165
-#: templates/admin/index.html:171 templates/admin/index.html.py:177
-#: templates/admin/index.html:183 templates/admin/index.html.py:189
-#: templates/admin/index.html:195 templates/admin/index.html.py:201
-#: templates/admin/index.html:207 templates/admin/index.html.py:213
-#: templates/admin/index.html:219 templates/admin/index.html.py:225
-#: templates/admin/index.html:231
+#: templates/admin/index.html:33 templates/admin/index.html.py:39
+#: templates/admin/index.html:45 templates/admin/index.html.py:51
+#: templates/admin/index.html:57 templates/admin/index.html.py:63
+#: templates/admin/index.html:69 templates/admin/index.html.py:75
+#: templates/admin/index.html:81 templates/admin/index.html.py:87
+#: templates/admin/index.html:93 templates/admin/index.html.py:107
+#: templates/admin/index.html:113 templates/admin/index.html.py:119
+#: templates/admin/index.html:125 templates/admin/index.html.py:131
+#: templates/admin/index.html:137 templates/admin/index.html.py:143
+#: templates/admin/index.html:149 templates/admin/index.html.py:155
+#: templates/admin/index.html:161 templates/admin/index.html.py:167
+#: templates/admin/index.html:173 templates/admin/index.html.py:179
+#: templates/admin/index.html:185 templates/admin/index.html.py:191
+#: templates/admin/index.html:197 templates/admin/index.html.py:210
+#: templates/admin/index.html:236 templates/admin/archive/app_index.html:24
+#: templates/admin/archive/app_index.html:30
+#: templates/admin/archive/app_index.html:36
+#: templates/admin/archive/app_index.html:42
+#: templates/admin/archive/app_index.html:48
+#: templates/admin/archive/app_index.html:54
+#: templates/admin/archive/app_index.html:60
+#: templates/admin/archive/app_index.html:66
+#: templates/admin/archive/app_index.html:72
+#: templates/admin/archive/app_index.html:78
+#: templates/admin/archive/app_index.html:92
+#: templates/admin/archive/app_index.html:98
+#: templates/admin/archive/app_index.html:104
+#: templates/admin/archive/app_index.html:110
+#: templates/admin/archive/app_index.html:116
+#: templates/admin/archive/app_index.html:122
+#: templates/admin/archive/app_index.html:128
+#: templates/admin/archive/app_index.html:134
+#: templates/admin/archive/app_index.html:140
+#: templates/admin/archive/app_index.html:146
+#: templates/admin/archive/app_index.html:152
+#: templates/admin/archive/app_index.html:158
+#: templates/admin/archive/app_index.html:164
+#: templates/admin/archive/app_index.html:170
+#: templates/admin/archive/app_index.html:176
 msgid "Change"
 msgstr "Cambiar"
 
-#: templates/admin/index.html:83
+#: templates/admin/index.html:37 templates/admin/archive/app_index.html:28
 #, fuzzy
 msgid "Bibliographic Records"
 msgstr "Bibliografías"
 
-#: templates/admin/index.html:89
+#: templates/admin/index.html:43 templates/admin/archive/app_index.html:34
 msgid "Collections"
 msgstr "Colecciones"
 
-#: templates/admin/index.html:95
-msgid "Creators"
-msgstr "Creadores"
-
-#: templates/admin/index.html:101
-msgid "Festivals"
-msgstr "Festivales"
-
-#: templates/admin/index.html:107
+#: templates/admin/index.html:61 templates/admin/archive/app_index.html:52
 #, fuzzy
 msgid "Festival Occurrences"
 msgstr "Funciones de festival"
 
-#: templates/admin/index.html:113
+#: templates/admin/index.html:67 templates/admin/archive/app_index.html:58
 msgid "Locations"
 msgstr "Ubicaciónes"
 
-#: templates/admin/index.html:119
+#: templates/admin/index.html:73 templates/admin/archive/app_index.html:64
 #, fuzzy
 msgid "Digital Objects"
 msgstr "Tipo de objeto digital"
 
-#: templates/admin/index.html:131
+#: templates/admin/index.html:85 templates/admin/archive/app_index.html:76
 msgid "Work records"
 msgstr "Expedientes de obras"
 
-#: templates/admin/index.html:141
+#: templates/admin/index.html:101 templates/admin/archive/app_index.html:86
 msgid "Controlled lists available in the Archive application."
 msgstr "Vocabularios controlados disponibles en la aplicación Archivo"
 
-#: templates/admin/index.html:142
+#: templates/admin/index.html:102 templates/admin/archive/app_index.html:87
 msgid "Controlled lists"
 msgstr "Vocabularios controlados"
 
-#: templates/admin/index.html:145
+#: templates/admin/index.html:105 templates/admin/archive/app_index.html:90
 msgid "Cities"
 msgstr "Ciudades"
 
-#: templates/admin/index.html:151
+#: templates/admin/index.html:111 templates/admin/archive/app_index.html:96
 msgid "Countries"
 msgstr "Paises"
 
-#: templates/admin/index.html:157
+#: templates/admin/index.html:117 templates/admin/archive/app_index.html:102
 msgid "Languages"
 msgstr "Lenguas"
 
-#: templates/admin/index.html:163
+#: templates/admin/index.html:123 templates/admin/archive/app_index.html:108
 #, fuzzy
 msgid "Awards"
 msgstr "premio"
 
-#: templates/admin/index.html:169
+#: templates/admin/index.html:129 templates/admin/archive/app_index.html:114
 msgid "Repositories"
 msgstr "Repositorios"
 
-#: templates/admin/index.html:175
+#: templates/admin/index.html:135
+#, fuzzy
+msgid "License types"
+msgstr "tipo de etapa"
+
+#: templates/admin/index.html:141 templates/admin/archive/app_index.html:120
 msgid "Subject headings"
 msgstr "Encabezamientos de materia"
 
-#: templates/admin/index.html:181
+#: templates/admin/index.html:147 templates/admin/archive/app_index.html:126
 #, fuzzy
 msgid "Physical object types"
 msgstr "tipo del objeto físico"
 
-#: templates/admin/index.html:187
+#: templates/admin/index.html:153 templates/admin/archive/app_index.html:132
 #, fuzzy
 msgid "Work record functions"
 msgstr "funciones de expedientes de obras"
 
-#: templates/admin/index.html:193
+#: templates/admin/index.html:159 templates/admin/archive/app_index.html:138
 msgid "Directing team functions"
 msgstr "Funciones del equipo de dirección"
 
-#: templates/admin/index.html:199
+#: templates/admin/index.html:165 templates/admin/archive/app_index.html:144
 msgid "Cast member functions"
 msgstr "Funciones del elenco"
 
-#: templates/admin/index.html:205
+#: templates/admin/index.html:171 templates/admin/archive/app_index.html:150
 msgid "Design team functions"
 msgstr "Funciones del equipo de diseño"
 
-#: templates/admin/index.html:211
+#: templates/admin/index.html:177 templates/admin/archive/app_index.html:156
 msgid "Tech team functions"
 msgstr "Funciones del equipo técnico"
 
-#: templates/admin/index.html:217
+#: templates/admin/index.html:183 templates/admin/archive/app_index.html:162
 msgid "Production team functions"
 msgstr "Funciones del equipo de producción"
 
-#: templates/admin/index.html:223
+#: templates/admin/index.html:189 templates/admin/archive/app_index.html:168
 msgid "Organization functions"
 msgstr "Funciones de organización"
 
-#: templates/admin/index.html:229
+#: templates/admin/index.html:195 templates/admin/archive/app_index.html:174
 msgid "Festival functions"
 msgstr "Funciones de festival"
+
+#: templates/admin/index.html:204
+msgid "Static pages, like the home page, about page, etc."
+msgstr ""
+
+#: templates/admin/index.html:205 templates/admin/index.html.py:208
+msgid "Static pages"
+msgstr ""
+
+#: templates/admin/index.html:219
+#, fuzzy, python-format
+msgid "Models available in the %(name)s application."
+msgstr "Modelos primeras disponibles en la aplicación Archivo"
+
+#: templates/admin/index.html:220
+#, fuzzy, python-format
+msgid "%(name)s"
+msgstr "nombre"
+
+#: templates/admin/index.html:247
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: templates/admin/index.html:255
+#, fuzzy
+msgid "Recent Actions"
+msgstr "Funciones del equipo técnico"
+
+#: templates/admin/index.html:256
+#, fuzzy
+msgid "My Actions"
+msgstr "Ubicaciónes"
+
+#: templates/admin/index.html:260
+#, fuzzy
+msgid "None available"
+msgstr "No aplicable"
+
+#: templates/admin/index.html:274
+msgid "Unknown content"
+msgstr ""
 
 #: templates/admin/autocomplete/fk_searchinput.html:4
 #: templates/admin/autocomplete/inline_searchinput.html:5
 msgid "Lookup"
 msgstr "Búsqueda"
+
+#: templates/admin/edit_inline/tabular.html:15
+msgid "Delete?"
+msgstr ""
+
+#: templates/admin/edit_inline/tabular.html:28
+msgid "View on site"
+msgstr ""
+
+#: templates/admin/edit_inline/tabular.html:113
+#, python-format
+msgid "Add another %(verbose_name)s"
+msgstr ""
+
+#: templates/admin/edit_inline/tabular.html:116
+msgid "Remove"
+msgstr ""
+
+#: workflow/models.py:11
+#, fuzzy
+msgid "queue title"
+msgstr "título"
+
+#: workflow/models.py:18
+msgid "phys assessment"
+msgstr ""
+
+#: workflow/models.py:19
+#, fuzzy
+msgid "capture"
+msgstr "capítulo"
+
+#: workflow/models.py:20
+msgid "post-proc"
+msgstr ""
+
+#: workflow/models.py:21
+msgid "supervisor QC"
+msgstr ""
+
+#: workflow/models.py:22
+#, fuzzy
+msgid "editing"
+msgstr "edición"
+
+#: workflow/models.py:23
+msgid "final metadata"
+msgstr ""
+
+#: workflow/models.py:24
+msgid "prep for release"
+msgstr ""
+
+#: workflow/models.py:25
+msgid "high priority?"
+msgstr ""
+
+#: workflow/models.py:26
+#, fuzzy
+msgid "queue"
+msgstr "local"
+
+#: workflow/models.py:37
+msgid "link"
+msgstr ""
+
+#~ msgid "Month"
+#~ msgstr "Mes"
+
+#~ msgid "journal title"
+#~ msgstr "título de la revista"
+
+#~ msgid "Issue number or book series number"
+#~ msgstr "Número de tirada o número en una serie de libros"
+
+#~ msgid "Use a 3-letter abbreviation if possible"
+#~ msgstr "Si es posible, usa una abreviación de 3 letras"
+
+#~ msgid "month"
+#~ msgstr "mes"
+
+#~ msgid "May also include 'about', etc."
+#~ msgstr "Se puede incluir 'cerca de', etcétera"
+
+#~ msgid "bibliography"
+#~ msgstr "bibliografía"
+
+#~ msgid "bibliographies"
+#~ msgstr "bibliografías"
+
+#~ msgid "measurements"
+#~ msgstr "medidas"
+
+#~ msgid "has a journal title"
+#~ msgstr "título de la revista"
+
+#~ msgid "View this page in:"
+#~ msgstr "Ver este página en:"
+
+#~ msgid "Digital Content"
+#~ msgstr "Contenidos Digitales"
+
+#~ msgid ""
+#~ "Welcome to the Cuban Theater Digital Archive. Please explore our "
+#~ "collection of productions and digital content using the links above."
+#~ msgstr ""
+#~ "Bienvenido al Archivo Digital de Teatro Cubano. Por favor, consulte "
+#~ "nuestra colección de producciones y contenidos digitales usando los "
+#~ "enlaces de arriba."
+
+#~ msgid "Date range:"
+#~ msgstr "Rango de fechas:"
+
+#~ msgid "Summary:"
+#~ msgstr "Resumen:"
+
+#~ msgid "Related digital content:"
+#~ msgstr "Contenidos digitales:"
+
+#~ msgid "No digital content is available for this production."
+#~ msgstr "No hay contenidos digitales disponibles para este producción."
+
+#~ msgid "Date range"
+#~ msgstr "Rango de fechas"
+
+#~ msgid "Welcome"
+#~ msgstr "Bienvenidos"
+
+#~ msgid "Change password"
+#~ msgstr "Cambiar contraseña"
+
+#~ msgid "Log out"
+#~ msgstr "Terminar sesión"
+
+#~ msgid "Site administration"
+#~ msgstr "Sitio administrativo"
 
 #~ msgid "alternate names"
 #~ msgstr "nombres alternativos"
@@ -1503,17 +2449,13 @@ msgstr "Búsqueda"
 #~ msgid "text type"
 #~ msgstr "tipo de obra"
 
-#~ msgid "publication date"
-#~ msgstr "fecha de publicación"
-
 #~ msgid "Enter as digits only, e.g. '21', not 'XXI' or '21st Annual'"
-#~ msgstr "Entra como números solamente, por ejemplo '21', no 'XXI' ni '21a anual'"
+#~ msgstr ""
+#~ "Entra como números solamente, por ejemplo '21', no 'XXI' ni '21a "
+#~ "anual'"
 
 #~ msgid "owner"
 #~ msgstr "dueño"
-
-#~ msgid "Physical object format"
-#~ msgstr "formato del objeto físico"
 
 #~ msgid "contributor"
 #~ msgstr "contribuyente"

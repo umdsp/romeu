@@ -13,7 +13,6 @@ from django.db.models.fields.related import ForeignKey, ManyToOneRel
 from django.forms.models import model_to_dict
 from django.db.models.fields import CharField
 
-from archive.autocomplete_admin import FkAutocompleteAdmin, InlineAutocompleteAdmin, InlineStackedAutocompleteAdmin
 from ajax_select import make_ajax_form
 from ajax_select.admin import AjaxSelectAdmin
 from ajax_select.fields import autoselect_fields_check_can_add
@@ -22,11 +21,10 @@ from reversion.admin import VersionAdmin
 import selectable
 from selectable import forms as selectable_forms
 
-class AutocompleteTranslationAdmin(FkAutocompleteAdmin, TranslationAdmin):
-    def formfield_for_dbfield(self, db_field, **kwargs):
-        field = super(AutocompleteTranslationAdmin, self).formfield_for_dbfield(db_field, **kwargs)
-        self.patch_translation_field(db_field, field, **kwargs)
-        return field
+from django.contrib.flatpages.models import FlatPage
+from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
+from django.contrib.sites.models import Site
+from archive.models import TranslatingFlatPage
 
 class AjaxTranslationAdmin(AjaxSelectAdmin, TranslationAdmin):
     def formfield_for_dbfield(self, db_field, **kwargs):
@@ -37,12 +35,6 @@ class AjaxTranslationAdmin(AjaxSelectAdmin, TranslationAdmin):
 class AjaxUltraAdmin(AjaxTranslationAdmin, VersionAdmin):
     def formfield_for_dbfield(self, db_field, **kwargs):
         field = super(AjaxUltraAdmin, self).formfield_for_dbfield(db_field, **kwargs)
-        self.patch_translation_field(db_field, field, **kwargs)
-        return field
-
-class SuperUltraAdmin(AutocompleteTranslationAdmin, VersionAdmin):
-    def formfield_for_dbfield(self, db_field, **kwargs):
-        field = super(SuperUltraAdmin, self).formfield_for_dbfield(db_field, **kwargs)
         self.patch_translation_field(db_field, field, **kwargs)
         return field
 
@@ -210,10 +202,10 @@ class CreatorAdmin(TranslatingVersioningAdmin):
             'fields': ('birth_location', ('birth_date', 'birth_date_precision', 'birth_date_BC'), 'death_location', ('death_date', 'death_date_precision', 'death_date_BC'), ('earliest_active', 'earliest_active_precision', 'earliest_active_BC'), ('latest_active', 'latest_active_precision', 'latest_active_BC'))
         }),
         ('Details', {
-            'fields': ('gender', 'nationality', 'location', 'biography', 'website', 'photo', 'primary_bibliography', 'secondary_bibliography')
+            'fields': ('gender', 'nationality', 'location', 'biography', 'website', 'photo', 'primary_bibliography', 'secondary_bibliography', 'biblio_text', 'biblio_text_es', 'secondary_biblio_text', 'secondary_biblio_text_es')
         }),
         ('Standard fields', {
-            'fields': ('notes', 'attention', 'needs_editing', 'published')
+            'fields': ('notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date')
         })
     )
     
@@ -230,23 +222,34 @@ class CreatorAdmin(TranslatingVersioningAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
-class BibliographicRecordAdmin(FkAutocompleteAdmin):
-    related_search_fields = {'work_record': ('ascii_title', 'title', 'title_variants', 'summary')}
+class BibliographicRecordAdmin(admin.ModelAdmin):
+    form = arcforms.BibliographicRecordAdminForm
+
+    def __init__(self, model, admin_site):
+        super(BibliographicRecordAdmin, self).__init__(model, admin_site)
+        self.form.admin_site = admin_site
 
     class Media:
+        css = {
+            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+        }
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
+            '/media/js/tabbed_translation_fields.js',
         )
 
 class LocationAdmin(TranslatingVersioningAdmin):
     form = arcforms.LocationAdminForm
-    list_display = ('title', 'address', 'city', 'state', 'country', 'has_system_links',)
+    list_display = ('title', 'begin_date_display', 'end_date_display', 'city', 'state', 'country', 'has_system_links',)
     search_fields = ['title_ascii', 'title', 'title_variants', 'city__name', 'state', 'summary', 'notes']
     inlines = (StageInline,)
     list_filter = ('has_attention',)
     fieldsets = (
         (None, {
             'fields': ('title', 'title_variants', 'country', 'venue_type')
+        }),
+        ('Begin/end dates', {
+            'fields': (('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'))
         }),
         ('Address', {
             'fields': ('address', 'address2', 'city', 'state', 'postal_code')
@@ -275,9 +278,13 @@ class LocationAdmin(TranslatingVersioningAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
-class StageAdmin(AutocompleteTranslationAdmin):
-    related_search_fields = {'venue': ('title_ascii', 'title', 'title_variants',)}
-    
+class StageAdmin(TranslationAdmin):
+    form = arcforms.StageAdminForm
+
+    def __init__(self, model, admin_site):
+        super(StageAdmin, self).__init__(model, admin_site)
+        self.form.admin_site = admin_site
+
     class Media:
         css = {
             'all': ('/media/css/tabbed_translation_fields.css',)
@@ -292,7 +299,7 @@ class StageAdmin(AutocompleteTranslationAdmin):
 class WorkRecordAdmin(TranslatingVersioningAdmin):
     form = arcforms.WorkRecordAdminForm
     inlines = (WorkRecordCreatorInline, RoleInline, RelatedWorkInline,)
-    list_display = ('title', 'creators_display', 'work_type', 'genre', 'culture', 'style')
+    list_display = ('title', 'creators_display', 'work_type', 'genre', 'culture', 'style', 'has_system_links')
     list_filter = ('work_type', 'lang', 'genre', 'culture', 'style', 'has_attention',)
     search_fields = ['title', 'ascii_title', 'title_variants']
     filter_horizontal = ['subject', 'lang']
@@ -338,7 +345,7 @@ class RoleAdmin(admin.ModelAdmin):
 class ProductionAdmin(TranslatingVersioningAdmin):
     form = arcforms.ProductionAdminForm
     inlines = (DirectingMemberInline, CastMemberInline, DesignMemberInline, TechMemberInline, ProductionMemberInline,)
-    list_display = ('title', 'venue', 'stage', 'display_directors', 'begin_date_display', 'end_date_display',)
+    list_display = ('title', 'venue', 'stage', 'display_directors', 'begin_date_display', 'end_date_display', 'has_system_links')
     date_hierarchy = 'begin_date'
     search_fields = ['title', 'ascii_title', 'title_variants', 'notes']
     list_filter = ('has_attention',)
@@ -448,7 +455,7 @@ class DigitalObjectAdmin(TranslatingVersioningAdmin):
     form = arcforms.DigitalObjectAdminForm
     inlines = (DigitalFileInline,)
     search_fields = ['title', 'title_variants']
-    list_filter = ('has_attention', 'collection', 'digi_object_format')
+    list_filter = ('has_attention', 'collection', 'digi_object_format', 'restricted', 'ready_to_stream')
     filter_horizontal = ['subject', 'related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work']
     fieldsets = (
         ('Basic info', {
@@ -468,6 +475,9 @@ class DigitalObjectAdmin(TranslatingVersioningAdmin):
         },),
         ('Relationships', {
             'fields': ('related_production', 'related_festival', 'related_venue', 'related_creator', 'related_work',)
+        },),
+        ('Video settings', {
+            'fields': (('restricted', 'restricted_description'), 'ready_to_stream', 'poster_image')
         },),
         ('Standard fields', {
             'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published',)
@@ -573,19 +583,23 @@ class AwardAdmin(TranslationAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
-class AwardCandidateAdmin(AutocompleteTranslationAdmin):
-    related_search_fields = {'award': ('title',), 'recipient': ('creator_name', 'name_variants'), 'production': ('ascii_title', 'title', 'title_variants'), 'place': ('title_ascii', 'title', 'title_variants'), 'festival': ('title', 'title_variants'), 'work_record': ('ascii_title', 'title', 'title_variants')}
+class AwardCandidateAdmin(TranslationAdmin):
+    form = arcforms.AwardCandidateAdminForm
+    
     verbose_name = "award nomination / win"
     verbose_name_plural = "award nominations / wins"
     list_filter = ('has_attention',)
+
+    def __init__(self, model, admin_site):
+        super(AwardCandidateAdmin, self).__init__(model, admin_site)
+        self.form.admin_site = admin_site
+
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
         }
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
             '/media/js/tabbed_translation_fields.js',
         )
 
@@ -733,6 +747,31 @@ class VenueTypeAdmin(TranslationAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
+
+class TranslatingFlatPageForm(FlatpageForm):
+    class Meta:
+        model = TranslatingFlatPage
+
+class TranslatingFlatPageAdmin(FlatPageAdmin, TranslationAdmin):
+    form = TranslatingFlatPageForm
+    fieldsets = (
+        (None, {'fields': ('url', 'title', 'content', 'sites', 'order', 'child_of', 'template_name')}),
+    )
+    list_display = ('url', 'title', 'child_of')
+
+    class Media:
+        css = {
+            'all': ('/media/css/tabbed_translation_fields.css',)
+        }
+        js = (
+            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
+            '/media/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            '/media/js/tabbed_translation_fields.js',
+        )
+
+
+
 admin.site.register(Creator, CreatorAdmin)
 admin.site.register(Location, LocationAdmin)
 admin.site.register(Stage, StageAdmin)
@@ -769,3 +808,6 @@ admin.site.register(VenueType, VenueTypeAdmin)
 admin.site.add_action(make_published)
 admin.site.add_action(make_unpublished)
 # admin.site.add_action(action_clone)
+
+admin.site.unregister(FlatPage)
+admin.site.register(TranslatingFlatPage, TranslatingFlatPageAdmin)

@@ -1,4 +1,4 @@
-from archive.models import Creator, Location, Production, WorkRecord, Role, Country, DigitalObject, Festival, FestivalOccurrence, Collection, City
+from archive.models import Creator, Location, Production, WorkRecord, Role, Country, DigitalObject, Festival, FestivalOccurrence, Collection, City, Award
 from django.db.models import Q
 
 from selectable.base import LookupBase
@@ -85,6 +85,11 @@ class CityLookup(ArchiveLookup):
     def get_query(self,request,term):
         return City.objects.filter(name__icontains=term)
 
+class AwardLookup(ArchiveLookup):
+    model = Award
+    def get_query(self,request,term):
+        return Award.objects.filter(title__icontains=term)
+
 registry.register(CreatorLookup)
 registry.register(LocationLookup)
 registry.register(ProductionLookup)
@@ -96,3 +101,4 @@ registry.register(FestivalLookup)
 registry.register(FestivalOccurrenceLookup)
 registry.register(CollectionLookup)
 registry.register(CityLookup)
+registry.register(AwardLookup)

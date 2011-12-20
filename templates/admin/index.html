@@ -199,7 +199,20 @@
         
         </table>
         </div>
+
+        <div class="module">
+        <table summary="{% trans 'Static pages, like the home page, about page, etc.' %}">
+        <caption><a href="#" class="section">{% trans "Static pages" %}</a></caption>
         
+            <tr>
+                <th scope="row"><a href="/admin/archive/translatingflatpage/">{% trans "Static pages" %}</a></th>
+                <td><a href="/admin/archive/translatingflatpage/add/" class="addlink">{% trans "Add" %}</a></td>
+                <td><a href="/admin/archive/translatingflatpage/" class="changelink">{% trans "Change" %}</a></td>
+            </tr>
+
+        </table>
+        </div>
+
         {% else %}
         
         <div class="module">

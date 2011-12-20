@@ -3,7 +3,7 @@ from django.db.models.fields.related import ForeignKey, ManyToOneRel
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 
-from archive.lookups import CreatorLookup, ProductionLookup, LocationLookup, RoleLookup, WorkRecordLookup, CountryLookup, DigitalObjectLookup, FestivalLookup, FestivalOccurrenceLookup, CollectionLookup, CityLookup
+from archive.lookups import CreatorLookup, ProductionLookup, LocationLookup, RoleLookup, WorkRecordLookup, CountryLookup, DigitalObjectLookup, FestivalLookup, FestivalOccurrenceLookup, CollectionLookup, CityLookup, AwardLookup
 
 import selectable
 from selectable import forms as selectable_forms
@@ -248,3 +248,42 @@ class FestivalParticipantAdminForm(ModelForm):
         
     class Meta(object):
         model = FestivalParticipant
+
+class BibliographicRecordAdminForm(ModelForm):
+    work_record = selectable_forms.AutoCompleteSelectField(lookup_class=WorkRecordLookup, label=_(u"Work record"))
+
+    def __init__(self, *args, **kwargs):
+        super(BibliographicRecordAdminForm, self).__init__(*args, **kwargs)
+        wrel = ManyToOneRel(WorkRecord, 'id')
+        self.fields['work_record'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['work_record'].widget, wrel, self.admin_site)
+
+class StageAdminForm(ModelForm):
+    venue = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, label=_(u"Venue"))
+
+    def __init__(self, *args, **kwargs):
+        super(StageAdminForm, self).__init__(*args, **kwargs)
+        lrel = ManyToOneRel(Location, 'id')
+        self.fields['venue'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['venue'].widget, lrel, self.admin_site)
+
+class AwardCandidateAdminForm(ModelForm):
+    award = selectable_forms.AutoCompleteSelectField(lookup_class=AwardLookup, label=_(u"Award"))
+    recipient = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, label=_(u"Recipient"))
+    production = selectable_forms.AutoCompleteSelectField(lookup_class=ProductionLookup, label=_(u"Production"))
+    place = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, label=_(u"Place"))
+    festival = selectable_forms.AutoCompleteSelectField(lookup_class=FestivalLookup, label=_(u"Festival"))
+    work_record = selectable_forms.AutoCompleteSelectField(lookup_class=WorkRecordLookup, label=_(u"Work record"))
+
+    def __init__(self, *args, **kwargs):
+        super(AwardCandidateAdminForm, self).__init__(*args, **kwargs)
+        arel = ManyToOneRel(Award, 'id')
+        crel = ManyToOneRel(Creator, 'id')
+        prel = ManyToOneRel(Production, 'id')
+        lrel = ManyToOneRel(Location, 'id')
+        frel = ManyToOneRel(Festival, 'id')
+        wrel = ManyToOneRel(WorkRecord, 'id')
+        self.fields['award'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['award'].widget, arel, self.admin_site)
+        self.fields['recipient'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['recipient'].widget, crel, self.admin_site)
+        self.fields['production'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['production'].widget, prel, self.admin_site)
+        self.fields['place'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['place'].widget, lrel, self.admin_site)
+        self.fields['festival'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['festival'].widget, frel, self.admin_site)
+        self.fields['work_record'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['work_record'].widget, wrel, self.admin_site)
