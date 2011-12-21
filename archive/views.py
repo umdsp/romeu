@@ -52,6 +52,7 @@ class CreatorsListView(ListView):
                 item = {}
                 item['image'] = obj.files.all()[0].filepath
                 item['title'] = obj.title
+                item['creator_name'] = obj.related_creator.all()[0].display_name
                 item['creator_id'] = obj.related_creator.all()[0].pk
                 objects_list.append(item)
                 
@@ -115,6 +116,7 @@ class ProductionsListView(ListView):
                 item = {}
                 item['image'] = obj.files.all()[0].filepath
                 item['title'] = obj.title
+                item['production_title'] = obj.related_production.all()[0].title
                 item['production_id'] = obj.related_production.all()[0].pk
                 objects_list.append(item)
                 
@@ -190,6 +192,7 @@ class WorkRecordsListView(ListView):
                 item = {}
                 item['image'] = obj.files.all()[0].filepath
                 item['title'] = obj.title
+                item['work_title'] = obj.related_work.all()[0].title
                 item['work_id'] = obj.related_work.all()[0].pk
                 objects_list.append(item)
                 
@@ -253,6 +256,7 @@ class VenuesListView(ListView):
                 item = {}
                 item['image'] = obj.files.all()[0].filepath
                 item['title'] = obj.title
+                item['venue_title'] = obj.locations.all()[0].title
                 item['loc_id'] = obj.locations.all()[0].pk
                 objects_list.append(item)
                 

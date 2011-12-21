@@ -12,11 +12,14 @@
         <ul id="random_thumbs">
         {% for obj in digital_objects %}
             <li>
+                <figure>
                 <a href="/production/{{ obj.production_id }}">
                     {% thumbnail obj.image "210x210" crop="center" as im %}
                         <img src="{{ im.url }}" />
                     {% endthumbnail %}
                 </a>
+                <figcaption>{{ obj.production_title }}</figcaption>
+                </figure>
             </li>
         {% endfor %}
         </ul>
