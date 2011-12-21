@@ -13,7 +13,9 @@
         {% for obj in digital_objects %}
             <li>
                 <a href="/venue/{{ obj.loc_id }}">
-                        <img title="{{ obj.title }}" src="{{ MEDIA_URL }}/{{ obj.imagepath }}" />
+                    {% thumbnail obj.image "210x210" crop="center" as im %}
+                        <img src="{{ im.url }}" />
+                    {% endthumbnail %}
                 </a>
             </li>
         {% endfor %}

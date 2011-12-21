@@ -38,7 +38,7 @@ class CreatorsListView(ListView):
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
-        alldos = DigitalObject.objects.filter(related_creator__isnull=False, digi_object_format=imagetype)
+        alldos = DigitalObject.objects.filter(related_creator__isnull=False, files__isnull=False, digi_object_format=imagetype)
         length = len(alldos) - 1
         count = 0
         dos = []
@@ -50,7 +50,7 @@ class CreatorsListView(ListView):
         if dos:
             for obj in dos:
                 item = {}
-                item['image'] = obj.files.all()[0].filepath.path
+                item['image'] = obj.files.all()[0].filepath
                 item['title'] = obj.title
                 item['creator_id'] = obj.related_creator.all()[0].pk
                 objects_list.append(item)
@@ -175,19 +175,20 @@ class WorkRecordsListView(ListView):
         context = super(WorkRecordsListView, self).get_context_data(**kwargs)
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
-        alldos = DigitalObject.objects.filter(related_work__isnull=False).order_by('?')
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        alldos = DigitalObject.objects.filter(related_work__isnull=False, files__isnull=False, digi_object_format=imagetype)
         count = 0
+        length = len(alldos) - 1
         dos = []
-        for obj in alldos:
-            if count > 5:
-                break
-            if obj.files.count() > 0:
-                dos.append(obj)
+        while count < 3:
+            num = randrange(0, length)
+            if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+                dos.append(alldos[num])
                 count += 1
         if dos:
             for obj in dos:
                 item = {}
-                item['imagepath'] = default.backend.get_thumbnail(obj.files.order_by('?')[0].filepath, "x150", crop="center")
+                item['image'] = obj.files.all()[0].filepath
                 item['title'] = obj.title
                 item['work_id'] = obj.related_work.all()[0].pk
                 objects_list.append(item)
@@ -236,19 +237,20 @@ class VenuesListView(ListView):
         context = super(VenuesListView, self).get_context_data(**kwargs)
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
-        alldos = DigitalObject.objects.filter(locations__isnull=False).order_by('?')
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        alldos = DigitalObject.objects.filter(locations__isnull=False, files__isnull=False, digi_object_type=imagetype)
         count = 0
+        length = len(alldos) - 1
         dos = []
-        for obj in alldos:
-            if count > 5:
-                break
-            if obj.files.count() > 0:
-                dos.append(obj)
+        while count < 3:
+            num = randrange(0, length)
+            if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+                dos.append(alldos[num])
                 count += 1
         if dos:
             for obj in dos[:6]:
                 item = {}
-                item['imagepath'] = default.backend.get_thumbnail(obj.files.order_by('?')[0].filepath, "x150", crop="center")
+                item['image'] = obj.files.all()[0].filepath
                 item['title'] = obj.title
                 item['loc_id'] = obj.locations.all()[0].pk
                 objects_list.append(item)
@@ -348,3 +350,4 @@ def render_flatpage(request, f):
     response = HttpResponse(t.render(c))
     populate_xheaders(request, response, TranslatingFlatPage, f.id)
     return response
+
