@@ -297,15 +297,20 @@ class DigitalObjectsListView(ListView):
     imagetype = DigitalObjectType.objects.get(title="Image")
     queryset = DigitalObject.objects.filter(published=True, files__isnull=False, digi_object_format=imagetype).distinct().select_related().order_by('-creation_date')
     context_object_name = 'digital_objects'
-    dos = []
-    for obj in queryset:
-        item = {}
-        item['image'] = obj.files.all()[0].filepath
-        item['title'] = obj.title
-        item['pk'] = obj.pk
-        dos.append(item)
     template_name = "archive/digitalobjects_list.html"
     paginate_by = 30
+
+    def get_context_data(self, **kwargs):
+        context = super(DigitalObjectsListView, self).get_context_data(**kwargs)
+        dos = []
+        for obj in queryset:
+            item = {}
+            item['image'] = obj.files.all()[0].filepath
+            item['title'] = obj.title
+            item['pk'] = obj.pk
+            dos.append(item)
+        context['dos'] = dos
+        return context
         
 class DigitalObjectDetailView(DetailView):
     queryset = DigitalObject.objects.filter(published=True).select_related()
