@@ -303,7 +303,7 @@ class DigitalObjectsListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(DigitalObjectsListView, self).get_context_data(**kwargs)
         dos = []
-        for obj in queryset:
+        for obj in DigitalObject.objects.filter(published=True, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Image")).distinct().select_related().order_by('-creation_date'):
             item = {}
             item['image'] = obj.files.all()[0].filepath
             item['title'] = obj.title
