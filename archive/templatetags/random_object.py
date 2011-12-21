@@ -1,6 +1,6 @@
 from django import template
 from archive.models import DigitalObject, DigitalFile, DigitalObjectType
-import random
+from random import randrange
 from sorl.thumbnail import get_thumbnail
 
 register = template.Library()
