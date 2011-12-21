@@ -9,6 +9,15 @@
 {% endblock %}
 
 {% block content %}
+        <header>
+        <nav class="breadcrumbs">
+            <ul>
+                <li><a href="/">{% trans "Home" %}</a></li>
+                <li>{% trans "Venues" %}</li>
+            </ul>
+        </nav>
+        <h2>{% trans "Venues" %}</h2>
+        </header>
         <ul id="random_thumbs">
         {% for obj in digital_objects %}
             <li>
