@@ -295,7 +295,7 @@ class VenueDetailView(DetailView):
         
 class DigitalObjectsListView(ListView):
     imagetype = DigitalObjectType.objects.get(title="Image")
-    queryset = DigitalObject.objects.filter(published=True, files__isnull=False, digi_object_format=imagetype).distinct().select_related().order_by('-digital_object__creation_date')
+    queryset = DigitalObject.objects.filter(published=True, files__isnull=False, digi_object_format=imagetype).distinct().select_related().order_by('-creation_date')
     context_object_name = 'digital_objects'
     dos = []
     for obj in queryset:
