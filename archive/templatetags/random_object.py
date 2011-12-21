@@ -26,11 +26,11 @@ class RandomObjectFigNode(template.Node):
             if dos[num].files.count() > 0 and dos[num].files.all()[0]:
                 im = get_thumbnail(dos[num].files.all()[0].filepath, "210x210", crop="center")
                 fig = "<figure><a href='/digitalobject/"
-                fig += dos[num].pk
+                fig += str(dos[num].pk)
                 fig += "'><img src='"
                 fig += im.url
                 fig += "' alt='' /></a><figcaption><a href='/digitalobject/"
-                fig += dos[num].pk
+                fig += str(dos[num].pk)
                 fig += "'>"
                 fig += dos[num].title
                 fig += "</a></figcaption></figure>"
