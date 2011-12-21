@@ -242,11 +242,12 @@ class VenuesListView(ListView):
         count = 0
         length = len(alldos) - 1
         dos = []
-        while count < 3:
-            num = randrange(0, length)
-            if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
-                dos.append(alldos[num])
-                count += 1
+        if length > 0:
+            while count < 3:
+                num = randrange(0, length)
+                if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+                    dos.append(alldos[num])
+                    count += 1
         if dos:
             for obj in dos[:6]:
                 item = {}
