@@ -11,9 +11,9 @@
 {% block content %}
     <div class="digiobjs" style="width:960px; overflow: hidden;">
     <ul id="digitalobjectslist">
-        {% for obj in dos %}
+        {% for obj in digital_objects %}
             <li>
-                {% thumbnail obj.image "210x210" crop="center" as im %}
+                {% thumbnail obj.files.all()[0].filepath "210x210" crop="center" as im %}
                 <figure>
                   <a href="/digitalobject/{{ obj.pk }}"><img src="{{ im.url }}" alt="" /></a>
                   <figcaption><a href="/digitalobject/{{ obj.pk }}">{{ obj.title }}</a></figcaption>
