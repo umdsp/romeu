@@ -13,7 +13,7 @@
     <ul id="digitalobjectslist">
         {% for obj in dos %}
             <li>
-                {% thumbnail obj.image "210x210" as im %}
+                {% thumbnail obj.image "210x210" crop="center" as im %}
                 <figure>
                   <a href="/digitalobject/{{ obj.pk }}"><img src="{{ im.url }}" alt="" /></a>
                   <figcaption><a href="/digitalobject/{{ obj.pk }}">{{ obj.title }}</a></figcaption>
