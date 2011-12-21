@@ -50,7 +50,7 @@ class CreatorsListView(ListView):
         if dos:
             for obj in dos:
                 item = {}
-                item['image'] = obj.files.all()[0].filepath
+                item['image'] = obj.files.all()[0].filepath.path
                 item['title'] = obj.title
                 item['creator_id'] = obj.related_creator.all()[0].pk
                 objects_list.append(item)
