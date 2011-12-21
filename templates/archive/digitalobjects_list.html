@@ -9,7 +9,6 @@
 {% endblock %}
 
 {% block content %}
-    <div class="digiobjs" style="width:960px; overflow: hidden;">
     <ul id="digitalobjectslist">
         {% for obj in digital_objects %}
             <li>
@@ -22,7 +21,6 @@
             </li>
         {% endfor %}
     </ul>
-    </div>
     
     {% if is_paginated %}
         <div class="pagination">
