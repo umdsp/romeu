@@ -1,3 +1,11 @@
 *.pyc
+archive/*.pyc
+archive/migrations/*
+modeltranslation/*.pyc
+selectable/*.pyc
+workflow/*.pyc
+workflow/migrations/*
+ajax_select/*.pyc
+ajax_select/migrations/*
 local_settings.py
 django_whoosh_index/*
