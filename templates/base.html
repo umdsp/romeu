@@ -20,6 +20,8 @@
 </head>
 <body class="{{ LANGUAGE_CODE }} {% block body_class %}{% endblock %}">
     <div id="wrapper">
+      <p id="worknotice">NOTE: This site is undergoing heavy development. Information may be<br />
+        missing or inaccurate, and links are subject to change.</p>
       <div id="langselect">
             <form action="/i18n/setlang/" method="post">
                 {% csrf_token %}
@@ -75,8 +77,9 @@
                     <li><a href="http://www.library.miami.edu">{% trans "UM Libraries" %}</a></li>
                     <li><a href="http://www.library.miami.edu/services/digitalprograms">{% trans "UM Digital Scholarship" %}</a></li>
                     <li><a href="http://www.library.miami.edu/chc">{% trans "Cuban Heritage Collection" %}</a></li>
-                    <li><a href="#">{% trans "Legal" %}</a></li>
                     <li>{% trans "Copyright" %} &copy;2011</li>
+                </ul>
+            </nav>
         </footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
