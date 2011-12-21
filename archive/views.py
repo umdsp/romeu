@@ -238,7 +238,7 @@ class VenuesListView(ListView):
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
-        alldos = DigitalObject.objects.filter(locations__isnull=False, files__isnull=False, digi_object_type=imagetype)
+        alldos = DigitalObject.objects.filter(locations__isnull=False, files__isnull=False, digi_object_format=imagetype)
         count = 0
         length = len(alldos) - 1
         dos = []
