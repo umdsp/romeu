@@ -48,50 +48,31 @@
             {% if creator.has_works %}
             <div class="linkeditems">
               <h3>{% trans "Written texts" %}</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Function</th>
-                            <th>Creation date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for work in creator.works %}
-                        <tr>
-                            <td><a href="{{ SITE_URL }}/writtenwork/{{ work.record_id }}">{{ work.record_title|safe }}</a></td>
-                            <td>{{ work.function }}</td>
-                            <td>{{ work.date }}</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                <ul>
+                  {% for work in creator.works %}
+                  <li>
+                    <a href="{{ SITE_URL }}/writtenwork/{{ work.record_id }}">{{ work.record_title|safe }}</a><br />
+                    <span>{{ work.function }}</span>
+                    {% if work.date %}<span>{{ work.date }}</span>{% endif %}
+                  </li>
+                  {% endfor %}
+                </ul>
             </div>
             {% endif %}
             
             {% if creator.has_productions %}
             <div class="linkeditems">
               <h3>{% trans "Productions" %}</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Venue</th>
-                            <th>Date range</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for production in creator.productions %}
-                            <tr>
-                                <td><a href="{{ SITE_URL }}/production/{{ production.prod_id }}">{{ production.prod_title }}</a></td>
-                                <td>{{ production.venue }}</td>
-                                <td>{{ production.date_range|safe }}</td>
-                                <td>{{ production.role }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                <ul>
+                  {% for production in creator.productions %}
+                  <li>
+                    <a href="{{ SITE_URL }}/production/{{ production.prod_id }}">{{ production.prod_title }}</a><br />
+                    <span>{{ production.venue }}</span>
+                    <span>{{ production.date_range|safe }}</span>
+                    <span>{{ production.role }}</span>
+                  </li>
+                  {% endfor %}
+                </ul>
             </div>
             {% endif %}
             
