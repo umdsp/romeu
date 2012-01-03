@@ -14,7 +14,18 @@
 {% endblock %}
 
 {% block content %}
-        <section class="objects">
+        <header>
+          <nav class="breadcrumbs">
+            <ul>
+              <li><a href="/">{% trans "Home" %}</a></li>
+              <li><a href="/digitalobjects">{% trans "Digital Objects" %}</a></li>
+              <li>{{ digital_object.title }}</li>
+            </ul>
+          </nav>
+          <h2>{{ digital_object.title }}</h2>
+        </header>
+
+        <section>
                 {% thumbnail digital_object.files.all.0.filepath "640" upscale=False as im %}
                 <img id="largepreview" src="{{ im.url }}" alt='' style="display:block;float:none;" /><br />
                 {% endthumbnail %}
@@ -34,10 +45,6 @@
                 </ul>
                 </div>
         </section>
-        
-        <aside>
-            
-        </aside>
         
         <section class="data">
             

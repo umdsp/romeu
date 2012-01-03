@@ -3,19 +3,6 @@
 {% load thumbnail %}
 {% load i18n %}
 
-{% block article_header %}
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/creators">Creators</a></li>
-                </ul>
-            </nav>
-            <img src="{{ creatorphoto }}" alt="Photo of {{ creator.display_name }}" />
-            <h1>{{ creator.display_name }}</h1>
-            <span>{{ creator.display_roles }}</span><br />
-            <span>{% if creator.birth_date %}{{ creator.birth_date_display }}&mdash;{% endif %}{% if creator.death_date %}{{ creator.death_date_display }}{% endif %}</span>
-{% endblock %}
-
 {% block body_class %}detail{% endblock %}
 
 {% block content %}
