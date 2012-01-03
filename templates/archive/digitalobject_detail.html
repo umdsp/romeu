@@ -34,7 +34,7 @@
                 <ul>
                 {% for obj in digital_object.files.all %}
                     <li>
-                        {% thumbnail obj.filepath "x120" upscale=False as im %}
+                        {% thumbnail obj.filepath "210x210" upscale=False crop="center" as im %}
                         <img style="cursor:pointer;" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt='' title="{{ digital_object.title }}" />
                         {% endthumbnail %}
                         {% thumbnail obj.filepath "640" upscale=False as im %}
