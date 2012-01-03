@@ -29,38 +29,13 @@
             </nav>
             <h2>{{ creator.display_name }}</h2>
         </header>
-        <section class="objects">
+        
+        <section class="main">
+            <p><strong>{{ creator.display_roles }}</strong></p>
             
-        </section>
-        
-        <aside>
-            {% if creator.nationality %}
-                <h4>Nationality:</h4>
-                <span>{{ creator.nationality.demonym }}</span>
+            {% if creator.photo %}
+                <img src="" />
             {% endif %}
-            {% if creator.birth_date %}
-                <h4>Birth date:</h4>
-                <span>{{ creator.birth_date_display }}</span>
-            {% endif %}
-            {% if creator.birth_location %}
-                <h4>Birthplace:</h4>
-                <span>{{ creator.birth_location }}</span>
-            {% endif %}
-            {% if creator.death_date %}
-                <h4>Death date:</h4>
-                <span>{{ creator.death_date_display }}</span>
-            {% endif %}
-            {% if creator.death_location %}
-                <h4>Place of death:</h4>
-                <span>{{ creator.death_location }}</span>
-            {% endif %}
-            {% if creator.has_related_creators %}
-                <h4>Related creators:</h4>
-                
-            {% endif %}
-        </aside>
-        
-        <section class="data">
             {% if creator.biography %}
                 {{ creator.biography|autop }}
             {% endif %}
@@ -116,4 +91,42 @@
             {% endif %}
             
         </section>
+
+        <aside>
+          <div class="data">
+          {% if creator.nationality %}
+              <h4>Nationality:</h4>
+              <span>{{ creator.nationality.demonym }}</span>
+          {% endif %}
+          {% if creator.birth_date %}
+              <h4>Birth date:</h4>
+              <span>{{ creator.birth_date_display }}</span>
+          {% endif %}
+          {% if creator.birth_location %}
+              <h4>Birthplace:</h4>
+              <span>{{ creator.birth_location }}</span>
+          {% endif %}
+          {% if creator.death_date %}
+              <h4>Death date:</h4>
+              <span>{{ creator.death_date_display }}</span>
+          {% endif %}
+          {% if creator.death_location %}
+              <h4>Place of death:</h4>
+              <span>{{ creator.death_location }}</span>
+          {% endif %}
+          {% if creator.has_related_creators %}
+              <h4>Related creators:</h4>
+              
+          {% endif %}
+          </div>
+          <div class="objects">
+            {% if creator.has_digital_objects %}
+              {% for obj in digital_objects %}
+              {% thumbnail obj.image "210x210" crop="center" as im %}
+                  <img src="{{ im.url }}" />
+              {% endthumbnail %}
+              {% endfor %}
+            {% endif %}
+          </div>
+      </aside>
 {% endblock %}

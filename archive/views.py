@@ -85,6 +85,17 @@ class CreatorDetailView(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(CreatorDetailView, self).get_context_data(**kwargs)
+        objects_list = []
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        alldos = DigitalObject.objects.filter(related_creator=self.object, files__isnull=False, digi_object_format=imagetype)
+        if alldos:
+            for obj in alldos:
+                item = {}
+                item['image'] = obj.files.all()[0].filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                objects_list.append(item)
+            context['digital_objects'] = objects_list
         if self.object.photo:
             context['creatorphoto'] = default.backend.get_thumbnail(self.object.photo.filepath, "100x100", crop="center")
         else:

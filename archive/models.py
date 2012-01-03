@@ -429,7 +429,13 @@ class Creator(models.Model):
             people = people[:3]
         
             return { 'title': p.title, 'creators': people }
-    
+
+    def has_digital_objects(self):
+        if DigitalObject.objects.filter(related_creator=self).exists():
+            return True
+        else:
+            return False
+
     def __unicode__(self):
         if self.birth_date and self.death_date:
             return "%s, %s-%s" % (self.creator_name, self.birth_date_display(), self.death_date_display())
