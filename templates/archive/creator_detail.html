@@ -39,10 +39,15 @@
             {% if creator.biography %}
                 {{ creator.biography|autop }}
             {% endif %}
-            
+
+            {% if creator.notes %}
+              <h4>{% trans "Notes" %}:</h4>
+              {{ creator.notes|autop }}
+            {% endif %}
+
             {% if creator.has_works %}
             <div class="linkeditems">
-                <h3>Written texts</h3>
+              <h3>{% trans "Written texts" %}</h3>
                 <table>
                     <thead>
                         <tr>
@@ -66,7 +71,7 @@
             
             {% if creator.has_productions %}
             <div class="linkeditems">
-                <h3>Productions</h3>
+              <h3>{% trans "Productions" %}</h3>
                 <table>
                     <thead>
                         <tr>
@@ -97,37 +102,37 @@
             <ul>
               {% if creator.nationality %}
                 <li>
-                  <h4>Nationality:</h4>
+                  <h4>{% trans "Nationality" %}:</h4>
                   <span>{{ creator.nationality.demonym }}</span>
                 </li>
               {% endif %}
               {% if creator.birth_date %}
                 <li>
-                  <h4>Birth date:</h4>
+                  <h4>{% trans "Birth date" %}:</h4>
                   <span>{{ creator.birth_date_display }}</span>
                 </li>
               {% endif %}
               {% if creator.birth_location %}
                 <li>
-                  <h4>Birthplace:</h4>
+                  <h4>{% trans "Place of birth" %}:</h4>
                   <span>{{ creator.birth_location }}</span>
                 </li>
               {% endif %}
               {% if creator.death_date %}
                 <li>
-                  <h4>Death date:</h4>
+                  <h4>{% trans "Death date" %}:</h4>
                   <span>{{ creator.death_date_display }}</span>
                 </li>
               {% endif %}
               {% if creator.death_location %}
                 <li>
-                  <h4>Place of death:</h4>
+                  <h4>{% trans "Place of death" %}:</h4>
                   <span>{{ creator.death_location }}</span>
                 </li>
               {% endif %}
               {% if creator.has_related_creators %}
                 <li>
-                  <h4>Related creators:</h4>
+                  <h4>{% trans "Related creators" %}:</h4>
                 </li>
               {% endif %}
             </ul>
