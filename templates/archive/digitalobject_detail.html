@@ -25,7 +25,7 @@
           <h2>{{ digital_object.title }}</h2>
         </header>
 
-        <section>
+        <section class="objectdisplay">
                 {% thumbnail digital_object.files.all.0.filepath "640" upscale=False as im %}
                 <img id="largepreview" src="{{ im.url }}" alt='' style="display:block;float:none;" /><br />
                 {% endthumbnail %}
@@ -46,7 +46,7 @@
                 </div>
         </section>
         
-        <section class="data">
+        <section class="objectdetails">
             
         </section>
 {% endblock %}
@@ -54,12 +54,12 @@
 {% block extra_js %}
     <script>
         $(window).load(function() {
-            $('.objects ul').isotope({
+            $('.objectdisplay ul').isotope({
                 itemSelector: 'li',
                 layoutMode: 'masonryHorizontal'
             });
             
-            $('.objects ul li').click(function() {
+            $('.objectdisplay ul li').click(function() {
                 current = $(this);
                 $('#largepreview').attr('src', current.children('span').text());
             });
