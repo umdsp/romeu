@@ -53,7 +53,7 @@
                   <li>
                     <a href="{{ SITE_URL }}/writtenwork/{{ work.record_id }}">{{ work.record_title|safe }}</a><br />
                     <span>{{ work.function }}</span>
-                    {% if work.date %}<span>{{ work.date }}</span>{% endif %}
+                    {% if work.date %}<br /><span>{{ work.date }}</span>{% endif %}
                   </li>
                   {% endfor %}
                 </ul>
@@ -67,9 +67,9 @@
                   {% for production in creator.productions %}
                   <li>
                     <a href="{{ SITE_URL }}/production/{{ production.prod_id }}">{{ production.prod_title }}</a><br />
-                    <span>{{ production.venue }}</span>
+                    <span>{{ production.role }}</span><br />
+                    <span>{{ production.venue }}</span><br />
                     <span>{{ production.date_range|safe }}</span>
-                    <span>{{ production.role }}</span>
                   </li>
                   {% endfor %}
                 </ul>
