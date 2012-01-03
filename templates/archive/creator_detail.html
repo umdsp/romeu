@@ -94,30 +94,43 @@
 
         <aside>
           <div class="data">
-          {% if creator.nationality %}
-              <h4>Nationality:</h4>
-              <span>{{ creator.nationality.demonym }}</span>
-          {% endif %}
-          {% if creator.birth_date %}
-              <h4>Birth date:</h4>
-              <span>{{ creator.birth_date_display }}</span>
-          {% endif %}
-          {% if creator.birth_location %}
-              <h4>Birthplace:</h4>
-              <span>{{ creator.birth_location }}</span>
-          {% endif %}
-          {% if creator.death_date %}
-              <h4>Death date:</h4>
-              <span>{{ creator.death_date_display }}</span>
-          {% endif %}
-          {% if creator.death_location %}
-              <h4>Place of death:</h4>
-              <span>{{ creator.death_location }}</span>
-          {% endif %}
-          {% if creator.has_related_creators %}
-              <h4>Related creators:</h4>
-              
-          {% endif %}
+            <ul>
+              {% if creator.nationality %}
+                <li>
+                  <h4>Nationality:</h4>
+                  <span>{{ creator.nationality.demonym }}</span>
+                </li>
+              {% endif %}
+              {% if creator.birth_date %}
+                <li>
+                  <h4>Birth date:</h4>
+                  <span>{{ creator.birth_date_display }}</span>
+                </li>
+              {% endif %}
+              {% if creator.birth_location %}
+                <li>
+                  <h4>Birthplace:</h4>
+                  <span>{{ creator.birth_location }}</span>
+                </li>
+              {% endif %}
+              {% if creator.death_date %}
+                <li>
+                  <h4>Death date:</h4>
+                  <span>{{ creator.death_date_display }}</span>
+                </li>
+              {% endif %}
+              {% if creator.death_location %}
+                <li>
+                  <h4>Place of death:</h4>
+                  <span>{{ creator.death_location }}</span>
+                </li>
+              {% endif %}
+              {% if creator.has_related_creators %}
+                <li>
+                  <h4>Related creators:</h4>
+                </li>
+              {% endif %}
+            </ul>
           </div>
           <div class="objects">
             <div id="digitalobjects">
