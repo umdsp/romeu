@@ -87,7 +87,7 @@ class CreatorDetailView(DetailView):
         context = super(CreatorDetailView, self).get_context_data(**kwargs)
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
-        alldos = DigitalObject.objects.filter(related_creator=self.object, files__isnull=False, digi_object_format=imagetype)
+        alldos = DigitalObject.objects.filter(related_creator=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
         if alldos:
             for obj in alldos:
                 item = {}
