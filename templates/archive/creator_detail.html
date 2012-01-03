@@ -119,7 +119,7 @@
               
           {% endif %}
           </div>
-          <div class="objects">
+          <div id="digitalobjects">
             {% if creator.has_digital_objects %}
               {% for obj in digital_objects %}
               {% thumbnail obj.image "210x210" crop="center" as im %}
