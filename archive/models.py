@@ -862,6 +862,35 @@ class Production(models.Model):
         else:
             return False
 
+    def all_directors(self):
+        directors = []
+        for person in self.directing_team.distinct():
+            x = {}
+            x['person'] = person
+            dms = DirectingMember.objects.filter(person=person, production=self)
+            roles = []
+            for dm in dms:
+                roles.append(dm.function.title)
+            x['functions'] = ', '.join(roles)
+            directors.append(x)
+        return directors
+
+    def all_cast(self):
+        cast = []
+        for person in self.cast.distinct():
+            x = {}
+            x['person'] = person
+            cms = CastMember.objects.filter(person=person, production=self)
+            roles = []
+            for cm in cms:
+                if cm.role:
+                    roles.append(cm.role.title)
+                else:
+                    roles.append(cm.function.title)
+            x['roles'] = ', '.join(roles)
+            cast.append(x)
+        return cast
+
     def display_date_range(self):
         if self.begin_date and self.end_date:
             if self.begin_date == self.end_date:

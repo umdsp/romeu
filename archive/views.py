@@ -171,16 +171,6 @@ class ProductionDetailView(DetailView):
                 item['pk'] = obj.pk
                 objects_list.append(item)
             context['digital_objects'] = objects_list
-        directing_team = []
-        if DirectingMember.objects.filter(production__pk=self.object.pk).exists():
-            for item in DirectingMember.objects.filter(production__pk=self.object.pk):
-                directing_team.append(item)
-        context['directing_team'] = directing_team
-        cast = []
-        if CastMember.objects.filter(production__pk=self.object.pk).exists():
-            for item in CastMember.objects.filter(production__pk=self.object.pk):
-                cast.append(item)
-        context['cast'] = cast
         return context
 
 class WorkRecordsListView(ListView):
