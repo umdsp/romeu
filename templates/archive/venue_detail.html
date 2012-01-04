@@ -63,7 +63,7 @@
           </div>
           <div class="objects">
             <div id="digitalobjects">
-              {% if venue.digital_objects %}
+              {% if digital_objects %}
               {% for obj in digital_objects %}
                 <a href="/digitalobject/{{ obj.pk }}">
                   {% thumbnail obj.image "210x210" crop="center" as im %}
