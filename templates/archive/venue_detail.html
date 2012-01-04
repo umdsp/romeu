@@ -64,9 +64,9 @@
               {% endif %}
             </ul>
           </div>
+          {% if digital_objects %}
           <div class="objects">
             <div id="digitalobjects">
-              {% if digital_objects %}
               {% for obj in digital_objects %}
                 <a href="/digitalobject/{{ obj.pk }}">
                   {% thumbnail obj.image "210x210" crop="center" as im %}
@@ -75,8 +75,8 @@
                   <span>{{ obj.title }}</span>
                 </a>
               {% endfor %}
-              {% endif %}
             </div>
           </div>
+          {% endif %}
         </aside>
 {% endblock %}
