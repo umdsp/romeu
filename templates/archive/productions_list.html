@@ -39,10 +39,10 @@
         <table id="productions_list">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Director</th>
-                    <th>Venue</th>
-                    <th>Date range</th>
+                    <th>{% trans "Title" %}</th>
+                    <th>{% trans "Director" %}</th>
+                    <th>{% trans "Venue" %}</th>
+                    <th>{% trans "Date range" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,7 +50,7 @@
                     <tr>
                         <td><a href="/production/{{production.id}}">{{ production.title }}</a></td>
                         <td>{{ production.display_directors_links|safe }}</td>
-                        <td>{% if production.venue %}<a href="/venue/{{ production.venue.id }}">{{ production.venue }}</a>{% endif %}</td>
+                        <td>{% if production.venue %}<a href="/venue/{{ production.venue.id }}">{{ production.venue.title }}</a>{% endif %}</td>
                         <td>{{ production.display_date_range }}</td>
                     </tr>
                 {% endfor %}
