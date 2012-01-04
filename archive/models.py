@@ -324,16 +324,24 @@ class Creator(models.Model):
     def productions(self):
         prods = []
         if self.directing_team_for.count() > 0:
-            for dt in self.directing_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': DirectingMember.objects.filter(person=self, production=dt)[0].function.title }
+            for dt in self.directing_team_for.distinct():
+                dms = DirectingMember.objects.filter(person=self, production=dt)
+                roles = []
+                for dm in dms:
+                    roles.append(dm.function.title)
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': roles.join(', ') }
                 prods.append(x)
         if self.cast_member_for.count() > 0:
             for cm in self.cast_member_for.all():
                 x = { 'prod_id': cm.pk, 'prod_title': cm.title, 'venue': cm.venue.title, 'date_range': cm.display_date_range(), 'role': CastMember.objects.filter(person=self, production=cm)[0].function.title }
                 prods.append(x)
         if self.design_team_for.count() > 0:
-            for dt in self.design_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': DesignMember.objects.filter(person=self, production=dt)[0].function.title }
+          for dt in self.design_team_for.distinct():
+                dms = DesignMember.objects.filter(person=self, production=dt)
+                roles = []
+                for dm in dms:
+                    roles.append(dm.function.title)
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': roles.join(', ') }
                 prods.append(x)
         if self.technical_team_for.count() > 0:
             for dt in self.technical_team_for.all():
