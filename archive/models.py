@@ -1054,15 +1054,15 @@ class DigitalObject(models.Model):
         return display_date(self.creation_date, self.creation_date_precision, self.creation_date_BC)
 
     def has_related_things(self):
-        if self.related_production.objects.all().exists():
+        if self.related_production.exists():
             return True
-        if self.related_festival.objects.all().exists():
+        if self.related_festival.exists():
             return True
-        if self.related_venue.objects.all().exists():
+        if self.related_venue.exists():
             return True
-        if self.related_creator.objects.all().exists():
+        if self.related_creator.exists():
             return True
-        if self.related_work.objects.all().exists():
+        if self.related_work.exists():
             return True
         return False
 
