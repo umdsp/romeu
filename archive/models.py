@@ -822,7 +822,7 @@ class Production(models.Model):
                 return self.begin_date_display()
             else:
                 return "%s - %s" % (self.begin_date_display(), self.end_date_display())
-        else if self.begin_date:
+        elif self.begin_date:
             return self.begin_date_display()
         else:
             return ''
