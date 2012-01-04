@@ -28,9 +28,10 @@
             <ul>
               {% for p in venue.productions.all %}
               <li>
-                <a href="{{ SITE_URL }}/production/{{ p.pk }}">{{ p }}</a>
+                <a href="{{ SITE_URL }}/production/{{ p.pk }}">{{ p.title }}</a><br />
+                <span>{{ p.display_date_range }}</span>
                 {% if p.display_directors %}
-                <br /><span>{{ p.display_directors }}</span>
+                <br /><span>{% trans "Directed by" %}: {{ p.display_directors }}</span>
                 {% endif %}
               </li>
               {% endfor %}

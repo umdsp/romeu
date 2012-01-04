@@ -816,6 +816,17 @@ class Production(models.Model):
         else:
             return False
 
+    def display_date_range(self):
+        if self.begin_date and self.end_date:
+            if self.begin_date == self.end_date:
+                return self.begin_date_display()
+            else:
+                return "%s - %s" % (self.begin_date_display(), self.end_date_display())
+        else if self.begin_date:
+            return self.begin_date_display()
+        else:
+            return ''
+
     def __unicode__(self):
         if self.begin_date:
             return "%s (%s, %s)" % (self.title, self.venue.title, self.begin_date_display())
