@@ -2,19 +2,6 @@
 {% load autop %}
 {% load thumbnail %}
 {% load i18n %}
-{% block article_header %}
-
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/productions">Productions</a></li>
-                </ul>
-            </nav>
-            <h1>{{ production.title }}</h1>
-            <span><a href="/venue/{{ production.venue.pk }}">{{ production.venue.title }}{% if production.venue.city %}, {{ production.venue.city.name }}{% if production.venue.city.state %}, {{ production.venue.city.state }}{% endif %}{% endif %}, {{ production.venue.country }}</a></span><br />
-            <span>{% if production.begin_date %}{{ production.begin_date_display }}&mdash;{% endif %}{% if production.end_date %}{{ production.end_date_display }}{% endif %}</span>
-
-{% endblock %}
 
 {% block body_class %}detail{% endblock %}
 
@@ -32,8 +19,15 @@
 
         <section class="main">
             {% if directing_team %}
-            <h4>{% trans "Directing team" %}:</h4>
-                <table><tbody>
+            <h3>{% trans "Directing team" %}:</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>{% trans "Name" %}</th>
+                  <th>{% trans "Function" %}</th>
+                </tr>
+              </thead>
+              <tbody>
                 {% for member in directing_team %}
                     <tr>
                         <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
@@ -43,8 +37,15 @@
                 </tbody></table>
             {% endif %}
             {% if cast %}
-              <h4>{% trans "Cast" %}:</h4>
-                <table><tbody>
+              <h3>{% trans "Cast" %}:</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>{% trans "Name" %}</th>
+                    <th>{% trans "Role" %}</th>
+                  </tr>
+                </thead>
+                <tbody>
                 {% for member in cast %}
                     <tr>
                         <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
@@ -57,7 +58,19 @@
 
         <aside>
           <div class="data">
-
+            <ul>
+              {% if production.venue %}
+              <li>
+                <h4>{% trans "Venue" %}:</h4>
+                <span><a href="/venue/{{ production.venue.pk }}">{{ production.venue }}</a></span>
+              </li>
+              {% endif %}
+              {% if production.begin_date or production.end_date %}
+              <li>
+                <h4>{% trans "Date range" %}:</h4>
+                <span>{{ production.display_date_range }}</span>
+              </li>
+              {% endif %}
           </div>
           {% if digital_objects %}
           <div class="objects">
