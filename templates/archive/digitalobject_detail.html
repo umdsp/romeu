@@ -135,6 +135,7 @@
                   <li>
                     <a href="/writtenwork/{{ w.pk }}">{{ w.title }}</a>
                   </li>
+                  {% endfor %}
                 </ul>
                 {% endif %}
 
@@ -145,6 +146,7 @@
                   <li>
                     <a href="/festival/{{ f.pk }}">{{ f }}</a>
                   </li>
+                  {% endfor %}
                 </ul>
                 {% endif %}
 
@@ -155,6 +157,7 @@
                   <li>
                     <a href="/venue/{{ l.pk }}">{{ l }}</a>
                   </li>
+                  {% endfor %}
                 </ul>
                 {% endif %}
         </section>
