@@ -253,7 +253,7 @@ class VenuesListView(ListView):
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
-        alldos = DigitalObject.objects.filter(locations__isnull=False, files__isnull=False, digi_object_format=imagetype)
+        alldos = DigitalObject.objects.filter(related_venue__isnull=False, files__isnull=False, digi_object_format=imagetype)
         count = 0
         length = len(alldos) - 1
         dos = []
@@ -264,12 +264,12 @@ class VenuesListView(ListView):
                     dos.append(alldos[num])
                     count += 1
         if dos:
-            for obj in dos[:6]:
+            for obj in dos:
                 item = {}
                 item['image'] = obj.files.all()[0].filepath
                 item['title'] = obj.title
-                item['venue_title'] = obj.locations.all()[0].title
-                item['loc_id'] = obj.locations.all()[0].pk
+                item['venue_title'] = obj.related_venue.all()[0].title
+                item['loc_id'] = obj.related_venue.all()[0].pk
                 objects_list.append(item)
                 
         context['digital_objects'] = objects_list
