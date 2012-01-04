@@ -323,7 +323,7 @@ class Creator(models.Model):
     
     def productions(self):
         prods = []
-        if self.directing_team_for.exists():
+        if self.directing_team_for.count() > 0:
             for dt in self.directing_team_for.distinct():
                 dms = DirectingMember.objects.filter(person=self, production=dt)
                 roles = []
@@ -331,7 +331,7 @@ class Creator(models.Model):
                     roles.append(dm.function.title)
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.cast_member_for.exists():
+        if self.cast_member_for.count() > 0:
             for cm in self.cast_member_for.distinct():
                 cms = CastMember.objects.filter(person=self, production=cm)
                 roles = []
@@ -342,7 +342,7 @@ class Creator(models.Model):
                         roles.append(member.function.title)
                 x = { 'prod_id': cm.pk, 'prod_title': cm.title, 'venue': cm.venue.title, 'date_range': cm.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.design_team_for.exists():
+        if self.design_team_for.count() > 0:
           for dt in self.design_team_for.distinct():
                 dms = DesignMember.objects.filter(person=self, production=dt)
                 roles = []
@@ -350,7 +350,7 @@ class Creator(models.Model):
                     roles.append(dm.function.title)
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.technical_team_for.exists():
+        if self.technical_team_for.count() > 0:
             for dt in self.technical_team_for.distinct():
                 tms = TechMember.objects.filter(person=self, production=dt)
                 roles = []
@@ -358,7 +358,7 @@ class Creator(models.Model):
                     roles.append(tm.function.title)
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.production_team_for.exists():
+        if self.production_team_for.count() > 0:
             for dt in self.production_team_for.distinct():
                 pms = ProductionMember.objects.filter(person=self, production=dt)
                 roles = []
@@ -366,7 +366,7 @@ class Creator(models.Model):
                     roles.append(pm.function.title)
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.documentation_team_for.exists():
+        if self.documentation_team_for.count() > 0:
             for dt in self.documentation_team_for.distinct():
                 dms = DocumentationMember.objects.filter(person=self, production=dt)
                 roles = []
@@ -374,7 +374,7 @@ class Creator(models.Model):
                     roles.append(dm.function.title)
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.advisory_team_for.exists():
+        if self.advisory_team_for.count() > 0:
             for dt in self.advisory_team_for.distinct():
                 ams = AdvisoryMember.objects.filter(person=self, production=dt)
                 roles = []
@@ -382,11 +382,11 @@ class Creator(models.Model):
                     roles.append(am.function.title)
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.company_productions.exists():
+        if self.company_productions.count() > 0:
             for dt in self.company_productions.distinct():
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': 'Theater company' }
                 prods.append(x)
-        if self.productions_related_to.exists():
+        if self.productions_related_to.count() > 0:
             for dt in self.productions_related_to.distinct():
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': 'Related organization' }
                 prods.append(x)
