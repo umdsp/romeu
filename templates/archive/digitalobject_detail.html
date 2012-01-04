@@ -25,32 +25,32 @@
           <h2>{{ digital_object.title }}</h2>
         </header>
 
-        <section class="objectdisplay">
-                {% thumbnail digital_object.files.all.0.filepath "640" upscale=False as im %}
+        <section class="objectdisplay main">
+                {% thumbnail digital_object.files.all.0.filepath "440" upscale=False as im %}
                 <img id="largepreview" src="{{ im.url }}" alt='' style="display:block;float:none;" /><br />
                 {% endthumbnail %}
 
-                {% if digital_object.files.all.count > 1 %}
+                
+        </section>
+        
+        <aside class="thumbnails">
+            {% if digital_object.files.all.count > 1 %}
                 <div>
                   <ul>
                 {% for obj in digital_object.files.all %}
                     <li>
-                        {% thumbnail obj.filepath "210x210" upscale=False crop="center" as im %}
+                        {% thumbnail obj.filepath "100x100" upscale=False crop="center" as im %}
                         <img style="cursor:pointer;" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt='' title="{{ digital_object.title }}" />
                         {% endthumbnail %}
-                        {% thumbnail obj.filepath "640" upscale=False as im %}
+                        {% thumbnail obj.filepath "440" upscale=False as im %}
                         <span>{{ im.url }}</span>
                         {% endthumbnail %}
                     </li>
                 {% endfor %}
                 </ul>
               </div>
-              {% endif %}
-        </section>
-        
-        <section class="objectdetails">
-            
-        </section>
+            {% endif %} 
+        </aside>
 {% endblock %}
 
 {% block extra_js %}
