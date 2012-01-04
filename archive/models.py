@@ -517,7 +517,10 @@ class Location(models.Model):
     end_date_display.short_description = _("End date")
 
     def __unicode__(self):
-        return "%s (%s), %s-%s" % (self.title, self.country.name, self.begin_date_display(), self.end_date_display())
+        if self.begin_date or self.end_date:
+            return "%s (%s), %s-%s" % (self.title, self.country.name, self.begin_date_display(), self.end_date_display())
+        else:
+            return "%s (%s)" % (self.title, self.country.name)
 
     def has_system_links(self):
         if Stage.objects.filter(venue=self).exists():
