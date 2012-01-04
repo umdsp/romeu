@@ -29,9 +29,10 @@
                 {% thumbnail digital_object.files.all.0.filepath "640" upscale=False as im %}
                 <img id="largepreview" src="{{ im.url }}" alt='' style="display:block;float:none;" /><br />
                 {% endthumbnail %}
-                
+
+                {% if digital_object.files.all.count > 1 %}
                 <div>
-                <ul>
+                  <ul>
                 {% for obj in digital_object.files.all %}
                     <li>
                         {% thumbnail obj.filepath "210x210" upscale=False crop="center" as im %}
@@ -43,7 +44,8 @@
                     </li>
                 {% endfor %}
                 </ul>
-                </div>
+              </div>
+              {% endif %}
         </section>
         
         <section class="objectdetails">
