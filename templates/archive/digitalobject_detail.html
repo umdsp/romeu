@@ -56,12 +56,7 @@
 {% block extra_js %}
     <script>
         $(window).load(function() {
-            $('.objectdisplay ul').isotope({
-                itemSelector: 'li',
-                layoutMode: 'fitRows'
-            });
-            
-            $('.objectdisplay ul li').click(function() {
+            $('.thumbnails ul li').click(function() {
                 current = $(this);
                 $('#largepreview').attr('src', current.children('span').text());
             });
