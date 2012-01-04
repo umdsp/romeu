@@ -930,6 +930,32 @@ class Production(models.Model):
             producers.append(x)
         return producers
 
+    def all_documentation(self):
+        documentation = []
+        for person in self.documentation_team.distinct():
+            x = {}
+            x['person'] = person
+            dms = DocumentationMember.objects.filter(person=person, production=self)
+            roles = []
+            for dm in dms:
+                roles.append(dm.function.title)
+            x['functions'] = ', '.join(roles)
+            documentation.append(x)
+        return documentation
+
+    def all_advisors(self):
+        advisors = []
+        for person in self.advisory_team.distinct():
+            x = {}
+            x['person'] = person
+            ams = AdvisoryMember.objects.filter(person=person, production=self)
+            roles = []
+            for am in ams:
+                roles.append(am.function.title)
+            x['functions'] = ', '.join(roles)
+            advisors.append(x)
+        return advisors
+
     def display_date_range(self):
         if self.begin_date and self.end_date:
             if self.begin_date == self.end_date:

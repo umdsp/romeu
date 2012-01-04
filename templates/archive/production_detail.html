@@ -115,6 +115,46 @@
                 </tbody>
               </table>
             {% endif %}
+
+            {% if production.documentation_team.exists %}
+              <h3>{% trans "Documentation team" %}:</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width:50%">{% trans "Name" %}</th>
+                    <th>{% trans "Function(s)" %}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for member in production.all_documentation %}
+                  <tr>
+                    <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                    <td>{{ member.functions }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            {% endif %}
+
+            {% if production.advisory_team.exists %}
+              <h3>{% trans "Advisory team" %}:</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width:50%">{% trans "Name" %}</th>
+                    <th>{% trans "Function(s)" %}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for member in production.all_advisors %}
+                  <tr>
+                    <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                    <td>{{ member.functions }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            {% endif %}
         </section>
 
         <aside>
