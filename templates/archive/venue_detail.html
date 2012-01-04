@@ -11,7 +11,7 @@
             <ul>
               <li><a href="/">{% trans "Home" %}</a></li>
               <li><a href="/venues">{% trans "Venues" %}</a></li>
-              <li>{{ venue }}</li>
+              <li>{{ venue.title }}</li>
             </ul>
           </nav>
           <h2>{{ venue.title }}</h2>
@@ -53,6 +53,27 @@
                 <h4>{% trans "Country" %}:</h4>
                 <span>{{ venue.country.name }}</span>
               </li>
-
+              {% if venue.begin_date or venue.end_date %}
+              <li>
+                <h4>{% trans "Date range" %}:</h4>
+                <span>{{ venue.begin_date_display }}-{{ venue.end_date_display }}</span>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+          <div class="objects">
+            <div id="digitalobjects">
+              {% if venue.digital_objects %}
+              {% for obj in digital_objects %}
+                <a href="/digitalobject/{{ obj.pk }}">
+                  {% thumbnail obj.image "210x210" crop="center" as im %}
+                    <img src="{{im.url}}" />
+                  {% endthumbnail %}
+                  <span>{{ obj.title }}</span>
+                </a>
+              {% endfor %}
+              {% endif %}
+            </div>
+          </div>
         </aside>
 {% endblock %}

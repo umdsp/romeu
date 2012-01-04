@@ -302,10 +302,19 @@ class VenueDetailView(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(VenueDetailView, self).get_context_data(**kwargs)
+        objects_list = []
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        alldos = DigitalObject.objects.filter(related_venue=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        if alldos:
+            for obj in alldos:
+                item = {}
+                item['image'] = obj.files.all()[0].filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                objects_list.append(item)
+            context['digital_objects'] = objects_list
         if self.object.photo:
             context['venuephoto'] = default.backend.get_thumbnail(self.object.photo.filepath, "100x100", crop="center")
-        else:
-            context['venuephoto'] = '/static/images/nophoto.jpg'
         return context
         
 class DigitalObjectsListView(ListView):
