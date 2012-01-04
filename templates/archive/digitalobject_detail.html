@@ -30,12 +30,17 @@
                 <img id="largepreview" src="{{ im.url }}" alt='' style="display:block;float:none;" /><br />
                 {% endthumbnail %}
 
-                
+                <dl class="objectdata">
+                  <dt>Object ID:</dt>
+                  <dd>{{ digital_object.object_number }}</dd>
+                  <dt>Collection:</dt>
+                  <dd>{{ digital_object.collection.title }}</dd>
+                </dl>
         </section>
         
         <aside class="thumbnails">
             {% if digital_object.files.all.count > 1 %}
-                <div>
+                <div class="data">
                   <ul>
                 {% for obj in digital_object.files.all %}
                     <li>
