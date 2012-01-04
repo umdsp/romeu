@@ -3,48 +3,56 @@
 {% load thumbnail %}
 {% load i18n %}
 
-{% block article_header %}
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/venues">Venues</a></li>
-                </ul>
-            </nav>
-            <img src="{{ venuephoto }}" alt="Photo of {{ venue.title }}" />
-            <h1>{{ venue.title }}</h1>
-            <span>{% if venue.city %}{{ venue.city.name }}, {% if venue.city.state %}{{ venue.city.state }}, {% endif %}{% endif %}{{ venue.country.name }}</span><br />
-{% endblock %}
+{% block body_class %}detail{% endblock %}
 
 {% block content %}
-        <section class="objects">
-            
+        <header>
+          <nav class="breadcrumbs">
+            <ul>
+              <li><a href="/">{% trans "Home" %}</a></li>
+              <li><a href="/venues">{% trans "Venues" %}</a></li>
+              <li>{{ venue }}</li>
+            </ul>
+          </nav>
+          <h2>{{ venue.title }}</h2>
+        </header>
+
+        <section class="main">
+          {% if venuephoto %}
+            <img src="{{ venuephoto }}" />
+          {% endif %}
+
+          {% if venue.productions.exists %}
+          <div class="linkeditems">
+            <h3>{% trans "Productions" %}:</h3>
+            <ul>
+              {% for p in venue.productions.all %}
+              <li>
+                <a href="{{ SITE_URL }}/production/{{ p.pk }}">{{ p }}</a>
+                {% if p.display_directors %}
+                <br /><span>{{ p.display_directors }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
         </section>
         
         <aside>
-        
+          <div class="data">
+            <ul>
+              {% if venue.city %}
+              <li>
+                <h4>{% trans "City" %}:</h4>
+                <span>{{ venue.city.name }}{% if venue.city.state %}, {{ venue.city.state }}{% endif %}</span>
+              </li>
+              {% endif %}
+              <li>
+                <h4>{% trans "Country" %}:</h4>
+                <span>{{ venue.country.name }}</span>
+              </li>
+
         </aside>
-        
-        <section class="data">
-            <h3>Productions</h3>
-            <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Directing team</th>
-                    <th>Date range</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for prod in venue.productions.all %}
-                <tr>
-                    <td><a href="/production/{{ prod.pk }}">{{ prod.title }}</a></td>
-                    <td>{{ prod.display_directors }}</td>
-                    <td>{% if prod.begin_date %}{{ prod.begin_date_display }}&mdash;{% endif %}{% if prod.end_date %}{{ prod.end_date_display }}{% endif %}</td>
-                </tr>
-            {% empty %}
-                <tr><td colspan="3">
-                    No production records for this venue.
-                </td></tr>
-            {% endfor %}
-        </section>
 {% endblock %}
