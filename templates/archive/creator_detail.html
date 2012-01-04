@@ -105,10 +105,10 @@
               {% endif %}
             </ul>
           </div>
+          {% if creator.has_digital_objects %}
           <div class="objects">
             <div id="digitalobjects">
-              {% if creator.has_digital_objects %}
-              {% for obj in digital_objects %}
+                            {% for obj in digital_objects %}
                 <a href="/digitalobject/{{ obj.pk }}">
                 {% thumbnail obj.image "210x210" crop="center" as im %}
                     <img src="{{ im.url }}" />
@@ -116,8 +116,8 @@
                 <span>{{ obj.title }}</span>
                 </a>
                 {% endfor %}
-              {% endif %}
             </div>
           </div>
+          {% endif %}
       </aside>
 {% endblock %}
