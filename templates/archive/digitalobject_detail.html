@@ -103,7 +103,9 @@
                   {% endif %}
                 </dl>
 
+                {% if digital_object.has_related_things %}
                 <h3>{% trans "Related items" %}:</h3>
+                {% endif %}
                 {% if digital_object.related_creator.objects.all.count > 1 %}
                 <h4>{% trans "Creators" %}:</h4>
                 <ul>

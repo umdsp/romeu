@@ -1052,7 +1052,20 @@ class DigitalObject(models.Model):
     
     def creation_date_display(self):
         return display_date(self.creation_date, self.creation_date_precision, self.creation_date_BC)
-    
+
+    def has_related_things(self):
+        if self.related_production.objects.all().exists():
+            return True
+        if self.related_festival.objects.all().exists():
+            return True
+        if self.related_venue.objects.all().exists():
+            return True
+        if self.related_creator.objects.all().exists():
+            return True
+        if self.related_work.objects.all().exists():
+            return True
+        return False
+
     def object_number(self):
         num = ''
         num += self.collection.repository.repository_id
