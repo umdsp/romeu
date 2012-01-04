@@ -36,6 +36,7 @@
                 {% endfor %}
                 </tbody></table>
             {% endif %}
+
             {% if production.cast.exists %}
               <h3>{% trans "Cast" %}:</h3>
               <table>
@@ -53,6 +54,26 @@
                     </tr>
                 {% endfor %}
                 </tbody></table>
+            {% endif %}
+
+            {% if production.design_team.exists %}
+              <h3>{% trans "Design team" %}:</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width:50%">{% trans "Name" %}</th>
+                    <th>{% trans "Function" %}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for member in production.all_designers %}
+                  <tr>
+                    <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                    <td>{{ member.functions }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
             {% endif %}
         </section>
 

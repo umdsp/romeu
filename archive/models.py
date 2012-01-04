@@ -887,9 +887,22 @@ class Production(models.Model):
                     roles.append(cm.role.title)
                 else:
                     roles.append(cm.function.title)
-            x['roles'] = ', '.join(roles)
+            x['roles'] = '; '.join(roles)
             cast.append(x)
         return cast
+
+    def all_designers(self):
+        designers = []
+        for person in self.design_team.distinct():
+            x = {}
+            x['person'] = person
+            dms = DesignMember.objects.filter(person=person, production=self)
+            roles = []
+            for dm in dms:
+                roles.append(dm.function.title)
+            x['functions'] = ', '.join(roles)
+            designers.append(x)
+        return designers
 
     def display_date_range(self):
         if self.begin_date and self.end_date:
