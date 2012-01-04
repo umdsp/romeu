@@ -23,7 +23,7 @@
             <table>
               <thead>
                 <tr>
-                  <th>{% trans "Name" %}</th>
+                  <th style="width:50%">{% trans "Name" %}</th>
                   <th>{% trans "Function" %}</th>
                 </tr>
               </thead>
@@ -41,7 +41,7 @@
               <table>
                 <thead>
                   <tr>
-                    <th>{% trans "Name" %}</th>
+                    <th style="width:50%">{% trans "Name" %}</th>
                     <th>{% trans "Role" %}</th>
                   </tr>
                 </thead>
@@ -67,7 +67,7 @@
               {% endif %}
               {% if production.begin_date or production.end_date %}
               <li>
-                <h4>{% trans "Date range" %}:</h4>
+                <h4>{% trans "Production dates" %}:</h4>
                 <span>{{ production.display_date_range }}</span>
               </li>
               {% endif %}
