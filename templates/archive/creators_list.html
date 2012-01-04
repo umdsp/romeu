@@ -28,7 +28,7 @@
                         <img src="{{ im.url }}" />
                     {% endthumbnail %}
                 </a>
-                <figcaption><a href="/creator/{{ obj.creator_id }}">{{ obj.creator_name }}</a></figcaption>
+                <figcaption><a href="/digitalobject/{{ obj.pk }}">{{ obj.creator_name }}</a></figcaption>
                 </figure>
             </li>
         {% endfor %}
@@ -41,17 +41,15 @@
                 <tr>
                     <th>Name</th>
                     <th>Roles</th>
-                    <th>Birth/death dates</th>
                     <th>Nationality</th>
                 </tr>
             </thead>
             <tbody>
                 {% for creator in creators_list %}
                     <tr>
-                        <td><a href="/creator/{{creator.id}}">{{ creator.creator_name }}</a></td>
+                        <td><a href="/creator/{{creator.id}}">{{ creator }}</a></td>
                         <td>{% if creator.display_roles %}{{ creator.display_roles }}{% endif %}</td>
-                        <td>{% if creator.birth_date %}{{ creator.birth_date_display }}&mdash;{% endif %}{% if creator.death_date %}{{ creator.death_date_display }}{% endif %}</td>
-                        <td>{% if creator.nationality %}{{ creator.nationality.demonym }}{% else %}N/A{% endif %}</td>
+                        <td>{% if creator.nationality %}{{ creator.nationality.demonym }}{% endif %}</td>
                     </tr>
                 {% endfor %}
             </tbody>
