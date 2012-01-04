@@ -395,8 +395,6 @@ class Creator(models.Model):
     def display_roles(self):
         roles = []
         rolestring = ""
-        if self.org_name:
-            roles.append('organization')
         dm = DirectingMember.objects.filter(person=self)
         if dm:
             for time in dm:
@@ -409,6 +407,22 @@ class Creator(models.Model):
         dm = DesignMember.objects.filter(person=self)
         if dm:
             for time in dm:
+                roles.append(time.function.title)
+        pm = ProductionMember.objects.filter(person=self)
+        if pm:
+            for time in pm:
+                roles.append(time.function.title)
+        tm = TechMember.objects.filter(person=self)
+        if tm:
+            for time in tm:
+                roles.append(time.function.title)
+        dm = DocumentationMember.objects.filter(person=self)
+        if dm:
+            for time in dm:
+                roles.append(time.function.title)
+        am = AdvisoryMember.objects.filter(person=self)
+        if am:
+            for time in am:
                 roles.append(time.function.title)
         wrc = WorkRecordCreator.objects.filter(creator=self)
         if wrc:
