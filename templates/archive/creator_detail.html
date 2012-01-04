@@ -32,6 +32,11 @@
               {{ creator.notes|autop }}
             {% endif %}
 
+            {% if creator.website %}
+              <h4>{% trans "Website" %}:</h4>
+              <a href="{{ creator.website }}">{{ creator.website }}</a>
+            {% endif %}
+
             {% if creator.has_works %}
             <div class="linkeditems">
               <h3>{% trans "Written texts" %}</h3>
