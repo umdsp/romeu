@@ -329,7 +329,7 @@ class Creator(models.Model):
                 roles = []
                 for dm in dms:
                     roles.append(dm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': roles.join(', ') }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
         if self.cast_member_for.count() > 0:
             for cm in self.cast_member_for.all():
@@ -341,7 +341,7 @@ class Creator(models.Model):
                 roles = []
                 for dm in dms:
                     roles.append(dm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': roles.join(', ') }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
         if self.technical_team_for.count() > 0:
             for dt in self.technical_team_for.all():
