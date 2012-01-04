@@ -323,7 +323,7 @@ class Creator(models.Model):
     
     def productions(self):
         prods = []
-        if self.directing_team_for.count() > 0:
+        if self.directing_team_for.exists():
             for dt in self.directing_team_for.distinct():
                 dms = DirectingMember.objects.filter(person=self, production=dt)
                 roles = []
@@ -331,11 +331,18 @@ class Creator(models.Model):
                     roles.append(dm.function.title)
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.cast_member_for.count() > 0:
-            for cm in self.cast_member_for.all():
-                x = { 'prod_id': cm.pk, 'prod_title': cm.title, 'venue': cm.venue.title, 'date_range': cm.display_date_range(), 'role': CastMember.objects.filter(person=self, production=cm)[0].function.title }
+        if self.cast_member_for.exists():
+            for cm in self.cast_member_for.distinct():
+                cms = CastMember.objects.filter(person=self, production=cm)
+                roles = []
+                for member in cms:
+                    if member.function.title == "Actor / actress" and member.role:
+                        roles.append(member.role)
+                    else:
+                        roles.append(member.function.title)
+                x = { 'prod_id': cm.pk, 'prod_title': cm.title, 'venue': cm.venue.title, 'date_range': cm.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.design_team_for.count() > 0:
+        if self.design_team_for.exists():
           for dt in self.design_team_for.distinct():
                 dms = DesignMember.objects.filter(person=self, production=dt)
                 roles = []
@@ -343,28 +350,44 @@ class Creator(models.Model):
                     roles.append(dm.function.title)
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.technical_team_for.count() > 0:
-            for dt in self.technical_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': TechMember.objects.filter(person=self, production=dt)[0].function.title }
+        if self.technical_team_for.exists():
+            for dt in self.technical_team_for.distinct():
+                tms = TechMember.objects.filter(person=self, production=dt)
+                roles = []
+                for tm in tms:
+                    roles.append(tm.function.title)
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.production_team_for.count() > 0:
-            for dt in self.production_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ProductionMember.objects.filter(person=self, production=dt)[0].function.title }
+        if self.production_team_for.exists():
+            for dt in self.production_team_for.distinct():
+                pms = ProductionMember.objects.filter(person=self, production=dt)
+                roles = []
+                for pm in pms:
+                    roles.append(pm.function.title)
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.documentation_team_for.count() > 0:
-            for dt in self.documentation_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': DocumentationMember.objects.filter(person=self, production=dt)[0].function.title }
+        if self.documentation_team_for.exists():
+            for dt in self.documentation_team_for.distinct():
+                dms = DocumentationMember.objects.filter(person=self, production=dt)
+                roles = []
+                for dm in dms:
+                    roles.append(dm.function.title)
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.advisory_team_for.count() > 0:
-            for dt in self.advisory_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': AdvisoryMember.objects.filter(person=self, production=dt)[0].function.title }
+        if self.advisory_team_for.exists():
+            for dt in self.advisory_team_for.distinct():
+                ams = AdvisoryMember.objects.filter(person=self, production=dt)
+                roles = []
+                for am in ams:
+                    roles.append(am.function.title)
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
-        if self.company_productions.count() > 0:
-            for dt in self.company_productions.all():
+        if self.company_productions.exists():
+            for dt in self.company_productions.distinct():
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': 'Theater company' }
                 prods.append(x)
-        if self.productions_related_to.count() > 0:
-            for dt in self.productions_related_to.all():
+        if self.productions_related_to.exists():
+            for dt in self.productions_related_to.distinct():
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': 'Related organization' }
                 prods.append(x)
         return prods
@@ -383,16 +406,17 @@ class Creator(models.Model):
                 roles.append('actress')
             else:
                 roles.append('actor')
+        dm = DesignMember.objects.filter(person=self)
+        if dm:
+            for time in dm:
+                roles.append(time.function.title)
         wrc = WorkRecordCreator.objects.filter(creator=self)
         if wrc:
             for time in wrc:
                 roles.append(time.function.title)
         # now put them in a list
         roles = make_unique(roles)
-        for r in roles:
-            rolestring += r
-            rolestring += ", "
-        rolestring = rolestring.rstrip(', ')
+        rolestring = ', '.join(roles)
         rolestring = rolestring.capitalize()
         
         return rolestring
