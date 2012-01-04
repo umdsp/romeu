@@ -122,7 +122,7 @@
                 <ul>
                   {% for p in digital_object.related_production.all %}
                   <li>
-                    <a href="/production/{{ p.pk }}">{{ p.title }}</a>
+                    <a href="/production/{{ p.pk }}">{{ p }}</a>
                   </li>
                   {% endfor %}
                 </ul>
@@ -133,7 +133,7 @@
                 <ul>
                   {% for w in digital_object.related_work.all %}
                   <li>
-                    <a href="/writtenwork/{{ w.pk }}">{{ w.title }}</a>
+                    <a href="/writtenwork/{{ w.pk }}">{{ w }}</a>
                   </li>
                   {% endfor %}
                 </ul>
