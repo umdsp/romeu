@@ -160,14 +160,17 @@ class ProductionDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductionDetailView, self).get_context_data(**kwargs)
-        dos = DigitalObject.objects.select_related().filter(related_production__pk=self.object.pk).filter(files__isnull=False)
-        if dos.exists():
-            viewmore = False
-            files = DigitalFile.objects.select_related().filter(digital_object__in=dos).order_by('?')
-            if files.count() > 10:
-                viewmore = True
-            context['productionobjects'] = files[:10]
-            context['viewmore'] = viewmore
+        objects_list = []
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        alldos = DigitalObject.objects.filter(related_production=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        if alldos:
+            for obj in alldos:
+                item = {}
+                item['image'] = obj.files.all()[0].filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                objects_list.append(item)
+            context['digital_objects'] = objects_list
         directing_team = []
         if DirectingMember.objects.filter(production__pk=self.object.pk).exists():
             for item in DirectingMember.objects.filter(production__pk=self.object.pk):

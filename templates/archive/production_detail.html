@@ -29,37 +29,8 @@
             </nav>
             <h2>{{ production.title }}</h2>
         </header>
-        <section class="objects">
-            
-            {% if productionobjects %}
-                {% thumbnail productionobjects.0.filepath "400x400" crop="center" upscale=False as im %}
-                <img id="largepreview" src="{{ im.url }}" alt='' />
-                {% endthumbnail %}
-                
-                <div>
-                <ul>
-                {% for obj in productionobjects %}
-                    <li>
-                        {% thumbnail obj.filepath "x120" upscale=False as im %}
-                        <a href="/digitalobject/{{ obj.digital_object.pk }}"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt='' title="{{ obj.digital_object.title }}" /></a>
-                        {% endthumbnail %}
-                        {% thumbnail obj.filepath "400x400" crop="center" upscale=False as im %}
-                        <span>{{ im.url }}</span>
-                        {% endthumbnail %}
-                    </li>
-                {% endfor %}
-                </ul>
-                {% if viewmore %}<a href="#">View more digital objects from this production &raquo;</a>{% endif %}
-                </div>
-            {% endif %}
-        </section>
-        
-        <aside>
-            
-        </aside>
-        
-        <section class="data">
-            {# Directors / cast / etc. go here #}
+
+        <section class="main">
             {% if directing_team %}
                 <h4>Directing team:</h4>
                 <table><tbody>
@@ -84,20 +55,24 @@
                 </tbody></table>
             {% endif %}
         </section>
-{% endblock %}
 
-{% block extra_js %}
-    <script>
-        $(window).load(function() {
-            $('.objects ul').isotope({
-                itemSelector: 'li',
-                layoutMode: 'masonryHorizontal'
-            });
-            
-            $('.objects ul li').mouseover(function() {
-                current = $(this);
-                $('#largepreview').attr('src', current.children('span').text());
-            });
-        });
-    </script>
+        <aside>
+          <div class="data">
+
+          </div>
+          {% if digital_objects %}
+          <div class="objects">
+            <div id="digitalobjects">
+              {% for obj in digital_objects %}
+              <a href="/digitalobject/{{ obj.pk }}">
+                {% thumbnail obj.image "210x210" crop="center" as im %}
+                  <img src="{{ im.url }}" />
+                {% endthumbnail %}
+                <span>{{ obj.title }}</span>
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </aside>
 {% endblock %}
