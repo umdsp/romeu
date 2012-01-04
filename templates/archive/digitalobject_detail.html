@@ -109,7 +109,7 @@
                 {% if digital_object.related_creator.exists %}
                 <h4>{% trans "Creators" %}:</h4>
                 <ul>
-                  {% for c in digital_object.related_creator.objects.all %}
+                  {% for c in digital_object.related_creator.all %}
                   <li>
                     <a href="/creator/{{ c.pk }}">{{ c.display_name }}</a>
                   </li>
@@ -120,7 +120,7 @@
                 {% if digital_object.related_production.exists %}
                 <h4>{% trans "Productions" %}:</h4>
                 <ul>
-                  {% for p in digital_object.related_production.objects.all %}
+                  {% for p in digital_object.related_production.all %}
                   <li>
                     <a href="/production/{{ p.pk }}">{{ p.title }}</a>
                   </li>
