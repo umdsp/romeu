@@ -325,39 +325,39 @@ class Creator(models.Model):
         prods = []
         if self.directing_team_for.count() > 0:
             for dt in self.directing_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.begin_date_display() + '&mdash;' + dt.end_date_display(), 'role': DirectingMember.objects.filter(person=self, production=dt)[0].function.title }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': DirectingMember.objects.filter(person=self, production=dt)[0].function.title }
                 prods.append(x)
         if self.cast_member_for.count() > 0:
             for cm in self.cast_member_for.all():
-                x = { 'prod_id': cm.pk, 'prod_title': cm.title, 'venue': cm.venue.title, 'date_range': cm.begin_date_display() + '&mdash;' + cm.end_date_display(), 'role': CastMember.objects.filter(person=self, production=cm)[0].function.title }
+                x = { 'prod_id': cm.pk, 'prod_title': cm.title, 'venue': cm.venue.title, 'date_range': cm.display_date_range(), 'role': CastMember.objects.filter(person=self, production=cm)[0].function.title }
                 prods.append(x)
         if self.design_team_for.count() > 0:
             for dt in self.design_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.begin_date_display() + '&mdash;' + dt.end_date_display(), 'role': DesignMember.objects.filter(person=self, production=dt)[0].function.title }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': DesignMember.objects.filter(person=self, production=dt)[0].function.title }
                 prods.append(x)
         if self.technical_team_for.count() > 0:
             for dt in self.technical_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.begin_date_display() + '&mdash;' + dt.end_date_display(), 'role': TechMember.objects.filter(person=self, production=dt)[0].function.title }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': TechMember.objects.filter(person=self, production=dt)[0].function.title }
                 prods.append(x)
         if self.production_team_for.count() > 0:
             for dt in self.production_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.begin_date_display() + '&mdash;' + dt.end_date_display(), 'role': ProductionMember.objects.filter(person=self, production=dt)[0].function.title }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ProductionMember.objects.filter(person=self, production=dt)[0].function.title }
                 prods.append(x)
         if self.documentation_team_for.count() > 0:
             for dt in self.documentation_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.begin_date_display() + '&mdash;' + dt.end_date_display(), 'role': DocumentationMember.objects.filter(person=self, production=dt)[0].function.title }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': DocumentationMember.objects.filter(person=self, production=dt)[0].function.title }
                 prods.append(x)
         if self.advisory_team_for.count() > 0:
             for dt in self.advisory_team_for.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.begin_date_display() + '&mdash;' + dt.end_date_display(), 'role': AdvisoryMember.objects.filter(person=self, production=dt)[0].function.title }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': AdvisoryMember.objects.filter(person=self, production=dt)[0].function.title }
                 prods.append(x)
         if self.company_productions.count() > 0:
             for dt in self.company_productions.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.begin_date_display() + '&mdash;' + dt.end_date_display(), 'role': 'Theater company' }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': 'Theater company' }
                 prods.append(x)
         if self.productions_related_to.count() > 0:
             for dt in self.productions_related_to.all():
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.begin_date_display() + '&mdash;' + dt.end_date_display(), 'role': 'Related organization' }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': 'Related organization' }
                 prods.append(x)
         return prods
         
