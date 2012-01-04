@@ -753,7 +753,7 @@ class Production(models.Model):
 
     def display_directors(self):
         ds = ""
-        for person in self.directing_team.filter(function=DirectingTeamFunction.objects.get(title_en='Director')):
+        for person in self.directing_team.filter(function=DirectingTeamFunction.objects.get(title='Director')):
             ds += person.display_name()
             ds += ", "
         ds = ds[:-2]
@@ -762,7 +762,7 @@ class Production(models.Model):
 
     def display_directors_links(self):
         ds = ""
-        for person in self.directing_team.filter(function=DirectingTeamFunction.objects.get(title_en='Director')):
+        for person in self.directing_team.filter(function=DirectingTeamFunction.objects.get(title='Director')):
             ds += "<a href='/creator/" + str(person.id) + "'>"
             ds += person.display_name()
             ds += "</a>, "
