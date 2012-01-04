@@ -39,6 +39,7 @@
                 {{ digital_object.notes|autop }}
                 {% endif %}
 
+                <h3>{% trans "Object details" %}:</h3>
                 <dl class="objectdata">
                   {% if digital_object.phys_object_type %}
                   <dt>{% trans "Physical object type" %}:</dt>
@@ -100,8 +101,30 @@
                   <dt>{% trans "Measurements" %}:</dt>
                   <dd>{{ digital_object.measurements }}</dd>
                   {% endif %}
-
                 </dl>
+
+                <h3>{% trans "Related items" %}:</h3>
+                {% if digital_object.related_creator %}
+                <h4>{% trans "Creators" %}:</h4>
+                <ul>
+                  {% for c in digital_object.related_creator.objects.all %}
+                  <li>
+                    <a href="/creator/{{ c.pk }}">{{ c.display_name }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+
+                {% if digital_object.related_production %}
+                <h4>{% trans "Productions" %}:</h4>
+                <ul>
+                  {% for p in digital_object.related_production.objects.all %}
+                  <li>
+                    <a href="/production/{{ p.pk }}">{{ p.title }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
         </section>
         
         <aside class="thumbnails">
