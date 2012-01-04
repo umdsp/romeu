@@ -904,6 +904,19 @@ class Production(models.Model):
             designers.append(x)
         return designers
 
+    def all_techs(self):
+        techs = []
+        for person in self.technical_team.distinct():
+            x = {}
+            x['person'] = person
+            tms = TechMember.objects.filter(person=person, production=self)
+            roles = []
+            for tm in tms:
+                roles.append(tm.function.title)
+            x['functions'] = ', '.join(roles)
+            techs.append(x)
+        return techs
+
     def display_date_range(self):
         if self.begin_date and self.end_date:
             if self.begin_date == self.end_date:
