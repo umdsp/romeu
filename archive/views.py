@@ -130,6 +130,7 @@ class ProductionsListView(ListView):
                 item['title'] = obj.title
                 item['production_title'] = obj.related_production.all()[0].title
                 item['production_id'] = obj.related_production.all()[0].pk
+                item['pk'] = obj.pk
                 objects_list.append(item)
                 
             context['digital_objects'] = objects_list
@@ -206,6 +207,7 @@ class WorkRecordsListView(ListView):
                 item['title'] = obj.title
                 item['work_title'] = obj.related_work.all()[0].title
                 item['work_id'] = obj.related_work.all()[0].pk
+                item['pk'] = obj.pk
                 objects_list.append(item)
                 
         context['digital_objects'] = objects_list
@@ -270,6 +272,7 @@ class VenuesListView(ListView):
                 item['title'] = obj.title
                 item['venue_title'] = obj.related_venue.all()[0].title
                 item['loc_id'] = obj.related_venue.all()[0].pk
+                item['pk'] = obj.pk
                 objects_list.append(item)
                 
         context['digital_objects'] = objects_list

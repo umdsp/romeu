@@ -22,12 +22,12 @@
         {% for obj in digital_objects %}
             <li>
                 <figure>
-                <a href="/venue/{{ obj.loc_id }}">
+                <a href="/digitalobject/{{ obj.pk }}">
                     {% thumbnail obj.image "210x210" crop="center" as im %}
                         <img src="{{ im.url }}" />
                     {% endthumbnail %}
                 </a>
-                <figcaption><a href="/venue/{{ obj.loc_id }}">{{ obj.venue_title }}</a></figcaption>
+                <figcaption><a href="/digitalobject/{{ obj.pk }}">{{ obj.venue_title }}</a></figcaption>
                 </figure>
             </li>
         {% endfor %}
