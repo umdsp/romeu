@@ -106,7 +106,7 @@
                 {% if digital_object.has_related_things %}
                 <h3>{% trans "Related items" %}:</h3>
                 {% endif %}
-                {% if digital_object.related_creator.objects.all.count > 1 %}
+                {% if digital_object.related_creator.exists %}
                 <h4>{% trans "Creators" %}:</h4>
                 <ul>
                   {% for c in digital_object.related_creator.objects.all %}
@@ -117,7 +117,7 @@
                 </ul>
                 {% endif %}
 
-                {% if digital_object.related_production.objects.all.count > 1 %}
+                {% if digital_object.related_production.exists %}
                 <h4>{% trans "Productions" %}:</h4>
                 <ul>
                   {% for p in digital_object.related_production.objects.all %}
