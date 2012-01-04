@@ -294,7 +294,7 @@ class Creator(models.Model):
             if record.work_record.creation_date:
                 date = record.work_record.creation_date_display()
             else:
-                date = "N/A"
+                date = ""
             x = { 'record_id': record.work_record.pk, 'record_title': record.work_record.title, 'function': record.function.title, 'date': date }
             records.append(x)
         return records
