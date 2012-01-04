@@ -1047,8 +1047,8 @@ class DigitalObject(models.Model):
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
     
-    def contribution_date_display(self):
-        return display_date(self.contribution_date, self.contribution_date_precision, self.contribution_date_BC)
+    def phys_obj_date_display(self):
+        return display_date(self.phys_obj_date, self.phys_obj_date_precision, self.phys_obj_date_BC)
     
     def creation_date_display(self):
         return display_date(self.creation_date, self.creation_date_precision, self.creation_date_BC)

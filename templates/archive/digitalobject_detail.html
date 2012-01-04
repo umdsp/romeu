@@ -30,11 +30,77 @@
                 <img id="largepreview" src="{{ im.url }}" alt='' style="display:block;float:none;" /><br />
                 {% endthumbnail %}
 
+                {% if digital_object.summary %}
+                {{ digital_object.summary|autop }}
+                {% endif %}
+
+                {% if digital_object.notes %}
+                <h3>{% trans "Notes" %}:</h3>
+                {{ digital_object.notes|autop }}
+                {% endif %}
+
                 <dl class="objectdata">
-                  <dt>Object ID:</dt>
+                  {% if digital_object.phys_object_type %}
+                  <dt>{% trans "Physical object type" %}:</dt>
+                  <dd>{{ digital_object.phys_object_type.title }}</dd>
+                  {% endif %}
+                  
+                  {% if digital_object.donor %}
+                  <dt>{% trans "Donor" %}:</dt>
+                  <dd>{{ digital_object.donor }}</dd>
+                  {% endif %}
+
+                  {% if digital_object.sponsor_note %}
+                  <dt>{% trans "Sponsor note" %}:</dt>
+                  <dd>{{ digital_object.sponsor_note }}</dd>
+                  {% endif %}
+
+                  {% if digital_object.phys_obj_date %}
+                  <dt>{% trans "Physical object date" %}:</dt>
+                  <dd>{{ digital_object.phys_obj_date_display }}</dd>
+                  {% endif %}
+
+                  {% if digital_object.phys_obj_location %}
+                  <dt>{% trans "Physical object location" %}:</dt>
+                  <dd>{{ digital_object.phys_obj_location }}</dd>
+                  {% endif %}
+
+                  {% if digital_object.digi_object_format %}
+                  <dt>{% trans "Digital object format" %}:</dt>
+                  <dd>{{ digital_object.digi_object_format }}</dd>
+                  {% endif %}
+
+                  <dt>{% trans "Object ID" %}:</dt>
                   <dd>{{ digital_object.object_number }}</dd>
-                  <dt>Collection:</dt>
+                  
+                  <dt>{% trans "Collection" %}:</dt>
                   <dd>{{ digital_object.collection.title }}</dd>
+                  
+                  {% if digital_object.rights_holders %}
+                  <dt>{% trans "Rights holders" %}:</dt>
+                  <dd>{{ digital_object.rights_holders }}</dd>
+                  {% endif %}
+                  
+                  {% if digital_object.license_type %}
+                  <dt>{% trans "License" %}:</dt>
+                  <dd>{{ digital_object.license_type.title }}</dd>
+                  {% endif %}
+                  
+                  {% if digital_object.identifier %}
+                  <dt>{% trans "Identifier (e.g. ISBN, DOI)" %}:</dt>
+                  <dd>{{ digital_object.identifier }}</dd>
+                  {% endif %}
+                  
+                  {% if digital_object.marks %}
+                  <dt>{% trans "Marks / inscriptions" %}:</dt>
+                  <dd>{{ digital_object.marks }}</dd>
+                  {% endif %}
+                  
+                  {% if digital_object.measurements %}
+                  <dt>{% trans "Measurements" %}:</dt>
+                  <dd>{{ digital_object.measurements }}</dd>
+                  {% endif %}
+
                 </dl>
         </section>
         
