@@ -132,6 +132,15 @@
                 <span>{{ production.display_date_range }}</span>
               </li>
               {% endif %}
+            </ul>
+            <h4>{% trans "Source work(s)" %}:</h4>
+            <ul>
+              {% for work in production.source_work.all %}
+              <li>
+                <a href="/writtenwork/{{ work.pk }}">{{ work }}</a>
+              </li>
+              {% endfor %}
+            </ul>
           </div>
           {% if digital_objects %}
           <div class="objects">
