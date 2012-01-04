@@ -54,6 +54,7 @@ class CreatorsListView(ListView):
                 item['title'] = obj.title
                 item['creator_name'] = obj.related_creator.all()[0].display_name
                 item['creator_id'] = obj.related_creator.all()[0].pk
+                item['pk'] = obj.pk
                 objects_list.append(item)
                 
         context['digital_objects'] = objects_list
