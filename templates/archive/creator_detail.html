@@ -82,8 +82,8 @@
                     Click to play video
                   {% endif %}
                 </a>
-                <div id="{{ vid.object_id }}" class="mewrapper">
-                  <video src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width=720 height=480></video>
+                <div class="mewrapper">
+                  <video id="{{ vid.object_id }}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width=720 height=480></video>
                 </div>
                 <a href="/digitalobject/{{vid.pk}}">{{ vid.title}}</a>
               </li>
