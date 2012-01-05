@@ -177,7 +177,8 @@
             <ul>
               {% for work in production.source_work.all %}
               <li>
-                <a href="/writtenwork/{{ work.pk }}">{{ work }}</a>
+                <a href="/writtenwork/{{ work.pk }}">{{ work }}</a><br />
+                <span>{% trans "By" %} {{ work.creators_display_links }}</span>
               </li>
               {% endfor %}
             </ul>
