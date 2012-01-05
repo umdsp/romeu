@@ -40,7 +40,6 @@
             <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Type</th>
                     <th>Creators</th>
                     <th>Creation date</th>
                 </tr>
@@ -48,8 +47,7 @@
             <tbody>
                 {% for work in writtenworks_list %}
                     <tr>
-                        <td><a href="/writtenwork/{{work.id}}">{{ work.title }}</a></td>
-                        <td>{{ work.work_type.name }}</td>
+                        <td><a href="/writtenwork/{{work.id}}">{{ work }}</a></td>
                         <td>{% if work.creators_display %}{{ work.creators_display_links|safe }}{% endif %}</td>
                         <td>{% if work.creation_date %}{{ work.creation_date_display }}{% endif %}</td>
                     </tr>
