@@ -66,6 +66,22 @@
                 <span>{{ workrecord.publication_date_display }}</span>
               </li>
               {% endif %}
+            </ul>
+          </div>
+
+          {% if digital_objects %}
+          <div class="objects">
+            <div id="digitalobjects">
+              {% for obj in digitalobjects %}
+              <a href="/digitalobject/{{ obj.pk }}">
+                {% thumbnail obj.image "210x210" crop="center" as im %}
+                  <img src="{{ im.url }}" />
+                {% endthumbnail %}
+                <span>{{ obj.title }}</span>
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
         </aside>
-                
 {% endblock %}

@@ -230,11 +230,17 @@ class WorkRecordDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(WorkRecordDetailView, self).get_context_data(**kwargs)
-        digiobj = DigitalObject.objects.filter(related_work__pk=self.object.pk).filter(files__isnull=False).order_by('?')
-        if digiobj.exists():
-            context['workrecordphoto'] = MEDIA_URL + default.backend.get_thumbnail(digiobj[0].files.order_by('?')[0].filepath, "100x100", crop='center').name
-        else:
-            context['workrecordphoto'] = STATIC_URL + 'images/nophoto.jpg'
+        objects_list = []
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        alldos = DigitalObject.objects.filter(related_work=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        if alldos:
+            for obj in alldos:
+                item = {}
+                item['image'] = obj.files.all()[0].filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                objects_list.append(item)
+            context['digital_objects'] = objects_list
         return context
         
 class VenuesListView(ListView):
