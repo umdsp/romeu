@@ -28,7 +28,7 @@
                         <img src="{{ im.url }}" />
                     {% endthumbnail %}
                 </a>
-                <figcaption><a href="/production/{{ obj.production_id }}">{{ obj.production_title }}</a></figcaption>
+                <figcaption><a href="/production/{{ obj.production_id }}">{{ obj.production_title|safe }}</a></figcaption>
                 </figure>
             </li>
         {% endfor %}
