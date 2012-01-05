@@ -564,7 +564,7 @@ class Location(models.Model):
 
     def __unicode__(self):
         if self.pk == 45:
-            return _("Unknown")
+            return _(u"Unknown")
         if self.begin_date or self.end_date:
             return "%s (%s), %s-%s" % (self.title, self.country.name, self.begin_date_display(), self.end_date_display())
         else:
