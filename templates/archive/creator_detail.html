@@ -67,7 +67,19 @@
                 </ul>
             </div>
             {% endif %}
-            
+
+            {% if videos %}
+            <hr />
+            <ul>
+              {% for vid in videos %}
+              <li>
+                <video src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width=720 height=480></video>
+                <a href="/digitalobject/{{vid.pk}}">{{ vid.title}}</a>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+
         </section>
 
         <aside>
