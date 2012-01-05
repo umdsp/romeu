@@ -90,6 +90,7 @@ class CreatorDetailView(DetailView):
         context = super(CreatorDetailView, self).get_context_data(**kwargs)
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
+        videotype = DigitalObjectType.objects.get(title='Video recording')
         alldos = DigitalObject.objects.filter(related_creator=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
         if alldos:
             for obj in alldos:
@@ -99,6 +100,19 @@ class CreatorDetailView(DetailView):
                 item['pk'] = obj.pk
                 objects_list.append(item)
             context['digital_objects'] = objects_list
+        videos = DigitalObject.objects.filter(related_creator=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        if videos:
+            video_list = []
+            for vid in videos:
+                item = {}
+                if vid.poster_image:
+                    item['poster'] = vid.poster_image.filepath
+                item['hidef'] = vid.hi_def_video
+                item['object_id'] = vid.object_number()
+                item['title'] = vid.title
+                item['pk'] = vid.pk
+                video_list.append(item)
+            context['videos'] = video_list
         if self.object.photo:
             context['creatorphoto'] = default.backend.get_thumbnail(self.object.photo.filepath, "100x100", crop="center")
         else:
