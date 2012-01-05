@@ -330,7 +330,7 @@ class Creator(models.Model):
                 roles = []
                 for dm in dms:
                     roles.append(dm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
         if self.cast_member_for.exists():
             for cm in self.cast_member_for.distinct().order_by('-begin_date'):
@@ -341,7 +341,7 @@ class Creator(models.Model):
                         roles.append(member.role.title)
                     else:
                         roles.append(member.function.title)
-                x = { 'prod_id': cm.pk, 'prod_title': cm.title, 'venue': cm.venue.title, 'date_range': cm.display_date_range(), 'role': ', '.join(roles) }
+                x = { 'prod_id': cm.pk, 'prod_title': cm.title, 'venue': cm.venue, 'date_range': cm.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
         if self.design_team_for.exists():
           for dt in self.design_team_for.distinct().order_by('-begin_date'):
@@ -349,7 +349,7 @@ class Creator(models.Model):
                 roles = []
                 for dm in dms:
                     roles.append(dm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
         if self.technical_team_for.exists():
             for dt in self.technical_team_for.distinct().order_by('-begin_date'):
@@ -357,7 +357,7 @@ class Creator(models.Model):
                 roles = []
                 for tm in tms:
                     roles.append(tm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
         if self.production_team_for.exists():
             for dt in self.production_team_for.distinct().order_by('-begin_date'):
@@ -365,7 +365,7 @@ class Creator(models.Model):
                 roles = []
                 for pm in pms:
                     roles.append(pm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
         if self.documentation_team_for.exists():
             for dt in self.documentation_team_for.distinct().order_by('-begin_date'):
@@ -373,7 +373,7 @@ class Creator(models.Model):
                 roles = []
                 for dm in dms:
                     roles.append(dm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
         if self.advisory_team_for.exists():
             for dt in self.advisory_team_for.distinct().order_by('-begin_date'):
@@ -381,15 +381,15 @@ class Creator(models.Model):
                 roles = []
                 for am in ams:
                     roles.append(am.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
         if self.company_productions.exists():
             for dt in self.company_productions.distinct().order_by('-begin_date'):
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': 'Theater company' }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': 'Theater company' }
                 prods.append(x)
         if self.productions_related_to.exists():
             for dt in self.productions_related_to.distinct().order_by('-begin_date'):
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue.title, 'date_range': dt.display_date_range(), 'role': 'Related organization' }
+                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': 'Related organization' }
                 prods.append(x)
         return prods
         

@@ -60,7 +60,7 @@
                   <li>
                     <a href="{{ SITE_URL }}/production/{{ production.prod_id }}">{{ production.prod_title }}</a><br />
                     <span>{{ production.role }}</span><br />
-                    <span>{{ production.venue }}</span><br />
+                    <span><a href="{{ SITE_URL }}/venue/{{ production.venue.pk }}">{{ production.venue.title }}</a></span><br />
                     <span>{{ production.date_range|safe }}</span>
                   </li>
                   {% endfor %}
