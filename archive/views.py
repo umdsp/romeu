@@ -31,7 +31,7 @@ class CreatorsListView(ListView):
     queryset = Creator.objects.filter(published=True).select_related().order_by('creator_name')
     context_object_name = "creators_list"
     template_name = "archive/creators_list.html"
-    paginate_by = 100
+    paginate_by = 120
     
     def get_context_data(self, **kwargs):
         context = super(CreatorsListView, self).get_context_data(**kwargs)
@@ -108,7 +108,7 @@ class ProductionsListView(ListView):
     queryset = Production.objects.filter(published=True).select_related().order_by('title')
     context_object_name = "productions_list"
     template_name = "archive/productions_list.html"
-    paginate_by = 100
+    paginate_by = 120
 
     def get_context_data(self, **kwargs):
         context = super(ProductionsListView, self).get_context_data(**kwargs)
@@ -177,7 +177,7 @@ class WorkRecordsListView(ListView):
     queryset = WorkRecord.objects.filter(published=True).select_related().order_by('title')
     context_object_name = "writtenworks_list"
     template_name = "archive/workrecords_list.html"
-    paginate_by = 100
+    paginate_by = 120
     
     def get_context_data(self, **kwargs):
         context = super(WorkRecordsListView, self).get_context_data(**kwargs)
@@ -241,7 +241,7 @@ class VenuesListView(ListView):
     queryset = Location.objects.filter(published=True).filter(productions__isnull=False).select_related().distinct().order_by('title')
     context_object_name = "venues_list"
     template_name = "archive/venues_list.html"
-    paginate_by = 100
+    paginate_by = 120
     
     def get_context_data(self, **kwargs):
         context = super(VenuesListView, self).get_context_data(**kwargs)
@@ -315,7 +315,7 @@ class DigitalObjectsListView(ListView):
     queryset = DigitalObject.objects.filter(published=True, files__isnull=False, digi_object_format=imagetype).distinct().select_related().order_by('-creation_date')
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 30
+    paginate_by = 36
         
 class DigitalObjectDetailView(DetailView):
     queryset = DigitalObject.objects.filter(published=True).select_related()
