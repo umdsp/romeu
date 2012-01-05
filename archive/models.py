@@ -478,7 +478,7 @@ class Creator(models.Model):
             return { 'title': p.title, 'creators': people }
 
     def has_digital_objects(self):
-        if DigitalObject.objects.filter(related_creator=self).exists():
+        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
             return True
         else:
             return False

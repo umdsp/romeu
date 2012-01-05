@@ -125,7 +125,7 @@
           {% if creator.has_digital_objects %}
           <div class="objects">
             <div id="digitalobjects">
-                            {% for obj in digital_objects %}
+                {% for obj in digital_objects %}
                 <a href="/digitalobject/{{ obj.pk }}">
                 {% thumbnail obj.image "210x210" crop="center" as im %}
                     <img src="{{ im.url }}" />
