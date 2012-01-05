@@ -73,7 +73,16 @@
             <ul>
               {% for vid in videos %}
               <li>
-                <video src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width=720 height=480></video>
+                <a href="#{{ vid.object_id }}" class="fancybox">
+                  {% if vid.poster %}
+                  {% thumbnail vid.poster "200x134" crop="center" as im %}
+                    <img src="{{ im.url }}" alt="Link to video of {{ vid.title }}" />
+                  {% endthumbnail %}
+                  {% else %}
+                    Click to play video
+                  {% endif %}
+                </a>
+                <video id="{{ vid.object_id }}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width=720 height=480></video>
                 <a href="/digitalobject/{{vid.pk}}">{{ vid.title}}</a>
               </li>
               {% endfor %}
