@@ -106,7 +106,7 @@ class CreatorDetailView(DetailView):
             for vid in videos:
                 item = {}
                 if vid.poster_image:
-                    item['poster'] = vid.poster_image.filepath
+                    item['poster'] = vid.poster_image
                 item['hidef'] = vid.hi_def_video
                 item['object_id'] = vid.object_number()
                 item['title'] = vid.title
@@ -194,7 +194,7 @@ class ProductionDetailView(DetailView):
             for vid in videos:
                 item = {}
                 if vid.poster_image:
-                    item['poster'] = vid.poster_image.filepath
+                    item['poster'] = vid.poster_image
                 item['hidef'] = vid.hi_def_video
                 item['object_id'] = vid.object_number()
                 item['title'] = vid.title
