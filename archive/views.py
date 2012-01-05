@@ -14,7 +14,6 @@ from django.template import loader, RequestContext
 from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_protect
 
-
 from settings import MEDIA_URL, STATIC_URL
 
 from sorl.thumbnail import default
@@ -26,6 +25,9 @@ from haystack.query import SearchQuerySet
 from haystack.views import SearchView
 
 from random import randrange
+
+# For flatpages
+DEFAULT_TEMPLATE = 'flatpages/default.html'
 
 class CreatorsListView(ListView):
     queryset = Creator.objects.filter(published=True).select_related().order_by('creator_name')

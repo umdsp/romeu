@@ -18,6 +18,7 @@
         </header>
 
         <section class="main">
+          <h4>{{ workrecord.work_type.name }}</h4>
           {% if workrecord.summary %}
             {{ workrecord.summary|autop }}
           {% endif %}
