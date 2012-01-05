@@ -3,31 +3,21 @@
 {% load thumbnail %}
 {% load i18n %}
 
-{% block article_header %}
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/writtenworks">Written Works</a></li>
-                </ul>
-            </nav>
-            <img src="{{ workrecordphoto }}" alt="Photo of {{ workrecord.title }}" />
-            <h1>{{ workrecord.title }}</h1>
-            <span>By {{ workrecord.creators_display_links|safe }}</span><br />
-            <span>{{ workrecord.work_type }}</span><br />
-            <span>{% if workrecord.creation_date %}Created {{ workrecord.creation_date_display }} {% endif %}{% if workrecord.publication_date %}Published {{ workrecord.publication_date_display }}{% endif %}</span>
-{% endblock %}
+{% block body_class %}detail{% endblock %}
 
 {% block content %}
-        <section class="objects">
-            
-        </section>
-        
-        <aside>
-            
-        </aside
-        
-        <section class="data">
-            {% if workrecord.performances.all %}
+        <header>
+          <nav class="breadcrumbs">
+            <ul>
+              <li><a href="/">{% trans "Home" %}</a></li>
+              <li><a href="/writtenworks">{% trans "Written Works" %}</a></li>
+              <li>{{ workrecord.title }}</li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="main">
+            {% if workrecord.performances.exists %}
                 <h3>Performances</h3>
                 <table>
                     <thead>
@@ -51,4 +41,32 @@
                 </table>
             {% endif %}
         </section>
+        
+        <aside>
+          <div class="data">
+            <ul>
+              {% if workrecord.title_variants %}
+              <li>
+                <h4>{% trans "Also known as" %}:</h4>
+                <span>{{ workrecord.title_variants }}</span>
+              </li>
+              {% endif %}
+              <li>
+                <h4>{% trans "Written by" %}:</h4>
+                <span>{{ workrecord.creators_display_links|safe }}</span>
+              </li>
+              {% if workrecord.creation_date %}
+              <li>
+                <h4>{% trans "Creation date" %}:</h4>
+                <span>{{ workrecord.creation_date_display }}</span>
+              </li>
+              {% endif %}
+              {% if workrecord.publication_date %}
+              <li>
+                <h4>{% trans "Publication date" %}:</h4>
+                <span>{{ workrecord.publication_date_display }}</span>
+              </li>
+              {% endif %}
+        </aside>
+                
 {% endblock %}
