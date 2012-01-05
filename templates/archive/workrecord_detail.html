@@ -18,6 +18,13 @@
         </header>
 
         <section class="main">
+          {% if workrecord.summary %}
+            {{ workrecord.summary|autop }}
+          {% endif %}
+          {% if workrecord.notes %}
+            <h3>{% trans "Notes" %}:</h3>
+            {{ workrecord.notes|autop }}
+          {% endif %}
           {% if workrecord.performances.exists %}
           <div class="linkeditems">
             <h3>{% trans "Performances" %}:</h3>
