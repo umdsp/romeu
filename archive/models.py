@@ -6,6 +6,7 @@ from django.db import models
 from django.db.models import Min, Max, Avg, Count
 from django.db.models.signals import pre_save, post_save, post_delete
 from django.contrib.auth import models as auth_models
+from django.utils.translation import ugettext
 from django.utils.translation import ugettext_lazy as _
 
 from unidecode import unidecode
@@ -564,7 +565,7 @@ class Location(models.Model):
 
     def __unicode__(self):
         if self.pk == 45:
-            return _(u"Unknown")
+            return ugettext(u"Unknown")
         if self.begin_date or self.end_date:
             return "%s (%s), %s-%s" % (self.title, self.country.name, self.begin_date_display(), self.end_date_display())
         else:
