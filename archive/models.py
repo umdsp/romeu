@@ -16,7 +16,7 @@ from taggit.managers import TaggableManager
 from archive.utils import display_date
 from archive import constants
 
-import reversion
+# import reversion
 
 from random import choice, shuffle
 
@@ -1199,7 +1199,7 @@ class DigitalObject(models.Model):
     restricted_description = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Details of restrictions"))
     ready_to_stream = models.BooleanField(default=False, verbose_name=_("Uploaded to streaming server"))
     hi_def_video = models.BooleanField(default=False, verbose_name=_("Hi-def video"))
-    poster_image = models.FileField(upload_to='poster_images', storage=OverwriteStorage(), verbose_name=_("Poster image (for videos)"), null=True, blank=True)
+    poster_image = models.FileField(upload_to='digitalobjects/poster_images', storage=OverwriteStorage(), verbose_name=_("Poster image (for videos)"), null=True, blank=True)
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
@@ -1560,9 +1560,9 @@ class TranslatingFlatPage(FlatPage):
         verbose_name = _("Static page")
 
 # register version control
-reversion.register(Creator)
-reversion.register(Location)
-reversion.register(WorkRecord)
-reversion.register(Production)
-reversion.register(FestivalOccurrence)
+# reversion.register(Creator)
+# reversion.register(Location)
+# reversion.register(WorkRecord)
+# reversion.register(Production)
+# reversion.register(FestivalOccurrence)
 # reversion.register(DigitalObject)

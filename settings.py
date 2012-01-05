@@ -101,8 +101,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'reversion.middleware.RevisionMiddleware',
-    # Custom FlatpageFallbackMiddleware that works with TranslatingFlatPage.
-    'archive.middleware.FlatpageFallbackMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 #INTERNAL_IPS = ('127.0.0.1',)
@@ -124,7 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.flatpages',
     'sorl.thumbnail',
-    'reversion',
+    #'reversion',
     'archive',
     'workflow',
     'modeltranslation',

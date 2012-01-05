@@ -70,7 +70,7 @@
 
             {% if videos %}
             <hr />
-            <ul>
+            <ul class="videos">
               {% for vid in videos %}
               <li>
                 <a href="#{{ vid.object_id }}" class="fancybox">
@@ -82,7 +82,9 @@
                     Click to play video
                   {% endif %}
                 </a>
-                <video id="{{ vid.object_id }}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width=720 height=480></video>
+                <div id="{{ vid.object_id }}" class="mewrapper">
+                  <video src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width=720 height=480></video>
+                </div>
                 <a href="/digitalobject/{{vid.pk}}">{{ vid.title}}</a>
               </li>
               {% endfor %}
