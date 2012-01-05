@@ -188,7 +188,7 @@ class ProductionDetailView(DetailView):
                 item['pk'] = obj.pk
                 objects_list.append(item)
             context['digital_objects'] = objects_list
-        videos = DigitalObject.objects.filter(related_creator=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        videos = DigitalObject.objects.filter(related_production=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
         if videos:
             video_list = []
             for vid in videos:

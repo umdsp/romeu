@@ -185,7 +185,7 @@ class DigitalFileInline(admin.TabularInline):
     verbose_name_plural = "digital files"
 
 # ADMIN MODELS
-class CreatorAdmin(TranslatingVersioningAdmin):
+class CreatorAdmin(TranslationAdmin):
     form = arcforms.CreatorAdminForm
     list_display = ('creator_name', 'nationality', 'birth_date_display', 'death_date_display', 'has_system_links',)
     list_filter = ('published','has_attention',)
@@ -238,7 +238,7 @@ class BibliographicRecordAdmin(admin.ModelAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
-class LocationAdmin(TranslatingVersioningAdmin):
+class LocationAdmin(TranslationAdmin):
     form = arcforms.LocationAdminForm
     list_display = ('title', 'begin_date_display', 'end_date_display', 'city', 'state', 'country', 'has_system_links',)
     search_fields = ['title_ascii', 'title', 'title_variants', 'city__name', 'state', 'summary', 'notes']
@@ -296,7 +296,7 @@ class StageAdmin(TranslationAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
-class WorkRecordAdmin(TranslatingVersioningAdmin):
+class WorkRecordAdmin(TranslationAdmin):
     form = arcforms.WorkRecordAdminForm
     inlines = (WorkRecordCreatorInline, RoleInline, RelatedWorkInline,)
     list_display = ('title', 'creators_display', 'work_type', 'genre', 'culture', 'style', 'has_system_links')
@@ -342,7 +342,7 @@ class RoleAdmin(admin.ModelAdmin):
         super(RoleAdmin, self).__init__(model, admin_site)
         self.form.admin_site = admin_site
 
-class ProductionAdmin(TranslatingVersioningAdmin):
+class ProductionAdmin(TranslationAdmin):
     form = arcforms.ProductionAdminForm
     inlines = (DirectingMemberInline, CastMemberInline, DesignMemberInline, TechMemberInline, ProductionMemberInline,)
     list_display = ('title', 'venue', 'stage', 'display_directors', 'begin_date_display', 'end_date_display', 'has_system_links')
@@ -388,7 +388,7 @@ class FestivalAdmin(TranslationAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
-class FestivalOccurrenceAdmin(TranslatingVersioningAdmin):
+class FestivalOccurrenceAdmin(TranslationAdmin):
     form = arcforms.FestivalOccurrenceAdminForm
     inlines = (FestivalParticipantInline,)
     date_hierarchy = 'begin_date'
@@ -451,7 +451,7 @@ class CollectionAdmin(TranslationAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
-class DigitalObjectAdmin(TranslatingVersioningAdmin):
+class DigitalObjectAdmin(TranslationAdmin):
     form = arcforms.DigitalObjectAdminForm
     inlines = (DigitalFileInline,)
     search_fields = ['title', 'title_variants']
