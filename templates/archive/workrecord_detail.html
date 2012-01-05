@@ -22,7 +22,7 @@
           <div class="linkeditems">
             <h3>{% trans "Performances" %}:</h3>
             <ul>
-              {% for perf in workrecord.performances %}
+              {% for perf in workrecord.performances.all %}
               <li>
                 <a href="{{ SITE_URL }}/production/{{ perf.pk }}">{{ perf.title }}</a>
                 {% if perf.display_directors %}
