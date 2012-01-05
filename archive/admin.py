@@ -477,7 +477,7 @@ class DigitalObjectAdmin(TranslatingVersioningAdmin):
             'fields': ('related_production', 'related_festival', 'related_venue', 'related_creator', 'related_work',)
         },),
         ('Video settings', {
-            'fields': (('restricted', 'restricted_description'), 'ready_to_stream', 'poster_image')
+            'fields': (('restricted', 'restricted_description'), 'ready_to_stream', 'hi_def_video', 'poster_image')
         },),
         ('Standard fields', {
             'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published',)

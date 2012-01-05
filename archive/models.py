@@ -1198,6 +1198,7 @@ class DigitalObject(models.Model):
     restricted = models.BooleanField(default=False, verbose_name=_("Restricted?"))
     restricted_description = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Details of restrictions"))
     ready_to_stream = models.BooleanField(default=False, verbose_name=_("Uploaded to streaming server"))
+    hi_def_video = models.BooleanField(default=False, verbose_name=_("Hi-def video"))
     poster_image = models.FileField(upload_to='poster_images', storage=OverwriteStorage(), verbose_name=_("Poster image (for videos)"), null=True, blank=True)
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
     has_attention = models.BooleanField(default=False)

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-05 11:23-0500\n"
-"PO-Revision-Date: 2012-01-05 11:27\n"
+"PO-Revision-Date: 2012-01-05 13:47\n"
 "Last-Translator: Kevin Zurawel <k.zurawel@miami.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr "y"
 
 #: archive/autocomplete_admin.py:414 archive/autocomplete_admin.py:528
 #: archive/autocomplete_admin.py:648 archive/autocomplete_admin.py:754
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Use the left field to do %(model_name)s lookups in the fields "
 "%(field_list)s."
@@ -466,7 +466,7 @@ msgstr "procedencia"
 #: archive/models.py:79
 #, fuzzy
 msgid "parent subject"
-msgstr "padre sujeto"
+msgstr ""
 
 #: archive/models.py:85
 msgid "creator type"
@@ -1786,7 +1786,7 @@ msgstr "Archivo Digital de Teatro Cubano"
 #: templates/base.html:32 templates/base.html.py:44
 #: templates/admin/index.html:21 templates/admin/archive/app_index.html:14
 msgid "Go"
-msgstr "Cambiar"
+msgstr "Busque"
 
 #: templates/base.html:42
 msgid "Search"
@@ -1794,15 +1794,15 @@ msgstr "Búsqueda"
 
 #: templates/base.html:43
 msgid "Search..."
-msgstr "Busque . . ."
+msgstr " "
 
 #: templates/base.html:48
 msgid "About"
-msgstr ""
+msgstr "Sobre ADTC"
 
 #: templates/base.html:49
 msgid "People"
-msgstr "Personas"
+msgstr "Personal"
 
 #: templates/base.html:50
 msgid "Participate"
@@ -1871,9 +1871,8 @@ msgid "UM Libraries"
 msgstr ""
 
 #: templates/base.html:78
-#, fuzzy
 msgid "UM Digital Scholarship"
-msgstr "copia digital"
+msgstr "UM Investigación Digital"
 
 #: templates/base.html:79
 msgid "Cuban Heritage Collection"
@@ -1921,7 +1920,7 @@ msgstr ""
 " pero su cuenta no le permite eliminar los siguientes objetos:"
 
 #: templates/admin/delete_confirmation.html:25
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Deleting the %(object_name)s '%(escaped_object)s' would require "
 "deleting the following protected related objects:"
@@ -1930,7 +1929,7 @@ msgstr ""
 "relacionados que están protegidos: "
 
 #: templates/admin/delete_confirmation.html:33
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Are you sure you want to delete the %(object_name)s "
 "\"%(escaped_object)s\"? The %(object_name)s and the following links "
@@ -2217,7 +2216,6 @@ msgid "Delete?"
 msgstr "borrar?"
 
 #: templates/admin/edit_inline/tabular.html:28
-#, fuzzy
 msgid "View on site"
 msgstr "ver en la página "
 
@@ -2246,20 +2244,19 @@ msgstr "Obras escritas"
 
 #: templates/archive/creator_detail.html:90
 msgid "Place of birth"
-msgstr ""
+msgstr "Lugar de nacimiento"
 
 #: templates/archive/creator_detail.html:102
 msgid "Place of death"
-msgstr ""
+msgstr "Lugar de fallecimiento"
 
 #: templates/archive/creator_detail.html:108
 msgid "Related creators"
 msgstr "Creadores relacionados"
 
 #: templates/archive/digitalobject_detail.html:42
-#, fuzzy
 msgid "Object details"
-msgstr "Encabezamientos de temas"
+msgstr "Detalles del objeto"
 
 #: templates/archive/digitalobject_detail.html:50
 msgid "Donor"
@@ -2278,7 +2275,6 @@ msgid "Object ID"
 msgstr "ID de objeto"
 
 #: templates/archive/digitalobject_detail.html:81
-#, fuzzy
 msgid "Rights holders"
 msgstr "persona que tiene los derechos"
 
@@ -2288,21 +2284,19 @@ msgstr "Licencia"
 
 #: templates/archive/digitalobject_detail.html:91
 msgid "Identifier (e.g. ISBN, DOI)"
-msgstr ""
+msgstr "Identificador"
 
 #: templates/archive/digitalobject_detail.html:96
 msgid "Marks / inscriptions"
 msgstr "Marcas / inscripciones"
 
 #: templates/archive/digitalobject_detail.html:101
-#, fuzzy
 msgid "Measurements"
 msgstr "medidas"
 
 #: templates/archive/digitalobject_detail.html:107
-#, fuzzy
 msgid "Related items"
-msgstr "Título relacionado"
+msgstr "Objetos relacionados"
 
 #: templates/archive/digitalobject_detail.html:132
 msgid "Written works"
@@ -2356,7 +2350,6 @@ msgid "Documentation team"
 msgstr "Equipo de documentación"
 
 #: templates/archive/production_detail.html:140
-#, fuzzy
 msgid "Advisory team"
 msgstr "Equipo de asesoría"
 
@@ -2365,13 +2358,12 @@ msgid "Production dates"
 msgstr "Fechas de producción"
 
 #: templates/archive/production_detail.html:176
-#, fuzzy
 msgid "Source work(s)"
-msgstr "texto fuente"
+msgstr "Texto fuente"
 
 #: templates/archive/production_detail.html:181
 msgid "By"
-msgstr ""
+msgstr "Por"
 
 #: templates/archive/productions_list.html:43
 msgid "Director"
@@ -2388,13 +2380,12 @@ msgid "Directed by"
 msgstr "Directado por"
 
 #: templates/archive/workrecord_detail.html:31
-#, fuzzy
 msgid "Performances"
 msgstr "Performance"
 
 #: templates/archive/workrecord_detail.html:57
 msgid "Also known as"
-msgstr ""
+msgstr "También conocido como"
 
 #: templates/archive/workrecord_detail.html:62
 msgid "Written by"
