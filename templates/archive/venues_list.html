@@ -27,7 +27,7 @@
                         <img src="{{ im.url }}" />
                     {% endthumbnail %}
                 </a>
-                <figcaption><a href="/digitalobject/{{ obj.pk }}">{{ obj.venue_title }}</a></figcaption>
+                <figcaption><a href="/venue/{{ obj.loc_id }}">{{ obj.venue_title }}</a></figcaption>
                 </figure>
             </li>
         {% endfor %}
