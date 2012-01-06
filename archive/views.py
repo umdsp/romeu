@@ -398,7 +398,7 @@ def flatpage(request, url, **kwargs):
 @csrf_protect
 def render_flatpage(request, f):
     if f.template_name:
-        t = loader.select_template(f.template_name)
+        t = loader.select_template([f.template_name, DEFAULT_TEMPLATE])
     else:
         t = loader.get_template(DEFAULT_TEMPLATE)
 
