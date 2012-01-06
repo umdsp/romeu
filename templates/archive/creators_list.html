@@ -39,7 +39,7 @@
         <table id="creators_list">
             <thead>
                 <tr>
-                    <th style="width:140px"></th>
+                    <th style="width:76px"></th>
                     <th style="width:50%">Name</th>
                     <th>Roles</th>
                 </tr>
@@ -47,9 +47,19 @@
             <tbody>
                 {% for creator in creators_list %}
                     <tr>
-                        <td></td>
-                        <td><a href="/creator/{{creator.id}}">{{ creator }}</a></td>
-                        <td>{% if creator.display_roles %}{{ creator.display_roles }}{% endif %}</td>
+                      <td>
+                        {% if creator.has_images %}
+                        <img src="{{ STATIC_URL }}images/images.png" alt="Images available" />
+                        {% endif %}
+                        {% if creator.has_videos %}
+                        <img src="{{ STATIC_URL }}images/video.png" alt="Video available" />
+                        {% endif %}
+                        {% if creator.has_audio %}
+                        <img src="{{ STATIC_URL }}images/audio.png" alt="Audio available" />
+                        {% endif %}
+                      </td>
+                      <td><a href="/creator/{{creator.id}}">{{ creator }}</a></td>
+                      <td>{% if creator.display_roles %}{{ creator.display_roles }}{% endif %}</td>
                     </tr>
                 {% endfor %}
             </tbody>

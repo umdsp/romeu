@@ -483,6 +483,24 @@ class Creator(models.Model):
         else:
             return False
 
+    def has_images(self):
+        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+            return True
+        else:
+            return False
+
+    def has_videos(self):
+        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording")).exists():
+            return True
+        else:
+            return False
+
+    def has_audio(self):
+        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+            return True
+        else:
+            return False
+
     def __unicode__(self):
         if self.birth_date and self.death_date:
             return "%s, %s-%s" % (self.creator_name, self.birth_date_display(), self.death_date_display())
