@@ -490,7 +490,7 @@ class Creator(models.Model):
             return False
 
     def has_videos(self):
-        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording")).exists():
+        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
             return True
         else:
             return False
