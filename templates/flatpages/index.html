@@ -3,11 +3,7 @@
 
 {% block content %}
 <section id="contentblock">
-    {% if LANGUAGE_CODE == 'en' %}
-      {{ flatpage.content_en }}
-    {% else %}
-      {{ flatpage.content_es }}
-    {% endif %}
+      {{ flatpage.content }}
     </section>
     {% random_object_fig %}
     {% random_object_fig %}

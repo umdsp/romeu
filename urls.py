@@ -13,7 +13,7 @@ from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView, search_view_factory
 
-from django.contrib.flatpages.views import flatpage
+from archive.views import flatpage
 
 from dajaxice.core import dajaxice_autodiscover
 dajaxice_autodiscover()
