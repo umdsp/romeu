@@ -49,13 +49,13 @@
                     <tr>
                       <td>
                         {% if creator.has_images %}
-                        <img src="{{ STATIC_URL }}images/images.png" alt="Images available" />
+                        <img src="{{ STATIC_URL }}images/images.png" alt="{% trans "Images available" %}" title="{% trans "Images available" %}" />
                         {% endif %}
                         {% if creator.has_videos %}
-                        <img src="{{ STATIC_URL }}images/video.png" alt="Video available" />
+                        <img src="{{ STATIC_URL }}images/video.png" alt="{% trans "Video available" %}" title="{% trans "Video available" %}" />
                         {% endif %}
                         {% if creator.has_audio %}
-                        <img src="{{ STATIC_URL }}images/audio.png" alt="Audio available" />
+                        <img src="{{ STATIC_URL }}images/audio.png" alt="{% trans "Audio available" %}" title="{% trans "Audio available" %}" />
                         {% endif %}
                       </td>
                       <td><a href="/creator/{{creator.id}}">{{ creator }}</a></td>
