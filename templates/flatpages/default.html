@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {{ request.LANGUAGE_CODE }}
     {% if request.LANGUAGE_CODE == 'en' %}
       {{ flatpage.content_en }}
     {% else %}
