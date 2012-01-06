@@ -226,9 +226,9 @@
       $(document).ready(function() {
         {% for vid in videos %}
         $('#{{ vid.object_id }}').fancybox({
-          content: '<video id="vid-{{vid.object_id}}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width=720 height=480></video>',
-          maxWidth: {% if vid.hi_def_video %}1310{% else %}750{% endif %},
-          maxHeight: {% if vid.hi_def_video %}775{% else %}535{% endif %},
+content: '<video id="vid-{{vid.object_id}}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width={% if vid.hidef %}1280{% else %}720{% endif %} height={% if vid.hidef %}720{% else %}480{% endif %}></video>',
+          maxWidth: {% if vid.hidef %}1310{% else %}750{% endif %},
+          maxHeight: {% if vid.hidef %}775{% else %}535{% endif %},
           afterShow: function() {
             $('#vid-{{vid.object_id}}').mediaelementplayer();
           }
