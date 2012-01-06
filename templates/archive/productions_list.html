@@ -39,6 +39,7 @@
         <table id="productions_list">
             <thead>
                 <tr>
+                    <th style="width:54px"></th>
                     <th>{% trans "Title" %}</th>
                     <th>{% trans "Director" %}</th>
                     <th>{% trans "Venue" %}</th>
@@ -48,6 +49,17 @@
             <tbody>
                 {% for production in productions_list %}
                     <tr>
+                        <td>
+                          {% if production.has_images %}
+                          <a href="/production/{{ production.id }}"><img src="{{ STATIC_URL }}images/images.png" alt="{% trans "Images available" %}" title="{% trans "Images available" %}" /></a>
+                          {% endif %}
+                          {% if production.has_videos %}
+                          <a href="/production/{{ production.id }}"><img src="{{ STATIC_URL }}images/video.png" alt="{% trans "Video available" %}" title="{% trans "Video available" %}" /></a>
+                          {% endif %}
+                          {% if production.has_audio %}
+                          <a href="/production/{{ production.id }}"><img src="{{ STATIC_URL }}images/audio.png" alt="{% trans "Audio available" %}" title="{% trans "Audio available" %}" /></a>
+                          {% endif %}
+                        </td>
                         <td><a href="/production/{{production.id}}">{{ production.title }}</a></td>
                         <td>{{ production.display_directors_links|safe }}</td>
                         <td>{% if production.venue %}<a href="/venue/{{ production.venue.id }}">{{ production.venue }}</a>{% endif %}</td>

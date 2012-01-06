@@ -988,6 +988,25 @@ class Production(models.Model):
         else:
             return ''
 
+    def has_images(self):
+        if DigitalObject.objects.filter(related_production=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+            return True
+        else:
+            return False
+
+    def has_videos(self):
+        if DigitalObject.objects.filter(related_production=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+            return True
+        else:
+            return False
+
+    def has_audio(self):
+        if DigitalObject.objects.filter(related_production=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+            return True
+        else:
+            return False
+
+
     def __unicode__(self):
         if self.begin_date:
             return "%s (%s, %s)" % (self.title, self.venue.title, self.begin_date_display())
