@@ -101,7 +101,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'reversion.middleware.RevisionMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'archive.middleware.FlatpageFallbackMiddleware',
 )
 
 #INTERNAL_IPS = ('127.0.0.1',)
