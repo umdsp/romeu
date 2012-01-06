@@ -161,7 +161,7 @@
           <ul class="videos">
             {% for vid in videos %}
             <li>
-              <a href="#{{ vid.object_id }}" class="fancybox">
+              <a id="{{ vid.object_id }}" class="fancybox">
                 {% if vid.poster %}
                 {% thumbnail vid.poster "200x134" crop="center" as im %}
                   <img src="{{ im.url }}" alt="Link to video of {{ vid.title }}" />
@@ -170,11 +170,6 @@
                   Click to play video
                 {% endif %}
               </a>
-              <div class="mewrapper">
-                <div id="{{ vid.object_id }}">
-                  <video src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width=720 height=480></video>
-                </div>
-              </div>
               <a href="/digitalobject/{{vid.pk}}">{{ vid.title}}</a>
             </li>
             {% endfor %}
@@ -224,4 +219,21 @@
           </div>
           {% endif %}
         </aside>
-{% endblock %}
+    {% endblock %}
+
+    {% block extra_js %}
+    <script>
+      $(document).ready(function() {
+        {% for vid in videos %}
+        $('#{{ vid.object_id }}').fancybox({
+          content: '<video id="vid-{{vid.object_id}}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width=720 height=480></video>',
+          maxWidth: {% if vid.hi_def_video %}1310{% else %}750{% endif %},
+          maxHeight: {% if vid.hi_def_video %}775{% else %}535{% endif %},
+          afterShow: function() {
+            $('#vid-{{vid.object_id}}').mediaelementplayer();
+          }
+        });
+        {% endfor %}
+      });
+    </script>
+    {% endblock %}
