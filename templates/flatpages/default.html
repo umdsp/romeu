@@ -2,7 +2,6 @@
 
 
 {% block content %}
-    {% get_current_language as LANGUAGE_CODE %}
     {% get_language_info for LANGUAGE_CODE as lang %}
     {% if lang.code == 'en' %}
       {{ flatpage.content_en }}
