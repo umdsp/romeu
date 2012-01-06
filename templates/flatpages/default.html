@@ -1,10 +1,9 @@
 {% extends "base.html" %}
-{% get_language_info for LANGUAGE_CODE as lang %}
 
 {% block content %}
-    {% if lang.code == 'en' %}
+    {% if request.LANGUAGE_CODE == 'en' %}
       {{ flatpage.content_en }}
-    {% elif lang.code == 'es' %}
+    {% elif request.LANGUAGE_CODE == 'es' %}
       {{ flatpage.content_es }}
     {% endif %}
 {% endblock %}
