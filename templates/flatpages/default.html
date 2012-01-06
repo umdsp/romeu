@@ -3,7 +3,7 @@
 {% block content %}
     {% if request.LANGUAGE_CODE == 'en' %}
       {{ flatpage.content_en }}
-    {% elif request.LANGUAGE_CODE == 'es' %}
+    {% else %}
       {{ flatpage.content_es }}
     {% endif %}
 {% endblock %}
