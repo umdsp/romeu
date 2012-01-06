@@ -39,6 +39,7 @@
         <table id="creators_list">
             <thead>
                 <tr>
+                    <th style="width:140px"></th>
                     <th style="width:50%">Name</th>
                     <th>Roles</th>
                 </tr>
@@ -46,6 +47,7 @@
             <tbody>
                 {% for creator in creators_list %}
                     <tr>
+                        <td></td>
                         <td><a href="/creator/{{creator.id}}">{{ creator }}</a></td>
                         <td>{% if creator.display_roles %}{{ creator.display_roles }}{% endif %}</td>
                     </tr>
