@@ -2,8 +2,12 @@
 {% load random_object %}
 
 {% block content %}
-    <section id="contentblock">
-        {{ flatpage.content }}
+<section id="contentblock">
+    {% if LANGUAGE_CODE == 'en' %}
+      {{ flatpage.content_en }}
+    {% else %}
+      {{ flatpage.content_es }}
+    {% endif %}
     </section>
     {% random_object_fig %}
     {% random_object_fig %}
