@@ -1,6 +1,6 @@
 from modeltranslation.translator import translator, TranslationOptions
 from archive.models import SubjectSource, SubjectHeading, Creator, RelatedCreator, Location, Stage, WorkRecord, WorkRecordCreator, Production, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, Festival, FestivalOccurrence, FestivalParticipant, Repository, Collection, DigitalObject, Award, AwardCandidate, Country, City, Language, WorkRecordType, WorkRecordFunction, DirectingTeamFunction, CastMemberFunction, DesignTeamFunction, TechTeamFunction, ProductionTeamFunction, OrgFunction, FestivalFunction, PhysicalObjectType, VenueType, License
-from archive.models import TranslatingFlatPage
+from archive.models import TranslatingFlatPage, HomePageInfo
 
 
 class SubjectSourceTranslationOptions(TranslationOptions):
@@ -93,6 +93,9 @@ class VenueTypeTranslationOptions(TranslationOptions):
 class LicenseTranslationOptions(TranslationOptions):
     fields = ('title', 'description',)
 
+class HomePageInfoTranslationOptions(TranslationOptions):
+    fields = ('content',)
+
 translator.register(SubjectSource, SubjectSourceTranslationOptions)
 translator.register(SubjectHeading, SubjectHeadingTranslationOptions)
 translator.register(Creator, CreatorTranslationOptions)
@@ -125,3 +128,4 @@ translator.register(VenueType, VenueTypeTranslationOptions)
 translator.register(License, LicenseTranslationOptions)
 
 translator.register(TranslatingFlatPage, TranslatingFlatPageTranslationOptions)
+translator.register(HomePageInfo, HomePageInfoTranslationOptions)

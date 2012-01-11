@@ -652,7 +652,7 @@ class WorkRecord(models.Model):
     creation_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("creation date"))
     creation_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'y', null=True, blank=True, verbose_name=_("Precision"))
     creation_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
-    publication_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("creation date"))
+    publication_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("publication date"))
     publication_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'y', null=True, blank=True, verbose_name=_("Precision"))
     publication_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
     publication_rights = models.CharField(max_length=30, null=True, blank=True, verbose_name=_("publication rights"))
@@ -1595,6 +1595,20 @@ class TranslatingFlatPage(FlatPage):
     child_of = models.ForeignKey('TranslatingFlatPage', null=True, blank=True, default=None, verbose_name=_("child of"), related_name="flatpage_parent", help_text=_("This page's parent, if any"))
     class Meta:
         verbose_name = _("Static page")
+
+class HomePageInfo(models.Model):
+    BOX_CHOICES = { (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') }
+    content = models.TextField(verbose_name=_("textbox content"), null=True, blank=True)
+    num_boxes = models.SmallIntegerField(choices=BOX_CHOICES, default=0, verbose_name=_("Number of boxes"), help_text=_("How many image boxes the textbox should replace"))
+    box_1_id = models.IntegerField(null=True, blank=True, verbose_name=_("Digital object for box 1"), help_text=_("Enter the ID number of the digital object that should go here."))
+    box_2_id = models.IntegerField(null=True, blank=True, verbose_name=_("Digital object for box 2"), help_text=_("Enter the ID number of the digital object that should go here."))
+    box_3_id = models.IntegerField(null=True, blank=True, verbose_name=_("Digital object for box 3"), help_text=_("Enter the ID number of the digital object that should go here."))
+
+    class Meta:
+        verbose_name = _("Home page settings")
+
+    def __unicode__(self):
+        return "Home page settings (DO NOT DELETE)"
 
 # register version control
 # reversion.register(Creator)

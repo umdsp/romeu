@@ -18,7 +18,7 @@ from settings import MEDIA_URL, STATIC_URL
 
 from sorl.thumbnail import default
 
-from archive.models import Creator, Location, Production, WorkRecord, DigitalObject, DigitalFile, Festival, FestivalOccurrence, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, DocumentationMember, AdvisoryMember, TranslatingFlatPage, DigitalObjectType
+from archive.models import Creator, Location, Production, WorkRecord, DigitalObject, DigitalFile, Festival, FestivalOccurrence, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, DocumentationMember, AdvisoryMember, TranslatingFlatPage, DigitalObjectType, HomePageInfo
 
 from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
@@ -397,6 +397,31 @@ def flatpage(request, url, **kwargs):
 
 @csrf_protect
 def render_flatpage(request, f):
+    if f.url == '/':
+        info = HomePageInfo.objects.get(pk=1)
+        if info.box_1_id:
+            box_1 = {}
+            box_1['obj'] = DigitalObject.objects.get(pk=info.box_1_id)
+            box_1['image'] = box_1['obj'].files.all()[0].filepath
+        else:
+            box_1 = False
+        if info.box_2_id:
+            box_2 = {}
+            box_2['obj'] = DigitalObject.objects.get(pk=info.box_2_id)
+            box_2['image'] = box_2['obj'].files.all()[0].filepath
+        else:
+            box_2 = False
+        if info.box_3_id:
+            box_3 = {}
+            box_3['obj'] = DigitalObject.objects.get(pk=info.box_3_id)
+            box_3['image'] = box_3['obj'].files.all()[0].filepath
+        else:
+            box_3 = False
+    else:
+        info = False
+        box_1 = False
+        box_2 = False
+        box_3 = False
     if f.template_name:
         t = loader.select_template([f.template_name, DEFAULT_TEMPLATE])
     else:
@@ -405,7 +430,7 @@ def render_flatpage(request, f):
     f.title = mark_safe(f.title)
     f.content = mark_safe(f.content)
 
-    c = RequestContext(request, { 'flatpage': f })
+    c = RequestContext(request, { 'flatpage': f, 'info': info, 'box_1': box_1, 'box_2': box_2, 'box_3': box_3 })
     response = HttpResponse(t.render(c))
     populate_xheaders(request, response, TranslatingFlatPage, f.id)
     return response

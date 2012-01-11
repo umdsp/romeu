@@ -1,12 +1,70 @@
 {% extends "base.html" %}
 {% load random_object %}
+{% load thumbnail %}
 
 {% block content %}
 <section id="contentblock">
       {{ flatpage.content }}
     </section>
-    {% random_object_fig %}
-    {% random_object_fig %}
-    {% random_object_fig %}
+    {% if info.num_boxes > 0 %}
+        <div id="homepageinfo" class="boxes-{{info.num_boxes}}">
+          {{ info.content|safe }}
+        </div>
+    {% else %}
+        {% if box_1 %}
+            <figure>
+              <a href="/digitalobject/{{ box_1.obj.pk }}">
+                {% thumbnail box_1.image "210x210" crop="center" as im %}
+                <img src="{{ im.url }}" alt='' />
+                {% endthumbnail %}
+              </a>
+              <figcaption>
+                <a href="/digitalobject/{{ box_1.obj.pk }}">
+                  {{ box_1.obj.title }}
+                </a>
+              </figcaption>
+            </figure>
+        {% else %}
+            {% random_object_fig %}
+        {% endif %}  
+    {% endif %}
+
+    {% if box_2 and info.num_boxes < 2 %}
+        <figure>
+          <a href="/digitalobject/{{ box_2.obj.pk }}">
+            {% thumbnail box_2.image "210x210" crop="center" as im %}
+            <img src="{{ im.url }}" alt='' />
+            {% endthumbnail %}
+          </a>
+          <figcaption>
+            <a href="/digitalobject/{{ box_2.obj.pk }}">
+              {{ box_2.obj.title }}
+            </a>
+          </figcaption>
+        </figure>
+    {% else %}
+        {% if info.num_boxes < 2 %}
+            {% random_object_fig %}
+        {% endif %}
+    {% endif %}
+
+    {% if box_3 and info.num_boxes < 3 %}
+        <figure>
+          <a href="/digitalobject/{{ box_3.obj.pk }}">
+            {% thumbnail box_3.image "210x210" crop="center" as im %}
+            <img src="{{ im.url }}" alt='' />
+            {% endthumbnail %}
+          </a>
+          <figcaption>
+            <a href="/digitalobject/{{ box_3.obj.pk }}">
+              {{ box_3.obj.title }}
+            </a>
+          </figcaption>
+        </figure>
+    {% else %}
+        {% if info.num_boxes < 3 %}
+            {% random_object_fig %}
+        {% endif %}
+    {% endif %}
 
 {% endblock %}
