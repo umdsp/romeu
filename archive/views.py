@@ -358,6 +358,12 @@ class DigitalObjectDetailView(DetailView):
     context_object_name = "digital_object"
     template_name = "archive/digitalobject_detail.html"
     
+    def get_context_data(self, **kwargs):
+        context = super(DigitalObjectDetailView, self).get_context_data(**kwargs)
+        digifiles = self.object.files.order_by('seq_id')
+        context['digifiles'] = digifiles
+        return context
+
 # Utility function for search view
 def get_search_results(modeltype, query):
     return SearchQuerySet().models(modeltype).auto_query(query)

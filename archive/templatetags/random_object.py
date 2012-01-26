@@ -1,5 +1,5 @@
 from django import template
-from archive.models import DigitalObject, DigitalFile, DigitalObjectType
+from archive.models import DigitalObject, DigitalFile, DigitalObjectType, HomePageInfo
 from random import randrange
 from sorl.thumbnail import get_thumbnail
 

@@ -26,7 +26,7 @@
         </header>
 
         <section class="objectdisplay main">
-                {% thumbnail digital_object.files.all.0.filepath "440" upscale=False as im %}
+                {% thumbnail digifiles.0.filepath "440" upscale=False as im %}
                 <img id="largepreview" src="{{ im.url }}" alt='' style="display:block;float:none;" /><br />
                 {% endthumbnail %}
 
@@ -166,7 +166,7 @@
             {% if digital_object.files.all.count > 1 %}
                 <div class="data">
                   <ul>
-                {% for obj in digital_object.files.all %}
+                {% for obj in digifiles %}
                     <li>
                         {% thumbnail obj.filepath "100x100" upscale=False crop="center" as im %}
                         <img style="cursor:pointer;" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt='' title="{{ digital_object.title }}" />

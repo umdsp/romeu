@@ -1243,7 +1243,7 @@ class DigitalObject(models.Model):
     published = models.BooleanField(default=True, verbose_name=_("published"))
     
     def phys_obj_date_display(self):
-        return display_date(self.phys_obj_date, self.phys_obj_date_precision, self.phys_obj_date_BC)
+        return display_date(self.phys_obj_date, self.phys_obj_precision, self.phys_obj_BC)
     
     def creation_date_display(self):
         return display_date(self.creation_date, self.creation_date_precision, self.creation_date_BC)
@@ -1268,6 +1268,10 @@ class DigitalObject(models.Model):
         num += self.object_id
         return num
     
+    def first_file(self):
+        df = self.files.order_by('seq_id')[0]
+        return df
+
     def __unicode__(self):
         return "%s (%s)" % (self.title, str(self.object_number()))
 

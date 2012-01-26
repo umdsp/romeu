@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-05 11:23-0500\n"
-"PO-Revision-Date: 2012-01-11 09:54\n"
+"PO-Revision-Date: 2012-01-12 08:01\n"
 "Last-Translator: Lillian Manzor <ctda@mail.as.miami.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1856,7 +1856,7 @@ msgstr "obras escritas"
 #: templates/archive/digitalobjects_list.html:16
 #: templates/archive/digitalobjects_list.html:19
 msgid "Digital Objects"
-msgstr "objetos digitales"
+msgstr "Colecciones digitales"
 
 #: templates/base.html:75
 msgid "University of Miami"
