@@ -343,7 +343,7 @@ class VenueDetailView(DetailView):
                 objects_list.append(item)
             context['digital_objects'] = objects_list
         if self.object.photo:
-            context['venuephoto'] = default.backend.get_thumbnail(self.object.photo.filepath, "100x100", crop="center")
+            context['venuephoto'] = default.backend.get_thumbnail(self.object.photo.files.all()[0].filepath, "100x100", crop="center")
         return context
         
 class DigitalObjectsListView(ListView):
