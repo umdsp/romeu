@@ -358,7 +358,7 @@ class ProductionAdmin(TranslationAdmin):
             'fields': ('theater_company', 'venue', 'stage', ('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'),)
         }),
         ('Additional details', {
-            'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website', 'secondary_bibliography')
+            'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website', 'biblio_text', 'biblio_text_es', 'secondary_bibliography')
         }),
         ('Standard fields', {
             'fields': ('notes', 'attention', 'needs_editing', 'published')

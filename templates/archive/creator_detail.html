@@ -132,6 +132,8 @@
           </div>
           {% if creator.has_digital_objects %}
           <div class="objects">
+            <a id="next">Next</a>
+            <a id="prev">Prev</a>
             <div id="digitalobjects">
                 {% for obj in digital_objects %}
                 <a href="/digitalobject/{{ obj.pk }}">
