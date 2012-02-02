@@ -134,13 +134,15 @@
           <div class="objects">
             <a id="next">Next</a>
             <a id="prev">Prev</a>
+            <a id="caption" href="/digitalobject/{{ digital_objects.0.pk }}">View details</a>
             <div id="digitalobjects">
                 {% for obj in digital_objects %}
-                <a href="/digitalobject/{{ obj.pk }}">
-                {% thumbnail obj.image "210x210" crop="center" as im %}
-                    <img src="{{ im.url }}" />
+                {% thumbnail obj.image "600" as im %}
+                <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
                 {% endthumbnail %}
-                <span>{{ obj.title }}</span>
+                {% thumbnail obj.image "210x210" crop="center" as im %}
+                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="/digitalobject/{{ obj.pk }}" />
+                {% endthumbnail %}
                 </a>
                 {% endfor %}
             </div>
@@ -162,6 +164,7 @@ content: '<video id="vid-{{vid.object_id}}" src="http://streaming.miami.edu:8080
         }
       });
       {% endfor %}
+      $('.fancy').fancybox({loop: false});
     });
   </script>
   {% endblock %}

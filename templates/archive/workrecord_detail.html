@@ -81,13 +81,15 @@
           <div class="objects">
             <a id="next">Next</a>
             <a id="prev">Prev</a>
+            <a id="caption" href="/digitalobject/{{ digital_objects.0.pk }}">View details</a>
             <div id="digitalobjects">
               {% for obj in digital_objects %}
-              <a href="/digitalobject/{{ obj.pk }}">
-                {% thumbnail obj.image "210x210" crop="center" as im %}
-                  <img src="{{ im.url }}" />
+                {% thumbnail obj.image "600" as im %}
+                <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
                 {% endthumbnail %}
-                <span>{{ obj.title }}</span>
+                {% thumbnail obj.image "210x210" crop="center" as im %}
+                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="/digitalobject/{{ obj.pk }}" />
+                {% endthumbnail %}
               </a>
               {% endfor %}
             </div>
@@ -95,3 +97,21 @@
           {% endif %}
         </aside>
 {% endblock %}
+
+    {% block extra_js %}
+    <script>
+      $(document).ready(function() {
+        {% for vid in videos %}
+        $('#{{ vid.object_id }}').fancybox({
+content: '<video id="vid-{{vid.object_id}}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001001.mp4" width={% if vid.hidef %}1280{% else %}720{% endif %} height={% if vid.hidef %}720{% else %}480{% endif %}></video>',
+          maxWidth: {% if vid.hidef %}1310{% else %}750{% endif %},
+          maxHeight: {% if vid.hidef %}775{% else %}535{% endif %},
+          afterShow: function() {
+            $('#vid-{{vid.object_id}}').mediaelementplayer();
+          }
+        });
+        {% endfor %}
+        $('.fancy').fancybox({loop: false});
+      });
+    </script>
+    {% endblock %}

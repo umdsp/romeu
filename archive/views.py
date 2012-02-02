@@ -52,7 +52,7 @@ class CreatorsListView(ListView):
         if dos:
             for obj in dos:
                 item = {}
-                item['image'] = obj.files.all()[0].filepath
+                item['image'] = obj.first_file().filepath
                 item['title'] = obj.title
                 item['creator_name'] = obj.related_creator.all()[0].display_name
                 item['creator_id'] = obj.related_creator.all()[0].pk
@@ -95,7 +95,7 @@ class CreatorDetailView(DetailView):
         if alldos:
             for obj in alldos:
                 item = {}
-                item['image'] = obj.files.all()[0].filepath
+                item['image'] = obj.first_file().filepath
                 item['title'] = obj.title
                 item['pk'] = obj.pk
                 objects_list.append(item)
@@ -136,13 +136,13 @@ class ProductionsListView(ListView):
         dos = []
         while count < 3:
             num = randrange(0, length)
-            if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+            if alldos[num].files.count() > 0 and alldos[num].first_file():
                 dos.append(alldos[num])
                 count += 1
         if dos:
             for obj in dos:
                 item = {}
-                item['image'] = obj.files.all()[0].filepath
+                item['image'] = obj.first_file().filepath
                 item['title'] = obj.title
                 item['production_title'] = obj.related_production.all()[0].title
                 item['production_id'] = obj.related_production.all()[0].pk
@@ -183,7 +183,7 @@ class ProductionDetailView(DetailView):
         if alldos:
             for obj in alldos:
                 item = {}
-                item['image'] = obj.files.all()[0].filepath
+                item['image'] = obj.first_file().filepath
                 item['title'] = obj.title
                 item['pk'] = obj.pk
                 objects_list.append(item)
@@ -220,13 +220,13 @@ class WorkRecordsListView(ListView):
         dos = []
         while count < 3:
             num = randrange(0, length)
-            if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+            if alldos[num].files.count() > 0 and alldos[num].first_file():
                 dos.append(alldos[num])
                 count += 1
         if dos:
             for obj in dos:
                 item = {}
-                item['image'] = obj.files.all()[0].filepath
+                item['image'] = obj.first_file().filepath
                 item['title'] = obj.title
                 item['work_title'] = obj.related_work.all()[0].title
                 item['work_id'] = obj.related_work.all()[0].pk
@@ -266,7 +266,7 @@ class WorkRecordDetailView(DetailView):
         if alldos:
             for obj in alldos:
                 item = {}
-                item['image'] = obj.files.all()[0].filepath
+                item['image'] = obj.first_file().filepath
                 item['title'] = obj.title
                 item['pk'] = obj.pk
                 objects_list.append(item)
@@ -291,13 +291,13 @@ class VenuesListView(ListView):
         if length > 0:
             while count < 3:
                 num = randrange(0, length)
-                if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+                if alldos[num].files.count() > 0 and alldos[num].first_file():
                     dos.append(alldos[num])
                     count += 1
         if dos:
             for obj in dos:
                 item = {}
-                item['image'] = obj.files.all()[0].filepath
+                item['image'] = obj.first_file().filepath
                 item['title'] = obj.title
                 item['venue_title'] = obj.related_venue.all()[0].title
                 item['loc_id'] = obj.related_venue.all()[0].pk
@@ -337,7 +337,7 @@ class VenueDetailView(DetailView):
         if alldos:
             for obj in alldos:
                 item = {}
-                item['image'] = obj.files.all()[0].filepath
+                item['image'] = obj.first_file().filepath
                 item['title'] = obj.title
                 item['pk'] = obj.pk
                 objects_list.append(item)
