@@ -5,7 +5,8 @@ from archive.views import CreatorsListView, CreatorsAlphaListView, CreatorDetail
                           ProductionsListView, ProductionsAlphaListView, ProductionDetailView, \
                           WorkRecordsListView, WorkRecordsAlphaListView, WorkRecordDetailView, \
                           VenuesListView, VenuesAlphaListView, VenueDetailView, \
-                          DigitalObjectsListView, DigitalObjectDetailView, search_view, flatpage
+                          DigitalObjectsListView, DigitalObjectDetailView, search_view, flatpage, \
+                          DigitalObjectsVideosListView, DigitalObjectsImagesListView
 
 DEFAULT_LANG = settings.DEFAULT_LANG
 
@@ -50,6 +51,8 @@ urlpatterns = patterns('',
     (r'^venue/(?P<pk>\d+)/?$', VenueDetailView.as_view()),
     
     (r'^digitalobjects/?$', DigitalObjectsListView.as_view()),
+    (r'^digitalobjects/videos/?$', DigitalObjectsVideosListView.as_view()),
+    (r'^digitalobjects/images/?$', DigitalObjectsImagesListView.as_view()),
     (r'^digitalobject/(?P<pk>\d+)/?$', DigitalObjectDetailView.as_view()),
     
     # Set up i18n functions

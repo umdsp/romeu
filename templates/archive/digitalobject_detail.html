@@ -26,9 +26,36 @@
         </header>
 
         <section class="objectdisplay main">
+                {% if digital_object.digi_object_format.title == "Image" %}
                 {% thumbnail digifiles.0.filepath "440" upscale=False as im %}
-                <img id="largepreview" src="{{ im.url }}" alt='' style="display:block;float:none;" /><br />
+                <img id="largepreview" data-index="0" src="{{ im.url }}" alt='' style="display:block;float:none;" /><br />
                 {% endthumbnail %}
+                {% endif %}
+                {% if digital_object.digi_object_format.title == "Video recording" %}
+                <a id="largepreview" class="fancybox">
+                  {% if digital_object.poster_image %}
+                  {% thumbnail digital_object.poster_image "440" upscale=False as im %}
+                    <img src="{{ im.url }}" alt="{{ digital_object.title }}" />
+                  {% endthumbnail %}
+                  {% else %}
+                    Click to play video
+                  {% endif %}
+                </a>
+                <style>
+                  #largepreview::after {
+                      content: '';
+                      width: 100px;
+                      height: 100px;
+                      position: absolute;
+                      z-index: 10;
+                      display: block;
+                      top: -200%;
+                      left: 38%;
+                      background: url('/static/css/mediaelement/bigplay.png');
+                  }
+                </style>
+                {% endif %}
+
 
                 {% if digital_object.summary %}
                 {{ digital_object.summary|autop }}
@@ -84,7 +111,7 @@
                   
                   {% if digital_object.license_type %}
                   <dt>{% trans "License" %}:</dt>
-                  <dd>{{ digital_object.license_type.title }}</dd>
+                  <dd><a href="{{ digital_object.license_type.more_info_link }}">{{ digital_object.license_type.title }}</a></dd>
                   {% endif %}
                   
                   {% if digital_object.identifier %}
@@ -185,10 +212,37 @@
 {% block extra_js %}
     <script>
         $(window).load(function() {
+            {% if digital_object.digi_object_format.title == "Image" %}
             $('.thumbnails ul li').click(function() {
-                current = $(this);
+                var current = $(this);
+                var index = $('.thumbnails ul li').index(current);
                 $('#largepreview').attr('src', current.children('span').text());
+                $('#largepreview').attr('data-index', index);
             });
+            
+            $('#largepreview').click(function() {
+              $.fancybox([
+                {% for obj in digifiles %}
+                {% thumbnail obj.filepath "800" as im %}
+                "{{ im.url }}",
+                {% endthumbnail %}
+                {% endfor %}
+              ], {
+                'type': 'image',
+                'loop': false,
+                'index': $('#largepreview').attr('data-index')
+              });
+            });
+            {% else %}
+            $('#largepreview').fancybox({
+              content: '<video id="vid-{{digital_object.id}}" src="http://streaming.miami.edu:8080/flash/ctda/{{ digital_object.object_number }}0001001.mp4" width={% if digital_object.hi_def_video %}1280{% else %}720{% endif %} height={% if digital_object.hi_def_video %}720{% else %}480{% endif %}></video>',
+              maxWidth: {% if digital_object.hi_def_video %}1310{% else %}750{% endif %},
+              maxHeight: {% if digital_object.hi_def_video %}775{% else %}535{% endif %},
+              afterShow: function() {
+                $('#vid-{{digital_object.id}}').mediaelementplayer();
+              }
+            });
+            {% endif %}
         });
     </script>
 {% endblock %}

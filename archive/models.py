@@ -503,11 +503,11 @@ class Creator(models.Model):
 
     def __unicode__(self):
         if self.birth_date and self.death_date:
-            return "%s, %s-%s" % (self.creator_name, self.birth_date_display(), self.death_date_display())
+            return "%s, %s-%s (%s)" % (self.creator_name, self.birth_date_display(), self.death_date_display(), self.pk)
         if self.birth_date:
-            return "%s, %s-" % (self.creator_name, self.birth_date_display())
+            return "%s, %s- (%s)" % (self.creator_name, self.birth_date_display(), self.pk)
         else:
-            return self.creator_name
+            return "%s (%s)" % (self.creator_name, self.pk)
 
 def update_creator_name(sender, **kwargs):
     obj = kwargs['instance']
@@ -1269,8 +1269,11 @@ class DigitalObject(models.Model):
         return num
     
     def first_file(self):
-        df = self.files.order_by('seq_id')[0]
-        return df
+        if self.files:
+          df = self.files.order_by('seq_id')[0]
+          return df
+        else:
+          return False
 
     def __unicode__(self):
         return "%s (%s)" % (self.title, str(self.object_number()))
@@ -1278,6 +1281,7 @@ class DigitalObject(models.Model):
 class License(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))
     description = models.TextField(verbose_name=_("description"))
+    more_info_link = models.CharField(max_length=255, verbose_name=_("link for more info"))
     image = models.FileField(upload_to='license_images', verbose_name=_("image"), null=True, blank=True)
 
     def __unicode__(self):

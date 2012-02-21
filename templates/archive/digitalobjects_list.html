@@ -5,10 +5,6 @@
 {% load list_extras %}
 {% load paginator %}
 
-{% block article_header %}
-        <h1>Digital Objects</h1>
-{% endblock %}
-
 {% block content %}
     <header>
         <nav class="breadcrumbs">
@@ -22,12 +18,22 @@
     <ul id="digitalobjectslist">
         {% for obj in digital_objects %}
             <li>
+              {% if obj.digi_object_format.title == "Image" and obj.first_file %}
                 {% thumbnail obj.first_file.filepath "210x210" crop="center" as im %}
                 <figure>
                   <a href="/digitalobject/{{ obj.pk }}"><img src="{{ im.url }}" alt="" /></a>
-                  <figcaption><a href="/digitalobject/{{ obj.pk }}">{{ obj.title }}</a></figcaption>
+                  <figcaption><img src="{{ STATIC_URL }}images/images.png" alt="{% trans "Images available" %}" title="{% trans "Images available" %}" /><a href="/digitalobject/{{ obj.pk }}">{{ obj.title }}</a></figcaption>
                 </figure>
                 {% endthumbnail %}
+              {% endif %}
+              {% if obj.digi_object_format.title == "Video recording" and obj.poster_image %}
+                {% thumbnail obj.poster_image "210x210" crop="center" as im %}
+                <figure>
+                  <a href="/digitalobject/{{ obj.pk }}"><img src="{{ im.url }}" alt="" /></a>
+                  <figcaption><img src="{{ STATIC_URL }}images/video.png" alt="{% trans "Video available" %}" title="{% trans "Video available" %}" /><a href="/digitalobject/{{ obj.pk }}">{{ obj.title }}</a></figcaption>
+                </figure>
+                {% endthumbnail %}
+              {% endif %}
             </li>
         {% endfor %}
     </ul>

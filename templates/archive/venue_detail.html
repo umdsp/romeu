@@ -71,7 +71,7 @@
             <a id="caption" href="/digitalobject/{{ digital_objects.0.pk }}">View details</a>
             <div id="digitalobjects">
               {% for obj in digital_objects %}
-                  {% thumbnail obj.image "600" as im %}
+                  {% thumbnail obj.image "800" as im %}
                   <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
                   {% endthumbnail %}
                   {% thumbnail obj.image "210x210" crop="center" as im %}

@@ -60,7 +60,14 @@
                 <!--<li><a href="#">{% trans "Festivals" %}</a></li>-->
                 <li><a href="/venues">{% trans "Venues" %}</a></li>
                 <li><a href="/writtenworks">{% trans "Written Works" %}</a></li>
-                <li><a href="/digitalobjects">{% trans "Digital Objects" %}</a></li>
+                <li>
+                  <a href="/digitalobjects">{% trans "Digital Objects" %}</a>
+                  <ul>
+                    <li><a href="/digitalobjects">{% trans "All objects" %}</a></li>
+                    <li><a href="/digitalobjects/images">{% trans "Images" %}</a></li>
+                    <li><a href="/digitalobjects/videos">{% trans "Videos" %}</a></li>
+                  </ul>
+                </li>
             </ul>
         </nav>
         

@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext, loader, Context
 from django.views.generic import TemplateView, ListView, DetailView
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.db.models import Q
 
 import re
 
@@ -94,11 +95,12 @@ class CreatorDetailView(DetailView):
         alldos = DigitalObject.objects.filter(related_creator=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
         if alldos:
             for obj in alldos:
-                item = {}
-                item['image'] = obj.first_file().filepath
-                item['title'] = obj.title
-                item['pk'] = obj.pk
-                objects_list.append(item)
+                for file in obj.files.order_by('seq_id'):
+                    item = {}
+                    item['image'] = file.filepath
+                    item['title'] = obj.title
+                    item['pk'] = obj.pk
+                    objects_list.append(item)
             context['digital_objects'] = objects_list
         videos = DigitalObject.objects.filter(related_creator=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
         if videos:
@@ -182,11 +184,12 @@ class ProductionDetailView(DetailView):
         alldos = DigitalObject.objects.filter(related_production=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
         if alldos:
             for obj in alldos:
-                item = {}
-                item['image'] = obj.first_file().filepath
-                item['title'] = obj.title
-                item['pk'] = obj.pk
-                objects_list.append(item)
+                for file in obj.files.order_by('seq_id'):
+                    item = {}
+                    item['image'] = file.filepath
+                    item['title'] = obj.title
+                    item['pk'] = obj.pk
+                    objects_list.append(item)
             context['digital_objects'] = objects_list
         videos = DigitalObject.objects.filter(related_production=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
         if videos:
@@ -265,11 +268,12 @@ class WorkRecordDetailView(DetailView):
         alldos = DigitalObject.objects.filter(related_work=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
         if alldos:
             for obj in alldos:
-                item = {}
-                item['image'] = obj.first_file().filepath
-                item['title'] = obj.title
-                item['pk'] = obj.pk
-                objects_list.append(item)
+                for file in obj.files.order_by('seq_id'):
+                    item = {}
+                    item['image'] = file.filepath
+                    item['title'] = obj.title
+                    item['pk'] = obj.pk
+                    objects_list.append(item)
             context['digital_objects'] = objects_list
         return context
         
@@ -336,17 +340,31 @@ class VenueDetailView(DetailView):
         alldos = DigitalObject.objects.filter(related_venue=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
         if alldos:
             for obj in alldos:
-                item = {}
-                item['image'] = obj.first_file().filepath
-                item['title'] = obj.title
-                item['pk'] = obj.pk
-                objects_list.append(item)
+                for file in obj.files.order_by('seq_id'):
+                    item = {}
+                    item['image'] = file.filepath
+                    item['title'] = obj.title
+                    item['pk'] = obj.pk
+                    objects_list.append(item)
             context['digital_objects'] = objects_list
         if self.object.photo:
             context['venuephoto'] = default.backend.get_thumbnail(self.object.photo.files.all()[0].filepath, "100x100", crop="center")
         return context
-        
+
 class DigitalObjectsListView(ListView):
+    queryset = DigitalObject.objects.filter(Q(published=True), Q(digi_object_format__title="Image", files__isnull=False) | Q(digi_object_format__title="Video recording", ready_to_stream=True)).distinct().select_related().order_by('-creation_date')
+    context_object_name = 'digital_objects'
+    template_name = "archive/digitalobjects_list.html"
+    paginate_by = 36
+
+class DigitalObjectsVideosListView(ListView):
+    vidtype = DigitalObjectType.objects.get(title="Video recording")
+    queryset = DigitalObject.objects.filter(published=True, ready_to_stream=True, poster_image__isnull=False, digi_object_format=vidtype).distinct().select_related().order_by('-creation_date')
+    context_object_name = 'digital_objects'
+    template_name = "archive/digitalobjects_list.html"
+    paginate_by = 36
+
+class DigitalObjectsImagesListView(ListView):
     imagetype = DigitalObjectType.objects.get(title="Image")
     queryset = DigitalObject.objects.filter(published=True, files__isnull=False, digi_object_format=imagetype).distinct().select_related().order_by('-creation_date')
     context_object_name = 'digital_objects'
