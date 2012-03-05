@@ -1211,12 +1211,13 @@ class DigitalObject(models.Model):
     # Digital object info
     digi_object_format = models.ForeignKey("DigitalObjectType", verbose_name=_("Digital object format"), null=True, blank=True)
     # Container info
-    series_num = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("series #"))
+    series_num = models.CharField(max_length=12, null=True, blank=True, verbose_name=_("series #"))
     series_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("series name"))
-    subseries_num = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("subseries #"))
+    subseries_num = models.CharField(max_length=12, null=True, blank=True, verbose_name=_("subseries #"))
     subseries_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("subseries name"))
-    box_num = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("box #"))
-    folder_num = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("folder #"))
+    box_num = models.CharField(max_length=12, null=True, blank=True, verbose_name=_("box #"))
+    folder_num = models.CharField(max_length=12, null=True, blank=True, verbose_name=_("folder #"))
+    drawer_num = models.CharField(max_length=12, null=True, blank=True, verbose_name=_("drawer #"))
     folder_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("folder name"))
     folder_date = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("folder date"))
     # Relationships

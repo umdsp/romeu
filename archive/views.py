@@ -116,9 +116,10 @@ class CreatorDetailView(DetailView):
                 video_list.append(item)
             context['videos'] = video_list
         if self.object.photo:
-            context['creatorphoto'] = default.backend.get_thumbnail(self.object.photo.filepath, "100x100", crop="center")
+            photofile = self.object.photo.first_file()
+            context['creatorphoto'] = photofile.filepath
         else:
-            context['creatorphoto'] = '/static/images/nophoto.jpg'
+            context['creatorphoto'] = False
         return context
         
         

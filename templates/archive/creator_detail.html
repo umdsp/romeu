@@ -18,11 +18,14 @@
         </header>
         
         <section class="main">
-            <p><strong>{{ creator.display_roles }}</strong></p>
-            
             {% if creator.photo %}
-                <img src="" />
+                {% thumbnail creatorphoto "100x100" crop="center" as im %}
+                    <img src="{{ im.url }}" />
+                {% endthumbnail %}
             {% endif %}
+
+            <p><strong>{{ creator.display_roles }}</strong></p>
+
             {% if creator.biography %}
                 {{ creator.biography|autop }}
             {% endif %}
