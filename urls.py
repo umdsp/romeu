@@ -74,10 +74,6 @@ urlpatterns = patterns('',
     
     (r'^selectable/', include('selectable.urls')),
     
-    # Static media
-    #(r'^js/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/kzurawel/webapps/ctda_media/js'}),
-    #(r'^css/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/kzurawel/webapps/ctda_media/css'}),
-    #(r'^images/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/kzurawel/webapps/ctda_media/images'}),
 )
 
 #urlpatterns += patterns('haystack.views',
