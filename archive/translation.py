@@ -1,5 +1,5 @@
 from modeltranslation.translator import translator, TranslationOptions
-from archive.models import SubjectSource, SubjectHeading, Creator, RelatedCreator, Location, Stage, WorkRecord, WorkRecordCreator, Production, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, Festival, FestivalOccurrence, FestivalParticipant, Repository, Collection, DigitalObject, Award, AwardCandidate, Country, City, Language, WorkRecordType, WorkRecordFunction, DirectingTeamFunction, CastMemberFunction, DesignTeamFunction, TechTeamFunction, ProductionTeamFunction, OrgFunction, FestivalFunction, PhysicalObjectType, VenueType, License
+from archive.models import SubjectSource, SubjectHeading, Creator, RelatedCreator, Location, Stage, WorkRecord, WorkRecordCreator, Production, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, Festival, FestivalOccurrence, FestivalParticipant, Repository, Collection, DigitalObject, Award, AwardCandidate, Country, City, Language, WorkRecordType, WorkRecordFunction, DirectingTeamFunction, CastMemberFunction, DesignTeamFunction, TechTeamFunction, ProductionTeamFunction, AdvisoryTeamFunction, OrgFunction, FestivalFunction, PhysicalObjectType, VenueType, License
 from archive.models import TranslatingFlatPage, HomePageInfo
 
 
@@ -78,6 +78,9 @@ class TechTeamFunctionTranslationOptions(TranslationOptions):
 class ProductionTeamFunctionTranslationOptions(TranslationOptions):
     fields = ('title',)
 
+class AdvisoryTeamFunctionTranslationOptions(TranslationOptions):
+    fields = ('title',)
+
 class OrgFunctionTranslationOptions(TranslationOptions):
     fields = ('title',)
 
@@ -121,6 +124,7 @@ translator.register(CastMemberFunction, CastMemberFunctionTranslationOptions)
 translator.register(DesignTeamFunction, DesignTeamFunctionTranslationOptions)
 translator.register(TechTeamFunction, TechTeamFunctionTranslationOptions)
 translator.register(ProductionTeamFunction, ProductionTeamFunctionTranslationOptions)
+translator.register(AdvisoryTeamFunction, AdvisoryTeamFunctionTranslationOptions)
 translator.register(OrgFunction, OrgFunctionTranslationOptions)
 translator.register(FestivalFunction, FestivalFunctionTranslationOptions)
 translator.register(PhysicalObjectType, PhysicalObjectTypeTranslationOptions)

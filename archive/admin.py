@@ -161,6 +161,15 @@ class ProductionMemberInline(admin.TabularInline):
         super(ProductionMemberInline, self).__init__(model, admin_site)
         self.form.admin_site = admin_site
 
+class AdvisoryMemberInline(admin.TabularInline):
+    form = arcforms.AdvisoryMemberAdminForm
+    model = AdvisoryMember
+    extra = 0
+
+    def __init__(self, model, admin_site):
+        super(AdvisoryMemberInline, self).__init__(model, admin_site)
+        self.form.admin_site = admin_site
+
 class FestivalParticipantInline(admin.TabularInline):
     form = arcforms.FestivalParticipantAdminForm
     model = FestivalParticipant
@@ -202,7 +211,7 @@ class CreatorAdmin(TranslationAdmin):
             'fields': ('birth_location', ('birth_date', 'birth_date_precision', 'birth_date_BC'), 'death_location', ('death_date', 'death_date_precision', 'death_date_BC'), ('earliest_active', 'earliest_active_precision', 'earliest_active_BC'), ('latest_active', 'latest_active_precision', 'latest_active_BC'))
         }),
         ('Details', {
-            'fields': ('gender', 'nationality', 'location', 'biography', 'website', 'photo', 'primary_bibliography', 'secondary_bibliography', 'biblio_text', 'biblio_text_es', 'secondary_biblio_text', 'secondary_biblio_text_es')
+            'fields': ('gender', 'nationality', 'location', 'biography', 'website', 'photo', 'primary_bibliography', 'secondary_bibliography', 'awards_text', 'biblio_text', 'biblio_text_es', 'secondary_biblio_text', 'secondary_biblio_text_es')
         }),
         ('Standard fields', {
             'fields': ('notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date')
@@ -344,7 +353,9 @@ class RoleAdmin(admin.ModelAdmin):
 
 class ProductionAdmin(TranslationAdmin):
     form = arcforms.ProductionAdminForm
-    inlines = (DirectingMemberInline, CastMemberInline, DesignMemberInline, TechMemberInline, ProductionMemberInline,)
+    save_as = True
+    save_on_top = True
+    inlines = (DirectingMemberInline, CastMemberInline, DesignMemberInline, TechMemberInline, ProductionMemberInline, AdvisoryMemberInline,)
     list_display = ('title', 'venue', 'stage', 'display_directors', 'begin_date_display', 'end_date_display', 'has_system_links')
     date_hierarchy = 'begin_date'
     search_fields = ['title', 'ascii_title', 'title_variants', 'notes']
@@ -358,7 +369,7 @@ class ProductionAdmin(TranslationAdmin):
             'fields': ('theater_company', 'venue', 'stage', ('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'),)
         }),
         ('Additional details', {
-            'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website', 'biblio_text', 'biblio_text_es', 'secondary_bibliography')
+            'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website', 'awards_text', 'biblio_text', 'biblio_text_es', 'secondary_bibliography')
         }),
         ('Standard fields', {
             'fields': ('notes', 'attention', 'needs_editing', 'published')
@@ -663,6 +674,19 @@ class ProductionTeamFunctionAdmin(TranslationAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
+class AdvisoryTeamFunctionAdmin(TranslationAdmin):
+    class Media:
+        css = {
+            'all': ('/media/css/tabbed_translation_fields.css',)
+        }
+        js = (
+            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
+            '/media/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            '/media/js/tabbed_translation_fields.js',
+        )
+
+
 class OrgFunctionAdmin(TranslationAdmin):
     class Media:
         css = {
@@ -808,6 +832,7 @@ admin.site.register(CastMemberFunction, CastMemberFunctionAdmin)
 admin.site.register(DesignTeamFunction, DesignTeamFunctionAdmin)
 admin.site.register(TechTeamFunction, TechTeamFunctionAdmin)
 admin.site.register(ProductionTeamFunction, ProductionTeamFunctionAdmin)
+admin.site.register(AdvisoryTeamFunction, AdvisoryTeamFunctionAdmin)
 admin.site.register(OrgFunction, OrgFunctionAdmin)
 admin.site.register(FestivalFunction, FestivalFunctionAdmin)
 admin.site.register(WorkRecordFunction, WorkRecordFunctionAdmin)

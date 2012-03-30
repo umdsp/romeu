@@ -22,6 +22,10 @@
             <img src="{{ venuephoto.url }}" />
           {% endif %}
 
+          {% if venue.notes %}
+          {{ venue.notes|safe }}
+          {% endif %}
+
           {% if venue.productions.exists %}
           <div class="linkeditems">
             <h3>{% trans "Productions" %}:</h3>
@@ -46,6 +50,15 @@
         <aside>
           <div class="data">
             <ul>
+              {% if venue.address %}
+              <li>
+                <h4>{% trans "Address" %}:</h4>
+                <span>{{ venue.address }}</span>
+                {% if venue.address2 %}
+                <br/><span>{{ venue.address2 }}</span>
+                {% endif %}
+              </li>
+              {% endif %}
               {% if venue.city %}
               <li>
                 <h4>{% trans "City" %}:</h4>
@@ -60,6 +73,12 @@
               <li>
                 <h4>{% trans "Date range" %}:</h4>
                 <span>{{ venue.begin_date_display }}-{{ venue.end_date_display }}</span>
+              </li>
+              {% endif %}
+              {% if venue.website %}
+              <li>
+                <h4>{% trans "Website" %}:</h4>
+                <span><a href="{{ venue.website }}">{{ venue.website }}</a></span>
               </li>
               {% endif %}
             </ul>

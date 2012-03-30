@@ -59,7 +59,7 @@
                         <a href="/creator/{{ creator.id }}"><img src="{{ STATIC_URL }}images/audio.png" alt="{% trans "Audio available" %}" title="{% trans "Audio available" %}" /></a>
                         {% endif %}
                       </td>
-                      <td><a href="/creator/{{creator.id}}">{{ creator }}</a></td>
+                      <td><a href="/creator/{{creator.id}}">{{ creator.creator_name }}</a></td>
                       <td>{% if creator.display_roles %}{{ creator.display_roles }}{% endif %}</td>
                     </tr>
                 {% endfor %}

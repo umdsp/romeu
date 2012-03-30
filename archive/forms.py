@@ -82,6 +82,14 @@ class ProductionMemberAdminForm(ModelForm):
     class Meta(object):
         model = ProductionMember
         
+class AdvisoryMemberAdminForm(ModelForm):
+    person = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, label=_(u"Person"))
+
+    def __init__(self, *args, **kwargs):
+        super(AdvisoryMemberAdminForm, self).__init__(*args, **kwargs)
+        prel = ManyToOneRel(Creator, 'id')
+        self.fields['person'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['person'].widget, prel, self.admin_site)
+
 class RoleAdminForm(ModelForm):
     source_text = selectable_forms.AutoCompleteSelectField(lookup_class=WorkRecordLookup, allow_new=False, label=_(u"Source text"))
     
