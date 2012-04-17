@@ -1,0 +1,31 @@
+[
+    {
+        "model": "archive.digitalobjecttype",
+        "pk": 1,
+        "fields": {
+            "title": "Video recording"
+        }
+    },
+    {
+        "model": "archive.digitalobjecttype",
+        "pk": 2,
+        "fields": {
+            "title": "Audio recording"
+        }
+    },
+    {
+        "model": "archive.digitalobjecttype",
+        "pk": 3,
+        "fields": {
+            "title": "Image"
+        }
+    },
+    {
+        "model": "archive.digitalobjecttype",
+        "pk": 4,
+        "fields": {
+            "title": "Other"
+        }
+    }
+]
+        
