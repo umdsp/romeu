@@ -18,12 +18,63 @@
         </header>
 
         <section class="main">
+          {% if venue.title_variants %}
+          <h4>{% trans "Also known as" %}: {{ venue.title_variants }}</h4>
+          {% endif %}
+
           {% if venuephoto %}
             <img src="{{ venuephoto.url }}" />
           {% endif %}
 
+          {% if venue.summary %}
+          {{ venue.summary|safe }}
+          {% endif %}
+
           {% if venue.notes %}
+          <h4>{% trans "Notes" %}:</h4>
           {{ venue.notes|safe }}
+          {% endif %}
+
+          {% if venue.stages.exists %}
+          <h4>{% trans "Stages" %}:</h4>
+          <ul>
+          {% for stage in venue.stages.all %}
+          <li>
+            <strong>{{ stage.title }}</strong><br />
+            {% if stage.title_variants %}
+            <span>{% trans "Also known as" %}: {{ stage.title_variants }}</span><br />
+            {% endif %}
+            {% if stage.stage_type %}
+            <span>{{ stage.stage_type }}</span><br />
+            {% endif %}
+            {% if stage.square_footage %}
+            <span>{{ stage.square_footage }} {% trans "square feet" %}</span><br />
+            {% endif %}
+
+            {% if stage.stage_height or stage.stage_width or stage.stage_depth %}
+            {% if stage.stage_width %}<span>{% trans "Width" %}: {{ stage.stage_width }}</span><br />{% endif %}
+            {% if stage.stage_depth %}<span>{% trans "Depth" %}: {{ stage.stage_depth }}</span><br />{% endif %}
+            {% if stage.stage_height %}<span>{% trans "Height" %}: {{ stage.stage_height }}</span><br />{% endif %}
+            {% endif %}
+
+            {% if stage.stage_lighting %}
+            <span>{% trans "Stage lighting" %}: {{ stage.stage_lighting }}</span><br />
+            {% endif %}
+
+            {% if stage.stage_sound %}
+            <span>{% trans "Sound" %}: {{ stage.stage_sound }}</span><br />
+            {% endif %}
+
+            {% if stage.seating %}
+            <span>{% trans "Seating" %}: {{ stage.seating }}</span><br />
+            {% endif %}
+              
+            {% if stage.notes %}
+            {{ stage.notes|safe }}
+            {% endif %}
+          </li><br />
+          {% endfor %}
+          </ul>
           {% endif %}
 
           {% if venue.productions.exists %}
@@ -50,6 +101,12 @@
         <aside>
           <div class="data">
             <ul>
+              {% if venue.venue_type %}
+              <li>
+                <h4>{% trans "Venue type" %}:</h4>
+                <span>{{ venue.venue_type.title }}</span>
+              </li>
+              {% endif %}
               {% if venue.address %}
               <li>
                 <h4>{% trans "Address" %}:</h4>

@@ -10,10 +10,16 @@
         <nav class="breadcrumbs">
             <ul>
                 <li><a href="/">{% trans "Home" %}</a></li>
-                <li>{% trans "Digital Objects" %}</li>
+                {% if physobjtype %}
+                  <li><a href="/digitalobjects">{% trans "Digital Objects" %}</a></li>
+                  <li><a href="/digitalobjects/types">{% trans "By Type" %}</a></li>
+                  <li>{{ physobjtype }}</li>
+                {% else %}
+                  <li>{% trans "Digital Objects" %}</li>
+                {% endif %}
             </ul>
         </nav>
-        <h2>{% trans "Digital Objects" %}</h2>
+        <h2>{% if physobjtype %}{{ physobjtype }}{% else %}{% trans "Digital Objects" %}{% endif %}</h2>
     </header>
     <ul id="digitalobjectslist">
         {% for obj in digital_objects %}

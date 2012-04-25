@@ -465,6 +465,8 @@ class CollectionAdmin(TranslationAdmin):
 class DigitalObjectAdmin(TranslationAdmin):
     form = arcforms.DigitalObjectAdminForm
     inlines = (DigitalFileInline,)
+    save_as = True
+    save_on_top = True
     search_fields = ['title', 'title_variants']
     list_filter = ('has_attention', 'collection', 'digi_object_format', 'restricted', 'ready_to_stream')
     filter_horizontal = ['subject', 'related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work']

@@ -9,6 +9,8 @@ from django.contrib.auth import models as auth_models
 from django.utils.translation import ugettext
 from django.utils.translation import ugettext_lazy as _
 
+from django.db.models import Q
+
 from unidecode import unidecode
 
 from smart_selects.db_fields import ChainedForeignKey
@@ -1206,7 +1208,7 @@ class DigitalObject(models.Model):
     identifier = models.CharField(max_length=60, help_text=_("e.g. ISBN, ISSN, DOI"), null=True, blank=True, verbose_name=_("identifier"))
     marks = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("marks/inscriptions"))
     measurements = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("physical description"))
-    phys_object_type = models.ForeignKey("PhysicalObjectType", verbose_name=_("Physical object type"), null=True, blank=True)
+    phys_object_type = models.ForeignKey("PhysicalObjectType", verbose_name=_("Physical object type"), related_name="digital_objects", null=True, blank=True)
     donor = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("donor"))
     sponsor_note = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("sponsor note"))
     phys_obj_date = models.DateField(null=True, blank=True, verbose_name=_("physical object date"))
@@ -1503,12 +1505,17 @@ class FestivalFunction(models.Model):
 
 class PhysicalObjectType(models.Model):
     title = models.CharField(max_length=200, verbose_name=_("title"))
-    
+    slug = models.CharField(max_length=200, verbose_name=_("slug"), help_text=_("Enter a unique, all-lowercase title (no spaces) for use in URLs."))
+
     class Meta:
         verbose_name = _("physical object type")
         verbose_name_plural = _("physical object types")
         ordering = ['title']
-    
+
+    # Function to test if this object type has viewable digital objects.
+    def has_viewable_objects(self):
+        return self.digital_objects.filter(Q(published=True), Q(digi_object_format__title="Image", files__isnull=False) | Q(digi_object_format__title="Video recording", ready_to_stream=True)).exists()
+
     def __unicode__(self):
         return self.title
 

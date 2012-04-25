@@ -14,10 +14,28 @@
                     <li>{{ production.title }}</li>
                 </ul>
             </nav>
-            <h2>{{ production.title }}</h2>
+            <h2>{{ production.title }}</h2>{% if production.subtitle %} <span>{{ production.subtitle }}</span>{% endif %}
         </header>
 
         <section class="main">
+            {% if production.title_variants %}
+            <h3>{% trans "Also known as:" %}</h3>
+            <p>{{ production.title_variants }}</p>
+            {% endif %}
+
+            {% if production.is_special_performance %}
+            <strong>{{ production.get_special_performance_type_display }}</strong><br />
+            {% endif %}
+
+
+            {% if production.premier %}
+            <strong>{{ production.get_premier_display }} Premier</strong><br />
+            {% endif %}
+
+            {% if production.notes %}
+            {{ production.notes|safe }}
+            {% endif %}
+
             {% if production.directing_team.exists %}
             <h3>{% trans "Directing team" %}:</h3>
             <table>
@@ -155,6 +173,10 @@
                 </tbody>
               </table>
           {% endif %}
+
+          {% if production.profiler_name %}
+          <em>{% trans "Information entered by" %} {{ production.profiler_name }}{% if production.profiler_entry_date %} {% trans "on" %} {{ production.profiler_entry_date }}{% endif %}</em><br />
+          {% endif %}
           
           {% if videos %}
           <hr />
@@ -185,12 +207,21 @@
               <li>
                 <h4>{% trans "Venue" %}:</h4>
                 <span><a href="/venue/{{ production.venue.pk }}">{{ production.venue }}</a></span>
+                {% if production.stage %}
+                <span>{{ production.stage.title }}</span>
+                {% endif %}
               </li>
               {% endif %}
               {% if production.begin_date or production.end_date %}
               <li>
                 <h4>{% trans "Production dates" %}:</h4>
                 <span>{{ production.display_date_range }}</span>
+              </li>
+              {% endif %}
+              {% if production.website %}
+              <li>
+                <h4>{% trans "Production website" %}:</h4>
+                <span><a href="{{ production.website}}">Link</a></span>
               </li>
               {% endif %}
             </ul>
