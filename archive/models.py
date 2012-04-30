@@ -1224,7 +1224,7 @@ class DigitalObject(models.Model):
     title_variants = models.CharField(max_length=300, null=True, blank=True, verbose_name=_("title variants"))
     collection = models.ForeignKey(Collection, related_name="collection_objects", verbose_name=_("collection"))
     object_creator = models.ForeignKey(Creator, null=True, blank=True, related_name="objects_created", verbose_name=_("object creator"))
-    language = models.ForeignKey("Language", null=True, blank=True, verbose_name=_("language"))
+    language = models.ManyToManyField("Language", null=True, blank=True, verbose_name=_("language"), related_name="language_objects")
     subject = models.ManyToManyField(SubjectHeading, null=True, blank=True, related_name="collection_objects", verbose_name=_("subject"))
     object_id = models.CharField(max_length=6, null=True, blank=True, verbose_name=_("object ID"))
     digital_id = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("digital ID"))
