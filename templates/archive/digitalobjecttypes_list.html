@@ -10,15 +10,23 @@
             <ul>
                 <li><a href="/">{% trans "Home" %}</a></li>
                 <li><a href="/digitalobjects">{% trans "Digital Objects" %}</a></li>
-                <li>{% trans "Digital objects by type" %}</li>
+                <li>{% if types %}{% trans "Digital objects by type" %}{% else %}{% trans "Digital objects by collection" %}{% endif %}</li>
             </ul>
         </nav>
-        <h2>{% trans "Digital objects by type" %}</h2>
+        <h2>{% if types %}{% trans "Digital objects by type" %}{% else %}{% trans "Digital objects by collection" %}{% endif %}</h2>
     </header>
     <ul id="digitalobjectslist">
+      {% if types %}
       {% for type in types %}
       <li><a href="/digitalobjects/type/{{ type.slug }}">{{ type.title }}</a></li>
       {% endfor %}
+      {% endif %}
+
+      {% if collections %}
+      {% for c in collections %}
+      <li><a href="/digitalobjects/collection/{{ c.repository.repository_id }}{{ c.collection_id }}">{{ c.title }} ({{ c.repository.repository_id }}{{ c.collection_id }})</a></li>
+      {% endfor %}
+      {% endif %}
     </ul>
     
 {% endblock %}

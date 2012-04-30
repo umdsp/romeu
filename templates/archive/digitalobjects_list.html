@@ -15,11 +15,26 @@
                   <li><a href="/digitalobjects/types">{% trans "By Type" %}</a></li>
                   <li>{{ physobjtype }}</li>
                 {% else %}
-                  <li>{% trans "Digital Objects" %}</li>
+                  {% if current_collection %}
+                    <li><a href="/digitalobjects">{% trans "Digital Objects" %}</a></li>
+                    <li><a href="/digitalobjects/collections">{% trans "By Collection" %}</a></li>
+                    <li>{{ current_collection.title }} ({{ current_collection.repository.repository_id }}{{ current_collection.collection_id }})</li>
+                  {% else %}
+                    <li>{% trans "Digital Objects" %}</li>
+                  {% endif %}
                 {% endif %}
             </ul>
         </nav>
-        <h2>{% if physobjtype %}{{ physobjtype }}{% else %}{% trans "Digital Objects" %}{% endif %}</h2>
+        <h2>{% if physobjtype %}
+              {{ physobjtype }}
+            {% else %}
+              {% if current_collection %}
+                {{ current_collection.title }}
+              {% else %}
+                {% trans "Digital Objects" %}
+              {% endif %}
+            {% endif %}
+        </h2>
     </header>
     <ul id="digitalobjectslist">
         {% for obj in digital_objects %}

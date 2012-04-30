@@ -1090,6 +1090,7 @@ class Festival(models.Model):
 class FestivalOccurrence(models.Model):
     festival_series = models.ForeignKey(Festival, verbose_name=_("festival series"))
     title = models.CharField(max_length=255, verbose_name=_("title"))
+    ascii_title = models.CharField(max_length=255, verbose_name=_("ASCII title"))
     title_variants = models.CharField(max_length=300, null=True, blank=True, verbose_name=_("title variants"))
     venue = models.ForeignKey(Location, verbose_name=_("venue"))
     begin_date = models.DateField(help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("begin date"))
@@ -1118,6 +1119,12 @@ class FestivalOccurrence(models.Model):
 
     def __unicode__(self):
         return "%s (%s, %s - %s)" % (self.title, self.venue.title, self.begin_date_display(), self.end_date_display())
+def update_festival_occurrence_title(sender, **kwargs):
+    obj = kwargs['instance']
+    obj.ascii_title = unidecode(obj.title)
+
+pre_save.connect(update_festival_occurrence_title, sender=FestivalOccurrence)
+
 
 class FestivalParticipant(models.Model):
     participant = models.ForeignKey(Creator, verbose_name=_("participant"))
@@ -1127,6 +1134,7 @@ class FestivalParticipant(models.Model):
 class Repository(models.Model):
     repository_id = models.CharField(max_length=3, null=True, blank=True, verbose_name=_("repository ID"))
     title = models.CharField(max_length=200, verbose_name=_("title"))
+    ascii_title = models.CharField(max_length=200, verbose_name=_("ASCII title"))
     location = models.ForeignKey(Location, verbose_name=_("location"))
     summary = models.TextField(null=True, blank=True, verbose_name=_("summary"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
@@ -1140,9 +1148,17 @@ class Repository(models.Model):
     
     def __unicode__(self):
         return "Repository: %s" % (self.title,)
-    
+
+def update_repository_title(sender, **kwargs):
+    obj = kwargs['instance']
+    obj.ascii_title = unidecode(obj.title)
+
+pre_save.connect(update_repository_title, sender=Repository)
+
+
 class Collection(models.Model):
     title = models.CharField(max_length=200, verbose_name=_("title"))
+    ascii_title = models.CharField(max_length=200, verbose_name=_("ASCII title"))
     repository = models.ForeignKey(Repository, related_name="collections", verbose_name=_("repository"))
     collection_id = models.CharField(max_length=4, verbose_name=_("collection ID"))
     url = models.URLField(null=True, blank=True, verbose_name=_("URL"))
@@ -1153,8 +1169,18 @@ class Collection(models.Model):
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
 
+    def has_viewable_objects(self):
+        return DigitalObject.objects.filter(Q(published=True), Q(digi_object_format__title="Image", files__isnull=False) | Q(digi_object_format__title="Video recording", ready_to_stream=True)).filter(collection=self).exists()
+
     def __unicode__(self):
         return "Collection: %s" % (self.title,)
+
+def update_collection_title(sender, **kwargs):
+    obj = kwargs['instance']
+    obj.ascii_title = unidecode(obj.title)
+
+pre_save.connect(update_collection_title, sender=Collection)
+
 
 def object_upload_path(instance, filename):
     extension = filename.split('.')[-1]
@@ -1194,6 +1220,7 @@ def setup_digital_file(sender, **kwargs):
 
 class DigitalObject(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))
+    ascii_title = models.CharField(max_length=255, verbose_name=_("ASCII title"))
     title_variants = models.CharField(max_length=300, null=True, blank=True, verbose_name=_("title variants"))
     collection = models.ForeignKey(Collection, related_name="collection_objects", verbose_name=_("collection"))
     object_creator = models.ForeignKey(Creator, null=True, blank=True, related_name="objects_created", verbose_name=_("object creator"))
@@ -1285,6 +1312,13 @@ class DigitalObject(models.Model):
 
     def __unicode__(self):
         return "%s (%s)" % (self.title, str(self.object_number()))
+
+def update_digital_object_title(sender, **kwargs):
+    obj = kwargs['instance']
+    obj.ascii_title = unidecode(obj.title)
+
+pre_save.connect(update_digital_object_title, sender=DigitalObject)
+
 
 class License(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))

@@ -405,6 +405,8 @@ class FestivalOccurrenceAdmin(TranslationAdmin):
     date_hierarchy = 'begin_date'
     list_filter = ('has_attention',)
     filter_horizontal = ['productions', 'secondary_bibliography']
+    search_fields = ['ascii_title', 'title']
+    exclude = ('ascii_title',)
     
     fieldsets = (
         (None, {
@@ -434,7 +436,9 @@ class FestivalOccurrenceAdmin(TranslationAdmin):
 class RepositoryAdmin(TranslationAdmin):
     list_filter = ('has_attention',)
     form = arcforms.RepositoryAdminForm
-    
+    search_fields = ['title', 'ascii_title']
+    exclude = ('ascii_title',)
+
     def __init__(self, model, admin_site):
         super(RepositoryAdmin, self).__init__(model, admin_site)
         self.form.admin_site = admin_site
@@ -451,6 +455,8 @@ class RepositoryAdmin(TranslationAdmin):
 class CollectionAdmin(TranslationAdmin):
     list_display = ('title', 'repository', 'collection_id')
     list_filter = ('repository', 'has_attention',)
+    search_fields = ['title', 'ascii_title']
+    exclude = ('ascii_title',)
     class Media:
         css = {
             'all': ('/media/css/tabbed_translation_fields.css',)
@@ -467,9 +473,10 @@ class DigitalObjectAdmin(TranslationAdmin):
     inlines = (DigitalFileInline,)
     save_as = True
     save_on_top = True
-    search_fields = ['title', 'title_variants']
+    search_fields = ['title', 'ascii_title', 'title_variants']
     list_filter = ('has_attention', 'collection', 'digi_object_format', 'restricted', 'ready_to_stream')
     filter_horizontal = ['subject', 'related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work']
+    exclude = ('ascii_title',)
     fieldsets = (
         ('Basic info', {
             'fields': ('title', 'title_variants', 'collection', 'object_creator', 'language', 'subject', 'rights_holders', 'license_type', 'permission_form')

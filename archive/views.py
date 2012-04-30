@@ -19,7 +19,11 @@ from settings import MEDIA_URL, STATIC_URL
 
 from sorl.thumbnail import default
 
-from archive.models import Creator, Location, Production, WorkRecord, DigitalObject, DigitalFile, Festival, FestivalOccurrence, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, DocumentationMember, AdvisoryMember, TranslatingFlatPage, DigitalObjectType, HomePageInfo, PhysicalObjectType
+from archive.models import Creator, Location, Production, WorkRecord, DigitalObject, DigitalFile, \
+                           Festival, FestivalOccurrence, DirectingMember, CastMember, DesignMember, \
+                           TechMember, ProductionMember, DocumentationMember, AdvisoryMember, \
+                           TranslatingFlatPage, DigitalObjectType, HomePageInfo, \
+                           PhysicalObjectType, Collection, Repository
 
 from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
@@ -397,6 +401,38 @@ class DigitalObjectsTypeListView(ListView):
     def get_queryset(self):
         type_name = get_object_or_404(PhysicalObjectType, slug__iexact=self.args[0])
         return DigitalObject.objects.filter(Q(published=True), Q(digi_object_format__title="Image", files__isnull=False) | Q(digi_object_format__title="Video recording", ready_to_stream=True)).filter(phys_object_type=type_name).distinct().select_related().order_by('title')
+
+# Function to generate the page with a list of Collections, for use with the CollectionListView below.
+def collections_list(request):
+    collections = []
+    for c in Collection.objects.order_by('repository__repository_id', 'collection_id'):
+        if c.has_viewable_objects():
+            collections.append(c)
+    context_dict = {'collections': collections}
+    return render_to_response('archive/digitalobjecttypes_list.html', context_dict, context_instance=RequestContext(request))
+
+class DigitalObjectsCollectionListView(ListView):
+    context_object_name = 'digital_objects'
+    template_name = "archive/digitalobjects_list.html"
+    paginate_by = 36
+
+    def get_context_data(self, **kwargs):
+        context = super(DigitalObjectsCollectionListView, self).get_context_data(**kwargs)
+        temp = self.args[0]
+        temp_repo = Repository.objects.get(repository_id=temp[0:3])
+        temp_coll_id = temp[3:]
+        try:
+            context['current_collection'] = Collection.objects.get(collection_id=temp_coll_id, repository=temp_repo)
+        except:
+            context['current_collection'] = self.args[0]
+        return context
+
+    def get_queryset(self):
+        temp = self.args[0]
+        temp_repo = Repository.objects.get(repository_id=temp[0:3])
+        temp_coll_id = temp[3:]
+        current_collection = get_object_or_404(Collection, collection_id=temp_coll_id, repository=temp_repo)
+        return DigitalObject.objects.filter(Q(published=True), Q(digi_object_format__title="Image", files__isnull=False) | Q(digi_object_format__title="Video recording", ready_to_stream=True)).filter(collection=current_collection).distinct().select_related().order_by('title')
 
 class DigitalObjectDetailView(DetailView):
     queryset = DigitalObject.objects.filter(published=True).select_related()

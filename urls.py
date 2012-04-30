@@ -7,7 +7,8 @@ from archive.views import CreatorsListView, CreatorsAlphaListView, CreatorDetail
                           VenuesListView, VenuesAlphaListView, VenueDetailView, \
                           DigitalObjectsListView, DigitalObjectDetailView, search_view, flatpage, \
                           DigitalObjectsVideosListView, DigitalObjectsImagesListView, \
-                          DigitalObjectsTypeListView, phys_types_list
+                          DigitalObjectsTypeListView, phys_types_list, \
+                          DigitalObjectsCollectionListView, collections_list
 
 DEFAULT_LANG = settings.DEFAULT_LANG
 
@@ -56,6 +57,8 @@ urlpatterns = patterns('',
     (r'^digitalobjects/images/?$', DigitalObjectsImagesListView.as_view()),
     (r'^digitalobjects/types/?$', phys_types_list),
     (r'^digitalobjects/type/(\S+)/?$', DigitalObjectsTypeListView.as_view()),
+    (r'^digitalobjects/collections/?$', collections_list),
+    (r'^digitalobjects/collection/(\S+)/?$', DigitalObjectsCollectionListView.as_view()),
     (r'^digitalobject/(?P<pk>\d+)/?$', DigitalObjectDetailView.as_view()),
     
     # Set up i18n functions
