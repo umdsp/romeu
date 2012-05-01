@@ -37,7 +37,9 @@
             {% endif %}
 
             {% if production.directing_team.exists %}
+            <div class="linkeditems">
             <h3>{% trans "Directing team" %}:</h3>
+            <div>
             <table>
               <thead>
                 <tr>
@@ -53,10 +55,14 @@
                     </tr>
                 {% endfor %}
                 </tbody></table>
+              </div>
+              </div>
             {% endif %}
 
             {% if production.cast.exists %}
+              <div class="linkeditems">
               <h3>{% trans "Cast" %}:</h3>
+              <div>
               <table>
                 <thead>
                   <tr>
@@ -71,11 +77,15 @@
                         <td>{{ member.roles }}</td>
                     </tr>
                 {% endfor %}
-                </tbody></table>
+              </tbody></table>
+              </div>
+              </div>
             {% endif %}
 
             {% if production.design_team.exists %}
+              <div class="linkeditems">
               <h3>{% trans "Design team" %}:</h3>
+              <div>
               <table>
                 <thead>
                   <tr>
@@ -92,10 +102,14 @@
                   {% endfor %}
                 </tbody>
               </table>
+              </div>
+              </div>
             {% endif %}
 
             {% if production.technical_team.exists %}
+              <div class="linkeditems">
               <h3>{% trans "Technical team" %}:</h3>
+              <div>
               <table>
                 <thead>
                   <tr>
@@ -112,10 +126,14 @@
                   {% endfor %}
                 </tbody>
               </table>
+              </div>
+              </div>
             {% endif %}
 
             {% if production.production_team.exists %}
+              <div class="linkeditems">
               <h3>{% trans "Production team" %}:</h3>
+              <div>
               <table>
                 <thead>
                   <tr>
@@ -132,10 +150,14 @@
                   {% endfor %}
                 </tbody>
               </table>
+              </div>
+              </div>
             {% endif %}
 
             {% if production.documentation_team.exists %}
+              <div class="linkeditems">
               <h3>{% trans "Documentation team" %}:</h3>
+              <div>
               <table>
                 <thead>
                   <tr>
@@ -152,10 +174,14 @@
                   {% endfor %}
                 </tbody>
               </table>
+              </div>
+              </div>
             {% endif %}
 
             {% if production.advisory_team.exists %}
+              <div class="linkeditems">
               <h3>{% trans "Advisory team" %}:</h3>
+              <div>
               <table>
                 <thead>
                   <tr>
@@ -172,6 +198,8 @@
                   {% endfor %}
                 </tbody>
               </table>
+              </div>
+              </div>
           {% endif %}
 
           {% if production.profiler_name %}
@@ -180,19 +208,24 @@
           
           {% if videos %}
           <hr />
+          <h3>{% trans "Videos" %}</h3>
           <ul class="videos">
             {% for vid in videos %}
             <li>
-              <a id="{{ vid.object_id }}" class="fancybox">
-                {% if vid.poster %}
-                {% thumbnail vid.poster "200x134" crop="center" as im %}
-                  <img src="{{ im.url }}" alt="Link to video of {{ vid.title }}" />
-                {% endthumbnail %}
-                {% else %}
-                  Click to play video
-                {% endif %}
-              </a>
-              <a href="/digitalobject/{{vid.pk}}">{{ vid.title}}</a>
+              <figure>
+                <a id="{{ vid.object_id }}" class="fancybox">
+                  {% if vid.poster %}
+                  {% thumbnail vid.poster "200x134" crop="center" as im %}
+                    <img src="{{ im.url }}" alt="Link to video of {{ vid.title }}" />
+                  {% endthumbnail %}
+                  {% else %}
+                    Click to play video
+                  {% endif %}
+                </a>
+                <figcaption>
+                  <a href="/digitalobject/{{vid.pk}}">{{ vid.title}}</a>
+                </figcaption>
+              </figure>
             </li>
             {% endfor %}
           </ul>
