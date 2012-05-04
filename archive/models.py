@@ -441,7 +441,7 @@ class Creator(models.Model):
     display_roles.short_description = _("Roles")
     
     def has_related_creators(self):
-        if self.first_creator_to.all() or self.second_creator_to.all():
+        if self.first_creator_to.exists() or self.second_creator_to.exists():
             return True
         else:
             return False

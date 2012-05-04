@@ -1,0 +1,722 @@
+[
+    {
+        "pk": 1, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Advertising postcards", 
+            "slug": "advertisingpostcards", 
+            "title": "Advertising postcards"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Aerial photographs", 
+            "slug": "aerialphotographs", 
+            "title": "Aerial photographs"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Aerial views", 
+            "slug": "aerialviews", 
+            "title": "Aerial views"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Albumen prints", 
+            "slug": "albumenprints", 
+            "title": "Albumen prints"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Announcements", 
+            "slug": "announcements", 
+            "title": "Announcements"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Architectural drawings", 
+            "slug": "architecturaldrawings", 
+            "title": "Architectural drawings"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Architectural models", 
+            "slug": "architecturalmodels", 
+            "title": "Architectural models"
+        }
+    }, 
+    {
+        "pk": 64, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Associated texts", 
+            "slug": "associatedtexts", 
+            "title": "Associated texts"
+        }
+    }, 
+    {
+        "pk": 62, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Audiocassette", 
+            "slug": "audiocassette", 
+            "title": "Audiocassette"
+        }
+    }, 
+    {
+        "pk": 61, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Audiotape", 
+            "slug": "audiotape", 
+            "title": "Audiotape"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Blueprints", 
+            "slug": "blueprints", 
+            "title": "Blueprints"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Book covers", 
+            "slug": "bookcovers", 
+            "title": "Book covers"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Book illustrations", 
+            "slug": "bookillustrations", 
+            "title": "Book illustrations"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Calendars", 
+            "slug": "calendars", 
+            "title": "Calendars"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Catalogs", 
+            "slug": "catalogs", 
+            "title": "Catalogs"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Certificates", 
+            "slug": "certificates", 
+            "title": "Certificates"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Circulars", 
+            "slug": "circulars", 
+            "title": "Circulars"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Clips", 
+            "slug": "clips", 
+            "title": "Clips"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Correspondence", 
+            "slug": "correspondence", 
+            "title": "Correspondence"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Costume design drawings", 
+            "slug": "costumedesigndrawings", 
+            "title": "Costume design drawings"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Design drawings", 
+            "slug": "designdrawings", 
+            "title": "Design drawings"
+        }
+    }, 
+    {
+        "pk": 54, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Director's notebooks", 
+            "slug": "directorsnotebooks", 
+            "title": "Director's notebooks"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Documents", 
+            "slug": "documents", 
+            "title": "Documents"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Drawings", 
+            "slug": "drawings", 
+            "title": "Drawings"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Ephemera", 
+            "slug": "ephemera", 
+            "title": "Ephemera"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Facsimiles", 
+            "slug": "facsimiles", 
+            "title": "Facsimiles"
+        }
+    }, 
+    {
+        "pk": 63, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Festival programs", 
+            "slug": "festivalprograms", 
+            "title": "Festival programs"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Film stills", 
+            "slug": "filmstills", 
+            "title": "Film stills"
+        }
+    }, 
+    {
+        "pk": 65, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Floor plans", 
+            "slug": "floorplans", 
+            "title": "Floor plans"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Flyers", 
+            "slug": "flyers", 
+            "title": "Flyers"
+        }
+    }, 
+    {
+        "pk": 69, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Forms", 
+            "slug": "forms", 
+            "title": "Forms"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Group portraits", 
+            "slug": "groupportraits", 
+            "title": "Group portraits"
+        }
+    }, 
+    {
+        "pk": 72, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Guestbooks", 
+            "slug": "guestbooks", 
+            "title": "Guestbooks"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Interviews", 
+            "slug": "interviews", 
+            "title": "Interviews"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Invitations", 
+            "slug": "invitations", 
+            "title": "Invitations"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Lobby cards", 
+            "slug": "lobbycards", 
+            "title": "Lobby cards"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Magazine covers", 
+            "slug": "magazinecovers", 
+            "title": "Magazine covers"
+        }
+    }, 
+    {
+        "pk": 66, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Manuscripts", 
+            "slug": "manuscripts", 
+            "title": "Manuscripts"
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Maps", 
+            "slug": "maps", 
+            "title": "Maps"
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Musical notations", 
+            "slug": "musicalnotations", 
+            "title": "Musical notations"
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Pamphlets", 
+            "slug": "pamphlets", 
+            "title": "Pamphlets"
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Panoramic photographs", 
+            "slug": "panoramicphotographs", 
+            "title": "Panoramic photographs"
+        }
+    }, 
+    {
+        "pk": 71, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Paper negatives", 
+            "slug": "papernegatives", 
+            "title": "Paper negatives"
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Periodical illustrations", 
+            "slug": "periodicalillustrations", 
+            "title": "Periodical illustrations"
+        }
+    }, 
+    {
+        "pk": 68, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Periodicals", 
+            "slug": "periodicals", 
+            "title": "Periodicals"
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Photograph albums", 
+            "slug": "photographalbums", 
+            "title": "Photograph albums"
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Photographic postcards", 
+            "slug": "photographicpostcards", 
+            "title": "Photographic postcards"
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Photographs", 
+            "slug": "photographs", 
+            "title": "Photographs"
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Plans", 
+            "slug": "plans", 
+            "title": "Plans"
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Playbills", 
+            "slug": "playbills", 
+            "title": "Playbills"
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Portrait photographs", 
+            "slug": "portraitphotographs", 
+            "title": "Portrait photographs"
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Postcards", 
+            "slug": "postcards", 
+            "title": "Postcards"
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Posters", 
+            "slug": "posters", 
+            "title": "Posters"
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Press releases", 
+            "slug": "pressreleases", 
+            "title": "Press releases"
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Promotional materials", 
+            "slug": "promotionalmaterials", 
+            "title": "Promotional materials"
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Publicity photographs", 
+            "slug": "publicityphotographs", 
+            "title": "Publicity photographs"
+        }
+    }, 
+    {
+        "pk": 55, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Scrapbook press clippings", 
+            "slug": "scrapbookpressclippings", 
+            "title": "Scrapbook press clippings"
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Scrapbooks", 
+            "slug": "scrapbooks", 
+            "title": "Scrapbooks"
+        }
+    }, 
+    {
+        "pk": 47, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Set design drawings", 
+            "slug": "setdesigndrawings", 
+            "title": "Set design drawings"
+        }
+    }, 
+    {
+        "pk": 48, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Sheet music covers", 
+            "slug": "sheetmusiccovers", 
+            "title": "Sheet music covers"
+        }
+    }, 
+    {
+        "pk": 49, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Sketches", 
+            "slug": "sketches", 
+            "title": "Sketches"
+        }
+    }, 
+    {
+        "pk": 67, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Slides", 
+            "slug": "slides", 
+            "title": "Slides"
+        }
+    }, 
+    {
+        "pk": 50, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Television stills", 
+            "slug": "televisionstills", 
+            "title": "Television stills"
+        }
+    }, 
+    {
+        "pk": 51, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Theater programs", 
+            "slug": "theaterprograms", 
+            "title": "Theater programs"
+        }
+    }, 
+    {
+        "pk": 52, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Tickets", 
+            "slug": "tickets", 
+            "title": "Tickets"
+        }
+    }, 
+    {
+        "pk": 53, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Typescripts", 
+            "slug": "typescripts", 
+            "title": "Typescripts"
+        }
+    }, 
+    {
+        "pk": 57, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Video recording (DVD)", 
+            "slug": "video-dvd", 
+            "title": "Video recording (DVD)"
+        }
+    }, 
+    {
+        "pk": 58, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Video recording (MiniDV)", 
+            "slug": "video-minidv", 
+            "title": "Video recording (MiniDV)"
+        }
+    }, 
+    {
+        "pk": 73, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Video Recording (SDHC)", 
+            "slug": "Video recording (SDHC)", 
+            "title": "Video Recording (SDHC)"
+        }
+    }, 
+    {
+        "pk": 60, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Video recording (U-Matic)", 
+            "slug": "video-u-matic", 
+            "title": "Video recording (U-Matic)"
+        }
+    }, 
+    {
+        "pk": 56, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Video recording (VHS)", 
+            "slug": "video-vhs", 
+            "title": "Video recording (VHS)"
+        }
+    }, 
+    {
+        "pk": 70, 
+        "model": "archive.physicalobjecttype", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Viewbooks", 
+            "slug": "viewbooks", 
+            "title": "Viewbooks"
+        }
+    }
+]

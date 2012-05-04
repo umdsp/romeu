@@ -1,0 +1,958 @@
+[
+    {
+        "pk": 12, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Adaptador", 
+            "title_en": "Adapter", 
+            "title": "Adapter"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Anotador/-a", 
+            "title_en": "Annotator", 
+            "title": "Annotator"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Arreglista", 
+            "title_en": "Arranger", 
+            "title": "Arranger"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Artist", 
+            "title": "Artist"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Autor / Escritor", 
+            "title_en": "Author / Playwright", 
+            "title": "Author / Playwright"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Compositor", 
+            "title_en": "Composer", 
+            "title": "Composer"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Cr\u00edtico", 
+            "title_en": "Critic", 
+            "title": "Critic"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Dramaturgo", 
+            "title_en": "Dramaturge", 
+            "title": "Dramaturge"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Editor", 
+            "title_en": "Editor", 
+            "title": "Editor"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Libretista", 
+            "title_en": "Librettist", 
+            "title": "Librettist"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Letrista", 
+            "title_en": "Lyricist", 
+            "title": "Lyricist"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Editorial", 
+            "title_en": "Publisher", 
+            "title": "Publisher"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "archive.workrecordfunction", 
+        "fields": {
+            "title_es": "Traductor", 
+            "title_en": "Translator", 
+            "title": "Translator"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "archive.directingteamfunction", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Artistic Director", 
+            "title": "Artistic Director"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "archive.directingteamfunction", 
+        "fields": {
+            "title_es": "Ayudante de direcci\u00f3n", 
+            "title_en": "Assistant Director", 
+            "title": "Assistant Director"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "archive.directingteamfunction", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Associate Director", 
+            "title": "Associate Director"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "archive.directingteamfunction", 
+        "fields": {
+            "title_es": "Conductor", 
+            "title_en": "Conductor", 
+            "title": "Conductor"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "archive.directingteamfunction", 
+        "fields": {
+            "title_es": "Director", 
+            "title_en": "Director", 
+            "title": "Director"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "archive.directingteamfunction", 
+        "fields": {
+            "title_es": "Director musical", 
+            "title_en": "Musical Director", 
+            "title": "Musical Director"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Acrobat / Fase de combate", 
+            "title_en": "Acrobat / stage fighter", 
+            "title": "Acrobat / stage fighter"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Actor / actriz", 
+            "title_en": "Actor / actress", 
+            "title": "Actor / actress"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Cuidador de animales", 
+            "title_en": "Animal handler", 
+            "title": "Animal handler"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Miembro de coro", 
+            "title_en": "Chorus member", 
+            "title": "Chorus member"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Artista de circo", 
+            "title_en": "Circus performer", 
+            "title": "Circus performer"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Payaso", 
+            "title_en": "Clown", 
+            "title": "Clown"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Comediante", 
+            "title_en": "Comedian", 
+            "title": "Comedian"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Bailarina", 
+            "title_en": "Dancer", 
+            "title": "Dancer"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Extra", 
+            "title_en": "Extra", 
+            "title": "Extra"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Improvisador", 
+            "title_en": "Improvisationalist", 
+            "title": "Improvisationalist"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Buf\u00f3n", 
+            "title_en": "Jester", 
+            "title": "Jester"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Mago / ilusionista", 
+            "title_en": "Magician / illusionist", 
+            "title": "Magician / illusionist"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Mimo", 
+            "title_en": "Mime", 
+            "title": "Mime"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Juglar", 
+            "title_en": "Minstrel", 
+            "title": "Minstrel"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "M\u00fasico", 
+            "title_en": "Musician", 
+            "title": "Musician"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Narrador", 
+            "title_en": "Narrator", 
+            "title": "Narrator"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Artista de performance", 
+            "title_en": "Performance artist", 
+            "title": "Performance artist"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Titiritero/a", 
+            "title_en": "Puppeteer", 
+            "title": "Puppeteer"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Cantante", 
+            "title_en": "Singer", 
+            "title": "Singer"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Cuentista", 
+            "title_en": "Storyteller", 
+            "title": "Storyteller"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Suplente", 
+            "title_en": "Understudy", 
+            "title": "Understudy"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": "Ventr\u00edlocuo", 
+            "title_en": "Ventriloquist", 
+            "title": "Ventriloquist"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "archive.castmemberfunction", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Voice off", 
+            "title": "Voice off"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Asistente al dise\u00f1ador de luces", 
+            "title_en": "Assistant Light Designer", 
+            "title": "Assistant Light Designer"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Dise\u00f1ador/a audiovisual", 
+            "title_en": "Audiovisual designer", 
+            "title": "Audiovisual designer"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Core\u00f3grafo", 
+            "title_en": "Choreographer", 
+            "title": "Choreographer"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Dise\u00f1ador de vestuario", 
+            "title_en": "Costume designer", 
+            "title": "Costume designer"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Dise\u00f1ador gr\u00e1fico", 
+            "title_en": "Graphic Designer", 
+            "title": "Graphic Designer"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Light designer", 
+            "title": "Light designer"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Literary and Ritualistic Advisor", 
+            "title": "Literary and Ritualistic Advisor"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Dise\u00f1ador de maquillaje", 
+            "title_en": "Makeup designer", 
+            "title": "Makeup designer"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Director musical", 
+            "title_en": "Music director", 
+            "title": "Music director"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Banda sonora original", 
+            "title_en": "Original score", 
+            "title": "Original score"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Dise\u00f1ador de utiler\u00eda", 
+            "title_en": "Props designer", 
+            "title": "Props designer"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Dise\u00f1ador de escena", 
+            "title_en": "Set designer", 
+            "title": "Set designer"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Dise\u00f1ador de iluminaci\u00f3n", 
+            "title_en": "Set lighting designer", 
+            "title": "Set lighting designer"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Dise\u00f1ador de sonido", 
+            "title_en": "Sound designer", 
+            "title": "Sound designer"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "archive.designteamfunction", 
+        "fields": {
+            "title_es": "Dise\u00f1ador de escenograf\u00eda", 
+            "title_en": "Stage designer", 
+            "title": "Stage designer"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Locutor", 
+            "title_en": "Announcer", 
+            "title": "Announcer"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Construcci\u00f3n", 
+            "title_en": "Construction", 
+            "title": "Construction"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Equipo de vestuario", 
+            "title_en": "Costume crew", 
+            "title": "Costume crew"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Artesano", 
+            "title_en": "Craftsman", 
+            "title": "Craftsman"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Electricista", 
+            "title_en": "Electrician", 
+            "title": "Electrician"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Peluquero", 
+            "title_en": "Hairdresser", 
+            "title": "Hairdresser"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Operador de luces", 
+            "title_en": "Light operator", 
+            "title": "Light operator"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Fot\u00f3grafo", 
+            "title_en": "Photographer", 
+            "title": "Photographer"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Equipo de propiedad", 
+            "title_en": "Property crew", 
+            "title": "Property crew"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Pintor de escena", 
+            "title_en": "Scene painter", 
+            "title": "Scene painter"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Operador de sonido", 
+            "title_en": "Sound operator", 
+            "title": "Sound operator"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Equipo de escena", 
+            "title_en": "Stage crew", 
+            "title": "Stage crew"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Director de escena / director de producci\u00f3n", 
+            "title_en": "Stage / production manager", 
+            "title": "Stage / production manager"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Supra-t\u00edtulos", 
+            "title_en": "Supra-titles", 
+            "title": "Supra-titles"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "T\u00e9cnico", 
+            "title_en": "Technician", 
+            "title": "Technician"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Director del teatro", 
+            "title_en": "Theater Director", 
+            "title": "Theater Director"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "archive.techteamfunction", 
+        "fields": {
+            "title_es": "Vide\u00f3grafo", 
+            "title_en": "Videographer", 
+            "title": "Videographer"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "archive.productionteamfunction", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Assistant producer", 
+            "title": "Assistant producer"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "archive.productionteamfunction", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Director of production", 
+            "title": "Director of production"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "archive.productionteamfunction", 
+        "fields": {
+            "title_es": "Productor", 
+            "title_en": "Producer", 
+            "title": "Producer"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "archive.productionteamfunction", 
+        "fields": {
+            "title_es": null, 
+            "title_en": "Producing Associate Director", 
+            "title": "Producing Associate Director"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "archive.productionteamfunction", 
+        "fields": {
+            "title_es": "Relaciones p\u00fablicas", 
+            "title_en": "Public relations", 
+            "title": "Public relations"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": "Agente", 
+            "title_en": "Agent", 
+            "title": "Agent"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": null, 
+            "title_en": "Artistic Director", 
+            "title": "Artistic Director"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "family", 
+            "title_es": "Hijo", 
+            "title_en": "Child", 
+            "title": "Child"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "family", 
+            "title_es": "Primo", 
+            "title_en": "Cousin", 
+            "title": "Cousin"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": null, 
+            "title_en": "Director", 
+            "title": "Director"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "ident", 
+            "title_es": "Versi\u00f3n anterior de", 
+            "title_en": "Earlier version of", 
+            "title": "Earlier version of"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": "Fundador", 
+            "title_en": "Founder", 
+            "title": "Founder"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "family", 
+            "title_es": "Nieto", 
+            "title_en": "Grandchild", 
+            "title": "Grandchild"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "family", 
+            "title_es": "Abuelo", 
+            "title_en": "Grandparent", 
+            "title": "Grandparent"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": "Miembro del jurado", 
+            "title_en": "Jury member", 
+            "title": "Jury member"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "ident", 
+            "title_es": "Versi\u00f3n posterior de", 
+            "title_en": "Later version of", 
+            "title": "Later version of"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": "Miembro", 
+            "title_en": "Member", 
+            "title": "Member"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "family", 
+            "title_es": "Sobrino/a", 
+            "title_en": "Niece/Nephew", 
+            "title": "Niece/Nephew"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "family", 
+            "title_es": "Padre", 
+            "title_en": "Parent", 
+            "title": "Parent"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": "Patr\u00f3n", 
+            "title_en": "Patron", 
+            "title": "Patron"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": "Presidente / l\u00edder", 
+            "title_en": "President / leader", 
+            "title": "President / leader"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": "Secretario", 
+            "title_en": "Secretary", 
+            "title": "Secretary"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": "Patrocinador", 
+            "title_en": "Sponsor", 
+            "title": "Sponsor"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "member", 
+            "title_es": "Tesorero", 
+            "title_en": "Treasurer", 
+            "title": "Treasurer"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "archive.orgfunction", 
+        "fields": {
+            "func_type": "family", 
+            "title_es": "Tio/a", 
+            "title_en": "Uncle/Aunt", 
+            "title": "Uncle/Aunt"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "archive.festivalfunction", 
+        "fields": {
+            "title_es": "Cr\u00edtica", 
+            "title_en": "Critic", 
+            "title": "Critic"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "archive.festivalfunction", 
+        "fields": {
+            "title_es": "Anfitri\u00f3n", 
+            "title_en": "Host", 
+            "title": "Host"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "archive.festivalfunction", 
+        "fields": {
+            "title_es": "Miembro del jurado", 
+            "title_en": "Jury member", 
+            "title": "Jury member"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "archive.festivalfunction", 
+        "fields": {
+            "title_es": "Promotor", 
+            "title_en": "Promoter", 
+            "title": "Promoter"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "archive.festivalfunction", 
+        "fields": {
+            "title_es": "Patrocinador", 
+            "title_en": "Sponsor", 
+            "title": "Sponsor"
+        }
+    }
+]

@@ -239,7 +239,7 @@
               {% if production.venue %}
               <li>
                 <h4>{% trans "Venue" %}:</h4>
-                <span><a href="/venue/{{ production.venue.pk }}">{{ production.venue }}</a></span>
+                <span><a href="/venue/{{ production.venue.pk }}">{{ production.venue.title }} ({{ production.venue.country }})</a></span>
                 {% if production.stage %}
                 <span>{{ production.stage.title }}</span>
                 {% endif %}

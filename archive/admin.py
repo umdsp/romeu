@@ -197,7 +197,7 @@ class DigitalFileInline(admin.TabularInline):
 class CreatorAdmin(TranslationAdmin):
     form = arcforms.CreatorAdminForm
     list_display = ('creator_name', 'nationality', 'birth_date_display', 'death_date_display', 'has_system_links',)
-    list_filter = ('published','has_attention',)
+    list_filter = ('published','has_attention','creator_type',)
     exclude = ('creator_name',)
     date_hierarchy = 'birth_date'
     search_fields = ['creator_name', 'creator_ascii_name', 'name_variants']

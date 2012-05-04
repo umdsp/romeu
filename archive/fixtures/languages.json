@@ -1,0 +1,255 @@
+[
+    {
+        "pk": 22, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Bulgarian", 
+            "archival_code": "bul", 
+            "shortcode": "bg", 
+            "name": "Bulgarian", 
+            "name_es": "B\u00falgaro"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Catalan", 
+            "archival_code": "cat", 
+            "shortcode": "ca", 
+            "name": "Catalan", 
+            "name_es": "Catal\u00e1n"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Czech", 
+            "archival_code": "cze", 
+            "shortcode": "cs", 
+            "name": "Czech", 
+            "name_es": "Checo"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Danish", 
+            "archival_code": "dan", 
+            "shortcode": "da", 
+            "name": "Danish", 
+            "name_es": "Dan\u00e9s"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Dutch", 
+            "archival_code": "dut", 
+            "shortcode": "nl", 
+            "name": "Dutch", 
+            "name_es": "Holand\u00e9s"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "English", 
+            "archival_code": "eng", 
+            "shortcode": "en", 
+            "name": "English", 
+            "name_es": "Ingl\u00e9s"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "French", 
+            "archival_code": "fra", 
+            "shortcode": "fr", 
+            "name": "French", 
+            "name_es": "Franc\u00e9s"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "German", 
+            "archival_code": "ger", 
+            "shortcode": "de", 
+            "name": "German", 
+            "name_es": "Alem\u00e1n"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Greek", 
+            "archival_code": "gre", 
+            "shortcode": "el", 
+            "name": "Greek", 
+            "name_es": "Griego"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Italian", 
+            "archival_code": "ita", 
+            "shortcode": "it", 
+            "name": "Italian", 
+            "name_es": "Italiano"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Japanese", 
+            "archival_code": "jpn", 
+            "shortcode": "ja", 
+            "name": "Japanese", 
+            "name_es": "Japon\u00e9s"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Latin", 
+            "archival_code": "lat", 
+            "shortcode": "la", 
+            "name": "Latin", 
+            "name_es": "Lat\u00edn"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "N/A (non-verbal, etc.)", 
+            "archival_code": "nap", 
+            "shortcode": "na", 
+            "name": "N/A (non-verbal, etc.)", 
+            "name_es": "No aplicable (sin palabras)"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Norwegian", 
+            "archival_code": "nor", 
+            "shortcode": "no", 
+            "name": "Norwegian", 
+            "name_es": "Noruego"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Polish", 
+            "archival_code": "pol", 
+            "shortcode": "pl", 
+            "name": "Polish", 
+            "name_es": "Polaco"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Portuguese", 
+            "archival_code": "por", 
+            "shortcode": "pt", 
+            "name": "Portuguese", 
+            "name_es": "Portugu\u00e9s"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Quich\u00e9", 
+            "archival_code": "qce", 
+            "shortcode": "qe", 
+            "name": "Quich\u00e9", 
+            "name_es": "Quich\u00e9"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Romanian", 
+            "archival_code": "ron", 
+            "shortcode": "ro", 
+            "name": "Romanian", 
+            "name_es": "Rumano"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Russian", 
+            "archival_code": "rus", 
+            "shortcode": "ru", 
+            "name": "Russian", 
+            "name_es": "Ruso"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Spanglish", 
+            "archival_code": "sgh", 
+            "shortcode": "sh", 
+            "name": "Spanglish", 
+            "name_es": "Spanglish"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Spanish", 
+            "archival_code": "spa", 
+            "shortcode": "es", 
+            "name": "Spanish", 
+            "name_es": "Espa\u00f1ol"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Swedish", 
+            "archival_code": "swe", 
+            "shortcode": "sv", 
+            "name": "Swedish", 
+            "name_es": "Sueco"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "archive.language", 
+        "fields": {
+            "name_en": "Turkish", 
+            "archival_code": "tur", 
+            "shortcode": "tr", 
+            "name": "Turkish", 
+            "name_es": "Turco"
+        }
+    }
+]
