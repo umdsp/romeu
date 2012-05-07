@@ -90,7 +90,7 @@
 
                   {% if digital_object.phys_obj_location %}
                   <dt>{% trans "Physical object location" %}:</dt>
-                  <dd>{{ digital_object.phys_obj_location }}</dd>
+                  <dd>{{ digital_object.phys_obj_location.display_name }}</dd>
                   {% endif %}
 
                   {% if digital_object.digi_object_format %}
@@ -182,7 +182,7 @@
                 <ul>
                   {% for l in digital_object.related_venue.all %}
                   <li>
-                    <a href="/venue/{{ l.pk }}">{{ l }}</a>
+                    <a href="/venue/{{ l.pk }}">{{ l.display_name }}</a>
                   </li>
                   {% endfor %}
                 </ul>

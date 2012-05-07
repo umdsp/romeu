@@ -63,7 +63,7 @@
                         </td>
                         <td><a href="/production/{{production.id}}">{{ production.title }}</a></td>
                         <td>{{ production.display_directors_links|safe }}</td>
-                        <td>{% if production.venue %}<a href="/venue/{{ production.venue.id }}">{{ production.venue }}</a>{% endif %}</td>
+                        <td>{% if production.venue %}<a href="/venue/{{ production.venue.id }}">{{ production.venue.display_name }}</a>{% endif %}</td>
                         <td>{{ production.display_date_range }}</td>
                     </tr>
                 {% endfor %}

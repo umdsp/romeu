@@ -1,4 +1,5 @@
 <tr class="post_result">
     <td><a href="/venue/{{ result.object.pk }}">{{ result.object.title }}</a></td>
+    <td>{{ result.object.city }}</td>
     <td>Relevance: {{ result.score|floatformat:"-2" }}</td>
 </tr>

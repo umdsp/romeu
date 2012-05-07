@@ -108,7 +108,7 @@
                   <span>{{ creator.birth_date_display }}</span>
                 </li>
               {% endif %}
-              {% if creator.birth_location %}
+              {% if creator.birth_location.display_name %}
                 <li>
                   <h4>{% trans "Place of birth" %}:</h4>
                   <span>{{ creator.birth_location }}</span>
@@ -123,7 +123,7 @@
               {% if creator.death_location %}
                 <li>
                   <h4>{% trans "Place of death" %}:</h4>
-                  <span>{{ creator.death_location }}</span>
+                  <span>{{ creator.death_location.display_name }}</span>
                 </li>
               {% endif %}
               {% if creator.has_related_creators %}
