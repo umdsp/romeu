@@ -390,6 +390,9 @@ class ProductionAdmin(TranslationAdmin):
         )
 
 class FestivalAdmin(TranslationAdmin):
+    ordering = ['title',]
+    search_fields = ['ascii_title', 'title']
+
     class Media:
         css = {
             'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
@@ -404,7 +407,7 @@ class FestivalOccurrenceAdmin(TranslationAdmin):
     inlines = (FestivalParticipantInline,)
     date_hierarchy = 'begin_date'
     list_filter = ('has_attention',)
-    filter_horizontal = ['productions', 'secondary_bibliography']
+    filter_horizontal = ['secondary_bibliography']
     search_fields = ['ascii_title', 'title']
     exclude = ('ascii_title',)
     

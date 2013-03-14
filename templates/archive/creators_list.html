@@ -60,7 +60,12 @@
                         {% endif %}
                       </td>
                       <td><a href="/creator/{{creator.id}}">{{ creator.creator_name }}</a></td>
-                      <td>{% if creator.display_roles %}{{ creator.display_roles }}{% endif %}</td>
+                      <td>{% if creator.display_roles %}{{ creator.display_roles }}
+                          {% else %}
+                            {% if creator.creator_type == 'corp' %}
+                              {% trans "Theater company / organization" %}
+                            {% endif %}
+                          {% endif %}</td>
                     </tr>
                 {% endfor %}
             </tbody>

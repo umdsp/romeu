@@ -104,31 +104,43 @@
               {% endif %}
               {% if creator.birth_date %}
                 <li>
-                  <h4>{% trans "Birth date" %}:</h4>
+                  <h4>{% if creator.creator_type == 'corp' %}{% trans "Earliest active" %}{% else %}{% trans "Birth date" %}{% endif %}:</h4>
                   <span>{{ creator.birth_date_display }}</span>
                 </li>
               {% endif %}
               {% if creator.birth_location.display_name %}
                 <li>
-                  <h4>{% trans "Place of birth" %}:</h4>
+                  <h4>{% if creator.creator_type == 'corp' %}{% trans "Place of origination" %}{% else %}{% trans "Place of birth" %}{% endif %}:</h4>
                   <span>{{ creator.birth_location }}</span>
                 </li>
               {% endif %}
               {% if creator.death_date %}
                 <li>
-                  <h4>{% trans "Death date" %}:</h4>
+                  <h4>{% if creator.creator_type == 'corp' %}{% trans "Latest active" %}{% else %}{% trans "Death date" %}{% endif %}:</h4>
                   <span>{{ creator.death_date_display }}</span>
                 </li>
               {% endif %}
               {% if creator.death_location %}
                 <li>
-                  <h4>{% trans "Place of death" %}:</h4>
+                  <h4>{% if creator.creator_type == 'corp' %}{% trans "Place of dissolution" %}{% else %}{% trans "Place of death" %}{% endif %}:</h4>
                   <span>{{ creator.death_location.display_name }}</span>
                 </li>
               {% endif %}
               {% if creator.has_related_creators %}
                 <li>
                   <h4>{% trans "Related creators" %}:</h4>
+                </li>
+              {% endif %}
+              {% if creator.location %}
+                <li>
+                  <h4>{% trans "Office / HQ" %}:</h4>
+                  <span><a href="/venue/{{ creator.location.pk }}">{{ creator.location.display_name }}</a></span>
+                </li>
+              {% endif %}
+              {% if creator.website %}
+                <li>
+                  <h4>{% trans "Website" %}:</h4>
+                  <span><a href="{{ creator.website }}">{{ creator.website }}</a></span>
                 </li>
               {% endif %}
             </ul>

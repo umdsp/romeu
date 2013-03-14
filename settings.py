@@ -138,7 +138,20 @@ INSTALLED_APPS = (
     'tinymce',
     'haystack',
     'south',
+    'disqus',
 )
+DISQUS_API_KEY = 'haO01iiF2PCConCBF0j85S3WQD8eA0tit3XwEOIhqHfZ5g17QFBQEC0uHzBfXgWK'
+DISQUS_WEBSITE_SHORTNAME = 'cubantheater'
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+#       'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+#        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://localhost:8983/solr/collection1'
+    },
+}
+
 
 # Modeltranslation settings
 LANGUAGES = (

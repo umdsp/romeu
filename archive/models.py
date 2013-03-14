@@ -1091,6 +1091,8 @@ class AdvisoryMember(models.Model):
 
 class Festival(models.Model):
     title = models.CharField(max_length=200, verbose_name=_("title"))
+    notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
+    attention = models.TextField(null=True, blank=True, verbose_name=_("notes"))
 
     def __unicode__(self):
         return self.title
@@ -1100,7 +1102,7 @@ class FestivalOccurrence(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))
     ascii_title = models.CharField(max_length=255, verbose_name=_("ASCII title"))
     title_variants = models.CharField(max_length=300, null=True, blank=True, verbose_name=_("title variants"))
-    venue = models.ForeignKey(Location, verbose_name=_("venue"))
+    venue = models.ManyToManyField(Location, verbose_name=_("venue"))
     begin_date = models.DateField(help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("begin date"))
     begin_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', verbose_name=_("Precision"))
     begin_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
@@ -1112,8 +1114,11 @@ class FestivalOccurrence(models.Model):
     secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="festival_secondary_bibliography_for", verbose_name=_("secondary bibliography"))
     awards_text = models.TextField(null=True, blank=True, verbose_name=_("awards"))
     program = models.TextField(null=True, blank=True, verbose_name=_("festival/conference program"))
+    edu_program = models.TextField(null=True, blank=True, verbose_name=_("festival/conference educational program"))
+    announcement = models.TextField(null=True, blank=True, verbose_name=_("festival/conference announcement"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
+    website = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("website"))
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
@@ -1126,7 +1131,7 @@ class FestivalOccurrence(models.Model):
         return display_date(self.end_date, self.end_date_precision, self.end_date_BC)
 
     def __unicode__(self):
-        return "%s (%s, %s - %s)" % (self.title, self.venue.title, self.begin_date_display(), self.end_date_display())
+        return "%s (%s - %s)" % (self.title, self.begin_date_display(), self.end_date_display())
 def update_festival_occurrence_title(sender, **kwargs):
     obj = kwargs['instance']
     obj.ascii_title = unidecode(obj.title)

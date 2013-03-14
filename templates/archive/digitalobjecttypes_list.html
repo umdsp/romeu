@@ -24,7 +24,7 @@
 
       {% if collections %}
       {% for c in collections %}
-      <li><a href="/digitalobjects/collection/{{ c.repository.repository_id }}{{ c.collection_id }}">{{ c.title }} ({{ c.repository.repository_id }}{{ c.collection_id }})</a></li>
+      <li><a href="/digitalobjects/collection/{{ c.repository.repository_id }}{{ c.collection_id }}">{{ c.title }} ({{ c.repository.repository_id }})</a></li>
       {% endfor %}
       {% endif %}
     </ul>
