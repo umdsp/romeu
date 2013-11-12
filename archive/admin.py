@@ -214,7 +214,7 @@ class CreatorAdmin(TranslationAdmin):
             'fields': ('gender', 'nationality', 'location', 'biography', 'website', 'photo', 'primary_bibliography', 'secondary_bibliography', 'awards_text', 'biblio_text', 'biblio_text_es', 'secondary_biblio_text', 'secondary_biblio_text_es')
         }),
         ('Standard fields', {
-            'fields': ('notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date')
+            'fields': ('notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date', 'tags')
         })
     )
     
@@ -270,7 +270,7 @@ class LocationAdmin(TranslationAdmin):
             'fields': ('summary', 'website', 'photo')
         }),
         ('Standard fields', {
-            'fields': ('notes', 'attention', 'needs_editing', 'published')
+            'fields': ('notes', 'attention', 'needs_editing', 'published', 'tags')
         })
     )
     
@@ -326,7 +326,7 @@ class WorkRecordAdmin(TranslationAdmin):
             'fields': ('website', 'digital_copy')
         }),
         ('Standard fields', {
-            'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published')
+            'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published', 'tags')
         })
     )
     
@@ -372,7 +372,7 @@ class ProductionAdmin(TranslationAdmin):
             'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website', 'awards_text', 'biblio_text', 'biblio_text_es', 'secondary_bibliography')
         }),
         ('Standard fields', {
-            'fields': ('notes', 'attention', 'needs_editing', 'published')
+            'fields': ('notes', 'attention', 'needs_editing', 'published', 'tags')
         })
     )
     
@@ -419,7 +419,7 @@ class FestivalOccurrenceAdmin(TranslationAdmin):
             'fields': ('venue', ('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'))
         }),
         ('Standard fields', {
-            'fields': (('notes', 'attention', 'needs_editing', 'published'))
+            'fields': (('notes', 'attention', 'needs_editing', 'published', 'tags'))
         })
     )
     
@@ -503,7 +503,7 @@ class DigitalObjectAdmin(TranslationAdmin):
             'fields': (('restricted', 'restricted_description'), 'ready_to_stream', 'hi_def_video', 'poster_image')
         },),
         ('Standard fields', {
-            'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published',)
+            'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published', 'tags')
         },),
     )
 

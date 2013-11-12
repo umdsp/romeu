@@ -1,3 +1,19 @@
+# Copyright (C) 2012  University of Miami
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
 # coding: utf-8
 import os
 from django.core.files.storage import FileSystemStorage
@@ -14,7 +30,6 @@ from django.db.models import Q
 from unidecode import unidecode
 
 from smart_selects.db_fields import ChainedForeignKey
-from taggit.managers import TaggableManager
 from archive.utils import display_date
 from archive import constants
 
@@ -23,7 +38,7 @@ from archive import constants
 from random import choice, shuffle
 
 from django.contrib.flatpages.models import FlatPage
-
+from taggit_autocomplete.managers import TaggableManager
 
 class OverwriteStorage(FileSystemStorage):
     """
@@ -133,7 +148,8 @@ class Creator(models.Model):
     published = models.BooleanField(default=True, verbose_name=_("published"))
     profiler_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profiler name"))
     profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profile entry date"))
-    
+    tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
+
     class Meta:
         ordering = ['creator_name']
     
@@ -575,6 +591,7 @@ class Location(models.Model):
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
+    tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 
     def begin_date_display(self):
         return display_date(self.begin_date, self.begin_date_precision, self.begin_date_BC)
@@ -644,6 +661,7 @@ class Stage(models.Model):
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
     has_attention = models.BooleanField(default=False)
+    tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
     
     def __unicode__(self):
         return "%s" % (self.title)
@@ -666,8 +684,8 @@ class WorkRecord(models.Model):
     publication_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("publication date"))
     publication_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'y', null=True, blank=True, verbose_name=_("Precision"))
     publication_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
-    publication_rights = models.CharField(max_length=30, null=True, blank=True, verbose_name=_("publication rights"))
-    performance_rights = models.CharField(max_length=30, null=True, blank=True, verbose_name=_("performance rights"))
+    publication_rights = models.CharField(max_length=50, null=True, blank=True, verbose_name=_("publication rights"))
+    performance_rights = models.CharField(max_length=50, null=True, blank=True, verbose_name=_("performance rights"))
     website = models.URLField(null=True, blank=True, help_text=_("A site where users can find the text of this work"), verbose_name=_("website"))
     digital_copy = models.ForeignKey("DigitalObject", null=True, blank=True, verbose_name=_("digital copy"))
     summary = models.TextField(null=True, blank=True, verbose_name=_("summary"))
@@ -682,6 +700,7 @@ class WorkRecord(models.Model):
     biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text, Spanish)"))
     secondary_biblio_text = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text)"))
     secondary_biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text, Spanish)"))
+    tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 
     def creation_date_display(self):
         return display_date(self.creation_date, self.creation_date_precision, self.creation_date_BC)
@@ -822,6 +841,7 @@ class Production(models.Model):
     theater_company = models.ForeignKey(Creator, null=True, blank=True, related_name="company_productions")
     profiler_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profiler name"))
     profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profile entry date"))
+    tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 
     def begin_date_display(self):
         return display_date(self.begin_date, self.begin_date_precision, self.begin_date_BC)
@@ -1123,6 +1143,7 @@ class FestivalOccurrence(models.Model):
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
     profiler_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profiler name"))
+    tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 
     def begin_date_display(self):
         return display_date(self.begin_date, self.begin_date_precision, self.begin_date_BC)
@@ -1246,7 +1267,7 @@ class DigitalObject(models.Model):
     permission_form = models.FileField(upload_to='permissionforms', verbose_name=_("permission form"), null=True, blank=True)
     # Physical object info
     identifier = models.CharField(max_length=60, help_text=_("e.g. ISBN, ISSN, DOI"), null=True, blank=True, verbose_name=_("identifier"))
-    marks = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("marks/inscriptions"))
+    marks = models.CharField(max_length=1024, null=True, blank=True, verbose_name=_("marks/inscriptions"))
     measurements = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("physical description"))
     phys_object_type = models.ForeignKey("PhysicalObjectType", verbose_name=_("Physical object type"), related_name="digital_objects", null=True, blank=True)
     donor = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("donor"))
@@ -1274,7 +1295,6 @@ class DigitalObject(models.Model):
     related_creator = models.ManyToManyField(Creator, related_name="related_objects", null=True, blank=True, verbose_name=_("related creator"))
     related_work = models.ManyToManyField(WorkRecord, related_name="related_objects", null=True, blank=True, verbose_name=_("related work"))
     # extra details
-    tags = TaggableManager(verbose_name=_("tags"))
     summary = models.TextField(null=True, blank=True, verbose_name=_("summary"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     creation_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("creation date"))
@@ -1289,7 +1309,8 @@ class DigitalObject(models.Model):
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
-    
+    tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True) 
+ 
     def phys_obj_date_display(self):
         return display_date(self.phys_obj_date, self.phys_obj_precision, self.phys_obj_BC)
     
@@ -1623,6 +1644,7 @@ class BibliographicRecord(models.Model):
     rights = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("rights"))
     extra = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("extra"))
     work_record = models.ForeignKey("WorkRecord", null=True, blank=True, verbose_name=_("work record"))
+    tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
     
     class Meta:
         verbose_name = _("bibliographic record")

@@ -5,7 +5,7 @@ from archive.views import CreatorsListView, CreatorsAlphaListView, CreatorDetail
                           ProductionsListView, ProductionsAlphaListView, ProductionDetailView, \
                           WorkRecordsListView, WorkRecordsAlphaListView, WorkRecordDetailView, \
                           VenuesListView, VenuesAlphaListView, VenueDetailView, \
-                          DigitalObjectsListView, DigitalObjectDetailView, search_view, flatpage, \
+                          DigitalObjectsListView, DigitalObjectDetailView, search_view, scalar_search_view, flatpage, \
                           DigitalObjectsVideosListView, DigitalObjectsImagesListView, \
                           DigitalObjectsTypeListView, phys_types_list, \
                           DigitalObjectsCollectionListView, collections_list
@@ -79,7 +79,9 @@ urlpatterns = patterns('',
     (r'^search/', search_view),
     
     (r'^selectable/', include('selectable.urls')),
-    
+    (r'^objsearch/', scalar_search_view),
+
+    (r'^taggit_autocomplete/', include('taggit_autocomplete.urls')),
 )
 
 #urlpatterns += patterns('haystack.views',

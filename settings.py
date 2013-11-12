@@ -3,7 +3,7 @@ import sys
 
 gettext = lambda s: s
 
-DEBUG = True
+DEBUG = False
 THUMBNAIL_DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -125,7 +125,6 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'sorl.thumbnail',
     #'reversion',
-    'archive',
     'workflow',
     'modeltranslation',
     'django.contrib.admin',
@@ -135,6 +134,8 @@ INSTALLED_APPS = (
     'dajax',
     'rosetta',
     'taggit',
+    'taggit_autocomplete',
+    'archive',
     'tinymce',
     'haystack',
     'south',
@@ -142,6 +143,7 @@ INSTALLED_APPS = (
 )
 DISQUS_API_KEY = 'haO01iiF2PCConCBF0j85S3WQD8eA0tit3XwEOIhqHfZ5g17QFBQEC0uHzBfXgWK'
 DISQUS_WEBSITE_SHORTNAME = 'cubantheater'
+TAGGIT_AUTOCOMPLETE_JS_BASE_URL = 'http://cubantheater.org/media/js'
 
 HAYSTACK_CONNECTIONS = {
     'default': {

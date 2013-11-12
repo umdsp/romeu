@@ -31,6 +31,7 @@ from haystack.views import SearchView
 
 from random import randrange
 
+import urllib2
 # For flatpages
 DEFAULT_TEMPLATE = 'flatpages/default.html'
 
@@ -522,3 +523,13 @@ def render_flatpage(request, f):
     populate_xheaders(request, response, TranslatingFlatPage, f.id)
     return response
 
+def scalar_search_view(request):
+    query = ""
+
+    if request.GET.has_key('q'):
+        # User submitted a search term.
+        query = request.GET.get('q')
+
+    istream = urllib2.urlopen(urllib2.Request(url="http://localhost:8983/solr/vidsearch?q="+query))
+    respstr = istream.read()
+    return HttpResponse(respstr)

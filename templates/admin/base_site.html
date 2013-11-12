@@ -3,13 +3,21 @@
 {% load dajaxice_templatetags %}
 
 {% block extrahead %}
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css" type="text/css" media="screen">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css" type="text/css" media="screen"> -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script> 
 {% dajaxice_js_import %}
 <script type="text/javascript" src="{{ MEDIA_URL }}/js/jquery.dajax.core.js" charset="utf-8"></script>
 <script type="text/javascript">
     $(document).ready(function() {
+            function split( val )
+            {
+                return val.split( /,\s*/ );
+            }
+            function extractLast( term )
+            {
+                return split( term ).pop();
+            }
             if ($('body.archive-production.change-form').length) {
                 $('.form-row.venue div').append($('<a href="#" id="updatestages">Update stages list</a>'));
                 $('#updatestages').click(function(e) {
@@ -19,6 +27,56 @@
 
                 Dajaxice.archive.updatestages(Dajax.process, {'option': $('#id_venue_1').val()});
             }
+            $("#id_tags")
+                .bind( "keydown", function( event )
+                {
+                        if ( event.keyCode === $.ui.keyCode.TAB && $( this ).data( "ui-autocomplete" ).menu.active )
+                        {
+                                event.preventDefault();
+                        }
+                })
+                .autocomplete(
+                {
+                        source: function( request, response ) {
+                        $.getJSON( "/taggit_autocomplete/list", {
+                                term: extractLast( request.term )
+                                }, response );
+                        },
+                        search: function() {
+                                // custom minLength
+                                var term = extractLast( this.value );
+                                if ( term.length < 2 ) {
+                                        return false;
+                                }
+                        },
+                        /*source: "/taggit_autocomplete/list", minLength: 2, search: function()
+                        {
+                                // custom minLength
+                                var term = extractLast( this.value );
+                                if ( term.length < 2 )
+                                {
+                                        return false;
+                                }
+                                return term;
+                        },*/
+                        focus: function()
+                        {
+                                // prevent value inserted on focus
+                                return false;
+                        },
+                        select: function( event, ui )
+                        {
+                                var terms = split( this.value );
+                                // remove the current input
+                                terms.pop();
+                                // add the selected item
+                                terms.push( ui.item.value );
+                                // add placeholder to get the comma-and-space at the end
+                                terms.push( "" );
+                                this.value = terms.join( ", " );
+                                return false;
+                        }
+                });
     })
 </script>
 {% endblock %}
