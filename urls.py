@@ -1,11 +1,28 @@
+# Copyright (C) 2012  University of Miami
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
 from django.conf.urls.defaults import *
 from django.conf import settings
 
 from archive.views import CreatorsListView, CreatorsAlphaListView, CreatorDetailView, \
                           ProductionsListView, ProductionsAlphaListView, ProductionDetailView, \
                           WorkRecordsListView, WorkRecordsAlphaListView, WorkRecordDetailView, \
+			  FestivalsListView, FestivalsAlphaListView, FestivalDetailView, \
                           VenuesListView, VenuesAlphaListView, VenueDetailView, \
-                          DigitalObjectsListView, DigitalObjectDetailView, search_view, scalar_search_view, flatpage, \
+                          DigitalObjectsListView, DigitalObjectDetailView, search_view, search_do_view, scalar_search_view, flatpage, \
                           DigitalObjectsVideosListView, DigitalObjectsImagesListView, \
                           DigitalObjectsTypeListView, phys_types_list, \
                           DigitalObjectsCollectionListView, collections_list
@@ -60,6 +77,10 @@ urlpatterns = patterns('',
     (r'^digitalobjects/collections/?$', collections_list),
     (r'^digitalobjects/collection/(\S+)/?$', DigitalObjectsCollectionListView.as_view()),
     (r'^digitalobject/(?P<pk>\d+)/?$', DigitalObjectDetailView.as_view()),
+
+    (r'^festivals/?$', FestivalsListView.as_view()),
+    (r'^festivals/(?P<alpha>[a-z0]{1})/?$', FestivalsAlphaListView.as_view()),
+    (r'^festival/(?P<pk>\d+)/?$', FestivalDetailView.as_view()),
     
     # Set up i18n functions
     (r'^i18n/', include('django.conf.urls.i18n')),
@@ -79,8 +100,10 @@ urlpatterns = patterns('',
     (r'^search/', search_view),
     
     (r'^selectable/', include('selectable.urls')),
-    (r'^objsearch/', scalar_search_view),
 
+    (r'^search_do/', search_do_view),
+
+    (r'^objsearch/', scalar_search_view),
     (r'^taggit_autocomplete/', include('taggit_autocomplete.urls')),
 )
 

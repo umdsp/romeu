@@ -1,3 +1,19 @@
+# Copyright (C) 2012  University of Miami
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext, loader, Context
@@ -32,6 +48,7 @@ from haystack.views import SearchView
 from random import randrange
 
 import urllib2
+
 # For flatpages
 DEFAULT_TEMPLATE = 'flatpages/default.html'
 
@@ -39,7 +56,7 @@ class CreatorsListView(ListView):
     queryset = Creator.objects.filter(published=True).select_related().order_by('creator_name')
     context_object_name = "creators_list"
     template_name = "archive/creators_list.html"
-    paginate_by = 120
+    paginate_by = 10
     
     def get_context_data(self, **kwargs):
         context = super(CreatorsListView, self).get_context_data(**kwargs)
@@ -132,7 +149,7 @@ class ProductionsListView(ListView):
     queryset = Production.objects.filter(published=True).select_related().order_by('title')
     context_object_name = "productions_list"
     template_name = "archive/productions_list.html"
-    paginate_by = 120
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super(ProductionsListView, self).get_context_data(**kwargs)
@@ -216,7 +233,7 @@ class WorkRecordsListView(ListView):
     queryset = WorkRecord.objects.filter(published=True).select_related().order_by('title')
     context_object_name = "writtenworks_list"
     template_name = "archive/workrecords_list.html"
-    paginate_by = 120
+    paginate_by = 10
     
     def get_context_data(self, **kwargs):
         context = super(WorkRecordsListView, self).get_context_data(**kwargs)
@@ -287,7 +304,7 @@ class VenuesListView(ListView):
     queryset = Location.objects.filter(published=True).filter(productions__isnull=False).select_related().distinct().order_by('title')
     context_object_name = "venues_list"
     template_name = "archive/venues_list.html"
-    paginate_by = 120
+    paginate_by = 10
     
     def get_context_data(self, **kwargs):
         context = super(VenuesListView, self).get_context_data(**kwargs)
@@ -361,21 +378,21 @@ class DigitalObjectsListView(ListView):
     queryset = DigitalObject.objects.filter(Q(published=True), Q(digi_object_format__title="Image", files__isnull=False) | Q(digi_object_format__title="Video recording", ready_to_stream=True)).distinct().select_related().order_by('title')
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 36
+    paginate_by = 10
 
 class DigitalObjectsVideosListView(ListView):
     vidtype = DigitalObjectType.objects.get(title="Video recording")
     queryset = DigitalObject.objects.filter(published=True, ready_to_stream=True, poster_image__isnull=False, digi_object_format=vidtype).distinct().select_related().order_by('-creation_date')
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 36
+    paginate_by = 10
 
 class DigitalObjectsImagesListView(ListView):
     imagetype = DigitalObjectType.objects.get(title="Image")
     queryset = DigitalObject.objects.filter(published=True, files__isnull=False, digi_object_format=imagetype).distinct().select_related().order_by('-creation_date')
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 36
+    paginate_by = 10
 
 # Function to generate the page with a list of PhysicalObjectTypes, for use with the TypeListView below.
 def phys_types_list(request):
@@ -389,7 +406,7 @@ def phys_types_list(request):
 class DigitalObjectsTypeListView(ListView):
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 36
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super(DigitalObjectsTypeListView, self).get_context_data(**kwargs)
@@ -406,7 +423,7 @@ class DigitalObjectsTypeListView(ListView):
 # Function to generate the page with a list of Collections, for use with the CollectionListView below.
 def collections_list(request):
     collections = []
-    for c in Collection.objects.order_by('title'):
+    for c in Collection.objects.order_by('repository__repository_id', 'collection_id'):
         if c.has_viewable_objects():
             collections.append(c)
     context_dict = {'collections': collections}
@@ -415,7 +432,7 @@ def collections_list(request):
 class DigitalObjectsCollectionListView(ListView):
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 36
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super(DigitalObjectsCollectionListView, self).get_context_data(**kwargs)
@@ -446,12 +463,104 @@ class DigitalObjectDetailView(DetailView):
         context['digifiles'] = digifiles
         return context
 
+class FestivalsListView(ListView):
+    queryset = Festival.objects.filter().select_related()
+    context_object_name = "festivals_list"
+    template_name = "archive/festivals_list.html"
+    paginate_by = 10
+    
+    def get_context_data(self, **kwargs):
+        context = super(FestivalsListView, self).get_context_data(**kwargs)
+        # Make a container for all the object info - link to file + file info + creator id
+        objects_list = []
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        alldos = DigitalObject.objects.filter(related_festival__isnull=False, files__isnull=False, digi_object_format=imagetype)
+        length = len(alldos) - 1
+        count = 0
+        dos = []
+        while count < 3:
+            num = randrange(0, length)
+            if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+                dos.append(alldos[num])
+                count += 1
+        if dos:
+            for obj in dos:
+                item = {}
+                item['image'] = obj.first_file().filepath
+                item['title'] = obj.title
+                item['festival_title'] = obj.related_festival.all()[0].title
+                item['festival_id'] = obj.related_festival.all()[0].pk
+                item['pk'] = obj.pk
+                objects_list.append(item)
+                
+        context['digital_objects'] = objects_list
+        return context
+         
+         
+class FestivalsAlphaListView(FestivalsListView):
+    def get_queryset(self):
+        if self.kwargs['alpha'] == '0':
+            qset = Festival.objects.filter(title__iregex=r'^[0-9!@#$%^&*\(\)]').select_related().order_by('title')
+        else:
+            qset = Festival.objects.filter(title__istartswith=self.kwargs['alpha']).select_related().order_by('title')
+        return qset
+    
+    def get_context_data(self, **kwargs):
+        context = super(FestivalsAlphaListView, self).get_context_data(**kwargs)
+        if self.kwargs['alpha'] == '0':
+            alpha = '#'
+        else:
+            alpha = self.kwargs['alpha']
+        context['alpha'] = alpha
+        return context
+         
+                
+class FestivalDetailView(DetailView):
+    queryset = Festival.objects.filter().select_related()
+    context_object_name = "festival"
+    template_name = "archive/festival_detail.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super(FestivalDetailView, self).get_context_data(**kwargs)
+        objects_list = []
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        videotype = DigitalObjectType.objects.get(title='Video recording')
+        alldos = DigitalObject.objects.filter(related_festival=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        if alldos:
+            for obj in alldos:
+                for file in obj.files.order_by('seq_id'):
+                    item = {}
+                    item['image'] = file.filepath
+                    item['title'] = obj.title
+                    item['pk'] = obj.pk
+                    objects_list.append(item)
+            context['digital_objects'] = objects_list
+        videos = DigitalObject.objects.filter(related_festival=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        if videos:
+            video_list = []
+            for vid in videos:
+                item = {}
+                if vid.poster_image:
+                    item['poster'] = vid.poster_image
+                item['hidef'] = vid.hi_def_video
+                item['object_id'] = vid.object_number()
+                item['title'] = vid.title
+                item['pk'] = vid.pk
+                video_list.append(item)
+            context['videos'] = video_list
+#        if self.object.photo:
+#            photofile = self.object.photo.first_file()
+#            context['festivalphoto'] = photofile.filepath
+#        else:
+#            context['festivalphoto'] = False
+        return context
+
 # Utility function for search view
 def get_search_results(modeltype, query):
     return SearchQuerySet().models(modeltype).auto_query(query)
     
 def search_view(request):
-    query = creator_matches = location_matches = production_matches = workrecord_matches = False
+    query = creator_matches = location_matches = production_matches = workrecord_matches = festival_matches = False
 
     if request.GET.has_key('q'):
         # User submitted a search term.
@@ -460,6 +569,7 @@ def search_view(request):
         location_matches = get_search_results(Location, query)
         production_matches = get_search_results(Production, query)
         workrecord_matches = get_search_results(WorkRecord, query)
+	festival_matches = get_search_results(Festival, query)
         
     context = {}
     if query:
@@ -472,6 +582,8 @@ def search_view(request):
         context['production_matches'] = production_matches
     if workrecord_matches:
         context['workrecord_matches'] = workrecord_matches
+    if festival_matches:
+        context['festival_matches'] = festival_matches
         
     return render_to_response('search/search.html', context, RequestContext(request))
 
@@ -533,3 +645,31 @@ def scalar_search_view(request):
     istream = urllib2.urlopen(urllib2.Request(url="http://localhost:8983/solr/vidsearch?q="+query))
     respstr = istream.read()
     return HttpResponse(respstr)
+
+def search_do_view(request):
+    query = digitalobject_matches = False
+
+    if request.GET.has_key('q'):
+        # User submitted a search term.
+        query = request.GET['q']
+        digitalobject_matches = get_search_results(DigitalObject, query)
+
+    context = {}
+    if query:
+        context['q'] = query
+    if digitalobject_matches:
+        context['digitalobject_matches'] = digitalobject_matches
+
+    return render_to_response('search/search_do.html', context, RequestContext(request))
+
+def show_object(request):
+    """ View all objects """
+    return simple.direct_to_template(request,
+	template="taggit/taggit.html",
+	extra_context={
+	    'workrecords':WorkRecord.objects.all(),
+	    'productions':Production.objects.all(),
+	    'locations':Location.objects.all(),
+	    'creators':Creator.objects.all(),
+	    'digitalobjects':DigitalObject.objects.all(),
+	})
