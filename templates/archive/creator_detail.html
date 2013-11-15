@@ -22,6 +22,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 {% load autop %}
 {% load thumbnail %}
 {% load i18n %}
+{% load url from future %}
 
 {% block body_class %}detail{% endblock %}
 
@@ -64,9 +65,10 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <div class="linkeditems">
               <h3>{% trans "Written texts" %}</h3>
                 <ul>
+                    
                   {% for work in creator.works %}
                   <li>
-                    <a href="{{ SITE_URL }}/writtenwork/{{ work.record_id }}">{{ work.record_title|safe }}</a><br />
+                    <a href="{{ SITE_URL }}{% url 'workrecord_detail_view' work.record_id %}">{{ work.record_title|safe }}</a><br />  
                     <span>{{ work.function }}</span>
                     {% if work.date %}<br /><span>{{ work.date }}</span>{% endif %}
                   </li>
@@ -81,9 +83,9 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <ul>
                   {% for production in creator.productions %}
                   <li>
-                    <a href="{{ SITE_URL }}/production/{{ production.prod_id }}">{{ production.prod_title }}</a><br />
+                    <a href="{{ SITE_URL }}{% url 'production_detail_view' production.prod_id %}">{{ production.prod_title }}</a><br />
                     <span>{{ production.role }}</span><br />
-                    <span><a href="{{ SITE_URL }}/venue/{{ production.venue.pk }}">{{ production.venue.title }}</a></span><br />
+                    <span><a href="{{ SITE_URL }}{% url 'venue_detail_view' production.venue.pk %}">{{ production.venue.title }}</a></span><br />
                     <span>{{ production.date_range|safe }}</span>
                   </li>
                   {% endfor %}
@@ -105,7 +107,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     Click to play video
                   {% endif %}
                 </a>
-                <a href="/digitalobject/{{vid.pk}}">{{ vid.title}}</a>
+                <a href="{% url 'digital_object_detail_view' vid.pk %}">{{ vid.title}}</a>
               </li>
               {% endfor %}
             </ul>
@@ -154,7 +156,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               {% if creator.location %}
                 <li>
                   <h4>{% trans "Office / HQ" %}:</h4>
-                  <span><a href="/venue/{{ creator.location.pk }}">{{ creator.location.display_name }}</a></span>
+                  <span><a href="{% url 'venue_detail_view' creator.location.pk %}">{{ creator.location.display_name }}</a></span>
                 </li>
               {% endif %}
               {% if creator.website %}
@@ -169,14 +171,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           <div class="objects">
             <a id="next">Next</a>
             <a id="prev">Prev</a>
-            <a id="caption" href="/digitalobject/{{ digital_objects.0.pk }}">View details</a>
+            <a id="caption" href="{% url 'digital_object_detail_view' digital_objects.0.pk %}">View details</a>
             <div id="digitalobjects">
                 {% for obj in digital_objects %}
                 {% thumbnail obj.image "800" as im %}
                 <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
                 {% endthumbnail %}
                 {% thumbnail obj.image "210x210" crop="center" as im %}
-                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="/digitalobject/{{ obj.pk }}" />
+                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="{% url 'digital_object_detail_view' obj.pk %}" />
                 {% endthumbnail %}
                 </a>
                 {% endfor %}

@@ -21,6 +21,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 {% load autop %}
 {% load thumbnail %}
 {% load i18n %}
+{% load url from future %}
 
 {% block body_class %}detail{% endblock %}
 
@@ -29,7 +30,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           <nav class="breadcrumbs">
             <ul>
               <li><a href="/">{% trans "Home" %}</a></li>
-              <li><a href="/writtenworks">{% trans "Written Works" %}</a></li>
+              <li><a href="{% url 'workrecord_list_view' %}>{% trans "Written Works" %}</a></li>
               <li>{{ workrecord.title }}</li>
             </ul>
           </nav>
@@ -51,12 +52,12 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <ul>
               {% for perf in workrecord.performances.all %}
               <li>
-                <a href="{{ SITE_URL }}/production/{{ perf.pk }}">{{ perf.title }}</a>
+                <a href="{{ SITE_URL }}{% url 'production_detail_view' perf.pk %}">{{ perf.title }}</a>
                 {% if perf.display_directors %}
                 <br /><span>{% trans "Directed by" %} {{ perf.display_directors_links|safe }}</span>
                 {% endif %}
                 {% if perf.venue %}
-                <br /><span><a href="{{ SITE_URL }}/venue/{{ perf.venue.pk }}">{{ perf.venue.title }}</a></span>
+                <br /><span><a href="{{ SITE_URL }}{% url 'venue_detail_view' perf.venue.pk %}">{{ perf.venue.title }}</a></span>
                 {% endif %}
                 {% if perf.begin_date or perf.end_date %}
                 <br /><span>{{ perf.display_date_range }}</span>
@@ -100,14 +101,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           <div class="objects">
             <a id="next">Next</a>
             <a id="prev">Prev</a>
-            <a id="caption" href="/digitalobject/{{ digital_objects.0.pk }}">View details</a>
+            <a id="caption" href="{% url 'digital_object_detail_view' digital_objects.0.pk %}">View details</a>
             <div id="digitalobjects">
               {% for obj in digital_objects %}
                 {% thumbnail obj.image "800" as im %}
                 <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
                 {% endthumbnail %}
                 {% thumbnail obj.image "210x210" crop="center" as im %}
-                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="/digitalobject/{{ obj.pk }}" />
+                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="{% url 'digital_object_detail_view' obj.pk %}" />
                 {% endthumbnail %}
               </a>
               {% endfor %}

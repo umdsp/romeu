@@ -21,6 +21,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 {% load autop %}
 {% load thumbnail %}
 {% load i18n %}
+{% load url from future %}
 
 {% block body_class %}detail{% endblock %}
 
@@ -29,7 +30,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           <nav class="breadcrumbs">
             <ul>
               <li><a href="/">{% trans "Home" %}</a></li>
-              <li><a href="/venues">{% trans "Venues" %}</a></li>
+              <li><a href="{% url 'venue_list_view' %}>{% trans "Venues" %}</a></li>
               <li>{{ venue.title }}</li>
             </ul>
           </nav>
@@ -102,7 +103,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <ul>
               {% for p in venue.productions.all %}
               <li>
-                <a href="{{ SITE_URL }}/production/{{ p.pk }}">{{ p.title }}</a>
+                <a href="{{ SITE_URL }}{% url 'production_detail_view' p.pk %}">{{ p.title }}</a>
                 {% if p.begin_date or p.end_date %}
                 <br /><span>{{ p.display_date_range }}</span>
                 {% endif %}
@@ -163,14 +164,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           <div class="objects">
             <a id="next">Next</a>
             <a id="prev">Prev</a>
-            <a id="caption" href="/digitalobject/{{ digital_objects.0.pk }}">View details</a>
+            <a id="caption" href="{% url 'digital_object_detail_view' digital_objects.0.pk %}">View details</a>
             <div id="digitalobjects">
               {% for obj in digital_objects %}
                   {% thumbnail obj.image "800" as im %}
                   <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
                   {% endthumbnail %}
                   {% thumbnail obj.image "210x210" crop="center" as im %}
-                  <img src="{{im.url}}" alt="{{ obj.title }}" data-href="/digitalobject/{{ obj.pk }}" />
+                  <img src="{{im.url}}" alt="{{ obj.title }}" data-href="{% url 'digital_object_detail_view' obj.pk %}" />
                   {% endthumbnail %}
                 </a>
               {% endfor %}

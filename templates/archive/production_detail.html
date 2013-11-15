@@ -21,6 +21,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 {% load autop %}
 {% load thumbnail %}
 {% load i18n %}
+{% load url from future %}
 
 {% block body_class %}detail{% endblock %}
 
@@ -29,7 +30,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <nav class="breadcrumbs">
                 <ul>
                     <li><a href="/">{% trans "Home" %}</a></li>
-                    <li><a href="/productions">{% trans "Productions" %}</a></li>
+                    <li><a href="{% url 'production_list_view' %}">{% trans "Productions" %}</a></li>
                     <li>{{ production.title }}</li>
                 </ul>
             </nav>
@@ -69,7 +70,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               <tbody>
                 {% for member in production.all_directors %}
                     <tr>
-                        <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                        <td><a href="{{ SITE_URL }}{% url 'creator_detail_view' member.person.id %}">{{ member.person.display_name }}</a></td>
                         <td>{{ member.functions }}</td>
                     </tr>
                 {% endfor %}
@@ -92,7 +93,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <tbody>
                 {% for member in production.all_cast %}
                     <tr>
-                        <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                        <td><a href="{{ SITE_URL }}{% url 'creator_detail_view' member.person.id %}">{{ member.person.display_name }}</a></td>
                         <td>{{ member.roles }}</td>
                     </tr>
                 {% endfor %}
@@ -115,7 +116,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <tbody>
                   {% for member in production.all_designers %}
                   <tr>
-                    <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                    <td><a href="{{ SITE_URL }}{% url 'creator_detail_view' member.person.id %}">{{ member.person.display_name }}</a></td>
                     <td>{{ member.functions }}</td>
                   </tr>
                   {% endfor %}
@@ -139,7 +140,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <tbody>
                   {% for member in production.all_techs %}
                   <tr>
-                    <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                    <td><a href="{{ SITE_URL }}{% url 'creator_detail_view' member.person.id %}">{{ member.person.display_name }}</a></td>
                     <td>{{ member.functions }}</td>
                   </tr>
                   {% endfor %}
@@ -163,7 +164,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <tbody>
                   {% for member in production.all_producers %}
                   <tr>
-                    <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                    <td><a href="{{ SITE_URL }}{% url 'creator_detail_view' member.person.id %}">{{ member.person.display_name }}</a></td>
                     <td>{{ member.functions }}</td>
                   </tr>
                   {% endfor %}
@@ -187,7 +188,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <tbody>
                   {% for member in production.all_documentation %}
                   <tr>
-                    <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                    <td><a href="{{ SITE_URL }}{% url 'creator_detail_view' member.person.id %}">{{ member.person.display_name }}</a></td>
                     <td>{{ member.functions }}</td>
                   </tr>
                   {% endfor %}
@@ -211,7 +212,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <tbody>
                   {% for member in production.all_advisors %}
                   <tr>
-                    <td><a href="{{ SITE_URL }}/creator/{{ member.person.id }}">{{ member.person.display_name }}</a></td>
+                    <td><a href="{{ SITE_URL }}{% url 'creator_detail_view' member.person.id %}">{{ member.person.display_name }}</a></td>
                     <td>{{ member.functions }}</td>
                   </tr>
                   {% endfor %}
@@ -242,7 +243,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   {% endif %}
                 </a>
                 <figcaption>
-                  <a href="/digitalobject/{{vid.pk}}">{{ vid.title}}</a>
+                  <a href="{% url 'digital_object_detail_view' vid.pk %}">{{ vid.title}}</a>
                 </figcaption>
               </figure>
             </li>
@@ -258,7 +259,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               {% if production.venue %}
               <li>
                 <h4>{% trans "Venue" %}:</h4>
-                <span><a href="/venue/{{ production.venue.pk }}">{{ production.venue.title }} ({{ production.venue.country }})</a></span>
+                <span><a href="{% url 'venue_detail_view' production.venue.pk %}">{{ production.venue.title }} ({{ production.venue.country }})</a></span>
                 {% if production.stage %}
                 <span>{{ production.stage.title }}</span>
                 {% endif %}
@@ -281,7 +282,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <ul>
               {% for work in production.source_work.all %}
               <li>
-                <a href="/writtenwork/{{ work.pk }}">{{ work }}</a><br />
+                <a href="{% url 'workrecord_detail_view' work.pk %}">{{ work }}</a><br />
                 <span>{% trans "By" %} {{ work.creators_display_links|safe }}</span>
               </li>
               {% endfor %}
@@ -291,14 +292,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           <div class="objects">
             <a id="next">Next</a>
             <a id="prev">Prev</a>
-            <a id="caption" href="/digitalobject/{{ digital_objects.0.pk }}">View details</a>
+            <a id="caption" href="{% url '"digital_object_detail_view' digital_objects.0.pk %}">View details</a>
             <div id="digitalobjects">
               {% for obj in digital_objects %}
                 {% thumbnail obj.image "800" as im %}
                 <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
                 {% endthumbnail %}
                 {% thumbnail obj.image "210x210" crop="center" as im %}
-                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="/digitalobject/{{ obj.pk }}" />
+                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="{% url '"digital_object_detail_view' obj.pk %}" />
                 {% endthumbnail %}
               </a>
               {% endfor %}

@@ -23,6 +23,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 {% load i18n %}
 {% load list_extras %}
 {% load paginator %}
+{% load url from future %}
 
 {% block content %}
     <header>
@@ -30,13 +31,13 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <ul>
                 <li><a href="/">{% trans "Home" %}</a></li>
                 {% if physobjtype %}
-                  <li><a href="/digitalobjects">{% trans "Digital Objects" %}</a></li>
-                  <li><a href="/digitalobjects/types">{% trans "By Type" %}</a></li>
+                  <li><a href="{% url 'digital_object_list_view' %}>{% trans "Digital Objects" %}</a></li>
+                  <li><a href="{% url 'digital_object_type' %}>{% trans "By Type" %}</a></li>
                   <li>{{ physobjtype }}</li>
                 {% else %}
                   {% if current_collection %}
-                    <li><a href="/digitalobjects">{% trans "Digital Objects" %}</a></li>
-                    <li><a href="/digitalobjects/collections">{% trans "By Collection" %}</a></li>
+                    <li><a href="{% url 'digital_object_list_view' %}">{% trans "Digital Objects" %}</a></li>
+                    <li><a href="{% url 'digital_object_collection' %}">{% trans "By Collection" %}</a></li>
                     <li>{{ current_collection.title }} ({{ current_collection.repository.repository_id }}{{ current_collection.collection_id }})</li>
                   {% else %}
                     <li>{% trans "Digital Objects" %}</li>
@@ -61,16 +62,16 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               {% if obj.digi_object_format.title == "Image" and obj.first_file %}
                 {% thumbnail obj.first_file.filepath "210x210" crop="center" as im %}
                 <figure>
-                  <a href="/digitalobject/{{ obj.pk }}"><img src="{{ im.url }}" alt="" /></a>
-                  <figcaption><img src="{{ STATIC_URL }}images/images.png" alt="{% trans "Images available" %}" title="{% trans "Images available" %}" /><a href="/digitalobject/{{ obj.pk }}">{{ obj.title }}</a></figcaption>
+                  <a href="{% url 'digital_object_detail_view' obj.pk %}"><img src="{{ im.url }}" alt="" /></a>
+                  <figcaption><img src="{{ STATIC_URL }}images/images.png" alt="{% trans "Images available" %}" title="{% trans "Images available" %}" /><a href="{% url 'digital_object_detail_view' obj.pk %}">{{ obj.title }}</a></figcaption>
                 </figure>
                 {% endthumbnail %}
               {% endif %}
               {% if obj.digi_object_format.title == "Video recording" and obj.poster_image %}
                 {% thumbnail obj.poster_image "210x210" crop="center" as im %}
                 <figure>
-                  <a href="/digitalobject/{{ obj.pk }}"><img src="{{ im.url }}" alt="" /></a>
-                  <figcaption><img src="{{ STATIC_URL }}images/video.png" alt="{% trans "Video available" %}" title="{% trans "Video available" %}" /><a href="/digitalobject/{{ obj.pk }}">{{ obj.title }}</a></figcaption>
+                  <a href="{% url 'digital_object_detail_view' obj.pk %}"><img src="{{ im.url }}" alt="" /></a>
+                  <figcaption><img src="{{ STATIC_URL }}images/video.png" alt="{% trans "Video available" %}" title="{% trans "Video available" %}" /><a href="{% url 'digital_object_detail_view' obj.pk %}">{{ obj.title }}</a></figcaption>
                 </figure>
                 {% endthumbnail %}
               {% endif %}
