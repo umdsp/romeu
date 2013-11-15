@@ -1,0 +1,89 @@
+<!--
+Copyright (C) 2012  University of Miami
+ 
+This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+ 
+This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ See the GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software Foundation,
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+-->
+ 
+ 
+ {% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block body_class %}detail{% endblock %}
+
+{% block content %}
+        <header>
+          <nav class="breadcrumbs">
+            <ul>
+              <li><a href="/">{% trans "Home" %}</a></li>
+              <li><a href="/festivals">{% trans "Festivals" %}</a></li>
+              <li>{{ festival.title }}</li>
+            </ul>
+          </nav>
+          <h2>{{ festival.title }}</h2>
+        </header>
+
+        <section class="main">
+          {% if festivalphoto %}
+            <img src="{{ festivalphoto.url }}" />
+          {% endif %}
+
+          {% if festival.notes %}
+          <h4>{% trans "Notes" %}:</h4>
+          {{ festival.notes|safe }}
+          {% endif %}
+
+        </section>
+        
+        <aside>
+          {% if digital_objects %}
+          <div class="objects">
+            <a id="next">Next</a>
+            <a id="prev">Prev</a>
+            <a id="caption" href="/digitalobject/{{ digital_objects.0.pk }}">View details</a>
+            <div id="digitalobjects">
+              {% for obj in digital_objects %}
+                  {% thumbnail obj.image "800" as im %}
+                  <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
+                  {% endthumbnail %}
+                  {% thumbnail obj.image "210x210" crop="center" as im %}
+                  <img src="{{im.url}}" alt="{{ obj.title }}" data-href="/digitalobject/{{ obj.pk }}" />
+                  {% endthumbnail %}
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </aside>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+      $(document).ready(function() {
+        {% for vid in videos %}
+        $('#{{ vid.object_id }}').fancybox({
+content: '<video id="vid-{{vid.object_id}}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001002.mp4" width={% if vid.hidef %}1280{% else %}720{% endif %} height={% if vid.hidef %}720{% else %}480{% endif %}></video>',
+          maxWidth: {% if vid.hidef %}1310{% else %}750{% endif %},
+          maxHeight: {% if vid.hidef %}775{% else %}535{% endif %},
+          afterShow: function() {
+            $('#vid-{{vid.object_id}}').mediaelementplayer();
+          }
+        });
+        {% endfor %}
+        $('.fancy').fancybox({loop: false});
+      });
+    </script>
+    {% endblock %}
