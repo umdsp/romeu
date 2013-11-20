@@ -292,14 +292,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           <div class="objects">
             <a id="next">Next</a>
             <a id="prev">Prev</a>
-            <a id="caption" href="{% url '"digital_object_detail_view' digital_objects.0.pk %}">View details</a>
+            <a id="caption" href="{% url 'digital_object_detail_view' digital_objects.0.pk %}">View details</a>
             <div id="digitalobjects">
               {% for obj in digital_objects %}
                 {% thumbnail obj.image "800" as im %}
                 <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
                 {% endthumbnail %}
                 {% thumbnail obj.image "210x210" crop="center" as im %}
-                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="{% url '"digital_object_detail_view' obj.pk %}" />
+                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="{% url 'digital_object_detail_view' obj.pk %}" />
                 {% endthumbnail %}
               </a>
               {% endfor %}

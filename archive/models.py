@@ -1252,6 +1252,35 @@ def setup_digital_file(sender, **kwargs):
         except:
             instance.seq_id = '0001'
 
+
+# Awards
+class Award(models.Model):
+    title = models.CharField(max_length=100, verbose_name=_("title"), help_text=_("For a series of awards (e.g. Tony Award, Drama Desk Award), not award categories (Tony Award for Best Musical, etc.)"))
+    award_org = models.CharField(max_length=200, verbose_name=_("award organization"))
+    notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
+    
+    def __unicode__(self):
+        return "%s" % (self.title)
+
+    
+class AwardCandidate(models.Model):
+    award = models.ForeignKey(Award, verbose_name=_("award"))
+    year = models.PositiveIntegerField(max_length=4, help_text=_("Please enter a 4-digit year (e.g. 1999, not 99)"), verbose_name=_("year"))
+    category = models.CharField(max_length=140, null=True, blank=True, help_text=_("e.g. Best Performance, Best Musical"), verbose_name=_("category"))
+    result = models.CharField(max_length=1, choices=constants.AWARD_RESULT_CHOICES, verbose_name=_("result"))
+    recipient = models.ForeignKey(Creator, null=True, blank=True, related_name="awards", help_text=_("A specific person or organization receiving the award"), verbose_name=_("recipient"))
+    notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
+    production = models.ForeignKey(Production, null=True, blank=True, related_name="awards", verbose_name=_("production"))
+    place = models.ForeignKey(Location, null=True, blank=True, related_name="awards", verbose_name=_("place"))
+    festival = models.ForeignKey(Festival, null=True, blank=True, related_name="awards", verbose_name=_("festival"))
+    work_record = models.ForeignKey(WorkRecord, null=True, blank=True, related_name="awards", verbose_name=_("work record"))
+    attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
+    has_attention = models.BooleanField(default=False)
+    
+    def __unicode__(self):
+        return "%s for %s, %d (%s)" % (self.award.title, self.category, self.year, self.get_result_display())
+
+
 class DigitalObject(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))
     ascii_title = models.CharField(max_length=255, verbose_name=_("ASCII title"))
@@ -1291,6 +1320,7 @@ class DigitalObject(models.Model):
     # Relationships
     related_production = models.ManyToManyField(Production, related_name="related_objects", null=True, blank=True, verbose_name=_("related production"))
     related_festival = models.ManyToManyField(FestivalOccurrence, related_name="related_objects", null=True, blank=True, verbose_name=_("related festival"))
+    related_award = models.ManyToManyField(AwardCandidate, related_name="related_objects", null=True, blank=True, verbose_name=_("related award"))
     related_venue = models.ManyToManyField(Location, related_name="related_objects", null=True, blank=True, verbose_name=_("related venue"))
     related_creator = models.ManyToManyField(Creator, related_name="related_objects", null=True, blank=True, verbose_name=_("related creator"))
     related_work = models.ManyToManyField(WorkRecord, related_name="related_objects", null=True, blank=True, verbose_name=_("related work"))
@@ -1381,32 +1411,6 @@ class DigitalFile(models.Model):
 pre_save.connect(setup_new_object, sender=DigitalObject)
 pre_save.connect(setup_digital_file, sender=DigitalFile)
     
-# Awards
-class Award(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("title"), help_text=_("For a series of awards (e.g. Tony Award, Drama Desk Award), not award categories (Tony Award for Best Musical, etc.)"))
-    award_org = models.CharField(max_length=200, verbose_name=_("award organization"))
-    notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
-    
-    def __unicode__(self):
-        return "%s" % (self.title)
-    
-class AwardCandidate(models.Model):
-    award = models.ForeignKey(Award, verbose_name=_("award"))
-    year = models.PositiveIntegerField(max_length=4, help_text=_("Please enter a 4-digit year (e.g. 1999, not 99)"), verbose_name=_("year"))
-    category = models.CharField(max_length=140, null=True, blank=True, help_text=_("e.g. Best Performance, Best Musical"), verbose_name=_("category"))
-    result = models.CharField(max_length=1, choices=constants.AWARD_RESULT_CHOICES, verbose_name=_("result"))
-    recipient = models.ForeignKey(Creator, null=True, blank=True, related_name="awards", help_text=_("A specific person or organization receiving the award"), verbose_name=_("recipient"))
-    notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
-    production = models.ForeignKey(Production, null=True, blank=True, related_name="awards", verbose_name=_("production"))
-    place = models.ForeignKey(Location, null=True, blank=True, related_name="awards", verbose_name=_("place"))
-    festival = models.ForeignKey(Festival, null=True, blank=True, related_name="awards", verbose_name=_("festival"))
-    work_record = models.ForeignKey(WorkRecord, null=True, blank=True, related_name="awards", verbose_name=_("work record"))
-    attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
-    has_attention = models.BooleanField(default=False)
-    
-    def __unicode__(self):
-        return "%s for %s, %d (%s)" % (self.award.title, self.category, self.year, self.get_result_display())
-
 # Enumeration fields - countries, languages, functions, etc.
 class Country(models.Model):
     name = models.CharField(max_length=100, help_text=_("Name of the country (e.g. Cuba)"), verbose_name=_("name"))

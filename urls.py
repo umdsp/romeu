@@ -30,7 +30,9 @@ from archive.views import (CreatorsListView, CreatorsAlphaListView,
                            flatpage, DigitalObjectsVideosListView,
                            DigitalObjectsImagesListView, collections_list,
                            DigitalObjectsTypeListView, phys_types_list,
-                           DigitalObjectsCollectionListView, )
+                           DigitalObjectsCollectionListView,
+                           AwardsListView, AwardsAlphaListView,
+                           AwardDetailView)
 
 DEFAULT_LANG = settings.DEFAULT_LANG
 
@@ -112,9 +114,21 @@ urlpatterns = patterns('',
         DigitalObjectDetailView.as_view(),
         name="digital_object_detail_view"),
 
-    url(r'^festivals/?$', FestivalsListView.as_view()),
-    url(r'^festivals/(?P<alpha>[a-z0]{1})/?$', FestivalsAlphaListView.as_view()),
-    url(r'^festival/(?P<pk>\d+)/?$', FestivalDetailView.as_view()),
+    url(r'^festivals/?$', FestivalsListView.as_view(),
+        name="festivals_list_view"),
+    url(r'^festivals/(?P<alpha>[a-z0]{1})/?$',
+        FestivalsAlphaListView.as_view(),
+        name="festivals_alpha_list_view"),
+    url(r'^festival/(?P<pk>\d+)/?$', FestivalDetailView.as_view(),
+        name="festival_detail_view"),
+    
+    url(r'^awards/?$', AwardsListView.as_view(),
+        name="awards_list_view"),
+    url(r'^awards/(?P<alpha>[a-z0]{1})/?$',
+        AwardsAlphaListView.as_view(),
+        name="awards_alpha_list_view"),
+    url(r'^award/(?P<pk>\d+)/?$', AwardDetailView.as_view(),
+        name="award_detail_view"),
     
     # Set up i18n functions
     url(r'^i18n/', include('django.conf.urls.i18n')),

@@ -207,6 +207,17 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   {% endfor %}
                 </ul>
                 {% endif %}
+                {% if digital_object.related_award.exists %}
+                <h4>{% trans "Awards" %}:</h4>
+                <ul>
+                  {% for l in digital_object.related_award.all %}
+                  <li>
+                    <a href="{% url 'award_detail_view' l.pk %}">{{ l }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+            
         </section>
         
         <aside class="thumbnails">

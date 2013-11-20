@@ -35,11 +35,15 @@ from settings import MEDIA_URL, STATIC_URL
 
 from sorl.thumbnail import default
 
-from archive.models import Creator, Location, Production, WorkRecord, DigitalObject, DigitalFile, \
-                           Festival, FestivalOccurrence, DirectingMember, CastMember, DesignMember, \
-                           TechMember, ProductionMember, DocumentationMember, AdvisoryMember, \
-                           TranslatingFlatPage, DigitalObjectType, HomePageInfo, \
-                           PhysicalObjectType, Collection, Repository
+from archive.models import (Creator, Location, Production, WorkRecord,
+                            DigitalObject, DigitalFile, Festival,
+                            FestivalOccurrence, DirectingMember, CastMember,
+                            DesignMember, TechMember, ProductionMember,
+                            DocumentationMember, AdvisoryMember, HomePageInfo,
+                            TranslatingFlatPage, DigitalObjectType,
+                            PhysicalObjectType, Collection, Repository,
+                            Award, AwardCandidate,)
+                           
 
 from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
@@ -478,11 +482,12 @@ class FestivalsListView(ListView):
         length = len(alldos) - 1
         count = 0
         dos = []
-        while count < 3:
-            num = randrange(0, length)
-            if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
-                dos.append(alldos[num])
-                count += 1
+        if length > 0:
+            while count < 3:
+                num = randrange(0, length)
+                if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+                    dos.append(alldos[num])
+                    count += 1
         if dos:
             for obj in dos:
                 item = {}
@@ -555,6 +560,105 @@ class FestivalDetailView(DetailView):
 #            context['festivalphoto'] = False
         return context
 
+
+
+class AwardsListView(ListView):
+    
+    queryset = Award.objects.all().order_by('title')
+    context_object_name = "awards_list"
+    template_name = "archive/awards_list.html"
+    paginate_by = 10
+    
+    def get_context_data(self, **kwargs):
+
+        context = super(AwardsListView, self).get_context_data(**kwargs)
+        # Make a container for all the object info - link to file + file info + creator id
+        objects_list = []
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        alldos = DigitalObject.objects.filter(related_award__isnull=False, files__isnull=False, digi_object_format=imagetype)
+        length = len(alldos) - 1
+        count = 0
+        dos = set()
+
+        if length > 0:
+            while count < 3:
+                num = randrange(0, length)
+                if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
+                    dos.add(alldos[num])
+                    count += 1
+        for obj in dos:
+            item = {}
+            item['image'] = obj.first_file().filepath
+            item['title'] = obj.title
+            item['award_title'] = obj.related_award.all()[0].award.title
+            item['award_id'] = obj.related_award.all()[0].award.pk
+            item['pk'] = obj.pk
+            objects_list.append(item)
+                
+        context['digital_objects'] = objects_list
+
+        return context
+
+class AwardsAlphaListView(AwardsListView):
+    def get_queryset(self):
+        if self.kwargs['alpha'] == '0':
+            qset = Award.objects.filter(title__iregex=r'^[0-9!@#$%^&*\(\)]').select_related().order_by('title')
+        else:
+            qset = Award.objects.filter(title__istartswith=self.kwargs['alpha']).select_related().order_by('title')
+        return qset
+    
+    def get_context_data(self, **kwargs):
+        context = super(AwardsAlphaListView, self).get_context_data(**kwargs)
+        if self.kwargs['alpha'] == '0':
+            alpha = '#'
+        else:
+            alpha = self.kwargs['alpha']
+        context['alpha'] = alpha
+        return context
+
+class AwardDetailView(DetailView):
+
+    queryset = Award.objects.all().select_related(depth=1)
+    context_object_name = "award"
+    template_name = "archive/award_detail.html"
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super(AwardDetailView, self).get_context_data(**kwargs)
+        context['award_candidates'] = AwardCandidate.objects.filter(award__id=context['award'].id).order_by('-year')
+        
+        objects_list = []
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        videotype = DigitalObjectType.objects.get(title='Video recording')
+        
+        this_object = self.object
+
+        alldos = DigitalObject.objects.filter(related_award=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        for obj in alldos:
+            for file in obj.files.order_by('seq_id'):
+                item = {}
+                item['image'] = file.filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                objects_list.append(item)
+        context['digital_objects'] = objects_list
+        
+        videos = DigitalObject.objects.filter(related_award=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        video_list = []
+        for vid in videos:
+            item = {}
+            if vid.poster_image:
+                item['poster'] = vid.poster_image
+            item['hidef'] = vid.hi_def_video
+            item['object_id'] = vid.object_number()
+            item['title'] = vid.title
+            item['pk'] = vid.pk
+            video_list.append(item)
+        context['videos'] = video_list
+        
+        return context
+
+
 # Utility function for search view
 def get_search_results(modeltype, query):
     return SearchQuerySet().models(modeltype).auto_query(query)
@@ -569,8 +673,8 @@ def search_view(request):
         location_matches = get_search_results(Location, query)
         production_matches = get_search_results(Production, query)
         workrecord_matches = get_search_results(WorkRecord, query)
-	festival_matches = get_search_results(Festival, query)
-        
+    festival_matches = get_search_results(Festival, query)
+
     context = {}
     if query:
         context['q'] = query
