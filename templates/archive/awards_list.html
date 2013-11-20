@@ -26,7 +26,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 {% load url from future %}
 
 {% block article_header %}
-        <h1>Written Works{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
+        <h1>Awards{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
 {% endblock %}
 
 {% block content %}
@@ -34,12 +34,12 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <nav class="breadcrumbs">
             <ul>
                 <li><a href="/">{% trans "Home" %}</a></li>
-                <li>{% trans "Written Works" %}</li>
+                <li>{% trans "Awards" %}</li>
             </ul>
         </nav>
-        <h2>{% trans "Written Works" %}</h2>
+        <h2>{% trans "Awards" %}</h2>
         </header>
-
+      
         <ul id="random_thumbs">
         {% for obj in digital_objects %}
             <li>
@@ -49,28 +49,24 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                         <img src="{{ im.url }}" />
                     {% endthumbnail %}
                 </a>
-                <figcaption><a href="{% url 'workrecord_detail_view' obj.work_id %}">{{ obj.work_title }}</a></figcaption>
+                <figcaption><a href="{% url 'award_detail_view' obj.award_id %}">{{ obj.award_title }}</a></figcaption>
                 </figure>
             </li>
         {% endfor %}
         </ul>
         
-        {% alpha_list "writtenworks" %}
+        {% alpha_list "awards" %}
         
-        <table id="writtenworks_list">
+        <table id="awards_list">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Creators</th>
-                    <th>Creation date</th>
+                    <th>{% trans "Title" %}</th>
                 </tr>
             </thead>
             <tbody>
-                {% for work in writtenworks_list %}
+                {% for award in awards_list %}
                     <tr>
-                        <td><a href="{% url 'workrecord_detail_view' work.id %}">{{ work }}</a></td>
-                        <td>{% if work.creators_display %}{{ work.creators_display_links|safe }}{% endif %}</td>
-                        <td>{% if work.creation_date %}{{ work.creation_date_display }}{% endif %}</td>
+                        <td><a href="{% url 'award_detail_view' award.id %}">{{ award.title }}</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

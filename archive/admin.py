@@ -14,12 +14,28 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-from archive.models import Creator, Location, Stage, RelatedCreator, WorkRecord, WorkRecordCreator, WorkRecordFunction, Production, Role, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, DocumentationMember, AdvisoryMember, Festival, FestivalOccurrence, FestivalParticipant, Repository, Collection, DigitalObject, DigitalFile, Award, AwardCandidate, RelatedWork, SubjectHeading, BibliographicRecord, Country, City, Language, DirectingTeamFunction, CastMemberFunction, DesignTeamFunction, TechTeamFunction, ProductionTeamFunction, DocumentationTeamFunction, AdvisoryTeamFunction, OrgFunction, FestivalFunction, PhysicalObjectType, WorkRecordType, VenueType, DigitalObjectType, License, HomePageInfo
+from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord,
+                            WorkRecordCreator, WorkRecordFunction, Production,
+                            Role, DirectingMember, CastMember, DesignMember,
+                            TechMember, ProductionMember, DocumentationMember,
+                            AdvisoryMember, Festival, FestivalOccurrence,
+                            FestivalParticipant, Repository, Collection,
+                            DigitalObject, DigitalFile, Award, AwardCandidate,
+                            RelatedWork, SubjectHeading, BibliographicRecord,
+                            Country, City, Language, DirectingTeamFunction,
+                            CastMemberFunction, DesignTeamFunction,
+                            TechTeamFunction, ProductionTeamFunction,
+                            DocumentationTeamFunction, AdvisoryTeamFunction,
+                            OrgFunction, FestivalFunction, PhysicalObjectType,
+                            WorkRecordType, VenueType, DigitalObjectType,
+                            License, HomePageInfo)
 from modeltranslation.admin import TranslationAdmin
 
 from django.utils.translation import ugettext_lazy as _
 
-from archive.lookups import CreatorLookup, ProductionLookup, LocationLookup, RoleLookup, WorkRecordLookup, CountryLookup, DigitalObjectLookup, CityLookup
+from archive.lookups import (CreatorLookup, ProductionLookup, LocationLookup,
+                             RoleLookup, WorkRecordLookup, CountryLookup,
+                             DigitalObjectLookup, CityLookup)
 from archive import forms as arcforms
 
 from django.contrib import admin
@@ -494,7 +510,7 @@ class DigitalObjectAdmin(TranslationAdmin):
     save_on_top = True
     search_fields = ['title', 'ascii_title', 'title_variants']
     list_filter = ('has_attention', 'collection', 'digi_object_format', 'restricted', 'ready_to_stream')
-    filter_horizontal = ['subject', 'related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work']
+    filter_horizontal = ['subject', 'related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work', 'related_award']
     exclude = ('ascii_title',)
     fieldsets = (
         ('Basic info', {
@@ -513,7 +529,7 @@ class DigitalObjectAdmin(TranslationAdmin):
             'fields': ('digi_object_format', ('creation_date', 'creation_date_precision', 'creation_date_BC'))
         },),
         ('Relationships', {
-            'fields': ('related_production', 'related_festival', 'related_venue', 'related_creator', 'related_work',)
+            'fields': ('related_production', 'related_festival', 'related_venue', 'related_creator', 'related_work', 'related_award')
         },),
         ('Video settings', {
             'fields': (('restricted', 'restricted_description'), 'ready_to_stream', 'hi_def_video', 'poster_image')
@@ -529,7 +545,7 @@ class DigitalObjectAdmin(TranslationAdmin):
 
     def save_model(self, request, new_object, form, change=False):
         # hook into save_model to work around the m2m widget save issue
-        for field in ['related_creator', 'related_production', 'related_festival', 'related_venue', 'related_work']:
+        for field in ['related_creator', 'related_production', 'related_festival', 'related_venue', 'related_work', 'related_award']:
             form.cleaned_data[field] = form.cleaned_data[field] or []
         return super(DigitalObjectAdmin, self).save_model(request, new_object, form, change=False)
 

@@ -23,6 +23,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 {% load i18n %}
 {% load list_extras %}
 {% load paginator %}
+{% load url from future %}
 
 {% block article_header %}
         <h1>Venues{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
@@ -42,12 +43,12 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         {% for obj in digital_objects %}
             <li>
                 <figure>
-                <a href="/digitalobject/{{ obj.pk }}">
+                <a href="{% url 'digital_object_detail_view' obj.pk %}">
                     {% thumbnail obj.image "210x210" crop="center" as im %}
                         <img src="{{ im.url }}" />
                     {% endthumbnail %}
                 </a>
-                <figcaption><a href="/venue/{{ obj.loc_id }}">{{ obj.venue_title }}</a></figcaption>
+                <figcaption><a href="{% url 'venue_detail_view' obj.loc_id %}">{{ obj.venue_title }}</a></figcaption>
                 </figure>
             </li>
         {% endfor %}
@@ -66,7 +67,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <tbody>
                 {% for venue in venues_list %}
                     <tr>
-                        <td><a href="/venue/{{venue.id}}">{{ venue.title }}</a></td>
+                        <td><a href="{% url 'venue_detail_view' venue.id %}">{{ venue.title }}</a></td>
                         <td>{% if venue.city %}{{ venue.city.name }}{% if venue.city.state %}, {{ venue.city.state }}{% endif %}{% endif %}</td>
                         <td>{{ venue.country.name }}</td>
                     </tr>
