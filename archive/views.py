@@ -577,15 +577,14 @@ class AwardsListView(ListView):
         imagetype = DigitalObjectType.objects.get(title='Image')
         alldos = DigitalObject.objects.filter(related_award__isnull=False, files__isnull=False, digi_object_format=imagetype)
         length = len(alldos) - 1
-        count = 0
         dos = set()
 
         if length > 0:
-            while len(set) < 3:
+            while len(dos) < 3:
                 num = randrange(0, length)
                 if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
                     dos.add(alldos[num])
-#                    count += 1
+
         for obj in dos:
             item = {}
             item['image'] = obj.first_file().filepath
