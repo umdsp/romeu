@@ -38,7 +38,26 @@ from archive import constants
 from random import choice, shuffle
 
 from django.contrib.flatpages.models import FlatPage
+
 from taggit_autocomplete.managers import TaggableManager
+
+try:
+    from south.modelsinspector import add_introspection_rules
+    
+    add_introspection_rules(
+    [
+        (
+            (TaggableManager, ),
+            [],
+            {
+            },
+        ),
+    ],
+    ["^taggit_autocomplete\.managers\.TaggableManager",])
+    
+except ImportError:
+    pass
+
 
 class OverwriteStorage(FileSystemStorage):
     """

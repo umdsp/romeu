@@ -581,11 +581,11 @@ class AwardsListView(ListView):
         dos = set()
 
         if length > 0:
-            while count < 3:
+            while len(set) < 3:
                 num = randrange(0, length)
                 if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
                     dos.add(alldos[num])
-                    count += 1
+#                    count += 1
         for obj in dos:
             item = {}
             item['image'] = obj.first_file().filepath

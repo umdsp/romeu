@@ -85,20 +85,22 @@ class Migration(SchemaMigration):
         db.send_create_signal('archive', ['Creator'])
 
         # Adding M2M table for field primary_bibliography on 'Creator'
-        db.create_table('archive_creator_primary_bibliography', (
+        m2m_table_name = db.shorten_name('archive_creator_primary_bibliography')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('creator', models.ForeignKey(orm['archive.creator'], null=False)),
             ('bibliographicrecord', models.ForeignKey(orm['archive.bibliographicrecord'], null=False))
         ))
-        db.create_unique('archive_creator_primary_bibliography', ['creator_id', 'bibliographicrecord_id'])
+        db.create_unique(m2m_table_name, ['creator_id', 'bibliographicrecord_id'])
 
         # Adding M2M table for field secondary_bibliography on 'Creator'
-        db.create_table('archive_creator_secondary_bibliography', (
+        m2m_table_name = db.shorten_name('archive_creator_secondary_bibliography')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('creator', models.ForeignKey(orm['archive.creator'], null=False)),
             ('bibliographicrecord', models.ForeignKey(orm['archive.bibliographicrecord'], null=False))
         ))
-        db.create_unique('archive_creator_secondary_bibliography', ['creator_id', 'bibliographicrecord_id'])
+        db.create_unique(m2m_table_name, ['creator_id', 'bibliographicrecord_id'])
 
         # Adding model 'RelatedCreator'
         db.create_table('archive_relatedcreator', (
@@ -228,20 +230,22 @@ class Migration(SchemaMigration):
         db.send_create_signal('archive', ['WorkRecord'])
 
         # Adding M2M table for field subject on 'WorkRecord'
-        db.create_table('archive_workrecord_subject', (
+        m2m_table_name = db.shorten_name('archive_workrecord_subject')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('workrecord', models.ForeignKey(orm['archive.workrecord'], null=False)),
             ('subjectheading', models.ForeignKey(orm['archive.subjectheading'], null=False))
         ))
-        db.create_unique('archive_workrecord_subject', ['workrecord_id', 'subjectheading_id'])
+        db.create_unique(m2m_table_name, ['workrecord_id', 'subjectheading_id'])
 
         # Adding M2M table for field lang on 'WorkRecord'
-        db.create_table('archive_workrecord_lang', (
+        m2m_table_name = db.shorten_name('archive_workrecord_lang')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('workrecord', models.ForeignKey(orm['archive.workrecord'], null=False)),
             ('language', models.ForeignKey(orm['archive.language'], null=False))
         ))
-        db.create_unique('archive_workrecord_lang', ['workrecord_id', 'language_id'])
+        db.create_unique(m2m_table_name, ['workrecord_id', 'language_id'])
 
         # Adding model 'RelatedWork'
         db.create_table('archive_relatedwork', (
@@ -327,28 +331,31 @@ class Migration(SchemaMigration):
         db.send_create_signal('archive', ['Production'])
 
         # Adding M2M table for field source_work on 'Production'
-        db.create_table('archive_production_source_work', (
+        m2m_table_name = db.shorten_name('archive_production_source_work')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('production', models.ForeignKey(orm['archive.production'], null=False)),
             ('workrecord', models.ForeignKey(orm['archive.workrecord'], null=False))
         ))
-        db.create_unique('archive_production_source_work', ['production_id', 'workrecord_id'])
+        db.create_unique(m2m_table_name, ['production_id', 'workrecord_id'])
 
         # Adding M2M table for field related_organizations on 'Production'
-        db.create_table('archive_production_related_organizations', (
+        m2m_table_name = db.shorten_name('archive_production_related_organizations')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('production', models.ForeignKey(orm['archive.production'], null=False)),
             ('creator', models.ForeignKey(orm['archive.creator'], null=False))
         ))
-        db.create_unique('archive_production_related_organizations', ['production_id', 'creator_id'])
+        db.create_unique(m2m_table_name, ['production_id', 'creator_id'])
 
         # Adding M2M table for field secondary_bibliography on 'Production'
-        db.create_table('archive_production_secondary_bibliography', (
+        m2m_table_name = db.shorten_name('archive_production_secondary_bibliography')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('production', models.ForeignKey(orm['archive.production'], null=False)),
             ('bibliographicrecord', models.ForeignKey(orm['archive.bibliographicrecord'], null=False))
         ))
-        db.create_unique('archive_production_secondary_bibliography', ['production_id', 'bibliographicrecord_id'])
+        db.create_unique(m2m_table_name, ['production_id', 'bibliographicrecord_id'])
 
         # Adding model 'DirectingMember'
         db.create_table('archive_directingmember', (
@@ -420,6 +427,8 @@ class Migration(SchemaMigration):
             ('title', self.gf('django.db.models.fields.CharField')(max_length=200)),
             ('title_en', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
             ('title_es', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('notes', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('attention', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
         ))
         db.send_create_signal('archive', ['Festival'])
 
@@ -430,7 +439,6 @@ class Migration(SchemaMigration):
             ('title', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('ascii_title', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('title_variants', self.gf('django.db.models.fields.CharField')(max_length=300, null=True, blank=True)),
-            ('venue', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['archive.Location'])),
             ('begin_date', self.gf('django.db.models.fields.DateField')()),
             ('begin_date_precision', self.gf('django.db.models.fields.CharField')(default=u'f', max_length=1)),
             ('begin_date_BC', self.gf('django.db.models.fields.BooleanField')(default=False)),
@@ -439,10 +447,13 @@ class Migration(SchemaMigration):
             ('end_date_BC', self.gf('django.db.models.fields.BooleanField')(default=False)),
             ('awards_text', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('program', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('edu_program', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('announcement', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('notes', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('notes_en', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('notes_es', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('attention', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('website', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('has_attention', self.gf('django.db.models.fields.BooleanField')(default=False)),
             ('needs_editing', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('published', self.gf('django.db.models.fields.BooleanField')(default=True)),
@@ -450,21 +461,32 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal('archive', ['FestivalOccurrence'])
 
+        # Adding M2M table for field venue on 'FestivalOccurrence'
+        m2m_table_name = db.shorten_name('archive_festivaloccurrence_venue')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('festivaloccurrence', models.ForeignKey(orm['archive.festivaloccurrence'], null=False)),
+            ('location', models.ForeignKey(orm['archive.location'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['festivaloccurrence_id', 'location_id'])
+
         # Adding M2M table for field productions on 'FestivalOccurrence'
-        db.create_table('archive_festivaloccurrence_productions', (
+        m2m_table_name = db.shorten_name('archive_festivaloccurrence_productions')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('festivaloccurrence', models.ForeignKey(orm['archive.festivaloccurrence'], null=False)),
             ('production', models.ForeignKey(orm['archive.production'], null=False))
         ))
-        db.create_unique('archive_festivaloccurrence_productions', ['festivaloccurrence_id', 'production_id'])
+        db.create_unique(m2m_table_name, ['festivaloccurrence_id', 'production_id'])
 
         # Adding M2M table for field secondary_bibliography on 'FestivalOccurrence'
-        db.create_table('archive_festivaloccurrence_secondary_bibliography', (
+        m2m_table_name = db.shorten_name('archive_festivaloccurrence_secondary_bibliography')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('festivaloccurrence', models.ForeignKey(orm['archive.festivaloccurrence'], null=False)),
             ('bibliographicrecord', models.ForeignKey(orm['archive.bibliographicrecord'], null=False))
         ))
-        db.create_unique('archive_festivaloccurrence_secondary_bibliography', ['festivaloccurrence_id', 'bibliographicrecord_id'])
+        db.create_unique(m2m_table_name, ['festivaloccurrence_id', 'bibliographicrecord_id'])
 
         # Adding model 'FestivalParticipant'
         db.create_table('archive_festivalparticipant', (
@@ -573,60 +595,67 @@ class Migration(SchemaMigration):
         db.send_create_signal('archive', ['DigitalObject'])
 
         # Adding M2M table for field language on 'DigitalObject'
-        db.create_table('archive_digitalobject_language', (
+        m2m_table_name = db.shorten_name('archive_digitalobject_language')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('digitalobject', models.ForeignKey(orm['archive.digitalobject'], null=False)),
             ('language', models.ForeignKey(orm['archive.language'], null=False))
         ))
-        db.create_unique('archive_digitalobject_language', ['digitalobject_id', 'language_id'])
+        db.create_unique(m2m_table_name, ['digitalobject_id', 'language_id'])
 
         # Adding M2M table for field subject on 'DigitalObject'
-        db.create_table('archive_digitalobject_subject', (
+        m2m_table_name = db.shorten_name('archive_digitalobject_subject')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('digitalobject', models.ForeignKey(orm['archive.digitalobject'], null=False)),
             ('subjectheading', models.ForeignKey(orm['archive.subjectheading'], null=False))
         ))
-        db.create_unique('archive_digitalobject_subject', ['digitalobject_id', 'subjectheading_id'])
+        db.create_unique(m2m_table_name, ['digitalobject_id', 'subjectheading_id'])
 
         # Adding M2M table for field related_production on 'DigitalObject'
-        db.create_table('archive_digitalobject_related_production', (
+        m2m_table_name = db.shorten_name('archive_digitalobject_related_production')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('digitalobject', models.ForeignKey(orm['archive.digitalobject'], null=False)),
             ('production', models.ForeignKey(orm['archive.production'], null=False))
         ))
-        db.create_unique('archive_digitalobject_related_production', ['digitalobject_id', 'production_id'])
+        db.create_unique(m2m_table_name, ['digitalobject_id', 'production_id'])
 
         # Adding M2M table for field related_festival on 'DigitalObject'
-        db.create_table('archive_digitalobject_related_festival', (
+        m2m_table_name = db.shorten_name('archive_digitalobject_related_festival')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('digitalobject', models.ForeignKey(orm['archive.digitalobject'], null=False)),
             ('festivaloccurrence', models.ForeignKey(orm['archive.festivaloccurrence'], null=False))
         ))
-        db.create_unique('archive_digitalobject_related_festival', ['digitalobject_id', 'festivaloccurrence_id'])
+        db.create_unique(m2m_table_name, ['digitalobject_id', 'festivaloccurrence_id'])
 
         # Adding M2M table for field related_venue on 'DigitalObject'
-        db.create_table('archive_digitalobject_related_venue', (
+        m2m_table_name = db.shorten_name('archive_digitalobject_related_venue')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('digitalobject', models.ForeignKey(orm['archive.digitalobject'], null=False)),
             ('location', models.ForeignKey(orm['archive.location'], null=False))
         ))
-        db.create_unique('archive_digitalobject_related_venue', ['digitalobject_id', 'location_id'])
+        db.create_unique(m2m_table_name, ['digitalobject_id', 'location_id'])
 
         # Adding M2M table for field related_creator on 'DigitalObject'
-        db.create_table('archive_digitalobject_related_creator', (
+        m2m_table_name = db.shorten_name('archive_digitalobject_related_creator')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('digitalobject', models.ForeignKey(orm['archive.digitalobject'], null=False)),
             ('creator', models.ForeignKey(orm['archive.creator'], null=False))
         ))
-        db.create_unique('archive_digitalobject_related_creator', ['digitalobject_id', 'creator_id'])
+        db.create_unique(m2m_table_name, ['digitalobject_id', 'creator_id'])
 
         # Adding M2M table for field related_work on 'DigitalObject'
-        db.create_table('archive_digitalobject_related_work', (
+        m2m_table_name = db.shorten_name('archive_digitalobject_related_work')
+        db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('digitalobject', models.ForeignKey(orm['archive.digitalobject'], null=False)),
             ('workrecord', models.ForeignKey(orm['archive.workrecord'], null=False))
         ))
-        db.create_unique('archive_digitalobject_related_work', ['digitalobject_id', 'workrecord_id'])
+        db.create_unique(m2m_table_name, ['digitalobject_id', 'workrecord_id'])
 
         # Adding model 'License'
         db.create_table('archive_license', (
@@ -961,10 +990,10 @@ class Migration(SchemaMigration):
         db.delete_table('archive_creator')
 
         # Removing M2M table for field primary_bibliography on 'Creator'
-        db.delete_table('archive_creator_primary_bibliography')
+        db.delete_table(db.shorten_name('archive_creator_primary_bibliography'))
 
         # Removing M2M table for field secondary_bibliography on 'Creator'
-        db.delete_table('archive_creator_secondary_bibliography')
+        db.delete_table(db.shorten_name('archive_creator_secondary_bibliography'))
 
         # Deleting model 'RelatedCreator'
         db.delete_table('archive_relatedcreator')
@@ -979,10 +1008,10 @@ class Migration(SchemaMigration):
         db.delete_table('archive_workrecord')
 
         # Removing M2M table for field subject on 'WorkRecord'
-        db.delete_table('archive_workrecord_subject')
+        db.delete_table(db.shorten_name('archive_workrecord_subject'))
 
         # Removing M2M table for field lang on 'WorkRecord'
-        db.delete_table('archive_workrecord_lang')
+        db.delete_table(db.shorten_name('archive_workrecord_lang'))
 
         # Deleting model 'RelatedWork'
         db.delete_table('archive_relatedwork')
@@ -1006,13 +1035,13 @@ class Migration(SchemaMigration):
         db.delete_table('archive_production')
 
         # Removing M2M table for field source_work on 'Production'
-        db.delete_table('archive_production_source_work')
+        db.delete_table(db.shorten_name('archive_production_source_work'))
 
         # Removing M2M table for field related_organizations on 'Production'
-        db.delete_table('archive_production_related_organizations')
+        db.delete_table(db.shorten_name('archive_production_related_organizations'))
 
         # Removing M2M table for field secondary_bibliography on 'Production'
-        db.delete_table('archive_production_secondary_bibliography')
+        db.delete_table(db.shorten_name('archive_production_secondary_bibliography'))
 
         # Deleting model 'DirectingMember'
         db.delete_table('archive_directingmember')
@@ -1041,11 +1070,14 @@ class Migration(SchemaMigration):
         # Deleting model 'FestivalOccurrence'
         db.delete_table('archive_festivaloccurrence')
 
+        # Removing M2M table for field venue on 'FestivalOccurrence'
+        db.delete_table(db.shorten_name('archive_festivaloccurrence_venue'))
+
         # Removing M2M table for field productions on 'FestivalOccurrence'
-        db.delete_table('archive_festivaloccurrence_productions')
+        db.delete_table(db.shorten_name('archive_festivaloccurrence_productions'))
 
         # Removing M2M table for field secondary_bibliography on 'FestivalOccurrence'
-        db.delete_table('archive_festivaloccurrence_secondary_bibliography')
+        db.delete_table(db.shorten_name('archive_festivaloccurrence_secondary_bibliography'))
 
         # Deleting model 'FestivalParticipant'
         db.delete_table('archive_festivalparticipant')
@@ -1060,25 +1092,25 @@ class Migration(SchemaMigration):
         db.delete_table('archive_digitalobject')
 
         # Removing M2M table for field language on 'DigitalObject'
-        db.delete_table('archive_digitalobject_language')
+        db.delete_table(db.shorten_name('archive_digitalobject_language'))
 
         # Removing M2M table for field subject on 'DigitalObject'
-        db.delete_table('archive_digitalobject_subject')
+        db.delete_table(db.shorten_name('archive_digitalobject_subject'))
 
         # Removing M2M table for field related_production on 'DigitalObject'
-        db.delete_table('archive_digitalobject_related_production')
+        db.delete_table(db.shorten_name('archive_digitalobject_related_production'))
 
         # Removing M2M table for field related_festival on 'DigitalObject'
-        db.delete_table('archive_digitalobject_related_festival')
+        db.delete_table(db.shorten_name('archive_digitalobject_related_festival'))
 
         # Removing M2M table for field related_venue on 'DigitalObject'
-        db.delete_table('archive_digitalobject_related_venue')
+        db.delete_table(db.shorten_name('archive_digitalobject_related_venue'))
 
         # Removing M2M table for field related_creator on 'DigitalObject'
-        db.delete_table('archive_digitalobject_related_creator')
+        db.delete_table(db.shorten_name('archive_digitalobject_related_creator'))
 
         # Removing M2M table for field related_work on 'DigitalObject'
-        db.delete_table('archive_digitalobject_related_work')
+        db.delete_table(db.shorten_name('archive_digitalobject_related_work'))
 
         # Deleting model 'License'
         db.delete_table('archive_license')
@@ -1501,7 +1533,9 @@ class Migration(SchemaMigration):
         },
         'archive.festival': {
             'Meta': {'object_name': 'Festival'},
+            'attention': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'notes': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'title_en': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'title_es': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'})
@@ -1515,12 +1549,14 @@ class Migration(SchemaMigration):
         },
         'archive.festivaloccurrence': {
             'Meta': {'object_name': 'FestivalOccurrence'},
+            'announcement': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'ascii_title': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'attention': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'awards_text': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'begin_date': ('django.db.models.fields.DateField', [], {}),
             'begin_date_BC': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'begin_date_precision': ('django.db.models.fields.CharField', [], {'default': "u'f'", 'max_length': '1'}),
+            'edu_program': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'end_date': ('django.db.models.fields.DateField', [], {}),
             'end_date_BC': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'end_date_precision': ('django.db.models.fields.CharField', [], {'default': "u'f'", 'max_length': '1'}),
@@ -1539,7 +1575,8 @@ class Migration(SchemaMigration):
             'secondary_bibliography': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'festival_secondary_bibliography_for'", 'null': 'True', 'symmetrical': 'False', 'to': "orm['archive.BibliographicRecord']"}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'title_variants': ('django.db.models.fields.CharField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
-            'venue': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['archive.Location']"})
+            'venue': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['archive.Location']", 'symmetrical': 'False'}),
+            'website': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'})
         },
         'archive.festivalparticipant': {
             'Meta': {'object_name': 'FestivalParticipant'},
@@ -1920,15 +1957,15 @@ class Migration(SchemaMigration):
         'taggit.tag': {
             'Meta': {'object_name': 'Tag'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '100'}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '100'})
         },
         'taggit.taggeditem': {
             'Meta': {'object_name': 'TaggedItem'},
-            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'taggit_taggeditem_tagged_items'", 'to': "orm['contenttypes.ContentType']"}),
+            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'taggit_taggeditem_tagged_items'", 'to': "orm['contenttypes.ContentType']"}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'object_id': ('django.db.models.fields.IntegerField', [], {'db_index': 'True'}),
-            'tag': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'taggit_taggeditem_items'", 'to': "orm['taggit.Tag']"})
+            'tag': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'taggit_taggeditem_items'", 'to': "orm['taggit.Tag']"})
         }
     }
 

@@ -1,6 +1,5 @@
 *.pyc
 archive/*.pyc
-archive/migrations/*
 modeltranslation/*.pyc
 selectable/*.pyc
 workflow/*.pyc
