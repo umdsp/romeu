@@ -45,6 +45,20 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             <h3>Search results for {{ q }}</h3>
 
+    <div>
+        <dl>
+            {% if facets.fields.tag_name %}
+                <dt>Tag_Name</dt>
+                {# Provide only the top 5 authors #}
+                {% for tag_name in facets.fields.tag_name %}
+                    <dd><a href="{{ request.get_full_path }}&amp;selected_facets=author_exact:{{ tag_name.0|urlencode }}">{{ tag_name.0 }}</a> ({{ tag_name.1 }})</dd>
+                {% endfor %}
+            {% else %}
+                <p>No tag_name facets.</p>
+            {% endif %}
+        </dl>
+    </div>
+
             <div id="results">
                 <ul>
                     <li><a href="#creatortab">Creators ({% firstof creator_matches.count "0" %})</a></li>

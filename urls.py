@@ -32,13 +32,13 @@ from archive.views import (CreatorsListView, CreatorsAlphaListView,
                            DigitalObjectsTypeListView, phys_types_list,
                            DigitalObjectsCollectionListView,
                            AwardsListView, AwardsAlphaListView,
-                           AwardDetailView)
+                           AwardDetailView, pdf_creation_view)
 
 DEFAULT_LANG = settings.DEFAULT_LANG
 
-from haystack.forms import ModelSearchForm
+from haystack.forms import ModelSearchForm, FacetedSearchForm
 from haystack.query import SearchQuerySet
-from haystack.views import SearchView, search_view_factory
+from haystack.views import SearchView, search_view_factory, FacetedSearchView
 
 from archive.views import flatpage
 
@@ -141,7 +141,11 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     url(r'^%s/' % settings.DAJAXICE_MEDIA_PREFIX, include('dajaxice.urls')),
-
+    
+    url(r'^publications/', include('publications.urls')),
+    url(r'^admin/publications/publication/import_bibtex/$', 'publications.admin_views.import_bibtex'),
+    url(r'^admin/publications/type/import_bibtex/$', 'publications.admin_views.import_bibtex'),
+    
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     
@@ -153,6 +157,8 @@ urlpatterns = patterns('',
     url(r'^taggit_autocomplete/', include('taggit_autocomplete.urls')),
 
     url(r'^search_do/', search_do_view),
+    url(r'^pdf_creation/', pdf_creation_view),
+
 
 )
 

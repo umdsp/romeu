@@ -14,7 +14,7 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-from archive.models import Creator, Location, Stage, RelatedCreator, WorkRecord, WorkRecordCreator, WorkRecordFunction, Production, Role, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, DocumentationMember, AdvisoryMember, Festival, FestivalOccurrence, FestivalParticipant, Repository, Collection, DigitalObject, DigitalFile, Award, AwardCandidate, RelatedWork, SubjectHeading, BibliographicRecord, Country, City, Language, DirectingTeamFunction, CastMemberFunction, DesignTeamFunction, TechTeamFunction, ProductionTeamFunction, DocumentationTeamFunction, AdvisoryTeamFunction, OrgFunction, FestivalFunction, PhysicalObjectType, WorkRecordType, VenueType
+from archive.models import Creator, Location, Stage, RelatedCreator, WorkRecord, WorkRecordCreator, WorkRecordFunction, Production, Role, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, DocumentationMember, AdvisoryMember, Festival, FestivalOccurrence, FestivalParticipant, Repository, Collection, DigitalObject, DigitalFile, Award, AwardCandidate, RelatedWork, SubjectHeading, Country, City, Language, DirectingTeamFunction, CastMemberFunction, DesignTeamFunction, TechTeamFunction, ProductionTeamFunction, DocumentationTeamFunction, AdvisoryTeamFunction, OrgFunction, FestivalFunction, PhysicalObjectType, WorkRecordType, VenueType
 from workflow.models import Queue, QueueItem
 from modeltranslation.admin import TranslationAdmin
 

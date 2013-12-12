@@ -30,6 +30,8 @@ from django.db.models import Q
 from unidecode import unidecode
 
 from smart_selects.db_fields import ChainedForeignKey
+from publications.models.publication import Publication
+from publications.fields import PagesField
 from archive.utils import display_date
 from archive import constants
 
@@ -47,13 +49,15 @@ try:
     add_introspection_rules(
     [
         (
-            (TaggableManager, ),
-            [],
-            {
-            },
+            (TaggableManager, ), [], {},
         ),
+        (
+            (PagesField,), [], {},
+        )
     ],
-    ["^taggit_autocomplete\.managers\.TaggableManager",])
+    ["^taggit_autocomplete\.managers\.TaggableManager",
+     "^publications\.fields\.PagesField",
+     ])
     
 except ImportError:
     pass
@@ -153,8 +157,9 @@ class Creator(models.Model):
     biography = models.TextField(null=True, blank=True, verbose_name=_("biographical / historical note"))
     website = models.URLField(null=True, blank=True, verbose_name=_("website"))
     photo = models.ForeignKey("DigitalObject", null=True, blank=True, verbose_name=_("photo"))
-    primary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="primary_bibliography_for", verbose_name=_("primary bibliography"))
-    secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="secondary_bibliography_for", verbose_name=_("secondary bibliography"))
+ #   primary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="primary_bibliography_for", verbose_name=_("primary bibliography"))
+ #   secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="secondary_bibliography_for", verbose_name=_("secondary bibliography"))
+    primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="primary_bibliography_for", verbose_name=_("primary bibliography"))
     awards_text = models.TextField(null=True, blank=True, verbose_name=_("awards (plain text)"))
     biblio_text = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text)"))
     biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text, Spanish)"))
@@ -719,6 +724,7 @@ class WorkRecord(models.Model):
     biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text, Spanish)"))
     secondary_biblio_text = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text)"))
     secondary_biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text, Spanish)"))
+    primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="workedrecord_primary_bibliography_for", verbose_name=_("primary bibliography"))
     tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 
     def creation_date_display(self):
@@ -753,8 +759,8 @@ class WorkRecord(models.Model):
             return True
         elif DigitalObject.objects.filter(related_work=self).exists():
             return True
-        elif BibliographicRecord.objects.filter(work_record=self).exists():
-            return True
+#        elif BibliographicRecord.objects.filter(work_record=self).exists():
+#            return True
         else:
             return False
 
@@ -794,7 +800,7 @@ class WorkRecordCreator(models.Model):
         return self.creator.creator_name
 
 post_save.connect(update_workrecord_creators, sender=WorkRecordCreator)
-    
+
 class Role(models.Model):
     source_text = models.ForeignKey(WorkRecord, related_name="roles", verbose_name=_("source text"))
     title = models.CharField(max_length=255, verbose_name=_("title"))
@@ -848,7 +854,8 @@ class Production(models.Model):
     related_organizations = models.ManyToManyField(Creator, null=True, blank=True, related_name="productions_related_to", verbose_name=_("related organizations"))
     premier = models.CharField(max_length=2, choices=constants.PREMIER_CHOICES, null=True, blank=True, verbose_name=_("premier"))
     website = models.URLField(null=True, blank=True, verbose_name=_("website"))
-    secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="production_secondary_bibliography_for", verbose_name=_("secondary bibliography"))
+#    secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="production_secondary_bibliography_for", verbose_name=_("secondary bibliography"))
+    primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="production_primary_bibliography_for", verbose_name=_("primary bibliography"))
     awards_text = models.TextField(null=True, blank=True, verbose_name=_("awards (plain text)"))
     biblio_text = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text)"))
     biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text, Spanish)"))
@@ -1150,7 +1157,7 @@ class FestivalOccurrence(models.Model):
     end_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
     participants = models.ManyToManyField(Creator, through="FestivalParticipant", null=True, blank=True, verbose_name=_("participants"))
     productions = models.ManyToManyField(Production, verbose_name=_("productions"))
-    secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="festival_secondary_bibliography_for", verbose_name=_("secondary bibliography"))
+    primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="festival_primary_bibliography_for", verbose_name=_("primary bibliography"))
     awards_text = models.TextField(null=True, blank=True, verbose_name=_("awards"))
     program = models.TextField(null=True, blank=True, verbose_name=_("festival/conference program"))
     edu_program = models.TextField(null=True, blank=True, verbose_name=_("festival/conference educational program"))
@@ -1620,8 +1627,11 @@ class VenueType(models.Model):
 
     def __unicode__(self):
         return self.title
+    
 
+"""    
 class BibliographicRecord(models.Model):
+
     bib_type = models.CharField(max_length=5, choices=constants.BIB_TYPE_CHOICES, verbose_name=_("bibliography type"))
     abstract = models.TextField(null=True, blank=True, verbose_name=_("abstract"))
     title = models.CharField(max_length=255, verbose_name=_("title"))
@@ -1702,6 +1712,7 @@ class BibliographicRecordType(models.Model):
     has_publisher = models.BooleanField(default=False, verbose_name=_("has a publisher"))
     has_address = models.BooleanField(default=False, verbose_name=_("has a publisher's address"))
     has_workrecord = models.BooleanField(default=False, verbose_name=_("is linked to a work record"))
+"""
 
 class TranslatingFlatPage(FlatPage):
     order = models.IntegerField(default=0, verbose_name=_("page order"), help_text=_("Where in the list this page should show up - 0 comes first, then 1, etc."))

@@ -1,0 +1,6 @@
+{% for tag in object.tags.all %}
+{{ tag.name }}
+{% endfor %}
+{% for content_type in object.content_types.all %}
+{{ content_type.model }}
+{% endfor %}

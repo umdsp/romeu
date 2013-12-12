@@ -21,7 +21,7 @@ from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord
                             AdvisoryMember, Festival, FestivalOccurrence,
                             FestivalParticipant, Repository, Collection,
                             DigitalObject, DigitalFile, Award, AwardCandidate,
-                            RelatedWork, SubjectHeading, BibliographicRecord,
+                            RelatedWork, SubjectHeading, 
                             Country, City, Language, DirectingTeamFunction,
                             CastMemberFunction, DesignTeamFunction,
                             TechTeamFunction, ProductionTeamFunction,
@@ -234,7 +234,8 @@ class CreatorAdmin(TranslationAdmin):
     date_hierarchy = 'birth_date'
     search_fields = ['creator_name', 'creator_ascii_name', 'name_variants']
     inlines = (RelatedCreatorInline,)
-    filter_horizontal = ['primary_bibliography', 'secondary_bibliography']
+    filter_horizontal = ['primary_publications'] #, 'primary_bibliography', 'secondary_bibliography']
+#    filter_horizontal = ['primary_bibliography', 'secondary_bibliography']    
     fieldsets = (
         (None, {
             'fields': ('prefix', 'given_name', 'middle_name', 'family_name', 'suffix', 'org_name', 'creator_type', 'name_variants')
@@ -243,7 +244,10 @@ class CreatorAdmin(TranslationAdmin):
             'fields': ('birth_location', ('birth_date', 'birth_date_precision', 'birth_date_BC'), 'death_location', ('death_date', 'death_date_precision', 'death_date_BC'), ('earliest_active', 'earliest_active_precision', 'earliest_active_BC'), ('latest_active', 'latest_active_precision', 'latest_active_BC'))
         }),
         ('Details', {
-            'fields': ('gender', 'nationality', 'location', 'biography', 'website', 'photo', 'primary_bibliography', 'secondary_bibliography', 'awards_text', 'biblio_text', 'biblio_text_es', 'secondary_biblio_text', 'secondary_biblio_text_es')
+            'fields': ('gender', 'nationality', 'location', 'biography', 'website', 'photo',
+                       'primary_publications',
+                       #'primary_bibliography', 'secondary_bibliography',
+                       'awards_text', 'biblio_text', 'biblio_text_es', 'secondary_biblio_text', 'secondary_biblio_text_es')
         }),
         ('Standard fields', {
             'fields': ('notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date', 'tags')
@@ -263,9 +267,10 @@ class CreatorAdmin(TranslationAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
+"""
 class BibliographicRecordAdmin(admin.ModelAdmin):
     form = arcforms.BibliographicRecordAdminForm
-
+    
     def __init__(self, model, admin_site):
         super(BibliographicRecordAdmin, self).__init__(model, admin_site)
         self.form.admin_site = admin_site
@@ -278,6 +283,7 @@ class BibliographicRecordAdmin(admin.ModelAdmin):
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
             '/media/js/tabbed_translation_fields.js',
         )
+"""
 
 class LocationAdmin(TranslationAdmin):
     form = arcforms.LocationAdminForm
@@ -343,7 +349,7 @@ class WorkRecordAdmin(TranslationAdmin):
     list_display = ('title', 'creators_display', 'work_type', 'genre', 'culture', 'style', 'has_system_links')
     list_filter = ('work_type', 'lang', 'genre', 'culture', 'style', 'has_attention',)
     search_fields = ['title', 'ascii_title', 'title_variants']
-    filter_horizontal = ['subject', 'lang']
+    filter_horizontal = ['subject', 'lang', 'primary_publications']
     fieldsets = (
         ('Titles', {
             'fields': ('title', 'title_variants')
@@ -352,7 +358,8 @@ class WorkRecordAdmin(TranslationAdmin):
             'fields': ('work_type', 'subject', 'genre', 'culture', 'style', 'lang')
         }),
         ('Creation / Publication', {
-            'fields': (('creation_date', 'creation_date_precision', 'creation_date_BC'), ('publication_date', 'publication_date_precision', 'publication_date_BC'), 'publication_rights', 'performance_rights')
+            'fields': (('creation_date', 'creation_date_precision', 'creation_date_BC'), ('publication_date', 'publication_date_precision', 'publication_date_BC'), 'publication_rights', 'performance_rights',
+                'primary_publications')
         }),
         ('Access', {
             'fields': ('website', 'digital_copy')
@@ -392,7 +399,7 @@ class ProductionAdmin(TranslationAdmin):
     date_hierarchy = 'begin_date'
     search_fields = ['title', 'ascii_title', 'title_variants', 'notes']
     list_filter = ('has_attention',)
-    filter_horizontal = ['source_work', 'secondary_bibliography',]
+    filter_horizontal = ['source_work', 'primary_publications',] #, 'secondary_bibliography',]
     fieldsets = (
         (None, {
             'fields': ('source_work', 'title', 'subtitle', 'title_variants')
@@ -401,7 +408,8 @@ class ProductionAdmin(TranslationAdmin):
             'fields': ('theater_company', 'venue', 'stage', ('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'),)
         }),
         ('Additional details', {
-            'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website', 'awards_text', 'biblio_text', 'biblio_text_es', 'secondary_bibliography')
+            'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website', 'awards_text', 'biblio_text', 'biblio_text_es',
+                'primary_publications') #, 'secondary_bibliography')
         }),
         ('Standard fields', {
             'fields': ('notes', 'attention', 'needs_editing', 'published', 'tags')
@@ -439,13 +447,13 @@ class FestivalOccurrenceAdmin(TranslationAdmin):
     inlines = (FestivalParticipantInline,)
     date_hierarchy = 'begin_date'
     list_filter = ('has_attention',)
-    filter_horizontal = ['secondary_bibliography']
+    filter_horizontal = ['primary_publications']
     search_fields = ['ascii_title', 'title']
     exclude = ('ascii_title',)
     
     fieldsets = (
         (None, {
-            'fields': ('festival_series', 'title', 'title_variants', 'productions', 'secondary_bibliography')
+            'fields': ('festival_series', 'title', 'title_variants', 'productions', 'primary_publications')
         }),
         ('Place and dates', {
             'fields': ('venue', ('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'))
@@ -863,7 +871,7 @@ admin.site.register(Repository, RepositoryAdmin)
 admin.site.register(Collection, CollectionAdmin)
 admin.site.register(DigitalObject, DigitalObjectAdmin)
 admin.site.register(SubjectHeading, SubjectHeadingAdmin)
-admin.site.register(BibliographicRecord, BibliographicRecordAdmin)
+#admin.site.register(BibliographicRecord, BibliographicRecordAdmin)
 admin.site.register(Award, AwardAdmin)
 admin.site.register(AwardCandidate, AwardCandidateAdmin)
 

@@ -19,12 +19,29 @@ from django.db.models.fields.related import ForeignKey, ManyToOneRel
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 
-from archive.lookups import CreatorLookup, ProductionLookup, LocationLookup, RoleLookup, WorkRecordLookup, CountryLookup, DigitalObjectLookup, FestivalLookup, FestivalOccurrenceLookup, CollectionLookup, CityLookup, AwardLookup
+from archive.lookups import (CreatorLookup, ProductionLookup, LocationLookup,
+                             RoleLookup, WorkRecordLookup, CountryLookup,
+                             DigitalObjectLookup, FestivalLookup,
+                             FestivalOccurrenceLookup,
+                             CollectionLookup, CityLookup, AwardLookup)
 
 import selectable
 from selectable import forms as selectable_forms
 
-from archive.models import Creator, Location, Stage, RelatedCreator, WorkRecord, WorkRecordCreator, WorkRecordFunction, Production, Role, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, DocumentationMember, AdvisoryMember, Festival, FestivalOccurrence, FestivalParticipant, Repository, Collection, DigitalObject, DigitalFile, Award, AwardCandidate, RelatedWork, SubjectHeading, BibliographicRecord, Country, City, Language, DirectingTeamFunction, CastMemberFunction, DesignTeamFunction, TechTeamFunction, ProductionTeamFunction, DocumentationTeamFunction, AdvisoryTeamFunction, OrgFunction, FestivalFunction, PhysicalObjectType, WorkRecordType, VenueType, DigitalObjectType
+from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord,
+                            WorkRecordCreator, WorkRecordFunction, Production,
+                            Role, DirectingMember, CastMember, DesignMember,
+                            TechMember, ProductionMember, DocumentationMember,
+                            AdvisoryMember, Festival, FestivalOccurrence,
+                            FestivalParticipant, Repository, Collection,
+                            DigitalObject, DigitalFile, Award, AwardCandidate,
+                            RelatedWork, SubjectHeading, Country, City,
+                            Language, DirectingTeamFunction, CastMemberFunction,
+                            DesignTeamFunction, TechTeamFunction,
+                            ProductionTeamFunction, DocumentationTeamFunction,
+                            AdvisoryTeamFunction, OrgFunction,
+                            FestivalFunction, PhysicalObjectType,
+                            WorkRecordType, VenueType, DigitalObjectType)
 
 class ProductionAdminForm(ModelForm):    
     venue = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, allow_new=False, required=False, label=_(u"Venue"))
@@ -276,6 +293,7 @@ class FestivalParticipantAdminForm(ModelForm):
     class Meta(object):
         model = FestivalParticipant
 
+"""
 class BibliographicRecordAdminForm(ModelForm):
     work_record = selectable_forms.AutoCompleteSelectField(lookup_class=WorkRecordLookup, label=_(u"Work record"))
 
@@ -283,6 +301,7 @@ class BibliographicRecordAdminForm(ModelForm):
         super(BibliographicRecordAdminForm, self).__init__(*args, **kwargs)
         wrel = ManyToOneRel(WorkRecord, 'id')
         self.fields['work_record'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['work_record'].widget, wrel, self.admin_site)
+"""
 
 class StageAdminForm(ModelForm):
     venue = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, label=_(u"Venue"))

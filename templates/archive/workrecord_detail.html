@@ -93,9 +93,23 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <h4>{% trans "Publication date" %}:</h4>
                 <span>{{ workrecord.publication_date_display }}</span>
               </li>
-              {% endif %}
+            {% endif %}
             </ul>
+            
+           {% if workrecord.primary_publications.exists %}
+            <h4>{% trans "Bibliography" %}:</h4>
+            <ul>
+                  {% for citation in workrecord.primary_publications.all %}
+                  <li>
+                    <a href="{{ SITE_URL }}{% url 'publications_views_id' citation.id %}">{{ citation.title|safe }}</a> 
+                  </li>
+                  {% endfor %}
+            </ul>
+           {% endif %}
+            
           </div>
+         
+          
 
           {% if digital_objects %}
           <div class="objects">

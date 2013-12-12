@@ -60,6 +60,24 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               <h4>{% trans "Website" %}:</h4>
               <a href="{{ creator.website }}">{{ creator.website }}</a>
             {% endif %}
+            
+            
+            
+            {% if creator.primary_publications.exists %}
+            <div class="linkeditems">
+              <h3>{% trans "Bibliography" %}</h3>
+                <ul>
+                    
+                  {% for citation in creator.primary_publications.all %}
+                  <li>
+                    <a href="{{ SITE_URL }}{% url 'publications_views_id' citation.id %}">{{ citation.title|safe }}</a>  
+                  </li>
+                  {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+                       
+            
 
             {% if creator.has_works %}
             <div class="linkeditems">

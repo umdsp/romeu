@@ -46,6 +46,19 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           {{ festival.notes|safe }}
           {% endif %}
 
+          {% if festival.primary_publications.exists %}
+          <div class="linkeditems">
+            <h3>{% trans "Bibliography" %}</h3>
+              <ul>
+                  
+                {% for citation in festival.primary_publications.all %}
+                <li>
+                  <a href="{{ SITE_URL }}{% url 'publications_views_id' citation.id %}">{{ citation.title|safe }}</a>  
+                </li>
+                {% endfor %}
+              </ul>
+          </div>
+          {% endif %}
         </section>
         
         <aside>
