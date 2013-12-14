@@ -32,7 +32,7 @@ from archive.views import (CreatorsListView, CreatorsAlphaListView,
                            DigitalObjectsTypeListView, phys_types_list,
                            DigitalObjectsCollectionListView,
                            AwardsListView, AwardsAlphaListView,
-                           AwardDetailView, pdf_creation_view)
+                           AwardDetailView, TaggedItemsListView, TaggedItemDetailView)
 
 DEFAULT_LANG = settings.DEFAULT_LANG
 
@@ -157,9 +157,11 @@ urlpatterns = patterns('',
     url(r'^taggit_autocomplete/', include('taggit_autocomplete.urls')),
 
     url(r'^search_do/', search_do_view),
-    url(r'^pdf_creation/', pdf_creation_view),
 
-
+    url(r'^taggeditems/?$', TaggedItemsListView.as_view(),
+	name="taggeditems_list_view"),
+    url(r'^taggeditem/(?P<pk>\d+)/?$', TaggedItemDetailView.as_view(),
+	name="taggeditem_detail_view"),
 )
 
 #urlpatterns += patterns('haystack.views',

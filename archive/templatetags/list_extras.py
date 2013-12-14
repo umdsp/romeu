@@ -65,5 +65,20 @@ class AlphaListNode(template.Node):
         alphalist += '<li><a href="/' + self.insert_text + '/0">#</a></li>'
         alphalist += '</ul>'
         return alphalist
-        
+       
+@register.simple_tag
+def print_tags(tag_objects, query_str):
+        result_dict = {}
+        tag_list = "";
+        for k,v in tag_objects:
+                for obj in v:
+                        for tag_name in obj.tags.names():
+                                if tag_name in result_dict:
+                                        result_dict[tag_name] += 1
+                                else:
+                                        result_dict[tag_name] = 1
+        for key,val in result_dict.iteritems():
+                tag_list += "<a href='/taggeditems?" + query_str + "&tag=" + key +"' onclick = \"$('#eventTags').tagit('createTag', '"+key+"');\">" + key + "(" + str(val) + ")</a>&nbsp;&nbsp;&nbsp;&nbsp;"
+        return tag_list
+ 
 register.tag('alpha_list', print_alpha_list)

@@ -36,6 +36,60 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
     <link rel="apple-touch-icon" href="{{ STATIC_URL }}apple-touch-icon.png" />
     <script src="{{ STATIC_URL }}js/libs/modernizr-2.0.6.min.js"></script>
+    <link href="{{ STATIC_URL }}css/jquery.tagit.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}js/libs/tag-it.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script type="text/javascript">
+        $(function(){
+        if(document.getElementById("eventTags"))
+        {
+            var tag_field = document.getElementById("eventTags");
+            var tag_field_val = getUrlVars();
+            tag_field.value = decodeURIComponent(tag_field_val['tag']);
+            //-------------------------------
+            // Tag events
+            //-------------------------------
+            var eventTags = $('#eventTags');
+            var addEvent = function(text) {
+                $('#events_container').append(sampleTags+ '<br>');
+            };
+            $('#eventTags').tagit({
+                availableTags: tag_field_val,
+                afterTagRemoved: function(evt, ui) {
+                if($('#eventTags').val())
+                        window.location.href = "/taggeditems?tag=" + $('#eventTags').val();     
+                else
+                        window.location.href = "/";
+                }
+            });
+        }
+        });
+        function getUrlVars()
+        {
+                var vars = [], hash, tagList = "";
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for(var i = 0; i < hashes.length; i++)
+                {
+                        hash = hashes[i].split('=');
+                        tagList += hash[1] + ",";
+                        if($.inArray(hash[0], vars)>-1)
+                        {
+                                vars[hash[0]]+=","+hash[1];
+                        }
+                        else
+                        {
+                                vars.push(hash[0]);
+                                vars[hash[0]] = hash[1];
+                        }
+
+                }
+                return vars;
+        }
+    </script>
 </head>
 <body class="{{ LANGUAGE_CODE }} {% block body_class %}{% endblock %}">
     <div id="wrapper">
@@ -136,8 +190,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             </nav>
         </footer>
 
-        <script src="{{ STATIC_URL }}js/libs/jquery-1.7.1.min.js"></script>
-        <script src="{{ STATIC_URL }}js/libs/jquery-ui-1.8.16.min.js"></script>
         <link rel="stylesheet" href="{{ STATIC_URL }}css/sunny/jquery-ui-1.8.16.css" />
         <script src="{{ STATIC_URL }}js/jquery.isotope.min.js"></script>
         <script src="{{ STATIC_URL }}js/jquery.cycle.lite.min.js"></script>

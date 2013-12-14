@@ -8,7 +8,7 @@ THUMBNAIL_DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    # ('Sreeharsha Venkatapuram', 'svenkatapuram@med.miami.edu'),
 )
 
 MANAGERS = ADMINS
@@ -91,6 +91,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.request'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -149,8 +150,6 @@ TAGGIT_AUTOCOMPLETE_JS_BASE_URL = 'http://cubantheater.org/media/js'
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-#       'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-#        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
         'URL': 'http://localhost:8983/solr/collection1'
     },

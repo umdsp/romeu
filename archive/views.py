@@ -19,7 +19,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext, loader, Context
 from django.views.generic import TemplateView, ListView, DetailView
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
-from django.db.models import Q
+from django.db.models import Q, Count
 
 import re
 
@@ -30,6 +30,7 @@ from django.shortcuts import get_object_or_404
 from django.template import loader, RequestContext
 from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_protect
+from django.utils import timezone
 
 from settings import MEDIA_URL, STATIC_URL
 
@@ -44,7 +45,7 @@ from archive.models import (Creator, Location, Production, WorkRecord,
                             PhysicalObjectType, Collection, Repository,
                             Award, AwardCandidate,)
                            
-
+from taggit.models import Tag, TaggedItem
 from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView
@@ -666,7 +667,7 @@ def get_search_results(modeltype, query):
     return SearchQuerySet().models(modeltype).auto_query(query)
     
 def search_view(request):
-    query = creator_matches = location_matches = production_matches = workrecord_matches = festival_matches = False
+    query = creator_matches = location_matches = production_matches = workrecord_matches = festival_matches = taggeditem_matches =False
 
     if request.GET.has_key('q'):
         # User submitted a search term.
@@ -675,7 +676,14 @@ def search_view(request):
         location_matches = get_search_results(Location, query)
         production_matches = get_search_results(Production, query)
         workrecord_matches = get_search_results(WorkRecord, query)
-    festival_matches = get_search_results(Festival, query)
+    	festival_matches = get_search_results(Festival, query)
+        taggeditem_matches = get_search_results(TaggedItem, query)
+        tag_dict = {}
+        for result in taggeditem_matches:
+                if result.object.tag.name in tag_dict:
+                        tag_dict[result.object.tag.name] += 1
+                else:
+                        tag_dict[result.object.tag.name] = 1
 
     context = {}
     if query:
@@ -690,6 +698,9 @@ def search_view(request):
         context['workrecord_matches'] = workrecord_matches
     if festival_matches:
         context['festival_matches'] = festival_matches
+    if taggeditem_matches:
+        context['taggeditem_matches'] = taggeditem_matches
+        context['tag_dict'] = tag_dict
         
     return render_to_response('search/search.html', context, RequestContext(request))
 
@@ -780,23 +791,62 @@ def show_object(request):
 	    'digitalobjects':DigitalObject.objects.all(),
 	})
 
-import reportlab
-from reportlab.pdfgen import canvas
-from django.http import HttpResponse
+class TaggedItemsListView(ListView):
+    context_object_name = "taggeditems_list"
+    template_name = "archive/taggeditems_list.html"
+    paginate_by = 120
+    model = TaggedItem
 
-def pdf_creation_view(request):
-    # Create the HttpResponse object with the appropriate PDF headers.
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="somefilename.pdf"'
+    def get_context_data(self, **kwargs):
+        context = super(TaggedItemsListView, self).get_context_data(**kwargs)
+        if self.request.GET.has_key('tag'):
+                query = self.request.GET['tag']
+        queryset = TaggedItem.objects.filter(tag__name=query)
+        result_list = []
+        result_dict = {}
+        queryset = Creator.objects.filter(tags__name=query)
+        for x in queryset:
+                result_list.append(x)
+        if result_list:
+                result_dict["creator"] = result_list
+        result_list = []
+        queryset = Production.objects.filter(tags__name=query)
+        for x in queryset:
+                result_list.append(x)
+        if result_list:
+                result_dict["production"] = result_list
+        result_list = []
+        queryset = WorkRecord.objects.filter(tags__name=query)
+        for x in queryset:
+                result_list.append(x)
+        if result_list:
+                result_dict["writtenwork"] = result_list
+        result_list = []
+        queryset = DigitalObject.objects.filter(tags__name=query)
+        for x in queryset:
+                result_list.append(x.ascii_title)
+        if result_list:
+                result_dict["digitalobject"] = result_list
+        result_list = []
+        queryset = Location.objects.filter(tags__name=query)
+        for x in queryset:
+                result_list.append(x.title_ascii)
+        if result_list:
+                result_dict["location"] = result_list
+        result_list = []
+        context['now'] = timezone.now()
+        context['tag_result'] = result_dict
+        return context
 
-    # Create the PDF object, using the response object as its "file."
-    p = canvas.Canvas(response)
+class TaggedItemDetailView(DetailView):
+    queryset = TaggedItem.objects.select_related()
+    context_object_name = "taggeditem_detail"
+    template_name = "archive/taggeditem_detail.html"
+    paginate_by = 10
+    model = TaggedItem
 
-    # Draw things on the PDF. Here's where the PDF generation happens.
-    # See the ReportLab documentation for the full list of functionality.
-    p.drawString(100, 100, "Hello world.")
+    def get_context_data(self, **kwargs):
+        context = super(TaggedItemDetailView, self).get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
 
-    # Close the PDF object cleanly, and we're done.
-    p.showPage()
-    p.save()
-    return response

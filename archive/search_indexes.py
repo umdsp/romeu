@@ -81,13 +81,6 @@ class DigitalObjectIndex(SearchIndex):
 class TagIndex(SearchIndex):
     text = CharField(document=True, use_template=True)
     tag_name = CharField(model_attr='tag__name', faceted=True)
-#    digital_object_title = CharField(model_attr='digitalobject__ascii_title')
-#    workrecord_object_title = CharField(model_attr='workrecord__ascii_title')
-#    location_object_title = CharField(model_attr='location__title_ascii')
-#    creator_object_title = CharField(model_attr='creator__creator_ascii_name')
-#    production_object_title = CharField(model_attr='production__ascii_title')
-#    def get_model(self):
-#        return Tag
 
     def index_request(self):
         return TaggedItem.objects.all()

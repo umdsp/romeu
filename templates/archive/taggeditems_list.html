@@ -1,0 +1,74 @@
+<!--
+Copyright (C) 2012  University of Miami
+ 
+This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+ 
+This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ See the GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software Foundation,
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+-->
+ 
+ 
+ {% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+{% load list_extras %}
+{% load paginator %}
+
+{% block article_header %}
+        <h1>Tagged Items{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
+{% endblock %}
+
+{% block content %}
+        <header>
+        <nav class="breadcrumbs">
+            <ul>
+                <li><a href="/">{% trans "Home" %}</a></li>
+                <li>{% trans "Tags" %}</li>
+            </ul>
+        </nav>
+        <h2>{% trans "Tags" %}</h2>
+        </header>
+<section class="main"> 
+    <form id="tag_form"> 
+	<input type="text" id="eventTags" name="tag" value="" />
+	<div id="events_container"></div>
+    </form>
+        <table id="taggeditems_list">
+            <thead>
+                <tr>
+                    <th>Type</th>
+		    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for k,v in tag_result.items %}
+			{% for val in v %}
+                    	<tr>
+				<td>{{ k }}</td>
+                        	<td><a href="/{{k}}/{{val.id}}">{{ val }}</a></td>
+                    	</tr>
+			{% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+</section>
+<aside>
+	<div class="data">
+		<h3> Tag(s) </h3>
+		{% print_tags tag_result.items request.META.QUERY_STRING %}
+	</div>
+</aside>
+        {% if is_paginated %}
+          {% paginator 3 %}
+        {% endif %}
+{% endblock %}
