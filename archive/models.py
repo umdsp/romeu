@@ -885,6 +885,7 @@ class Production(models.Model):
     num_performances = models.IntegerField(null=True, blank=True, verbose_name=_("Number of performances"))
     is_special_performance = models.BooleanField(default=False, verbose_name=_("Special performance?"))
     special_performance_type = models.CharField(max_length=12, choices=constants.SPECIAL_PERFORMANCE_CHOICES, null=True, blank=True, verbose_name=_("Type"))
+#    special_performance_type = ForeignKey(Location, null=True, blank=True, verbose_name=_("Type"))
     directing_team = models.ManyToManyField(Creator, through="DirectingMember", null=True, blank=True, related_name="directing_team_for", verbose_name=_("directing team"))
     cast = models.ManyToManyField(Creator, through="CastMember", related_name="cast_member_for", verbose_name=_("cast"))
     design_team = models.ManyToManyField(Creator, through="DesignMember", null=True, blank=True, related_name="design_team_for", verbose_name=_("design team"))
@@ -1749,7 +1750,18 @@ class VenueType(models.Model):
 
     def __unicode__(self):
         return self.title
+"""    
+class SpecialPerformanceType(models.Model):
+    title = models.CharField(max_length=30, verbose_name=_("title"))
     
+    class Meta:
+        verbose_name = _("special performance type")
+        verbose_name_plural = _("special performance types")
+        ordering = ['title']
+
+    def __unicode__(self):
+        return self.title
+"""
 
 """    
 class BibliographicRecord(models.Model):

@@ -44,7 +44,7 @@ from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord
                             WorkRecordType, VenueType, DigitalObjectType)
 
 class ProductionAdminForm(ModelForm):    
-    venue = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, allow_new=False, required=False, label=_(u"Venue"))
+    venue = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, allow_new=False, label=_(u"Venue"))
     theater_company = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, required=False, label=_(u"Theater company"))
 
     def __init__(self, *args, **kwargs): 
