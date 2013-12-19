@@ -64,28 +64,31 @@ class CreatorsListView(ListView):
     paginate_by = 10
     
     def get_context_data(self, **kwargs):
+
         context = super(CreatorsListView, self).get_context_data(**kwargs)
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
+        
         imagetype = DigitalObjectType.objects.get(title='Image')
         alldos = DigitalObject.objects.filter(related_creator__isnull=False, files__isnull=False, digi_object_format=imagetype)
         length = len(alldos) - 1
         count = 0
         dos = []
+
         while count < 3:
             num = randrange(0, length)
             if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
                 dos.append(alldos[num])
                 count += 1
-        if dos:
-            for obj in dos:
-                item = {}
-                item['image'] = obj.first_file().filepath
-                item['title'] = obj.title
-                item['creator_name'] = obj.related_creator.all()[0].display_name
-                item['creator_id'] = obj.related_creator.all()[0].pk
-                item['pk'] = obj.pk
-                objects_list.append(item)
+                
+        for obj in dos:
+            item = {}
+            item['image'] = obj.first_file().filepath
+            item['title'] = obj.title
+            item['creator_name'] = obj.related_creator.all()[0].display_name
+            item['creator_id'] = obj.related_creator.all()[0].pk
+            item['pk'] = obj.pk
+            objects_list.append(item)
                 
         context['digital_objects'] = objects_list
         return context
@@ -119,29 +122,45 @@ class CreatorDetailView(DetailView):
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
         videotype = DigitalObjectType.objects.get(title='Video recording')
+        audiotype = DigitalObjectType.objects.get(title='Audio recording')
+        
         alldos = DigitalObject.objects.filter(related_creator=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
-        if alldos:
-            for obj in alldos:
-                for file in obj.files.order_by('seq_id'):
-                    item = {}
-                    item['image'] = file.filepath
-                    item['title'] = obj.title
-                    item['pk'] = obj.pk
-                    objects_list.append(item)
-            context['digital_objects'] = objects_list
-        videos = DigitalObject.objects.filter(related_creator=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
-        if videos:
-            video_list = []
-            for vid in videos:
+
+        for obj in alldos:
+            for file in obj.files.order_by('seq_id'):
                 item = {}
-                if vid.poster_image:
-                    item['poster'] = vid.poster_image
-                item['hidef'] = vid.hi_def_video
-                item['object_id'] = vid.object_number()
-                item['title'] = vid.title
-                item['pk'] = vid.pk
-                video_list.append(item)
-            context['videos'] = video_list
+                item['image'] = file.filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                objects_list.append(item)
+        context['digital_objects'] = objects_list
+        
+        videos = DigitalObject.objects.filter(related_creator=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        video_list = []
+        for vid in videos:
+            item = {}
+            if vid.poster_image:
+                item['poster'] = vid.poster_image
+            item['hidef'] = vid.hi_def_video
+            item['object_id'] = vid.object_number()
+            item['title'] = vid.title
+            item['pk'] = vid.pk
+            video_list.append(item)
+        context['videos'] = video_list
+
+        audios = DigitalObject.objects.filter(related_creator=self.object, digi_object_format=audiotype).distinct()
+        audio_list = []
+        for audio in audios:
+            item = {}
+            if audio.poster_image:
+                item['poster'] = audio.poster_image
+            item['object_id'] = audio.object_number()
+            item['title'] = audio.title
+            item['pk'] = audio.pk
+            audio_list.append(item)
+        context['audios'] = audio_list
+        
+        
         if self.object.photo:
             photofile = self.object.photo.first_file()
             context['creatorphoto'] = photofile.filepath
@@ -164,23 +183,23 @@ class ProductionsListView(ListView):
         count = 0
         length = len(alldos) - 1
         dos = []
+
         while count < 3:
             num = randrange(0, length)
             if alldos[num].files.count() > 0 and alldos[num].first_file():
                 dos.append(alldos[num])
                 count += 1
-        if dos:
-            for obj in dos:
-                item = {}
-                item['image'] = obj.first_file().filepath
-                item['title'] = obj.title
-                item['production_title'] = obj.related_production.all()[0].title
-                item['production_id'] = obj.related_production.all()[0].pk
-                item['pk'] = obj.pk
-                objects_list.append(item)
+        for obj in dos:
+            item = {}
+            item['image'] = obj.first_file().filepath
+            item['title'] = obj.title
+            item['production_title'] = obj.related_production.all()[0].title
+            item['production_id'] = obj.related_production.all()[0].pk
+            item['pk'] = obj.pk
+            objects_list.append(item)
                 
-            context['digital_objects'] = objects_list
-            return context
+        context['digital_objects'] = objects_list
+        return context
             
 class ProductionsAlphaListView(ProductionsListView):
     def get_queryset(self):
@@ -209,39 +228,58 @@ class ProductionDetailView(DetailView):
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
         videotype = DigitalObjectType.objects.get(title='Video recording')
+        audiotype = DigitalObjectType.objects.get(title='Audio recording')
+        
         alldos = DigitalObject.objects.filter(related_production=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
-        if alldos:
-            for obj in alldos:
-                for file in obj.files.order_by('seq_id'):
-                    item = {}
-                    item['image'] = file.filepath
-                    item['title'] = obj.title
-                    item['pk'] = obj.pk
-                    objects_list.append(item)
-            context['digital_objects'] = objects_list
-        videos = DigitalObject.objects.filter(related_production=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
-        if videos:
-            video_list = []
-            for vid in videos:
+        
+        for obj in alldos:
+            for file in obj.files.order_by('seq_id'):
                 item = {}
-                if vid.poster_image:
-                    item['poster'] = vid.poster_image
-                item['hidef'] = vid.hi_def_video
-                item['object_id'] = vid.object_number()
-                item['title'] = vid.title
-                item['pk'] = vid.pk
-                video_list.append(item)
-            context['videos'] = video_list
+                item['image'] = file.filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                objects_list.append(item)
+        context['digital_objects'] = objects_list
+
+        videos = DigitalObject.objects.filter(related_production=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        video_list = []
+        for vid in videos:
+            item = {}
+            if vid.poster_image:
+                item['poster'] = vid.poster_image
+            item['hidef'] = vid.hi_def_video
+            item['object_id'] = vid.object_number()
+            item['title'] = vid.title
+            item['pk'] = vid.pk
+            video_list.append(item)
+        context['videos'] = video_list
+
+
+        audios = DigitalObject.objects.filter(related_production=self.object, digi_object_format=audiotype).distinct()
+        audio_list = []
+        for audio in audios:
+            item = {}
+            if audio.poster_image:
+                item['poster'] = audio.poster_image
+            item['object_id'] = audio.object_number()
+            item['title'] = audio.title
+            item['pk'] = audio.pk
+            audio_list.append(item)
+        context['audios'] = audio_list
+
         return context
 
 class WorkRecordsListView(ListView):
+
     queryset = WorkRecord.objects.filter(published=True).select_related().order_by('title')
     context_object_name = "writtenworks_list"
     template_name = "archive/workrecords_list.html"
     paginate_by = 10
     
     def get_context_data(self, **kwargs):
+
         context = super(WorkRecordsListView, self).get_context_data(**kwargs)
+
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
@@ -254,15 +292,15 @@ class WorkRecordsListView(ListView):
             if alldos[num].files.count() > 0 and alldos[num].first_file():
                 dos.append(alldos[num])
                 count += 1
-        if dos:
-            for obj in dos:
-                item = {}
-                item['image'] = obj.first_file().filepath
-                item['title'] = obj.title
-                item['work_title'] = obj.related_work.all()[0].title
-                item['work_id'] = obj.related_work.all()[0].pk
-                item['pk'] = obj.pk
-                objects_list.append(item)
+#        if dos:
+        for obj in dos:
+            item = {}
+            item['image'] = obj.first_file().filepath
+            item['title'] = obj.title
+            item['work_title'] = obj.related_work.all()[0].title
+            item['work_id'] = obj.related_work.all()[0].pk
+            item['pk'] = obj.pk
+            objects_list.append(item)
                 
         context['digital_objects'] = objects_list
         return context
@@ -285,34 +323,71 @@ class WorkRecordsAlphaListView(WorkRecordsListView):
         return context
         
 class WorkRecordDetailView(DetailView):
+
     queryset = WorkRecord.objects.filter(published=True).select_related()
     context_object_name = "workrecord"
     template_name = "archive/workrecord_detail.html"
 
     def get_context_data(self, **kwargs):
+
         context = super(WorkRecordDetailView, self).get_context_data(**kwargs)
-        objects_list = []
+
+
         imagetype = DigitalObjectType.objects.get(title='Image')
+        videotype = DigitalObjectType.objects.get(title='Video recording')
+        audiotype = DigitalObjectType.objects.get(title='Audio recording')
+
         alldos = DigitalObject.objects.filter(related_work=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
-        if alldos:
-            for obj in alldos:
-                for file in obj.files.order_by('seq_id'):
-                    item = {}
-                    item['image'] = file.filepath
-                    item['title'] = obj.title
-                    item['pk'] = obj.pk
-                    objects_list.append(item)
-            context['digital_objects'] = objects_list
+        
+        objects_list = []
+        for obj in alldos:
+            for file in obj.files.order_by('seq_id'):
+                item = {}
+                item['image'] = file.filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                objects_list.append(item)
+        context['digital_objects'] = objects_list
+        
+        videos = DigitalObject.objects.filter(related_work=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        video_list = []
+        for vid in videos:
+            item = {}
+            if vid.poster_image:
+                item['poster'] = vid.poster_image
+            item['hidef'] = vid.hi_def_video
+            item['object_id'] = vid.object_number()
+            item['title'] = vid.title
+            item['pk'] = vid.pk
+            video_list.append(item)
+        context['videos'] = video_list
+
+
+        audios = DigitalObject.objects.filter(related_work=self.object, digi_object_format=audiotype).distinct()
+        audio_list = []
+        for audio in audios:
+            item = {}
+            if audio.poster_image:
+                item['poster'] = audio.poster_image
+            item['object_id'] = audio.object_number()
+            item['title'] = audio.title
+            item['pk'] = audio.pk
+            audio_list.append(item)
+        context['audios'] = audio_list        
+        
         return context
         
 class VenuesListView(ListView):
+    
     queryset = Location.objects.filter(published=True).filter(productions__isnull=False).select_related().distinct().order_by('title')
     context_object_name = "venues_list"
     template_name = "archive/venues_list.html"
     paginate_by = 10
     
     def get_context_data(self, **kwargs):
+        
         context = super(VenuesListView, self).get_context_data(**kwargs)
+
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
@@ -326,15 +401,14 @@ class VenuesListView(ListView):
                 if alldos[num].files.count() > 0 and alldos[num].first_file():
                     dos.append(alldos[num])
                     count += 1
-        if dos:
-            for obj in dos:
-                item = {}
-                item['image'] = obj.first_file().filepath
-                item['title'] = obj.title
-                item['venue_title'] = obj.related_venue.all()[0].title
-                item['loc_id'] = obj.related_venue.all()[0].pk
-                item['pk'] = obj.pk
-                objects_list.append(item)
+        for obj in dos:
+            item = {}
+            item['image'] = obj.first_file().filepath
+            item['title'] = obj.title
+            item['venue_title'] = obj.related_venue.all()[0].title
+            item['loc_id'] = obj.related_venue.all()[0].pk
+            item['pk'] = obj.pk
+            objects_list.append(item)
                 
         context['digital_objects'] = objects_list
         return context
@@ -363,18 +437,49 @@ class VenueDetailView(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(VenueDetailView, self).get_context_data(**kwargs)
+
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
+        videotype = DigitalObjectType.objects.get(title='Video recording')
+        audiotype = DigitalObjectType.objects.get(title='Audio recording')
+
         alldos = DigitalObject.objects.filter(related_venue=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
-        if alldos:
-            for obj in alldos:
-                for file in obj.files.order_by('seq_id'):
-                    item = {}
-                    item['image'] = file.filepath
-                    item['title'] = obj.title
-                    item['pk'] = obj.pk
-                    objects_list.append(item)
-            context['digital_objects'] = objects_list
+
+        for obj in alldos:
+            for file in obj.files.order_by('seq_id'):
+                item = {}
+                item['image'] = file.filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                objects_list.append(item)
+        context['digital_objects'] = objects_list
+            
+        videos = DigitalObject.objects.filter(related_venue=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        video_list = []
+        for vid in videos:
+            item = {}
+            if vid.poster_image:
+                item['poster'] = vid.poster_image
+            item['hidef'] = vid.hi_def_video
+            item['object_id'] = vid.object_number()
+            item['title'] = vid.title
+            item['pk'] = vid.pk
+            video_list.append(item)
+        context['videos'] = video_list
+
+
+        audios = DigitalObject.objects.filter(related_venue=self.object, digi_object_format=audiotype).distinct()
+        audio_list = []
+        for audio in audios:
+            item = {}
+            if audio.poster_image:
+                item['poster'] = audio.poster_image
+            item['object_id'] = audio.object_number()
+            item['title'] = audio.title
+            item['pk'] = audio.pk
+            audio_list.append(item)
+        context['audios'] = audio_list             
+
         if self.object.photo:
             context['venuephoto'] = default.backend.get_thumbnail(self.object.photo.files.all()[0].filepath, "100x100", crop="center")
         return context
@@ -469,14 +574,17 @@ class DigitalObjectDetailView(DetailView):
         return context
 
 class FestivalsListView(ListView):
-    queryset = Festival.objects.filter().select_related()
+    
+    queryset = Festival.objects.filter().order_by('title')
     context_object_name = "festivals_list"
     template_name = "archive/festivals_list.html"
     paginate_by = 10
     
     def get_context_data(self, **kwargs):
+        
         context = super(FestivalsListView, self).get_context_data(**kwargs)
         # Make a container for all the object info - link to file + file info + creator id
+
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
         alldos = DigitalObject.objects.filter(related_festival__isnull=False, files__isnull=False, digi_object_format=imagetype)
@@ -489,15 +597,15 @@ class FestivalsListView(ListView):
                 if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
                     dos.append(alldos[num])
                     count += 1
-        if dos:
-            for obj in dos:
-                item = {}
-                item['image'] = obj.first_file().filepath
-                item['title'] = obj.title
-                item['festival_title'] = obj.related_festival.all()[0].title
-                item['festival_id'] = obj.related_festival.all()[0].pk
-                item['pk'] = obj.pk
-                objects_list.append(item)
+
+        for obj in dos:
+            item = {}
+            item['image'] = obj.first_file().filepath
+            item['title'] = obj.title
+            item['festival_title'] = obj.related_festival.all()[0].title
+            item['festival_id'] = obj.related_festival.all()[0].pk
+            item['pk'] = obj.pk
+            objects_list.append(item)
                 
         context['digital_objects'] = objects_list
         return context
@@ -527,40 +635,63 @@ class FestivalDetailView(DetailView):
     template_name = "archive/festival_detail.html"
     
     def get_context_data(self, **kwargs):
+
         context = super(FestivalDetailView, self).get_context_data(**kwargs)
-        objects_list = []
+        context['festival_occurrences'] = FestivalOccurrence.objects.filter(festival_series__id=context['festival'].id).order_by('-begin_date')
+        
         imagetype = DigitalObjectType.objects.get(title='Image')
         videotype = DigitalObjectType.objects.get(title='Video recording')
-        alldos = DigitalObject.objects.filter(related_festival=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
-        if alldos:
-            for obj in alldos:
-                for file in obj.files.order_by('seq_id'):
+        audiotype = DigitalObjectType.objects.get(title='Audio recording')
+
+        objects_list = []      
+        video_list = []
+        audio_list = []
+        
+        for festival_Occurrence_obj in context['festival_Occurrences']:
+            if festival_Occurrence_obj.has_images():
+                fo_images = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, files__isnull=False, digi_object_format=imagetype).distinct()
+                for obj in fo_images:
+                    for file in obj.files.order_by('seq_id'):
+                        item = {}
+                        item['image'] = file.filepath
+                        item['title'] = obj.title
+                        item['pk'] = obj.pk
+                        objects_list.append(item)
+
+            if festival_Occurrence_obj.has_videos():
+                videos = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                for vid in videos:
                     item = {}
-                    item['image'] = file.filepath
-                    item['title'] = obj.title
-                    item['pk'] = obj.pk
-                    objects_list.append(item)
-            context['digital_objects'] = objects_list
-        videos = DigitalObject.objects.filter(related_festival=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
-        if videos:
-            video_list = []
-            for vid in videos:
-                item = {}
-                if vid.poster_image:
-                    item['poster'] = vid.poster_image
-                item['hidef'] = vid.hi_def_video
-                item['object_id'] = vid.object_number()
-                item['title'] = vid.title
-                item['pk'] = vid.pk
-                video_list.append(item)
-            context['videos'] = video_list
+                    if vid.poster_image:
+                        item['poster'] = vid.poster_image
+                    item['hidef'] = vid.hi_def_video
+                    item['object_id'] = vid.object_number()
+                    item['title'] = vid.title
+                    item['pk'] = vid.pk
+                    video_list.append(item)
+
+            if festival_Occurrence_obj.has_audio():
+                audios = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                for audio in audios:
+                    item = {}
+                    if audio.poster_image:
+                        item['poster'] = audio.poster_image
+                    item['object_id'] = audio.object_number()
+                    item['title'] = audio.title
+                    item['pk'] = audio.pk
+                    audio_list.append(item)
+
+        context['digital_objects'] = objects_list
+        context['videos'] = video_list
+        context['audios'] = audio_list
+
 #        if self.object.photo:
 #            photofile = self.object.photo.first_file()
 #            context['festivalphoto'] = photofile.filepath
 #        else:
 #            context['festivalphoto'] = False
-        return context
 
+        return context
 
 
 class AwardsListView(ListView):
@@ -630,34 +761,51 @@ class AwardDetailView(DetailView):
         context = super(AwardDetailView, self).get_context_data(**kwargs)
         context['award_candidates'] = AwardCandidate.objects.filter(award__id=context['award'].id).order_by('-year')
         
-        objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
         videotype = DigitalObjectType.objects.get(title='Video recording')
-        
-        this_object = self.object
+        audiotype = DigitalObjectType.objects.get(title='Audio recording')
 
-        alldos = DigitalObject.objects.filter(related_award=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
-        for obj in alldos:
-            for file in obj.files.order_by('seq_id'):
-                item = {}
-                item['image'] = file.filepath
-                item['title'] = obj.title
-                item['pk'] = obj.pk
-                objects_list.append(item)
-        context['digital_objects'] = objects_list
-        
-        videos = DigitalObject.objects.filter(related_award=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        objects_list = []      
         video_list = []
-        for vid in videos:
-            item = {}
-            if vid.poster_image:
-                item['poster'] = vid.poster_image
-            item['hidef'] = vid.hi_def_video
-            item['object_id'] = vid.object_number()
-            item['title'] = vid.title
-            item['pk'] = vid.pk
-            video_list.append(item)
+        audio_list = []
+        
+        for award_candidates_obj in context['award_candidates']:
+            if award_candidates_obj.has_images():
+                ac_images = DigitalObject.objects.filter(related_award=award_candidates_obj, files__isnull=False, digi_object_format=imagetype).distinct()
+                for obj in ac_images:
+                    for file in obj.files.order_by('seq_id'):
+                        item = {}
+                        item['image'] = file.filepath
+                        item['title'] = obj.title
+                        item['pk'] = obj.pk
+                        objects_list.append(item)
+
+            if award_candidates_obj.has_videos():
+                videos = DigitalObject.objects.filter(related_award=award_candidates_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                for vid in videos:
+                    item = {}
+                    if vid.poster_image:
+                        item['poster'] = vid.poster_image
+                    item['hidef'] = vid.hi_def_video
+                    item['object_id'] = vid.object_number()
+                    item['title'] = vid.title
+                    item['pk'] = vid.pk
+                    video_list.append(item)
+
+            if award_candidates_obj.has_audio():
+                audios = DigitalObject.objects.filter(related_award=award_candidates_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                for audio in audios:
+                    item = {}
+                    if audio.poster_image:
+                        item['poster'] = audio.poster_image
+                    item['object_id'] = audio.object_number()
+                    item['title'] = audio.title
+                    item['pk'] = audio.pk
+                    audio_list.append(item)
+
+        context['digital_objects'] = objects_list
         context['videos'] = video_list
+        context['audios'] = audio_list    
         
         return context
 
@@ -676,7 +824,7 @@ def search_view(request):
         location_matches = get_search_results(Location, query)
         production_matches = get_search_results(Production, query)
         workrecord_matches = get_search_results(WorkRecord, query)
-    	festival_matches = get_search_results(Festival, query)
+        festival_matches = get_search_results(Festival, query)
         taggeditem_matches = get_search_results(TaggedItem, query)
         tag_dict = {}
         for result in taggeditem_matches:
@@ -781,15 +929,16 @@ def search_do_view(request):
 
 def show_object(request):
     """ View all objects """
-    return simple.direct_to_template(request,
-	template="taggit/taggit.html",
-	extra_context={
-	    'workrecords':WorkRecord.objects.all(),
-	    'productions':Production.objects.all(),
-	    'locations':Location.objects.all(),
-	    'creators':Creator.objects.all(),
-	    'digitalobjects':DigitalObject.objects.all(),
-	})
+    return simple.direct_to_template(
+        request,
+        template="taggit/taggit.html",
+        extra_context={
+            'workrecords':WorkRecord.objects.all(),
+            'productions':Production.objects.all(),
+            'locations':Location.objects.all(),
+            'creators':Creator.objects.all(),
+            'digitalobjects':DigitalObject.objects.all(),
+        })
 
 class TaggedItemsListView(ListView):
     context_object_name = "taggeditems_list"

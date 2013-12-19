@@ -60,6 +60,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <table id="writtenworks_list">
             <thead>
                 <tr>
+                    <th style="width:54px"></th>
                     <th>Title</th>
                     <th>Creators</th>
                     <th>Creation date</th>
@@ -68,6 +69,18 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <tbody>
                 {% for work in writtenworks_list %}
                     <tr>
+                        <td>
+                         {% if work.has_images %}
+                         <a href="{% url 'workrecord_detail_view' work.id %}"><img src="{{ STATIC_URL }}images/images.png" alt="{% trans "Images available" %}" title="{% trans "Images available" %}" /></a>
+                         {% endif %}
+                         {% if work.has_videos %}
+                         <a href="{% url 'workrecord_detail_view' work.id %}"><img src="{{ STATIC_URL }}images/video.png" alt="{% trans "Video available" %}" title="{% trans "Video available" %}" /></a>
+                         {% endif %}
+                         {% if work.has_audio %}
+                         <a href="{% url 'workrecord_detail_view' work.id %}"><img src="{{ STATIC_URL }}images/audio.png" alt="{% trans "Audio available" %}" title="{% trans "Audio available" %}" /></a>
+                         {% endif %}
+                        </td>
+                        
                         <td><a href="{% url 'workrecord_detail_view' work.id %}">{{ work }}</a></td>
                         <td>{% if work.creators_display %}{{ work.creators_display_links|safe }}{% endif %}</td>
                         <td>{% if work.creation_date %}{{ work.creation_date_display }}{% endif %}</td>

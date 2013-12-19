@@ -15,10 +15,26 @@ You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software Foundation,
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -->
- 
- 
+
+{% load i18n %}
+{% load list_extras %} 
+{% load url from future %}
+
 <tr class="post_result">
-    <td><a href="/venue/{{ result.object.pk }}">{{ result.object.title }}</a></td>
+                            <td>                          
+                        {% if result.object.has_images %}
+
+                        <a href="{% url 'venue_detail_view' result.object.pk %}"><img src="{{ STATIC_URL }}images/images.png" alt="Images available" title="Images available"  /></a>
+
+                        {% endif %}
+                        {% if result.object.has_videos %}
+                        <a href="{% url 'venue_detail_view' result.object.pk %}"><img src="{{ STATIC_URL }}images/video.png" alt="Video available" title="trans "Video available" /></a>
+                        {% endif %}
+                        {% if result.object.has_audio %}
+                        <a href="{% url 'venue_detail_view' result.object.pk %}"><img src="{{ STATIC_URL }}images/audio.png" alt="Audio available" title="Audio available" /></a>
+                        {% endif %}
+                      </td>
+    <td><a href="{% url 'venue_detail_view' result.object.pk %}">{{ result.object.title }}</a></td>
     <td>{{ result.object.city }}</td>
     <td>Relevance: {{ result.score|floatformat:"-2" }}</td>
 </tr>

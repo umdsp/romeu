@@ -348,11 +348,11 @@ class WorkRecordAdmin(TranslationAdmin):
     inlines = (WorkRecordCreatorInline, RoleInline, RelatedWorkInline,)
     list_display = ('title', 'creators_display', 'work_type', 'genre', 'culture', 'style', 'has_system_links')
     list_filter = ('work_type', 'lang', 'genre', 'culture', 'style', 'has_attention',)
-    search_fields = ['title', 'ascii_title', 'title_variants']
+    search_fields = ['title', 'subtitle', 'ascii_title', 'title_variants']
     filter_horizontal = ['subject', 'lang', 'primary_publications']
     fieldsets = (
         ('Titles', {
-            'fields': ('title', 'title_variants')
+            'fields': ('title', 'subtitle', 'title_variants')
         }),
         ('Description', {
             'fields': ('work_type', 'subject', 'genre', 'culture', 'style', 'lang')
@@ -444,7 +444,7 @@ class FestivalAdmin(TranslationAdmin):
 
 class FestivalOccurrenceAdmin(TranslationAdmin):
     form = arcforms.FestivalOccurrenceAdminForm
-    inlines = (FestivalParticipantInline,)
+    inlines = (FestivalParticipantInline, )
     date_hierarchy = 'begin_date'
     list_filter = ('has_attention',)
     filter_horizontal = ['primary_publications']

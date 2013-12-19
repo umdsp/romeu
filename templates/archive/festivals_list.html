@@ -23,6 +23,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 {% load i18n %}
 {% load list_extras %}
 {% load paginator %}
+{% load url from future %}
 
 {% block article_header %}
         <h1>Venues{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
@@ -58,12 +59,24 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <table id="festivals_list">
             <thead>
                 <tr>
+                    <th style="width:54px"></th>
                     <th>Title</th>
                 </tr>
             </thead>
             <tbody>
                 {% for festival in festivals_list %}
                     <tr>
+                        <td>
+                          {% if festival.has_images %}
+                          <a href="{% url 'festival_detail_view' festival.id %}"><img src="{{ STATIC_URL }}images/images.png" alt="{% trans "Images available" %}" title="{% trans "Images available" %}" /></a>
+                          {% endif %}
+                          {% if festival.has_videos %}
+                          <a href="{% url 'festival_detail_view' festival.id %}"><img src="{{ STATIC_URL }}images/video.png" alt="{% trans "Video available" %}" title="{% trans "Video available" %}" /></a>
+                          {% endif %}
+                          {% if festival.has_audio %}
+                          <a href="{% url 'festival_detail_view' festival.id %}"><img src="{{ STATIC_URL }}images/audio.png" alt="{% trans "Audio available" %}" title="{% trans "Audio available" %}" /></a>
+                          {% endif %}
+                        </td>
                         <td><a href="/festival/{{festival.id}}">{{ festival.title }}</a></td>
                     </tr>
                 {% endfor %}

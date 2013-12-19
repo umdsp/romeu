@@ -59,6 +59,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <table id="venues_list">
             <thead>
                 <tr>
+                    <th style="width:54px"></th>
                     <th>Title</th>
                     <th>City</th>
                     <th>Country</th>
@@ -67,6 +68,17 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <tbody>
                 {% for venue in venues_list %}
                     <tr>
+                        <td>
+                          {% if venue.has_images %}
+                          <a href="{% url 'venue_detail_view' venue.id %}"><img src="{{ STATIC_URL }}images/images.png" alt="{% trans "Images available" %}" title="{% trans "Images available" %}" /></a>
+                          {% endif %}
+                          {% if venue.has_videos %}
+                          <a href="{% url 'venue_detail_view' venue.id %}"><img src="{{ STATIC_URL }}images/video.png" alt="{% trans "Video available" %}" title="{% trans "Video available" %}" /></a>
+                          {% endif %}
+                          {% if venue.has_audio %}
+                          <a href="{% url 'venue_detail_view' venue.id %}"><img src="{{ STATIC_URL }}images/audio.png" alt="{% trans "Audio available" %}" title="{% trans "Audio available" %}" /></a>
+                          {% endif %}
+                        </td>
                         <td><a href="{% url 'venue_detail_view' venue.id %}">{{ venue.title }}</a></td>
                         <td>{% if venue.city %}{{ venue.city.name }}{% if venue.city.state %}, {{ venue.city.state }}{% endif %}{% endif %}</td>
                         <td>{{ venue.country.name }}</td>

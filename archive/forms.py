@@ -314,10 +314,10 @@ class StageAdminForm(ModelForm):
 class AwardCandidateAdminForm(ModelForm):
     award = selectable_forms.AutoCompleteSelectField(lookup_class=AwardLookup, label=_(u"Award"))
     recipient = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, label=_(u"Recipient"))
-    production = selectable_forms.AutoCompleteSelectField(lookup_class=ProductionLookup, label=_(u"Production"))
-    place = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, label=_(u"Place"))
-    festival = selectable_forms.AutoCompleteSelectField(lookup_class=FestivalLookup, label=_(u"Festival"))
-    work_record = selectable_forms.AutoCompleteSelectField(lookup_class=WorkRecordLookup, label=_(u"Work record"))
+    production = selectable_forms.AutoCompleteSelectField(lookup_class=ProductionLookup, required=False, label=_(u"Production"))
+    place = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, required=False, label=_(u"Place"))
+    festival = selectable_forms.AutoCompleteSelectField(lookup_class=FestivalLookup, required=False, label=_(u"Festival"))
+    work_record = selectable_forms.AutoCompleteSelectField(lookup_class=WorkRecordLookup, required=False, label=_(u"Work record"))
 
     def __init__(self, *args, **kwargs):
         super(AwardCandidateAdminForm, self).__init__(*args, **kwargs)

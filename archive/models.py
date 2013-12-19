@@ -439,6 +439,7 @@ class Creator(models.Model):
     def display_roles(self):
         roles = []
         rolestring = ""
+
         dm = DirectingMember.objects.filter(person=self)
         if dm:
             for time in dm:
@@ -472,6 +473,7 @@ class Creator(models.Model):
         if wrc:
             for time in wrc:
                 roles.append(time.function.title)
+
         # now put them in a list
         roles = make_unique(roles)
         rolestring = ', '.join(roles)
@@ -663,6 +665,24 @@ class Location(models.Model):
         if Creator.objects.filter(location=self).exists():
             return True
         return False
+    
+    def has_images(self):
+        if DigitalObject.objects.filter(related_venue=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+            return True
+        else:
+            return False
+
+    def has_videos(self):
+        if DigitalObject.objects.filter(related_venue=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+            return True
+        else:
+            return False
+
+    def has_audio(self):
+        if DigitalObject.objects.filter(related_venue=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+            return True
+        else:
+            return False
 
 def update_location_name(sender, **kwargs):
     obj = kwargs['instance']
@@ -672,6 +692,7 @@ pre_save.connect(update_location_name, sender=Location)
 
 class Stage(models.Model):
     title = models.CharField(max_length=100, verbose_name=_("title"))
+    
     title_variants = models.CharField(max_length=300, null=True, blank=True, verbose_name=_("title variants"))
     venue = models.ForeignKey(Location, related_name="stages", verbose_name=_("venue"))
     square_footage = models.PositiveIntegerField(null=True, blank=True, help_text=_("Number only, no commas"), verbose_name=_("square footage"))
@@ -692,6 +713,7 @@ class Stage(models.Model):
     
 class WorkRecord(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))
+    subtitle = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("subtitle"))
     title_variants = models.CharField(max_length=300, null=True, blank=True, verbose_name=_("title variants"))
     ascii_title = models.CharField(max_length=255, verbose_name=_("ASCII title"))
     creators = models.ManyToManyField(Creator, through="WorkRecordCreator", verbose_name=_("creators"))
@@ -763,6 +785,25 @@ class WorkRecord(models.Model):
 #            return True
         else:
             return False
+
+    def has_images(self):
+        if DigitalObject.objects.filter(related_work=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+            return True
+        else:
+            return False
+
+    def has_videos(self):
+        if DigitalObject.objects.filter(related_work=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+            return True
+        else:
+            return False
+
+    def has_audio(self):
+        if DigitalObject.objects.filter(related_work=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+            return True
+        else:
+            return False
+
 
     def __unicode__(self):
         return "%s (%s)" % (self.title, self.work_type.name)
@@ -1065,7 +1106,6 @@ class Production(models.Model):
         else:
             return False
 
-
     def __unicode__(self):
         if self.begin_date:
             return "%s (%s, %s)" % (self.title, self.venue.title, self.begin_date_display())
@@ -1084,24 +1124,24 @@ class DirectingMember(models.Model):
     function = models.ForeignKey("DirectingTeamFunction", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, self.function.title)
+        return "%s (%s)" % (self.person.creator_name, '')
 
 class CastMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
     production = models.ForeignKey(Production, verbose_name=_("production"))
     function = models.ForeignKey("CastMemberFunction", verbose_name=_("function"))
-    role = models.ForeignKey(Role, null=True, blank=True, verbose_name=_("role"))
+    role = models.ForeignKey(Role, null=True, blank=True, default=None, verbose_name=_("role"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, self.function.title)
+        return "%s (%s)" % (self.person.creator_name, '') #self.function.title)
 
 class DesignMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
     production = models.ForeignKey(Production, verbose_name=_("production"))
-    function = models.ForeignKey("DesignTeamFunction", verbose_name=_("function"))
+    function = models.ForeignKey("DesignTeamFunction", default=None, verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, self.function.title)
+        return "%s (%s)" % (self.person.creator_name, '')
 
 class TechMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
@@ -1109,7 +1149,7 @@ class TechMember(models.Model):
     function = models.ForeignKey("TechTeamFunction", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, self.function.title)
+        return "%s (%s)" % (self.person.creator_name, '')
 
 class ProductionMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
@@ -1117,7 +1157,7 @@ class ProductionMember(models.Model):
     function = models.ForeignKey("ProductionTeamFunction", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, self.function.title)
+        return "%s (%s)" % (self.person.creator_name, '')
 
 class DocumentationMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
@@ -1125,7 +1165,7 @@ class DocumentationMember(models.Model):
     function = models.ForeignKey("DocumentationTeamFunction", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, self.function.title)
+        return "%s (%s)" % (self.person.creator_name, '')
 
 class AdvisoryMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
@@ -1133,17 +1173,42 @@ class AdvisoryMember(models.Model):
     function = models.ForeignKey("AdvisoryTeamFunction", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, self.function.title)
+        return "%s (%s)" % (self.person.creator_name, '')
 
 class Festival(models.Model):
     title = models.CharField(max_length=200, verbose_name=_("title"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     attention = models.TextField(null=True, blank=True, verbose_name=_("notes"))
+    
+    def has_images(self):
+        fo = FestivalOccurrence.objects.filter(festival_series=self)
+        for obj in fo:
+            if obj.has_images():
+                return True
+        
+        return False
+
+    def has_videos(self):
+        fo = FestivalOccurrence.objects.filter(festival_series=self)
+        for obj in fo:
+            if obj.has_videos():
+                return True
+        
+        return False
+
+    def has_audio(self):
+        fo = FestivalOccurrence.objects.filter(festival_series=self)
+        for obj in fo:
+            if obj.has_audio():
+                return True
+        
+        return False
 
     def __unicode__(self):
         return self.title
 
 class FestivalOccurrence(models.Model):
+    
     festival_series = models.ForeignKey(Festival, verbose_name=_("festival series"))
     title = models.CharField(max_length=255, verbose_name=_("title"))
     ascii_title = models.CharField(max_length=255, verbose_name=_("ASCII title"))
@@ -1179,6 +1244,26 @@ class FestivalOccurrence(models.Model):
 
     def __unicode__(self):
         return "%s (%s - %s)" % (self.title, self.begin_date_display(), self.end_date_display())
+    
+    def has_images(self):
+        if DigitalObject.objects.filter(related_festival=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+            return True
+        else:
+            return False
+
+    def has_videos(self):
+        if DigitalObject.objects.filter(related_festival=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+            return True
+        else:
+            return False
+
+    def has_audio(self):
+        if DigitalObject.objects.filter(related_festival=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+            return True
+        else:
+            return False
+    
+    
 def update_festival_occurrence_title(sender, **kwargs):
     obj = kwargs['instance']
     obj.ascii_title = unidecode(obj.title)
@@ -1285,26 +1370,63 @@ class Award(models.Model):
     award_org = models.CharField(max_length=200, verbose_name=_("award organization"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     
+    def has_images(self):
+        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+            return True
+        else:
+            return False
+
+    def has_videos(self):
+        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+            return True
+        else:
+            return False
+
+    def has_audio(self):
+        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+            return True
+        else:
+            return False
+    
     def __unicode__(self):
         return "%s" % (self.title)
 
     
 class AwardCandidate(models.Model):
+    
     award = models.ForeignKey(Award, verbose_name=_("award"))
     year = models.PositiveIntegerField(max_length=4, help_text=_("Please enter a 4-digit year (e.g. 1999, not 99)"), verbose_name=_("year"))
     category = models.CharField(max_length=140, null=True, blank=True, help_text=_("e.g. Best Performance, Best Musical"), verbose_name=_("category"))
     result = models.CharField(max_length=1, choices=constants.AWARD_RESULT_CHOICES, verbose_name=_("result"))
-    recipient = models.ForeignKey(Creator, null=True, blank=True, related_name="awards", help_text=_("A specific person or organization receiving the award"), verbose_name=_("recipient"))
+    recipient = models.ForeignKey(Creator, null=True, blank=True, related_name="recipient", help_text=_("A specific person or organization receiving the award"), verbose_name=_("recipient"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
-    production = models.ForeignKey(Production, null=True, blank=True, related_name="awards", verbose_name=_("production"))
-    place = models.ForeignKey(Location, null=True, blank=True, related_name="awards", verbose_name=_("place"))
-    festival = models.ForeignKey(Festival, null=True, blank=True, related_name="awards", verbose_name=_("festival"))
-    work_record = models.ForeignKey(WorkRecord, null=True, blank=True, related_name="awards", verbose_name=_("work record"))
+    production = models.ForeignKey(Production, null=True, blank=True, default=None, related_name="production", verbose_name=_("production"))
+    place = models.ForeignKey(Location, null=True, blank=True, default=None, related_name="place", verbose_name=_("place"))
+    festival = models.ForeignKey(Festival, null=True, blank=True, default=None, related_name="festival", verbose_name=_("festival"))
+    work_record = models.ForeignKey(WorkRecord, null=True, blank=True, default=None, related_name="work_record", verbose_name=_("work record"))
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
     has_attention = models.BooleanField(default=False)
     
     def __unicode__(self):
         return "%s for %s, %d (%s)" % (self.award.title, self.category, self.year, self.get_result_display())
+    
+    def has_images(self):
+        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+            return True
+        else:
+            return False
+
+    def has_videos(self):
+        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+            return True
+        else:
+            return False
+
+    def has_audio(self):
+        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+            return True
+        else:
+            return False
 
 
 class DigitalObject(models.Model):
@@ -1344,12 +1466,12 @@ class DigitalObject(models.Model):
     folder_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("folder name"))
     folder_date = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("folder date"))
     # Relationships
-    related_production = models.ManyToManyField(Production, related_name="related_objects", null=True, blank=True, verbose_name=_("related production"))
-    related_festival = models.ManyToManyField(FestivalOccurrence, related_name="related_objects", null=True, blank=True, verbose_name=_("related festival"))
-    related_award = models.ManyToManyField(AwardCandidate, related_name="related_objects", null=True, blank=True, verbose_name=_("related award"))
-    related_venue = models.ManyToManyField(Location, related_name="related_objects", null=True, blank=True, verbose_name=_("related venue"))
-    related_creator = models.ManyToManyField(Creator, related_name="related_objects", null=True, blank=True, verbose_name=_("related creator"))
-    related_work = models.ManyToManyField(WorkRecord, related_name="related_objects", null=True, blank=True, verbose_name=_("related work"))
+    related_production = models.ManyToManyField(Production, related_name="related_production", null=True, blank=True, verbose_name=_("related production"))
+    related_festival = models.ManyToManyField(FestivalOccurrence, related_name="related_festival", null=True, blank=True, verbose_name=_("related festival"))
+    related_award = models.ManyToManyField(AwardCandidate, related_name="related_award", null=True, blank=True, verbose_name=_("related award"))
+    related_venue = models.ManyToManyField(Location, related_name="related_venue", null=True, blank=True, verbose_name=_("related venue"))
+    related_creator = models.ManyToManyField(Creator, related_name="related_creator", null=True, blank=True, verbose_name=_("related creator"))
+    related_work = models.ManyToManyField(WorkRecord, related_name="related_work", null=True, blank=True, verbose_name=_("related work"))
     # extra details
     summary = models.TextField(null=True, blank=True, verbose_name=_("summary"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))

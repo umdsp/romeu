@@ -159,10 +159,10 @@ urlpatterns = patterns('',
     url(r'^search_do/', search_do_view),
 
     url(r'^taggeditems/?$', TaggedItemsListView.as_view(),
-	name="taggeditems_list_view"),
+        name="taggeditems_list_view"),
     url(r'^taggeditem/(?P<pk>\d+)/?$', TaggedItemDetailView.as_view(),
-	name="taggeditem_detail_view"),
-)
+        name="taggeditem_detail_view"),
+    )
 
 #urlpatterns += patterns('haystack.views',
 #    url(r'^search/', search_view_factory(

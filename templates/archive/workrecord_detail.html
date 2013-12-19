@@ -67,6 +67,57 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             </ul>
           </div>
           {% endif %}
+        
+          {% if videos %}
+          <hr />
+          <h3>{% trans "Videos" %}</h3>
+          <ul class="videos">
+            {% for vid in videos %}
+            <li>
+              <figure>
+                <a id="{{ vid.object_id }}" class="fancybox">
+                  {% if vid.poster %}
+                  {% thumbnail vid.poster "200x134" crop="center" as im %}
+                    <img src="{{ im.url }}" alt="Link to video of {{ vid.title }}" />
+                  {% endthumbnail %}
+                  {% else %}
+                    Click to play video
+                  {% endif %}
+                </a>
+                <figcaption>
+                  <a href="{% url 'digital_object_detail_view' vid.pk %}">{{ vid.title}}</a>
+                </figcaption>
+              </figure>
+            </li><br />
+            {% endfor %}
+          </ul>
+          {% endif %}
+      
+          {% if audios %}
+          <hr />
+          <h3>{% trans "Audios" %}</h3>
+          <ul class="audios">
+            {% for audio in audios %}
+            <li>
+              <figure>
+                <a id="{{ audio.object_id }}" class="fancybox">
+                  {% if audio.poster %}
+                  {% thumbnail audio.poster "200x134" crop="center" as im %}
+                    <img src="{{ im.url }}" alt="Link to video of {{ audio.title }}" />
+                  {% endthumbnail %}
+                  {% else %}
+                    Click to play audio
+                  {% endif %}
+                </a>
+                <figcaption>
+                  <a href="{% url 'digital_object_detail_view' audio.pk %}">{{ audio.title}}</a>
+                </figcaption>
+              </figure>
+            </li><br />
+            {% endfor %}
+          </ul>
+          {% endif %}
+        
         </section>
         
         <aside>
