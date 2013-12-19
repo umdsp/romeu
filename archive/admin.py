@@ -513,12 +513,12 @@ class CollectionAdmin(TranslationAdmin):
 
 class DigitalObjectAdmin(TranslationAdmin):
     form = arcforms.DigitalObjectAdminForm
-    inlines = (DigitalFileInline,)
+    inlines = (DigitalFileInline, )
     save_as = True
     save_on_top = True
     search_fields = ['title', 'ascii_title', 'title_variants']
     list_filter = ('has_attention', 'collection', 'digi_object_format', 'restricted', 'ready_to_stream')
-    filter_horizontal = ['subject', 'related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work', 'related_award']
+    filter_horizontal = ['subject','related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work', 'related_award']
     exclude = ('ascii_title',)
     fieldsets = (
         ('Basic info', {
@@ -553,8 +553,16 @@ class DigitalObjectAdmin(TranslationAdmin):
 
     def save_model(self, request, new_object, form, change=False):
         # hook into save_model to work around the m2m widget save issue
+        form_col =  form.cleaned_data['collection']
         for field in ['related_creator', 'related_production', 'related_festival', 'related_venue', 'related_work', 'related_award']:
             form.cleaned_data[field] = form.cleaned_data[field] or []
+        no_col_title = new_object.collection.title
+        no_col_id = new_object.collection.id        
+        no_col_title = new_object.collection.title
+        no_col_id = new_object.collection.id
+
+        
+#        assert False
         return super(DigitalObjectAdmin, self).save_model(request, new_object, form, change=False)
 
     class Media:

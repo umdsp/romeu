@@ -164,11 +164,13 @@ class RelatedCreatorAdminForm(ModelForm):
         model = RelatedCreator
         
 class DigitalObjectAdminForm(ModelForm):
-    related_creator = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=CreatorLookup, label=_(u"Related creator"), required=False)
-    related_production = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=ProductionLookup, label=_(u"Related production"), required=False)
-    related_festival = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=FestivalOccurrenceLookup, label=_(u"Related festival"), required=False)
-    related_venue = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=LocationLookup, label=_(u"Related venue"), required=False)
-    related_work = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=WorkRecordLookup, label=_(u"Related work"), required=False)
+
+#    related_creator = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=CreatorLookup, label=_(u"Related creator"), required=False)
+#    related_production = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=ProductionLookup, label=_(u"Related production"), required=False)
+#    related_festival = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=FestivalOccurrenceLookup, label=_(u"Related festival"), required=False)
+#    related_venue = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=LocationLookup, label=_(u"Related venue"), required=False)
+#    related_work = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=WorkRecordLookup, label=_(u"Related work"), required=False)
+
     collection = selectable_forms.AutoCompleteSelectField(lookup_class=CollectionLookup, allow_new=False, label=_(u"Collection"))
     object_creator = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, label=_(u"Object creator"), required=False)
     phys_obj_location = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, allow_new=False, label=_(u"Physical object location"), required=False)
