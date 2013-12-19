@@ -19,10 +19,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  
 <tr class="post_result">
     <td><a href="/digitalobject/{{ result.object.pk }}">{{ result.object.title }}</a></td>
-    <td>{{ result.object.summary }}</td>
-    <td>by {{ result.object.object_id }}</td>
-    <td>Object: {{ result.object }}</td>
-    <td>Location: {{ result.object.phys_obj_location.title }}</td>
-    <td>Language: {{ result.object.language.name }}</td>
+    <td>{{ result.object.phys_object_type.title }}</td>
     <td>Relevance: {{ result.score|floatformat:"-2" }}</td>
 </tr>
