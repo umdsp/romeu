@@ -198,7 +198,7 @@ def import_bibtex(request):
 					except:
 						pass
 					try:
-						production = Production.objetcs.get(pk=production_id)
+						production = Production.objects.get(pk=production_id)
 						production.primary_publications.add(publication)
 					except:
 						pass
