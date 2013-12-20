@@ -186,9 +186,9 @@ def import_bibtex(request):
 		else:
 			try:
 				# save publications
-				creator_id = request.FILES.get('creator_id', 0)
-				production_id = request.FILES.get('production_id', 0)
-				work_record_id = request.FILES.get('work_record_id', 0)
+				creator_id = request.POST.get('creator_id', 0)
+				production_id = request.POST.get('production_id', 0)
+				work_record_id = request.POST.get('work_record_id', 0)
 
 				for publication in publications:
 					publication.save()
