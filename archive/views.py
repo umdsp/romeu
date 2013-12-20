@@ -815,7 +815,7 @@ def get_search_results(modeltype, query):
     return SearchQuerySet().models(modeltype).auto_query(query)
     
 def search_view(request):
-    query = creator_matches = location_matches = production_matches = workrecord_matches = festival_matches = taggeditem_matches =False
+    query = creator_matches = location_matches = production_matches = workrecord_matches = festival_matches = taggeditem_matches = digitalobject_matches = False
 
     if request.GET.has_key('q'):
         # User submitted a search term.
@@ -825,6 +825,7 @@ def search_view(request):
         production_matches = get_search_results(Production, query)
         workrecord_matches = get_search_results(WorkRecord, query)
         festival_matches = get_search_results(Festival, query)
+        digitalobject_matches = get_search_results(DigitalObject, query)
         taggeditem_matches = get_search_results(TaggedItem, query)
         tag_dict = {}
         for result in taggeditem_matches:
@@ -846,6 +847,8 @@ def search_view(request):
         context['workrecord_matches'] = workrecord_matches
     if festival_matches:
         context['festival_matches'] = festival_matches
+    if digitalobject_matches:
+        context['digitalobject_matches'] = digitalobject_matches
     if taggeditem_matches:
         context['taggeditem_matches'] = taggeditem_matches
         context['tag_dict'] = tag_dict
@@ -973,13 +976,13 @@ class TaggedItemsListView(ListView):
         result_list = []
         queryset = DigitalObject.objects.filter(tags__name=query)
         for x in queryset:
-                result_list.append(x.ascii_title)
+                result_list.append(x)
         if result_list:
                 result_dict["digitalobject"] = result_list
         result_list = []
         queryset = Location.objects.filter(tags__name=query)
         for x in queryset:
-                result_list.append(x.title_ascii)
+                result_list.append(x)
         if result_list:
                 result_dict["location"] = result_list
         result_list = []

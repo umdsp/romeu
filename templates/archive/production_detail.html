@@ -312,6 +312,12 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               </li>
               {% endfor %}
             </ul>
+            <h4>{% trans "Tag(s)" %}:</h4>
+            <ul>
+            {% for tag in production.tags.names %}
+                <a href="/taggeditems?tag={{ tag }}"><li>{{ tag }}</li></a>
+            {% endfor %}
+            </ul>
             
             {% if production.primary_publications.exists %}
             <h4>{% trans "Bibliography" %}:</h4>

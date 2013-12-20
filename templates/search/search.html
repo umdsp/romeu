@@ -55,6 +55,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     <li><a href="#locationtab">Venues ({% firstof location_matches.count "0" %})</a></li>
                     <li><a href="#productiontab">Productions ({% firstof production_matches.count "0" %})</a></li>
                     <li><a href="#workrecordtab">Written Texts ({% firstof workrecord_matches.count "0" %})</a></li>
+                    <li><a href="#digitalobjecttab">Digital Objects ({% firstof digitalobject_matches.count "0" %})</a></li>
                     <li><a href="#taggeditemtab">Tags ({% firstof taggeditem_matches.count "0" %})</a></li>
                 </ul>
                 <div id="creatortab">
@@ -99,6 +100,17 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     </tbody></table>
                 {% else %}
                 <h4>No matching written texts for {{ q }}.</h4>
+                {% endif %}
+                </div>
+                <div id="digitalobjecttab">
+                {% if digitalobject_matches %}
+                    <table><tbody>
+                    {% for result in digitalobject_matches %}
+                        {% include "search/includes/archive/digitalobject.html" %}
+                    {% endfor %}
+                    </tbody></table>
+                {% else %}
+                <h4>No matching digital objects for {{ q }}.</h4>
                 {% endif %}
                 </div>
                 <div id="taggeditemtab">
