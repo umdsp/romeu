@@ -16,6 +16,7 @@
 
 from django.contrib import admin
 from django.db.models.fields.related import ForeignKey, ManyToOneRel
+from django import forms
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 
@@ -174,6 +175,7 @@ class DigitalObjectAdminForm(ModelForm):
     collection = selectable_forms.AutoCompleteSelectField(lookup_class=CollectionLookup, allow_new=False, label=_(u"Collection"))
     object_creator = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, label=_(u"Object creator"), required=False)
     phys_obj_location = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, allow_new=False, label=_(u"Physical object location"), required=False)
+    replicate_tags = forms.BooleanField(required=False, label=_('Associate Tags with Production and Work record'))
     
     def __init__(self, *args, **kwargs):
         super(DigitalObjectAdminForm, self).__init__(*args, **kwargs)

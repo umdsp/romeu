@@ -33,6 +33,10 @@ def import_bibtex(request):
 		# try to parse BibTex
 		the_bibtex_file_content = ''
 		
+		creator_id = request.POST.get('creator_id', 0)
+		production_id = request.POST.get('production_id', 0)
+		work_record_id = request.POST.get('work_record_id', 0)
+		
 		the_bibtex_file = request.FILES.get('bibtex_file', '')
 		if the_bibtex_file:
 			if the_bibtex_file.multiple_chunks():
@@ -186,10 +190,6 @@ def import_bibtex(request):
 		else:
 			try:
 				# save publications
-				creator_id = request.FILES.get('creator_id', 0)
-				production_id = request.FILES.get('production_id', 0)
-				work_record_id = request.FILES.get('work_record_id', 0)
-
 				for publication in publications:
 					publication.save()
 					try:
@@ -198,7 +198,7 @@ def import_bibtex(request):
 					except:
 						pass
 					try:
-						production = Production.objetcs.get(pk=production_id)
+						production = Production.objects.get(pk=production_id)
 						production.primary_publications.add(publication)
 					except:
 						pass

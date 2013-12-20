@@ -543,7 +543,7 @@ class DigitalObjectAdmin(TranslationAdmin):
             'fields': (('restricted', 'restricted_description'), 'ready_to_stream', 'hi_def_video', 'poster_image')
         },),
         ('Standard fields', {
-            'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published', 'tags')
+            'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published', ('tags', 'replicate_tags'))
         },),
     )
 
@@ -556,15 +556,26 @@ class DigitalObjectAdmin(TranslationAdmin):
         form_col =  form.cleaned_data['collection']
         for field in ['related_creator', 'related_production', 'related_festival', 'related_venue', 'related_work', 'related_award']:
             form.cleaned_data[field] = form.cleaned_data[field] or []
-        no_col_title = new_object.collection.title
-        no_col_id = new_object.collection.id        
-        no_col_title = new_object.collection.title
-        no_col_id = new_object.collection.id
 
-        
-#        assert False
         return super(DigitalObjectAdmin, self).save_model(request, new_object, form, change=False)
-
+    
+    def save_related(self, request, form, formsets, change):
+        
+        associate_tags = form.cleaned_data['replicate_tags']
+        if associate_tags:
+            form_tags =  form.cleaned_data['tags']
+            digitalobject_related_production = form.cleaned_data['related_production']
+            digitalobject_related_work = form.cleaned_data['related_work']
+            for production in  digitalobject_related_production:
+                for tag in form_tags:
+                    production.tags.add(tag)
+            for work_record in  digitalobject_related_work:
+                for tag in form_tags:
+                    work_record.tags.add(tag)  
+        
+        return super(DigitalObjectAdmin, self).save_related(request, form, formsets, change)
+    
+    
     class Media:
         css = {
             'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',),
