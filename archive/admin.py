@@ -241,7 +241,9 @@ class CreatorAdmin(TranslationAdmin):
             'fields': ('prefix', 'given_name', 'middle_name', 'family_name', 'suffix', 'org_name', 'creator_type', 'name_variants')
         }),
         ('Birth / Death / Activity', {
-            'fields': ('birth_location', ('birth_date', 'birth_date_precision', 'birth_date_BC'), 'death_location', ('death_date', 'death_date_precision', 'death_date_BC'), ('earliest_active', 'earliest_active_precision', 'earliest_active_BC'), ('latest_active', 'latest_active_precision', 'latest_active_BC'))
+            'fields': ('birth_location', ('birth_date', 'birth_date_precision', 'birth_date_BC'), 'death_location',
+                       ('death_date', 'death_date_precision', 'death_date_BC'), ('earliest_active', 'earliest_active_precision', 'earliest_active_BC'),
+                       ('latest_active', 'latest_active_precision', 'latest_active_BC'))
         }),
         ('Details', {
             'fields': ('gender', 'nationality', 'location', 'biography', 'website', 'photo',
@@ -399,13 +401,13 @@ class ProductionAdmin(TranslationAdmin):
     date_hierarchy = 'begin_date'
     search_fields = ['title', 'ascii_title', 'title_variants', 'notes']
     list_filter = ('has_attention',)
-    filter_horizontal = ['source_work', 'primary_publications',] #, 'secondary_bibliography',]
+    filter_horizontal = ['source_work', 'primary_publications', 'theater_companies'] #, 'secondary_bibliography',]
     fieldsets = (
         (None, {
             'fields': ('source_work', 'title', 'subtitle', 'title_variants')
         }),
         ('Place and dates', {
-            'fields': ('theater_company', 'venue', 'stage', ('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'),)
+            'fields': ('theater_companies', 'venue', 'stage', ('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'),)
         }),
         ('Additional details', {
             'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website', 'awards_text', 'biblio_text', 'biblio_text_es',

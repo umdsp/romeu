@@ -242,7 +242,7 @@ class Creator(models.Model):
             return True
         if WorkRecordCreator.objects.filter(creator=self).exists():
             return True
-        if Production.objects.filter(theater_company=self).exists():
+        if Production.objects.filter(theater_companies=self).exists():
             return True
         if DirectingMember.objects.filter(person=self).exists():
             return True
@@ -281,8 +281,8 @@ class Creator(models.Model):
         if WorkRecordCreator.objects.filter(creator=self).exists():
             for obj in WorkRecordCreator.objects.filter(creator=self):
                 works += "WorkRecordCreator: " + str(obj.pk) + "\n"
-        if Production.objects.filter(theater_company=self).exists():
-            for obj in Production.objects.filter(theater_company=self):
+        if Production.objects.filter(theater_companies=self).exists():
+            for obj in Production.objects.filter(theater_companies=self):
                 works += "Production: " + str(obj.pk) + "\n"
         if Production.objects.filter(related_organizations=self).exists():
             for obj in Production.objects.filter(related_organizations=self):
@@ -391,7 +391,8 @@ class Creator(models.Model):
                 dms = DesignMember.objects.filter(person=self, production=dt)
                 roles = []
                 for dm in dms:
-                    roles.append(dm.function.title)
+                    for role in dm.functions:
+                        roles.append(role.title)
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
         if self.technical_team_for.exists():
@@ -452,7 +453,8 @@ class Creator(models.Model):
         dm = DesignMember.objects.filter(person=self)
         if dm:
             for time in dm:
-                roles.append(time.function.title)
+                for role in time.functions:
+                    roles.append(role.title)
         pm = ProductionMember.objects.filter(person=self)
         if pm:
             for time in pm:
@@ -906,7 +908,8 @@ class Production(models.Model):
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
-    theater_company = models.ForeignKey(Creator, null=True, blank=True, related_name="company_productions")
+    theater_companies = models.ManyToManyField(Creator, null=True, blank=True, related_name="company_productions")
+    
     profiler_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profiler name"))
     profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profile entry date"))
     tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
@@ -1021,7 +1024,8 @@ class Production(models.Model):
             dms = DesignMember.objects.filter(person=person, production=self)
             roles = []
             for dm in dms:
-                roles.append(dm.function.title)
+                for role in dm.functions:
+                    roles.append(role.title)
             x['functions'] = ', '.join(roles)
             designers.append(x)
         return designers
@@ -1139,7 +1143,7 @@ class CastMember(models.Model):
 class DesignMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
     production = models.ForeignKey(Production, verbose_name=_("production"))
-    function = models.ForeignKey("DesignTeamFunction", default=None, verbose_name=_("function"))
+    functions = models.ManyToManyField("DesignTeamFunction", related_name="functions", verbose_name=_("function"))
 
     def __unicode__(self):
         return "%s (%s)" % (self.person.creator_name, '')

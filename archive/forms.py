@@ -46,14 +46,14 @@ from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord
 
 class ProductionAdminForm(ModelForm):    
     venue = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, allow_new=False, label=_(u"Venue"))
-    theater_company = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, required=False, label=_(u"Theater company"))
+#    theater_companies = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, required=False, label=_(u"Theater companies"))
 
     def __init__(self, *args, **kwargs): 
         super(ProductionAdminForm, self).__init__(*args, **kwargs)
         vrel = ManyToOneRel(Location, 'id') 
         tcrel = ManyToOneRel(Creator, 'id')
         self.fields['venue'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['venue'].widget, vrel, self.admin_site)
-        self.fields['theater_company'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['theater_company'].widget, tcrel, self.admin_site)
+#        self.fields['theater_companies'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['theater_companies'].widget, tcrel, self.admin_site)
 
     class Meta(object):
         model = Production
