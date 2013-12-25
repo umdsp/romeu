@@ -15,7 +15,20 @@
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 from modeltranslation.translator import translator, TranslationOptions
-from archive.models import SubjectSource, SubjectHeading, Creator, RelatedCreator, Location, Stage, WorkRecord, WorkRecordCreator, Production, DirectingMember, CastMember, DesignMember, TechMember, ProductionMember, Festival, FestivalOccurrence, FestivalParticipant, Repository, Collection, DigitalObject, Award, AwardCandidate, Country, City, Language, WorkRecordType, WorkRecordFunction, DirectingTeamFunction, CastMemberFunction, DesignTeamFunction, TechTeamFunction, ProductionTeamFunction, AdvisoryTeamFunction, OrgFunction, FestivalFunction, PhysicalObjectType, VenueType, License
+from archive.models import (SubjectSource, SubjectHeading, Creator, Award,
+                            RelatedCreator, Location, Stage, WorkRecord,
+                            WorkRecordCreator, Production, DirectingMember,
+                            CastMember, DesignMember, TechMember, ProductionMember,
+                            Festival, FestivalOccurrence, FestivalParticipant,
+                            Repository, Collection, DigitalObject,
+                            AwardCandidate, Country, City, Language,
+                            WorkRecordType, WorkRecordFunction,
+                            DirectingTeamFunction, CastMemberFunction,
+                            DesignTeamFunction, TechTeamFunction,
+                            ProductionTeamFunction, AdvisoryTeamFunction,
+                            OrgFunction, FestivalFunction, SpecialPerformanceType,
+                            PhysicalObjectType, VenueType, License)
+
 from archive.models import TranslatingFlatPage, HomePageInfo
 
 
@@ -106,6 +119,9 @@ class FestivalFunctionTranslationOptions(TranslationOptions):
 class PhysicalObjectTypeTranslationOptions(TranslationOptions):
     fields = ('title',)
 
+class SpecialPerformanceTypeTranslationOptions(TranslationOptions):
+    fields = ('type',)
+    
 class VenueTypeTranslationOptions(TranslationOptions):
     fields = ('title',)
 
@@ -146,6 +162,7 @@ translator.register(FestivalFunction, FestivalFunctionTranslationOptions)
 translator.register(PhysicalObjectType, PhysicalObjectTypeTranslationOptions)
 translator.register(VenueType, VenueTypeTranslationOptions)
 translator.register(License, LicenseTranslationOptions)
+translator.register(SpecialPerformanceType, SpecialPerformanceTypeTranslationOptions)
 
 translator.register(TranslatingFlatPage, TranslatingFlatPageTranslationOptions)
 translator.register(HomePageInfo, HomePageInfoTranslationOptions)

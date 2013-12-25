@@ -28,7 +28,7 @@ from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord
                             DocumentationTeamFunction, AdvisoryTeamFunction,
                             OrgFunction, FestivalFunction, PhysicalObjectType,
                             WorkRecordType, VenueType, DigitalObjectType,
-                            License, HomePageInfo)
+                            License, HomePageInfo, SpecialPerformanceType)
 from modeltranslation.admin import TranslationAdmin
 
 from django.utils.translation import ugettext_lazy as _
@@ -808,6 +808,19 @@ class PhysicalObjectTypeAdmin(TranslationAdmin):
             '/media/js/tabbed_translation_fields.js',
         )
 
+class SpecialPerformanceTypeAdmin(TranslationAdmin):
+    class Media:
+        css = {
+            'all': ('/media/css/tabbed_translation_fields.css',)
+        }
+        js = (
+            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
+            '/media/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            '/media/js/tabbed_translation_fields.js',
+        )
+
+
 class WorkRecordTypeAdmin(TranslationAdmin):
     class Media:
         css = {
@@ -913,6 +926,7 @@ admin.site.register(PhysicalObjectType, PhysicalObjectTypeAdmin)
 admin.site.register(DigitalObjectType, DigitalObjectTypeAdmin)
 admin.site.register(WorkRecordType, WorkRecordTypeAdmin)
 admin.site.register(VenueType, VenueTypeAdmin)
+admin.site.register(SpecialPerformanceType, SpecialPerformanceTypeAdmin)
 
 admin.site.add_action(make_published)
 admin.site.add_action(make_unpublished)
