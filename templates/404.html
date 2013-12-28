@@ -16,5 +16,29 @@ You should have received a copy of the GNU General Public License
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -->
  
- 
-<h1>Sorry, that page does not exist.</h1>
+ {% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+{% load url from future %}
+
+{% block content %}
+    <header>
+      <nav class="breadcrumbs">
+        <ul>
+          <li><a href="/">{% trans "Home" %}</a></li>
+        </ul>
+      </nav>
+      <h2>Error</h2>
+    </header>
+
+   <h1>{% trans "Page unavailable" %}</h1>
+
+   <p>{% trans "Oops!, We don't have that archive yet," %}</p>
+
+  <ul>
+    <li>{% trans "If you entered the URL in by hand, double check that it is correct" %}</li>
+    <li>{% trans "We've sent this to our support team &mdash;" %} </li>
+  </ul>
+
+{% endblock content %}

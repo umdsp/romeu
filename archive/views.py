@@ -647,40 +647,39 @@ class FestivalDetailView(DetailView):
         video_list = []
         audio_list = []
         
-        if context['festival_Occurrences']:
-            for festival_Occurrence_obj in context['festival_Occurrences']:
-                if festival_Occurrence_obj.has_images():
-                    fo_images = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, files__isnull=False, digi_object_format=imagetype).distinct()
-                    for obj in fo_images:
-                        for file in obj.files.order_by('seq_id'):
-                            item = {}
-                            item['image'] = file.filepath
-                            item['title'] = obj.title
-                            item['pk'] = obj.pk
-                            objects_list.append(item)
-    
-                if festival_Occurrence_obj.has_videos():
-                    videos = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
-                    for vid in videos:
+        for festival_Occurrence_obj in context['festival_occurrences']:
+            if festival_Occurrence_obj.has_images():
+                fo_images = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, files__isnull=False, digi_object_format=imagetype).distinct()
+                for obj in fo_images:
+                    for file in obj.files.order_by('seq_id'):
                         item = {}
-                        if vid.poster_image:
-                            item['poster'] = vid.poster_image
-                        item['hidef'] = vid.hi_def_video
-                        item['object_id'] = vid.object_number()
-                        item['title'] = vid.title
-                        item['pk'] = vid.pk
-                        video_list.append(item)
-    
-                if festival_Occurrence_obj.has_audio():
-                    audios = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
-                    for audio in audios:
-                        item = {}
-                        if audio.poster_image:
-                            item['poster'] = audio.poster_image
-                        item['object_id'] = audio.object_number()
-                        item['title'] = audio.title
-                        item['pk'] = audio.pk
-                        audio_list.append(item)
+                        item['image'] = file.filepath
+                        item['title'] = obj.title
+                        item['pk'] = obj.pk
+                        objects_list.append(item)
+
+            if festival_Occurrence_obj.has_videos():
+                videos = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                for vid in videos:
+                    item = {}
+                    if vid.poster_image:
+                        item['poster'] = vid.poster_image
+                    item['hidef'] = vid.hi_def_video
+                    item['object_id'] = vid.object_number()
+                    item['title'] = vid.title
+                    item['pk'] = vid.pk
+                    video_list.append(item)
+
+            if festival_Occurrence_obj.has_audio():
+                audios = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                for audio in audios:
+                    item = {}
+                    if audio.poster_image:
+                        item['poster'] = audio.poster_image
+                    item['object_id'] = audio.object_number()
+                    item['title'] = audio.title
+                    item['pk'] = audio.pk
+                    audio_list.append(item)
 
         context['digital_objects'] = objects_list
         context['videos'] = video_list
@@ -770,40 +769,39 @@ class AwardDetailView(DetailView):
         video_list = []
         audio_list = []
         
-        if context['award_candidates']:
-            for award_candidates_obj in context['award_candidates']:
-                if award_candidates_obj.has_images():
-                    ac_images = DigitalObject.objects.filter(related_award=award_candidates_obj, files__isnull=False, digi_object_format=imagetype).distinct()
-                    for obj in ac_images:
-                        for file in obj.files.order_by('seq_id'):
-                            item = {}
-                            item['image'] = file.filepath
-                            item['title'] = obj.title
-                            item['pk'] = obj.pk
-                            objects_list.append(item)
-    
-                if award_candidates_obj.has_videos():
-                    videos = DigitalObject.objects.filter(related_award=award_candidates_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
-                    for vid in videos:
+        for award_candidates_obj in context['award_candidates']:
+            if award_candidates_obj.has_images():
+                ac_images = DigitalObject.objects.filter(related_award=award_candidates_obj, files__isnull=False, digi_object_format=imagetype).distinct()
+                for obj in ac_images:
+                    for file in obj.files.order_by('seq_id'):
                         item = {}
-                        if vid.poster_image:
-                            item['poster'] = vid.poster_image
-                        item['hidef'] = vid.hi_def_video
-                        item['object_id'] = vid.object_number()
-                        item['title'] = vid.title
-                        item['pk'] = vid.pk
-                        video_list.append(item)
-    
-                if award_candidates_obj.has_audio():
-                    audios = DigitalObject.objects.filter(related_award=award_candidates_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
-                    for audio in audios:
-                        item = {}
-                        if audio.poster_image:
-                            item['poster'] = audio.poster_image
-                        item['object_id'] = audio.object_number()
-                        item['title'] = audio.title
-                        item['pk'] = audio.pk
-                        audio_list.append(item)
+                        item['image'] = file.filepath
+                        item['title'] = obj.title
+                        item['pk'] = obj.pk
+                        objects_list.append(item)
+
+            if award_candidates_obj.has_videos():
+                videos = DigitalObject.objects.filter(related_award=award_candidates_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                for vid in videos:
+                    item = {}
+                    if vid.poster_image:
+                        item['poster'] = vid.poster_image
+                    item['hidef'] = vid.hi_def_video
+                    item['object_id'] = vid.object_number()
+                    item['title'] = vid.title
+                    item['pk'] = vid.pk
+                    video_list.append(item)
+
+            if award_candidates_obj.has_audio():
+                audios = DigitalObject.objects.filter(related_award=award_candidates_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                for audio in audios:
+                    item = {}
+                    if audio.poster_image:
+                        item['poster'] = audio.poster_image
+                    item['object_id'] = audio.object_number()
+                    item['title'] = audio.title
+                    item['pk'] = audio.pk
+                    audio_list.append(item)
 
         context['digital_objects'] = objects_list
         context['videos'] = video_list

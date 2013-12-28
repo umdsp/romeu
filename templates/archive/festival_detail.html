@@ -84,7 +84,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 </tbody></table>
               </div>
               </div>
-        
+          {% endif %}
         
               {% if videos %}
               <hr />
@@ -149,9 +149,11 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   {% thumbnail obj.image "800" as im %}
                   <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
                   {% endthumbnail %}
+
                   {% thumbnail obj.image "210x210" crop="center" as im %}
                   <img src="{{im.url}}" alt="{{ obj.title }}" data-href="/digitalobject/{{ obj.pk }}" />
                   {% endthumbnail %}
+
                 </a>
               {% endfor %}
             </div>
