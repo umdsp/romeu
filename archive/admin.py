@@ -433,7 +433,7 @@ class ProductionAdmin(TranslationAdmin):
 
 class FestivalAdmin(TranslationAdmin):
     ordering = ['title',]
-    search_fields = ['ascii_title', 'title']
+    search_fields = ['title']
 
     class Media:
         css = {
