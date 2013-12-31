@@ -94,7 +94,7 @@ class FestivalOccurrenceLookup(ArchiveLookup):
 class CollectionLookup(ArchiveLookup):
     model = Collection
     def get_query(self,request,term):
-        return Collection.objects.filter(Q(collection_id__icontains=term) | Q(title__icontains=term))
+        return Collection.objects.filter(Q(collection_id__icontains=term) | Q(title__icontains=term)).order_by('title')
 
 class CityLookup(ArchiveLookup):
     model = City

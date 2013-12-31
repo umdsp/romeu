@@ -15,7 +15,8 @@
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 from django.contrib import admin
-from django.db.models.fields.related import ForeignKey, ManyToOneRel
+from django.db.models.fields.related import (ForeignKey, ManyToOneRel,
+                                            ManyToManyRel)
 from django import forms
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
@@ -272,16 +273,16 @@ class RepositoryAdminForm(ModelForm):
 class FestivalOccurrenceAdminForm(ModelForm):
     festival_series = selectable_forms.AutoCompleteSelectField(lookup_class=FestivalLookup, label=_(u"Festival series"))
     venue = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=LocationLookup, label=_(u"Venue"))
-    productions = selectable_forms.AutoCompleteSelectMultipleField(required=False, lookup_class=ProductionLookup, label=_(u"Productions"))
+#    productions = selectable_forms.AutoCompleteSelectMultipleField(required=False, lookup_class=ProductionLookup, label=_(u"Productions"))
 
     def __init__(self, *args, **kwargs):
         super(FestivalOccurrenceAdminForm, self).__init__(*args, **kwargs)
         frel = ManyToOneRel(Festival, 'id')
         lrel = ManyToOneRel(Location, 'id')
-        prel = ManyToOneRel(Production, 'id')
+        prel = ManyToManyRel(Production, 'id')
         self.fields['festival_series'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['festival_series'].widget, frel, self.admin_site)
         self.fields['venue'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['venue'].widget, lrel, self.admin_site)
-        self.fields['productions'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['productions'].widget, prel, self.admin_site)
+#        self.fields['productions'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['productions'].widget, prel, self.admin_site)
         
     class Meta(object):
         model = FestivalOccurrence

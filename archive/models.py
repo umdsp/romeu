@@ -535,25 +535,25 @@ class Creator(models.Model):
             return { 'title': p.title, 'creators': people }
 
     def has_digital_objects(self):
-        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+        if DigitalObject.objects.filter(related_creator=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
             return True
         else:
             return False
 
     def has_images(self):
-        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+        if DigitalObject.objects.filter(related_creator=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
             return True
         else:
             return False
 
     def has_videos(self):
-        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+        if DigitalObject.objects.filter(related_creator=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
             return True
         else:
             return False
 
     def has_audio(self):
-        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+        if DigitalObject.objects.filter(related_creator=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
             return True
         else:
             return False
@@ -679,19 +679,19 @@ class Location(models.Model):
         return False
     
     def has_images(self):
-        if DigitalObject.objects.filter(related_venue=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+        if DigitalObject.objects.filter(related_venue=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
             return True
         else:
             return False
 
     def has_videos(self):
-        if DigitalObject.objects.filter(related_venue=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+        if DigitalObject.objects.filter(related_venue=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
             return True
         else:
             return False
 
     def has_audio(self):
-        if DigitalObject.objects.filter(related_venue=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+        if DigitalObject.objects.filter(related_venue=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
             return True
         else:
             return False
@@ -799,19 +799,19 @@ class WorkRecord(models.Model):
             return False
 
     def has_images(self):
-        if DigitalObject.objects.filter(related_work=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+        if DigitalObject.objects.filter(related_work=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
             return True
         else:
             return False
 
     def has_videos(self):
-        if DigitalObject.objects.filter(related_work=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+        if DigitalObject.objects.filter(related_work=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
             return True
         else:
             return False
 
     def has_audio(self):
-        if DigitalObject.objects.filter(related_work=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+        if DigitalObject.objects.filter(related_work=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
             return True
         else:
             return False
@@ -1105,19 +1105,19 @@ class Production(models.Model):
             return ''
 
     def has_images(self):
-        if DigitalObject.objects.filter(related_production=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+        if DigitalObject.objects.filter(related_production=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
             return True
         else:
             return False
 
     def has_videos(self):
-        if DigitalObject.objects.filter(related_production=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+        if DigitalObject.objects.filter(related_production=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
             return True
         else:
             return False
 
     def has_audio(self):
-        if DigitalObject.objects.filter(related_production=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+        if DigitalObject.objects.filter(related_production=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
             return True
         else:
             return False
@@ -1262,19 +1262,19 @@ class FestivalOccurrence(models.Model):
         return "%s (%s - %s)" % (self.title, self.begin_date_display(), self.end_date_display())
     
     def has_images(self):
-        if DigitalObject.objects.filter(related_festival=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+        if DigitalObject.objects.filter(related_festival=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
             return True
         else:
             return False
 
     def has_videos(self):
-        if DigitalObject.objects.filter(related_festival=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+        if DigitalObject.objects.filter(related_festival=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
             return True
         else:
             return False
 
     def has_audio(self):
-        if DigitalObject.objects.filter(related_festival=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+        if DigitalObject.objects.filter(related_festival=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
             return True
         else:
             return False
@@ -1387,19 +1387,19 @@ class Award(models.Model):
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     
     def has_images(self):
-        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+        if DigitalObject.objects.filter(related_award=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
             return True
         else:
             return False
 
     def has_videos(self):
-        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+        if DigitalObject.objects.filter(related_award=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
             return True
         else:
             return False
 
     def has_audio(self):
-        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+        if DigitalObject.objects.filter(related_award=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
             return True
         else:
             return False
@@ -1427,19 +1427,19 @@ class AwardCandidate(models.Model):
         return "%s for %s, %d (%s)" % (self.award.title, self.category, self.year, self.get_result_display())
     
     def has_images(self):
-        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+        if DigitalObject.objects.filter(related_award=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
             return True
         else:
             return False
 
     def has_videos(self):
-        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+        if DigitalObject.objects.filter(related_award=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
             return True
         else:
             return False
 
     def has_audio(self):
-        if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+        if DigitalObject.objects.filter(related_award=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
             return True
         else:
             return False
