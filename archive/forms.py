@@ -272,7 +272,7 @@ class RepositoryAdminForm(ModelForm):
         
 class FestivalOccurrenceAdminForm(ModelForm):
     festival_series = selectable_forms.AutoCompleteSelectField(lookup_class=FestivalLookup, label=_(u"Festival series"))
-    venue = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=LocationLookup, label=_(u"Venue"))
+ #   venue = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=LocationLookup, label=_(u"Venue"))
 #    productions = selectable_forms.AutoCompleteSelectMultipleField(required=False, lookup_class=ProductionLookup, label=_(u"Productions"))
 
     def __init__(self, *args, **kwargs):
@@ -281,7 +281,7 @@ class FestivalOccurrenceAdminForm(ModelForm):
         lrel = ManyToOneRel(Location, 'id')
         prel = ManyToManyRel(Production, 'id')
         self.fields['festival_series'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['festival_series'].widget, frel, self.admin_site)
-        self.fields['venue'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['venue'].widget, lrel, self.admin_site)
+#        self.fields['venue'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['venue'].widget, lrel, self.admin_site)
 #        self.fields['productions'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['productions'].widget, prel, self.admin_site)
         
     class Meta(object):

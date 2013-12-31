@@ -449,7 +449,7 @@ class FestivalOccurrenceAdmin(TranslationAdmin):
     inlines = (FestivalParticipantInline, )
     date_hierarchy = 'begin_date'
     list_filter = ('has_attention',)
-    filter_horizontal = ['primary_publications', 'productions']
+    filter_horizontal = ['primary_publications', 'productions', 'venue']
     search_fields = ['ascii_title', 'title']
     exclude = ('ascii_title',)
     
