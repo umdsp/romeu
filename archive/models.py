@@ -1229,16 +1229,19 @@ class FestivalOccurrence(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("title"))
     ascii_title = models.CharField(max_length=255, verbose_name=_("ASCII title"))
     title_variants = models.CharField(max_length=300, null=True, blank=True, verbose_name=_("title variants"))
-    venue = models.ManyToManyField(Location, verbose_name=_("venue"))
+ 
     begin_date = models.DateField(help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("begin date"))
     begin_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', verbose_name=_("Precision"))
     begin_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
     end_date = models.DateField(help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("end date"))
     end_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', verbose_name=_("Precision"))
     end_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
+    
+    venue = models.ManyToManyField(Location, verbose_name=_("venue"))
     participants = models.ManyToManyField(Creator, through="FestivalParticipant", null=True, blank=True, verbose_name=_("participants"))
     productions = models.ManyToManyField(Production, verbose_name=_("productions"))
     primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="festival_primary_bibliography_for", verbose_name=_("primary bibliography"))
+    
     awards_text = models.TextField(null=True, blank=True, verbose_name=_("awards"))
     program = models.TextField(null=True, blank=True, verbose_name=_("festival/conference program"))
     edu_program = models.TextField(null=True, blank=True, verbose_name=_("festival/conference educational program"))
@@ -1278,6 +1281,30 @@ class FestivalOccurrence(models.Model):
             return True
         else:
             return False
+
+    def display_date_range(self):
+        if self.begin_date and self.end_date:
+            if self.begin_date == self.end_date:
+                return self.begin_date_display()
+            else:
+                return "%s - %s" % (self.begin_date_display(), self.end_date_display())
+        elif self.begin_date:
+            return self.begin_date_display()
+        else:
+            return ''
+        
+    def all_participants(self):
+        participants = []
+        for person in self.participants.distinct():
+            x = {}
+            x['person'] = person
+            fps = FestivalParticipant.objects.filter(participant=person, festival=self)
+            roles = []
+            for fp in fps:
+                roles.append(fp.function.title)
+            x['functions'] = ', '.join(roles)
+            participants.append(x)
+        return participants
     
     
 def update_festival_occurrence_title(sender, **kwargs):

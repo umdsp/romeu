@@ -637,7 +637,9 @@ class FestivalDetailView(DetailView):
     def get_context_data(self, **kwargs):
 
         context = super(FestivalDetailView, self).get_context_data(**kwargs)
-        context['festival_occurrences'] = FestivalOccurrence.objects.filter(festival_series__id=context['festival'].id).order_by('-begin_date')
+        context['festival_occurrences'] = FestivalOccurrence.objects.filter(
+            festival_series__id=context['festival'].id,
+            published=True).order_by('-begin_date')
         
         imagetype = DigitalObjectType.objects.get(title='Image')
         videotype = DigitalObjectType.objects.get(title='Video recording')
@@ -690,6 +692,60 @@ class FestivalDetailView(DetailView):
 #            context['festivalphoto'] = photofile.filepath
 #        else:
 #            context['festivalphoto'] = False
+
+        return context
+
+
+class FestivalOccurrenceDetailView(DetailView):
+    queryset = FestivalOccurrence.objects.filter(published=True).select_related()
+    context_object_name = "festival_occurrence"
+    template_name = "archive/festival_occurrence_detail.html"
+    
+    def get_context_data(self, **kwargs):
+
+        context = super(FestivalOccurrenceDetailView, self).get_context_data(**kwargs)
+        
+        imagetype = DigitalObjectType.objects.get(title='Image')
+        videotype = DigitalObjectType.objects.get(title='Video recording')
+        audiotype = DigitalObjectType.objects.get(title='Audio recording')
+
+        objects_list = []      
+        video_list = []
+        audio_list = []
+        
+        fo_images = DigitalObject.objects.filter(related_festival=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        for obj in fo_images:
+            for file in obj.files.order_by('seq_id'):
+                item = {}
+                item['image'] = file.filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                objects_list.append(item)
+
+        videos = DigitalObject.objects.filter(related_festival=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        for vid in videos:
+            item = {}
+            if vid.poster_image:
+                item['poster'] = vid.poster_image
+            item['hidef'] = vid.hi_def_video
+            item['object_id'] = vid.object_number()
+            item['title'] = vid.title
+            item['pk'] = vid.pk
+            video_list.append(item)
+
+        audios = DigitalObject.objects.filter(related_festival=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        for audio in audios:
+            item = {}
+            if audio.poster_image:
+                item['poster'] = audio.poster_image
+            item['object_id'] = audio.object_number()
+            item['title'] = audio.title
+            item['pk'] = audio.pk
+            audio_list.append(item)
+
+        context['digital_objects'] = objects_list
+        context['videos'] = video_list
+        context['audios'] = audio_list
 
         return context
 

@@ -76,7 +76,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               <tbody>
                 {% for occurrence in festival_occurrences %}
                     <tr>
-                        <td>{{ occurrence.title }}</td>
+                        <td><a href="{% url 'festival_occurrence_detail_view' occurrence.id %}">{{ occurrence.title }}</a></td>
                         <td>{{ occurrence.begin_date }}</td>
                         <td>{{ occurrence.end_date }}</td>
                     </tr>

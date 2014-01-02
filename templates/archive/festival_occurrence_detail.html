@@ -1,0 +1,315 @@
+<!--
+Copyright (C) 2012  University of Miami
+ 
+This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+ 
+This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ See the GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software Foundation,
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+-->
+ 
+ 
+ {% extends "base.html" %}
+{% load autop %}
+{% load thumbnail %}
+{% load i18n %}
+{% load url from future %}
+
+{% block body_class %}detail{% endblock %}
+
+{% block content %}
+        <header>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="/">{% trans "Home" %}</a></li>
+                    <li><a href="{% url 'festival_detail_view' festival_occurrence.festival_series.id %}">{% trans "Festival Occurrence" %}</a></li>
+                    <li>{{ festival_occurrence.title }}</li>
+                </ul>
+            </nav>
+            <h2>{{ festival_occurrence.title }}</h2>
+        </header>
+
+        <section class="main">
+            {% if festival_occurrence.title_variants %}
+            <h3>{% trans "Also known as:" %}</h3>
+            <p>{{ festival_occurrence.title_variants }}</p>
+            {% endif %}
+
+            {% if festival_occurrence.notes %}
+                <h4>{% trans "Notes" %}:</h4>
+                {{ festival_occurrence.notes|autop }}
+            {% endif %}
+        
+            {% if festival_occurrence.attention %}
+                <h4>{% trans "Attention" %}:</h4>
+                {{ festival_occurrence.attention|autop }}
+            {% endif %}
+
+            {% if festival_occurrence.productions.exists %}
+            <div class="linkeditems">
+                <h3>{% trans "Productions" %}:</h3>
+                <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:54px"></th>
+                            <th>{% trans "Title" %}</th>
+                            <th>{% trans "Director" %}</th>
+                            <th>{% trans "Venue" %}</th>
+                            <th>{% trans "Date range" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for production in festival_occurrence.productions.all %}
+                            <tr>
+                                <td>
+                                  {% if production.has_images %}
+                                  <a href="{% url 'production_detail_view' production.id %}"><img src="{{ STATIC_URL }}images/images.png" alt="{% trans "Images available" %}" title="{% trans "Images available" %}" /></a>
+                                  {% endif %}
+                                  {% if production.has_videos %}
+                                  <a href="{% url 'production_detail_view' production.id %}"><img src="{{ STATIC_URL }}images/video.png" alt="{% trans "Video available" %}" title="{% trans "Video available" %}" /></a>
+                                  {% endif %}
+                                  {% if production.has_audio %}
+                                  <a href="{% url 'production_detail_view' production.id %}"><img src="{{ STATIC_URL }}images/audio.png" alt="{% trans "Audio available" %}" title="{% trans "Audio available" %}" /></a>
+                                  {% endif %}
+                                </td>
+                                <td><a href="{% url 'production_detail_view' production.id %}">{{ production.title }}</a></td>
+                                <td>{{ production.display_directors_links|safe }}</td>
+                                <td>{% if production.venue %}<a href="{% url 'venue_detail_view' production.venue.id %}">{{ production.venue.display_name }}</a>{% endif %}</td>
+                                <td>{{ production.display_date_range }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody></table>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if festival_occurrence.venue.exists %}
+            <div class="linkeditems">
+                <h3>{% trans "Venues" %}:</h3>
+                <div>
+                    
+                    <table id="venues_list">
+                        <thead>
+                            <tr>
+                                <th style="width:54px"></th>
+                                <th>Title</th>
+                                <th>City</th>
+                                <th>Country</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for venue in festival_occurrence.venue.all %}
+                                <tr>
+                                    <td>
+                                      {% if venue.has_images %}
+                                      <a href="{% url 'venue_detail_view' venue.id %}"><img src="{{ STATIC_URL }}images/images.png" alt="{% trans "Images available" %}" title="{% trans "Images available" %}" /></a>
+                                      {% endif %}
+                                      {% if venue.has_videos %}
+                                      <a href="{% url 'venue_detail_view' venue.id %}"><img src="{{ STATIC_URL }}images/video.png" alt="{% trans "Video available" %}" title="{% trans "Video available" %}" /></a>
+                                      {% endif %}
+                                      {% if venue.has_audio %}
+                                      <a href="{% url 'venue_detail_view' venue.id %}"><img src="{{ STATIC_URL }}images/audio.png" alt="{% trans "Audio available" %}" title="{% trans "Audio available" %}" /></a>
+                                      {% endif %}
+                                    </td>
+                                    <td><a href="{% url 'venue_detail_view' venue.id %}">{{ venue.title }}</a></td>
+                                    <td>{% if venue.city %}{{ venue.city.name }}{% if venue.city.state %}, {{ venue.city.state }}{% endif %}{% endif %}</td>
+                                    <td>{{ venue.country.name }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                    
+                </div>
+            </div>
+            {% endif %}
+        
+            {% if festival_occurrence.participants.exists %}
+            <div class="linkeditems">
+                <h3>{% trans "Participants" %}:</h3>
+                <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th style="width:50%">{% trans "Name" %}</th>
+                      <th>{% trans "Function(s)" %}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for festival_participant in festival_occurrence.all_participants %}
+                    <tr>
+                      <td><a href="{% url 'creator_detail_view' festival_participant.person.id %}">
+                                {{ festival_participant.person.display_name }}</a></td>
+                      <td>{{ festival_participant.functions}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                </div>
+            </div>
+            {% endif %}
+        
+            {% if festival_occurrence.primary_publications.exists %}
+            <div class="linkeditems">
+                <h3>{% trans "Bibliography" %}:</h3>
+                <ul>
+                    
+                  {% for citation in festival_occurrence.primary_publications.all %}
+                  <li>
+                    <a href="{{ SITE_URL }}{% url 'publications_views_id' citation.id %}">{{ citation.title|safe }}</a>  
+                  </li>
+                  {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+          
+            {% if videos %}
+            <hr />
+            <h3>{% trans "Videos" %}</h3>
+            <ul class="videos">
+              {% for vid in videos %}
+              <li>
+                <figure>
+                  <a id="{{ vid.object_id }}" class="fancybox">
+                    {% if vid.poster %}
+                    {% thumbnail vid.poster "200x134" crop="center" as im %}
+                      <img src="{{ im.url }}" alt="Link to video of {{ vid.title }}" />
+                    {% endthumbnail %}
+                    {% else %}
+                      Click to play video
+                    {% endif %}
+                  </a>
+                  <figcaption>
+                    <a href="{% url 'digital_object_detail_view' vid.pk %}">{{ vid.title}}</a>
+                  </figcaption>
+                </figure>
+              </li><br />
+              {% endfor %}
+            </ul>
+             {% endif %}
+      
+            {% if audios %}
+            <hr />
+            <h3>{% trans "Audios" %}</h3>
+            <ul class="audios">
+              {% for audio in audios %}
+              <li>
+                <figure>
+                  <a id="{{ audio.object_id }}" class="fancybox">
+                    {% if audio.poster %}
+                    {% thumbnail audio.poster "200x134" crop="center" as im %}
+                      <img src="{{ im.url }}" alt="Link to video of {{ audio.title }}" />
+                    {% endthumbnail %}
+                    {% else %}
+                      Click to play audio
+                    {% endif %}
+                  </a>
+                  <figcaption>
+                    <a href="{% url 'digital_object_detail_view' audio.pk %}">{{ audio.title}}</a>
+                  </figcaption>
+                </figure>
+              </li><br />
+              {% endfor %}
+            </ul>
+            {% endif %}
+
+        </section>
+
+        <aside>
+          <div class="data">
+            <ul>
+                
+              {% if festival_occurrence.begin_date or festival_ocurrence.end_date %}
+              <li>
+                <h4>{% trans "Occurrence dates" %}:</h4>
+                <span>{{ festival_occurrence.begin_date_display }} -  </span>
+                <span>{{ festival_occurrence.end_date_display }} </span>
+              </li>
+              {% endif %}
+                
+              {% if festival_occurrence.awards_text %}
+              <li>
+                <h4>{% trans "Awards" %}:</h4>
+                <span>{{ festival_occurrence.awards_text }}</span>
+              </li>
+              {% endif %}
+              {% if festival_occurrence.program %}
+              <li>
+                <h4>{% trans "Program" %}:</h4>
+                <span>{{ festival_occurrence.program }}</span>
+              </li>
+            {% endif %}
+              {% if festival_occurrence.edu_program %}
+              <li>
+                <h4>{% trans "Educational Program" %}:</h4>
+                <span>{{ festival_occurrence.edu_program }}</span>
+              </li>
+            {% endif %}
+              {% if festival_occurrence.announcement %}
+              <li>
+                <h4>{% trans "Announcement" %}:</h4>
+                <span>{{ festival_occurrence.announcement }}</span>
+              </li>
+            {% endif %}          
+              {% if festival_occurrence.website %}
+              <li>
+                <h4>{% trans "Website" %}:</h4>
+                <span><a href="{{ festival_occurrence.website }}">Link</a></span>
+              </li>
+              {% endif %}
+            </ul>
+            <h4>{% trans "Tag(s)" %}:</h4>
+            <ul>
+            {% for tag in festival_occurrence.tags.names %}
+                <a href="/taggeditems?tag={{ tag }}"><li>{{ tag }}</li></a>
+            {% endfor %}
+            </ul>
+          </div>
+
+          {% if digital_objects %}
+          <div class="objects">
+            <a id="next">Next</a>
+            <a id="prev">Prev</a>
+            <a id="caption" href="{% url 'digital_object_detail_view' digital_objects.0.pk %}">View details</a>
+            <div id="digitalobjects">
+              {% for obj in digital_objects %}
+                {% thumbnail obj.image "800" as im %}
+                <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
+                {% endthumbnail %}
+                {% thumbnail obj.image "210x210" crop="center" as im %}
+                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="{% url 'digital_object_detail_view' obj.pk %}" />
+                {% endthumbnail %}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </aside>
+    {% endblock %}
+
+    {% block extra_js %}
+    <script>
+      $(document).ready(function() {
+        {% for vid in videos %}
+        $('#{{ vid.object_id }}').fancybox({
+content: '<video id="vid-{{vid.object_id}}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001002.mp4" width={% if vid.hidef %}1280{% else %}720{% endif %} height={% if vid.hidef %}720{% else %}480{% endif %}></video>',
+          maxWidth: {% if vid.hidef %}1310{% else %}750{% endif %},
+          maxHeight: {% if vid.hidef %}775{% else %}535{% endif %},
+          afterShow: function() {
+            $('#vid-{{vid.object_id}}').mediaelementplayer();
+          }
+        });
+        {% endfor %}
+        $('.fancy').fancybox({loop: false});
+      });
+    </script>
+    {% endblock %}
