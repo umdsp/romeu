@@ -697,6 +697,7 @@ class FestivalDetailView(DetailView):
 
 
 class FestivalOccurrenceDetailView(DetailView):
+    
     queryset = FestivalOccurrence.objects.filter(published=True).select_related()
     context_object_name = "festival_occurrence"
     template_name = "archive/festival_occurrence_detail.html"

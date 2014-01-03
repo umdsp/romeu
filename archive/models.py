@@ -907,7 +907,7 @@ class Production(models.Model):
     documentation_team = models.ManyToManyField(Creator, through="DocumentationMember", null=True, blank=True, related_name="documentation_team_for", verbose_name=_("documentation team"))
     advisory_team = models.ManyToManyField(Creator, through="AdvisoryMember", null=True, blank=True, related_name="advisory_team_for", verbose_name=_("advisory team"))
     related_organizations = models.ManyToManyField(Creator, null=True, blank=True, related_name="productions_related_to", verbose_name=_("related organizations"))
-    premier = models.CharField(max_length=2, choices=constants.PREMIER_CHOICES, null=True, blank=True, verbose_name=_("premier"))
+    premier = models.CharField(max_length=2, choices=constants.PREMIER_CHOICES, null=True, blank=True, verbose_name=_("premiere"))
     website = models.URLField(null=True, blank=True, verbose_name=_("website"))
 #    secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="production_secondary_bibliography_for", verbose_name=_("secondary bibliography"))
     primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="production_primary_bibliography_for", verbose_name=_("primary bibliography"))
@@ -1035,7 +1035,7 @@ class Production(models.Model):
             dms = DesignMember.objects.filter(person=person, production=self)
             roles = []
             for dm in dms:
-                for role in dm.functions:
+                for role in dm.functions.all():
                     roles.append(role.title)
             x['functions'] = ', '.join(roles)
             designers.append(x)
@@ -1103,6 +1103,17 @@ class Production(models.Model):
             return self.begin_date_display()
         else:
             return ''
+    
+    def all_festival_occurrence(self):
+        
+        festival_occurrence = []
+        festival_occurrence_qs = self.festivaloccurrence_set.filter(published=True)
+        for festival in festival_occurrence_qs:
+            a_dict = {}
+            a_dict['festival_occurrence'] = festival
+            festival_occurrence.append(a_dict)
+            
+        return festival_occurrence
 
     def has_images(self):
         if DigitalObject.objects.filter(related_production=self, files__isnull=False, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
@@ -1140,7 +1151,7 @@ class DirectingMember(models.Model):
     function = models.ForeignKey("DirectingTeamFunction", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, '')
+        return "%s (%s), %s" % (self.person.creator_name, self.function.title, self.production)
 
 class CastMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
@@ -1149,7 +1160,7 @@ class CastMember(models.Model):
     role = models.ForeignKey(Role, null=True, blank=True, default=None, verbose_name=_("role"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, '') #self.function.title)
+        return "%s (%s), %s" % (self.person.creator_name, self.function.title, self.production)
 
 class DesignMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
@@ -1157,7 +1168,7 @@ class DesignMember(models.Model):
     functions = models.ManyToManyField("DesignTeamFunction", related_name="functions", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, '')
+        return "%s (%s), %s" % (self.person.creator_name, '', self.production)
 
 class TechMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
@@ -1165,7 +1176,7 @@ class TechMember(models.Model):
     function = models.ForeignKey("TechTeamFunction", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, '')
+        return "%s (%s), %s" % (self.person.creator_name, self.function.title, self.production)
 
 class ProductionMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
@@ -1173,7 +1184,7 @@ class ProductionMember(models.Model):
     function = models.ForeignKey("ProductionTeamFunction", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, '')
+        return "%s (%s), %s" % (self.person.creator_name, self.function.title, self.production)
 
 class DocumentationMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
@@ -1181,7 +1192,7 @@ class DocumentationMember(models.Model):
     function = models.ForeignKey("DocumentationTeamFunction", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, '')
+        return "%s (%s), %s" % (self.person.creator_name, self.function.title, self.production)
 
 class AdvisoryMember(models.Model):
     person = models.ForeignKey(Creator, verbose_name=_("person"))
@@ -1189,7 +1200,7 @@ class AdvisoryMember(models.Model):
     function = models.ForeignKey("AdvisoryTeamFunction", verbose_name=_("function"))
 
     def __unicode__(self):
-        return "%s (%s)" % (self.person.creator_name, '')
+        return "%s (%s), %s" % (self.person.creator_name, self.function.title, self.production)
 
 class Festival(models.Model):
     title = models.CharField(max_length=200, verbose_name=_("title"))
@@ -1318,6 +1329,9 @@ class FestivalParticipant(models.Model):
     participant = models.ForeignKey(Creator, verbose_name=_("participant"))
     festival = models.ForeignKey(FestivalOccurrence, verbose_name=_("festival"))
     function = models.ForeignKey("FestivalFunction", verbose_name=_("function"))
+    
+    def __unicode__(self):
+        return "%s (%s), %s" % (self.participant.creator_name, self.function.title, self.festival)
     
 class Repository(models.Model):
     repository_id = models.CharField(max_length=3, null=True, blank=True, verbose_name=_("repository ID"))
