@@ -1527,7 +1527,7 @@ class DigitalObject(models.Model):
     related_festival = models.ManyToManyField(FestivalOccurrence, related_name="related_festival", null=True, blank=True, verbose_name=_("related festival"))
     related_award = models.ManyToManyField(AwardCandidate, related_name="related_award", null=True, blank=True, verbose_name=_("related award"))
     related_venue = models.ManyToManyField(Location, related_name="related_venue", null=True, blank=True, verbose_name=_("related venue"))
-    related_creator = models.ManyToManyField(Creator, related_name="related_creator", null=True, blank=True, verbose_name=_("related creator"))
+    related_creator = models.ManyToManyField(Creator, through="DigitalObject_Related_Creator", related_name="related_creator", null=True, blank=True, verbose_name=_("related creator"))
     related_work = models.ManyToManyField(WorkRecord, related_name="related_work", null=True, blank=True, verbose_name=_("related work"))
     # extra details
     summary = models.TextField(null=True, blank=True, verbose_name=_("summary"))
@@ -1587,6 +1587,19 @@ def update_digital_object_title(sender, **kwargs):
     obj.ascii_title = unidecode(obj.title)
 
 pre_save.connect(update_digital_object_title, sender=DigitalObject)
+
+
+class DigitalObject_Related_Creator(models.Model):
+    
+    class Meta:
+        verbose_name = _("Related Creators - Digital object")
+        verbose_name_plural = _("Related Creators - Digital object")
+    
+    creator = models.ForeignKey(Creator, verbose_name=_("creator"))
+    digitalobject = models.ForeignKey(DigitalObject, verbose_name=_("digital object"))
+    
+    def __unicode__(self):
+        return "%s (%s)" % (self.digitalobject.title, str(self.digitalobject.object_number())) 
 
 
 class License(models.Model):

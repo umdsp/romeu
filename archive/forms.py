@@ -36,7 +36,8 @@ from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord
                             TechMember, ProductionMember, DocumentationMember,
                             AdvisoryMember, Festival, FestivalOccurrence,
                             FestivalParticipant, Repository, Collection,
-                            DigitalObject, DigitalFile, Award, AwardCandidate,
+                            DigitalObject, DigitalFile, DigitalObject_Related_Creator,
+                            Award, AwardCandidate,
                             RelatedWork, SubjectHeading, Country, City,
                             Language, DirectingTeamFunction, CastMemberFunction,
                             DesignTeamFunction, TechTeamFunction,
@@ -186,7 +187,7 @@ class DigitalObjectAdminForm(ModelForm):
         lrel = ManyToOneRel(Location, 'id')
         wrel = ManyToOneRel(WorkRecord, 'id')
         colrel = ManyToOneRel(Collection, 'id')
-        self.fields['related_creator'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_creator'].widget, crel, self.admin_site)
+#        self.fields['related_creator'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_creator'].widget, crel, self.admin_site)
         self.fields['related_production'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_production'].widget, prel, self.admin_site)
         self.fields['related_festival'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_festival'].widget, frel, self.admin_site)
         self.fields['related_venue'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_venue'].widget, lrel, self.admin_site)
@@ -247,7 +248,20 @@ class WorkRecordCreatorAdminForm(ModelForm):
         
     class Meta(object):
         model = WorkRecordCreator
+
+
+class DigitalObjectRelatedCreatorAdminForm(ModelForm):
+    creator = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, label=_(u"Creator"))
+    
+    def __init__(self, *args, **kwargs):
+        super(DigitalObjectRelatedCreatorAdminForm, self).__init__(*args, **kwargs)
+        crel = ManyToOneRel(Creator, 'id')
+        self.fields['creator'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['creator'].widget, crel, self.admin_site)
         
+    class Meta(object):
+        model = DigitalObject_Related_Creator
+
+    
 class CityAdminForm(ModelForm):
     country = selectable_forms.AutoCompleteSelectField(lookup_class=CountryLookup, label=_(u"Country"))
     
