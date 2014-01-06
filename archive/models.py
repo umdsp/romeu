@@ -1194,7 +1194,7 @@ class AdvisoryMember(models.Model):
 class Festival(models.Model):
     title = models.CharField(max_length=200, verbose_name=_("title"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
-    attention = models.TextField(null=True, blank=True, verbose_name=_("notes"))
+    attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
     
     def has_images(self):
         fo = FestivalOccurrence.objects.filter(festival_series=self)
