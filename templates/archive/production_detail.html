@@ -43,22 +43,28 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <p>{{ production.title_variants }}</p>
             {% endif %}
 
+            {% if production.website %}
+                <p></p>
+           {% trans "Website" %}:
+            <span><a href="{{ production.website }}" target="_blank">Link</a></span>
+            {% endif %}
+
+            {% if production.premier %}
+                <p></p>
+            {% trans "Premiere" %}:
+            <strong>{{ production.get_premier_display }}</strong><br />
+            {% endif %}
+        
             {% if production.is_special_performance %}
+                <p></p>
+            {% trans "Performance type" %}:
             <strong>{{ production.special_performance_type }}</strong><br />
             {% endif %}
 
 
-            {% if production.premier %}
-            <strong>{{ production.get_premier_display }} Premier</strong><br />
-            {% endif %}
-
-            {% if production.notes %}
-            {{ production.notes|safe }}
-            {% endif %}
-
             {% if production.directing_team.exists %}
             <div class="linkeditems">
-            <h3>{% trans "Directing team" %}:</h3>
+            <h3>{% trans "Directing team" %}: +</h3>
             <div>
             <table>
               <thead>
@@ -81,7 +87,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             {% if production.cast.exists %}
               <div class="linkeditems">
-              <h3>{% trans "Cast" %}:</h3>
+              <h3>{% trans "Cast" %}: +</h3>
               <div>
               <table>
                 <thead>
@@ -104,7 +110,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             {% if production.design_team.exists %}
               <div class="linkeditems">
-              <h3>{% trans "Design team" %}:</h3>
+              <h3>{% trans "Design team" %}: +</h3>
               <div>
               <table>
                 <thead>
@@ -128,7 +134,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             {% if production.technical_team.exists %}
               <div class="linkeditems">
-              <h3>{% trans "Technical team" %}:</h3>
+              <h3>{% trans "Technical team" %}: +</h3>
               <div>
               <table>
                 <thead>
@@ -152,7 +158,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             {% if production.production_team.exists %}
               <div class="linkeditems">
-              <h3>{% trans "Production team" %}:</h3>
+              <h3>{% trans "Production team" %}: +</h3>
               <div>
               <table>
                 <thead>
@@ -176,7 +182,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             {% if production.documentation_team.exists %}
               <div class="linkeditems">
-              <h3>{% trans "Documentation team" %}:</h3>
+              <h3>{% trans "Documentation team" %}: +</h3>
               <div>
               <table>
                 <thead>
@@ -200,7 +206,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             {% if production.advisory_team.exists %}
               <div class="linkeditems">
-              <h3>{% trans "Advisory team" %}:</h3>
+              <h3>{% trans "Advisory team" %}: +</h3>
               <div>
               <table>
                 <thead>
@@ -221,10 +227,55 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               </div>
               </div>
           {% endif %}
+          
+          
+            {% if production.production.exists %}
+              <div class="linkeditems">
+              <h3>{% trans "Awards" %}: +</h3>
+              <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>{% trans "Year" %}</th>
+                  <th>{% trans "Category" %}</th>
+                  <th>{% trans "Recipient" %}</th>
+                  <th>{% trans "Result" %}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for award_candidate in production.production.all %}
+                    <tr>
+                        <td>{{ award_candidate.year }}</td>
+                        <td>{{ award_candidate.category }}</td>
+                        <td>{% if award_candidate.recipient %}
+                          <a href="{{ SITE_URL }}{% url 'creator_detail_view' award_candidate.recipient.id %}">{{ award_candidate.recipient }}</a>{% endif %}
+                        </td>
+                        <td>{{ award_candidate.get_result_display }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody></table>
+              </div>
+              </div>
+          {% endif %}
+          
+          
+            {% if production.notes %}
+            <div class="linkeditems">
+                <p></p>
+                <h3>{% trans "Notes" %}: +</h3>
+                <div>
+                {{ production.notes|safe }}
+                </div>
+            </div>
+            {% endif %}
+
 
           {% if production.profiler_name %}
+              <p></p>
+             {% trans "Profile Creator" %}:
           <em>{% trans "Information entered by" %} {{ production.profiler_name }}{% if production.profiler_entry_date %} {% trans "on" %} {{ production.profiler_entry_date }}{% endif %}</em><br />
           {% endif %}
+
           
           {% if videos %}
           <hr />
@@ -280,29 +331,52 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
         <aside>
           <div class="data">
+            
+            {% if production.theater_companies %}
+            
             <ul>
-              {% if production.venue %}
-              <li>
-                <h4>{% trans "Venue" %}:</h4>
-                <span><a href="{% url 'venue_detail_view' production.venue.pk %}">{{ production.venue.title }} ({{ production.venue.country }})</a></span>
-                {% if production.stage %}
-                <span>{{ production.stage.title }}</span>
+                  <li>
+                    <h4>{% trans "Theater company" %}:</h4>
+              {% for creator in production.theater_companies.all %}
+            
+                <a href="{% url 'creator_detail_view' creator.pk %}" >{{ creator }}</a><br />
+              
+              {% endfor %}</li>
+            </ul>            
+            {% endif %}
+            
+            <ul>
+                {% if production.venue %}
+                <li>
+                    <h4>{% trans "Venue" %}:</h4>
+                    <span><a href="{% url 'venue_detail_view' production.venue.pk %}">{{ production.venue.title }} ({{ production.venue.country }})</a></span>
+                    {% if production.stage %}
+                    <span>{{ production.stage.title }}</span>
+                    {% endif %}
+                </li>
                 {% endif %}
-              </li>
-              {% endif %}
-              {% if production.begin_date or production.end_date %}
-              <li>
-                <h4>{% trans "Production dates" %}:</h4>
-                <span>{{ production.display_date_range }}</span>
-              </li>
-              {% endif %}
-              {% if production.website %}
-              <li>
-                <h4>{% trans "Production website" %}:</h4>
-                <span><a href="{{ production.website}}">Link</a></span>
-              </li>
-              {% endif %}
+                {% if production.begin_date or production.end_date %}
+                <li>
+                    <h4>{% trans "Production dates" %}:</h4>
+                    <span>{{ production.display_date_range }}</span>
+                </li>
+                {% endif %}
             </ul>
+            
+            {% if production.all_festival_occurrence %}
+            
+            <ul>
+                <li>
+                    <h4>{% trans "Festival" %}:</h4>
+                    {% for festival in production.all_festival_occurrence %}
+            
+                    <a href="{% url 'festival_occurrence_detail_view' festival.festival_occurrence.pk %}" >{{ festival.festival_occurrence }}</a><br />
+              
+                    {% endfor %}
+                </li>
+            </ul>            
+            {% endif %}
+
             <h4>{% trans "Source work(s)" %}:</h4>
             <ul>
               {% for work in production.source_work.all %}

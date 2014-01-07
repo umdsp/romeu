@@ -20,7 +20,8 @@ from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord
                             TechMember, ProductionMember, DocumentationMember,
                             AdvisoryMember, Festival, FestivalOccurrence,
                             FestivalParticipant, Repository, Collection,
-                            DigitalObject, DigitalFile, Award, AwardCandidate,
+                            DigitalObject, DigitalFile, DigitalObject_Related_Creator,
+                            Award, AwardCandidate,
                             RelatedWork, SubjectHeading, 
                             Country, City, Language, DirectingTeamFunction,
                             CastMemberFunction, DesignTeamFunction,
@@ -138,6 +139,17 @@ class RelatedCreatorInline(admin.TabularInline):
     def __init__(self, model, admin_site):
         super(RelatedCreatorInline, self).__init__(model, admin_site)
         self.form.admin_site = admin_site
+        
+
+class DigitalObjectRelatedCreatorInline(admin.TabularInline):
+    form = arcforms.DigitalObjectRelatedCreatorAdminForm
+    model = DigitalObject_Related_Creator
+    extra = 0
+    
+    def __init__(self, model, admin_site):
+        super(DigitalObjectRelatedCreatorInline, self).__init__(model, admin_site)
+        self.form.admin_site = admin_site
+
 
 class WorkRecordCreatorInline(admin.TabularInline):
     form = arcforms.WorkRecordCreatorAdminForm
@@ -410,8 +422,10 @@ class ProductionAdmin(TranslationAdmin):
             'fields': ('theater_companies', 'venue', 'stage', ('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'),)
         }),
         ('Additional details', {
-            'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website', 'awards_text', 'biblio_text', 'biblio_text_es',
-                'primary_publications') #, 'secondary_bibliography')
+            'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website')}),
+        ('Plain text information', {
+            'fields': (
+                'awards_text', 'biblio_text', 'biblio_text_es', 'primary_publications')
         }),
         ('Standard fields', {
             'fields': ('notes', 'attention', 'needs_editing', 'published', 'tags')
@@ -515,7 +529,7 @@ class CollectionAdmin(TranslationAdmin):
 
 class DigitalObjectAdmin(TranslationAdmin):
     form = arcforms.DigitalObjectAdminForm
-    inlines = (DigitalFileInline, )
+    inlines = (DigitalObjectRelatedCreatorInline, DigitalFileInline, )
     save_as = True
     save_on_top = True
     search_fields = ['title', 'ascii_title', 'title_variants']
@@ -539,13 +553,13 @@ class DigitalObjectAdmin(TranslationAdmin):
             'fields': ('digi_object_format', ('creation_date', 'creation_date_precision', 'creation_date_BC'))
         },),
         ('Relationships', {
-            'fields': ('related_production', 'related_festival', 'related_venue', 'related_creator', 'related_work', 'related_award')
+            'fields': ('related_production', 'related_festival', 'related_venue', 'related_work', 'related_award')
         },),
         ('Video settings', {
             'fields': (('restricted', 'restricted_description'), 'ready_to_stream', 'hi_def_video', 'poster_image')
         },),
         ('Standard fields', {
-            'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published', ('tags', 'replicate_tags'))
+            'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published', ('tags', 'replicate_tags') )
         },),
     )
 
@@ -556,7 +570,7 @@ class DigitalObjectAdmin(TranslationAdmin):
     def save_model(self, request, new_object, form, change=False):
         # hook into save_model to work around the m2m widget save issue
         form_col =  form.cleaned_data['collection']
-        for field in ['related_creator', 'related_production', 'related_festival', 'related_venue', 'related_work', 'related_award']:
+        for field in ['related_production', 'related_festival', 'related_venue', 'related_work', 'related_award']:
             form.cleaned_data[field] = form.cleaned_data[field] or []
 
         return super(DigitalObjectAdmin, self).save_model(request, new_object, form, change=False)
