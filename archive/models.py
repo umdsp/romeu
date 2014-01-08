@@ -1914,8 +1914,7 @@ class TranslatingFlatPage(FlatPage):
         verbose_name = _("Static page")
 
 class HomePageInfo(models.Model):
-    PYTHON_OLDER_THAN_27 = getattr(settings, "PYTHON_OLDER_THAN_27", "True")
-    if PYTHON_OLDER_THAN_27 == "True":
+    if settings.PYTHON_OLDER_THAN_27:
     	BOX_CHOICES = [ (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') ]
     else:	
     	BOX_CHOICES = { (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') }
