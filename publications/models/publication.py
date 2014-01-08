@@ -128,8 +128,10 @@ class Publication(models.Model):
 
 	edition = models.CharField(max_length=255, null=True, blank=True, help_text=_("Enter as an ordinal number ('Second', 'Third')"), verbose_name=_("edition"))
 	section = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("section"))
-	pub_date = models.CharField(max_length=120, null=True, blank=True, verbose_name=_("publication date"))
-	access_date = models.CharField(max_length=120, null=True, blank=True, verbose_name=_("access date"))
+
+	pub_date = models.DateField(null=True, blank=True, verbose_name=_("publication date"))
+	access_date = models.DateField(null=True, blank=True, verbose_name=_("access date"))
+	
 	language = models.CharField(max_length=60, null=True, blank=True, verbose_name=_("language"))
 	pages = models.CharField(max_length=30, null=True, blank=True, help_text=_("Enter one or more pages / page ranges"), verbose_name=_("pages"))
 	publisher = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("publisher"))
@@ -213,6 +215,7 @@ class Publication(models.Model):
 				else:
 					break
 
+			"""		
 			# abbreviate names
 			for j, name in enumerate(names[:-1 - num_suffixes]):
 				# don't try to abbreviate these
@@ -228,7 +231,8 @@ class Publication(models.Model):
 						names[j] = name[0] + '.-' + name[k + 1] + '.'
 					else:
 						names[j] = name[0] + '.'
-
+			"""
+			
 			if len(names):
 				self.authors_list[i] = join(names, ' ')
 

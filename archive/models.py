@@ -16,16 +16,19 @@
 
 # coding: utf-8
 import os
+
+from django.contrib.auth import models as auth_models
+from django.conf import settings
+from django.contrib.flatpages.models import FlatPage
 from django.core.files.storage import FileSystemStorage
 
+from django.db.models import Q
 from django.db import models
 from django.db.models import Min, Max, Avg, Count
 from django.db.models.signals import pre_save, post_save, post_delete
-from django.contrib.auth import models as auth_models
+
 from django.utils.translation import ugettext
 from django.utils.translation import ugettext_lazy as _
-
-from django.db.models import Q
 
 from unidecode import unidecode
 
@@ -34,13 +37,10 @@ from publications.models.publication import Publication
 from publications.fields import PagesField
 from archive.utils import display_date
 from archive import constants
-from django.conf import settings
 
 # import reversion
 
 from random import choice, shuffle
-
-from django.contrib.flatpages.models import FlatPage
 
 from taggit_autocomplete.managers import TaggableManager
 
@@ -1915,18 +1915,21 @@ class TranslatingFlatPage(FlatPage):
 
 class HomePageInfo(models.Model):
     if settings.PYTHON_OLDER_THAN_27:
-    	BOX_CHOICES = [ (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') ]
-    else:	
-    	BOX_CHOICES = { (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') }
+        print 'v2.6'
+        BOX_CHOICES = [ (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') ]
+    else:
+        print 'v2.7'
+        BOX_CHOICES = { (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') }
+        
     content = models.TextField(verbose_name=_("textbox content"), null=True, blank=True)
     num_boxes = models.SmallIntegerField(choices=BOX_CHOICES, default=0, verbose_name=_("Number of boxes"), help_text=_("How many image boxes the textbox should replace"))
     box_1_id = models.IntegerField(null=True, blank=True, verbose_name=_("Digital object for box 1"), help_text=_("Enter the ID number of the digital object that should go here."))
     box_2_id = models.IntegerField(null=True, blank=True, verbose_name=_("Digital object for box 2"), help_text=_("Enter the ID number of the digital object that should go here."))
     box_3_id = models.IntegerField(null=True, blank=True, verbose_name=_("Digital object for box 3"), help_text=_("Enter the ID number of the digital object that should go here."))
-
+    
     class Meta:
         verbose_name = _("Home page settings")
-
+    
     def __unicode__(self):
         return "Home page settings (DO NOT DELETE)"
 

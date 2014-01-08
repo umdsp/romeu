@@ -49,17 +49,17 @@ def person(request, name):
 
 	# further filter results
 	if len(names) > 1:
-		name_simple = Publication.simplify_name(names[0][0] + '. ' + names[-1])
+#		name_simple = Publication.simplify_name(names[0][0] + '. ' + names[-1])
 		for publication in query:
-			if name_simple in publication.authors_list_simple:
-				publications.append(publication)
-				types_dict[publication.type].append(publication)
+#			if name_simple in publication.authors_list_simple:
+			publications.append(publication)
+			types_dict[publication.type].append(publication)
 
 	elif len(names) > 0:
 		for publication in query:
-			if Publication.simplify_name(names[-1].lower()) in publication.authors_list_simple:
-				publications.append(publication)
-				types_dict[publication.type].append(publication)
+#			if Publication.simplify_name(names[-1].lower()) in publication.authors_list_simple:
+			publications.append(publication)
+			types_dict[publication.type].append(publication)
 
 	# remove empty types
 	for t in types:
@@ -69,6 +69,7 @@ def person(request, name):
 	# attach publications to types
 	for t in types:
 		t.publications = types_dict[t]
+
 
 	if 'ascii' in request.GET:
 		return render_to_response('publications/publications.txt', {
