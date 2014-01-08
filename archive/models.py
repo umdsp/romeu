@@ -34,6 +34,7 @@ from publications.models.publication import Publication
 from publications.fields import PagesField
 from archive.utils import display_date
 from archive import constants
+from django.conf import settings
 
 # import reversion
 
@@ -1913,7 +1914,11 @@ class TranslatingFlatPage(FlatPage):
         verbose_name = _("Static page")
 
 class HomePageInfo(models.Model):
-    BOX_CHOICES = { (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') }
+    PYTHON_OLDER_THAN_27 = getattr(settings, "PYTHON_OLDER_THAN_27", "False")
+    if PYTHON_OLDER_THAN_27 == "True":
+    	BOX_CHOICES = [ (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') ]
+    else:	
+    	BOX_CHOICES = { (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') }
     content = models.TextField(verbose_name=_("textbox content"), null=True, blank=True)
     num_boxes = models.SmallIntegerField(choices=BOX_CHOICES, default=0, verbose_name=_("Number of boxes"), help_text=_("How many image boxes the textbox should replace"))
     box_1_id = models.IntegerField(null=True, blank=True, verbose_name=_("Digital object for box 1"), help_text=_("Enter the ID number of the digital object that should go here."))
