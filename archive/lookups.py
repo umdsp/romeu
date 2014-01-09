@@ -14,7 +14,9 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-from archive.models import Creator, Location, Production, WorkRecord, Role, Country, DigitalObject, Festival, FestivalOccurrence, Collection, City, Award
+from archive.models import (Creator, Location, Production, WorkRecord, Role,
+                            Country, DigitalObject, Festival,
+                            FestivalOccurrence, Collection, City, Award)
 from django.db.models import Q
 
 from selectable.base import LookupBase
@@ -49,6 +51,11 @@ class CreatorLookup(ArchiveLookup):
     def get_query(self,request,term):
         return Creator.objects.filter(Q(creator_ascii_name__icontains=term) | Q(creator_name__icontains=term) | Q(name_variants__icontains=term) | Q(creator_display_name__icontains=term) | Q(creator_display_ascii_name__icontains=term))
     
+class TheaterCompanyLookup(ArchiveLookup):
+    model = Creator
+    def get_query(self,request,term):
+        return Creator.objects.filter(org_name__icontains=term)
+
     
 class LocationLookup(ArchiveLookup):
     model = Location
@@ -107,6 +114,7 @@ class AwardLookup(ArchiveLookup):
         return Award.objects.filter(title__icontains=term)
 
 registry.register(CreatorLookup)
+registry.register(TheaterCompanyLookup)
 registry.register(LocationLookup)
 registry.register(ProductionLookup)
 registry.register(WorkRecordLookup)

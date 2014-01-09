@@ -37,15 +37,15 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             {
                 return split( term ).pop();
             }
-            if ($('body.archive-production.change-form').length) {
-                $('.form-row.venue div').append($('<a href="#" id="updatestages">Update stages list</a>'));
-                $('#updatestages').click(function(e) {
-                    e.preventDefault();
-                    Dajaxice.archive.updatestages(Dajax.process, { 'option': $('#id_venue_1').val()});
-                })
+//            if ($('body.archive-production.change-form').length) {
+//                $('.form-row.venue div').append($('<a href="#" id="updatestages">Update stages list</a>'));
+//                $('#updatestages').click(function(e) {
+//                    e.preventDefault();
+//                    Dajaxice.archive.updatestages(Dajax.process, { 'option': $('#id_venue_1').val()});
+//                })
 
-                Dajaxice.archive.updatestages(Dajax.process, {'option': $('#id_venue_1').val()});
-            }
+//                Dajaxice.archive.updatestages(Dajax.process, {'option': $('#id_venue_1').val()});
+//            }
             $("#id_tags")
                 .bind( "keydown", function( event )
                 {

@@ -246,8 +246,7 @@ class CreatorAdmin(TranslationAdmin):
     date_hierarchy = 'birth_date'
     search_fields = ['creator_name', 'creator_ascii_name', 'name_variants']
     inlines = (RelatedCreatorInline,)
-    filter_horizontal = ['primary_publications'] #, 'primary_bibliography', 'secondary_bibliography']
-#    filter_horizontal = ['primary_bibliography', 'secondary_bibliography']    
+    filter_horizontal = ['primary_publications']     
     fieldsets = (
         (None, {
             'fields': ('prefix', 'given_name', 'middle_name', 'family_name', 'suffix', 'org_name', 'creator_type', 'name_variants')
@@ -413,7 +412,7 @@ class ProductionAdmin(TranslationAdmin):
     date_hierarchy = 'begin_date'
     search_fields = ['title', 'ascii_title', 'title_variants', 'notes']
     list_filter = ('has_attention',)
-    filter_horizontal = ['source_work', 'primary_publications', 'theater_companies'] #, 'secondary_bibliography',]
+    filter_horizontal = ['source_work', 'primary_publications', 'theater_companies'] 
     fieldsets = (
         (None, {
             'fields': ('source_work', 'title', 'subtitle', 'title_variants')

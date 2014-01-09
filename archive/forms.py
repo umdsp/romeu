@@ -24,7 +24,7 @@ from django.utils.translation import ugettext_lazy as _
 from archive.lookups import (CreatorLookup, ProductionLookup, LocationLookup,
                              RoleLookup, WorkRecordLookup, CountryLookup,
                              DigitalObjectLookup, FestivalLookup,
-                             FestivalOccurrenceLookup,
+                             FestivalOccurrenceLookup, TheaterCompanyLookup,
                              CollectionLookup, CityLookup, AwardLookup)
 
 import selectable
@@ -47,15 +47,21 @@ from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord
                             WorkRecordType, VenueType, DigitalObjectType)
 
 class ProductionAdminForm(ModelForm):    
-    venue = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup, allow_new=False, label=_(u"Venue"))
-#    theater_companies = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, required=False, label=_(u"Theater companies"))
+    venue = selectable_forms.AutoCompleteSelectField(lookup_class=LocationLookup,
+                                                     allow_new=False, label=_(u"Venue"))
+#    theater_companies = selectable_forms.AutoCompleteSelectMultipleField(
+#                                            lookup_class=TheaterCompanyLookup,
+#                                            required=False,
+#                                            label=_(u"Theater companies"))
 
     def __init__(self, *args, **kwargs): 
         super(ProductionAdminForm, self).__init__(*args, **kwargs)
         vrel = ManyToOneRel(Location, 'id') 
-        tcrel = ManyToOneRel(Creator, 'id')
-        self.fields['venue'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['venue'].widget, vrel, self.admin_site)
-#        self.fields['theater_companies'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['theater_companies'].widget, tcrel, self.admin_site)
+#        tcrel = ManyToManyRel(Creator, 'id')
+        self.fields['venue'].widget = admin.widgets.RelatedFieldWidgetWrapper(
+            self.fields['venue'].widget, vrel, self.admin_site)
+#        self.fields['theater_companies'].widget = admin.widgets.RelatedFieldWidgetWrapper(
+#            self.fields['theater_companies'].widget, tcrel, self.admin_site)
 
     class Meta(object):
         model = Production
