@@ -57,11 +57,14 @@ class ProductionAdminForm(ModelForm):
     def __init__(self, *args, **kwargs): 
         super(ProductionAdminForm, self).__init__(*args, **kwargs)
         vrel = ManyToOneRel(Location, 'id') 
-#        tcrel = ManyToManyRel(Creator, 'id')
+        tcrel = ManyToManyRel(Creator, 'id')
         self.fields['venue'].widget = admin.widgets.RelatedFieldWidgetWrapper(
             self.fields['venue'].widget, vrel, self.admin_site)
 #        self.fields['theater_companies'].widget = admin.widgets.RelatedFieldWidgetWrapper(
 #            self.fields['theater_companies'].widget, tcrel, self.admin_site)
+        
+        t_companies = Creator.objects.filter(creator_type='corp',)
+        self.fields['theater_companies'].queryset = t_companies
 
     class Meta(object):
         model = Production
