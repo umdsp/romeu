@@ -33,7 +33,8 @@ from archive.views import (CreatorsListView, CreatorsAlphaListView,
                            DigitalObjectsTypeListView, phys_types_list,
                            DigitalObjectsCollectionListView,
                            AwardsListView, AwardsAlphaListView,
-                           AwardDetailView, TaggedItemsListView, TaggedItemDetailView)
+                           AwardDetailView, TaggedItemsListView, TaggedItemDetailView,
+                           )
 
 DEFAULT_LANG = settings.DEFAULT_LANG
 
@@ -41,7 +42,7 @@ from haystack.forms import ModelSearchForm, FacetedSearchForm
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView, search_view_factory, FacetedSearchView
 
-from archive.views import flatpage
+from archive.views import flatpage, get_creators_json_response, get_creators_org_name_json_response
 
 from dajaxice.core import dajaxice_autodiscover
 dajaxice_autodiscover()
@@ -148,7 +149,12 @@ urlpatterns = patterns('',
     url(r'^publications/', include('publications.urls')),
     url(r'^admin/publications/publication/import_bibtex/$', 'publications.admin_views.import_bibtex'),
     url(r'^admin/publications/type/import_bibtex/$', 'publications.admin_views.import_bibtex'),
-    
+
+    url(r'^ajax/creators/$',
+          'archive.views.get_creators_json_response', name='ajax_get_creators_in_json'),
+    url(r'^ajax/creators/org_name/$',
+          'archive.views.get_creators_org_name_json_response', name='ajax_get_creators_org_name_in_json'),    
+     
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     

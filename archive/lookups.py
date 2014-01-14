@@ -49,7 +49,11 @@ class ArchiveLookup(LookupBase):
 class CreatorLookup(ArchiveLookup):
     model = Creator
     def get_query(self,request,term):
-        return Creator.objects.filter(Q(creator_ascii_name__icontains=term) | Q(creator_name__icontains=term) | Q(name_variants__icontains=term) | Q(creator_display_name__icontains=term) | Q(creator_display_ascii_name__icontains=term))
+        return Creator.objects.filter(Q(creator_ascii_name__icontains=term) |
+                                      Q(creator_name__icontains=term) |
+                                      Q(name_variants__icontains=term) |
+                                      Q(creator_display_name__icontains=term) |
+                                      Q(creator_display_ascii_name__icontains=term))
     
 class TheaterCompanyLookup(ArchiveLookup):
     model = Creator
@@ -60,33 +64,53 @@ class TheaterCompanyLookup(ArchiveLookup):
 class LocationLookup(ArchiveLookup):
     model = Location
     def get_query(self,request,term):
-        return Location.objects.filter(Q(title_ascii__icontains=term) | Q(title__icontains=term) | Q(title_variants__icontains=term))
+        return Location.objects.filter(Q(title_ascii__icontains=term) |
+                                       Q(title__icontains=term) |
+                                       Q(title_variants__icontains=term))
         
         
 class ProductionLookup(ArchiveLookup):
     model = Production
     def get_query(self,request,term):
-        return Production.objects.filter(Q(ascii_title__icontains=term) | Q(title__icontains=term) | Q(title_variants__icontains=term))
+        return Production.objects.filter(Q(ascii_title__icontains=term) |
+                                         Q(title__icontains=term) |
+                                         Q(title_variants__icontains=term))
         
 class WorkRecordLookup(ArchiveLookup):
     model = WorkRecord
     def get_query(self,request,term):
-        return WorkRecord.objects.filter(Q(ascii_title__icontains=term) | Q(title__icontains=term) | Q(title_variants__icontains=term))
+        
+        return WorkRecord.objects.filter(Q(ascii_title__icontains=term) |
+                                         Q(title__icontains=term) |
+                                         Q(title_variants__icontains=term))
         
 class RoleLookup(ArchiveLookup):
     model = Role
     def get_query(self,request,term):
-        return Role.objects.filter(Q(source_text__title__icontains=term) | Q(source_text__ascii_title__icontains=term) | Q(source_text__title_variants__icontains=term) | Q(title__icontains=term))
+        work_record_list = request.GET.get('source_text', None)
+        if work_record_list:
+            return Role.objects.filter(source_text__id__in=work_record_list)
+        else:
+            return Role.objects.filter(Q(source_text__title__icontains=term) |
+                                       Q(source_text__ascii_title__icontains=term) |
+                                       Q(source_text__title_variants__icontains=term) |
+                                       Q(title__icontains=term))
         
 class CountryLookup(ArchiveLookup):
     model = Country
     def get_query(self,request,term):
-        return Country.objects.filter(Q(name__icontains=term) | Q(demonym__icontains=term))
+        return Country.objects.filter(Q(name__icontains=term) |
+                                      Q(demonym__icontains=term))
         
 class DigitalObjectLookup(ArchiveLookup):
     model = DigitalObject
     def get_query(self,request,term):
-        return DigitalObject.objects.filter(Q(object_id__icontains=term) | Q(digital_id__icontains=term) | Q(identifier__icontains=term) | Q(title__icontains=term) | Q(title_variants__icontains=term) | Q(summary__icontains=term))
+        return DigitalObject.objects.filter(Q(object_id__icontains=term) |
+                                            Q(digital_id__icontains=term) |
+                                            Q(identifier__icontains=term) |
+                                            Q(title__icontains=term) |
+                                            Q(title_variants__icontains=term) |
+                                            Q(summary__icontains=term))
 
 class FestivalLookup(ArchiveLookup):
     model = Festival
@@ -96,12 +120,15 @@ class FestivalLookup(ArchiveLookup):
 class FestivalOccurrenceLookup(ArchiveLookup):
     model = FestivalOccurrence
     def get_query(self,request,term):
-        return FestivalOccurrence.objects.filter(Q(title__icontains=term) | Q(title_variants__icontains=term) | Q(festival_series__title__icontains=term))
+        return FestivalOccurrence.objects.filter(Q(title__icontains=term) |
+                                                 Q(title_variants__icontains=term) |
+                                                 Q(festival_series__title__icontains=term))
 
 class CollectionLookup(ArchiveLookup):
     model = Collection
     def get_query(self,request,term):
-        return Collection.objects.filter(Q(collection_id__icontains=term) | Q(title__icontains=term)).order_by('title')
+        return Collection.objects.filter(Q(collection_id__icontains=term) |
+                                         Q(title__icontains=term)).order_by('title')
 
 class CityLookup(ArchiveLookup):
     model = City

@@ -63,8 +63,9 @@ class ProductionAdminForm(ModelForm):
 #        self.fields['theater_companies'].widget = admin.widgets.RelatedFieldWidgetWrapper(
 #            self.fields['theater_companies'].widget, tcrel, self.admin_site)
         
-        t_companies = Creator.objects.filter(creator_type='corp',)
-        self.fields['theater_companies'].queryset = t_companies
+        corporate_creator = Creator.objects.filter(creator_type='corp',
+                                                   org_name__isnull=False)
+        self.fields['theater_companies'].queryset = corporate_creator
 
     class Meta(object):
         model = Production
@@ -160,7 +161,7 @@ class CreatorAdminForm(ModelForm):
         self.fields['nationality'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['nationality'].widget, crel, self.admin_site)
         self.fields['location'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['location'].widget, lrel, self.admin_site)
         self.fields['photo'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['photo'].widget, dorel, self.admin_site)
-    
+
     class Meta(object):
         model = Creator
         

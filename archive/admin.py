@@ -278,6 +278,8 @@ class CreatorAdmin(TranslationAdmin):
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
             '/media/js/tabbed_translation_fields.js',
+            '/static/js/admin_form.js'
+
         )
 
 """
@@ -442,6 +444,7 @@ class ProductionAdmin(TranslationAdmin):
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
             '/media/js/tabbed_translation_fields.js',
+            '/static/js/admin_form.js'
         )
 
 class FestivalAdmin(TranslationAdmin):

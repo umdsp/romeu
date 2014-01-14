@@ -22,6 +22,8 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.db.models import Q, Count
 
 import re
+import django.utils.simplejson as json
+
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
@@ -1059,3 +1061,92 @@ class TaggedItemDetailView(DetailView):
         context['now'] = timezone.now()
         return context
 
+def get_creators_json_response(request, g_name="", m_name="", f_name=""):
+    
+    """
+        Returns json response of creators with same names
+        according to the names passed in
+    """
+    
+    names = json.loads(request.GET.get('jobj'))
+    g_name=names['g_name']
+    m_name=names['m_name']
+    f_name=names['f_name']
+
+    if ((g_name == "" or g_name is None) and
+      (m_name == "" or m_name is None) and
+      (f_name == "" or f_name is None)):
+  
+      json_response = json.dumps([])
+      return HttpResponse(json_response, mimetype='application/json')
+    
+    creator_qs = []
+    if g_name:
+        creator_qs = Creator.objects.filter(given_name=g_name)
+
+    if m_name:
+        if creator_qs:
+            creator_qs = creator_qs.filter(middle_name=m_name)
+        else:
+            creator_qs = Creator.objects.filter(middle_name=m_name)
+            
+    if f_name:
+        if creator_qs:
+            creator_qs = creator_qs.filter(family_name=f_name)
+        else:
+            creator_qs = Creator.objects.filter(family_name=m_name)
+    
+    creator_list = []
+    for creator in creator_qs:
+        creator_dict={}
+        creator_dict['id']=creator.id
+        if creator.given_name:
+            creator_dict['g_name']=creator.given_name
+        else:
+            creator_dict['g_name']=''
+        if creator.middle_name:
+            creator_dict['m_name']=creator.middle_name
+        else:
+            creator_dict['m_name']=''
+        if creator.family_name:
+            creator_dict['f_name']=creator.family_name
+        else:
+            creator_dict['f_name']=''
+        if creator.birth_location:
+            creator_dict['b_loc']=creator.birth_location.title
+        else:
+            creator_dict['b_loc']=''
+        creator_dict['b_date']=creator.birth_date_display()
+        creator_list.append(creator_dict)
+
+    json_response = json.dumps(creator_list)
+  
+    return HttpResponse(json_response, mimetype='application/json')
+
+def get_creators_org_name_json_response(request):
+    
+    """
+        Returns json response of creators with same org_names
+        according to the org_names passed in
+    """
+    
+    names = json.loads(request.GET.get('jobj'))
+    org_name=names['org_name']
+
+    if ((org_name == "" or org_name is None)):
+  
+      json_response = json.dumps([])
+      return HttpResponse(json_response, mimetype='application/json')
+  
+    creator_qs = Creator.objects.filter(org_name=org_name)
+    
+    creator_list = []
+    for creator in creator_qs:
+        creator_dict={}
+        creator_dict['id']=creator.id
+        creator_dict['org_name']=creator.org_name
+        creator_list.append(creator_dict)
+
+    json_response = json.dumps(creator_list)
+  
+    return HttpResponse(json_response, mimetype='application/json')
