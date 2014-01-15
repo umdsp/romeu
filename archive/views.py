@@ -1039,12 +1039,6 @@ class TaggedItemsListView(ListView):
         if result_list:
                 result_dict["digitalobject"] = result_list
         result_list = []
-        queryset = Location.objects.filter(tags__name=query)
-        for x in queryset:
-                result_list.append(x)
-        if result_list:
-                result_dict["location"] = result_list
-        result_list = []
         context['now'] = timezone.now()
         context['tag_result'] = result_dict
         return context
