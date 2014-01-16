@@ -66,7 +66,7 @@ class CollectionTranslationOptions(TranslationOptions):
     fields = ('summary', 'notes',)
 
 class DigitalObjectTranslationOptions(TranslationOptions):
-    fields = ('title', 'summary', 'notes',)
+    fields = ('title', 'title_variants', 'summary', 'notes',)
 
 class AwardTranslationOptions(TranslationOptions):
     fields = ('notes',)
