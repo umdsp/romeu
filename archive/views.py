@@ -888,10 +888,11 @@ def search_view(request):
         taggeditem_matches = get_search_results(TaggedItem, query)
         tag_dict = {}
         for result in taggeditem_matches:
-                if result.object.tag.name in tag_dict:
-                        tag_dict[result.object.tag.name] += 1
-                else:
-                        tag_dict[result.object.tag.name] = 1
+		if result.object is not None:
+                	if result.object.tag.name in tag_dict:
+                        	tag_dict[result.object.tag.name] += 1
+                	else:
+                        	tag_dict[result.object.tag.name] = 1
 
     context = {}
     if query:
