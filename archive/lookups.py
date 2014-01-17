@@ -89,7 +89,7 @@ class RoleLookup(ArchiveLookup):
     def get_query(self,request,term):
         work_record_list = request.GET.get('source_text', None)
         if work_record_list:
-            return Role.objects.filter(source_text__id__in=work_record_list)
+            return Role.objects.filter(source_text__id__in=work_record_list.split(","))
         else:
             return Role.objects.filter(Q(source_text__title__icontains=term) |
                                        Q(source_text__ascii_title__icontains=term) |
