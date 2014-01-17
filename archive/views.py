@@ -888,10 +888,11 @@ def search_view(request):
         taggeditem_matches = get_search_results(TaggedItem, query)
         tag_dict = {}
         for result in taggeditem_matches:
-                if result.object.tag.name in tag_dict:
-                        tag_dict[result.object.tag.name] += 1
-                else:
-                        tag_dict[result.object.tag.name] = 1
+		if result.object is not None:
+                	if result.object.tag.name in tag_dict:
+                        	tag_dict[result.object.tag.name] += 1
+                	else:
+                        	tag_dict[result.object.tag.name] = 1
 
     context = {}
     if query:
@@ -1038,12 +1039,6 @@ class TaggedItemsListView(ListView):
                 result_list.append(x)
         if result_list:
                 result_dict["digitalobject"] = result_list
-        result_list = []
-        queryset = Location.objects.filter(tags__name=query)
-        for x in queryset:
-                result_list.append(x)
-        if result_list:
-                result_dict["location"] = result_list
         result_list = []
         context['now'] = timezone.now()
         context['tag_result'] = result_dict
