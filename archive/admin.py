@@ -273,7 +273,8 @@ class CreatorAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+                    '/static/css/admin_form.css')
         }
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
@@ -333,7 +334,8 @@ class LocationAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+                    '/static/css/admin_form.css')
         }
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
@@ -349,7 +351,8 @@ class StageAdmin(TranslationAdmin):
 
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/media/css/tabbed_translation_fields.css',
+                    '/static/css/admin_form.css')
         }
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
@@ -390,7 +393,8 @@ class WorkRecordAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+                    '/static/css/admin_form.css')
         }
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
@@ -439,7 +443,8 @@ class ProductionAdmin(TranslationAdmin):
      
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+                    '/static/css/admin_form.css')
         }
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
@@ -453,7 +458,8 @@ class FestivalAdmin(TranslationAdmin):
 
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+                    '/static/css/admin_form.css')
         }
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
@@ -487,7 +493,8 @@ class FestivalOccurrenceAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+                    '/static/css/admin_form.css')
         }
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
@@ -596,7 +603,8 @@ class DigitalObjectAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',),
+            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+                    '/static/css/admin_form.css'),
             'print': ('/media/css/digitalobject.css',)
         }
         js = (
@@ -779,7 +787,7 @@ class AdvisoryTeamFunctionAdmin(TranslationAdmin):
 class OrgFunctionAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/media/css/tabbed_translation_fields.css', 'static/css/admin_form.css',)
         }
         js = (
             '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
