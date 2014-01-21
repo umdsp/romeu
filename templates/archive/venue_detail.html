@@ -99,7 +99,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
           {% if venue.productions.exists %}
           <div class="linkeditems">
-            <h3>{% trans "Productions" %}:</h3>
+            <h3>{% trans "Productions" %}: +</h3>
             <ul>
               {% for p in venue.productions.all|dictsortreversed:"begin_date" %}
               <li>

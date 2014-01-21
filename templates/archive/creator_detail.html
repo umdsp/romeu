@@ -52,7 +52,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             {% endif %}
 
             {% if creator.notes %}
-              <h4>{% trans "Notes" %}:</h4>
+              <h4>{% trans "Notes" %}: +</h4>
               {{ creator.notes|autop }}
             {% endif %}
 
@@ -65,7 +65,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             
             {% if creator.primary_publications.exists %}
             <div class="linkeditems">
-              <h3>{% trans "Bibliography" %}</h3>
+              <h3>{% trans "Bibliography" %}: +</h3>
                 <ul>
                     
                   {% for citation in creator.primary_publications.all %}
@@ -81,7 +81,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             {% if creator.has_works %}
             <div class="linkeditems">
-              <h3>{% trans "Written texts" %}</h3>
+              <h3>{% trans "Written texts" %}: +</h3>
                 <ul>
                     
                   {% for work in creator.works %}
@@ -97,7 +97,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             
             {% if creator.has_productions %}
             <div class="linkeditems">
-              <h3>{% trans "Productions" %}</h3>
+              <h3>{% trans "Productions" %}: +</h3>
                 <ul>
                   {% for production in creator.productions %}
                   <li>

@@ -46,9 +46,24 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <h3>{% trans "Notes" %}:</h3>
             {{ workrecord.notes|autop }}
           {% endif %}
+          
+           {% if workrecord.primary_publications.exists %}
+             <div class="linkeditems">
+            <h3>{% trans "Bibliography" %}: +</h3>
+            <ul>
+                  {% for citation in workrecord.primary_publications.all %}
+                  <li>
+                    <a href="{{ SITE_URL }}{% url 'publications_views_id' citation.id %}">{{ citation.title|safe }}</a> 
+                  </li>
+                  {% endfor %}
+            </ul>
+             </div>
+           {% endif %}          
+          
+          
           {% if workrecord.performances.exists %}
           <div class="linkeditems">
-            <h3>{% trans "Performances" %}:</h3>
+            <h3>{% trans "Performances" %}: +</h3>
             <ul>
               {% for perf in workrecord.performances.all %}
               <li>
@@ -147,16 +162,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             {% endif %}
             </ul>
             
-           {% if workrecord.primary_publications.exists %}
-            <h4>{% trans "Bibliography" %}:</h4>
-            <ul>
-                  {% for citation in workrecord.primary_publications.all %}
-                  <li>
-                    <a href="{{ SITE_URL }}{% url 'publications_views_id' citation.id %}">{{ citation.title|safe }}</a> 
-                  </li>
-                  {% endfor %}
-            </ul>
-           {% endif %}
+
             <h4>{% trans "Tag(s)" %}:</h4>
             <ul>
             {% for tag in workrecord.tags.names %}
