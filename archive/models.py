@@ -402,7 +402,7 @@ class Creator(models.Model):
                 dms = DesignMember.objects.filter(person=self, production=dt)
                 roles = []
                 for dm in dms:
-                    for role in dm.functions:
+                    for role in dm.functions.all():
                         roles.append(role.title)
                 x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
                 prods.append(x)
@@ -463,8 +463,8 @@ class Creator(models.Model):
                 roles.append('actor')
         dm = DesignMember.objects.filter(person=self)
         if dm:
-            for time in dm:
-                for role in time.functions:
+            for member in dm:
+                for role in member.functions.all():
                     roles.append(role.title)
         pm = ProductionMember.objects.filter(person=self)
         if pm:
@@ -959,19 +959,19 @@ class Production(models.Model):
         Format: [{'person': i, 'function': x}, {'person': j, 'function': y}]
         """
         allpeople = []
-        for p in DirectingMember.objects.filter(production=self).filter(published=True):
+        for p in DirectingMember.objects.filter(production=self).filter(production__published=True):
             allpeople.append({'person': p.person, 'function': p.function})
-        for p in CastMember.objects.filter(production=self).filter(published=True):
+        for p in CastMember.objects.filter(production=self).filter(production__published=True):
             allpeople.append({'person': p.person, 'function': p.function})
-        for p in DesignMember.objects.filter(production=self).filter(published=True):
+        for p in DesignMember.objects.filter(production=self).filter(production__published=True):
+            allpeople.append({'person': p.person, 'function': p.functions})
+        for p in TechMember.objects.filter(production=self).filter(production__published=True):
             allpeople.append({'person': p.person, 'function': p.function})
-        for p in TechMember.objects.filter(production=self).filter(published=True):
+        for p in ProductionMember.objects.filter(production=self).filter(production__published=True):
             allpeople.append({'person': p.person, 'function': p.function})
-        for p in ProductionMember.objects.filter(production=self).filter(published=True):
+        for p in DocumentationMember.objects.filter(production=self).filter(production__published=True):
             allpeople.append({'person': p.person, 'function': p.function})
-        for p in DocumentationMember.objects.filter(production=self).filter(published=True):
-            allpeople.append({'person': p.person, 'function': p.function})
-        for p in AdvisoryMember.objects.filter(production=self).filter(published=True):
+        for p in AdvisoryMember.objects.filter(production=self).filter(production__published=True):
             allpeople.append({'person': p.person, 'function': p.function})
         return allpeople
 
