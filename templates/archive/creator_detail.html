@@ -109,7 +109,38 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   {% endfor %}
                 </ul>
             </div>
-            {% endif %}
+        {% endif %}
+        
+
+            {% if creator.recipient.exists %}
+              <div class="linkeditems">
+              <h3>{% trans "Awards" %}: +</h3>
+              <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>{% trans "Year" %}</th>
+                  <th>{% trans "Category" %}</th>
+                  <th>{% trans "Recipient" %}</th>
+                  <th>{% trans "Result" %}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for award_candidate in creator.recipient.all %}
+                    <tr>
+                        <td>{{ award_candidate.year }}</td>
+                        <td>{{ award_candidate.category }}</td>
+                        <td>{% if award_candidate.recipient %}
+                          <a href="{{ SITE_URL }}{% url 'creator_detail_view' award_candidate.recipient.id %}">{{ award_candidate.recipient }}</a>{% endif %}
+                        </td>
+                        <td>{{ award_candidate.get_result_display }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody></table>
+              </div>
+              </div>
+          {% endif %}        
+        
 
         
             {% if videos %}
