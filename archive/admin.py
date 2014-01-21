@@ -680,6 +680,9 @@ class LicenseAdmin(TranslationAdmin):
         )
 
 class AwardAdmin(TranslationAdmin):
+    list_display = ('title', 'award_org')
+    ordering = ['title']
+    
     class Media:
         css = {
             'all': ('/media/css/tabbed_translation_fields.css',)
@@ -696,7 +699,9 @@ class AwardCandidateAdmin(TranslationAdmin):
     
     verbose_name = "award nomination / win"
     verbose_name_plural = "award nominations / wins"
-    list_filter = ('has_attention',)
+    list_filter = ('has_attention', 'year')
+    list_display = ('award', 'year', 'category')
+    ordering = ['award', '-year']
 
     def __init__(self, model, admin_site):
         super(AwardCandidateAdmin, self).__init__(model, admin_site)

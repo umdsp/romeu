@@ -1448,6 +1448,9 @@ class Award(models.Model):
     
     def __unicode__(self):
         return "%s" % (self.title)
+    
+    class Meta:
+        ordering = ['title',]
 
     
 class AwardCandidate(models.Model):
@@ -1485,6 +1488,9 @@ class AwardCandidate(models.Model):
             return True
         else:
             return False
+    
+    class Meta:
+        ordering = ['award', 'year']
 
 
 class DigitalObject(models.Model):
