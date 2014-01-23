@@ -30,6 +30,10 @@ from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord
                             OrgFunction, FestivalFunction, PhysicalObjectType,
                             WorkRecordType, VenueType, DigitalObjectType,
                             License, HomePageInfo, SpecialPerformanceType)
+
+from unaccent.unaccent import monkey_patch_where_node
+monkey_patch_where_node()
+
 from modeltranslation.admin import TranslationAdmin
 
 from django.utils.translation import ugettext_lazy as _
@@ -541,7 +545,7 @@ class DigitalObjectAdmin(TranslationAdmin):
     inlines = (DigitalObjectRelatedCreatorInline, DigitalFileInline, )
     save_as = True
     save_on_top = True
-    search_fields = ['title', 'ascii_title', 'title_variants']
+    search_fields = ['ascii_title', 'title', 'title_variants']
     list_filter = ('has_attention', 'collection', 'digi_object_format', 'restricted', 'ready_to_stream')
     filter_horizontal = ['subject','related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work', 'related_award']
     exclude = ('ascii_title',)
@@ -599,7 +603,7 @@ class DigitalObjectAdmin(TranslationAdmin):
                     work_record.tags.add(tag)  
         
         return super(DigitalObjectAdmin, self).save_related(request, form, formsets, change)
-    
+ 
     
     class Media:
         css = {

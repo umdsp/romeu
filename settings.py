@@ -142,6 +142,7 @@ INSTALLED_APPS = (
     'haystack',
     'south',
     'disqus',
+    'unaccent',
 )
 
 DISQUS_API_KEY = 'haO01iiF2PCConCBF0j85S3WQD8eA0tit3XwEOIhqHfZ5g17QFBQEC0uHzBfXgWK'

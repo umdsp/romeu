@@ -44,7 +44,7 @@ from haystack.views import SearchView, search_view_factory, FacetedSearchView
 
 from archive.views import flatpage, get_creators_json_response, get_creators_org_name_json_response
 
-from dajaxice.core import dajaxice_autodiscover
+from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 dajaxice_autodiscover()
 
 sqs = SearchQuerySet().order_by('django_ct')
