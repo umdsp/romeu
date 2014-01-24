@@ -405,6 +405,11 @@ figcaption a:hover {
 #maincontent .main table {
     width: 100%;
 }
+#maincontent .main a,
+#maincontent aside a {
+    color: #A03A22;
+    text-decoration: underline;
+}
 #maincontent .linkeditems h3 {
     color: #a03a22;
     cursor: pointer;

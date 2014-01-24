@@ -60,7 +60,8 @@ import urllib2
 DEFAULT_TEMPLATE = 'flatpages/default.html'
 
 class CreatorsListView(ListView):
-    queryset = Creator.objects.filter(published=True).select_related().order_by('creator_name')
+#    queryset = Creator.objects.filter(published=True).select_related().order_by('creator_name')  - TODO: only use select_related if need to display information related to foreging key field
+    queryset = Creator.objects.filter(published=True).order_by('creator_name')
     context_object_name = "creators_list"
     template_name = "archive/creators_list.html"
     paginate_by = 10
@@ -487,24 +488,32 @@ class VenueDetailView(DetailView):
         return context
 
 class DigitalObjectsListView(ListView):
-    queryset = DigitalObject.objects.filter(Q(published=True), Q(digi_object_format__title="Image", files__isnull=False) | Q(digi_object_format__title="Video recording", ready_to_stream=True)).distinct().select_related().order_by('title')
+    queryset = DigitalObject.objects.filter(Q(published=True),
+                                            Q(digi_object_format__title="Image",
+                                              files__isnull=False) |
+                                            Q(digi_object_format__title="Video recording",
+                                              ready_to_stream=True)
+                                            ).distinct().select_related().order_by('title')
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 10
+    paginate_by = 12
 
 class DigitalObjectsVideosListView(ListView):
     vidtype = DigitalObjectType.objects.get(title="Video recording")
-    queryset = DigitalObject.objects.filter(published=True, ready_to_stream=True, poster_image__isnull=False, digi_object_format=vidtype).distinct().select_related().order_by('-creation_date')
+    queryset = DigitalObject.objects.filter(published=True, ready_to_stream=True,
+                                            poster_image__isnull=False,
+                                            digi_object_format=vidtype
+                                            ).distinct().select_related().order_by('-creation_date')
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 10
+    paginate_by = 12
 
 class DigitalObjectsImagesListView(ListView):
     imagetype = DigitalObjectType.objects.get(title="Image")
     queryset = DigitalObject.objects.filter(published=True, files__isnull=False, digi_object_format=imagetype).distinct().select_related().order_by('-creation_date')
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 10
+    paginate_by = 12
 
 # Function to generate the page with a list of PhysicalObjectTypes, for use with the TypeListView below.
 def phys_types_list(request):
@@ -518,7 +527,7 @@ def phys_types_list(request):
 class DigitalObjectsTypeListView(ListView):
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 10
+    paginate_by = 12
 
     def get_context_data(self, **kwargs):
         context = super(DigitalObjectsTypeListView, self).get_context_data(**kwargs)
@@ -544,7 +553,7 @@ def collections_list(request):
 class DigitalObjectsCollectionListView(ListView):
     context_object_name = 'digital_objects'
     template_name = "archive/digitalobjects_list.html"
-    paginate_by = 10
+    paginate_by = 12
 
     def get_context_data(self, **kwargs):
         context = super(DigitalObjectsCollectionListView, self).get_context_data(**kwargs)
@@ -580,7 +589,7 @@ class FestivalsListView(ListView):
     queryset = Festival.objects.filter().order_by('title')
     context_object_name = "festivals_list"
     template_name = "archive/festivals_list.html"
-    paginate_by = 10
+    paginate_by = 12
     
     def get_context_data(self, **kwargs):
         
@@ -888,11 +897,11 @@ def search_view(request):
         taggeditem_matches = get_search_results(TaggedItem, query)
         tag_dict = {}
         for result in taggeditem_matches:
-		if result.object is not None:
-                	if result.object.tag.name in tag_dict:
-                        	tag_dict[result.object.tag.name] += 1
-                	else:
-                        	tag_dict[result.object.tag.name] = 1
+            if result.object is not None:
+                if result.object.tag.name in tag_dict:
+                    tag_dict[result.object.tag.name] += 1
+                else:
+                    tag_dict[result.object.tag.name] = 1
 
     context = {}
     if query:
