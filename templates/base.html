@@ -199,8 +199,10 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <link rel="stylesheet" href="{{ STATIC_URL }}css/mediaelement/mediaelementplayer.css" />
         <script src="{{ STATIC_URL }}js/script.js"></script>
         <script>
-            $('li.dropdown').hover(function() {
+            $('li.dropdown').hover(function(e) {
+                e.preventDefault();
                 $(this).children('ul').slideToggle('slow');
+                
             });
         </script>
         {% block extra_js %}
