@@ -52,15 +52,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             {% endif %}
 
             {% if creator.notes %}
-              <h4>{% trans "Notes" %}: +</h4>
-              {{ creator.notes|autop }}
+              <div class="linkeditems">
+                  <h3>{% trans "Notes" %}: +</h3>
+                  <ul>
+                  {{ creator.notes|autop }}
+                  </ul>
+              </div>              
             {% endif %}
-
-            {% if creator.website %}
-              <h4>{% trans "Website" %}:</h4>
-              <a href="{{ creator.website }}">{{ creator.website }}</a>
-            {% endif %}
-            
+        
 
             {% if creator.has_works %}
             <div class="linkeditems">
@@ -195,6 +194,12 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <aside>
           <div class="data">
             <ul>
+              {% if creator.website %}
+                <li>
+                  <h4>{% trans "Website" %}:</h4>
+                  <span><a href="{{ creator.website }}">{{ creator.website }}</a></span>
+                </li>
+              {% endif %}
               {% if creator.nationality %}
                 <li>
                   <h4>{% trans "Nationality" %}:</h4>
@@ -236,12 +241,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   <span><a href="{% url 'venue_detail_view' creator.location.pk %}">{{ creator.location.display_name }}</a></span>
                 </li>
               {% endif %}
-              {% if creator.website %}
-                <li>
-                  <h4>{% trans "Website" %}:</h4>
-                  <span><a href="{{ creator.website }}">{{ creator.website }}</a></span>
-                </li>
-              {% endif %}
+
             </ul>
             <h4>{% trans "Tag(s)" %}:</h4>
             <ul>
@@ -258,13 +258,15 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <a id="caption" href="{% url 'digital_object_detail_view' digital_objects.0.pk %}">View details</a>
             <div id="digitalobjects">
                 {% for obj in digital_objects %}
-                {% thumbnail obj.image "800" as im %}
-                <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
-                {% endthumbnail %}
-                {% thumbnail obj.image "210x210" crop="center" as im %}
-                <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="{% url 'digital_object_detail_view' obj.pk %}" />
-                {% endthumbnail %}
-                </a>
+                    {% thumbnail obj.image "800" as im %}
+                    <a class="fancy" rel="gallery" href="{{ im.url }}" title="{{ obj.title }}">
+                    {% empty %}
+                    {% endthumbnail %}
+                    {% thumbnail obj.image "210x210" crop="center" as im %}
+                    <img src="{{ im.url }}" alt="{{ obj.title }}" data-href="{% url 'digital_object_detail_view' obj.pk %}" />
+                    {% empty %}
+                    {% endthumbnail %}
+                    </a>
                 {% endfor %}
             </div>
           </div>

@@ -137,7 +137,7 @@ class CreatorDetailView(DetailView):
                 item['pk'] = obj.pk
                 objects_list.append(item)
         context['digital_objects'] = objects_list
-        
+
         videos = DigitalObject.objects.filter(related_creator=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
         video_list = []
         for vid in videos:
@@ -558,7 +558,10 @@ class DigitalObjectsCollectionListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(DigitalObjectsCollectionListView, self).get_context_data(**kwargs)
         temp = self.args[0]
-        temp_repo = Repository.objects.get(repository_id=temp[0:3])
+        try:
+            temp_repo = Repository.objects.get(repository_id=temp[0:3])
+        except:
+            temp_repo = None
         temp_coll_id = temp[3:]
         try:
             context['current_collection'] = Collection.objects.get(collection_id=temp_coll_id, repository=temp_repo)

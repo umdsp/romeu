@@ -55,7 +55,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             {% if festival_occurrence.productions.exists %}
             <div class="linkeditems">
-                <h3>{% trans "Productions" %}:</h3>
+                <h3>{% trans "Productions" %}: +</h3>
                 <div>
                 <table>
                     <thead>
@@ -94,7 +94,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             {% if festival_occurrence.venue.exists %}
             <div class="linkeditems">
-                <h3>{% trans "Venues" %}:</h3>
+                <h3>{% trans "Venues" %}: +</h3>
                 <div>
                     
                     <table id="venues_list">
@@ -135,7 +135,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         
             {% if festival_occurrence.participants.exists %}
             <div class="linkeditems">
-                <h3>{% trans "Participants" %}:</h3>
+                <h3>{% trans "Participants" %}: +</h3>
                 <div>
                 <table>
                   <thead>
@@ -160,7 +160,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         
             {% if festival_occurrence.primary_publications.exists %}
             <div class="linkeditems">
-                <h3>{% trans "Bibliography" %}:</h3>
+                <h3>{% trans "Bibliography" %}: +</h3>
                 <ul>
                     
                   {% for citation in festival_occurrence.primary_publications.all %}

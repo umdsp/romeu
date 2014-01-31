@@ -79,7 +79,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
           {% if festival.primary_publications.exists %}
           <div class="linkeditems">
-            <h3>{% trans "Bibliography" %}</h3>
+            <h3>{% trans "Bibliography" %}: +</h3>
               <ul>
                   
                 {% for citation in festival.primary_publications.all %}
@@ -93,7 +93,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         
             {% if festival_occurrences %}
             <div class="linkeditems">
-            <h3>{% trans "Festival Occurrences" %}:</h3>
+            <h3>{% trans "Festival Occurrences" %}: +</h3>
             <div>
             <table>
               <thead>

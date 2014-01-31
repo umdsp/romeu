@@ -56,6 +56,15 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             {% endif %}
         </h2>
     </header>
+ 
+    {% if current_collection.notes %}   
+    <div class="linkeditems">
+        <h3>{% trans "Notes" %}: +</h3>
+        <ul>
+        {{ current_collection.notes|autop }}
+        </ul>
+    </div>
+    {% endif %}
     <ul id="digitalobjectslist">
         {% for obj in digital_objects %}
             <li>
