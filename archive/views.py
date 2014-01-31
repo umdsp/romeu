@@ -544,7 +544,8 @@ class DigitalObjectsTypeListView(ListView):
 # Function to generate the page with a list of Collections, for use with the CollectionListView below.
 def collections_list(request):
     collections = []
-    for c in Collection.objects.order_by('repository__repository_id', 'collection_id'):
+    collections_qs = Collection.objects.order_by('repository__repository_id', 'collection_id')
+    for c in collections_qs:
         if c.has_viewable_objects():
             collections.append(c)
     context_dict = {'collections': collections}
