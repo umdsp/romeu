@@ -572,10 +572,22 @@ class DigitalObjectsCollectionListView(ListView):
 
     def get_queryset(self):
         temp = self.args[0]
-        temp_repo = Repository.objects.get(repository_id=temp[0:3])
+        try:
+            temp_repo = Repository.objects.get(repository_id=temp[0:3])
+        except:
+            temp_repo = None
         temp_coll_id = temp[3:]
-        current_collection = get_object_or_404(Collection, collection_id=temp_coll_id, repository=temp_repo)
-        return DigitalObject.objects.filter(Q(published=True), Q(digi_object_format__title="Image", files__isnull=False) | Q(digi_object_format__title="Video recording", ready_to_stream=True)).filter(collection=current_collection).distinct().select_related().order_by('title')
+        current_collection = get_object_or_404(Collection,
+                                               collection_id=temp_coll_id,
+                                               repository=temp_repo)
+        return DigitalObject.objects.filter(
+            Q(published=True),
+            Q(digi_object_format__title="Image",
+              files__isnull=False) |
+            Q(digi_object_format__title="Video recording",
+              ready_to_stream=True)
+            ).filter(collection=current_collection
+                     ).distinct().select_related().order_by('title')
 
 class DigitalObjectDetailView(DetailView):
     queryset = DigitalObject.objects.filter(published=True).select_related()
