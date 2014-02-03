@@ -1425,7 +1425,7 @@ def setup_digital_file(sender, **kwargs):
 # Awards
 class Award(models.Model):
     title = models.CharField(max_length=100, verbose_name=_("title"), help_text=_("For a series of awards (e.g. Tony Award, Drama Desk Award), not award categories (Tony Award for Best Musical, etc.)"))
-    award_org = models.CharField(max_length=200, verbose_name=_("award organization"))
+    award_org = models.CharField(max_length=200,  null=True, blank=True, verbose_name=_("award organization"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     
     def has_images(self):

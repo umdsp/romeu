@@ -38,6 +38,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         </header>
 
         <section class="main">
+          {% if award.notes %}   
+          <div class="linkeditems">
+              <h3>{% trans "Notes" %}: +</h3>
+              <ul>
+              {{ award.notes|autop }}
+              </ul>
+          </div>
+          {% endif %}          
       
             {% if award_candidates %}
             <div>
@@ -130,12 +138,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <aside>
           <div class="data">
             <ul>
-              {% if award.notes %}
-              <li>
-                <h4>{% trans "Notes" %}:</h4>
-                <span>{{ award.notes|safe }}</span>
-              </li>
-            {% endif %}
               {% if award.award_org %}
               <li>
                 <h4>{% trans "Organization" %}:</h4>
