@@ -178,6 +178,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <h4>{% trans "Written by" %}:</h4>
                 <span>{{ workrecord.creators_display_links|safe }}</span>
               </li>
+
+              <li>
+                {% for related_work in workrecord.first_work_to.all %}
+                  {{ related_work.get_relationship_display }} {{ related_work.second_work.title }}<br />
+                  {% trans "Author" %}: {{ related_work.second_work.creators_display_links|safe }}<br />
+                {% endfor %}
+              </li>
+              
               {% if workrecord.creation_date %}
               <li>
                 <h4>{% trans "Creation date" %}:</h4>
