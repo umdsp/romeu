@@ -14,25 +14,28 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-from django.http import Http404, HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response
-from django.template import RequestContext, loader, Context
-from django.views.generic import TemplateView, ListView, DetailView
-from django.core.paginator import Paginator, InvalidPage, EmptyPage
-from django.db.models import Q, Count
-
 import re
-import django.utils.simplejson as json
-
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.xheaders import populate_xheaders
-from django.shortcuts import get_object_or_404
-from django.template import loader, RequestContext
-from django.utils.safestring import mark_safe
+from django.core.exceptions import ObjectDoesNotExist
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
+
+from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response
+from django.template import RequestContext, loader, Context
+from django.views.generic import TemplateView, ListView, DetailView
 from django.views.decorators.csrf import csrf_protect
+
+from django.db.models import Q, Count
+
+
+import django.utils.simplejson as json
+from django.utils.safestring import mark_safe
 from django.utils import timezone
+
+from django.shortcuts import get_object_or_404
 
 from settings import MEDIA_URL, STATIC_URL
 
@@ -561,12 +564,12 @@ class DigitalObjectsCollectionListView(ListView):
         temp = self.args[0]
         try:
             temp_repo = Repository.objects.get(repository_id=temp[0:3])
-        except:
+        except Repository.DoesNotExist:
             temp_repo = None
         temp_coll_id = temp[3:]
         try:
             context['current_collection'] = Collection.objects.get(collection_id=temp_coll_id, repository=temp_repo)
-        except:
+        except Collection.DoesNotExist:
             context['current_collection'] = self.args[0]
         return context
 
@@ -574,7 +577,7 @@ class DigitalObjectsCollectionListView(ListView):
         temp = self.args[0]
         try:
             temp_repo = Repository.objects.get(repository_id=temp[0:3])
-        except:
+        except Repository.DoesNotExist:
             temp_repo = None
         temp_coll_id = temp[3:]
         current_collection = get_object_or_404(Collection,
