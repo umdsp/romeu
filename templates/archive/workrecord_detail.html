@@ -88,8 +88,9 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   {% endfor %}
             </ul>
              </div>
-           {% endif %}          
-          
+           {% endif %}
+           
+        
           
           {% if workrecord.performances.exists %}
           <div class="linkeditems">
@@ -112,6 +113,11 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             </ul>
           </div>
           {% endif %}
+
+            {% if workrecord.profiler_name %}
+               {% trans "Author" %}: {{ workrecord.profiler_name }} ({{ workrecord.profiler_entry_date }})
+            {% endif %}
+
         
           {% if videos %}
           <hr />

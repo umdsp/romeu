@@ -272,7 +272,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             </div>
            {% endif %}
           
-          
+
+
             {% if production.notes %}
             <div class="linkeditems">
                 <p></p>
@@ -283,12 +284,17 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             </div>
             {% endif %}
 
-
+{% comment %}
           {% if production.profiler_name %}
               <p></p>
              {% trans "Profile Creator" %}:
           <em>{% trans "Information entered by" %} {{ production.profiler_name }}{% if production.profiler_entry_date %} {% trans "on" %} {{ production.profiler_entry_date }}{% endif %}</em><br />
           {% endif %}
+{% endcomment %}
+
+            {% if production.profiler_name %}
+               {% trans "Author" %}: {{ production.profiler_name }} ({{ production.profiler_entry_date }})
+            {% endif %}          
 
           
           {% if videos %}

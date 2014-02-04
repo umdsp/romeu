@@ -181,8 +181,8 @@ class Creator(models.Model):
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
-    profiler_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profiler name"))
-    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profile entry date"))
+    profiler_name = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profiler name"))
+    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
     tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 
     class Meta:
@@ -630,6 +630,8 @@ class Location(models.Model):
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
+    profiler_name = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profiler name"))
+    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
     tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 
     def begin_date_display(self):
@@ -760,6 +762,8 @@ class WorkRecord(models.Model):
     secondary_biblio_text = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text)"))
     secondary_biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text, Spanish)"))
     primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="workedrecord_primary_bibliography_for", verbose_name=_("primary bibliography"))
+    profiler_name = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profiler name"))
+    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
     tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 
     def creation_date_display(self):
@@ -922,8 +926,8 @@ class Production(models.Model):
     published = models.BooleanField(default=True, verbose_name=_("published"))
     theater_companies = models.ManyToManyField(Creator, null=True, blank=True, related_name="company_productions")
     
-    profiler_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profiler name"))
-    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profile entry date"))
+    profiler_name = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profiler name"))
+    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
     tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 
     def begin_date_display(self):
@@ -1264,7 +1268,8 @@ class FestivalOccurrence(models.Model):
     has_attention = models.BooleanField(default=False)
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
-    profiler_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("profiler name"))
+    profiler_name = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profiler name"))
+    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
     tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 
     def begin_date_display(self):
@@ -1467,6 +1472,8 @@ class AwardCandidate(models.Model):
     work_record = models.ForeignKey(WorkRecord, null=True, blank=True, default=None, related_name="work_record", verbose_name=_("work record"))
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
     has_attention = models.BooleanField(default=False)
+    profiler_name = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profiler name"))
+    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
     
     def __unicode__(self):
         return "%s for %s, %d (%s)" % (self.award.title, self.category, self.year, self.get_result_display())

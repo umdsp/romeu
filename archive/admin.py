@@ -328,7 +328,7 @@ class LocationAdmin(TranslationAdmin):
             'fields': ('summary', 'website', 'photo')
         }),
         ('Standard fields', {
-            'fields': ('notes', 'attention', 'needs_editing', 'published', 'tags')
+            'fields': ('notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date', 'tags')
         })
     )
     
@@ -387,7 +387,7 @@ class WorkRecordAdmin(TranslationAdmin):
             'fields': ('website', 'digital_copy')
         }),
         ('Standard fields', {
-            'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published', 'tags')
+            'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date', 'tags')
         })
     )
     
@@ -437,7 +437,7 @@ class ProductionAdmin(TranslationAdmin):
                 'awards_text', 'biblio_text', 'biblio_text_es', 'primary_publications')
         }),
         ('Standard fields', {
-            'fields': ('notes', 'attention', 'needs_editing', 'published', 'tags')
+            'fields': ('notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date', 'tags')
         })
     )
     
@@ -487,7 +487,7 @@ class FestivalOccurrenceAdmin(TranslationAdmin):
             'fields': ('venue', ('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'))
         }),
         ('Standard fields', {
-            'fields': (('notes', 'attention', 'needs_editing', 'published', 'tags'))
+            'fields': (('notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date', 'tags'))
         })
     )
     
