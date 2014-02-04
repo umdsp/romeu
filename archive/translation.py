@@ -63,7 +63,7 @@ class RepositoryTranslationOptions(TranslationOptions):
     fields = ('summary', 'notes',)
 
 class CollectionTranslationOptions(TranslationOptions):
-    fields = ('summary', 'notes',)
+    fields = ('notes',)
 
 class DigitalObjectTranslationOptions(TranslationOptions):
     fields = ('title', 'title_variants', 'summary', 'notes',)

@@ -1370,7 +1370,7 @@ class Collection(models.Model):
     repository = models.ForeignKey(Repository, related_name="collections", verbose_name=_("repository"))
     collection_id = models.CharField(max_length=4, verbose_name=_("collection ID"))
     url = models.URLField(null=True, blank=True, verbose_name=_("URL"))
-    summary = models.TextField(null=True, blank=True, verbose_name=_("summary"))
+#    summary = models.TextField(null=True, blank=True, verbose_name=_("summary"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
     has_attention = models.BooleanField(default=False)
