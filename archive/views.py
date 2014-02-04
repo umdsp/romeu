@@ -76,7 +76,7 @@ class CreatorsListView(ListView):
         objects_list = []
         
         imagetype = DigitalObjectType.objects.get(title='Image')
-        alldos = DigitalObject.objects.filter(related_creator__isnull=False, files__isnull=False, digi_object_format=imagetype)
+        alldos = DigitalObject.objects.filter(published=True, related_creator__isnull=False, files__isnull=False, digi_object_format=imagetype)
         length = len(alldos) - 1
         count = 0
         dos = []
@@ -130,7 +130,7 @@ class CreatorDetailView(DetailView):
         videotype = DigitalObjectType.objects.get(title='Video recording')
         audiotype = DigitalObjectType.objects.get(title='Audio recording')
         
-        alldos = DigitalObject.objects.filter(related_creator=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        alldos = DigitalObject.objects.filter(published=True, related_creator=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
 
         for obj in alldos:
             for file in obj.files.order_by('seq_id'):
@@ -141,7 +141,7 @@ class CreatorDetailView(DetailView):
                 objects_list.append(item)
         context['digital_objects'] = objects_list
 
-        videos = DigitalObject.objects.filter(related_creator=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        videos = DigitalObject.objects.filter(published=True, related_creator=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
         video_list = []
         for vid in videos:
             item = {}
@@ -154,7 +154,7 @@ class CreatorDetailView(DetailView):
             video_list.append(item)
         context['videos'] = video_list
 
-        audios = DigitalObject.objects.filter(related_creator=self.object, digi_object_format=audiotype).distinct()
+        audios = DigitalObject.objects.filter(published=True, related_creator=self.object, digi_object_format=audiotype).distinct()
         audio_list = []
         for audio in audios:
             item = {}
@@ -185,7 +185,7 @@ class ProductionsListView(ListView):
         context = super(ProductionsListView, self).get_context_data(**kwargs)
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
-        alldos = DigitalObject.objects.filter(related_production__isnull=False, files__isnull=False, digi_object_format=imagetype)
+        alldos = DigitalObject.objects.filter(published=True, related_production__isnull=False, files__isnull=False, digi_object_format=imagetype)
         count = 0
         length = len(alldos) - 1
         dos = []
@@ -236,7 +236,7 @@ class ProductionDetailView(DetailView):
         videotype = DigitalObjectType.objects.get(title='Video recording')
         audiotype = DigitalObjectType.objects.get(title='Audio recording')
         
-        alldos = DigitalObject.objects.filter(related_production=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        alldos = DigitalObject.objects.filter(published=True, related_production=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
         
         for obj in alldos:
             for file in obj.files.order_by('seq_id'):
@@ -247,7 +247,7 @@ class ProductionDetailView(DetailView):
                 objects_list.append(item)
         context['digital_objects'] = objects_list
 
-        videos = DigitalObject.objects.filter(related_production=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        videos = DigitalObject.objects.filter(published=True, related_production=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
         video_list = []
         for vid in videos:
             item = {}
@@ -261,7 +261,7 @@ class ProductionDetailView(DetailView):
         context['videos'] = video_list
 
 
-        audios = DigitalObject.objects.filter(related_production=self.object, digi_object_format=audiotype).distinct()
+        audios = DigitalObject.objects.filter(published=True, related_production=self.object, digi_object_format=audiotype).distinct()
         audio_list = []
         for audio in audios:
             item = {}
@@ -289,7 +289,7 @@ class WorkRecordsListView(ListView):
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
-        alldos = DigitalObject.objects.filter(related_work__isnull=False, files__isnull=False, digi_object_format=imagetype)
+        alldos = DigitalObject.objects.filter(published=True, related_work__isnull=False, files__isnull=False, digi_object_format=imagetype)
         count = 0
         length = len(alldos) - 1
         dos = []
@@ -343,7 +343,7 @@ class WorkRecordDetailView(DetailView):
         videotype = DigitalObjectType.objects.get(title='Video recording')
         audiotype = DigitalObjectType.objects.get(title='Audio recording')
 
-        alldos = DigitalObject.objects.filter(related_work=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        alldos = DigitalObject.objects.filter(published=True, related_work=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
         
         objects_list = []
         for obj in alldos:
@@ -355,7 +355,7 @@ class WorkRecordDetailView(DetailView):
                 objects_list.append(item)
         context['digital_objects'] = objects_list
         
-        videos = DigitalObject.objects.filter(related_work=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        videos = DigitalObject.objects.filter(published=True, related_work=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
         video_list = []
         for vid in videos:
             item = {}
@@ -369,7 +369,7 @@ class WorkRecordDetailView(DetailView):
         context['videos'] = video_list
 
 
-        audios = DigitalObject.objects.filter(related_work=self.object, digi_object_format=audiotype).distinct()
+        audios = DigitalObject.objects.filter(published=True, related_work=self.object, digi_object_format=audiotype).distinct()
         audio_list = []
         for audio in audios:
             item = {}
@@ -397,7 +397,7 @@ class VenuesListView(ListView):
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
-        alldos = DigitalObject.objects.filter(related_venue__isnull=False, files__isnull=False, digi_object_format=imagetype)
+        alldos = DigitalObject.objects.filter(published=True, related_venue__isnull=False, files__isnull=False, digi_object_format=imagetype)
         count = 0
         length = len(alldos) - 1
         dos = []
@@ -449,7 +449,7 @@ class VenueDetailView(DetailView):
         videotype = DigitalObjectType.objects.get(title='Video recording')
         audiotype = DigitalObjectType.objects.get(title='Audio recording')
 
-        alldos = DigitalObject.objects.filter(related_venue=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        alldos = DigitalObject.objects.filter(published=True, related_venue=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
 
         for obj in alldos:
             for file in obj.files.order_by('seq_id'):
@@ -460,7 +460,7 @@ class VenueDetailView(DetailView):
                 objects_list.append(item)
         context['digital_objects'] = objects_list
             
-        videos = DigitalObject.objects.filter(related_venue=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        videos = DigitalObject.objects.filter(published=True, related_venue=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
         video_list = []
         for vid in videos:
             item = {}
@@ -474,7 +474,7 @@ class VenueDetailView(DetailView):
         context['videos'] = video_list
 
 
-        audios = DigitalObject.objects.filter(related_venue=self.object, digi_object_format=audiotype).distinct()
+        audios = DigitalObject.objects.filter(published=True, related_venue=self.object, digi_object_format=audiotype).distinct()
         audio_list = []
         for audio in audios:
             item = {}
@@ -617,7 +617,7 @@ class FestivalsListView(ListView):
 
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
-        alldos = DigitalObject.objects.filter(related_festival__isnull=False, files__isnull=False, digi_object_format=imagetype)
+        alldos = DigitalObject.objects.filter(published=True, related_festival__isnull=False, files__isnull=False, digi_object_format=imagetype)
         length = len(alldos) - 1
         count = 0
         dos = []
@@ -681,7 +681,7 @@ class FestivalDetailView(DetailView):
         
         for festival_Occurrence_obj in context['festival_occurrences']:
             if festival_Occurrence_obj.has_images():
-                fo_images = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, files__isnull=False, digi_object_format=imagetype).distinct()
+                fo_images = DigitalObject.objects.filter(published=True, related_festival=festival_Occurrence_obj, files__isnull=False, digi_object_format=imagetype).distinct()
                 for obj in fo_images:
                     for file in obj.files.order_by('seq_id'):
                         item = {}
@@ -691,7 +691,7 @@ class FestivalDetailView(DetailView):
                         objects_list.append(item)
 
             if festival_Occurrence_obj.has_videos():
-                videos = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                videos = DigitalObject.objects.filter(published=True, related_festival=festival_Occurrence_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
                 for vid in videos:
                     item = {}
                     if vid.poster_image:
@@ -703,7 +703,7 @@ class FestivalDetailView(DetailView):
                     video_list.append(item)
 
             if festival_Occurrence_obj.has_audio():
-                audios = DigitalObject.objects.filter(related_festival=festival_Occurrence_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                audios = DigitalObject.objects.filter(published=True, related_festival=festival_Occurrence_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
                 for audio in audios:
                     item = {}
                     if audio.poster_image:
@@ -744,7 +744,7 @@ class FestivalOccurrenceDetailView(DetailView):
         video_list = []
         audio_list = []
         
-        fo_images = DigitalObject.objects.filter(related_festival=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
+        fo_images = DigitalObject.objects.filter(published=True, related_festival=self.object, files__isnull=False, digi_object_format=imagetype).distinct()
         for obj in fo_images:
             for file in obj.files.order_by('seq_id'):
                 item = {}
@@ -753,7 +753,7 @@ class FestivalOccurrenceDetailView(DetailView):
                 item['pk'] = obj.pk
                 objects_list.append(item)
 
-        videos = DigitalObject.objects.filter(related_festival=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        videos = DigitalObject.objects.filter(published=True, related_festival=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
         for vid in videos:
             item = {}
             if vid.poster_image:
@@ -764,7 +764,7 @@ class FestivalOccurrenceDetailView(DetailView):
             item['pk'] = vid.pk
             video_list.append(item)
 
-        audios = DigitalObject.objects.filter(related_festival=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
+        audios = DigitalObject.objects.filter(published=True, related_festival=self.object, digi_object_format=videotype, ready_to_stream=True).distinct()
         for audio in audios:
             item = {}
             if audio.poster_image:
@@ -794,7 +794,7 @@ class AwardsListView(ListView):
         # Make a container for all the object info - link to file + file info + creator id
         objects_list = []
         imagetype = DigitalObjectType.objects.get(title='Image')
-        alldos = DigitalObject.objects.filter(related_award__isnull=False, files__isnull=False, digi_object_format=imagetype)
+        alldos = DigitalObject.objects.filter(published=True, related_award__isnull=False, files__isnull=False, digi_object_format=imagetype)
         count = 0
         length = len(alldos) - 1
         count = 0
@@ -858,7 +858,7 @@ class AwardDetailView(DetailView):
         
         for award_candidates_obj in context['award_candidates']:
             if award_candidates_obj.has_images():
-                ac_images = DigitalObject.objects.filter(related_award=award_candidates_obj, files__isnull=False, digi_object_format=imagetype).distinct()
+                ac_images = DigitalObject.objects.filter(published=True, related_award=award_candidates_obj, files__isnull=False, digi_object_format=imagetype).distinct()
                 for obj in ac_images:
                     for file in obj.files.order_by('seq_id'):
                         item = {}
@@ -868,7 +868,7 @@ class AwardDetailView(DetailView):
                         objects_list.append(item)
 
             if award_candidates_obj.has_videos():
-                videos = DigitalObject.objects.filter(related_award=award_candidates_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                videos = DigitalObject.objects.filter(published=True, related_award=award_candidates_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
                 for vid in videos:
                     item = {}
                     if vid.poster_image:
@@ -880,7 +880,7 @@ class AwardDetailView(DetailView):
                     video_list.append(item)
 
             if award_candidates_obj.has_audio():
-                audios = DigitalObject.objects.filter(related_award=award_candidates_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
+                audios = DigitalObject.objects.filter(published=True, related_award=award_candidates_obj, digi_object_format=videotype, ready_to_stream=True).distinct()
                 for audio in audios:
                     item = {}
                     if audio.poster_image:
@@ -957,19 +957,19 @@ def render_flatpage(request, f):
         info = HomePageInfo.objects.get(pk=1)
         if info.box_1_id:
             box_1 = {}
-            box_1['obj'] = DigitalObject.objects.get(pk=info.box_1_id)
+            box_1['obj'] = DigitalObject.objects.get(pk=info.box_1_id, published=True)
             box_1['image'] = box_1['obj'].files.all()[0].filepath
         else:
             box_1 = False
         if info.box_2_id:
             box_2 = {}
-            box_2['obj'] = DigitalObject.objects.get(pk=info.box_2_id)
+            box_2['obj'] = DigitalObject.objects.get(pk=info.box_2_id, published=True)
             box_2['image'] = box_2['obj'].files.all()[0].filepath
         else:
             box_2 = False
         if info.box_3_id:
             box_3 = {}
-            box_3['obj'] = DigitalObject.objects.get(pk=info.box_3_id)
+            box_3['obj'] = DigitalObject.objects.get(pk=info.box_3_id, published=True)
             box_3['image'] = box_3['obj'].files.all()[0].filepath
         else:
             box_3 = False
@@ -1024,11 +1024,11 @@ def show_object(request):
         request,
         template="taggit/taggit.html",
         extra_context={
-            'workrecords':WorkRecord.objects.all(),
-            'productions':Production.objects.all(),
-            'locations':Location.objects.all(),
-            'creators':Creator.objects.all(),
-            'digitalobjects':DigitalObject.objects.all(),
+            'workrecords':WorkRecord.objects.filter(published=True),
+            'productions':Production.objects.filter(published=True),
+            'locations':Location.objects.filter(published=True),
+            'creators':Creator.objects.filter(published=True),
+            'digitalobjects':DigitalObject.objects.filter(published=True),
         })
 
 class TaggedItemsListView(ListView):
@@ -1044,25 +1044,25 @@ class TaggedItemsListView(ListView):
         queryset = TaggedItem.objects.filter(tag__name=query)
         result_list = []
         result_dict = {}
-        queryset = Creator.objects.filter(tags__name=query)
+        queryset = Creator.objects.filter(tags__name=query, published=True)
         for x in queryset:
                 result_list.append(x)
         if result_list:
                 result_dict["creator"] = result_list
         result_list = []
-        queryset = Production.objects.filter(tags__name=query)
+        queryset = Production.objects.filter(tags__name=query, published=True)
         for x in queryset:
                 result_list.append(x)
         if result_list:
                 result_dict["production"] = result_list
         result_list = []
-        queryset = WorkRecord.objects.filter(tags__name=query)
+        queryset = WorkRecord.objects.filter(tags__name=query, published=True)
         for x in queryset:
                 result_list.append(x)
         if result_list:
                 result_dict["writtenwork"] = result_list
         result_list = []
-        queryset = DigitalObject.objects.filter(tags__name=query)
+        queryset = DigitalObject.objects.filter(tags__name=query, published=True)
         for x in queryset:
                 result_list.append(x)
         if result_list:
