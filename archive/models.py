@@ -681,6 +681,9 @@ class Location(models.Model):
             return True
         return False
     
+    def published_productions(self):
+        return self.productions.filter(published=True).order_by('-begin_date')
+    
     def has_images(self):
         if DigitalObject.objects.filter(related_venue=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
             return True
@@ -821,6 +824,8 @@ class WorkRecord(models.Model):
         else:
             return False
 
+    def published_performances(self):
+        return self.performances.filter(published=True)
 
     def __unicode__(self):
         return "%s (%s)" % (self.title, self.work_type.name)
@@ -1005,7 +1010,7 @@ class Production(models.Model):
 
     def all_directors(self):
         directors = []
-        for person in self.directing_team.distinct():
+        for person in self.directing_team.filter(published=True).distinct():
             x = {}
             x['person'] = person
             dms = DirectingMember.objects.filter(person=person, production=self)
@@ -1018,7 +1023,7 @@ class Production(models.Model):
 
     def all_cast(self):
         cast = []
-        for person in self.cast.distinct():
+        for person in self.cast.filter(published=True).distinct():
             x = {}
             x['person'] = person
             cms = CastMember.objects.filter(person=person, production=self)
@@ -1034,7 +1039,7 @@ class Production(models.Model):
 
     def all_designers(self):
         designers = []
-        for person in self.design_team.distinct():
+        for person in self.design_team.filter(published=True).distinct():
             x = {}
             x['person'] = person
             dms = DesignMember.objects.filter(person=person, production=self)
@@ -1048,7 +1053,7 @@ class Production(models.Model):
 
     def all_techs(self):
         techs = []
-        for person in self.technical_team.distinct():
+        for person in self.technical_team.filter(published=True).distinct():
             x = {}
             x['person'] = person
             tms = TechMember.objects.filter(person=person, production=self)
@@ -1061,7 +1066,7 @@ class Production(models.Model):
 
     def all_producers(self):
         producers = []
-        for person in self.production_team.distinct():
+        for person in self.production_team.filter(published=True).distinct():
             x = {}
             x['person'] = person
             pms = ProductionMember.objects.filter(person=person, production=self)
@@ -1074,7 +1079,7 @@ class Production(models.Model):
 
     def all_documentation(self):
         documentation = []
-        for person in self.documentation_team.distinct():
+        for person in self.documentation_team.filter(published=True).distinct():
             x = {}
             x['person'] = person
             dms = DocumentationMember.objects.filter(person=person, production=self)
@@ -1087,7 +1092,7 @@ class Production(models.Model):
 
     def all_advisors(self):
         advisors = []
-        for person in self.advisory_team.distinct():
+        for person in self.advisory_team.filter(published=True).distinct():
             x = {}
             x['person'] = person
             ams = AdvisoryMember.objects.filter(person=person, production=self)

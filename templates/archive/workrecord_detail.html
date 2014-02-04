@@ -92,11 +92,11 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
            
         
           
-          {% if workrecord.performances.exists %}
+          {% if workrecord.published_performances %}
           <div class="linkeditems">
             <h3>{% trans "Performances" %}: +</h3>
             <ul>
-              {% for perf in workrecord.performances.all %}
+              {% for perf in workrecord.published_performances %}
               <li>
                 <a href="{{ SITE_URL }}{% url 'production_detail_view' perf.pk %}">{{ perf.title }}</a>
                 {% if perf.display_directors %}

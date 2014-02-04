@@ -97,11 +97,11 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           </ul>
           {% endif %}
 
-          {% if venue.productions.exists %}
+          {% if venue.published_productions %}
           <div class="linkeditems">
             <h3>{% trans "Productions" %}: +</h3>
             <ul>
-              {% for p in venue.productions.all|dictsortreversed:"begin_date" %}
+              {% for p in venue.published_productions %}
               <li>
                 <a href="{{ SITE_URL }}{% url 'production_detail_view' p.pk %}">{{ p.title }}</a>
                 {% if p.begin_date or p.end_date %}
