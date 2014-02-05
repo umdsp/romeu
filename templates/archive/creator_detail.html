@@ -36,6 +36,13 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 </ul>
             </nav>
             <h2>{{ creator.display_name }}</h2>
+                        {% comment %}
+             {% if creator.photo %}
+                {% thumbnail creatorphoto "100x100" crop="center" as im %}
+                    <img src="{{ im.url }}"  style="float:right; margin-right: 30px; margin-bottom: 20px;" />
+                {% endthumbnail %}
+            {% endif %}
+                        {% endcomment %}
         </header>
         
         <section class="main">
@@ -201,7 +208,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               {% if creator.website %}
                 <li>
                   <h4>{% trans "Website" %}:</h4>
-                  <span><a href="{{ creator.website }}">{{ creator.website }}</a></span>
+                  <span><a href="{{ creator.website }}" target="_blank">{{ creator.website }}</a></span>
                 </li>
               {% endif %}
               {% if creator.nationality %}

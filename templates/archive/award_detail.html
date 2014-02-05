@@ -138,6 +138,12 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <aside>
           <div class="data">
             <ul>
+              {% if award.website %}
+              <li>
+                <h4>{% trans "Website" %}:</h4>
+                <span><a href="{{ award.website }}" target="_blank">{{ award.website }}</a></span>
+              </li>
+              {% endif %}
               {% if award.award_org %}
               <li>
                 <h4>{% trans "Organization" %}:</h4>

@@ -1437,6 +1437,7 @@ class Award(models.Model):
     title = models.CharField(max_length=100, verbose_name=_("title"), help_text=_("For a series of awards (e.g. Tony Award, Drama Desk Award), not award categories (Tony Award for Best Musical, etc.)"))
     award_org = models.CharField(max_length=200,  null=True, blank=True, verbose_name=_("award organization"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
+    website = models.URLField(null=True, blank=True, verbose_name=_("website"))
     
     def has_images(self):
         if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
