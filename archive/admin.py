@@ -794,6 +794,11 @@ class AdvisoryTeamFunctionAdmin(TranslationAdmin):
 
 
 class OrgFunctionAdmin(TranslationAdmin):
+    
+    list_filter = ('func_type',)
+    list_display = ('title', 'ordinal')
+    ordering = ['ordinal']
+    
     class Media:
         css = {
             'all': ('/media/css/tabbed_translation_fields.css', 'static/css/admin_form.css',)

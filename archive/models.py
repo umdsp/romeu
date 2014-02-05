@@ -500,6 +500,9 @@ class Creator(models.Model):
             return True
         else:
             return False
+        
+    def related_creators_relationship(self):
+        return RelatedCreator.objects.filter(first_creator=self).order_by('function__ordinal')
     
     def same_birthplace_creators(self):
         if not self.birth_location:
@@ -1793,6 +1796,8 @@ class AdvisoryTeamFunction(models.Model):
 class OrgFunction(models.Model):
     title = models.CharField(max_length=100, verbose_name=_("title"))
     func_type = models.CharField(max_length=6, choices=constants.CREATOR_RELATIONSHIP_TYPES, verbose_name=_("function type"))
+    ordinal = models.SmallIntegerField(default=0,null=False, verbose_name=_("Display Order"),
+                                       help_text=_("Use to list Related Creator by function ordinal"),) 
     
     class Meta:
         verbose_name = _("organizational function")

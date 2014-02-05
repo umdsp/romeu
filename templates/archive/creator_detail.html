@@ -66,7 +66,19 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   </ul>
               </div>              
             {% endif %}
-        
+
+            {% if creator.has_related_creators %}
+             <div class="linkeditems">
+                <h3>{% trans "Related creators" %}: +</h3>
+                <ul>
+                    {% for relatedCreator in creator.related_creators_relationship %}
+                        {{ relatedCreator.get_relationship_display }}
+                        <a href="{% url 'creator_detail_view' relatedCreator.second_creator.id %}"> {{  relatedCreator.second_creator.display_name }}</a>, {{  relatedCreator.function }},
+                        {{  relatedCreator.relationship_since_display }} {{  relatedCreator.relationship_until_display }}<br />
+                    {% endfor %}
+                </ul>
+             </div>
+            {% endif %}
 
             {% if creator.has_works %}
             <div class="linkeditems">
@@ -239,11 +251,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <li>
                   <h4>{% if creator.creator_type == 'corp' %}{% trans "Place of dissolution" %}{% else %}{% trans "Place of death" %}{% endif %}:</h4>
                   <span>{{ creator.death_location.display_name }}</span>
-                </li>
-              {% endif %}
-              {% if creator.has_related_creators %}
-                <li>
-                  <h4>{% trans "Related creators" %}:</h4>
                 </li>
               {% endif %}
               {% if creator.location %}
