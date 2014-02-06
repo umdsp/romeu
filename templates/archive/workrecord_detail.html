@@ -39,7 +39,9 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
         <section class="main">
           <h4>{{ workrecord.work_type.name }} ({{ workrecord.language_display }})</h4>
+          {% if workrecord.performance_rights %}
           {{ workrecord.performance_rights }}<br />
+          {% endif %}
           {% if workrecord.summary %}
             {{ workrecord.summary|autop }}
           {% endif %}
