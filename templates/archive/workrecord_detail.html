@@ -96,7 +96,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           <div class="linkeditems">
             <h3>{% trans "Performances" %}: +</h3>
             <ul>
-              {% for perf in workrecord.published_performances %}
+              {% for perf in workrecord.published_performances|dictsortreversed:"begin_date" %}
               <li>
                 <a href="{{ SITE_URL }}{% url 'production_detail_view' perf.pk %}">{{ perf.title }}</a>
                 {% if perf.display_directors %}
