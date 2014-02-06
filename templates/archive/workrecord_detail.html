@@ -34,11 +34,12 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               <li>{{ workrecord.title }}</li>
             </ul>
           </nav>
-          <h2>{{ workrecord.title }}</h2>
+          <h2>{{ workrecord.title }} ({{ workrecord.creation_date_display }})</h2>
         </header>
 
         <section class="main">
-          <h4>{{ workrecord.work_type.name }}</h4>
+          <h4>{{ workrecord.work_type.name }} ({{ workrecord.language_display }})</h4>
+          {{ workrecord.performance_rights }}<br />
           {% if workrecord.summary %}
             {{ workrecord.summary|autop }}
           {% endif %}

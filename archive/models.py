@@ -789,6 +789,14 @@ class WorkRecord(models.Model):
         cs = cs.rstrip(', ')
         return cs
 
+    def language_display(self):
+        language_qs = self.lang.all()
+        langs = ""
+        for language in language_qs:
+            langs += language.name
+            langs += ","
+        return langs
+    
     def has_system_links(self):
         if AwardCandidate.objects.filter(work_record=self).exists():
             return True
