@@ -1600,10 +1600,12 @@ class DigitalObject(models.Model):
 
     def object_number(self):
         num = ''
-        num += self.collection.repository.repository_id
-        num += self.collection.collection_id
+        num += self.collection.repository.repository_id + '-'
+        num += self.collection.collection_id + '-'
         num += self.object_id
         return num
+    
+    object_number.short_description = _('Digital object number')
     
     def first_file(self):
         if self.files:
@@ -1614,6 +1616,9 @@ class DigitalObject(models.Model):
 
     def __unicode__(self):
         return "%s (%s)" % (self.title, str(self.object_number()))
+
+    class Meta:
+        ordering = ['-collection__repository__repository_id', '-collection__collection_id', '-object_id']
 
 def update_digital_object_title(sender, **kwargs):
     obj = kwargs['instance']
