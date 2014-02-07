@@ -34,7 +34,11 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               <li>{{ workrecord.title }}</li>
             </ul>
           </nav>
-          <h2>{{ workrecord.title }} ({{ workrecord.creation_date_display }})</h2>
+          <h2>{{ workrecord.title }}
+          {% if workrecord.creation_date_display %}
+            ({{ workrecord.creation_date_display }})
+          {% endif %}
+          </h2>
         </header>
         <section class="main">
           <h4>{{ workrecord.work_type.name }}
