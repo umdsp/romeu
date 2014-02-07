@@ -36,7 +36,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
           </nav>
           <h2>{{ workrecord.title }} ({{ workrecord.creation_date_display }})</h2>
         </header>
-
         <section class="main">
           <h4>{{ workrecord.work_type.name }}
           {% if workrecord.language_display %}
@@ -52,7 +51,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <h3>{% trans "Notes" %}:</h3>
             {{ workrecord.notes|autop }}
           {% endif %}
-          
             {% if workrecord.work_record.exists %}
               <div class="linkeditems">
               <h3>{% trans "Awards" %}: +</h3>
@@ -82,7 +80,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               </div>
           {% endif %}          
 
-          
            {% if workrecord.primary_publications.exists %}
              <div class="linkeditems">
             <h3>{% trans "Bibliography" %}: +</h3>
@@ -95,9 +92,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             </ul>
              </div>
            {% endif %}
-           
-        
-          
+
           {% if workrecord.published_performances %}
           <div class="linkeditems">
             <h3>{% trans "Performances" %}: +</h3>
@@ -188,14 +183,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               </li>
               {% endif %}
               <li>
-                <h4>{% trans "Written by" %}:</h4>
-                <span>{{ workrecord.creators_display_links|safe }}</span>
+                <span>{{ workrecord.creators_display_links|safe }}</span> 
               </li>
 
               <li>
                 {% for related_work in workrecord.first_work_to.all %}
-                  {{ related_work.get_relationship_display }} {{ related_work.second_work.title }}<br />
-                  {% trans "Author" %}: {{ related_work.second_work.creators_display_links|safe }}<br />
+                  {{ related_work.get_relationship_display|upper }}
+                   <a href="{% url 'workrecord_detail_view' related_work.second_work.id %}">{{ related_work.second_work.title }}</a><br /><br />
+                   {{ related_work.second_work.creators_display_links|safe }}<br />
                 {% endfor %}
               </li>
               

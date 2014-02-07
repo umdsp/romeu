@@ -783,6 +783,7 @@ class WorkRecord(models.Model):
     def creators_display_links(self):
         cs = ""
         for wrc in WorkRecordCreator.objects.filter(work_record=self):
+            cs += "<h4>" + wrc.function.title + ":</h4>"
             cs += "<a href='/creator/" + str(wrc.creator.id) + "'>"
             cs += wrc.creator.display_name()
             cs += "</a>, "
@@ -795,6 +796,7 @@ class WorkRecord(models.Model):
         for language in language_qs:
             langs += language.name
             langs += ","
+        langs = langs.rstrip(',')
         return langs
     
     def has_system_links(self):
