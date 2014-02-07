@@ -38,7 +38,10 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         </header>
 
         <section class="main">
-          <h4>{{ workrecord.work_type.name }} ({{ workrecord.language_display }})</h4>
+          <h4>{{ workrecord.work_type.name }}
+          {% if workrecord.language_display %}
+          ({{ workrecord.language_display }}) {% endif %}
+          </h4>
           {% if workrecord.performance_rights %}
           {{ workrecord.performance_rights }}<br />
           {% endif %}
@@ -202,15 +205,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <span>{{ workrecord.creation_date_display }}</span>
               </li>
               {% endif %}
-              {% if workrecord.publication_date %}
-              <li>
-                <h4>{% trans "Publication date" %}:</h4>
-                <span>{{ workrecord.publication_date_display }}</span>
-              </li>
-            {% endif %}
             </ul>
-            
-
             <h4>{% trans "Tag(s)" %}:</h4>
             <ul>
             {% for tag in workrecord.tags.names %}

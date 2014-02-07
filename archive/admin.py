@@ -368,8 +368,8 @@ class StageAdmin(TranslationAdmin):
 class WorkRecordAdmin(TranslationAdmin):
     form = arcforms.WorkRecordAdminForm
     inlines = (WorkRecordCreatorInline, RoleInline, RelatedWorkInline,)
-    list_display = ('title', 'creators_display', 'work_type', 'genre', 'culture', 'style', 'has_system_links')
-    list_filter = ('work_type', 'lang', 'genre', 'culture', 'style', 'has_attention',)
+    list_display = ('title', 'creators_display', 'work_type', 'has_system_links')
+    list_filter = ('work_type', 'lang', 'has_attention',)
     search_fields = ['title', 'subtitle', 'ascii_title', 'title_variants']
     filter_horizontal = ['subject', 'lang', 'primary_publications']
     fieldsets = (
@@ -377,14 +377,11 @@ class WorkRecordAdmin(TranslationAdmin):
             'fields': ('title', 'subtitle', 'title_variants')
         }),
         ('Description', {
-            'fields': ('work_type', 'subject', 'genre', 'culture', 'style', 'lang')
+            'fields': ('work_type', 'lang')
         }),
         ('Creation / Publication', {
-            'fields': (('creation_date', 'creation_date_precision', 'creation_date_BC'), ('publication_date', 'publication_date_precision', 'publication_date_BC'), 'publication_rights', 'performance_rights',
-                'primary_publications')
-        }),
-        ('Access', {
-            'fields': ('website', 'digital_copy')
+            'fields': (('creation_date', 'creation_date_precision', 'creation_date_BC'),
+                'performance_rights', 'primary_publications')
         }),
         ('Standard fields', {
             'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date', 'tags')
