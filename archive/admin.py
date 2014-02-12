@@ -546,7 +546,7 @@ class DigitalObjectAdmin(TranslationAdmin):
     list_filter = ('has_attention', 'collection', 'digi_object_format', 'restricted', 'ready_to_stream')
     filter_horizontal = ['subject','related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work', 'related_award']
     exclude = ('ascii_title',)
-    list_display = ('object_number', 'title')
+    list_display = ('object_number_display', 'title')
     
     fieldsets = (
         ('Basic info', {

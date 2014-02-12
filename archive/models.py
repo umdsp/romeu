@@ -1600,12 +1600,19 @@ class DigitalObject(models.Model):
 
     def object_number(self):
         num = ''
+        num += self.collection.repository.repository_id
+        num += self.collection.collection_id
+        num += self.object_id
+        return num
+
+    def object_number_display(self):
+        num = ''
         num += self.collection.repository.repository_id + '-'
         num += self.collection.collection_id + '-'
         num += self.object_id
         return num
     
-    object_number.short_description = _('Digital object number')
+    object_number_display.short_description = _('Digital object number')
     
     def first_file(self):
         if self.files:

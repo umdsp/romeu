@@ -12,7 +12,7 @@
 					for (var key in data )
 						if (data.hasOwnProperty(key)) {
 							var value = data[key];
-							alertText += 'ID ................' + ': ' + value.id+'\n';
+							alertText += 'ID ................' + ': ' + value.id.toString()+'\n';
 							alertText += 'Name ..............' + ': ' + value.g_name+' '+value.m_name+' '+value.f_name+'\n';
 							alertText += 'Birthday ..........' + ': ' + value.b_date+'\n';
 							alertText += 'Birthday Location .' + ': ' + value.b_loc+'\n';
@@ -22,7 +22,7 @@
 				}
             });
 		});
-		$("#id_org_name").change(function (data) {
+		$("#id_org_name").blur(function (data) {
 			var jsonObject= {
 					"org_name":$( "#id_org_name" ).val()
 				};
@@ -32,7 +32,7 @@
 					for (var key in data )
 						if (data.hasOwnProperty(key)) {
 							var value = data[key];
-							alertText += 'ID ................' + ': ' + value.id+'\n';
+							alertText += 'ID ................' + ': ' + value.id.toString()+'\n';
 							alertText += 'Name ..............' + ': ' + value.org_name+'\n';
 							alertText += '--------------------------------------------------------' + '\n';
 						}
