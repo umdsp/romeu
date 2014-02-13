@@ -699,7 +699,7 @@ class AwardAdmin(TranslationAdmin):
 
 class AwardCandidateAdmin(TranslationAdmin):
     form = arcforms.AwardCandidateAdminForm
-    search_fields = ['award', 'category', 'recipient']
+    search_fields = ['award__title', 'category', 'recipient__creator_name']
     verbose_name = "award nomination / win"
     verbose_name_plural = "award nominations / wins"
     list_filter = ('has_attention', 'year')
