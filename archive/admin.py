@@ -699,11 +699,12 @@ class AwardAdmin(TranslationAdmin):
 
 class AwardCandidateAdmin(TranslationAdmin):
     form = arcforms.AwardCandidateAdminForm
-    
+    search_fields = ['award', 'category', 'recipient']
     verbose_name = "award nomination / win"
     verbose_name_plural = "award nominations / wins"
     list_filter = ('has_attention', 'year')
-    list_display = ('award', 'year', 'category')
+    list_display = ('award', 'year', 'category', 'recipient')
+    date_hierarchy = 'year'
     ordering = ['award', '-year']
 
     def __init__(self, model, admin_site):
