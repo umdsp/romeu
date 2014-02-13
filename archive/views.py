@@ -1117,7 +1117,7 @@ def get_creators_json_response(request, g_name="", m_name="", f_name=""):
         if creator_qs:
             creator_qs = creator_qs.filter(family_name=f_name)
         else:
-            creator_qs = Creator.objects.filter(family_name=m_name)
+            creator_qs = Creator.objects.filter(family_name=f_name)
     
     creator_list = []
     for creator in creator_qs:
