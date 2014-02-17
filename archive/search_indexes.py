@@ -16,7 +16,7 @@
 
 from haystack.indexes import *
 from haystack import site
-from archive.models import Creator, Production, Location, WorkRecord, DigitalObject
+from archive.models import Creator, Production, Location, WorkRecord, DigitalObject, Festival
 from taggit.models import Tag, TaggedItem
 
 class CreatorIndex(SearchIndex):
@@ -77,7 +77,19 @@ class DigitalObjectIndex(SearchIndex):
 
     def index_request(self):
         return DigitalObject.objects.filter(published=True)
-        
+
+class FestivalIndex(SearchIndex):
+    text = CharField(document=True, use_template=True)
+    content_auto = EdgeNgramField(model_attr='ascii_title')
+    tag_name = MultiValueField()
+
+    def prepare_festival_tag(self, obj):
+        return [tag for tag in obj.tags.names()]
+
+    def index_request(self):
+        return Festival.objects.filter()
+
+    
 class TagIndex(SearchIndex):
     text = CharField(document=True, use_template=True)
     tag_name = CharField(model_attr='tag__name', faceted=True)
@@ -91,4 +103,5 @@ site.register(Production, ProductionIndex)
 site.register(Location, LocationIndex)
 site.register(WorkRecord, WorkRecordIndex)
 site.register(DigitalObject, DigitalObjectIndex)
+site.register(Festival, FestivalIndex)
 site.register(TaggedItem, TagIndex)
