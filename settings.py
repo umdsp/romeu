@@ -147,7 +147,7 @@ INSTALLED_APPS = (
 
 DISQUS_API_KEY = 'haO01iiF2PCConCBF0j85S3WQD8eA0tit3XwEOIhqHfZ5g17QFBQEC0uHzBfXgWK'
 DISQUS_WEBSITE_SHORTNAME = 'cubantheater'
-TAGGIT_AUTOCOMPLETE_JS_BASE_URL = 'http://cubantheater.org/media/js'
+TAGGIT_AUTOCOMPLETE_JS_BASE_URL = 'http://ctda.library.miami.edu/media/js'
 
 HAYSTACK_CONNECTIONS = {
     'default': {
