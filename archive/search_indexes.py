@@ -80,7 +80,7 @@ class DigitalObjectIndex(SearchIndex):
 
 class FestivalIndex(SearchIndex):
     text = CharField(document=True, use_template=True)
-    content_auto = EdgeNgramField(model_attr='ascii_title')
+    content_auto = EdgeNgramField(model_attr='title')
     tag_name = MultiValueField()
 
     def prepare_festival_tag(self, obj):
