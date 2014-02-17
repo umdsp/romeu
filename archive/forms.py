@@ -178,11 +178,12 @@ class RelatedCreatorAdminForm(ModelForm):
         
 class DigitalObjectAdminForm(ModelForm):
 
-#    related_creator = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=CreatorLookup, label=_(u"Related creator"), required=False)
-#    related_production = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=ProductionLookup, label=_(u"Related production"), required=False)
-#    related_festival = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=FestivalOccurrenceLookup, label=_(u"Related festival"), required=False)
-#    related_venue = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=LocationLookup, label=_(u"Related venue"), required=False)
-#    related_work = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=WorkRecordLookup, label=_(u"Related work"), required=False)
+    related_creator = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=CreatorLookup, label=_(u"Related creator"), required=False)
+    related_production = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=ProductionLookup, label=_(u"Related production"), required=False)
+    related_festival = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=FestivalOccurrenceLookup, label=_(u"Related festival"), required=False)
+    related_venue = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=LocationLookup, label=_(u"Related venue"), required=False)
+    related_work = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=WorkRecordLookup, label=_(u"Related work"), required=False)
+    related_award = selectable_forms.AutoCompleteSelectMultipleField(lookup_class=AwardLookup, label=_(u"Related award"), required=False)
 
     collection = selectable_forms.AutoCompleteSelectField(lookup_class=CollectionLookup, allow_new=False, label=_(u"Collection"))
     object_creator = selectable_forms.AutoCompleteSelectField(lookup_class=CreatorLookup, allow_new=False, label=_(u"Object creator"), required=False)
@@ -196,12 +197,14 @@ class DigitalObjectAdminForm(ModelForm):
         frel = ManyToOneRel(FestivalOccurrence, 'id')
         lrel = ManyToOneRel(Location, 'id')
         wrel = ManyToOneRel(WorkRecord, 'id')
+        awrel = ManyToOneRel(Award, 'id')
         colrel = ManyToOneRel(Collection, 'id')
-#        self.fields['related_creator'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_creator'].widget, crel, self.admin_site)
+        self.fields['related_creator'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_creator'].widget, crel, self.admin_site)
         self.fields['related_production'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_production'].widget, prel, self.admin_site)
         self.fields['related_festival'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_festival'].widget, frel, self.admin_site)
         self.fields['related_venue'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_venue'].widget, lrel, self.admin_site)
         self.fields['related_work'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_work'].widget, wrel, self.admin_site)
+        self.fields['related_award'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['related_award'].widget, awrel, self.admin_site)
         self.fields['collection'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['collection'].widget, colrel, self.admin_site)
         self.fields['object_creator'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['object_creator'].widget, crel, self.admin_site)
         self.fields['phys_obj_location'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['phys_obj_location'].widget, lrel, self.admin_site)
