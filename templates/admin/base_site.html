@@ -22,15 +22,19 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 {% load dajaxice_templatetags %}
 
 {% block extrahead %}
-<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css" type="text/css" media="screen"> -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/cupertino/jquery-ui.css" type="text/css" media="screen">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+
+<link href="{{ STATIC_URL }}selectable/css/dj.selectable.css" type="text/css" media="all" rel="stylesheet">
+<script type="text/javascript" src="{{ STATIC_URL }}selectable/js/jquery.dj.selectable.js"></script>
+
 
 {% comment%}
 {% dajaxice_js_import %}
 {% endcomment %}
 
-<script type="text/javascript" src="{{ MEDIA_URL }}/js/jquery.dajax.core.js" charset="utf-8"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}/js/jquery.dajax.core.js" charset="utf-8"></script>
 <script type="text/javascript">
     $(document).ready(function() {
             function split( val )
@@ -61,7 +65,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 .autocomplete(
                 {
                         source: function( request, response ) {
-                        $.getJSON( "/taggit_autocomplete/list", {
+                        $.getJSON( "/taggit_autocomplete_modified/json", {
                                 term: extractLast( request.term )
                                 }, response );
                         },
@@ -72,7 +76,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                                         return false;
                                 }
                         },
-                        /*source: "/taggit_autocomplete/list", minLength: 2, search: function()
+                        /*source: "/taggit_autocomplete_modified/json", minLength: 2, search: function()
                         {
                                 // custom minLength
                                 var term = extractLast( this.value );

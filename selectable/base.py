@@ -1,30 +1,21 @@
-# Copyright (C) 2012  University of Miami
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-# See the GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software Foundation,
-# Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+"Base classes for lookup creation."
+from __future__ import unicode_literals
 
+import json
+import operator
 import re
+from functools import reduce
 
 from django.conf import settings
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse
-from django.utils import simplejson as json
-from django.utils.encoding import smart_unicode
+from django.db.models import Q
+from django.utils.html import conditional_escape
 from django.utils.translation import ugettext as _
 
+from selectable.compat import smart_text
 from selectable.forms import BaseLookupForm
 
 
@@ -34,13 +25,24 @@ __all__ = (
 )
 
 
+class JsonResponse(HttpResponse):
+    "HttpResponse subclass for returning JSON data."
+
+    def __init__(self, *args, **kwargs):
+        kwargs['content_type'] = 'application/json'
+        super(JsonResponse, self).__init__(*args, **kwargs)
+
+
 class LookupBase(object):
+    "Base class for all django-selectable lookups."
+
     form = BaseLookupForm
+    response = JsonResponse
 
     def _name(cls):
         app_name = cls.__module__.split('.')[-2].lower()
         class_name = cls.__name__.lower()
-        name = u'%s-%s' % (app_name, class_name)       
+        name = '%s-%s' % (app_name, class_name)
         return name
     name = classmethod(_name)
 
@@ -52,13 +54,13 @@ class LookupBase(object):
         return []
 
     def get_item_label(self, item):
-        return smart_unicode(item)
+        return smart_text(item)
 
     def get_item_id(self, item):
-        return smart_unicode(item)
+        return smart_text(item)
 
     def get_item_value(self, item):
-        return smart_unicode(item)
+        return smart_text(item)
 
     def get_item(self, value):
         return value
@@ -67,18 +69,22 @@ class LookupBase(object):
         raise NotImplemented()
 
     def format_item(self, item):
-         return {
+        "Construct result dictionary for the match item."
+        result = {
             'id': self.get_item_id(item),
             'value': self.get_item_value(item),
-            'label': self.get_item_label(item)
+            'label': self.get_item_label(item),
         }
+        for key in settings.SELECTABLE_ESCAPED_KEYS:
+            if key in result:
+                result[key] = conditional_escape(result[key])
+        return result
 
-    def paginate_results(self, request, results, limit):
+    def paginate_results(self, results, options):
+        "Return a django.core.paginator.Page of results."
+        limit = options.get('limit', settings.SELECTABLE_MAX_LIMIT)
         paginator = Paginator(results, limit)
-        try:
-            page = int(request.GET.get('page', '1'))
-        except ValueError:
-            page = 1
+        page = options.get('page', 1)
         try:
             results = paginator.page(page)
         except (EmptyPage, InvalidPage):
@@ -86,38 +92,57 @@ class LookupBase(object):
         return results
 
     def results(self, request):
-        data = []
+        "Match results to given term and return the serialized HttpResponse."
+        results = {}
         form = self.form(request.GET)
         if form.is_valid():
-            term = form.cleaned_data.get('term', '')
-            limit = form.cleaned_data.get('limit', None)
+            options = form.cleaned_data
+            term = options.get('term', '')
             raw_data = self.get_query(request, term)
-            page_data = None      
-            if limit:
-                page_data = self.paginate_results(request, raw_data, limit)
-                raw_data = page_data.object_list
-            for item in raw_data:
-                data.append(self.format_item(item))
-            if page_data and hasattr(page_data, 'has_next') and page_data.has_next():
-                data.append({
-                    'id': '',
-                    'value': '',
-                    'label': _('Show more results'),
-                    'page': page_data.next_page_number()
-                })        
-        content = json.dumps(data, cls=DjangoJSONEncoder, ensure_ascii=False)
-        return HttpResponse(content, content_type='application/json')    
+            results = self.format_results(raw_data, options)
+        content = self.serialize_results(results)
+        return self.response(content)
+
+    def format_results(self, raw_data, options):
+        '''
+        Returns a python structure that later gets serialized.
+        raw_data
+            full list of objects matching the search term
+        options
+            a dictionary of the given options
+        '''
+        page_data = self.paginate_results(raw_data, options)
+        results = {}
+        meta = options.copy()
+        meta['more'] = _('Show more results')
+        if page_data and page_data.has_next():
+            meta['next_page'] = page_data.next_page_number()
+        if page_data and page_data.has_previous():
+            meta['prev_page'] = page_data.previous_page_number()
+        results['data'] = [self.format_item(item) for item in page_data.object_list]
+        results['meta'] = meta
+        return results
+
+    def serialize_results(self, results):
+        "Returns serialized results for sending via http."
+        return json.dumps(results, cls=DjangoJSONEncoder, ensure_ascii=False)
 
 
 class ModelLookup(LookupBase):
+    "Lookup class for easily defining lookups based on Django models."
+
     model = None
     filters = {}
-    search_field = ''
+    search_fields = ()
 
     def get_query(self, request, term):
         qs = self.get_queryset()
-        if term and self.search_field:
-            qs = qs.filter(**{self.search_field: term})
+        if term:
+            search_filters = []
+            if self.search_fields:
+                for field in self.search_fields:
+                    search_filters.append(Q(**{field: term}))
+            qs = qs.filter(reduce(operator.or_, search_filters))
         return qs
 
     def get_queryset(self):
@@ -133,16 +158,15 @@ class ModelLookup(LookupBase):
         item = None
         if value:
             try:
-                item = self.get_queryset().filter(pk=value)[0]
-            except IndexError:
-                pass
+                item = self.get_queryset().get(pk=value)
+            except (ValueError, self.model.DoesNotExist):
+                item = None
         return item
 
     def create_item(self, value):
         data = {}
-        if self.search_field:
-            field_name = re.sub(r'__\w+$', '',  self.search_field)
+        if self.search_fields:
+            field_name = re.sub(r'__\w+$', '',  self.search_fields[0])
             if field_name:
                 data = {field_name: value}
         return self.model(**data)
-

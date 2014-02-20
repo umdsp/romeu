@@ -63,6 +63,8 @@ from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
 from django.contrib.sites.models import Site
 from archive.models import TranslatingFlatPage
 
+from settings import MEDIA_URL, STATIC_URL
+
 class AjaxTranslationAdmin(AjaxSelectAdmin, TranslationAdmin):
     def formfield_for_dbfield(self, db_field, **kwargs):
         field = super(AjaxTranslationAdmin, self).formfield_for_dbfield(db_field, **kwargs)
@@ -277,14 +279,17 @@ class CreatorAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
-                    '/static/css/admin_form.css')
+            'all': (("%s%s" % (STATIC_URL, 'css/tabbed_translation_fields.css')),
+                    ("%s%s" % (STATIC_URL, 'css/iconic.css')),
+                    ("%s%s" % (STATIC_URL, 'css/admin_form.css'))
+                   )
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
-            '/static/js/admin_form.js'
-
+            ("%s%s" % (STATIC_URL, 'js/tiny_mce/tiny_mce.js')),
+            ("%s%s" % (STATIC_URL, 'js/textareas.js')),
+            ("%s%s" % (STATIC_URL, 'js/scripts.js')),
+            ("%s%s" % (STATIC_URL, 'js/tabbed_translation_fields.js')),
+            ("%s%s" % (STATIC_URL, 'js/admin_form.js'))
         )
 
 """
@@ -297,11 +302,11 @@ class BibliographicRecordAdmin(admin.ModelAdmin):
 
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 """
 
@@ -338,12 +343,12 @@ class LocationAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',
                     '/static/css/admin_form.css')
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class StageAdmin(TranslationAdmin):
@@ -355,14 +360,14 @@ class StageAdmin(TranslationAdmin):
 
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',
+            'all': ('/static/css/tabbed_translation_fields.css',
                     '/static/css/admin_form.css')
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class WorkRecordAdmin(TranslationAdmin):
@@ -394,12 +399,12 @@ class WorkRecordAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',
                     '/static/css/admin_form.css')
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class RoleAdmin(admin.ModelAdmin):
@@ -444,12 +449,12 @@ class ProductionAdmin(TranslationAdmin):
      
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',
                     '/static/css/admin_form.css')
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/tabbed_translation_fields.js',
             '/static/js/admin_form.js'
         )
 
@@ -459,12 +464,12 @@ class FestivalAdmin(TranslationAdmin):
 
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',
                     '/static/css/admin_form.css')
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class FestivalOccurrenceAdmin(TranslationAdmin):
@@ -494,12 +499,12 @@ class FestivalOccurrenceAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',
                     '/static/css/admin_form.css')
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class RepositoryAdmin(TranslationAdmin):
@@ -514,11 +519,11 @@ class RepositoryAdmin(TranslationAdmin):
 
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class CollectionAdmin(TranslationAdmin):
@@ -528,13 +533,13 @@ class CollectionAdmin(TranslationAdmin):
     exclude = ('ascii_title',)
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class DigitalObjectAdmin(TranslationAdmin):
@@ -544,7 +549,7 @@ class DigitalObjectAdmin(TranslationAdmin):
     save_on_top = True
     search_fields = ['ascii_title', 'title', 'title_variants']
     list_filter = ('has_attention', 'collection', 'digi_object_format', 'restricted', 'ready_to_stream')
-    filter_horizontal = ['subject','related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work', 'related_award']
+    filter_horizontal = ['subject','related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work'] #, 'related_award']
     exclude = ('ascii_title',)
     list_display = ('object_number_display', 'title')
     
@@ -565,7 +570,7 @@ class DigitalObjectAdmin(TranslationAdmin):
             'fields': ('digi_object_format', ('creation_date', 'creation_date_precision', 'creation_date_BC'))
         },),
         ('Relationships', {
-            'fields': ('related_production', 'related_festival', 'related_venue', 'related_work', 'related_award')
+            'fields': ('related_production', 'related_festival', 'related_venue', 'related_work') #, 'related_award')
         },),
         ('Video settings', {
             'fields': (('restricted', 'restricted_description'), 'ready_to_stream', 'hi_def_video', 'poster_image')
@@ -582,7 +587,7 @@ class DigitalObjectAdmin(TranslationAdmin):
     def save_model(self, request, new_object, form, change=False):
         # hook into save_model to work around the m2m widget save issue
         form_col =  form.cleaned_data['collection']
-        for field in ['related_production', 'related_festival', 'related_venue', 'related_work', 'related_award']:
+        for field in ['related_production', 'related_festival', 'related_venue', 'related_work']: #, 'related_award']:
             form.cleaned_data[field] = form.cleaned_data[field] or []
 
         return super(DigitalObjectAdmin, self).save_model(request, new_object, form, change=False)
@@ -606,25 +611,25 @@ class DigitalObjectAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',
+            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',
                     '/static/css/admin_form.css'),
-            'print': ('/media/css/digitalobject.css',)
+            'print': ('/static/css/digitalobject.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class SubjectHeadingAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 
@@ -633,13 +638,13 @@ class SubjectHeadingAdmin(TranslationAdmin):
 class CountryAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class CityAdmin(TranslationAdmin):
@@ -651,35 +656,35 @@ class CityAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class LanguageAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class LicenseAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class AwardAdmin(TranslationAdmin):
@@ -688,13 +693,13 @@ class AwardAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class AwardCandidateAdmin(TranslationAdmin):
@@ -712,83 +717,83 @@ class AwardCandidateAdmin(TranslationAdmin):
 
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
+            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class DirectingTeamFunctionAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class CastMemberFunctionAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class DesignTeamFunctionAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class TechTeamFunctionAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class ProductionTeamFunctionAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class AdvisoryTeamFunctionAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 
@@ -800,98 +805,98 @@ class OrgFunctionAdmin(TranslationAdmin):
     
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css', 'static/css/admin_form.css',)
+            'all': ('/static/css/tabbed_translation_fields.css', 'static/css/admin_form.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class FestivalFunctionAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class WorkRecordFunctionAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class PhysicalObjectTypeAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class SpecialPerformanceTypeAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 
 class WorkRecordTypeAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class DigitalObjectTypeAdmin(admin.ModelAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class VenueTypeAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 
@@ -908,25 +913,25 @@ class TranslatingFlatPageAdmin(FlatPageAdmin, TranslationAdmin):
 
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 class HomePageInfoAdmin(TranslationAdmin):
     class Media:
         css = {
-            'all': ('/media/css/tabbed_translation_fields.css',)
+            'all': ('/static/css/tabbed_translation_fields.css',)
         }
         js = (
-            '/media/js/tiny_mce/tiny_mce.js', '/media/js/textareas.js', '/media/js/scripts.js',
-            '/media/js/force_jquery.js',
+            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
+            '/static/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
-            '/media/js/tabbed_translation_fields.js',
+            '/static/js/tabbed_translation_fields.js',
         )
 
 

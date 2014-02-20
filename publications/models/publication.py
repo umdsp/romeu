@@ -14,7 +14,7 @@ from publications.fields import PagesField
 from publications.models import Type
 
 
-from taggit_autocomplete.managers import TaggableManager
+from taggit_autocomplete_modified.managers import TaggableManager
 
 try:
     from south.modelsinspector import add_introspection_rules
@@ -26,7 +26,7 @@ try:
         ),
 
     ],
-    ["^taggit_autocomplete\.managers\.TaggableManager",
+    ["^taggit_autocomplete_modified\.managers\.TaggableManager",
      ])
     
 except ImportError:

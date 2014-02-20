@@ -14,7 +14,7 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url, include
 from django.conf import settings
 
 from archive.views import (CreatorsListView, CreatorsAlphaListView,
@@ -51,13 +51,10 @@ sqs = SearchQuerySet().order_by('django_ct')
 
 DEFAULT_TEMPLATE = 'flatpages/default.html'
 
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # url(r'^ctda/', include('ctda.foo.urls')),
 
     # static pages
     url(r'^$', flatpage, {'url': '/'}),
@@ -141,8 +138,6 @@ urlpatterns = patterns('',
 
     url(r'^ajax_select/', include('ajax_select.urls')),
     url(r'^chaining/', include('smart_selects.urls')),
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     url(r'^%s/' % settings.DAJAXICE_MEDIA_PREFIX, include('dajaxice.urls')),
     
@@ -155,7 +150,6 @@ urlpatterns = patterns('',
     url(r'^ajax/creators/org_name/$',
           'archive.views.get_creators_org_name_json_response', name='ajax_get_creators_org_name_in_json'),    
      
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     
     url(r'^search/', search_view),
@@ -163,7 +157,7 @@ urlpatterns = patterns('',
     url(r'^selectable/', include('selectable.urls')),
     url(r'^objsearch/', scalar_search_view),
 
-    url(r'^taggit_autocomplete/', include('taggit_autocomplete.urls')),
+    url(r'^taggit_autocomplete_modified/', include('taggit_autocomplete_modified.urls')),
 
     url(r'^search_do/', search_do_view),
 
@@ -172,14 +166,6 @@ urlpatterns = patterns('',
     url(r'^taggeditem/(?P<pk>\d+)/?$', TaggedItemDetailView.as_view(),
         name="taggeditem_detail_view"),
     )
-
-#urlpatterns += patterns('haystack.views',
-#    url(r'^search/', search_view_factory(
-#        view_class=SearchView,
-#        form_class=ModelSearchForm,
-#        searchqueryset=sqs
-#    ), name='haystack_search'),
-#)
 
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += patterns('',
@@ -191,3 +177,5 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^__debug__/', include(debug_toolbar.urls)),
     )
+    urlpatterns += patterns('', url(r'^media/(.*)$', 'django.views.static.serve', kwargs={'document_root': settings.MEDIA_ROOT }), )
+

@@ -1,32 +1,17 @@
-# Copyright (C) 2012  University of Miami
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-# See the GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software Foundation,
-# Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+from __future__ import unicode_literals
 
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import EMPTY_VALUES
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
-from selectable.forms.widgets import AutoCompleteSelectWidget, AutoComboboxSelectWidget
-from selectable.forms.widgets import AutoCompleteSelectMultipleWidget, AutoComboboxSelectMultipleWidget
+from selectable.forms.base import import_lookup_class
+from selectable.forms.widgets import AutoCompleteSelectWidget
+from selectable.forms.widgets import AutoCompleteSelectMultipleWidget
 
 __all__ = (
     'AutoCompleteSelectField',
-    'AutoComboboxSelectField',
     'AutoCompleteSelectMultipleField',
-    'AutoComboboxSelectMultipleField',
 )
 
 
@@ -34,60 +19,84 @@ class AutoCompleteSelectField(forms.Field):
     widget = AutoCompleteSelectWidget
 
     default_error_messages = {
-        'invalid_choice': _(u'Select a valid choice. That choice is not one of the available choices.'),
+        'invalid_choice': _('Select a valid choice. That choice is not one of the available choices.'),
     }
 
     def __init__(self, lookup_class, *args, **kwargs):
-        self.lookup_class = lookup_class
+        self.lookup_class = import_lookup_class(lookup_class)
         self.allow_new = kwargs.pop('allow_new', False)
         self.limit = kwargs.pop('limit', None)
-        kwargs['widget'] = self.widget(lookup_class, allow_new=self.allow_new, limit=self.limit)
+        widget = kwargs.get('widget', self.widget) or self.widget
+        if isinstance(widget, type):
+            kwargs['widget'] = widget(lookup_class, allow_new=self.allow_new, limit=self.limit)
         super(AutoCompleteSelectField, self).__init__(*args, **kwargs)
 
+    def _has_changed(self, initial, data):
+        "Detects if the data was changed. This is added in 1.6."
+        if initial is None and data is None:
+            return False
+        if data and not hasattr(data, '__iter__'):
+            data = self.widget.decompress(data)
+        initial = self.to_python(initial)
+        return super(AutoCompleteSelectField, self)._has_changed(initial, data)
 
     def to_python(self, value):
         if value in EMPTY_VALUES:
             return None
+        lookup = self.lookup_class()
         if isinstance(value, list):
             # Input comes from an AutoComplete widget. It's two
             # components: text and id
             if len(value) != 2:
                 raise ValidationError(self.error_messages['invalid_choice'])
-            lookup =self.lookup_class()
-            if value[1] in EMPTY_VALUES:
+            label, pk = value
+            if pk in EMPTY_VALUES:
                 if not self.allow_new:
-                    if value[0]:
+                    if label:
                         raise ValidationError(self.error_messages['invalid_choice'])
                     else:
                         return None
-                value = lookup.create_item(value[0])  
+                if label in EMPTY_VALUES:
+                    return None
+                value = lookup.create_item(label)
             else:
-                value = lookup.get_item(value[1])
+                value = lookup.get_item(pk)
                 if value is None:
                     raise ValidationError(self.error_messages['invalid_choice'])
+        else:
+            value = lookup.get_item(value)
+            if value is None:
+                raise ValidationError(self.error_messages['invalid_choice'])
         return value
-
-
-class AutoComboboxSelectField(AutoCompleteSelectField):
-    widget = AutoComboboxSelectWidget
 
 
 class AutoCompleteSelectMultipleField(forms.Field):
     widget = AutoCompleteSelectMultipleWidget
 
     default_error_messages = {
-        'invalid_choice': _(u'Select a valid choice. That choice is not one of the available choices.'),
+        'invalid_choice': _('Select a valid choice. That choice is not one of the available choices.'),
     }
 
     def __init__(self, lookup_class, *args, **kwargs):
-        self.lookup_class = lookup_class
+        self.lookup_class = import_lookup_class(lookup_class)
         self.limit = kwargs.pop('limit', None)
-        kwargs['widget'] = self.widget(lookup_class, limit=self.limit)
+        widget = kwargs.get('widget', self.widget) or self.widget
+        if isinstance(widget, type):
+            kwargs['widget'] = widget(lookup_class, limit=self.limit)
         super(AutoCompleteSelectMultipleField, self).__init__(*args, **kwargs)
+
+    def _has_changed(self, initial, data):
+        "Detects if the data was changed. This is added in 1.6."
+        if initial is None and data is None:
+            return False
+        if data and not hasattr(data, '__iter__'):
+            data = self.widget.decompress(data)
+        initial = self.to_python(initial)
+        return super(AutoCompleteSelectMultipleField, self)._has_changed(initial, data)
 
     def to_python(self, value):
         if value in EMPTY_VALUES:
-            return None
+            return []
         lookup = self.lookup_class()
         items = []
         for v in value:
@@ -97,7 +106,3 @@ class AutoCompleteSelectMultipleField(forms.Field):
                     raise ValidationError(self.error_messages['invalid_choice'])
                 items.append(item)
         return items
-
-
-class AutoComboboxSelectMultipleField(AutoCompleteSelectMultipleField):
-    widget = AutoComboboxSelectMultipleWidget

@@ -67,7 +67,7 @@ class LocationLookup(ArchiveLookup):
         return Location.objects.filter(Q(title_ascii__icontains=term) |
                                        Q(title__icontains=term) |
                                        Q(title_variants__icontains=term))
-        
+
         
 class ProductionLookup(ArchiveLookup):
     model = Production

@@ -1,0 +1,42 @@
+#header,
+.breadcrumbs,
+#content h1,
+.ui-tabs .ui-tabs-nav,
+a,
+.help,
+.language,
+.subject,
+.rights,
+.copyright,
+.digital_id,
+.identifier,
+.donor,
+.sponsor_note,
+.module h2,
+.module caption,
+.inline-group,
+.digi_object_format,
+.creation_date,
+.related_production,
+.related_festival,
+.related_venue,
+.related_creator,
+.related_work,
+.submit-row,
+#footer,
+.summary_en,
+.notes_en,
+.needs_editing,
+.published,
+.mceFirst,
+.mceLast
+{ display: none; }
+
+.mceFirst.mceLast { display: table-cell; }
+
+input[type="text"] { width: 24em; }
+
+#id_phys_object_type { -webkit-appearance: listitem; }
+
+.aligned label { width: 8em; }
+label, input, textarea, select, .form-row p { font-size: 16px; }

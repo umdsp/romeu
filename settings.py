@@ -24,7 +24,13 @@ MANAGERS = ADMINS
 #    }
 #}
 
+
+BASE_DIR = os.path.join( os.path.dirname( __file__ ), '..' )
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+
+SETTINGS_PATH = os.path.dirname( os.path.abspath( __file__ ) )
+DEPLOYED_PATH = os.path.join( SETTINGS_PATH, "../" )
+
 # adding the apps directory to the first position of the PYTHON_PATH, but keeping our dir in the top too
 sys.path.insert(0, os.path.join(PROJECT_PATH, ''))
 
@@ -135,7 +141,7 @@ INSTALLED_APPS = (
     'dajax',
     'rosetta',
     'taggit',
-    'taggit_autocomplete',
+    'taggit_autocomplete_modified',
     'publications',
     'archive',
     'tinymce',
@@ -147,7 +153,8 @@ INSTALLED_APPS = (
 
 DISQUS_API_KEY = 'haO01iiF2PCConCBF0j85S3WQD8eA0tit3XwEOIhqHfZ5g17QFBQEC0uHzBfXgWK'
 DISQUS_WEBSITE_SHORTNAME = 'cubantheater'
-TAGGIT_AUTOCOMPLETE_JS_BASE_URL = 'http://ctda.library.miami.edu/media/js'
+#TAGGIT_AUTOCOMPLETE_JS_BASE_URL = 'http://ctda.library.miami.edu/media/js'
+TAGGIT_AUTOCOMPLETE_JS_BASE_URL = '/static/taggit_autocomplete_modified'
 
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -173,15 +180,8 @@ AJAX_LOOKUP_CHANNELS = {
     'role': ('archive.lookups', 'RoleLookup')
 }
 
-# Django debug toolbar settings
-#DEBUG_TOOLBAR_CONFIG = {
-#    'INTERCEPT_REDIRECTS': False,
-#    'HIDE_DJANGO_SQL': True,
-#    'SHOW_TEMPLATE_CONTEXT': False,
-#}
 
 DEFAULT_LANG = "en"
-
 
 try:
     from local_settings import *
