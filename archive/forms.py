@@ -266,12 +266,12 @@ class RelatedCreatorAdminForm(ModelForm):
         
 
 class DigitalObjectAdminForm(ModelForm):
-
+    """
     related_creator = selectable_forms.AutoCompleteSelectMultipleField(
         lookup_class=CreatorLookup,
         label=_(u"Related creator"),
         required=False)
-    
+    """
     related_production = selectable_forms.AutoCompleteSelectMultipleField(
         lookup_class=ProductionLookup,
         label=_(u"Related production"),

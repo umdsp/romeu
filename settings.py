@@ -34,6 +34,7 @@ DEPLOYED_PATH = os.path.join( SETTINGS_PATH, "../" )
 # adding the apps directory to the first position of the PYTHON_PATH, but keeping our dir in the top too
 sys.path.insert(0, os.path.join(PROJECT_PATH, ''))
 
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.

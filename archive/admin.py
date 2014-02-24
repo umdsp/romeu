@@ -549,7 +549,7 @@ class DigitalObjectAdmin(TranslationAdmin):
     save_on_top = True
     search_fields = ['ascii_title', 'title', 'title_variants']
     list_filter = ('has_attention', 'collection', 'digi_object_format', 'restricted', 'ready_to_stream')
-    filter_horizontal = ['subject','related_production', 'related_festival', 'related_creator', 'related_venue', 'related_work'] #, 'related_award']
+    filter_horizontal = ['subject','related_production', 'related_festival', 'related_venue', 'related_work'] #, 'related_award']
     exclude = ('ascii_title',)
     list_display = ('object_number_display', 'title')
     
