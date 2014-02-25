@@ -198,16 +198,16 @@ class RoleAdminForm(ModelForm):
 
 class CreatorAdminForm(ModelForm):
     
-    birth_location = selectable_forms.AutoCompleteSelectField(
-        lookup_class=LocationLookup,
+    birth_city = selectable_forms.AutoCompleteSelectField(
+        lookup_class=CityLookup,
         allow_new=True,
-        label=_(u"Birth location"),
+        label=_(u"City of Birth"),
         required=False)
     
-    death_location = selectable_forms.AutoCompleteSelectField(
-        lookup_class=LocationLookup,
+    death_city = selectable_forms.AutoCompleteSelectField(
+        lookup_class=CityLookup,
         allow_new=False,
-        label=_(u"Death location"),
+        label=_(u"City of Death"),
         required=False)
     
     nationality = selectable_forms.AutoCompleteSelectField(
@@ -216,8 +216,8 @@ class CreatorAdminForm(ModelForm):
         label=_(u"Nationality"),
         required=False)
     
-    location = selectable_forms.AutoCompleteSelectField(
-        lookup_class=LocationLookup,
+    headquarter_city = selectable_forms.AutoCompleteSelectField(
+        lookup_class=CityLookup,
         allow_new=False,
         label=_(u"Office / headquarters"),
         required=False)
@@ -232,14 +232,14 @@ class CreatorAdminForm(ModelForm):
         super(CreatorAdminForm, self).__init__(*args, **kwargs) 
         
         if self.instance and self.instance.pk:
-            if self.instance.birth_location:
-                self.initial['birth_location'] = self.instance.birth_location.pk
-            if self.instance.death_location:
-                self.initial['death_location'] = self.instance.death_location.pk
+            if self.instance.birth_city:
+                self.initial['birth_city'] = self.instance.birth_city.pk
+            if self.instance.death_city:
+                self.initial['death_city'] = self.instance.death_city.pk
             if self.instance.nationality:
                 self.initial['nationality'] = self.instance.nationality.pk
-            if self.instance.location:
-                self.initial['location'] = self.instance.location.pk
+            if self.instance.headquarter_city:
+                self.initial['headquarter_city'] = self.instance.headquarter_city.pk
             if self.instance.photo:
                 self.initial['photo'] = self.instance.photo.pk
 

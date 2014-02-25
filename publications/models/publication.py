@@ -88,7 +88,7 @@ class Publication(models.Model):
 								  verbose_name=_("book title"))
 	chapter = models.CharField(max_length=20, null=True, blank=True, verbose_name=_("chapter"))
 	how_published = models.CharField(max_length=20, null=True, blank=True,
-							   verbose_name=_("chapter"),
+							   verbose_name=_("How Published"),
 							   help_text="How something strange has been published. The first word should be capitalized.")
 	year = models.PositiveIntegerField(max_length=4)
 	month = models.IntegerField(choices=MONTH_CHOICES, blank=True, null=True)

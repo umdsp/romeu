@@ -235,10 +235,10 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   <span>{{ creator.birth_date_display }}</span>
                 </li>
               {% endif %}
-              {% if creator.birth_location.display_name %}
+              {% if creator.birth_city %}
                 <li>
                   <h4>{% if creator.creator_type == 'corp' %}{% trans "Place of origination" %}{% else %}{% trans "Place of birth" %}{% endif %}:</h4>
-                  <span>{{ creator.birth_location }}</span>
+                  <span>{{ creator.birth_city }}</span>
                 </li>
               {% endif %}
               {% if creator.death_date %}
@@ -247,16 +247,16 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   <span>{{ creator.death_date_display }}</span>
                 </li>
               {% endif %}
-              {% if creator.death_location %}
+              {% if creator.death_city %}
                 <li>
                   <h4>{% if creator.creator_type == 'corp' %}{% trans "Place of dissolution" %}{% else %}{% trans "Place of death" %}{% endif %}:</h4>
-                  <span>{{ creator.death_location.display_name }}</span>
+                  <span>{{ creator.death_city }}</span>
                 </li>
               {% endif %}
-              {% if creator.location %}
+              {% if creator.headerquarter_city %}
                 <li>
                   <h4>{% trans "Office / HQ" %}:</h4>
-                  <span><a href="{% url 'venue_detail_view' creator.location.pk %}">{{ creator.location.display_name }}</a></span>
+                  <span><a href="{% url 'venue_detail_view' creator.headerquarter_city.pk %}">{{ creator.headerquarter_city }}</a></span>
                 </li>
               {% endif %}
 

@@ -147,10 +147,12 @@ class Creator(models.Model):
     name_variants = models.CharField(max_length=200, null=True, blank=True, verbose_name=_("name variants"))
     # Dates
     birth_location = models.ForeignKey("Location", null=True, blank=True, related_name="born_here", verbose_name=_("birth location"))
+    birth_city = models.ForeignKey("City", null=True, blank=True, related_name="born_here", verbose_name=_("City of birth"))
     birth_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("birth date"))
     birth_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', null=True, blank=True, verbose_name=_("Precision"))
     birth_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
     death_location = models.ForeignKey("Location", null=True, blank=True, related_name="died_here", verbose_name=_("death location"))
+    death_city = models.ForeignKey("City", null=True, blank=True, related_name="died_here", verbose_name=_("City of death"))
     death_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("death date"))
     death_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', null=True, blank=True, verbose_name=_("Precision"))
     death_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
@@ -163,7 +165,10 @@ class Creator(models.Model):
     # More info
     gender = models.CharField(max_length=2, choices=constants.GENDER_CHOICES, default=u'N', verbose_name=_("gender"))
     nationality = models.ForeignKey("Country", null=True, blank=True, verbose_name=_("nationality"))
+
     location = models.ForeignKey("Location", null=True, blank=True, help_text=_("Office / headquarters location (for corporate creators only)"), verbose_name=_("office / headquarters"))
+    headquarter_city = models.ForeignKey("City", null=True, blank=True, help_text=_("Office / headquarters location (for corporate creators only)"), verbose_name=_("office / headquarters"))
+    
     related_creators = models.ManyToManyField("self", through="RelatedCreator", symmetrical=False, null=True, blank=True, verbose_name=_("related creators"))
     biography = models.TextField(null=True, blank=True, verbose_name=_("biographical / historical note"))
     website = models.URLField(null=True, blank=True, verbose_name=_("website"))
@@ -504,6 +509,7 @@ class Creator(models.Model):
     def related_creators_relationship(self):
         return RelatedCreator.objects.filter(first_creator=self).order_by('function__ordinal')
     
+    """    
     def same_birthplace_creators(self):
         if not self.birth_location:
             return False
@@ -518,6 +524,7 @@ class Creator(models.Model):
         
         x = {'rc': rc, 'rel': rel}
         return x
+    """
     
     def same_production_creators(self):
         if not self.has_productions():
@@ -676,11 +683,11 @@ class Location(models.Model):
             return True
         if AwardCandidate.objects.filter(place=self).exists():
             return True
-        if Creator.objects.filter(birth_location=self).exists():
+        if Creator.objects.filter(birth_city=self).exists():
             return True
-        if Creator.objects.filter(death_location=self).exists():
+        if Creator.objects.filter(death_city=self).exists():
             return True
-        if Creator.objects.filter(location=self).exists():
+        if Creator.objects.filter(headquarter_city=self).exists():
             return True
         return False
     
@@ -1961,10 +1968,8 @@ class TranslatingFlatPage(FlatPage):
 
 class HomePageInfo(models.Model):
     if settings.PYTHON_OLDER_THAN_27:
-        print 'v2.6'
         BOX_CHOICES = [ (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') ]
     else:
-        print 'v2.7'
         BOX_CHOICES = { (0, '0 (no textbox)'), (1, '1'), (2, '2'), (3, '3') }
         
     content = models.TextField(verbose_name=_("textbox content"), null=True, blank=True)

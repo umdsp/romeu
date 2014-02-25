@@ -258,12 +258,12 @@ class CreatorAdmin(TranslationAdmin):
             'fields': ('prefix', 'given_name', 'middle_name', 'family_name', 'suffix', 'org_name', 'creator_type', 'name_variants')
         }),
         ('Birth / Death / Activity', {
-            'fields': ('birth_location', ('birth_date', 'birth_date_precision', 'birth_date_BC'), 'death_location',
+            'fields': ('birth_city', ('birth_date', 'birth_date_precision', 'birth_date_BC'), 'death_city',
                        ('death_date', 'death_date_precision', 'death_date_BC'), ('earliest_active', 'earliest_active_precision', 'earliest_active_BC'),
                        ('latest_active', 'latest_active_precision', 'latest_active_BC'))
         }),
         ('Details', {
-            'fields': ('gender', 'nationality', 'location', 'biography', 'website', 'photo',
+            'fields': ('gender', 'nationality', 'headquarter_city', 'biography', 'website', 'photo',
                        'primary_publications',
                        #'primary_bibliography', 'secondary_bibliography',
                        'awards_text', 'biblio_text', 'biblio_text_es', 'secondary_biblio_text', 'secondary_biblio_text_es')

@@ -1135,8 +1135,8 @@ def get_creators_json_response(request, g_name="", m_name="", f_name=""):
             creator_dict['f_name']=creator.family_name
         else:
             creator_dict['f_name']=''
-        if creator.birth_location:
-            creator_dict['b_loc']=creator.birth_location.title
+        if creator.birth_city:
+            creator_dict['b_loc']=creator.birth_city.name
         else:
             creator_dict['b_loc']=''
         creator_dict['b_date']=creator.birth_date_display()
