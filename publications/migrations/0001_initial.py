@@ -9,8 +9,8 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         # Adding model 'Type'
-        db.create_table('publications_type', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+        db.create_table(u'publications_type', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('order', self.gf('django.db.models.fields.PositiveIntegerField')()),
             ('type', self.gf('django.db.models.fields.CharField')(max_length=128)),
             ('description', self.gf('django.db.models.fields.CharField')(max_length=128)),
@@ -20,8 +20,8 @@ class Migration(SchemaMigration):
         db.send_create_signal('publications', ['Type'])
 
         # Adding model 'Publication'
-        db.create_table('publications_publication', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+        db.create_table(u'publications_publication', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['publications.Type'])),
             ('annote', self.gf('django.db.models.fields.CharField')(max_length=256, null=True, blank=True)),
             ('citekey', self.gf('django.db.models.fields.CharField')(max_length=512, null=True, blank=True)),
@@ -37,7 +37,6 @@ class Migration(SchemaMigration):
             ('isbn', self.gf('django.db.models.fields.CharField')(max_length=32, blank=True)),
             ('issn', self.gf('django.db.models.fields.CharField')(max_length=20, null=True, blank=True)),
             ('doi', self.gf('django.db.models.fields.CharField')(max_length=80, null=True, blank=True)),
-            ('publication', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('editor', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('institution', self.gf('django.db.models.fields.CharField')(max_length=256, null=True, blank=True)),
             ('organization', self.gf('django.db.models.fields.CharField')(max_length=256, null=True, blank=True)),
@@ -56,10 +55,10 @@ class Migration(SchemaMigration):
             ('series', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('series_text', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('series_num', self.gf('django.db.models.fields.CharField')(max_length=20, null=True, blank=True)),
-            ('edition', self.gf('django.db.models.fields.CharField')(max_length=30, null=True, blank=True)),
+            ('edition', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('section', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
-            ('pub_date', self.gf('django.db.models.fields.CharField')(max_length=120, null=True, blank=True)),
-            ('access_date', self.gf('django.db.models.fields.CharField')(max_length=120, null=True, blank=True)),
+            ('pub_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
+            ('access_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
             ('language', self.gf('django.db.models.fields.CharField')(max_length=60, null=True, blank=True)),
             ('pages', self.gf('django.db.models.fields.CharField')(max_length=30, null=True, blank=True)),
             ('publisher', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
@@ -77,13 +76,12 @@ class Migration(SchemaMigration):
             ('library_catalog_num', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('rights', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('extra', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
-            ('tags', self.gf('taggit_autocomplete.managers.TaggableManager')(blank=True)),
         ))
         db.send_create_signal('publications', ['Publication'])
 
         # Adding model 'CustomLink'
-        db.create_table('publications_customlink', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+        db.create_table(u'publications_customlink', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('publication', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['publications.Publication'])),
             ('description', self.gf('django.db.models.fields.CharField')(max_length=256)),
             ('url', self.gf('django.db.models.fields.URLField')(max_length=200)),
@@ -91,8 +89,8 @@ class Migration(SchemaMigration):
         db.send_create_signal('publications', ['CustomLink'])
 
         # Adding model 'CustomFile'
-        db.create_table('publications_customfile', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+        db.create_table(u'publications_customfile', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('publication', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['publications.Publication'])),
             ('description', self.gf('django.db.models.fields.CharField')(max_length=256)),
             ('file', self.gf('django.db.models.fields.files.FileField')(max_length=100)),
@@ -102,23 +100,23 @@ class Migration(SchemaMigration):
 
     def backwards(self, orm):
         # Deleting model 'Type'
-        db.delete_table('publications_type')
+        db.delete_table(u'publications_type')
 
         # Deleting model 'Publication'
-        db.delete_table('publications_publication')
+        db.delete_table(u'publications_publication')
 
         # Deleting model 'CustomLink'
-        db.delete_table('publications_customlink')
+        db.delete_table(u'publications_customlink')
 
         # Deleting model 'CustomFile'
-        db.delete_table('publications_customfile')
+        db.delete_table(u'publications_customfile')
 
 
     models = {
-        'contenttypes.contenttype': {
+        u'contenttypes.contenttype': {
             'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
             'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
@@ -126,20 +124,20 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'CustomFile'},
             'description': ('django.db.models.fields.CharField', [], {'max_length': '256'}),
             'file': ('django.db.models.fields.files.FileField', [], {'max_length': '100'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'publication': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['publications.Publication']"})
         },
         'publications.customlink': {
             'Meta': {'object_name': 'CustomLink'},
             'description': ('django.db.models.fields.CharField', [], {'max_length': '256'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'publication': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['publications.Publication']"}),
             'url': ('django.db.models.fields.URLField', [], {'max_length': '200'})
         },
         'publications.publication': {
             'Meta': {'ordering': "['-year', '-month', '-id']", 'object_name': 'Publication'},
             'abstract': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'access_date': ('django.db.models.fields.CharField', [], {'max_length': '120', 'null': 'True', 'blank': 'True'}),
+            'access_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
             'address': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'annote': ('django.db.models.fields.CharField', [], {'max_length': '256', 'null': 'True', 'blank': 'True'}),
             'archive': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
@@ -151,12 +149,12 @@ class Migration(SchemaMigration):
             'citekey': ('django.db.models.fields.CharField', [], {'max_length': '512', 'null': 'True', 'blank': 'True'}),
             'code': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'}),
             'doi': ('django.db.models.fields.CharField', [], {'max_length': '80', 'null': 'True', 'blank': 'True'}),
-            'edition': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
+            'edition': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'editor': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'external': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'extra': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'how_published': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'institution': ('django.db.models.fields.CharField', [], {'max_length': '256', 'null': 'True', 'blank': 'True'}),
             'isbn': ('django.db.models.fields.CharField', [], {'max_length': '32', 'blank': 'True'}),
             'issn': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
@@ -174,8 +172,7 @@ class Migration(SchemaMigration):
             'pages': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
             'pdf': ('django.db.models.fields.files.FileField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'price': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '6', 'decimal_places': '2', 'blank': 'True'}),
-            'pub_date': ('django.db.models.fields.CharField', [], {'max_length': '120', 'null': 'True', 'blank': 'True'}),
-            'publication': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'pub_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
             'publisher': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'rights': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'runtime': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
@@ -186,7 +183,6 @@ class Migration(SchemaMigration):
             'short_title': ('django.db.models.fields.CharField', [], {'max_length': '128', 'null': 'True', 'blank': 'True'}),
             'system': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'table_of_content': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'tags': ('taggit_autocomplete.managers.TaggableManager', [], {'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'translator': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['publications.Type']"}),
@@ -201,22 +197,22 @@ class Migration(SchemaMigration):
             'bibtex_types': ('django.db.models.fields.CharField', [], {'default': "'article'", 'max_length': '256'}),
             'description': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
             'hidden': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'order': ('django.db.models.fields.PositiveIntegerField', [], {}),
             'type': ('django.db.models.fields.CharField', [], {'max_length': '128'})
         },
-        'taggit.tag': {
+        u'taggit.tag': {
             'Meta': {'object_name': 'Tag'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '100'}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '100'})
         },
-        'taggit.taggeditem': {
+        u'taggit.taggeditem': {
             'Meta': {'object_name': 'TaggedItem'},
-            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'taggit_taggeditem_tagged_items'", 'to': "orm['contenttypes.ContentType']"}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'taggit_taggeditem_tagged_items'", 'to': u"orm['contenttypes.ContentType']"}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'object_id': ('django.db.models.fields.IntegerField', [], {'db_index': 'True'}),
-            'tag': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'taggit_taggeditem_items'", 'to': "orm['taggit.Tag']"})
+            'tag': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'taggit_taggeditem_items'", 'to': u"orm['taggit.Tag']"})
         }
     }
 
