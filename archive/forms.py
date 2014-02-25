@@ -543,7 +543,7 @@ class AwardCandidateAdminForm(ModelForm):
         label=_(u"Production"))
 
     place = selectable_forms.AutoCompleteSelectField(
-        lookup_class=LocationLookup,
+        lookup_class=CityLookup,
         required=False,
         label=_(u"Place"))
 

@@ -1493,7 +1493,7 @@ class AwardCandidate(models.Model):
     recipient = models.ForeignKey(Creator, null=True, blank=True, related_name="recipient", help_text=_("A specific person or organization receiving the award"), verbose_name=_("recipient"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     production = models.ForeignKey(Production, null=True, blank=True, default=None, related_name="production", verbose_name=_("production"))
-    place = models.ForeignKey(Location, null=True, blank=True, default=None, related_name="place", verbose_name=_("place"))
+    place = models.ForeignKey("City", null=True, blank=True, default=None, related_name="place", verbose_name=_("place"))
     festival = models.ForeignKey(Festival, null=True, blank=True, default=None, related_name="festival", verbose_name=_("festival"))
     work_record = models.ForeignKey(WorkRecord, null=True, blank=True, default=None, related_name="work_record", verbose_name=_("work record"))
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
