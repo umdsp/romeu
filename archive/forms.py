@@ -27,6 +27,7 @@ from archive.lookups import (CreatorLookup, ProductionLookup, LocationLookup,
                              FestivalOccurrenceLookup, TheaterCompanyLookup,
                              CollectionLookup, CityLookup, AwardLookup,
                              DesignTeamFunctionLookup)
+from publications.lookups import PublicationLookup
 
 import selectable
 from selectable import forms as selectable_forms
@@ -54,6 +55,16 @@ class ProductionAdminForm(ModelForm):
         lookup_class=LocationLookup,
         allow_new=False,
         label=_(u"Venue"))
+
+    primary_publications = selectable_forms.AutoCompleteSelectMultipleField(
+        lookup_class=PublicationLookup,
+        required=False,
+        label=_(u"Primary Bibliography"))
+    
+    secondary_publications = selectable_forms.AutoCompleteSelectMultipleField(
+        lookup_class=PublicationLookup,
+        required=False,
+        label=_(u"Secondary Bibliography"))
 
 #    theater_companies = selectable_forms.AutoCompleteSelectMultipleField(
 #                                            lookup_class=TheaterCompanyLookup,
@@ -236,6 +247,16 @@ class CreatorAdminForm(ModelForm):
         label=_(u"Photo"),
         required=False)
     
+    primary_publications = selectable_forms.AutoCompleteSelectMultipleField(
+        lookup_class=PublicationLookup,
+        required=False,
+        label=_(u"Primary Bibliography"))
+    
+    secondary_publications = selectable_forms.AutoCompleteSelectMultipleField(
+        lookup_class=PublicationLookup,
+        required=False,
+        label=_(u"Secondary Bibliography"))
+    
     def __init__(self, *args, **kwargs): 
         super(CreatorAdminForm, self).__init__(*args, **kwargs) 
         
@@ -379,6 +400,16 @@ class WorkRecordAdminForm(ModelForm):
         lookup_class=DigitalObjectLookup,
         label=_(u"Digital copy"),
         required=False)
+
+    primary_publications = selectable_forms.AutoCompleteSelectMultipleField(
+        lookup_class=PublicationLookup,
+        required=False,
+        label=_(u"Primary Bibliography"))
+    
+    secondary_publications = selectable_forms.AutoCompleteSelectMultipleField(
+        lookup_class=PublicationLookup,
+        required=False,
+        label=_(u"Secondary Bibliography"))
     
     def __init__(self, *args, **kwargs):
         super(WorkRecordAdminForm, self).__init__(*args, **kwargs)

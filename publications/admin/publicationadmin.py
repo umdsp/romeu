@@ -22,13 +22,13 @@ class CreatorsInLine(admin.StackedInline):
 	extra = 0
 
 class ProductionsInLine(admin.StackedInline):
-	class Meta:
-		ordering = ['title']
 	model = Production.primary_publications.through
+	ordering = ['production__title']
 	extra = 0
 	
 class WorkRecordInLine(admin.StackedInline):
 	model = WorkRecord.primary_publications.through
+	ordering = ['workrecord__title']
 	extra = 0
 	
 class PublicationAdmin(admin.ModelAdmin):

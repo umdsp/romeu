@@ -998,7 +998,8 @@ def scalar_search_view(request):
         # User submitted a search term.
         query = request.GET.get('q')
 
-    istream = urllib2.urlopen(urllib2.Request(url="http://localhost:8983/solr/vidsearch?q="+query))
+#    istream = urllib2.urlopen(urllib2.Request(url="http://localhost:8983/solr/vidsearch?q="+query))
+    istream = urllib2.urlopen(urllib2.Request(url="http://localhost:8070/scalar/servlet?q="+query))
     respstr = istream.read()
     return HttpResponse(respstr)
 

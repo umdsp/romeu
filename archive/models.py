@@ -176,6 +176,7 @@ class Creator(models.Model):
  #   primary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="primary_bibliography_for", verbose_name=_("primary bibliography"))
  #   secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="secondary_bibliography_for", verbose_name=_("secondary bibliography"))
     primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="primary_bibliography_for", verbose_name=_("primary bibliography"))
+    secondary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="secondary_bibliography_for", verbose_name=_("secondary bibliography"))
     awards_text = models.TextField(null=True, blank=True, verbose_name=_("awards (plain text)"))
     biblio_text = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text)"))
     biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text, Spanish)"))
@@ -775,9 +776,13 @@ class WorkRecord(models.Model):
     secondary_biblio_text = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text)"))
     secondary_biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text, Spanish)"))
     primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="workedrecord_primary_bibliography_for", verbose_name=_("primary bibliography"))
+    secondary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="workedrecord_secondary_bibliography_for", verbose_name=_("secondary bibliography"))
     profiler_name = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profiler name"))
     profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
     tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
+    
+    class Meta:
+        ordering = ['title']
 
     def creation_date_display(self):
         return display_date(self.creation_date, self.creation_date_precision, self.creation_date_BC)
@@ -939,8 +944,8 @@ class Production(models.Model):
     related_organizations = models.ManyToManyField(Creator, null=True, blank=True, related_name="productions_related_to", verbose_name=_("related organizations"))
     premier = models.CharField(max_length=2, choices=constants.PREMIER_CHOICES, null=True, blank=True, verbose_name=_("premiere"))
     website = models.URLField(null=True, blank=True, verbose_name=_("website"))
-#    secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="production_secondary_bibliography_for", verbose_name=_("secondary bibliography"))
     primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="production_primary_bibliography_for", verbose_name=_("primary bibliography"))
+    secondary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="production_secondary_bibliography_for", verbose_name=_("secondary bibliography"))
     awards_text = models.TextField(null=True, blank=True, verbose_name=_("awards (plain text)"))
     biblio_text = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text)"))
     biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text, Spanish)"))
@@ -954,6 +959,9 @@ class Production(models.Model):
     profiler_name = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profiler name"))
     profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
     tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
+
+    class Meta:
+        ordering = ['title']
 
     def begin_date_display(self):
         return display_date(self.begin_date, self.begin_date_precision, self.begin_date_BC)

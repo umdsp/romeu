@@ -252,7 +252,7 @@ class CreatorAdmin(TranslationAdmin):
     date_hierarchy = 'birth_date'
     search_fields = ['creator_name', 'creator_ascii_name', 'name_variants']
     inlines = (RelatedCreatorInline,)
-    filter_horizontal = ['primary_publications']     
+#    filter_horizontal = ['primary_publications', 'secondary_publications']     
     fieldsets = (
         (None, {
             'fields': ('prefix', 'given_name', 'middle_name', 'family_name', 'suffix', 'org_name', 'creator_type', 'name_variants')
@@ -264,7 +264,7 @@ class CreatorAdmin(TranslationAdmin):
         }),
         ('Details', {
             'fields': ('gender', 'nationality', 'headquarter_city', 'biography', 'website', 'photo',
-                       'primary_publications',
+                       'primary_publications', 'secondary_publications',
                        #'primary_bibliography', 'secondary_bibliography',
                        'awards_text', 'biblio_text', 'biblio_text_es', 'secondary_biblio_text', 'secondary_biblio_text_es')
         }),
@@ -376,7 +376,7 @@ class WorkRecordAdmin(TranslationAdmin):
     list_display = ('title', 'creators_display', 'work_type', 'has_system_links')
     list_filter = ('work_type', 'lang', 'has_attention',)
     search_fields = ['title', 'subtitle', 'ascii_title', 'title_variants']
-    filter_horizontal = ['subject', 'lang', 'primary_publications']
+    filter_horizontal = ['subject', 'lang']
     fieldsets = (
         ('Titles', {
             'fields': ('title', 'subtitle', 'title_variants')
@@ -386,7 +386,8 @@ class WorkRecordAdmin(TranslationAdmin):
         }),
         ('Creation / Publication', {
             'fields': (('creation_date', 'creation_date_precision', 'creation_date_BC'),
-                'performance_rights', 'primary_publications')
+                'primary_publications', 'secondary_publications',
+                'performance_rights', )
         }),
         ('Standard fields', {
             'fields': ('summary', 'notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date', 'tags')
@@ -424,7 +425,7 @@ class ProductionAdmin(TranslationAdmin):
     date_hierarchy = 'begin_date'
     search_fields = ['title', 'ascii_title', 'title_variants', 'notes']
     list_filter = ('has_attention',)
-    filter_horizontal = ['source_work', 'primary_publications', 'theater_companies'] 
+    filter_horizontal = ['source_work', 'theater_companies'] 
     fieldsets = (
         (None, {
             'fields': ('source_work', 'title', 'subtitle', 'title_variants')
@@ -433,10 +434,11 @@ class ProductionAdmin(TranslationAdmin):
             'fields': ('theater_companies', 'venue', 'stage', ('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'),)
         }),
         ('Additional details', {
-            'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website')}),
+            'fields': (('is_special_performance', 'special_performance_type'), 'premier', 'website',
+                'primary_publications', 'secondary_publications')}),
         ('Plain text information', {
             'fields': (
-                'awards_text', 'biblio_text', 'biblio_text_es', 'primary_publications')
+                'awards_text', 'biblio_text', 'biblio_text_es')
         }),
         ('Standard fields', {
             'fields': ('notes', 'attention', 'needs_editing', 'published', 'profiler_name', 'profiler_entry_date', 'tags')
