@@ -15,8 +15,8 @@
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 from archive.models import (Creator, Location, Production, WorkRecord, Role,
-                            Country, DigitalObject, Festival,
-                            FestivalOccurrence, Collection, City, Award)
+                            Country, DigitalObject, Festival, City, Award,
+                            DesignTeamFunction, FestivalOccurrence, Collection)
 from django.db.models import Q
 
 from selectable.base import LookupBase
@@ -139,6 +139,11 @@ class AwardLookup(ArchiveLookup):
     model = Award
     def get_query(self,request,term):
         return Award.objects.filter(title__icontains=term)
+    
+class DesignTeamFunctionLookup(ArchiveLookup):
+    model = DesignTeamFunction
+    def get_query(self,request,term):
+        return DesignTeamFunction.objects.filter(title__icontains=term)
 
 registry.register(CreatorLookup)
 registry.register(TheaterCompanyLookup)
@@ -153,3 +158,4 @@ registry.register(FestivalOccurrenceLookup)
 registry.register(CollectionLookup)
 registry.register(CityLookup)
 registry.register(AwardLookup)
+registry.register(DesignTeamFunctionLookup)

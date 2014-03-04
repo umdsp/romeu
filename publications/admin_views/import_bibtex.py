@@ -33,10 +33,10 @@ def import_bibtex(request):
 		# try to parse BibTex
 		the_bibtex_file_content = ''
 		
-		creator_id = request.POST.get('creator_id', 0)
-		production_id = request.POST.get('production_id', 0)
-		work_record_id = request.POST.get('work_record_id', 0)
-		
+		creators = request.POST.getlist('creators')
+		productions = request.POST.getlist('productions')
+		work_records = request.POST.getlist('work_records')
+
 		the_bibtex_file = request.FILES.get('bibtex_file', '')
 		if the_bibtex_file:
 			if the_bibtex_file.multiple_chunks():
@@ -193,18 +193,21 @@ def import_bibtex(request):
 				for publication in publications:
 					publication.save()
 					try:
-						creator = Creator.objects.get(pk=creator_id)
-						creator.primary_publications.add(publication)
+						for creator_id in creators:
+							creator = Creator.objects.get(pk=creator_id)
+							creator.primary_publications.add(publication)
 					except:
 						pass
 					try:
-						production = Production.objects.get(pk=production_id)
-						production.primary_publications.add(publication)
+						for production_id in productions:
+							production = Production.objects.get(pk=production_id)
+							production.primary_publications.add(publication)
 					except:
 						pass
 					try:
-						work_record = WorkRecord.objects.get(pk=work_record_id)
-						work_record.primary_publications.add(publication)
+						for work_record_id in work_records:
+							work_record = WorkRecord.objects.get(pk=work_record_id)
+							work_record.primary_publications.add(publication)
 					except:
 						pass
 			except:
@@ -222,20 +225,20 @@ def import_bibtex(request):
 			return HttpResponseRedirect('../')
 	else:
 		Creators_qs = Creator.objects.all()
-		Productions_qs = Production.objects.all()
-		WorkRecord_qs = WorkRecord.objects.all()
+		Productions_qs = Production.objects.all().order_by('title')
+		WorkRecord_qs = WorkRecord.objects.all().order_by('title')
 		
-		CREATOR_CHOICES = [("", "-- Select a Creator --")]
+		CREATOR_CHOICES = [] #[("", "-- Select a Creator --")]
 		CREATOR_CHOICES += [(e.id,
-						 e.display_name())
+						 e.creator_name)
 						 for e in Creators_qs]
 
-		PRODUCTION_CHOICES = [("", "-- Select a Production --")]
+		PRODUCTION_CHOICES = [] #[("", "-- Select a Production --")]
 		PRODUCTION_CHOICES += [(e.id,
 						 e.title)
 						 for e in Productions_qs]
 		
-		WORKRECORD_CHOICES = [("", "-- Select a Written Work --")]
+		WORKRECORD_CHOICES = [] #[("", "-- Select a Written Work --")]
 		WORKRECORD_CHOICES += [(e.id,
 						 e.title)
 						 for e in WorkRecord_qs]

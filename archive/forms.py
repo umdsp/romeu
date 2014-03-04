@@ -25,7 +25,8 @@ from archive.lookups import (CreatorLookup, ProductionLookup, LocationLookup,
                              RoleLookup, WorkRecordLookup, CountryLookup,
                              DigitalObjectLookup, FestivalLookup,
                              FestivalOccurrenceLookup, TheaterCompanyLookup,
-                             CollectionLookup, CityLookup, AwardLookup)
+                             CollectionLookup, CityLookup, AwardLookup,
+                             DesignTeamFunctionLookup)
 
 import selectable
 from selectable import forms as selectable_forms
@@ -121,6 +122,13 @@ class DesignMemberAdminForm(ModelForm):
         lookup_class=CreatorLookup,
         allow_new=False,
         label=_(u"Person"))
+    
+    """
+    functions = selectable_forms.AutoCompleteSelectMultipleField(
+        lookup_class=DesignTeamFunctionLookup,
+        required=False,
+        label=_(u"Function"))
+    """
     
     def __init__(self, *args, **kwargs): 
         super(DesignMemberAdminForm, self).__init__(*args, **kwargs)

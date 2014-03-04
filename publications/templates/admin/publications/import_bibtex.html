@@ -36,36 +36,37 @@
 						</div>
             
 		                <div>
+					<p></p>
 	                        <label for="id_bibtex">BibTex File:</label>
                             <input name="bibtex_file" id="id_pdf" type="file">
 		                </div>
-						
+						<p></p>	
 						<div>
-							<label for="id_creator">{% trans 'Creator' %}:</label> <!-- class="required" -->
+							<label for="id_creator">{% trans 'Creators' %}:</label> <!-- class="required" -->
 
-							  <select name="creator_id" class="i-can-add-my-own-attrs-now" id="id_creator">
+							  <select multiple="multiple" name="creators" class="i-can-add-my-own-attrs-now" id="id_creator">
 								{% for id, name in creators %}
 								<option value="{{ id }}">{{ name }} - ({{ id }})</option>
 								{% endfor %}
 								</select>
 							
 						</div>
-
+						<p></p>
 						<div>
-							<label for="id_production">{% trans 'Production' %}:</label> <!-- class="required" -->
+							<label for="id_production">{% trans 'Productions' %}:</label> <!-- class="required" -->
 
-							  <select name="production_id" class="i-can-add-my-own-attrs-now" id="id_production">
+							  <select multiple="multiple" name="productions" class="i-can-add-my-own-attrs-now" id="id_production">
 								{% for id, name in productions %}
 								<option value="{{ id }}">{{ name }} - ({{ id }})</option>
 								{% endfor %}
 								</select>
 							
 						</div>
-						
+						<p></p>
 						<div>
-							<label for="id_work_record">{% trans 'Written Work' %}:</label> <!-- class="required" -->
+							<label for="id_work_record">{% trans 'Written Works' %}:</label> <!-- class="required" -->
 
-							  <select name="work_record_id" class="i-can-add-my-own-attrs-now" id="id_work_record">
+							  <select multiple="multiple" name="work_records" class="i-can-add-my-own-attrs-now" id="id_work_record">
 								{% for id, name in work_records %}
 								<option value="{{ id }}">{{ name }} - ({{ id }})</option>
 								{% endfor %}
