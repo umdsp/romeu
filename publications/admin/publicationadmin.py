@@ -4,6 +4,7 @@ __docformat__ = 'epytext'
 
 from django.contrib import admin
 from publications.models import CustomLink, CustomFile
+from archive.models import Creator, Production, WorkRecord
 
 class CustomLinkInline(admin.StackedInline):
 	model = CustomLink
@@ -16,7 +17,20 @@ class CustomFileInline(admin.StackedInline):
 	extra = 1
 	max_num = 5
 
+class CreatorsInLine(admin.StackedInline):
+	model = Creator.primary_publications.through
+	extra = 0
 
+class ProductionsInLine(admin.StackedInline):
+	class Meta:
+		ordering = ['title']
+	model = Production.primary_publications.through
+	extra = 0
+	
+class WorkRecordInLine(admin.StackedInline):
+	model = WorkRecord.primary_publications.through
+	extra = 0
+	
 class PublicationAdmin(admin.ModelAdmin):
 	list_display = ('type', 'first_author', 'title',  'year', 'journal_or_book_title')
 	list_display_links = ('title',)
@@ -52,6 +66,6 @@ class PublicationAdmin(admin.ModelAdmin):
 		(None, {'fields': 
 			('code', 'pdf', 'external')}),
 	)
-	inlines = [CustomLinkInline, CustomFileInline]
+	inlines = [CreatorsInLine, ProductionsInLine, WorkRecordInLine, CustomLinkInline, CustomFileInline]
 
 

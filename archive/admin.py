@@ -55,8 +55,8 @@ from ajax_select.admin import AjaxSelectAdmin
 from ajax_select.fields import autoselect_fields_check_can_add
 from reversion.admin import VersionAdmin
 
-import selectable
-from selectable import forms as selectable_forms
+#import selectable
+#from selectable import forms as selectable_forms
 
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
