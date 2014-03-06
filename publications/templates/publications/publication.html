@@ -3,21 +3,43 @@
 {% if publication.authors_escaped|length > 8 %}
 	{% for author, author_escaped in publication.authors_escaped|slice:":8" %}
 	<a href="/publications/{{ author_escaped }}/" class="author">{{ author }}</a>,
-	{% endfor %} <i>et al.</i><br />
+	{% endfor %} <i></i>
 {% else %}
 	{% for author, author_escaped in publication.authors_escaped %}
 	<a href="/publications/{{ author_escaped }}/" class="author">{{ author }}</a>{% if not forloop.last %}{% if forloop.revcounter == 2 %}{% if not forloop.first %},{% endif %} and {% else %}, {% endif %}{% endif %}
-	{% endfor %}<br />
+	{% endfor %}.
 {% endif %}
-<b><a href="/publications/{{ publication.pk }}/" class="title">{{ publication.title|tex_parse }}</a></b><br/>
-{% if publication.journal %}
-	<i>{{ publication.journal }}, {{ publication.year }}</i><br />
-{% else %}
-	<i>{% if publication.book_title %}{{ publication.book_title }},{% endif %}
+<b><a href="/publications/{{ publication.pk }}/" class="title">"{{ publication.title|tex_parse }}."</a></b>
+{% if 'JOURNAL' in publication.type.type.upper %}
+	<i>{{ publication.journal }}.
+	{% if publication.series_num %}{{ publication.series_num }}.{% endif %}
+	{% if publication.volume %} {{ publication.volume }}. {% endif %} {{ publication.number }}</i><br />
+	<i>({{ publication.year }}): {{ publication.pages }}</i><br />
+{% elif 'BOOK CHAPTER' in publication.type.type.upper %}
+	<i>{% if publication.section %}{{ publication.section }}.{% endif %}
+	{% if publication.book_title %}{{ publication.book_title }},{% endif %}
+	{% if publication.address %}{{ publication.address  }}: {% endif %}
+	{% if publication.publisher %}{{ publication.publisher }},{% endif %}
+	{% if publication.year %}{{ publication.year }},{% endif %}
+	{{ publication.pages }}.</i><br />
+{% elif 'BOOK' in publication.type.type.upper %}
+	<i>{% if publication.translator %}Trans.&nbsp;{{ publication.translator }}.{% endif %}
+	{% if publication.book_title %}{{ publication.book_title }}.{% endif %}
+	{% if publication.address %}{{ publication.address  }}: {% endif %}
 	{% if publication.publisher %}{{ publication.publisher }},{% endif %}
 	{% if publication.institution %}{{ publication.institution }},{% endif %}
-	{{ publication.year }},
+	{{ publication.year }}.
 	{% if publication.isbn %}ISBN {{ publication.isbn }}{% endif %}</i><br />
+	 
+{% elif 'NEWSPAPER' in publication.type.type.upper %}
+	<i>{% if publication.journal %}{{ publication.journal }}.{% endif %}
+	{% if publication.address %}{{ publication.address  }}{% endif %}
+	{% if publication.pub_date %}{{ publication.pub_date|date:"d M Y" }}.{% endif %}
+	{% if publication.pages %} {{ publication.pages }}. {% endif %}
+	{% if publication.url %} <a rel="external" href="{{ publication.url }}" target="_blank">{{ publication.url }}</a> {% endif %}
+	{%if publication.medium %} {{ publication.medium }}. {% endif %} {{ publication.access_date|date:"d M Y" }}</i><br />
+{% else %}
+	{{ publication.year }}.<br />
 {% endif %}
 {% if publication.keywords %}
 	{% for keyword, keyword_escaped in publication.keywords_escaped %}
@@ -26,14 +48,14 @@
 	<br />
 {% endif %}
 {% if publication.code %}<a class="link" href="{{ publication.code }}">Code</a>,{% endif %}
-{% if publication.url %}<a class="link" rel="external" href="{{ publication.url }}">URL</a>,{% endif %}
-{% if publication.doi %}<a class="link" rel="external" href="http://dx.doi.org/{{ publication.doi }}">DOI</a>,{% endif %}
-{% if not publication.journal and publication.isbn %}<a class="link" rel="external" target="_blank" href="http://isbndb.com/search/all?query={{ publication.isbn }}">ISBN</a>,{% endif %}
-{% if publication.pdf %}<a class="link" href="{{ MEDIA_URL }}{{ publication.pdf }}">PDF</a>,{% endif %}
+{% if publication.url %}<a class="link" rel="external" href="{{ publication.url }}" target="_blank">URL</a>,{% endif %}
+{% if publication.doi %}<a class="link" rel="external" href="http://dx.doi.org/{{ publication.doi }}" target="_blank">DOI</a>,{% endif %}
+{% if not publication.journal and publication.isbn %}<a class="link" rel="external" target="_blank" href="http://isbndb.com/search/all?query={{ publication.isbn }}" target="_blank">ISBN</a>,{% endif %}
+{% if publication.pdf %}<a class="link" href="{{ MEDIA_URL }}{{ publication.pdf }}" target="_blank">PDF</a>,{% endif %}
 {% for file in publication.files %}
-	<a class="link" href="{{ MEDIA_URL }}{{ file.file }}">{{ file.description }}</a>,
+	<a class="link" href="{{ MEDIA_URL }}{{ file.file }}" target="_blank">{{ file.description }}</a>,
 {% endfor %}
 {% for link in publication.links %}
-	<a class="link" rel="external" href="{{ link.url }}">{{ link.description }}</a>,
+	<a class="link" rel="external" href="{{ link.url }}" target="_blank">{{ link.description }}</a>,
 {% endfor %}
-<a href="/publications/{{ publication.pk }}/?bibtex">BibTex</a>
+<a href="/publications/{{ publication.pk }}/?bibtex" target="_blank">BibTex</a>
