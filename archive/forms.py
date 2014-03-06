@@ -49,7 +49,12 @@ from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord
                             WorkRecordType, VenueType, DigitalObjectType)
 
 
-class ProductionAdminForm(ModelForm):    
+class ProductionAdminForm(ModelForm):
+    
+    source_work = selectable_forms.AutoCompleteSelectMultipleField(
+        lookup_class=WorkRecordLookup,
+        required=True,
+        label=_(u"Source Work"))
 
     venue = selectable_forms.AutoCompleteSelectField(
         lookup_class=LocationLookup,
@@ -66,10 +71,10 @@ class ProductionAdminForm(ModelForm):
         required=False,
         label=_(u"Secondary Bibliography"))
 
-#    theater_companies = selectable_forms.AutoCompleteSelectMultipleField(
-#                                            lookup_class=TheaterCompanyLookup,
-#                                            required=False,
-#                                            label=_(u"Theater companies"))
+    theater_companies = selectable_forms.AutoCompleteSelectMultipleField(
+                                            lookup_class=TheaterCompanyLookup,
+                                            required=False,
+                                            label=_(u"Theater companies"))
 
     def __init__(self, *args, **kwargs): 
         super(ProductionAdminForm, self).__init__(*args, **kwargs)
@@ -80,7 +85,8 @@ class ProductionAdminForm(ModelForm):
 
         corporate_creator = Creator.objects.filter(creator_type='corp',
                                                    org_name__isnull=False)
-        self.fields['theater_companies'].queryset = corporate_creator
+
+        self.fields['theater_companies'].widget.update_query_parameters({'theater_companies': corporate_creator })
 
     class Meta(object):
         model = Production

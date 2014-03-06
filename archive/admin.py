@@ -425,7 +425,7 @@ class ProductionAdmin(TranslationAdmin):
     date_hierarchy = 'begin_date'
     search_fields = ['title', 'ascii_title', 'title_variants', 'notes']
     list_filter = ('has_attention',)
-    filter_horizontal = ['source_work', 'theater_companies'] 
+#    filter_horizontal = ['source_work', 'theater_companies'] 
     fieldsets = (
         (None, {
             'fields': ('source_work', 'title', 'subtitle', 'title_variants')

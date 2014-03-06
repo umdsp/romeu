@@ -40,5 +40,20 @@
 				}
             });				
 		});
+		
+		$("#id_source_work_0").blur(function (data) {
+			var values = [];
+			$("input[name='source_work_1']").each(function() {
+				values.push($(this).val());
+			});
+
+		});
+
+		function newParameters(query) {
+			query.source_text = [];
+		}
+
+	    $('#id_castmember_set-0-role_0').djselectable('option', 'prepareQuery', newParameters)
+		
     });
 })(django.jQuery);

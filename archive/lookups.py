@@ -88,6 +88,7 @@ class RoleLookup(ArchiveLookup):
     model = Role
     def get_query(self,request,term):
         work_record_list = request.GET.get('source_text', None)
+        print work_record_list
         if work_record_list:
             return Role.objects.filter(source_text__id__in=work_record_list.split(","))
         else:
