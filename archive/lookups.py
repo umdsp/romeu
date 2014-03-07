@@ -133,9 +133,16 @@ class CollectionLookup(ArchiveLookup):
 
 class CityLookup(ArchiveLookup):
     model = City
+    
     def get_query(self,request,term):
-        return City.objects.filter(name__icontains=term)
+        results = City.objects.filter(name__icontains=term)
+        country = request.GET.get('country', '')
+        print country
+        if country:
+            results = results.filter(country__name__icontains=country)
 
+        return results
+    
 class AwardLookup(ArchiveLookup):
     model = Award
     def get_query(self,request,term):

@@ -146,12 +146,12 @@ class Creator(models.Model):
     creator_display_ascii_name = models.CharField(max_length=255, verbose_name=_("creator display ASCII name"))
     name_variants = models.CharField(max_length=200, null=True, blank=True, verbose_name=_("name variants"))
     # Dates
-    birth_location = models.ForeignKey("Location", null=True, blank=True, related_name="born_here", verbose_name=_("birth location"))
+#    birth_location = models.ForeignKey("Location", null=True, blank=True, related_name="born_here", verbose_name=_("birth location"))
     birth_city = models.ForeignKey("City", null=True, blank=True, related_name="born_here", verbose_name=_("City of birth"))
     birth_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("birth date"))
     birth_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', null=True, blank=True, verbose_name=_("Precision"))
     birth_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
-    death_location = models.ForeignKey("Location", null=True, blank=True, related_name="died_here", verbose_name=_("death location"))
+#    death_location = models.ForeignKey("Location", null=True, blank=True, related_name="died_here", verbose_name=_("death location"))
     death_city = models.ForeignKey("City", null=True, blank=True, related_name="died_here", verbose_name=_("City of death"))
     death_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("death date"))
     death_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', null=True, blank=True, verbose_name=_("Precision"))
@@ -166,7 +166,7 @@ class Creator(models.Model):
     gender = models.CharField(max_length=2, choices=constants.GENDER_CHOICES, default=u'N', verbose_name=_("gender"))
     nationality = models.ForeignKey("Country", null=True, blank=True, verbose_name=_("nationality"))
 
-    location = models.ForeignKey("Location", null=True, blank=True, help_text=_("Office / headquarters location (for corporate creators only)"), verbose_name=_("office / headquarters"))
+#    location = models.ForeignKey("Location", null=True, blank=True, help_text=_("Office / headquarters location (for corporate creators only)"), verbose_name=_("office / headquarters"))
     headquarter_city = models.ForeignKey("City", null=True, blank=True, help_text=_("Office / headquarters location (for corporate creators only)"), verbose_name=_("office / headquarters"))
     
     related_creators = models.ManyToManyField("self", through="RelatedCreator", symmetrical=False, null=True, blank=True, verbose_name=_("related creators"))
@@ -678,17 +678,9 @@ class Location(models.Model):
             return True
         if Repository.objects.filter(location=self).exists():
             return True
-        if DigitalObject.objects.filter(phys_obj_location=self).exists():
-            return True
+#        if DigitalObject.objects.filter(phys_obj_location=self).exists():
+#            return True
         if DigitalObject.objects.filter(related_venue=self).exists():
-            return True
-        if AwardCandidate.objects.filter(place=self).exists():
-            return True
-        if Creator.objects.filter(birth_city=self).exists():
-            return True
-        if Creator.objects.filter(death_city=self).exists():
-            return True
-        if Creator.objects.filter(headquarter_city=self).exists():
             return True
         return False
     
