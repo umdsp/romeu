@@ -1549,7 +1549,7 @@ class DigitalObject(models.Model):
     phys_obj_date = models.DateField(null=True, blank=True, verbose_name=_("physical object date"))
     phys_obj_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', null=True, blank=True, verbose_name=_("Precision"))
     phys_obj_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
-    phys_obj_location = models.ForeignKey("Location", null=True, blank=True, verbose_name=_("physical object location"))
+#    phys_obj_location = models.ForeignKey("Location", null=True, blank=True, verbose_name=_("physical object location"))
     phys_obj_city = models.ForeignKey("City", null=True, blank=True, verbose_name=_("Physical object city"))
     # Digital object info
     digi_object_format = models.ForeignKey("DigitalObjectType", verbose_name=_("Digital object format"), null=True, blank=True)
