@@ -346,7 +346,7 @@ class DigitalObjectAdminForm(ModelForm):
     phys_obj_city = selectable_forms.AutoCompleteSelectField(
         lookup_class=CityLookup,
         allow_new=False,
-        label=_(u"Physical object City"),
+        label=_(u"Physical object city"),
         required=False)
 
     replicate_tags = forms.BooleanField(

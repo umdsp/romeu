@@ -130,6 +130,7 @@ class Publication(models.Model):
 	section = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("section"))
 
 	pub_date = models.DateField(null=True, blank=True, verbose_name=_("publication date"))
+	season = models.CharField(max_length=255, null=True, blank=True, help_text=_("Publication time in the year, ex: Spring, Fall, etc."), verbose_name=_("Season"))
 	access_date = models.DateField(null=True, blank=True, verbose_name=_("access date"))
 	
 	language = models.CharField(max_length=60, null=True, blank=True, verbose_name=_("language"))

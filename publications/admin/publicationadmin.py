@@ -38,7 +38,8 @@ class PublicationAdmin(admin.ModelAdmin):
 	search_fields = ('title', 'journal', 'authors', 'keywords', 'year')
 	fieldsets = (
 		('BibTex Standard fields', {'fields': 
-			('type', 'title', 'authors', ('year', 'month'),
+			('type', 'title', 'authors', ('year', 'pub_date'),
+			 'season',
 			 'citekey', 'annote', ('book_title', 'edition', 'chapter', 'pages', 'isbn', 'issn', 'doi'),
 			 'editor', 'publisher', 'address', 'how_published',
 			'institution', 'volume',
@@ -58,7 +59,7 @@ class PublicationAdmin(admin.ModelAdmin):
 			)
 			}),
 		(None, {'fields': 
-			('translator', 'section', 'pub_date')}),
+			('translator', 'section', )}),
 		(None, {'fields': 
 			('access_date', 'medium', 'art_size', 'label', 'runtime')}),
 		(None, {'fields': 

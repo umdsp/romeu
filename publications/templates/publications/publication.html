@@ -14,14 +14,20 @@
 	<i>{{ publication.journal }}.
 	{% if publication.series_num %}{{ publication.series_num }}.{% endif %}
 	{% if publication.volume %} {{ publication.volume }}. {% endif %} {{ publication.number }}</i><br />
-	<i>({{ publication.year }}): {{ publication.pages }}</i><br />
+	<i>({{ publication.year }}): {{ publication.pages }}
+	{% if publication.pub_date %}{{ publication.pub_date|date:"d M Y" }}.{% endif %}
+	{% if publication.season %}{{ publication.season }}.{% endif %}		
+	{%if publication.medium %} {{ publication.medium }}. {% endif %}</i><br />
 {% elif 'BOOK CHAPTER' in publication.type.type.upper %}
 	<i>{% if publication.section %}{{ publication.section }}.{% endif %}
 	{% if publication.book_title %}{{ publication.book_title }},{% endif %}
 	{% if publication.address %}{{ publication.address  }}: {% endif %}
 	{% if publication.publisher %}{{ publication.publisher }},{% endif %}
 	{% if publication.year %}{{ publication.year }},{% endif %}
-	{{ publication.pages }}.</i><br />
+	{% if publication.pub_date %}{{ publication.pub_date|date:"d M Y" }}.{% endif %}
+	{% if publication.season %}{{ publication.season }}.{% endif %}	
+	{{ publication.pages }}.
+	{%if publication.medium %} {{ publication.medium }}. {% endif %}</i><br />
 {% elif 'BOOK' in publication.type.type.upper %}
 	<i>{% if publication.translator %}Trans.&nbsp;{{ publication.translator }}.{% endif %}
 	{% if publication.book_title %}{{ publication.book_title }}.{% endif %}
@@ -29,17 +35,23 @@
 	{% if publication.publisher %}{{ publication.publisher }},{% endif %}
 	{% if publication.institution %}{{ publication.institution }},{% endif %}
 	{{ publication.year }}.
-	{% if publication.isbn %}ISBN {{ publication.isbn }}{% endif %}</i><br />
-	 
+	{% if publication.pub_date %}{{ publication.pub_date|date:"d M Y" }}.{% endif %}
+	{% if publication.season %}{{ publication.season }}.{% endif %}	
+	{% if publication.access_date %} {{ publication.access_date|date:"d M Y" }}. {% endif %}
+	{%if publication.medium %} {{ publication.medium }}. {% endif %}</i><br />
 {% elif 'NEWSPAPER' in publication.type.type.upper %}
 	<i>{% if publication.journal %}{{ publication.journal }}.{% endif %}
 	{% if publication.address %}{{ publication.address  }}{% endif %}
 	{% if publication.pub_date %}{{ publication.pub_date|date:"d M Y" }}.{% endif %}
+	{% if publication.season %}{{ publication.season }}.{% endif %}
 	{% if publication.pages %} {{ publication.pages }}. {% endif %}
 	{% if publication.url %} <a rel="external" href="{{ publication.url }}" target="_blank">{{ publication.url }}</a> {% endif %}
-	{%if publication.medium %} {{ publication.medium }}. {% endif %} {{ publication.access_date|date:"d M Y" }}</i><br />
+	{%if publication.access_date %} {{ publication.access_date|date:"d M Y" }}. {% endif %} {%if publication.medium %} {{ publication.medium }}.{% endif %} </i><br />
 {% else %}
-	{{ publication.year }}.<br />
+	{{ publication.year }}.{% if publication.pub_date %}{{ publication.pub_date|date:"d M Y" }}.{% endif %}
+	{% if publication.season %}{{ publication.season }}.{% endif %}
+	{%if publication.medium %} {{ publication.medium }}. {% endif %}
+	<br />
 {% endif %}
 {% if publication.keywords %}
 	{% for keyword, keyword_escaped in publication.keywords_escaped %}
