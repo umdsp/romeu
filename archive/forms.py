@@ -343,10 +343,10 @@ class DigitalObjectAdminForm(ModelForm):
         label=_(u"Object creator"),
         required=False)
 
-    phys_obj_location = selectable_forms.AutoCompleteSelectField(
-        lookup_class=LocationLookup,
+    phys_obj_city = selectable_forms.AutoCompleteSelectField(
+        lookup_class=cityLookup,
         allow_new=False,
-        label=_(u"Physical object location"),
+        label=_(u"Physical object City"),
         required=False)
 
     replicate_tags = forms.BooleanField(
@@ -361,8 +361,8 @@ class DigitalObjectAdminForm(ModelForm):
                 self.initial['collection'] = self.instance.collection.pk
             if self.instance.object_creator:
                 self.initial['object_creator'] = self.instance.object_creator.pk
-            if self.instance.phys_obj_location:
-                self.initial['phys_obj_location'] = self.instance.phys_obj_location.pk
+            if self.instance.phys_obj_city:
+                self.initial['phys_obj_city'] = self.instance.phys_obj_city.pk
 
         
     class Meta(object):

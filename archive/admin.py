@@ -566,7 +566,7 @@ class DigitalObjectAdmin(TranslationAdmin):
             'fields': (('series_num', 'series_name',), ('subseries_num', 'subseries_name',), ('box_num',), ('folder_num', 'folder_name', 'folder_date',),)
         },),
         ('Physical object information', {
-            'fields': ('phys_object_type', 'marks', 'measurements', 'donor', 'sponsor_note', ('phys_obj_date', 'phys_obj_precision', 'phys_obj_BC'), 'phys_obj_location')
+            'fields': ('phys_object_type', 'marks', 'measurements', 'donor', 'sponsor_note', ('phys_obj_date', 'phys_obj_precision', 'phys_obj_BC'), 'phys_obj_city')
         },),
         ('Digital object information', {
             'fields': ('digi_object_format', ('creation_date', 'creation_date_precision', 'creation_date_BC'))
