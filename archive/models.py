@@ -678,8 +678,8 @@ class Location(models.Model):
             return True
         if Repository.objects.filter(location=self).exists():
             return True
-#        if DigitalObject.objects.filter(phys_obj_location=self).exists():
-#            return True
+        if DigitalObject.objects.filter(phys_obj_city=self).exists():
+            return True
         if DigitalObject.objects.filter(related_venue=self).exists():
             return True
         return False
@@ -1493,7 +1493,7 @@ class AwardCandidate(models.Model):
     recipient = models.ForeignKey(Creator, null=True, blank=True, related_name="recipient", help_text=_("A specific person or organization receiving the award"), verbose_name=_("recipient"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
     production = models.ForeignKey(Production, null=True, blank=True, default=None, related_name="production", verbose_name=_("production"))
-    place = models.ForeignKey("City", null=True, blank=True, default=None, related_name="place", verbose_name=_("place"))
+    place = models.ForeignKey("City", null=True, blank=True, default=None, related_name="place", verbose_name=_("City"))
     festival = models.ForeignKey(Festival, null=True, blank=True, default=None, related_name="festival", verbose_name=_("festival"))
     work_record = models.ForeignKey(WorkRecord, null=True, blank=True, default=None, related_name="work_record", verbose_name=_("work record"))
     attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
@@ -1550,6 +1550,7 @@ class DigitalObject(models.Model):
     phys_obj_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', null=True, blank=True, verbose_name=_("Precision"))
     phys_obj_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
     phys_obj_location = models.ForeignKey("Location", null=True, blank=True, verbose_name=_("physical object location"))
+    phys_obj_city = models.ForeignKey("City", null=True, blank=True, verbose_name=_("Physical object city"))
     # Digital object info
     digi_object_format = models.ForeignKey("DigitalObjectType", verbose_name=_("Digital object format"), null=True, blank=True)
     # Container info
