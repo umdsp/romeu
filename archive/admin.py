@@ -312,8 +312,8 @@ class BibliographicRecordAdmin(admin.ModelAdmin):
 
 class LocationAdmin(TranslationAdmin):
     form = arcforms.LocationAdminForm
-    list_display = ('title', 'begin_date_display', 'end_date_display', 'city', 'state', 'country', 'has_system_links',)
-    search_fields = ['title_ascii', 'title', 'title_variants', 'city__name', 'state', 'summary', 'notes']
+    list_display = ('title', 'begin_date_display', 'end_date_display', 'city', 'country', 'has_system_links',)
+    search_fields = ['title_ascii', 'title', 'title_variants', 'city__name', 'city__state', 'summary', 'notes']
     inlines = (StageInline,)
     list_filter = ('has_attention',)
     fieldsets = (
@@ -324,7 +324,7 @@ class LocationAdmin(TranslationAdmin):
             'fields': (('begin_date', 'begin_date_precision', 'begin_date_BC'), ('end_date', 'end_date_precision', 'end_date_BC'))
         }),
         ('Address', {
-            'fields': ('address', 'address2', 'city', 'state', 'postal_code')
+            'fields': ('address', 'address2', 'city', 'postal_code')
         }),
         ('Geolocation', {
             'fields': ('lat', 'lon', 'altitude')    

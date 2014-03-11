@@ -42,7 +42,7 @@ class CreatorTranslationOptions(TranslationOptions):
     fields = ('biography', 'notes',)
 
 class LocationTranslationOptions(TranslationOptions):
-    fields = ('title', 'state', 'summary', 'notes',)
+    fields = ('title', 'summary', 'notes',)
 
 class StageTranslationOptions(TranslationOptions):
     fields = ('stage_lighting', 'stage_sound', 'notes',)

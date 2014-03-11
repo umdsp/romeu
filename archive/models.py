@@ -627,7 +627,7 @@ class Location(models.Model):
     address = models.CharField(max_length=100, verbose_name=_("street address"), null=True, blank=True)
     address2 = models.CharField(max_length=100, verbose_name=_("street address (line 2)"), null=True, blank=True)
     city = models.ForeignKey("City", null=True, blank=True, verbose_name=_("city"))
-    state = models.CharField(max_length=100, verbose_name=_("state/province"), null=True, blank=True)
+#    state = models.CharField(max_length=100, verbose_name=_("state/province"), null=True, blank=True)
     postal_code = models.CharField(max_length=20, verbose_name=_("postal code"), null=True, blank=True)
     country = models.ForeignKey("Country", verbose_name=_("country"))
     lat = models.CharField(max_length=20, verbose_name=_("latitude"), null=True, blank=True)
