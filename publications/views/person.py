@@ -43,9 +43,10 @@ def person(request, name):
 	surname = replace(surname, u'ue', u'%%')
 	surname = replace(surname, u'ß', u'%%')
 	surname = replace(surname, u'ss', u'%%')
-	query_str = u'SELECT * FROM {table} WHERE lower(authors) LIKE lower(\'%%{surname}%%\')'
+
+	query_str = u'SELECT * FROM {table} WHERE lower(authors) LIKE lower(\'%%{author}%%\')'
 	query = Publication.objects.raw(
-		query_str.format(table=Publication._meta.db_table, surname=surname))
+		query_str.format(table=Publication._meta.db_table, author=author))
 
 	# further filter results
 	if len(names) > 1:

@@ -5,6 +5,7 @@ __author__ = 'Lucas Theis <lucas@theis.io>'
 __docformat__ = 'epytext'
 
 from django.db import models
+from django.db.models.signals import pre_save, post_save, post_delete
 from django.utils.http import urlquote_plus
 from django.utils.translation import ugettext
 from django.utils.translation import ugettext_lazy as _
@@ -17,20 +18,20 @@ from publications.models import Type
 from taggit_autocomplete_modified.managers import TaggableManager
 
 try:
-    from south.modelsinspector import add_introspection_rules
-    
-    add_introspection_rules(
-    [
-        (
-            (TaggableManager, ), [], {},
-        ),
+	from south.modelsinspector import add_introspection_rules
 
-    ],
-    ["^taggit_autocomplete_modified\.managers\.TaggableManager",
-     ])
-    
+	add_introspection_rules(
+	[
+		(
+			(TaggableManager, ), [], {},
+		),
+	
+	],
+	["^taggit_autocomplete_modified\.managers\.TaggableManager",
+	 ])
+
 except ImportError:
-    pass
+	pass
 
 
 class Publication(models.Model):
@@ -120,7 +121,7 @@ class Publication(models.Model):
 	abstract = models.TextField(null=True, blank=True, verbose_name=_("abstract"))
 
 	translator = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("translator(s)"))
-	volume = models.CharField(max_length=20, null=True, blank=True, verbose_name=_("number of volumes"))
+	volume = models.CharField(max_length=20, null=True, blank=True, verbose_name=_("Volume number"))
 	number = models.CharField(max_length=40, null=True, blank=True, help_text=_("Issue number"), verbose_name=_("issue number"))
 	series = models.CharField(max_length=255, null=True, blank=True, help_text=_("Series title"), verbose_name=_("series"))
 	series_text = models.CharField(max_length=255, null=True, blank=True, help_text=_("Series subtitle"), verbose_name=_("series text"))
@@ -131,7 +132,7 @@ class Publication(models.Model):
 
 	pub_date = models.DateField(null=True, blank=True, verbose_name=_("publication date"))
 	season = models.CharField(max_length=255, null=True, blank=True, help_text=_("Publication time in the year, ex: Spring, Fall, etc."), verbose_name=_("Season"))
-	access_date = models.DateField(null=True, blank=True, verbose_name=_("access date"))
+	access_date = models.DateField(null=True, blank=True, verbose_name=_("accessed date"))
 	
 	language = models.CharField(max_length=60, null=True, blank=True, verbose_name=_("language"))
 	pages = models.CharField(max_length=30, null=True, blank=True, help_text=_("Enter one or more pages / page ranges"), verbose_name=_("pages"))
@@ -254,9 +255,9 @@ class Publication(models.Model):
 				join(self.authors_list[:-1], ', '),
 				self.authors_list[-1]], ', and ')
 		elif len(self.authors_list) > 1:
-			self.authors = join(self.authors_list, ' and ')
+			self.authors = "%s, %s" % (self.authors_list[0], self.authors_list[1])
 		else:
-			self.authors = self.authors_list[0]
+			self.authors = "%s" % (self.authors_list[0]) #self.authors_list #[0]
 
 
 	def __unicode__(self):
@@ -277,9 +278,23 @@ class Publication(models.Model):
 
 
 	def authors_escaped(self):
+
+			
 		return [(author, replace(author.lower(), ' ', '+'))
 			for author in self.authors_list]
 
+	def authors_mla_escaped(self):
+
+		self.authors = replace(self.authors, ',and ', ', and ')
+		self.authors = replace(self.authors, ' and ', ', and ')
+		mla_authors_list = [strip(author) for author in split(self.authors, ',')]
+		sppos = mla_authors_list[0].find(' ',0)
+		first_author_firstName =  mla_authors_list[0][0:sppos]
+		first_author_lastName = mla_authors_list[0][sppos:]
+		mla_authors_list[0] = "%s, %s" % (first_author_lastName, first_author_firstName)
+		
+		return [(author, replace(author.lower(), ' ', '+'))
+			for author in mla_authors_list]
 
 	def key(self):
 		# this publication's first author
@@ -337,3 +352,4 @@ class Publication(models.Model):
 		name = replace(name, u'ü', u'ue')
 		name = replace(name, u'ß', u'ss')
 		return name
+

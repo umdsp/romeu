@@ -1,23 +1,36 @@
 {% load publication_extras %}
 
+
 {% if publication.authors_escaped|length > 8 %}
 	{% for author, author_escaped in publication.authors_escaped|slice:":8" %}
-	<a href="/publications/{{ author_escaped }}/" class="author">{{ author }}</a>,
-	{% endfor %} <i></i>
+	{{ author }}
+	{% endfor %}. 
+{% elif publication.authors_escaped|length > 2 %}
+	{% for author, author_escaped in publication.authors_escaped %}
+	{% if not forloop.last %}{{ author }},{% else %} and {{ author }} {% endif %}
+	{% endfor %}
 {% else %}
 	{% for author, author_escaped in publication.authors_escaped %}
-	<a href="/publications/{{ author_escaped }}/" class="author">{{ author }}</a>{% if not forloop.last %}{% if forloop.revcounter == 2 %}{% if not forloop.first %},{% endif %} and {% else %}, {% endif %}{% endif %}
-	{% endfor %}.
+	{% if not forloop.last %}{{ author }},{% else %}{{ author }} {% endif %}
+	{% endfor %}
 {% endif %}
-<b><a href="/publications/{{ publication.pk }}/" class="title">"{{ publication.title|tex_parse }}."</a></b>
+{% comment %}
+	{% for author, author_escaped in publication.authors_mla_escaped %}
+	<a href="/publications/{{ author_escaped }}/" >{{ author }}</a>{% if not forloop.last %},{% else %}.{% endif %}
+	{% endfor %}
+	{% endcomment %}
+"{{ publication.title|tex_parse }}."
 {% if 'JOURNAL' in publication.type.type.upper %}
-	<i>{{ publication.journal }}.
+	<i>{{ publication.journal }}</i>
 	{% if publication.series_num %}{{ publication.series_num }}.{% endif %}
-	{% if publication.volume %} {{ publication.volume }}. {% endif %} {{ publication.number }}</i><br />
-	<i>({{ publication.year }}): {{ publication.pages }}
+	{% if publication.volume %}{{ publication.volume }}.{% endif %}{{ publication.number }}
+	({{ publication.year }}): {{ publication.pages }}.
 	{% if publication.pub_date %}{{ publication.pub_date|date:"d M Y" }}.{% endif %}
 	{% if publication.season %}{{ publication.season }}.{% endif %}		
-	{%if publication.medium %} {{ publication.medium }}. {% endif %}</i><br />
+	{%if publication.medium %} {{ publication.medium }}. {% endif %}
+	{% if publication.access_date %}{{ publication.access_date|date:"d M Y" }}.{% endif %}<br />
+	{% if publication.url %}&lt;{{ publication.url }}&gt;. {% endif %}<br />
+	
 {% elif 'BOOK CHAPTER' in publication.type.type.upper %}
 	<i>{% if publication.section %}{{ publication.section }}.{% endif %}
 	{% if publication.book_title %}{{ publication.book_title }},{% endif %}
@@ -29,8 +42,8 @@
 	{{ publication.pages }}.
 	{%if publication.medium %} {{ publication.medium }}. {% endif %}</i><br />
 {% elif 'BOOK' in publication.type.type.upper %}
-	<i>{% if publication.translator %}Trans.&nbsp;{{ publication.translator }}.{% endif %}
-	{% if publication.book_title %}{{ publication.book_title }}.{% endif %}
+	{% if publication.translator %}Trans.&nbsp;{{ publication.translator }}.{% endif %}
+	<i>{% if publication.book_title %}{{ publication.book_title }}.{% endif %}</i>
 	{% if publication.address %}{{ publication.address  }}: {% endif %}
 	{% if publication.publisher %}{{ publication.publisher }},{% endif %}
 	{% if publication.institution %}{{ publication.institution }},{% endif %}
@@ -38,7 +51,7 @@
 	{% if publication.pub_date %}{{ publication.pub_date|date:"d M Y" }}.{% endif %}
 	{% if publication.season %}{{ publication.season }}.{% endif %}	
 	{% if publication.access_date %} {{ publication.access_date|date:"d M Y" }}. {% endif %}
-	{%if publication.medium %} {{ publication.medium }}. {% endif %}</i><br />
+	{%if publication.medium %} {{ publication.medium }}. {% endif %}<br />
 {% elif 'NEWSPAPER' in publication.type.type.upper %}
 	<i>{% if publication.journal %}{{ publication.journal }}.{% endif %}
 	{% if publication.address %}{{ publication.address  }}{% endif %}
@@ -48,9 +61,11 @@
 	{% if publication.url %} <a rel="external" href="{{ publication.url }}" target="_blank">{{ publication.url }}</a> {% endif %}
 	{%if publication.access_date %} {{ publication.access_date|date:"d M Y" }}. {% endif %} {%if publication.medium %} {{ publication.medium }}.{% endif %} </i><br />
 {% else %}
+	{%if publication.journal %}<i>{{ publication.journal }}</i>{% endif %}
 	{{ publication.year }}.{% if publication.pub_date %}{{ publication.pub_date|date:"d M Y" }}.{% endif %}
 	{% if publication.season %}{{ publication.season }}.{% endif %}
 	{%if publication.medium %} {{ publication.medium }}. {% endif %}
+	{% if publication.access_date %}{{ publication.access_date|date:"d M Y" }}.{% endif %}
 	<br />
 {% endif %}
 {% if publication.keywords %}
@@ -60,7 +75,7 @@
 	<br />
 {% endif %}
 {% if publication.code %}<a class="link" href="{{ publication.code }}">Code</a>,{% endif %}
-{% if publication.url %}<a class="link" rel="external" href="{{ publication.url }}" target="_blank">URL</a>,{% endif %}
+{% comment %}{% if publication.url %}<a class="link" rel="external" href="{{ publication.url }}" target="_blank">URL</a>,{% endif %} {% endcomment %}
 {% if publication.doi %}<a class="link" rel="external" href="http://dx.doi.org/{{ publication.doi }}" target="_blank">DOI</a>,{% endif %}
 {% if not publication.journal and publication.isbn %}<a class="link" rel="external" target="_blank" href="http://isbndb.com/search/all?query={{ publication.isbn }}" target="_blank">ISBN</a>,{% endif %}
 {% if publication.pdf %}<a class="link" href="{{ MEDIA_URL }}{{ publication.pdf }}" target="_blank">PDF</a>,{% endif %}

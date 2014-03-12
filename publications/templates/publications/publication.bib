@@ -1,5 +1,5 @@
 @{{ publication.type.bibtex_type }}{% templatetag openbrace %}{% if publication.citekey %}{{ publication.citekey }}{% else %}{{ publication.key }}{% endif %},
-  author = "{{ publication.authors_bibtex }}",
+  author = "{{ publication.authors }}",
   title = "{{ publication.title }}",
   year = {{ publication.year }}{% if publication.journal %},
   journal = "{{ publication.journal }}"{% endif %}{% if publication.book_title %},
