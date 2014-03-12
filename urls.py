@@ -149,7 +149,10 @@ urlpatterns = patterns('',
           'archive.views.get_creators_json_response', name='ajax_get_creators_in_json'),
     url(r'^ajax/creators/org_name/$',
           'archive.views.get_creators_org_name_json_response', name='ajax_get_creators_org_name_in_json'),    
-     
+
+    url(r'^ajax/cities/$',
+          'archive.views.get_cities_json_response', name='ajax_get_cities_in_json'),
+    
     url(r'^admin/', include(admin.site.urls)),
     
     url(r'^search/', search_view),

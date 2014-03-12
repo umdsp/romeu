@@ -14,7 +14,6 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-
 MONTHS = {
 	"1": "January",
 	"2": "February",
@@ -69,4 +68,3 @@ def display_date(datefield, dateprecision, dateBC):
         return MONTHS[str(datefield.month)] + " " + str(datefield.day) + ", " + str(datefield.year)[0:3] + "0's" + bcstring
         
     return MONTHS[str(datefield.month)] + " " + str(datefield.day) + ", " + str(datefield.year) + bcstring # exception handling - return full date
-    

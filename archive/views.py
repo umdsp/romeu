@@ -48,7 +48,7 @@ from archive.models import (Creator, Location, Production, WorkRecord,
                             DocumentationMember, AdvisoryMember, HomePageInfo,
                             TranslatingFlatPage, DigitalObjectType,
                             PhysicalObjectType, Collection, Repository,
-                            Award, AwardCandidate,)
+                            Award, AwardCandidate, City)
                            
 from taggit.models import Tag, TaggedItem
 from haystack.forms import ModelSearchForm
@@ -1172,4 +1172,40 @@ def get_creators_org_name_json_response(request):
 
     json_response = json.dumps(creator_list)
   
+    return HttpResponse(json_response, mimetype='application/json')
+
+def get_cities_json_response(request):
+    
+    """
+        Returns json response of cities with same names
+        according to the city and country passed in
+    """
+    json_object = json.loads(request.GET.get('jobj'))
+    city=json_object['city']
+    country=json_object['country']
+    print city, country
+
+    """
+    if ((city == "" or city is None) and
+        (country == 0 or country is None)
+        ):
+    
+      json_response = json.dumps([])
+      return HttpResponse(json_response, mimetype='application/json')
+    """
+    
+    city_qs = City.objects.filter(name=city,country__id=country)
+    print 'list'
+    city_list = []
+    for city in city_qs:
+        city_dict={}
+        city_dict['id']=city.id
+        city_dict['country']=city.country.name
+        city_dict['state']=city.state
+        city_dict['city']=city.name
+        
+        city_list.append(city_dict)
+    
+    json_response = json.dumps(city_list)
+    
     return HttpResponse(json_response, mimetype='application/json')

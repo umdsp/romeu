@@ -652,10 +652,20 @@ class CountryAdmin(TranslationAdmin):
 class CityAdmin(TranslationAdmin):
     form = arcforms.CityAdminForm
     
+    search_fields = ['name']
+    list_filter = ('country', 'state')
+    list_display = ('name', 'state', 'country')
+    
+    fieldsets = (
+        (None, {
+            'fields': ('country', 'state', 'name')
+        }),
+    )    
+
     def __init__(self, model, admin_site):
         super(CityAdmin, self).__init__(model, admin_site)
         self.form.admin_site = admin_site
-    
+
     class Media:
         css = {
             'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
@@ -663,6 +673,7 @@ class CityAdmin(TranslationAdmin):
         js = (
             '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
             '/static/js/tabbed_translation_fields.js',
+            ("%s%s" % (STATIC_URL, 'js/admin_form.js'))
         )
 
 class LanguageAdmin(TranslationAdmin):

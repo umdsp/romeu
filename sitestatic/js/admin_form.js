@@ -40,6 +40,50 @@
 				}
             });				
 		});
+		$("#id_name_en").blur(function (data) {
+			var jsonObject= {
+					"city":$( "#id_name_en" ).val(),
+					"country":$( "#id_country_1" ).val()
+				};
+			$.get("/ajax/cities/", {jobj: JSON.stringify(jsonObject)}, function(data) {
+				if (data.length > 0) {
+					var alertText = 'Already in database\n\n'
+					for (var key in data )
+						if (data.hasOwnProperty(key)) {
+							var value = data[key];
+							alertText += 'ID ................' + ': ' + value.id.toString()+'\n';
+							alertText += 'City ..............' + ': ' + value.city+'\n';
+							alertText += 'Sate ..............' + ': ' + value.state+'\n';
+							alertText += 'country............' + ': ' + value.country+'\n';
+							alertText += '--------------------------------------------------------' + '\n';
+						}
+					alert(alertText)
+				}
+            });				
+		});
 		
+		$("#id_name_es").blur(function (data) {
+			var jsonObject= {
+					"city":$( "#id_name_en" ).val(),
+					"country":$( "#id_country_1" ).val()
+				};
+			$.get("/ajax/cities/", {jobj: JSON.stringify(jsonObject)}, function(data) {
+				if (data.length > 0) {
+					var alertText = 'Already in database\n\n'
+					for (var key in data )
+						if (data.hasOwnProperty(key)) {
+							var value = data[key];
+							alertText += 'ID ................' + ': ' + value.id.toString()+'\n';
+							alertText += 'City ..............' + ': ' + value.city+'\n';
+							alertText += 'Sate ..............' + ': ' + value.state+'\n';
+							alertText += 'country............' + ': ' + value.country+'\n';
+							alertText += '--------------------------------------------------------' + '\n';
+						}
+					alert(alertText)
+				}
+            });				
+		});			
+		
+
     });
 })(django.jQuery);

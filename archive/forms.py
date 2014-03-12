@@ -488,6 +488,7 @@ class CityAdminForm(ModelForm):
             if self.instance.country:
                 self.initial['country'] = self.instance.country.pk
 
+
     class Meta(object):
         model = City
 
