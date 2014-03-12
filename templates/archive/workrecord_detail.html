@@ -84,18 +84,37 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               </div>
           {% endif %}          
 
-           {% if workrecord.primary_publications.exists %}
-             <div class="linkeditems">
-            <h3>{% trans "Bibliography" %}: +</h3>
-            <ul>
+            {% if workrecord.primary_publications.exists or workrecord.secondary_publications.exists %}
+            <div class="linkeditems">
+              <h3>{% trans "Bibliography" %}: +</h3>
+              {% if workrecord.primary_publications.exists %}
+                <div class="linkeditems">
+                <h3>{% trans "Primary" %}: +</h3>
+                <ul>
+                    
                   {% for citation in workrecord.primary_publications.all %}
                   <li>
-                    <a href="{{ SITE_URL }}{% url 'publications_views_id' citation.id %}">{{ citation.title|safe }}</a> 
+                    <a href="{{ SITE_URL }}{% url 'publications_views_id' citation.id %}">{{ citation.title|safe }}</a>  
                   </li>
                   {% endfor %}
-            </ul>
-             </div>
-           {% endif %}
+                </ul>
+                </div>
+              {% endif %}
+              {% if workrecord.secondary_publications.exists %}
+                <div class="linkeditems">
+                <h3>{% trans "Secondary" %}: +</h3>
+                <ul>
+                    
+                  {% for citation in workrecord.secondary_publications.all %}
+                  <li>
+                    <a href="{{ SITE_URL }}{% url 'publications_views_id' citation.id %}">{{ citation.title|safe }}</a>  
+                  </li>
+                  {% endfor %}
+                </ul>
+                </div>
+              {% endif %}
+            </div>
+            {% endif %}
 
           {% if workrecord.published_performances %}
           <div class="linkeditems">

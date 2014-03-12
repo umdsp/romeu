@@ -258,9 +258,12 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               </div>
           {% endif %}
           
-          {% if production.primary_publications.exists %}
+            {% if production.primary_publications.exists or production.secondary_publications.exists %}
             <div class="linkeditems">
               <h3>{% trans "Bibliography" %}: +</h3>
+              {% if production.primary_publications.exists %}
+                <div class="linkeditems">
+                <h3>{% trans "Primary" %}: +</h3>
                 <ul>
                     
                   {% for citation in production.primary_publications.all %}
@@ -269,8 +272,23 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   </li>
                   {% endfor %}
                 </ul>
+                </div>
+              {% endif %}
+              {% if production.secondary_publications.exists %}
+                <div class="linkeditems">
+                <h3>{% trans "Secondary" %}: +</h3>
+                <ul>
+                    
+                  {% for citation in production.secondary_publications.all %}
+                  <li>
+                    <a href="{{ SITE_URL }}{% url 'publications_views_id' citation.id %}">{{ citation.title|safe }}</a>  
+                  </li>
+                  {% endfor %}
+                </ul>
+                </div>
+              {% endif %}
             </div>
-           {% endif %}
+            {% endif %}
           
 
 
