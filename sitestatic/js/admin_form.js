@@ -54,7 +54,7 @@
 							alertText += 'ID ................' + ': ' + value.id.toString()+'\n';
 							alertText += 'City ..............' + ': ' + value.city+'\n';
 							alertText += 'Sate ..............' + ': ' + value.state+'\n';
-							alertText += 'country............' + ': ' + value.country+'\n';
+							alertText += 'Country............' + ': ' + value.country+'\n';
 							alertText += '--------------------------------------------------------' + '\n';
 						}
 					alert(alertText)
@@ -76,14 +76,78 @@
 							alertText += 'ID ................' + ': ' + value.id.toString()+'\n';
 							alertText += 'City ..............' + ': ' + value.city+'\n';
 							alertText += 'Sate ..............' + ': ' + value.state+'\n';
-							alertText += 'country............' + ': ' + value.country+'\n';
+							alertText += 'Country............' + ': ' + value.country+'\n';
 							alertText += '--------------------------------------------------------' + '\n';
 						}
 					alert(alertText)
 				}
             });				
 		});			
-		
 
+		$("#id_city_0").blur(function (data) {
+			var jsonObject= {
+					"title_en":$( "#id_title_en" ).val(),
+					"title_es":$( "#id_title_es" ).val(),
+					"city":$( "#id_city_1" ).val(),
+					"country":$( "#id_country_1" ).val()
+				};
+			$.get("/ajax/locations/", {jobj: JSON.stringify(jsonObject)}, function(data) {
+				if (data.length > 0) {
+					var alertText = 'Already in database\n\n'
+					for (var key in data )
+						if (data.hasOwnProperty(key)) {
+							var value = data[key];
+							alertText += 'ID ................' + ': ' + value.id.toString()+'\n';
+							alertText += 'Title..............' + ': ' + value.location+'\n';
+							alertText += 'Country............' + ': ' + value.country+'\n';
+							alertText += 'City ..............' + ': ' + value.city+'\n';
+							alertText += '--------------------------------------------------------' + '\n';
+						}
+					alert(alertText)
+				}
+            });	
+		});
+		
+		$("#id_title_en").blur(function (data) {
+			var jsonObject= {
+					"title_en":$( "#id_title_en" ).val(),
+					"title_es":$( "#id_title_es" ).val()
+				};
+			$.get("/ajax/festivals/", {jobj: JSON.stringify(jsonObject)}, function(data) {
+				if (data.length > 0) {
+					var alertText = 'Already in database\n\n'
+					for (var key in data )
+						if (data.hasOwnProperty(key)) {
+							var value = data[key];
+							alertText += 'ID ................' + ': ' + value.id.toString()+'\n';
+							alertText += 'Festival...........' + ': ' + value.festival+'\n';
+							alertText += '--------------------------------------------------------' + '\n';
+						}
+					alert(alertText)
+				}
+            });				
+		});
+		
+		$("#id_title_es").blur(function (data) {
+			var jsonObject= {
+					"title_es":$( "#id_title_es" ).val(),
+					"title_en":$( "#id_title_en" ).val()
+				};
+			$.get("/ajax/festivals/", {jobj: JSON.stringify(jsonObject)}, function(data) {
+				if (data.length > 0) {
+					var alertText = 'Already in database\n\n'
+					for (var key in data )
+						if (data.hasOwnProperty(key)) {
+							var value = data[key];
+							alertText += 'ID ................' + ': ' + value.id.toString()+'\n';
+							alertText += 'Festival...........' + ': ' + value.festival+'\n';
+							alertText += '--------------------------------------------------------' + '\n';
+						}
+					alert(alertText)
+				}
+            });				
+		});
+		
+		
     });
 })(django.jQuery);

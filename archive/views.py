@@ -56,6 +56,8 @@ from haystack.query import SearchQuerySet
 from haystack.views import SearchView
 
 from random import randrange
+from unaccent.unaccent import monkey_patch_where_node
+monkey_patch_where_node()
 
 import urllib2
 
@@ -1183,19 +1185,9 @@ def get_cities_json_response(request):
     json_object = json.loads(request.GET.get('jobj'))
     city=json_object['city']
     country=json_object['country']
-    print city, country
 
-    """
-    if ((city == "" or city is None) and
-        (country == 0 or country is None)
-        ):
-    
-      json_response = json.dumps([])
-      return HttpResponse(json_response, mimetype='application/json')
-    """
-    
-    city_qs = City.objects.filter(name=city,country__id=country)
-    print 'list'
+    city_qs = City.objects.filter(name=city,
+                                  country__id=country)
     city_list = []
     for city in city_qs:
         city_dict={}
@@ -1207,5 +1199,59 @@ def get_cities_json_response(request):
         city_list.append(city_dict)
     
     json_response = json.dumps(city_list)
+    
+    return HttpResponse(json_response, mimetype='application/json')
+
+def get_locations_json_response(request):
+    
+    """
+        Returns json response of Location with same title
+        country and city passed in
+    """
+    json_object = json.loads(request.GET.get('jobj'))
+    title_en=json_object['title_en']
+    title_es=json_object['title_es']
+    title=title_en if title_en else title_es
+    city=json_object['city']
+    country=json_object['country']
+
+    location_qs = Location.objects.filter(title__icontains=title,
+                                          city__id=city,
+                                          country__id=country)
+    location_list = []
+    for location in location_qs:
+        location_dict={}
+        location_dict['id']=location.id
+        location_dict['country']=location.country.name
+        location_dict['city']=location.city.name
+        location_dict['location']=location.title
+        
+        location_list.append(location_dict)
+    
+    json_response = json.dumps(location_list)
+    
+    return HttpResponse(json_response, mimetype='application/json')
+
+def get_festival_json_response(request):
+    
+    """
+        Returns json response of festival with same title
+        passed in
+    """
+    json_object = json.loads(request.GET.get('jobj'))
+    title_en=json_object['title_en']
+    title_es=json_object['title_es']
+    title=title_en if title_en else title_es
+
+    festival_qs = Festival.objects.filter(title__icontains=title)
+    festival_list = []
+    for festival in festival_qs:
+        festival_dict={}
+        festival_dict['id']=festival.id
+        festival_dict['festival']=festival.title
+        
+        festival_list.append(festival_dict)
+    
+    json_response = json.dumps(festival_list)
     
     return HttpResponse(json_response, mimetype='application/json')

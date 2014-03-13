@@ -349,6 +349,7 @@ class LocationAdmin(TranslationAdmin):
         js = (
             '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
             '/static/js/tabbed_translation_fields.js',
+            ("%s%s" % (STATIC_URL, 'js/admin_form.js')),
         )
 
 class StageAdmin(TranslationAdmin):
@@ -472,6 +473,7 @@ class FestivalAdmin(TranslationAdmin):
         js = (
             '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
             '/static/js/tabbed_translation_fields.js',
+            ("%s%s" % (STATIC_URL, 'js/admin_form.js')),
         )
 
 class FestivalOccurrenceAdmin(TranslationAdmin):

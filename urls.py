@@ -152,6 +152,10 @@ urlpatterns = patterns('',
 
     url(r'^ajax/cities/$',
           'archive.views.get_cities_json_response', name='ajax_get_cities_in_json'),
+    url(r'^ajax/locations/$',
+          'archive.views.get_locations_json_response', name='ajax_get_locations_in_json'),
+    url(r'^ajax/festivals/$',
+          'archive.views.get_festival_json_response', name='ajax_get_festival_in_json'),
     
     url(r'^admin/', include(admin.site.urls)),
     
