@@ -50,32 +50,12 @@ from archive.models import (Creator, Location, Stage, RelatedCreator, WorkRecord
 
 
 class ProductionAdminForm(ModelForm):
-    
-    source_work = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=WorkRecordLookup,
-        required=True,
-        label=_(u"Source Work"))
-
-    venue = selectable_forms.AutoCompleteSelectField(
-        lookup_class=LocationLookup,
-        allow_new=False,
-        label=_(u"Venue"))
-
-    primary_publications = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=PublicationLookup,
-        required=False,
-        label=_(u"Primary Bibliography"))
-    
-    secondary_publications = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=PublicationLookup,
-        required=False,
-        label=_(u"Secondary Bibliography"))
 
     theater_companies = selectable_forms.AutoCompleteSelectMultipleField(
-                                            lookup_class=TheaterCompanyLookup,
-                                            required=False,
-                                            label=_(u"Theater companies"))
-
+        lookup_class=TheaterCompanyLookup,
+        required=False,
+        label=_(u"Theater companies"))
+    
     def __init__(self, *args, **kwargs): 
         super(ProductionAdminForm, self).__init__(*args, **kwargs)
 
@@ -90,15 +70,24 @@ class ProductionAdminForm(ModelForm):
 
     class Meta(object):
         model = Production
+        widgets = {
+            'source_work': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=WorkRecordLookup,
+                attrs={'size':'100'}),
+            'venue': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=LocationLookup,
+                attrs={'size':'100'}),
+            'primary_publications': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=PublicationLookup,
+                attrs={'size':'100'}),
+            'secondary_publications': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=PublicationLookup,
+                attrs={'size':'100'}),
+        }
 
 
 class DirectingMemberAdminForm(ModelForm):
 
-    person = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        allow_new=False,
-        label=_(u"Person"))
-    
     def __init__(self, *args, **kwargs): 
         super(DirectingMemberAdminForm, self).__init__(*args, **kwargs) 
         if self.instance and self.instance.pk:
@@ -107,19 +96,14 @@ class DirectingMemberAdminForm(ModelForm):
     
     class Meta(object):
         model = DirectingMember
+        widgets = {
+            'person': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'})
+        }
 
 
 class CastMemberAdminForm(ModelForm):
-    
-    person = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        allow_new=False,
-        label=_(u"Person"))
-    role = selectable_forms.AutoCompleteSelectField(
-        lookup_class=RoleLookup,
-        allow_new=False,
-        required=False,
-        label=_(u"Role"))
     
     def __init__(self, *args, **kwargs): 
         super(CastMemberAdminForm, self).__init__(*args, **kwargs) 
@@ -131,15 +115,17 @@ class CastMemberAdminForm(ModelForm):
     
     class Meta(object):
         model = DirectingMember
-
+        widgets = {
+            'person': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'}),
+            'role': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=RoleLookup,
+                attrs={'size':'60'}),
+        }
 
 class DesignMemberAdminForm(ModelForm):
 
-    person = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        allow_new=False,
-        label=_(u"Person"))
-    
     """
     functions = selectable_forms.AutoCompleteSelectMultipleField(
         lookup_class=DesignTeamFunctionLookup,
@@ -155,14 +141,14 @@ class DesignMemberAdminForm(ModelForm):
     
     class Meta(object):
         model = DesignMember
+        widgets = {
+            'person': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'})
+        }
         
 
 class TechMemberAdminForm(ModelForm):
-    
-    person = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        allow_new=False,
-        label=_(u"Person"))
     
     def __init__(self, *args, **kwargs): 
         super(TechMemberAdminForm, self).__init__(*args, **kwargs) 
@@ -172,14 +158,14 @@ class TechMemberAdminForm(ModelForm):
     
     class Meta(object):
         model = TechMember
+        widgets = {
+            'person': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'})
+        }
 
 
 class ProductionMemberAdminForm(ModelForm):
-    
-    person = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        allow_new=False,
-        label=_(u"Person"))
     
     def __init__(self, *args, **kwargs): 
         super(ProductionMemberAdminForm, self).__init__(*args, **kwargs) 
@@ -189,29 +175,30 @@ class ProductionMemberAdminForm(ModelForm):
     
     class Meta(object):
         model = ProductionMember
+        widgets = {
+            'person': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'})
+        }
         
 
 class AdvisoryMemberAdminForm(ModelForm):
     
-    person = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        allow_new=False,
-        label=_(u"Person"))
-
     def __init__(self, *args, **kwargs):
         super(AdvisoryMemberAdminForm, self).__init__(*args, **kwargs)
         if self.instance and self.instance.pk:
             if self.instance.person:
                 self.initial['person'] = self.instance.person.pk
 
+    class Meta(object):
+        model = AdvisoryMember
+        widgets = {
+            'person': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'})
+        }
 
 class RoleAdminForm(ModelForm):
-    
-    source_text = selectable_forms.AutoCompleteSelectField(
-        lookup_class=WorkRecordLookup,
-        allow_new=False,
-        label=_(u"Source text"))
-    
 
     def __init__(self, *args, **kwargs):
 
@@ -219,75 +206,61 @@ class RoleAdminForm(ModelForm):
         if self.instance and self.instance.pk:
             if self.instance.source_text:
                 self.initial['source_text'] = self.instance.source_text.pk
-        
+
+    class Meta(object):
+        model = Role
+        widgets = {
+            'source_text': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=WorkRecordLookup,
+                attrs={'size':'100'}),
+        }
+
 
 class CreatorAdminForm(ModelForm):
     
-    birth_city = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CityLookup,
-        allow_new=True,
-        label=_(u"City of Birth"),
-        required=False)
-    
-    death_city = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CityLookup,
-        allow_new=False,
-        label=_(u"City of Death"),
-        required=False)
-    
-    nationality = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CountryLookup,
-        allow_new=False,
-        label=_(u"Nationality"),
-        required=False)
-    
-    headquarter_city = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CityLookup,
-        allow_new=False,
-        label=_(u"Office / headquarters"),
-        required=False)
-    
-    photo = selectable_forms.AutoCompleteSelectField(
-        lookup_class=DigitalObjectLookup,
-        allow_new=False,
-        label=_(u"Photo"),
-        required=False)
-    
-    primary_publications = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=PublicationLookup,
-        required=False,
-        label=_(u"Primary Bibliography"))
-    
-    secondary_publications = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=PublicationLookup,
-        required=False,
-        label=_(u"Secondary Bibliography"))
-    
     def __init__(self, *args, **kwargs): 
-        super(CreatorAdminForm, self).__init__(*args, **kwargs) 
-        
-        if self.instance and self.instance.pk:
-            if self.instance.birth_city:
-                self.initial['birth_city'] = self.instance.birth_city.pk
-            if self.instance.death_city:
-                self.initial['death_city'] = self.instance.death_city.pk
-            if self.instance.nationality:
-                self.initial['nationality'] = self.instance.nationality.pk
-            if self.instance.headquarter_city:
-                self.initial['headquarter_city'] = self.instance.headquarter_city.pk
-            if self.instance.photo:
-                self.initial['photo'] = self.instance.photo.pk
+         super(CreatorAdminForm, self).__init__(*args, **kwargs) 
+         
+         if self.instance and self.instance.pk:
+             if self.instance.birth_city:
+                 self.initial['birth_city'] = self.instance.birth_city.pk
+             if self.instance.death_city:
+                 self.initial['death_city'] = self.instance.death_city.pk
+             if self.instance.nationality:
+                 self.initial['nationality'] = self.instance.nationality.pk
+             if self.instance.headquarter_city:
+                 self.initial['headquarter_city'] = self.instance.headquarter_city.pk
+             if self.instance.photo:
+                 self.initial['photo'] = self.instance.photo.pk
 
     class Meta(object):
         model = Creator
+        widgets = {
+            'birth_city': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CityLookup,
+                attrs={'size':'60'}),
+            'death_city': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CityLookup,
+                attrs={'size':'60'}),
+            'nationality': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CountryLookup,
+                attrs={'size':'60'}),
+            'headquarter_city': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CityLookup,
+                attrs={'size':'60'}),
+            'photo': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=DigitalObjectLookup,
+                attrs={'size':'60'}),
+            'primary_publications': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=PublicationLookup,
+                attrs={'size':'100'}),
+            'secondary_publications': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=PublicationLookup,
+                attrs={'size':'100'}),
+        }
         
 
 class RelatedCreatorAdminForm(ModelForm):
-    
-    second_creator = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        allow_new=False,
-        label=_(u"Related creator"))
     
     def __init__(self, *args, **kwargs):
         super(RelatedCreatorAdminForm, self).__init__(*args, **kwargs)
@@ -298,56 +271,14 @@ class RelatedCreatorAdminForm(ModelForm):
         
     class Meta(object):
         model = RelatedCreator
+        widgets = {
+            'second_creator': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'60'}),
+        }
         
 
 class DigitalObjectAdminForm(ModelForm):
-    """
-    related_creator = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=CreatorLookup,
-        label=_(u"Related creator"),
-        required=False)
-    """
-    related_production = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=ProductionLookup,
-        label=_(u"Related production"),
-        required=False)
-    
-    related_festival = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=FestivalOccurrenceLookup,
-        label=_(u"Related festival"),
-        required=False)
-    
-    related_venue = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=LocationLookup,
-        label=_(u"Related venue"),
-        required=False)
-    
-    related_work = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=WorkRecordLookup,
-        label=_(u"Related work"),
-        required=False)
-    """    
-    related_award = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=AwardLookup,
-        label=_(u"Related award"),
-        required=False)
-    """
-    collection = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CollectionLookup,
-        allow_new=False,
-        label=_(u"Collection"))
-
-    object_creator = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        allow_new=False,
-        label=_(u"Object creator"),
-        required=False)
-
-    phys_obj_city = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CityLookup,
-        allow_new=False,
-        label=_(u"Physical object city"),
-        required=False)
 
     replicate_tags = forms.BooleanField(
         required=False,
@@ -367,24 +298,33 @@ class DigitalObjectAdminForm(ModelForm):
         
     class Meta(object):
         model = DigitalObject
+        widgets = {
+            'related_production': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=ProductionLookup,
+                attrs={'size':'100'}),
+            'related_festival': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=FestivalOccurrenceLookup,
+                attrs={'size':'100'}),
+            'related_venue': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=LocationLookup,
+                attrs={'size':'100'}),
+            'related_work': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=WorkRecordLookup,
+                attrs={'size':'100'}),
+            'collection': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CollectionLookup,
+                attrs={'size':'100'}),
+            'object_creator': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'}),
+            'phys_obj_city': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CityLookup,
+                attrs={'size':'100'}),
+        }
 
         
 class LocationAdminForm(ModelForm):
 
-    city = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CityLookup,
-        label=_(u"City"),
-        required=False)
-    
-    country = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CountryLookup,
-        label=_(u"Country"))
-    
-    photo = selectable_forms.AutoCompleteSelectField(
-        lookup_class=DigitalObjectLookup,
-        label=_(u"Photo"),
-        required=False)
-    
     def __init__(self, *args, **kwargs):
         super(LocationAdminForm, self).__init__(*args, **kwargs)
 
@@ -398,25 +338,21 @@ class LocationAdminForm(ModelForm):
         
     class Meta(object):
         model = Location
+        widgets = {
+            'city': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CityLookup,
+                attrs={'size':'100'}),
+            'country': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CountryLookup,
+                attrs={'size':'100'}),
+            'photo': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=DigitalObjectLookup,
+                attrs={'size':'100'}),
+        }
 
 
 class WorkRecordAdminForm(ModelForm):
 
-    digital_copy = selectable_forms.AutoCompleteSelectField(
-        lookup_class=DigitalObjectLookup,
-        label=_(u"Digital copy"),
-        required=False)
-
-    primary_publications = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=PublicationLookup,
-        required=False,
-        label=_(u"Primary Bibliography"))
-    
-    secondary_publications = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=PublicationLookup,
-        required=False,
-        label=_(u"Secondary Bibliography"))
-    
     def __init__(self, *args, **kwargs):
         super(WorkRecordAdminForm, self).__init__(*args, **kwargs)
 
@@ -426,30 +362,38 @@ class WorkRecordAdminForm(ModelForm):
        
     class Meta(object):
         model = WorkRecord
+        widgets = {
+            'digital_copy': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=DigitalObjectLookup,
+                attrs={'size':'60'}),
+            'primary_publications': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=PublicationLookup,
+                attrs={'size':'100'}),
+            'secondary_publications': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=PublicationLookup,
+                attrs={'size':'100'}),
+        }
 
 
 class RelatedWorkAdminForm(ModelForm):
 
-    second_work = selectable_forms.AutoCompleteSelectField(
-        lookup_class=WorkRecordLookup,
-        label=_(u"Related work"))
-    
     def __init__(self, *args, **kwargs):
         super(RelatedWorkAdminForm, self).__init__(*args, **kwargs)
         if self.instance and self.instance.pk:
             if self.instance.second_work:
                 self.initial['second_work'] = self.instance.second_work.pk
-                
+
     class Meta(object):
         model = RelatedWork
+        widgets = {
+            'second_work': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=WorkRecordLookup,
+                attrs={'size':'100'}),
+        }
         
 
 class WorkRecordCreatorAdminForm(ModelForm):
 
-    creator = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        label=_(u"Creator"))
-    
     def __init__(self, *args, **kwargs):
         super(WorkRecordCreatorAdminForm, self).__init__(*args, **kwargs)
         if self.instance and self.instance.pk:
@@ -458,14 +402,15 @@ class WorkRecordCreatorAdminForm(ModelForm):
 
     class Meta(object):
         model = WorkRecordCreator
+        widgets = {
+            'creator': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'}),
+        }
 
 
 class DigitalObjectRelatedCreatorAdminForm(ModelForm):
 
-    creator = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        label=_(u"Creator"))
-    
     def __init__(self, *args, **kwargs):
         super(DigitalObjectRelatedCreatorAdminForm, self).__init__(*args, **kwargs)
 
@@ -475,12 +420,14 @@ class DigitalObjectRelatedCreatorAdminForm(ModelForm):
 
     class Meta(object):
         model = DigitalObject_Related_Creator
+        widgets = {
+            'creator': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'}),
+        }
 
     
 class CityAdminForm(ModelForm):
-    country = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CountryLookup,
-        label=_(u"Country"))
     
     def __init__(self, *args, **kwargs):
         super(CityAdminForm, self).__init__(*args, **kwargs)
@@ -491,12 +438,14 @@ class CityAdminForm(ModelForm):
 
     class Meta(object):
         model = City
+        widgets={
+            'country': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CountryLookup,
+                attrs={'size':'100'}),
+        }
 
         
 class RepositoryAdminForm(ModelForm):
-    location = selectable_forms.AutoCompleteSelectField(
-        lookup_class=LocationLookup,
-        label=_(u"Location"))
     
     def __init__(self, *args, **kwargs):
         super(RepositoryAdminForm, self).__init__(*args, **kwargs)
@@ -506,22 +455,13 @@ class RepositoryAdminForm(ModelForm):
         
     class Meta(object):
         model = Repository
-
+        widgets = {
+            'location': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=LocationLookup,
+                attrs={'size':'100'})
+        }
         
 class FestivalOccurrenceAdminForm(ModelForm):
-    
-    festival_series = selectable_forms.AutoCompleteSelectField(
-        lookup_class=FestivalLookup,
-        label=_(u"Festival series"))
-
-    venue = selectable_forms.AutoCompleteSelectMultipleField(
-        lookup_class=LocationLookup,
-        label=_(u"Venue"))
-
-    productions = selectable_forms.AutoCompleteSelectMultipleField(
-        required=False,
-        lookup_class=ProductionLookup,
-        label=_(u"Productions"))
 
     def __init__(self, *args, **kwargs):
         super(FestivalOccurrenceAdminForm, self).__init__(*args, **kwargs)
@@ -532,13 +472,23 @@ class FestivalOccurrenceAdminForm(ModelForm):
 
     class Meta(object):
         model = FestivalOccurrence
+        widgets = {
+            'festival_series': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=FestivalLookup,
+                attrs={'size':'100'}),
+            'venue': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=LocationLookup,
+                attrs={'size':'100'}),
+            'productions': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=ProductionLookup,
+                attrs={'size':'100'}),
+            'primary_publications': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=PublicationLookup,
+                attrs={'size':'100'}), 
+        }
         
 
 class FestivalParticipantAdminForm(ModelForm):
-
-    participant = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        label=_(u"Participant"))
     
     def __init__(self, *args, **kwargs):
         super(FestivalParticipantAdminForm, self).__init__(*args, **kwargs)
@@ -548,23 +498,14 @@ class FestivalParticipantAdminForm(ModelForm):
 
     class Meta(object):
         model = FestivalParticipant
+        widgets = {
+            'participant': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'}),
+        }
 
-
-"""
-class BibliographicRecordAdminForm(ModelForm):
-    work_record = selectable_forms.AutoCompleteSelectField(lookup_class=WorkRecordLookup, label=_(u"Work record"))
-
-    def __init__(self, *args, **kwargs):
-        super(BibliographicRecordAdminForm, self).__init__(*args, **kwargs)
-        wrel = ManyToOneRel(WorkRecord, 'id')
-        self.fields['work_record'].widget = admin.widgets.RelatedFieldWidgetWrapper(self.fields['work_record'].widget, wrel, self.admin_site)
-"""
 
 class StageAdminForm(ModelForm):
-
-    venue = selectable_forms.AutoCompleteSelectField(
-        lookup_class=LocationLookup,
-        label=_(u"Venue"))
 
     def __init__(self, *args, **kwargs):
         super(StageAdminForm, self).__init__(*args, **kwargs)
@@ -572,36 +513,15 @@ class StageAdminForm(ModelForm):
             if self.instance.venue:
                 self.initial['venue'] = self.instance.venue.pk
 
+    class Meta(object):
+        model = Stage
+        widgets = {
+            'venue': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=LocationLookup,
+                attrs={'size':'100'}),
+        }
 
 class AwardCandidateAdminForm(ModelForm):
-
-    award = selectable_forms.AutoCompleteSelectField(
-        lookup_class=AwardLookup,
-        label=_(u"Award"))
-
-    recipient = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CreatorLookup,
-        label=_(u"Recipient"))
-
-    production = selectable_forms.AutoCompleteSelectField(
-        lookup_class=ProductionLookup,
-        required=False,
-        label=_(u"Production"))
-
-    place = selectable_forms.AutoCompleteSelectField(
-        lookup_class=CityLookup,
-        required=False,
-        label=_(u"Place"))
-
-    festival = selectable_forms.AutoCompleteSelectField(
-        lookup_class=FestivalLookup,
-        required=False,
-        label=_(u"Festival"))
-
-    work_record = selectable_forms.AutoCompleteSelectField(
-        lookup_class=WorkRecordLookup,
-        required=False,
-        label=_(u"Work record"))
 
     def __init__(self, *args, **kwargs):
         super(AwardCandidateAdminForm, self).__init__(*args, **kwargs)
@@ -619,3 +539,27 @@ class AwardCandidateAdminForm(ModelForm):
                 self.initial['festival'] = self.instance.festival.pk
             if self.instance.work_record:
                 self.initial['work_record'] = self.instance.work_record.pk
+                
+    class Meta(object):
+        model = AwardCandidate
+        widgets = {
+            'award': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=AwardLookup,
+                attrs={'size':'100'}),
+            'recipient': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CreatorLookup,
+                attrs={'size':'100'}),
+            'production': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=ProductionLookup,
+                attrs={'size':'100'}),
+            'place': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=CityLookup,
+                attrs={'size':'100'}),
+            'festival': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=FestivalLookup,
+                attrs={'size':'100'}),
+            'work_record': selectable_forms.AutoCompleteSelectWidget(
+                lookup_class=WorkRecordLookup,
+                attrs={'size':'100'}),
+        }
+

@@ -252,7 +252,6 @@ class CreatorAdmin(TranslationAdmin):
     date_hierarchy = 'birth_date'
     search_fields = ['creator_name', 'creator_ascii_name', 'name_variants']
     inlines = (RelatedCreatorInline,)
-#    filter_horizontal = ['primary_publications', 'secondary_publications']     
     fieldsets = (
         (None, {
             'fields': ('prefix', 'given_name', 'middle_name', 'family_name', 'suffix', 'org_name', 'creator_type', 'name_variants')
@@ -292,23 +291,6 @@ class CreatorAdmin(TranslationAdmin):
             ("%s%s" % (STATIC_URL, 'js/admin_form.js'))
         )
 
-"""
-class BibliographicRecordAdmin(admin.ModelAdmin):
-    form = arcforms.BibliographicRecordAdminForm
-    
-    def __init__(self, model, admin_site):
-        super(BibliographicRecordAdmin, self).__init__(model, admin_site)
-        self.form.admin_site = admin_site
-
-    class Media:
-        css = {
-            'all': ('/static/css/tabbed_translation_fields.css', '/static/css/iconic.css',)
-        }
-        js = (
-            '/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',
-            '/static/js/tabbed_translation_fields.js',
-        )
-"""
 
 class LocationAdmin(TranslationAdmin):
     form = arcforms.LocationAdminForm
@@ -418,6 +400,7 @@ class RoleAdmin(admin.ModelAdmin):
         self.form.admin_site = admin_site
 
 class ProductionAdmin(TranslationAdmin):
+
     form = arcforms.ProductionAdminForm
     save_as = True
     save_on_top = True
@@ -426,7 +409,7 @@ class ProductionAdmin(TranslationAdmin):
     date_hierarchy = 'begin_date'
     search_fields = ['title', 'ascii_title', 'title_variants', 'notes']
     list_filter = ('has_attention',)
-#    filter_horizontal = ['source_work', 'theater_companies'] 
+
     fieldsets = (
         (None, {
             'fields': ('source_work', 'title', 'subtitle', 'title_variants')
@@ -481,7 +464,6 @@ class FestivalOccurrenceAdmin(TranslationAdmin):
     inlines = (FestivalParticipantInline, )
     date_hierarchy = 'begin_date'
     list_filter = ('has_attention',)
-    filter_horizontal = ['primary_publications', 'productions', 'venue']
     search_fields = ['ascii_title', 'title']
     exclude = ('ascii_title',)
     
@@ -553,7 +535,7 @@ class DigitalObjectAdmin(TranslationAdmin):
     save_on_top = True
     search_fields = ['ascii_title', 'title', 'title_variants']
     list_filter = ('has_attention', 'collection', 'digi_object_format', 'restricted', 'ready_to_stream')
-    filter_horizontal = ['subject','related_production', 'related_festival', 'related_venue', 'related_work'] #, 'related_award']
+    filter_horizontal = ['subject']
     exclude = ('ascii_title',)
     list_display = ('object_number_display', 'title')
     
