@@ -26,7 +26,8 @@ from archive.lookups import (CreatorLookup, ProductionLookup, LocationLookup,
                              DigitalObjectLookup, FestivalLookup,
                              FestivalOccurrenceLookup, TheaterCompanyLookup,
                              CollectionLookup, CityLookup, AwardLookup,
-                             DesignTeamFunctionLookup)
+                             DesignTeamFunctionLookup,
+                             AwardCandidateLookup)
 from publications.lookups import PublicationLookup
 
 import selectable
@@ -310,6 +311,9 @@ class DigitalObjectAdminForm(ModelForm):
                 attrs={'size':'100'}),
             'related_work': selectable_forms.AutoCompleteSelectMultipleWidget(
                 lookup_class=WorkRecordLookup,
+                attrs={'size':'100'}),
+            'related_award': selectable_forms.AutoCompleteSelectMultipleWidget(
+                lookup_class=AwardCandidateLookup,
                 attrs={'size':'100'}),
             'collection': selectable_forms.AutoCompleteSelectWidget(
                 lookup_class=CollectionLookup,

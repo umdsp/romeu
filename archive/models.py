@@ -1502,7 +1502,7 @@ class AwardCandidate(models.Model):
     profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
     
     def __unicode__(self):
-        return "%s for %s, %d (%s)" % (self.award.title, self.category, self.year, self.get_result_display())
+        return "%s for %s, %d, %s (%s)" % (self.award.title, self.category, self.year, self.recipient.display_name(), self.get_result_display())
     
     def has_images(self):
         if DigitalObject.objects.filter(related_award=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():

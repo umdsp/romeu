@@ -16,7 +16,8 @@
 
 from archive.models import (Creator, Location, Production, WorkRecord, Role,
                             Country, DigitalObject, Festival, City, Award,
-                            DesignTeamFunction, FestivalOccurrence, Collection)
+                            DesignTeamFunction, FestivalOccurrence, Collection,
+                            AwardCandidate)
 from django.db.models import Q
 
 from selectable.base import LookupBase
@@ -147,7 +148,15 @@ class AwardLookup(ArchiveLookup):
     model = Award
     def get_query(self,request,term):
         return Award.objects.filter(title__icontains=term)
-    
+
+class AwardCandidateLookup(ArchiveLookup):
+    model = AwardCandidate
+    def get_query(self,request,term):
+        print term
+        return AwardCandidate.objects.filter(Q(recipient__creator_ascii_name__icontains=term) |
+                                                 Q(recipient__creator_name__icontains=term) |
+                                                 Q(award__title__icontains=term))
+
 class DesignTeamFunctionLookup(ArchiveLookup):
     model = DesignTeamFunction
     def get_query(self,request,term):
@@ -163,6 +172,7 @@ registry.register(CountryLookup)
 registry.register(DigitalObjectLookup)
 registry.register(FestivalLookup)
 registry.register(FestivalOccurrenceLookup)
+registry.register(AwardCandidateLookup)
 registry.register(CollectionLookup)
 registry.register(CityLookup)
 registry.register(AwardLookup)

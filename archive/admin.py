@@ -556,7 +556,7 @@ class DigitalObjectAdmin(TranslationAdmin):
             'fields': ('digi_object_format', ('creation_date', 'creation_date_precision', 'creation_date_BC'))
         },),
         ('Relationships', {
-            'fields': ('related_production', 'related_festival', 'related_venue', 'related_work') #, 'related_award')
+            'fields': ('related_production', 'related_festival', 'related_venue', 'related_work', 'related_award')
         },),
         ('Video settings', {
             'fields': (('restricted', 'restricted_description'), 'ready_to_stream', 'hi_def_video', 'poster_image')
