@@ -115,7 +115,7 @@ class CastMemberAdminForm(ModelForm):
                 self.initial['role'] = self.instance.role.pk
     
     class Meta(object):
-        model = DirectingMember
+        model = CastMember
         widgets = {
             'person': selectable_forms.AutoCompleteSelectWidget(
                 lookup_class=CreatorLookup,

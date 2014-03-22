@@ -37,90 +37,82 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 <script type="text/javascript" src="/static//js/jquery.dajax.core.js" charset="utf-8"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-            function cityNewParameters(query) {
-                query.country = $('#id_country_0').val();
-            }
-            $('#id_city_0').djselectable('option', 'prepareQuery', cityNewParameters);
-
+        function cityNewParameters(query) {
+            query.country = $('#id_country_0').val();
+        }
+        $('#id_city_0').djselectable('option', 'prepareQuery', cityNewParameters);
+        function roleParameters(query) {
+            query.production = $('#id_production').val();
+        }
+        $('#id_role_0').djselectable('option', 'prepareQuery', roleParameters);
+        function split( val )
+        {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term )
+        {
+            return split( term ).pop();
+        }
+        $("#id_tags")
+            .bind( "keydown", function( event )
+            {
+                    if ( event.keyCode === $.ui.keyCode.TAB && $( this ).data( "ui-autocomplete" ).menu.active )
+                    {
+                            event.preventDefault();
+                    }
+            })
+            .autocomplete(
+            {
+                    source: function( request, response ) {
+                    $.getJSON( "/taggit_autocomplete_modified/json", {
+                            term: extractLast( request.term )
+                            }, response );
+                    },
+                    search: function() {
+                            // custom minLength
+                            var term = extractLast( this.value );
+                            if ( term.length < 2 ) {
+                                    return false;
+                            }
+                    },
+                    /*source: "/taggit_autocomplete_modified/json", minLength: 2, search: function()
+                    {
+                            // custom minLength
+                            var term = extractLast( this.value );
+                            if ( term.length < 2 )
+                            {
+                                    return false;
+                            }
+                            return term;
+                    },*/
+                    focus: function()
+                    {
+                            // prevent value inserted on focus
+                            return false;
+                    },
+                    select: function( event, ui )
+                    {
+                            var terms = split( this.value );
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push( ui.item.value );
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push( "" );
+                            this.value = terms.join( ", " );
+                            return false;
+                    }
+            });
+    })
+    $(document).on('click',"#castmember_set-group .field-role",  function(e) {
         function roleNewParameters(query) {
                 var values = [];
                 $("input[name='source_work_1']").each(function() {
                     values.push($(this).val());
                 });
-                alert(values);
-                query.source_text = values;
-        }
-    
-        $('#id_castmember_set-0-role_0').djselectable('option', 'prepareQuery', roleNewParameters);
-
-            
-            function split( val )
-            {
-                return val.split( /,\s*/ );
-            }
-            function extractLast( term )
-            {
-                return split( term ).pop();
-            }
-//            if ($('body.archive-production.change-form').length) {
-//                $('.form-row.venue div').append($('<a href="#" id="updatestages">Update stages list</a>'));
-//                $('#updatestages').click(function(e) {
-//                    e.preventDefault();
-//                    Dajaxice.archive.updatestages(Dajax.process, { 'option': $('#id_venue_1').val()});
-//                })
-
-//                Dajaxice.archive.updatestages(Dajax.process, {'option': $('#id_venue_1').val()});
-//            }
-            $("#id_tags")
-                .bind( "keydown", function( event )
-                {
-                        if ( event.keyCode === $.ui.keyCode.TAB && $( this ).data( "ui-autocomplete" ).menu.active )
-                        {
-                                event.preventDefault();
-                        }
-                })
-                .autocomplete(
-                {
-                        source: function( request, response ) {
-                        $.getJSON( "/taggit_autocomplete_modified/json", {
-                                term: extractLast( request.term )
-                                }, response );
-                        },
-                        search: function() {
-                                // custom minLength
-                                var term = extractLast( this.value );
-                                if ( term.length < 2 ) {
-                                        return false;
-                                }
-                        },
-                        /*source: "/taggit_autocomplete_modified/json", minLength: 2, search: function()
-                        {
-                                // custom minLength
-                                var term = extractLast( this.value );
-                                if ( term.length < 2 )
-                                {
-                                        return false;
-                                }
-                                return term;
-                        },*/
-                        focus: function()
-                        {
-                                // prevent value inserted on focus
-                                return false;
-                        },
-                        select: function( event, ui )
-                        {
-                                var terms = split( this.value );
-                                // remove the current input
-                                terms.pop();
-                                // add the selected item
-                                terms.push( ui.item.value );
-                                // add placeholder to get the comma-and-space at the end
-                                terms.push( "" );
-                                this.value = terms.join( ", " );
-                                return false;
-                        }
-                });
+                query.source_text = values.join(",");
+        }       
+        $('#'+e.target.id).djselectable('option', 'prepareQuery', roleNewParameters);
     })
 </script>
 {% endblock %}

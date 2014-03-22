@@ -399,6 +399,7 @@ class RoleAdmin(admin.ModelAdmin):
         super(RoleAdmin, self).__init__(model, admin_site)
         self.form.admin_site = admin_site
 
+
 class ProductionAdmin(TranslationAdmin):
 
     form = arcforms.ProductionAdminForm

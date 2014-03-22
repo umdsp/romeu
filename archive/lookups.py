@@ -88,10 +88,28 @@ class WorkRecordLookup(ArchiveLookup):
 class RoleLookup(ArchiveLookup):
     model = Role
     def get_query(self,request,term):
+
+        production=None
         work_record_list = request.GET.get('source_text', None)
-        print work_record_list
+        if work_record_list is None:
+            production_id = request.GET.get('production', None)
+            try:
+                production = Production.objects.get(pk=production_id)
+                work_record_list = production.source_work.all().values_list('id', flat=True)
+            except:
+                production = None
+        else:
+            work_record_list = list(work_record_list.split(","))
+
+        print work_record_list, production
         if work_record_list:
-            return Role.objects.filter(source_text__id__in=work_record_list.split(","))
+            return Role.objects.filter(Q(source_text__id__in=work_record_list),
+                                       (Q(source_text__title__icontains=term) |
+                                        Q(source_text__ascii_title__icontains=term) |
+                                        Q(source_text__title_variants__icontains=term) |
+                                        Q(title__icontains=term)
+                                       )
+                                      )
         else:
             return Role.objects.filter(Q(source_text__title__icontains=term) |
                                        Q(source_text__ascii_title__icontains=term) |
