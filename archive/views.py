@@ -808,16 +808,24 @@ class AwardsListView(ListView):
                 if alldos[num].files.count() > 0 and alldos[num].files.all()[0]:
                     dos.add(alldos[num])
                     count += 1
+            for obj in dos:
+                item = {}
+                item['image'] = obj.first_file().filepath
+                item['title'] = obj.title
+                item['award_title'] = obj.related_award.all()[0].award.title
+                item['award_id'] = obj.related_award.all()[0].award.pk
+                item['pk'] = obj.pk
+                objects_list.append(item)
+        else:
+            dos = get_default_images()
+            for obj in dos:
+                item = {}
+                item['image'] = obj.first_file().filepath
+                item['title'] = obj.title
+                item['pk'] = obj.pk
+                item['award_title'] = obj.title
+                objects_list.append(item)
 
-        for obj in dos:
-            item = {}
-            item['image'] = obj.first_file().filepath
-            item['title'] = obj.title
-            item['award_title'] = obj.related_award.all()[0].award.title
-            item['award_id'] = obj.related_award.all()[0].award.pk
-            item['pk'] = obj.pk
-            objects_list.append(item)
-                
         context['digital_objects'] = objects_list
 
         return context
@@ -992,6 +1000,17 @@ def render_flatpage(request, f):
     response = HttpResponse(t.render(c))
     populate_xheaders(request, response, TranslatingFlatPage, f.id)
     return response
+
+def get_default_images():
+    info = HomePageInfo.objects.get(pk=1)
+    images=set()
+    if info.box_1_id:
+        images.add(DigitalObject.objects.get(pk=info.box_1_id, published=True))
+    if info.box_2_id:
+        images.add(DigitalObject.objects.get(pk=info.box_2_id, published=True))
+    if info.box_3_id:
+        images.add(DigitalObject.objects.get(pk=info.box_3_id, published=True))
+    return images    
 
 def scalar_search_view(request):
     query = ""

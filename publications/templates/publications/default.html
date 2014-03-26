@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block article_header %}
+        <h1>Publications{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
+{% endblock %}
+
+{% block content %}
+    <header>
+        <nav class="breadcrumbs">
+            <ul>
+                <li><a href="/">{% trans "Home" %}</a></li>
+                <li>{% trans "Publications" %}</li>
+            </ul>
+        </nav>
+        <h2>{% trans "Publications" %}</h2>
+    </header>
+
+	{% for type in types %}
+		<a href="/publications/type/{{ type }}/"><h1>{{ type }}</h1></a>
+		<hr/>
+	{% endfor %}
+
+{% endblock %}

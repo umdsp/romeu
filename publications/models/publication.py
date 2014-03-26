@@ -77,7 +77,7 @@ class Publication(models.Model):
 	type = models.ForeignKey(Type)
 	annote=models.CharField(max_length=256, blank=True, null=True, verbose_name=_("Annotation"),
 		help_text='An annotation. It is not used by the standard bibliography styles.')
-	citekey = models.CharField(max_length=512, blank=True, null=True,
+	citekey = models.CharField(max_length=512, blank=True, null=True, db_index=True,
 		help_text='BibTex citation key. Leave blank if unsure.')
 	title = models.CharField(max_length=255,
 							 help_text="The work's title")
@@ -91,9 +91,9 @@ class Publication(models.Model):
 	how_published = models.CharField(max_length=20, null=True, blank=True,
 							   verbose_name=_("How Published"),
 							   help_text="How something strange has been published. The first word should be capitalized.")
-	year = models.PositiveIntegerField(max_length=4)
+	year = models.PositiveIntegerField(max_length=4, db_index=True)
 	month = models.IntegerField(choices=MONTH_CHOICES, blank=True, null=True)
-	journal = models.CharField(max_length=256, blank=True)
+	journal = models.CharField(max_length=256, blank=True, db_index=True)
 
 	isbn = models.CharField(max_length=32, verbose_name="ISBN", blank=True,
 		help_text='Only for a book.') # A-B-C-D
@@ -155,14 +155,6 @@ class Publication(models.Model):
 	extra = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("extra"))
 	tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
 	
-	
-	"""
-	def __unicode__(self):
-		if self.journal:
-			return "%s, %s. %s. %s" % (self.author, self.title, self.journal, self.year)
-		else:
-			return "%s, %s (%s)" % (self.author, self.title, self.year)
-	"""
 	
 	def __init__(self, *args, **kwargs):
 		models.Model.__init__(self, *args, **kwargs)
@@ -259,17 +251,16 @@ class Publication(models.Model):
 		else:
 			self.authors = "%s" % (self.authors_list[0]) #self.authors_list #[0]
 
-
 	def __unicode__(self):
-		if len(self.title) < 64:
-			return self.title
-		else:
-			index = self.title.rfind(' ', 40, 62)
+		return self.title
 
-			if index < 0:
-				return self.title[:61] + '...'
-			else:
-				return self.title[:index] + '...'
+	"""
+	def __unicode__(self):
+		if self.journal:
+			return "%s, %s. %s. %s" % (self.author, self.title, self.journal, self.year)
+		else:
+			return "%s, %s (%s)" % (self.author, self.title, self.year)
+	"""
 
 
 	def keywords_escaped(self):
@@ -278,13 +269,10 @@ class Publication(models.Model):
 
 
 	def authors_escaped(self):
-
-			
 		return [(author, replace(author.lower(), ' ', '+'))
 			for author in self.authors_list]
 
 	def authors_mla_escaped(self):
-
 		self.authors = replace(self.authors, ',and ', ', and ')
 		self.authors = replace(self.authors, ' and ', ', and ')
 		mla_authors_list = [strip(author) for author in split(self.authors, ',')]
@@ -320,17 +308,17 @@ class Publication(models.Model):
 	def month_bibtex(self):
 		return self.MONTH_BIBTEX.get(self.month, '')
 
-	
 	def month_long(self):
 		for month_int, month_str in self.MONTH_CHOICES:
 			if month_int == self.month:
 				return month_str
 		return ''
 
-
 	def first_author(self):
-		return self.authors_list[0]
-
+		first_author_name = self.authors_list[0]
+		if len(self.authors_list) > 1:
+			first_author_name = first_author_name + ', ' + self.authors_list[1] 
+		return first_author_name
 
 	def journal_or_book_title(self):
 		if self.journal:
@@ -338,11 +326,9 @@ class Publication(models.Model):
 		else:
 			return self.book_title
 
-
 	def clean(self):
 		if not self.citekey:
 			self.citekey = self.key()
-
 
 	@staticmethod
 	def simplify_name(name):
@@ -352,4 +338,3 @@ class Publication(models.Model):
 		name = replace(name, u'ü', u'ue')
 		name = replace(name, u'ß', u'ss')
 		return name
-

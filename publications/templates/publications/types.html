@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block head %}
 	{{ block.super }}
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="?rss" />
@@ -10,15 +11,17 @@
 		<!-- <a href="?ascii">plain text</a>, -->
 		 <a href="?bibtex" target="_blank">Export in BibTex Format</a> 
 	</div>
-	{% for year, publications in years %}
-		<a href="/publications/year/{{ year }}/"><h1>{{ year }}</h1></a>
+	{% for type, publications in types %}
+		<a href="/publications/type/{{ type }}/"><h1>{{ type }}</h1></a>
 		<hr/>
 		<div{% if not forloop.last %} style="margin-bottom: 30px;"{% endif %}>
 		{% for publication in publications %}
 			<div{% if not forloop.last %} style="margin-bottom: 20px;"{% endif %}>
-				{% include "publications/publication.html" %}
+				{% include "publications/publication_tablas.html" %}
 			</div>
 		{% endfor %}
 		</div>
 	{% endfor %}
+
+
 {% endblock %}

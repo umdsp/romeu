@@ -49,7 +49,11 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                         <img src="{{ im.url }}" />
                     {% endthumbnail %}
                 </a>
+                {% if obj.award_id %}
                 <figcaption><a href="{% url 'award_detail_view' obj.award_id %}">{{ obj.award_title }}</a></figcaption>
+                {% elif obj.pk %}
+                    <figcaption><a href="{% url 'digital_object_detail_view' obj.pk %}">{{ obj.award_title }}</a></figcaption>
+                {% endif %}
                 </figure>
             </li>
         {% endfor %}

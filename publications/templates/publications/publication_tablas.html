@@ -28,7 +28,7 @@
 	{% if publication.pub_date %}{{ publication.pub_date|date:"d M Y" }}.{% endif %}
 	{% if publication.season %}{{ publication.season }}.{% endif %}		
 	{%if publication.medium %} {{ publication.medium }}. {% endif %}
-	{% if publication.access_date %}{{ publication.access_date|date:"d M Y" }}.{% endif %}<br />
+	{% if publication.access_date %}{{ publication.access_date|date:"d M Y" }}.{% endif %}
 	{% if publication.url %}&lt;{{ publication.url }}&gt;. {% endif %}<br />
 {% elif 'BOOK CHAPTER' in publication.type.type.upper %}
 	<i>{% if publication.section %}{{ publication.section }}.{% endif %}
@@ -84,4 +84,4 @@
 {% for link in publication.links %}
 	<a class="link" rel="external" href="{{ link.url }}" target="_blank">{{ link.description }}</a>,
 {% endfor %}
-<a href="/publications/{{ publication.pk }}/?bibtex" target="_blank">BibTex</a>
+
