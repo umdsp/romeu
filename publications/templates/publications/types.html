@@ -25,7 +25,7 @@
 	</div>
 	{% for type, publications in types %}
 		{%if type %}
-		<h1>{{ type }}</h1>
+		<h3>{{ type }}</h3>
 		<hr/>
 		{% endif %}
 		<div{% if not forloop.last %} style="margin-bottom: 30px;"{% endif %}>
