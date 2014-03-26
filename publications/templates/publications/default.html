@@ -15,9 +15,9 @@
         </nav>
         <h2>{% trans "Publications" %}</h2>
     </header>
-
+	<br />
 	{% for type in types %}
-		<a href="{% url 'publications_views_type' type %}"><h1>{{ type }}</h1></a>
+		<a href="{% url 'publications_views_type' type %}"><h3>{{ type }}</h3></a>
 		<hr/>
 	{% endfor %}
 
