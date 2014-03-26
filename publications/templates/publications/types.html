@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% load i18n %}
 
 {% block head %}
 	{{ block.super }}
@@ -7,14 +8,21 @@
 {% endblock %}
 
 {% block content %}
+	
+	<header>
+		<nav class="breadcrumbs">
+			<ul>
+				<li><a href="/">{% trans "Home" %}</a></li>
+				<li><a href="/publications">{% trans "Publications" %}</a></li>
+				<li>{{ pub_type }}</li>
+			</ul>
+		</nav>
+		<h2>{{ pub_type }}</h2>
+	</header>	
+	<p></p> 
 	<div class="special_links">
-		<!-- <a href="?ascii">plain text</a>, -->
 		 <a href="?bibtex" target="_blank">Export in BibTex Format</a><p></p> 
 	</div>
-	{%if pub_type %}
-	<h2>{{ pub_type }}</h2>
-	<hr/>
-	{% endif %}
 	{% for type, publications in types %}
 		{%if type %}
 		<h1>{{ type }}</h1>
