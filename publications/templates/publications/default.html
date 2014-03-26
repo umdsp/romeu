@@ -17,7 +17,7 @@
     </header>
 
 	{% for type in types %}
-		<a href="/publications/type/{{ type }}/"><h1>{{ type }}</h1></a>
+		<a href="{% url 'publications_views_type' type %}"><h1>{{ type }}</h1></a>
 		<hr/>
 	{% endfor %}
 

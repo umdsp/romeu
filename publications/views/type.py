@@ -6,10 +6,10 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from publications.models import Type, Publication
 
-def type(request, type=None):
+def type(request, pub_type=None):
 	types = []
-	if type:
-		tablas_type_id = Type.objects.filter(type=type)
+	if pub_type:
+		tablas_type_id = Type.objects.filter(type=pub_type)
 		publications = Publication.objects.filter(type_id=tablas_type_id[0].id, external=False)
 	else:
 		publications = Publication.objects.filter(external=False)
@@ -18,8 +18,8 @@ def type(request, type=None):
 	for publication in publications:
 		if publication.type.hidden:
 			continue
-		if not types or (types[-1][0] != publication.type):
-			types.append((publication.type, []))
+		if not types or (types[-1][0] != publication.journal):
+			types.append((publication.journal, []))
 		types[-1][1].append(publication)
 
 	if 'ascii' in request.GET:
@@ -43,6 +43,7 @@ def type(request, type=None):
 			publication.links = publication.customlink_set.all()
 			publication.files = publication.customfile_set.all()
 
-		return render_to_response('publications/types.html', {
-				'types': types
-			}, context_instance=RequestContext(request))
+		return render_to_response('publications/types.html',
+								  {'types': types,
+								   'pub_type':pub_type},
+								  context_instance=RequestContext(request))
