@@ -11,12 +11,15 @@
 		<!-- <a href="?ascii">plain text</a>, -->
 		 <a href="?bibtex" target="_blank">Export in BibTex Format</a> 
 	</div>
-	
-	<a href="#"><h1>{{ pub_type }}</h1></a>
+	{%if pub_type %}
+	<h1>{{ pub_type }}</h1>
 	<hr/>
+	{% endif %}
 	{% for type, publications in types %}
+		{%if type %}
 		<h1>{{ type }}</h1>
 		<hr/>
+		{% endif %}
 		<div{% if not forloop.last %} style="margin-bottom: 30px;"{% endif %}>
 		{% for publication in publications %}
 			<div{% if not forloop.last %} style="margin-bottom: 20px;"{% endif %}>
