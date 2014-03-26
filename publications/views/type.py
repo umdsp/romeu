@@ -13,7 +13,7 @@ def type(request, type=None):
 		publications = Publication.objects.filter(type_id=tablas_type_id[0].id, external=False)
 	else:
 		publications = Publication.objects.filter(external=False)
-	publications = publications.order_by('type', '-year', 'authors', '-id')
+	publications = publications.order_by('-journal', '-year', 'authors', '-id')
 
 	for publication in publications:
 		if publication.type.hidden:
