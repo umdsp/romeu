@@ -35,7 +35,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                         <a href="{% url 'production_detail_view' result.object.pk %}"><img src="{{ STATIC_URL }}images/audio.png" alt="Audio available" title="Audio available" /></a>
                         {% endif %}
                       </td>
-    <td><a href="{% url 'production_detail_view' result.object.pk %}">{{ result.object.title }}</a></td>
+    <td>{% if result.object.pk %}<a href="{% url 'production_detail_view' result.object.pk %}">{{ result.object.title }}</a>{% endif %}</td>
     <td>{{ result.object.venue.title }}{% if result.object.venue.city %}, {{ result.object.venue.city.name }}{% if result.object.venue.city.state %}, {{ result.object.venue.city.state }}{% endif %}{% endif %}, {{ result.object.venue.country }}</td>
     <td>{{ result.object.display_directors }}
     <td>Relevance: {{ result.score|floatformat:"-2" }}</td>
