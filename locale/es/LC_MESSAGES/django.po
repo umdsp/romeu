@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-27 15:38-0400\n"
+"POT-Creation-Date: 2014-03-31 12:56-0400\n"
 "PO-Revision-Date: 2013-02-04 12:46\n"
 "Last-Translator: Lillian Manzor <ctda@mail.as.miami.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.6.2\n"
 
-#: settings.py:170 templates/base.html:102 templates/admin/index.html:37
+#: settings.py:170 templates/base.html:106 templates/admin/index.html:37
 #: templates/admin/archive/app_index.html:29
 msgid "English"
 msgstr "Inglés"
 
-#: settings.py:171 templates/base.html:103 templates/admin/index.html:38
+#: settings.py:171 templates/base.html:107 templates/admin/index.html:38
 #: templates/admin/archive/app_index.html:30
 msgid "Spanish"
 msgstr "Español"
@@ -40,9 +40,9 @@ msgstr "y"
 
 #: archive/autocomplete_admin.py:431 archive/autocomplete_admin.py:545
 #: archive/autocomplete_admin.py:665 archive/autocomplete_admin.py:771
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Use the left field to do (model_name)s lookups in the fields (field_list)s."
+"Use the left field to do %(model_name)s lookups in the fields %(field_list)s."
 msgstr "Use el campo a la izquierda  para búsquedas en el campo "
 
 #: archive/constants.py:20
@@ -314,7 +314,6 @@ msgid "Honorable mention"
 msgstr "Mención de honor"
 
 #: archive/forms.py:58
-#, fuzzy
 msgid "Theater companies"
 msgstr "compañía teatral"
 
@@ -327,12 +326,10 @@ msgid "Type"
 msgstr "Tipo"
 
 #: archive/models.py:70
-#, fuzzy
 msgid "special performance type"
 msgstr "¿puesta especial?"
 
 #: archive/models.py:71
-#, fuzzy
 msgid "special performance types"
 msgstr "¿puesta especial?"
 
@@ -424,7 +421,6 @@ msgid "name variants"
 msgstr "variantes del nombre"
 
 #: archive/models.py:150
-#, fuzzy
 msgid "City of birth"
 msgstr "Lugar de nacimiento"
 
@@ -449,7 +445,6 @@ msgid "Is B.C. date"
 msgstr "es A.C."
 
 #: archive/models.py:155
-#, fuzzy
 msgid "City of death"
 msgstr "Lugar de fallecimiento"
 
@@ -508,7 +503,6 @@ msgid "secondary bibliography"
 msgstr "bibliografía secundaria"
 
 #: archive/models.py:180 archive/models.py:765 archive/models.py:941
-#, fuzzy
 msgid "awards (plain text)"
 msgstr "bibliografía en inglés (texto)"
 
@@ -928,7 +922,6 @@ msgid "related organizations"
 msgstr "Organizaciones relacionadas"
 
 #: archive/models.py:937
-#, fuzzy
 msgid "premiere"
 msgstr "estreno"
 
@@ -965,7 +958,6 @@ msgid "productions"
 msgstr "producciones"
 
 #: archive/models.py:1286
-#, fuzzy
 msgid "awards"
 msgstr "premio"
 
@@ -1119,7 +1111,6 @@ msgid "physical object date"
 msgstr "Fecha de objeto físico"
 
 #: archive/models.py:1553
-#, fuzzy
 msgid "Physical object city"
 msgstr "Tipo de objeto físico"
 
@@ -1152,7 +1143,6 @@ msgid "folder #"
 msgstr "número de carpeta"
 
 #: archive/models.py:1563
-#, fuzzy
 msgid "drawer #"
 msgstr "número de carpeta"
 
@@ -1173,7 +1163,6 @@ msgid "related festival"
 msgstr "Festival relacionado"
 
 #: archive/models.py:1569
-#, fuzzy
 msgid "related award"
 msgstr "Texto relacionado"
 
@@ -1202,12 +1191,10 @@ msgid "Poster image (for videos)"
 msgstr "imagen del poster (para videos)"
 
 #: archive/models.py:1623
-#, fuzzy
 msgid "Digital object number"
 msgstr "Objetos digitales por tipo"
 
 #: archive/models.py:1648 archive/models.py:1649
-#, fuzzy
 msgid "Related Creators - Digital object"
 msgstr "Contenidos digitales:"
 
@@ -1364,7 +1351,6 @@ msgid "function type"
 msgstr "tipo de función"
 
 #: archive/models.py:1829
-#, fuzzy
 msgid "Display Order"
 msgstr "orden de página"
 
@@ -1430,12 +1416,10 @@ msgid "Static page"
 msgstr "página estática"
 
 #: archive/models.py:1976
-#, fuzzy
 msgid "textbox content"
 msgstr "contenido desconocido"
 
 #: archive/models.py:1977
-#, fuzzy
 msgid "Number of boxes"
 msgstr "número de volúmenes"
 
@@ -1712,35 +1696,29 @@ msgid "extra"
 msgstr "extra"
 
 #: publications/models/publication.py:78
-#, fuzzy
 msgid "Annotation"
 msgstr "Ubicación"
 
 #: publications/models/publication.py:92
-#, fuzzy
 msgid "How Published"
 msgstr "publicado"
 
 #: publications/models/publication.py:107
 #: templates/archive/award_detail.html:149
-#, fuzzy
 msgid "Organization"
 msgstr "Nombre de organización"
 
 #: publications/models/publication.py:108
-#, fuzzy
 msgid "Price"
-msgstr "Participe"
+msgstr "Precio"
 
 #: publications/models/publication.py:110
-#, fuzzy
 msgid "Table of Content"
-msgstr "Contenidos Digitales"
+msgstr "Tabla de Contenido"
 
 #: publications/models/publication.py:124
-#, fuzzy
 msgid "Volume number"
-msgstr "tiene número de volumen"
+msgstr "número de volumen"
 
 #: publications/models/publication.py:134
 msgid "Publication time in the year, ex: Spring, Fall, etc."
@@ -1751,7 +1729,6 @@ msgid "Season"
 msgstr ""
 
 #: publications/models/publication.py:135
-#, fuzzy
 msgid "accessed date"
 msgstr "fecha de entrada"
 
@@ -1795,10 +1772,9 @@ msgstr "Inicio"
 #: publications/templates/admin/publications/import_bibtex.html:11
 #: publications/templates/publications/default.html:13
 #: publications/templates/publications/default.html:16
-#: publications/templates/publications/types.html:16 templates/base.html:124
-#, fuzzy
+#: publications/templates/publications/types.html:16 templates/base.html:128
 msgid "Publications"
-msgstr "fecha de publicación"
+msgstr "Publicaciones"
 
 #: publications/templates/admin/publications/import_bibtex.html:23
 msgid "Please correct the errors below."
@@ -1810,7 +1786,6 @@ msgstr ""
 #: templates/archive/festival_occurrence_detail.html:163
 #: templates/archive/production_detail.html:263
 #: templates/archive/workrecord_detail.html:89
-#, fuzzy
 msgid "Bibliography"
 msgstr "bibliografía"
 
@@ -1819,7 +1794,7 @@ msgid "Required keys: title, author and year."
 msgstr ""
 
 #: publications/templates/admin/publications/import_bibtex.html:45
-#: templates/base.html:132 templates/admin/index.html:68
+#: templates/base.html:136 templates/admin/index.html:68
 #: templates/admin/archive/app_index.html:58
 #: templates/archive/creator_detail.html:34
 #: templates/archive/creators_list.html:37
@@ -1829,7 +1804,7 @@ msgid "Creators"
 msgstr "Creadores"
 
 #: publications/templates/admin/publications/import_bibtex.html:56
-#: templates/base.html:133 templates/admin/index.html:98
+#: templates/base.html:137 templates/admin/index.html:98
 #: templates/admin/archive/app_index.html:88
 #: templates/archive/creator_detail.html:102
 #: templates/archive/digitalobject_detail.html:168
@@ -1843,16 +1818,15 @@ msgid "Productions"
 msgstr "Producciones"
 
 #: publications/templates/admin/publications/import_bibtex.html:67
-#: templates/base.html:137 templates/archive/workrecord_detail.html:33
+#: templates/base.html:141 templates/archive/workrecord_detail.html:33
 #: templates/archive/workrecords_list.html:37
 #: templates/archive/workrecords_list.html:40
 msgid "Written Works"
 msgstr "obras escritas"
 
 #: publications/templates/admin/publications/import_bibtex.html:81
-#, fuzzy
 msgid "Import"
-msgstr "parte"
+msgstr "Importar"
 
 #: selectable/base.py:117
 msgid "Show more results"
@@ -1863,64 +1837,63 @@ msgid "Select a valid choice. That choice is not one of the available choices."
 msgstr "Escoja un selección válida. No es una de las selecciones válidas."
 
 #: templates/404.html:35
-#, fuzzy
 msgid "Page unavailable"
-msgstr "Hay imágenes disponibles"
+msgstr "Página no esta disponibles"
 
 #: templates/404.html:37
 msgid "Oops!, We don't have that archive yet,"
-msgstr ""
+msgstr "Oops!, No tenemos ese archivo aún"
 
 #: templates/404.html:40 templates/500.html:40
 msgid "If you entered the URL in by hand, double check that it is correct"
-msgstr ""
+msgstr "Si digitaste la dirección URL , vuelva a comprobar que esté correcta"
 
 #: templates/404.html:41 templates/500.html:41
 msgid "We've sent this to our support team &mdash;"
-msgstr ""
+msgstr "Hemos enviado esto a nuestro equipo de apoyo -"
 
 #: templates/500.html:36
 msgid "You have experienced a technical error. We&nbsp;apologize."
-msgstr ""
+msgstr "Usted ha experimentado un error técnico. Pedimos disculpas."
 
 #: templates/500.html:39
 msgid "Try refreshing the page, the problem may be temporary"
-msgstr ""
+msgstr "Intente actualizar la página, el problema puede ser temporal"
 
-#: templates/base.html:28 templates/base.html.py:113
+#: templates/base.html:32 templates/base.html.py:117
 msgid "Cuban Theater Digital Archive"
 msgstr "Archivo Digital de Teatro Cubano"
 
-#: templates/base.html:105 templates/base.html.py:117
+#: templates/base.html:109 templates/base.html.py:121
 #: templates/admin/index.html:40 templates/admin/archive/app_index.html:32
 msgid "Go"
 msgstr "Busque"
 
-#: templates/base.html:115
+#: templates/base.html:119
 msgid "Search"
 msgstr "Búsqueda"
 
-#: templates/base.html:116
+#: templates/base.html:120
 msgid "Search..."
-msgstr " "
+msgstr "Buscar... "
 
-#: templates/base.html:121
+#: templates/base.html:125
 msgid "About"
 msgstr "Sobre ADTC"
 
-#: templates/base.html:122
+#: templates/base.html:126
 msgid "People"
 msgstr "Personal"
 
-#: templates/base.html:123
+#: templates/base.html:127
 msgid "Participate"
 msgstr "Participe"
 
-#: templates/base.html:130
+#: templates/base.html:134
 msgid "The Archive"
 msgstr "El archivo"
 
-#: templates/base.html:134 templates/admin/index.html:74
+#: templates/base.html:138 templates/admin/index.html:74
 #: templates/admin/archive/app_index.html:64
 #: templates/archive/digitalobject_detail.html:190
 #: templates/archive/festival_detail.html:33
@@ -1929,7 +1902,7 @@ msgstr "El archivo"
 msgid "Festivals"
 msgstr "Festivales"
 
-#: templates/base.html:135 templates/admin/index.html:142
+#: templates/base.html:139 templates/admin/index.html:142
 #: templates/admin/archive/app_index.html:126
 #: templates/archive/award_detail.html:33
 #: templates/archive/awards_list.html:37 templates/archive/awards_list.html:40
@@ -1942,14 +1915,14 @@ msgstr "Festivales"
 msgid "Awards"
 msgstr "premios"
 
-#: templates/base.html:136 templates/archive/digitalobject_detail.html:201
+#: templates/base.html:140 templates/archive/digitalobject_detail.html:201
 #: templates/archive/festival_occurrence_detail.html:97
 #: templates/archive/venue_detail.html:33
 #: templates/archive/venues_list.html:37 templates/archive/venues_list.html:40
 msgid "Venues"
 msgstr "Espacios teatrales"
 
-#: templates/base.html:139 templates/admin/index.html:92
+#: templates/base.html:143 templates/admin/index.html:92
 #: templates/admin/archive/app_index.html:82
 #: templates/archive/digitalobject_detail.html:41
 #: templates/archive/digitalobjects_list.html:34
@@ -1960,17 +1933,15 @@ msgstr "Espacios teatrales"
 msgid "Digital Objects"
 msgstr "Objetos digitales"
 
-#: templates/base.html:141
-#, fuzzy
+#: templates/base.html:145
 msgid "All objects"
 msgstr "Objetos"
 
-#: templates/base.html:142
-#, fuzzy
+#: templates/base.html:146
 msgid "Images"
 msgstr "imagen"
 
-#: templates/base.html:143 templates/archive/award_detail.html:85
+#: templates/base.html:147 templates/archive/award_detail.html:85
 #: templates/archive/creator_detail.html:186
 #: templates/archive/festival_detail.html:121
 #: templates/archive/festival_occurrence_detail.html:182
@@ -1980,12 +1951,11 @@ msgstr "imagen"
 msgid "Videos"
 msgstr ""
 
-#: templates/base.html:144 templates/archive/digitalobjects_list.html:35
-#, fuzzy
+#: templates/base.html:148 templates/archive/digitalobjects_list.html:35
 msgid "By Type"
 msgstr "Tipo"
 
-#: templates/base.html:145 templates/admin/index.html:62
+#: templates/base.html:149 templates/admin/index.html:62
 #: templates/admin/archive/app_index.html:52
 msgid "Collections"
 msgstr "Colecciones"
@@ -2003,9 +1973,9 @@ msgid "Delete"
 msgstr "Eliminar"
 
 #: templates/admin/delete_confirmation.html:36
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Deleting the (object_name)s '(escaped_object)s' would result in deleting "
+"Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
 "related objects, but your account doesn't have permission to delete the "
 "following types of objects:"
 msgstr ""
@@ -2013,19 +1983,19 @@ msgstr ""
 "su cuenta no le permite eliminar los siguientes objetos:"
 
 #: templates/admin/delete_confirmation.html:44
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Deleting the (object_name)s '(escaped_object)s' would require deleting the "
+"Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
 "following protected related objects:"
 msgstr ""
 "Eliminar el ... requeriría eliminar los siguientes objetos relacionados que "
 "están protegidos: "
 
 #: templates/admin/delete_confirmation.html:52
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Are you sure you want to delete the (object_name)s \"(escaped_object)s\"? "
-"The (object_name)s and the following links between it and other objects "
+"Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
+"The %(object_name)s and the following links between it and other objects "
 "will be deleted:"
 msgstr ""
 "¿Está segur@ de que quiere eliminar el ... ? El ... y los siguientes enlaces "
@@ -2041,29 +2011,29 @@ msgid "Delete multiple objects"
 msgstr "Elimine objetos múltiples"
 
 #: templates/admin/delete_selected_confirmation.html:35
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Deleting the selected (objects_name)s would result in deleting related "
+"Deleting the selected %(objects_name)s would result in deleting related "
 "objects, but your account doesn't have permission to delete the following "
 "types of objects:"
 msgstr ""
-"Eliminar el objecto selecionado...  resultaría en la eliminación de objetos relacionados, pero "
-"su cuenta no le permite eliminar los siguientes objetos:"
+"Eliminar el objecto selecionado...  resultaría en la eliminación de objetos "
+"relacionados, pero su cuenta no le permite eliminar los siguientes objetos:"
 
 #: templates/admin/delete_selected_confirmation.html:43
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Deleting the selected (objects_name)s would require deleting the following "
+"Deleting the selected %(objects_name)s would require deleting the following "
 "protected related objects:"
 msgstr ""
-"Eliminar el objecto selecionado... requeriría eliminar los siguientes objetos relacionados que "
-"están protegidos: "
+"Eliminar el objecto selecionado... requeriría eliminar los siguientes "
+"objetos relacionados que están protegidos: "
 
 #: templates/admin/delete_selected_confirmation.html:51
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Are you sure you want to delete the selected (objects_name)s? The "
-"(objects_name)s below and the following links between it and other objects "
+"Are you sure you want to delete the selected %(objects_name)s? The "
+"%(objects_name)s below and the following links between it and other objects "
 "will be deleted:"
 msgstr ""
 "¿Está segur@ de que quiere eliminar el ... ? El ... y los siguientes enlaces "
@@ -2251,7 +2221,6 @@ msgid "Production team functions"
 msgstr "Funciones del equipo de producción"
 
 #: templates/admin/index.html:207 templates/admin/archive/app_index.html:186
-#, fuzzy
 msgid "Production Special Performance Types"
 msgstr "¿puesta especial?"
 
@@ -2276,13 +2245,13 @@ msgid "Home page info"
 msgstr ""
 
 #: templates/admin/index.html:248
-#, python-format
-msgid "Models available in the application."
+#, fuzzy, python-format
+msgid "Models available in the %(name)s application."
 msgstr "Modelos disponibles en la aplicación "
 
 #: templates/admin/index.html:249
-#, python-format
-msgid "(name)s"
+#, fuzzy, python-format
+msgid "%(name)s"
 msgstr "nombre"
 
 #: templates/admin/index.html:276
@@ -2319,8 +2288,8 @@ msgid "View on site"
 msgstr "ver en la página "
 
 #: templates/admin/edit_inline/tabular.html:93
-#, python-format
-msgid "Add another (verbose_name)s"
+#, fuzzy, python-format
+msgid "Add another %(verbose_name)s"
 msgstr "Añada otro"
 
 #: templates/admin/edit_inline/tabular.html:94
@@ -2340,16 +2309,14 @@ msgid "Notes"
 msgstr "Notas"
 
 #: templates/archive/award_detail.html:52
-#, fuzzy
 msgid "Candidates"
-msgstr "fecha que terminó"
+msgstr "Candidatos"
 
 #: templates/archive/award_detail.html:58
 #: templates/archive/creator_detail.html:125
 #: templates/archive/festival_detail.html:59
 #: templates/archive/production_detail.html:240
 #: templates/archive/workrecord_detail.html:66
-#, fuzzy
 msgid "Category"
 msgstr "categoría"
 
@@ -2370,7 +2337,6 @@ msgstr "recipiente"
 #: templates/archive/festival_detail.html:61
 #: templates/archive/production_detail.html:242
 #: templates/archive/workrecord_detail.html:68
-#, fuzzy
 msgid "Result"
 msgstr "resultado"
 
@@ -2402,7 +2368,6 @@ msgstr "Página web"
 #: templates/archive/productions_list.html:75
 #: templates/archive/venues_list.html:73
 #: templates/archive/workrecords_list.html:74
-#, fuzzy
 msgid "Images available"
 msgstr "Hay imágenes disponibles"
 
@@ -2415,7 +2380,6 @@ msgstr "Hay imágenes disponibles"
 #: templates/archive/productions_list.html:78
 #: templates/archive/venues_list.html:76
 #: templates/archive/workrecords_list.html:77
-#, fuzzy
 msgid "Video available"
 msgstr "Hay video disponible"
 
@@ -2427,7 +2391,6 @@ msgstr "Hay video disponible"
 #: templates/archive/productions_list.html:81
 #: templates/archive/venues_list.html:79
 #: templates/archive/workrecords_list.html:80
-#, fuzzy
 msgid "Audio available"
 msgstr "Hay audio disponible"
 
@@ -2456,7 +2419,6 @@ msgstr ""
 #: templates/archive/production_detail.html:315
 #: templates/archive/venue_detail.html:121
 #: templates/archive/workrecord_detail.html:143
-#, fuzzy
 msgid "Author"
 msgstr "autor(es)"
 
@@ -2465,7 +2427,6 @@ msgid "Nationality"
 msgstr "Nacionalidad"
 
 #: templates/archive/creator_detail.html:259
-#, fuzzy
 msgid "Place of origination"
 msgstr "Lugar de origen"
 
@@ -2474,7 +2435,6 @@ msgid "Place of birth"
 msgstr "Lugar de nacimiento"
 
 #: templates/archive/creator_detail.html:271
-#, fuzzy
 msgid "Place of dissolution"
 msgstr "Lugar de disolución"
 
@@ -2492,12 +2452,10 @@ msgstr "Oficina - centro"
 #: templates/archive/production_detail.html:428
 #: templates/archive/venue_detail.html:218
 #: templates/archive/workrecord_detail.html:227
-#, fuzzy
 msgid "Tag(s)"
 msgstr "etiquetas"
 
 #: templates/archive/creators_list.html:86
-#, fuzzy
 msgid "Theater company / organization"
 msgstr "Compañía teatral"
 
@@ -2558,7 +2516,6 @@ msgid "Written works"
 msgstr "Obras escritas"
 
 #: templates/archive/digitalobjects_list.html:40
-#, fuzzy
 msgid "By Collection"
 msgstr "Colección"
 
@@ -2573,28 +2530,23 @@ msgid "Digital objects by collection"
 msgstr "Objetos digitales por colección"
 
 #: templates/archive/festival_detail.html:102
-#, fuzzy
 msgid "Begin"
-msgstr "Fecha de empezar"
+msgstr "Fecha de comienzo"
 
 #: templates/archive/festival_detail.html:103
-#, fuzzy
 msgid "End"
-msgstr "y"
+msgstr "Fin"
 
 #: templates/archive/festival_occurrence_detail.html:33
-#, fuzzy
 msgid "Festival Occurrence"
 msgstr "Números de festival"
 
 #: templates/archive/festival_occurrence_detail.html:42
 #: templates/archive/production_detail.html:42
-#, fuzzy
 msgid "Also known as:"
 msgstr "También conocido como"
 
 #: templates/archive/festival_occurrence_detail.html:52
-#, fuzzy
 msgid "Attention"
 msgstr "atención"
 
@@ -2617,7 +2569,6 @@ msgid "Date range"
 msgstr "Rango de fechas"
 
 #: templates/archive/festival_occurrence_detail.html:138
-#, fuzzy
 msgid "Participants"
 msgstr "participante"
 
@@ -2643,7 +2594,6 @@ msgid "Function(s)"
 msgstr "Función(es)"
 
 #: templates/archive/festival_occurrence_detail.html:238
-#, fuzzy
 msgid "Occurrence dates"
 msgstr "fecha de creación"
 
@@ -2660,12 +2610,10 @@ msgid "Announcement"
 msgstr ""
 
 #: templates/archive/production_detail.html:54
-#, fuzzy
 msgid "Premiere"
 msgstr "estreno"
 
 #: templates/archive/production_detail.html:60
-#, fuzzy
 msgid "Performance type"
 msgstr "Performance"
 
@@ -2722,7 +2670,6 @@ msgid "By"
 msgstr "Por"
 
 #: templates/archive/taggeditem_detail.html:32
-#, fuzzy
 msgid "Tagged Items"
 msgstr "Objetos relacionados"
 
@@ -2734,7 +2681,6 @@ msgstr "Dirigido por"
 
 #: templates/archive/taggeditem_detail.html:67
 #: templates/archive/venue_detail.html:182
-#, fuzzy
 msgid "Venue type"
 msgstr "tipo de local"
 
@@ -2750,7 +2696,6 @@ msgstr "país"
 
 #: templates/archive/taggeditems_list.html:36
 #: templates/archive/taggeditems_list.html:39
-#, fuzzy
 msgid "Tags"
 msgstr "etiquetas"
 
@@ -2761,12 +2706,10 @@ msgid "Also known as"
 msgstr "También conocido como"
 
 #: templates/archive/venue_detail.html:59
-#, fuzzy
 msgid "Stages"
 msgstr "escenario"
 
 #: templates/archive/venue_detail.html:71
-#, fuzzy
 msgid "square feet"
 msgstr "pies cuadrados"
 
@@ -2779,12 +2722,10 @@ msgid "Depth"
 msgstr ""
 
 #: templates/archive/venue_detail.html:77
-#, fuzzy
 msgid "Height"
 msgstr "derechos"
 
 #: templates/archive/venue_detail.html:81
-#, fuzzy
 msgid "Stage lighting"
 msgstr "iluminación escénica"
 
@@ -2793,7 +2734,6 @@ msgid "Sound"
 msgstr ""
 
 #: templates/archive/venue_detail.html:89
-#, fuzzy
 msgid "Seating"
 msgstr "asientos"
 
