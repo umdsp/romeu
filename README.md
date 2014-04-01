@@ -10,23 +10,20 @@ Requirements
 
 You will need the following installed on your server:
 
-- Python (2.5 minimum, preferably 2.7. Python 3 is *not* supported.)
+- Python (2.7. Python 3 is *not* supported.)
 - Python packages:
-  - Django
-  - South
+  - Django (Version 1.5.5)
+  - South  (Version 0.8.2)
   - Unidecode
-  - Whoosh (search indexing - may be replaced with Solr, etc.)
-  - django-dajax
-  - django-datatrans
-  - django-haystack
+  - django-disqus
+  - django-haystack (Version 1.2.7)
   - django-reversion
   - django-rosetta
-  - django-smart-selects
   - django-taggit
+  - django-taggit-autocomplete-modified
   - django-tinymce
   - python-dateutil
   - sorl-thumbnail
-  - transurlvania
 
 You can install any of the packages above using pip.
 
