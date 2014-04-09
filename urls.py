@@ -55,24 +55,20 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-
     # static pages
     url(r'^$', flatpage, {'url': '/'}),
-
     url(r'^creators/?$', CreatorsListView.as_view(),
         name="creator_list_view"),
     url(r'^creators/(?P<alpha>[a-z0]{1})/?$', CreatorsAlphaListView.as_view(),
         name="creator_alpha_list_view"),
     url(r'^creator/(?P<pk>\d+)/?$', CreatorDetailView.as_view(),
         name="creator_detail_view"),
-    
     url(r'^productions/?$', ProductionsListView.as_view(),
         name="production_list_view"),
     url(r'^productions/(?P<alpha>[a-z0]{1})/?$', ProductionsAlphaListView.as_view(),
         name="production_alpha_list_view"),
     url(r'^production/(?P<pk>\d+)/?$', ProductionDetailView.as_view(),
         name="production_detail_view"),
-    
     url(r'^writtenworks/?$', WorkRecordsListView.as_view(),
         name="workrecord_list_view"),
     url(r'^writtenworks/(?P<alpha>[a-z0]{1})/?$',
@@ -80,7 +76,6 @@ urlpatterns = patterns('',
         name="workrecord_alpha_list_view"),
     url(r'^writtenwork/(?P<pk>\d+)/?$', WorkRecordDetailView.as_view(),
         name="workrecord_detail_view"),
-    
     url(r'^venues/?$', VenuesListView.as_view(),
         name="venue_list_view"),
     url(r'^venues/(?P<alpha>[a-z0]{1})/?$',
@@ -88,7 +83,6 @@ urlpatterns = patterns('',
         name="venue_alpha_list_view"),
     url(r'^venue/(?P<pk>\d+)/?$', VenueDetailView.as_view(),
         name="venue_detail_view"),
-    
     url(r'^digitalobjects/?$',
         DigitalObjectsListView.as_view(),
         name="digital_object_list_view"),
@@ -112,7 +106,6 @@ urlpatterns = patterns('',
     url(r'^digitalobject/(?P<pk>\d+)/?$',
         DigitalObjectDetailView.as_view(),
         name="digital_object_detail_view"),
-
     url(r'^festivals/?$', FestivalsListView.as_view(),
         name="festivals_list_view"),
     url(r'^festivals/(?P<alpha>[a-z0]{1})/?$',
@@ -122,7 +115,6 @@ urlpatterns = patterns('',
         name="festival_detail_view"),
     url(r'^festival/Occurrence/(?P<pk>\d+)/?$', FestivalOccurrenceDetailView.as_view(),
         name="festival_occurrence_detail_view"),
-    
     url(r'^awards/?$', AwardsListView.as_view(),
         name="awards_list_view"),
     url(r'^awards/(?P<alpha>[a-z0]{1})/?$',
@@ -130,55 +122,45 @@ urlpatterns = patterns('',
         name="awards_alpha_list_view"),
     url(r'^award/(?P<pk>\d+)/?$', AwardDetailView.as_view(),
         name="award_detail_view"),
-    
+   
     # Set up i18n functions
     url(r'^i18n/', include('django.conf.urls.i18n')),
-
     url(r'^tinymce/', include('tinymce.urls')),
-
     url(r'^ajax_select/', include('ajax_select.urls')),
     url(r'^chaining/', include('smart_selects.urls')),
-
     url(r'^%s/' % settings.DAJAXICE_MEDIA_PREFIX, include('dajaxice.urls')),
-    
     url(r'^publications/', include('publications.urls')),
     url(r'^admin/publications/publication/import_bibtex/$', 'publications.admin_views.import_bibtex'),
     url(r'^admin/publications/type/import_bibtex/$', 'publications.admin_views.import_bibtex'),
-
     url(r'^ajax/creators/$',
           'archive.views.get_creators_json_response', name='ajax_get_creators_in_json'),
     url(r'^ajax/creators/org_name/$',
           'archive.views.get_creators_org_name_json_response', name='ajax_get_creators_org_name_in_json'),    
-
     url(r'^ajax/cities/$',
           'archive.views.get_cities_json_response', name='ajax_get_cities_in_json'),
     url(r'^ajax/locations/$',
           'archive.views.get_locations_json_response', name='ajax_get_locations_in_json'),
     url(r'^ajax/festivals/$',
           'archive.views.get_festival_json_response', name='ajax_get_festival_in_json'),
-    
     url(r'^admin/', include(admin.site.urls)),
-    
     url(r'^search/', search_view),
-    
     url(r'^selectable/', include('selectable.urls')),
     url(r'^objsearch/', scalar_search_view),
-
     url(r'^taggit_autocomplete_modified/', include('taggit_autocomplete_modified.urls')),
-
     url(r'^search_do/', search_do_view),
-
     url(r'^taggeditems/?$', TaggedItemsListView.as_view(),
         name="taggeditems_list_view"),
     url(r'^taggeditem/(?P<pk>\d+)/?$', TaggedItemDetailView.as_view(),
         name="taggeditem_detail_view"),
     )
-
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += patterns('',
         url(r'^rosetta/', include('rosetta.urls')),
     )
-    
+if 'rest_framework' in settings.INSTALLED_APPS:
+    urlpatterns += patterns('',
+        url(r'^', include('api.creators.urls')),
+    )
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += patterns('',

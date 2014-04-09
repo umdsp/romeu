@@ -150,6 +150,9 @@ INSTALLED_APPS = (
     'south',
     'disqus',
     'unaccent',
+    'rest_framework',
+    'api.creators',
+    
 )
 
 DISQUS_API_KEY = 'haO01iiF2PCConCBF0j85S3WQD8eA0tit3XwEOIhqHfZ5g17QFBQEC0uHzBfXgWK'
@@ -179,6 +182,16 @@ AJAX_LOOKUP_CHANNELS = {
     'location': ('archive.lookups', 'LocationLookup'),
     'workrecord': ('archive.lookups', 'WorkRecordLookup'),
     'role': ('archive.lookups', 'RoleLookup')
+}
+
+
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.XMLParser',
+    )
 }
 
 
