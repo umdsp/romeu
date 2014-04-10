@@ -1,58 +1,68 @@
-from archive.models import Creator
+from archive.models import Creator, RelatedCreator
 from api.creators.serializers import CreatorSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.renderers import JSONRenderer, XMLRenderer
+from rest_framework.decorators import api_view
 
 
-class CreatorList(APIView):
+class CreatorsList(APIView):
 	"""
-	List all creators, or create a new snippet.
+	List all creators,
 	"""
 
-	renderer_classes = (JSONRenderer, XMLRenderer)
+	renderer_classes = (XMLRenderer, JSONRenderer)
 	
 	def get(self, request, format=None):
 		creators = Creator.objects.all()
 		serializer = CreatorSerializer(creators, many=True)
 		return Response(serializer.data)
 
-	def post(self, request, format=None):
-		serializer = CreatorSerializer(data=request.DATA)
-		if serializer.is_valid():
-			serializer.save()
-			return Response(serializer.data, status=status.HTTP_201_CREATED)
-		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 class CreatorDetail(APIView):
-    """
-    Retrieve, update or delete a snippet instance.
-    """
-    renderer_classes = (JSONRenderer, XMLRenderer)
+	"""
+	Retrieve a creator instance.
+	"""
+	renderer_classes = (XMLRenderer, JSONRenderer)
+	
+	def get_object(self, pk):
+		try:
+			return Creator.objects.get(pk=pk)
+		except Creator.DoesNotExist:
+			raise Http404
+	
+	def get(self, request, pk, format=None):
+		creator = self.get_object(pk)
+		serializer = CreatorSerializer(creator)
+		return Response(serializer.data)
 
-    def get_object(self, pk):
-        try:
-            return Creator.objects.get(pk=pk)
-        except Creator.DoesNotExist:
-            raise Http404
+class CreatorAlphaDetail(APIView):
+	"""
+	Retrieve a creator instance.
+	"""
+	renderer_classes = (XMLRenderer, JSONRenderer)
+	
+	def get_object(self, alpha):
+		
+		creators = Creator.objects.filter(family_name__icontains=alpha)
+		if creators:
+			return creators
+		creators = Creator.objects.filter(org_name__icontains=alpha)
+		if creators:
+			return creators
+		else:
+			raise Http404
+	
+	def get(self, request, alpha, format=None):
+		creator = self.get_object(alpha)
+		if creator.count() > 1:
+			serializer = CreatorSerializer(creator)
+		else:
+			serializer = CreatorSerializer(creator, many=True)
+		return Response(serializer.data)
 
-    def get(self, request, pk, format=None):
-        creator = self.get_object(pk)
-        serializer = CreatorSerializer(creator)
-        return Response(serializer.data)
 
-    def put(self, request, pk, format=None):
-        creator = self.get_object(pk)
-        serializer = CreatorSerializer(creator, data=request.DATA)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk, format=None):
-        creator = self.get_object(pk)
-#        creator.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+

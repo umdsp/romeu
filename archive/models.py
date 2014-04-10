@@ -510,6 +510,20 @@ class Creator(models.Model):
     def related_creators_relationship(self):
         return RelatedCreator.objects.filter(first_creator=self).order_by('function__ordinal')
     
+    def creator_relationship(self):
+        relationship = []
+        relatedCreator_qs = RelatedCreator.objects.filter(first_creator=self)
+        for relatedCreator in relatedCreator_qs:
+            a_dict = {'Relationship': relatedCreator.get_relationship_display,
+                      'CreatorName': relatedCreator.second_creator.display_name,
+                      'Function': relatedCreator.function,
+                      'Since': relatedCreator.relationship_since_display,
+                      'Until': relatedCreator.relationship_until_display
+                      }
+            relationship.append(a_dict)
+        return relationship
+
+    
     """    
     def same_birthplace_creators(self):
         if not self.birth_location:

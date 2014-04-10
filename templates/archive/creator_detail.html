@@ -271,10 +271,10 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   <span>{{ creator.death_city }}</span>
                 </li>
               {% endif %}
-              {% if creator.headerquarter_city %}
+              {% if creator.headquarter_city %}
                 <li>
                   <h4>{% trans "Office / HQ" %}:</h4>
-                  <span><a href="{% url 'venue_detail_view' creator.headerquarter_city.pk %}">{{ creator.headerquarter_city }}</a></span>
+                  <span><a href="{% url 'venue_detail_view' creator.headquarter_city.pk %}">{{ creator.headquarter_city }}</a></span>
                 </li>
               {% endif %}
 
