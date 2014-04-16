@@ -30,31 +30,31 @@ class CreatorSerializer(serializers.ModelSerializer):
         data = []
         a_dict={}
         if obj.website:
-            a_dict['Website'] = obj.website,
+            a_dict['website'] = obj.website,
         if obj.nationality:
-            a_dict['Nationality'] = obj.nationality.demonym
+            a_dict['nationality'] = obj.nationality.demonym
         if obj.birth_date:
             if obj.creator_type == 'corp':
-              a_dict['EarliestActive'] = obj.birth_date_display 
+              a_dict['earliest_active'] = obj.birth_date_display 
             else:
-              a_dict["Birthdate"] = obj.birth_date_display
+              a_dict["birthdate"] = obj.birth_date_display
         if obj.birth_city:
             if obj.creator_type == 'corp':
-                a_dict['Place-of-origination'] = obj.birth_city
+                a_dict['place-of-origination'] = obj.birth_city
             else:
-                a_dict['Place-of-birth'] = obj.birth_city
+                a_dict['place-of-birth'] = obj.birth_city
         if obj.death_date:
             if obj.creator_type == 'corp':
-                a_dict['Latest-active'] = obj.death_date_display
+                a_dict['latest-active'] = obj.death_date_display
             else:
-                a_dict['Death-date'] =  obj.death_date_display
+                a_dict['death-date'] =  obj.death_date_display
         if obj.death_city:
             if obj.creator_type == 'corp':
-                a_dict['Place-of-dissolution'] = obj.death_city
+                a_dict['place-of-dissolution'] = obj.death_city
             else:
-                a_dict['Place-of-death'] =  obj.death_city
+                a_dict['place-of-death'] =  obj.death_city
         if obj.headquarter_city:
-            a_dict['Office-HQ'] = obj.headquarter_city
+            a_dict['office-hq'] = obj.headquarter_city
 
         data.append(a_dict)
         return data
@@ -62,10 +62,10 @@ class CreatorSerializer(serializers.ModelSerializer):
     def get_awards(self, obj):
         awards = []
         for award_candidate in obj.recipient.all():
-            a_dict = {'Year': award_candidate.year,
-                      'Category': award_candidate.category,
-                      'Recipient':  award_candidate.recipient,
-                      'Result': award_candidate.get_result_display 
+            a_dict = {'year': award_candidate.year,
+                      'category': award_candidate.category,
+                      'recipient':  award_candidate.recipient,
+                      'result': award_candidate.get_result_display 
             }
             awards.append(a_dict)
         return awards
