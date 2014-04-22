@@ -54,8 +54,11 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             <p><strong>{{ creator.display_roles }}</strong></p>
 
+            
             {% if creator.biography %}
-                {{ creator.biography|autop }}
+                <div class="comment more">
+                {{ creator.biography }}
+                </div>
             {% endif %}
 
             {% if creator.notes %}
@@ -313,6 +316,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   {% block extra_js %}
   <script>
     $(document).ready(function() {
+//        $(".moretext").shorten();
       {% for vid in videos %}
       $('#{{ vid.object_id }}').fancybox({
 content: '<video id="vid-{{vid.object_id}}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001002.mp4" width={% if vid.hidef %}1280{% else %}720{% endif %} height={% if vid.hidef %}720{% else %}480{% endif %}></video>',

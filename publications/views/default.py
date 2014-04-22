@@ -8,7 +8,8 @@ from publications.models import Type, Publication
 
 def default(request):
 	types = []
-	type_qs = Type.objects.filter(hidden=False).order_by('type')
+	type_qs = Type.objects.filter(hidden=False,
+								  owned_by_library=True).order_by('type')
 	for type in type_qs:
 		if Publication.objects.filter(type_id=type.id, external=False).exists():
 			types.append(type)
