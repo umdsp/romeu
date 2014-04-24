@@ -6,13 +6,19 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from publications.models import Type, Publication
 
-def year(request, year=None):
+def year(request, year=None, issue=None):
+
+	if issue is None:
+		if request.GET.get('issue'):
+			issue = request.GET['issue']
 	years = []
+	publications = Publication.objects.filter(external=False)
 	if year:
-		publications = Publication.objects.filter(year=year, external=False)
-	else:
-		publications = Publication.objects.filter(external=False)
-	publications = publications.order_by('-year', '-month', '-id')
+		publications = publications.filter(year=year)
+	if issue:
+		publications = publications.filter(number=issue)
+
+	publications = publications.order_by('-year', 'number', '-id')
 
 	for publication in publications:
 		if publication.type.hidden:
@@ -43,5 +49,6 @@ def year(request, year=None):
 			publication.files = publication.customfile_set.all()
 
 		return render_to_response('publications/years.html', {
-				'years': years
+				'years': years,
+				'issue':issue
 			}, context_instance=RequestContext(request))

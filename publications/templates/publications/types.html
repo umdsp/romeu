@@ -20,21 +20,13 @@
 		<h2>{{ pub_type }}</h2>
 	</header>	
 	<br /> 
-	<div class="special_links">
-		 <a href="?bibtex" target="_blank">Export in BibTex Format</a>
-	</div>
-	{% for type, publications in types %}
-		{%if type %}
-		<h3>{{ type }}</h3>
+	{%if pub_type %}
+		<h3>{{ pub_type }}</h3>
 		<hr/>
-		{% endif %}
-		<div{% if not forloop.last %} style="margin-bottom: 30px;"{% endif %}>
-		{% for publication in publications %}
-			<div{% if not forloop.last %} style="margin-bottom: 20px;"{% endif %}>
-				{% include "publications/publication_tablas.html" %}
-			</div>
-		{% endfor %}
-		</div>
+	{% endif %}
+
+	{% for year, issue in years_for_type %}
+		<a href="/publications/year/{{ year }}/?issue={{ issue }}"><h3>{{ year }} ({{ issue }})</h3></a>
 	{% endfor %}
 
 

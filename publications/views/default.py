@@ -13,7 +13,7 @@ def default(request):
 	for type in type_qs:
 		if Publication.objects.filter(type_id=type.id, external=False).exists():
 			types.append(type)
-		
+
 	return render_to_response('publications/default.html', {
 			'types': types
 		}, context_instance=RequestContext(request))

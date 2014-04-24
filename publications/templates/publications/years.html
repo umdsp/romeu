@@ -11,12 +11,13 @@
 		 <a href="?bibtex" target="_blank">Export in BibTex Format</a> 
 	</div>
 	{% for year, publications in years %}
-		<a href="/publications/year/{{ year }}/"><h1>{{ year }}</h1></a>
+		<a href="/publications/year/{{ year }}/?issue={{ issue }}">
+			<h1>{{ year }} {% if issue %} ({{ issue }}) {% endif %}</h1></a>
 		<hr/>
 		<div{% if not forloop.last %} style="margin-bottom: 30px;"{% endif %}>
 		{% for publication in publications %}
 			<div{% if not forloop.last %} style="margin-bottom: 20px;"{% endif %}>
-				{% include "publications/publication.html" %}
+				{% include "publications/publication_tablas.html" %}
 			</div>
 		{% endfor %}
 		</div>
