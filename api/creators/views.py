@@ -1,4 +1,9 @@
 from django.http import Http404
+from django.utils import translation
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.core.urlresolvers import reverse
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -20,7 +25,9 @@ class CreatorsList(APIView):
 #	permission_classes = (IsAuthenticated,)
 	renderer_classes = (XMLRenderer, JSONRenderer)
 	
-	def get(self, request, format=None):
+	def get(self, request, lang=None, format=None):
+		if lang:
+			translation.activate(lang)
 		creators = Creator.objects.all()
 		serializer = CreatorSerializer(creators, many=True)
 		response = Response(serializer.data)
@@ -41,6 +48,8 @@ class CreatorDetail(APIView):
 #	authentication_classes = (SessionAuthentication, BasicAuthentication)
 #	permission_classes = (IsAuthenticated,)
 	renderer_classes = (XMLRenderer, JSONRenderer)
+
+	greeting = "Good Day"
 	
 	def get_object(self, pk):
 		try:
@@ -48,7 +57,10 @@ class CreatorDetail(APIView):
 		except Creator.DoesNotExist:
 			raise Http404
 	
-	def get(self, request, pk, format=None):
+	def get(self, request, pk, lang=None, format=None):
+		if lang is not None:
+			translation.activate(lang)
+
 		creator = self.get_object(pk)
 		serializer = CreatorSerializer(creator)
 		response = Response(serializer.data)
@@ -56,7 +68,7 @@ class CreatorDetail(APIView):
 			response['Content-Disposition'] = 'attachment; filename="creators.json"'
 		else:
 			response['Content-Disposition'] = 'attachment; filename="creators.xml"'
-		return response
+		return response		
 
 class CreatorAlphaDetail(APIView):
 	"""
@@ -79,7 +91,9 @@ class CreatorAlphaDetail(APIView):
 		else:
 			raise Http404
 	
-	def get(self, request, alpha, format=None):
+	def get(self, request, alpha, lang=None, format=None):
+		if lang is not None:
+			translation.activate(lang)
 		creator = self.get_object(alpha)
 		if creator.count() > 1:
 			serializer = CreatorSerializer(creator)
@@ -93,5 +107,13 @@ class CreatorAlphaDetail(APIView):
 		return response
 
 
+def creator_api_view(request):
+
+	if request.POST:
+		lang=request.POST.get('lang', '')
+		return HttpResponseRedirect(
+			reverse('api_creator_list_view', args=(lang,)))	
+	
+	return render(request, 'creators_api.html')
 
 
