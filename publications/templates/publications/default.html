@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load autop %}
 
 {% block article_header %}
         <h1>Publications{% if alpha %} &raquo; {{ alpha|upper }}{% endif %}</h1>
@@ -19,6 +20,7 @@
 	{% for type in types %}
 		<a href="{% url 'publications_views_type' type %}"><h3>{{ type }}</h3></a>
 		<hr/>
+		{{ type.description|autop }}
 	{% endfor %}
 
 {% endblock %}
