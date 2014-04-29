@@ -111,9 +111,16 @@ def creator_api_view(request):
 
 	if request.POST:
 		lang=request.POST.get('lang', '')
-		return HttpResponseRedirect(
-			reverse('api_creator_list_view', args=(lang,)))	
-	
-	return render(request, 'creators_api.html')
+		creator_id = request.POST.get('creator', 0)
+		if int(creator_id) > 0:
+			return HttpResponseRedirect(
+				reverse('api_creator_detail_view', args=(creator_id, lang,)))	
+		else:	
+			return HttpResponseRedirect(
+				reverse('api_creator_list_view', args=(lang,)))
+		
+	creator_qs = Creator.objects.filter(published=True)
+	return render(request, 'creators_api.html',
+				  {"creator_list": creator_qs})
 
 

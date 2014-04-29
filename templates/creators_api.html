@@ -1,3 +1,4 @@
+
 <!--
 Copyright (C) 2012  University of Miami
  
@@ -16,7 +17,6 @@ You should have received a copy of the GNU General Public License
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -->
  
- 
 
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
@@ -24,16 +24,33 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
-{% load autop %}{% load thumbnail %}{% load i18n %}
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% trans "Cuban Theater Digital Archive - Creator API" %}</title>
+    <title>Cuban Theater Digital Archive</title>
     
     <meta name="description" content="">
     <meta name="author" content="Cuban Theater Digital Archive at the University of Miami Libraries">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <style>
+       a {
+            color: #0254EB
+        }
+        a:visited {
+            color: #0254EB
+        }
+            a.morelink {
+            text-decoration:none;
+            outline: none;
+        }
+            .morecontent span {
+            display: none;
+        }
+        .comment {
+            width: 400px;
+        }
+    </style>
     <link rel="stylesheet" href="/static/css/style.css" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css" type="text/css" media="screen">
     <link rel="shortcut icon" href="/static/favicon.ico" />
@@ -41,21 +58,44 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     <script src="/static/js/libs/modernizr-2.0.6.min.js"></script>
     <link href="/static/css/jquery.tagit.css" rel="stylesheet" type="text/css">
     <link href="/static/css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/js/libs/tag-it.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/jquery.shorten.js"></script>
     <script type="text/javascript">
     </script>
 </head>
-<body>
+<body class="en ">
     <div id="wrapper">
-        <h1>Select a language to pass in to creators api</h1>
-        <form action="" method="post">{% csrf_token %}
-            <select name="lang">
-            <option value="en" selected>English</option>
-            <option value="es">Spanish</option>
-            </select>
-            <input type="submit" value="Submit" />
-        </form>
+        <header>
+            <a href="/"><h1 id="logo">Cuban Theater Digital Archive</h1></a>
+			<div id="globalsearch">
+			<h1 style="color:white;">Creators API Root</h1>
+			</div>
+		</header>
+		<article id="maincontent">
+			<section id="contentblock">
+				<h3>Select a language to get data for selected creator</h3>
+				<form action="" method="post">{% csrf_token %}
+					<select name="lang">
+						<option value="en" selected>English</option>
+						<option value="es">Spanish</option>
+					</select>
+					{% if creator_list %}
+					<p>Select a creator if that is all what you need. All is selected by default</p>
+					<select name="creator">
+						<option value="0" selected>All</option>
+						{% for creator in creator_list %}
+						<option value="{{ creator.id }}">{{ creator }}</option>
+					{% endfor %}
+					</select>
+					{% endif %}
+					<p></p>
+					<input type="submit" value="Submit" />
+				</form>
+			</section>
+		</article>
     </div>
 </body>
 </html>
