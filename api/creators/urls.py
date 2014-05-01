@@ -17,6 +17,8 @@ urlpatterns = patterns('',
 	url(r'^api/creators/(?P<alpha>[\w\s\W]+)/(?P<lang>[\w\s\W]+)/$',
 		views.CreatorAlphaDetail.as_view(),
 		name="api_creator_alpha_view"),
+	url(r'^api/creators/get_download_progress/$', 
+		views.get_download_progress),
 
 )
 

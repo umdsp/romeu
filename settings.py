@@ -24,6 +24,14 @@ MANAGERS = ADMINS
 #    }
 #}
 
+"""
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+"""
 
 BASE_DIR = os.path.join( os.path.dirname( __file__ ), '..' )
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
@@ -102,7 +110,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -152,13 +162,16 @@ INSTALLED_APPS = (
     'unaccent',
     'rest_framework',
     'api.creators',
-    
+    'apps.accounts',
 )
 
 DISQUS_API_KEY = 'haO01iiF2PCConCBF0j85S3WQD8eA0tit3XwEOIhqHfZ5g17QFBQEC0uHzBfXgWK'
 DISQUS_WEBSITE_SHORTNAME = 'cubantheater'
 #TAGGIT_AUTOCOMPLETE_JS_BASE_URL = 'http://ctda.library.miami.edu/media/js'
 TAGGIT_AUTOCOMPLETE_JS_BASE_URL = '/static/taggit_autocomplete_modified'
+
+MIN_PASSWORD_LEN=6
+SIGNUP_TIMEOUT_DAYS = 3
 
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -193,6 +206,15 @@ REST_FRAMEWORK = {
     )
 }
 
+#Email settings - assuming gmail at the moment
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'cubantheaterdigitalarchive@gmail.com'
+EMAIL_HOST_PASSWORD = 'Ctda30%info'
+EMAIL_PORT = 587
+HOSTNAME_URL = 'http://cubantheater.org'
+ORGANIZATION_NAME = "CubanTheater"
 
 DEFAULT_LANG = "en"
 

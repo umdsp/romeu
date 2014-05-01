@@ -127,6 +127,13 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <input type="submit" value="{% trans 'Go' %}" />
             </form>
             <ul>
+              {% if request.user.is_authenticated %}
+                <li>{% trans "Welcome back" %},</li>
+                <li><a href="/publications">{{ user.first_name }}!</a></li>
+                <li><a href="{% url 'accounts_logout' %}">Logout</a></li>
+              {% else %}
+              <li><a href="{% url 'accounts_login' %}">Login</a></li>
+              {% endif %}
               <li><a href="#" id="setlang-en">English</a></li>
               <li><a href="#" id="setlang-es">Espa&ntilde;ol</a></li>
             </ul>
@@ -168,6 +175,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   </ul>
                 </li>
             </ul>
+            <p><br /><br /><br /><br /></p>
         </nav>
         
         <article id="maincontent">
@@ -175,7 +183,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             {% endblock %}
         </article>
 
-	<br /><br />
+        <p><br /><br /><br /><br /></p>
         <div id="disqus_thread" class="disqus_cmts" style="width:48%;float:left;"></div>
         <div align="center" class="disqus_cmts" style="width:48%;float:right">
                 <a class="twitter-timeline" href="https://twitter.com/CubanTheater" data-widget-id="334817199598469120">Tweets by @CubanTheater</a>

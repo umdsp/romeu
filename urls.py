@@ -56,7 +56,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # static pages
-    url(r'^$', flatpage, {'url': '/'}),
+    url(r'^$', flatpage, {'url': '/'},
+        name="home"),
     url(r'^creators/?$', CreatorsListView.as_view(),
         name="creator_list_view"),
     url(r'^creators/(?P<alpha>[a-z0]{1})/?$', CreatorsAlphaListView.as_view(),
@@ -152,6 +153,7 @@ urlpatterns = patterns('',
         name="taggeditems_list_view"),
     url(r'^taggeditem/(?P<pk>\d+)/?$', TaggedItemDetailView.as_view(),
         name="taggeditem_detail_view"),
+    url(r'^accounts/', include('apps.accounts.urls')),
     )
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += patterns('',

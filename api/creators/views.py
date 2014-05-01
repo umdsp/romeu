@@ -124,3 +124,33 @@ def creator_api_view(request):
 				  {"creator_list": creator_qs})
 
 
+def update_progress_direct(request):
+	
+	"""
+		Return JSON object with information about the progress of an upload.
+	"""
+
+	from django.core.cache import cache
+	from django.http import HttpResponse, HttpResponseServerError 
+
+	progress_id = ''
+	if 'X-Progress-ID' in request.GET:
+		progress_id = request.GET['X-Progress-ID']
+	elif 'X-Progress-ID' in request.META:
+		progress_id = request.META['X-Progress-ID']
+	if progress_id:
+		from django.utils import simplejson
+		cache_key = "%s_%s" % (request.META['REMOTE_ADDR'], progress_id)
+		data = cache.get(cache_key)
+		return HttpResponse(simplejson.dumps(data))
+	else:
+		return HttpResponseServerError('Server Error: You must provide X-Progress-ID header or query param.')
+
+
+def get_download_progress(request):
+	
+	from django.utils import simplejson
+	from django.core.cache import cache
+	cache_key = "%s_%s" % (request.META['REMOTE_ADDR'], request.GET['X-Progress-ID'])
+	data = cache.get(cache_key)
+	return HttpResponse(simplejson.dumps(data))

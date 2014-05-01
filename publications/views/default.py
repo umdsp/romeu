@@ -5,7 +5,9 @@ __docformat__ = 'epytext'
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from publications.models import Type, Publication
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def default(request):
 	types = []
 	type_qs = Type.objects.filter(hidden=False,
