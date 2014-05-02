@@ -34,7 +34,7 @@ class PasswordResetRequestForm(forms.Form):
     def clean_email(self):
         email = self.cleaned_data["email"]
         if User.objects.filter(email=email).count() == 0:
-            raise forms.ValidationError("We don't have your your E-Mail registered.")
+            raise forms.ValidationError("We don't have your E-Mail registered.")
         return email    
     
 class PasswordResetForm(forms.Form):
