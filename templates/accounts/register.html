@@ -1,0 +1,49 @@
+{% extends "base.html" %} 
+{% load static %}
+{% load i18n %}
+
+{% block content %} 
+
+	<header>
+	<nav class="breadcrumbs">
+		<ul>
+			<li><a href="/">{% trans "Home" %}</a></li>
+			<li><a href="{% url 'accounts_login' %}">{% trans "Login" %}</a></li>
+		</ul>
+	</nav>
+	<h2>{% trans "Account Registration" %}</h2>
+	</header>
+
+	<section class="main">
+		<div class="inner_container">
+		<p></p>
+		<h1 class="register">{% trans "Become a Member" %}</h1>
+		<div class="registration_bottom">
+			<div class="registration_bottom_inner">
+				<div class="registration_left">
+					<p>{% trans "Fill out the registration form." %}</p>
+					{% include "include/messages.html" %}
+					{% if register_form.non_field_errors %}
+					<div class="non-field-errors">
+						{% for err in register_form.non_field_errors %}
+						  <p class="form-error">{{ err }}</p>
+						{% endfor %}
+					</div>
+					{% endif %}
+					<form method="post" class="register_form" action="{% url 'accounts_register' %}?{{ request.META.QUERY_STRING }}" >  
+						{% csrf_token %}
+						<table>
+							  {{ form }}
+						</table>
+						<p style="padding-left:225px;">
+						<input type="submit"  value="{% trans "Register" %}" class="orange-button" /></p>
+					</form>
+				</div><!-- //.registration_left -->
+			  	<p><br /><br /><br /><br /></p>
+			</div><!-- //.registration_bottom_inner -->
+			<p><br /><br /><br /><br /></p>
+		  </div><!-- //.registration_bottom -->
+		  <p><br /><br /><br /><br /></p>
+		</div>
+	</section>
+{% endblock content %}
