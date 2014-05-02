@@ -1,3 +1,22 @@
+
+"""
+Copyright (C) 2012  University of Miami
+ 
+This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+ 
+This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ See the GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software Foundation,
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+"""
+
 import os
 import sys
 
@@ -170,8 +189,8 @@ DISQUS_WEBSITE_SHORTNAME = 'cubantheater'
 #TAGGIT_AUTOCOMPLETE_JS_BASE_URL = 'http://ctda.library.miami.edu/media/js'
 TAGGIT_AUTOCOMPLETE_JS_BASE_URL = '/static/taggit_autocomplete_modified'
 
-MIN_PASSWORD_LEN=6
-SIGNUP_TIMEOUT_DAYS = 3
+PASSWORD_MINIMUM_LENGTH=6
+DAYS_TO_REGISTER = 3
 
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -205,16 +224,6 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.XMLParser',
     )
 }
-
-#Email settings - assuming gmail at the moment
-
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'cubantheaterdigitalarchive@gmail.com'
-EMAIL_HOST_PASSWORD = 'Ctda30%info'
-EMAIL_PORT = 587
-HOSTNAME_URL = 'http://cubantheater.org'
-ORGANIZATION_NAME = "CubanTheater"
 
 DEFAULT_LANG = "en"
 

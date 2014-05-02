@@ -34,7 +34,7 @@ class PasswordResetRequestForm(forms.Form):
     def clean_email(self):
         email = self.cleaned_data["email"]
         if User.objects.filter(email=email).count() == 0:
-            raise forms.ValidationError('This email address is unknown.')
+            raise forms.ValidationError("We don't have your your E-Mail registered.")
         return email    
     
 class PasswordResetForm(forms.Form):
@@ -48,9 +48,9 @@ class PasswordResetForm(forms.Form):
         password1 = self.cleaned_data.get("password1", "")
         password2 = self.cleaned_data["password2"]
         if password1 != password2:
-            raise forms.ValidationError(_("The two password fields didn't match."))
-        if len(password1) < settings.MIN_PASSWORD_LEN:
-            msg=_("Password must be at least %s characters long.") % (settings.MIN_PASSWORD_LEN)
+            raise forms.ValidationError(_("Please check that your passwords match and try again."))
+        if len(password1) < settings.PASSWORD_MINIMUM_LENGTH:
+            msg=_("Password must be at least %s characters long.") % (settings.PASSWORD_MINIMUM_LENGTH)
             raise forms.ValidationError(msg)
         return password2
 
@@ -69,7 +69,8 @@ class LoginForm(forms.Form):
             if not user.is_active:
                 raise forms.ValidationError(_("This account is inactive."))
         else:
-            raise forms.ValidationError(_("Invalid username or password."))
+            raise forms.ValidationError(
+                _("There was an error with your Username/Password combination. Please try again."))
 
         return cleaned_data
 
@@ -84,15 +85,15 @@ class ChangePasswordForm(forms.Form):
 
     def clean_password1(self):
         password1 = self.cleaned_data.get("password1", "")
-        if len(password1) < settings.MIN_PASSWORD_LEN:
-            msg=_("Password must be at least %s characters long. ") % (settings.MIN_PASSWORD_LEN)
+        if len(password1) < settings.PASSWORD_MINIMUM_LENGTH:
+            msg=_("Password must be at least %s characters long. ") % (settings.PASSWORD_MINIMUM_LENGTH)
             raise forms.ValidationError(msg)
         return password1
     
     def clean_password2(self):
         password2 = self.cleaned_data["password2"]
-        if len(password2) < settings.MIN_PASSWORD_LEN:
-            msg=_("Password must be at least %s characters long. ") % (settings.MIN_PASSWORD_LEN)
+        if len(password2) < settings.PASSWORD_MINIMUM_LENGTH:
+            msg=_("Password must be at least %s characters long. ") % (settings.PASSWORD_MINIMUM_LENGTH)
             raise forms.ValidationError(msg)
         return password2
     
@@ -101,7 +102,7 @@ class ChangePasswordForm(forms.Form):
         password1 = cleaned_data.get("password1")
         password2 = cleaned_data.get("password2")
         if password1 != password2:
-            raise forms.ValidationError(_("The two password fields didn't match."))
+            raise forms.ValidationError(_("Please check that your passwords match and try again."))
         return cleaned_data
    
 
@@ -123,9 +124,9 @@ class RegisterForm(forms.Form):
         password1 = self.cleaned_data.get("password1", "")
         password2 = self.cleaned_data["password2"]
         if password1 != password2:
-            raise forms.ValidationError(_("The two password fields didn't match."))
-        if len(password1) < settings.MIN_PASSWORD_LEN:
-            msg=_("Password must be at least %s characters long. ") % (settings.MIN_PASSWORD_LEN)
+            raise forms.ValidationError(_("Please check that your passwords match and try again."))
+        if len(password1) < settings.PASSWORD_MINIMUM_LENGTH:
+            msg=_("Password must be at least %s characters long. ") % (settings.PASSWORD_MINIMUM_LENGTH)
             raise forms.ValidationError(msg)
         return password2
     
