@@ -115,8 +115,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 </head>
 <body class="{{ LANGUAGE_CODE }} {% block body_class %}{% endblock %}">
     <div id="wrapper">
-      <p id="worknotice">NOTE: This site is undergoing heavy development. Some information may<br />
-        be missing or inaccurate, and links are subject to change.</p>
+     <!-- <p id="worknotice">NOTE: This site is undergoing heavy development. Some information may<br />
+        be missing or inaccurate, and links are subject to change.</p> -->
       <div id="langselect">
             <form action="/i18n/setlang/" method="post">
                 {% csrf_token %}
