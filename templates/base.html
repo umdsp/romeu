@@ -130,9 +130,9 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
               {% if request.user.is_authenticated %}
                 <li>{% trans "Welcome back" %},</li>
                 <li><a href="/publications">{{ user.first_name }}!</a></li>
-                <li><a href="{% url 'accounts_logout' %}">Logout</a></li>
+                <li><a href="{% url 'accounts_logout' %}">{% trans "Logout" %}</a></li>
               {% else %}
-              <li><a href="{% url 'accounts_login' %}">Login</a></li>
+              <li><a href="{% url 'accounts_login' %}">{% trans "Login" %}</a></li>
               {% endif %}
               <li><a href="#" id="setlang-en">English</a></li>
               <li><a href="#" id="setlang-es">Espa&ntilde;ol</a></li>
