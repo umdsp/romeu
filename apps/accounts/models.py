@@ -30,6 +30,7 @@ from django.utils.datastructures import SortedDict
 
        
 class ValidPasswordResetKey(models.Model):
+
     user               = models.ForeignKey(User)
     reset_password_key = models.CharField(max_length=50, blank=True)
     expires            = models.DateTimeField(default=datetime.now)
@@ -51,14 +52,15 @@ class ValidPasswordResetKey(models.Model):
         self.expires=expires
         
         #send an email with reset url
-        x=send_password_reset_url_via_email(self.user, self.reset_password_key)
-        if x:
+        email_sent=send_password_reset_url_via_email(self.user, self.reset_password_key)
+        if email_sent:
             super(ValidPasswordResetKey, self).save(**kwargs)
         else:
             self.reset_password_key=None 
 
 
 class ValidSignupKey(models.Model):
+    
     user                 = models.ForeignKey(User)
     signup_key           = models.CharField(max_length=50, blank=True,
                                             unique=True)
@@ -78,22 +80,23 @@ class ValidSignupKey(models.Model):
         self.expires=expires
         
         #send an email with reset url
-        x=send_signup_key_via_email(self.user, self.signup_key)
+        email_sent=send_signup_key_via_email(self.user, self.signup_key)
         super(ValidSignupKey, self).save(**kwargs)
 
               
 def validate_signup(signup_key):
+    
     try:
-        vc=ValidSignupKey.objects.get(signup_key=signup_key)
+        vsk=ValidSignupKey.objects.get(signup_key=signup_key)
         now=datetime.now()
     
-        if vc.expires < now:
-            vc.delete()
+        if vsk.expires < now:
+            vsk.delete()
             return False   
     except(ValidSignupKey.DoesNotExist):
         return False  
-    u=vc.user
-    u.is_active=True
-    u.save()
-    vc.delete()
+    user=vsk.user
+    user.is_active=True
+    user.save()
+    vsk.delete()
     return True

@@ -171,15 +171,17 @@ def verify_email(request, verification_key,
                               { 'account': account},
                               context_instance=context)
 
+"""
 def signup_verify(request, signup_key=None):
     
     if validate_signup(signup_key=signup_key):
         messages.success(request, _("Your account has been activated. You may now login."))
-        return HttpResponseRedirect(reverse('login'))
+        return HttpResponseRedirect(reverse('accounts_login'))
     else:
-        return render_to_response('accounts/invalid-key.html',
+        return render_to_response('accounts/invalid-signup-key.html',
                               RequestContext(request,
                                              {}))
+"""
 
 @login_required
 def change_password(request):

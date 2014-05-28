@@ -159,7 +159,7 @@ class RegisterForm(forms.Form):
         new_user.is_active = True
         new_user.save()
         #send the email verification
-        v=ValidSignupKey(user=new_user)
-        v.save()
+        #v=ValidSignupKey(user=new_user)
+        #v.save()
         
         return new_user
