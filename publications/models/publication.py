@@ -93,7 +93,8 @@ class Publication(models.Model):
 							   help_text="How something strange has been published. The first word should be capitalized.")
 	year = models.PositiveIntegerField(max_length=4, db_index=True)
 	month = models.IntegerField(choices=MONTH_CHOICES, blank=True, null=True)
-	journal = models.CharField(max_length=256, blank=True, db_index=True)
+	journal = models.CharField(max_length=256, blank=True, db_index=True,
+							   help_text=_("Journal/Newspaper/Blog/Book"))
 
 	isbn = models.CharField(max_length=32, verbose_name="ISBN", blank=True,
 		help_text='Only for a book.') # A-B-C-D
@@ -121,6 +122,7 @@ class Publication(models.Model):
 	abstract = models.TextField(null=True, blank=True, verbose_name=_("abstract"))
 
 	translator = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("translator(s)"))
+	prologue = models.TextField(null=True, blank=True, verbose_name=_("Prologue / Introduction"))
 	volume = models.CharField(max_length=20, null=True, blank=True, verbose_name=_("Volume number"))
 	number = models.CharField(max_length=40, null=True, blank=True, help_text=_("Issue number"), verbose_name=_("issue number"))
 	series = models.CharField(max_length=255, null=True, blank=True, help_text=_("Series title"), verbose_name=_("series"))

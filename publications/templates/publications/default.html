@@ -18,7 +18,7 @@
     </header>
 	<br />
 	{% for type in types %}
-		<a href="{% url 'publications_views_type' type %}"><h3>{{ type }}</h3></a>
+		<a href="{% url 'publications_views_type' type %}"><h3 style="color: red;">{{ type }}</h3></a>
 		<hr/>
 		{{ type.description|autop }}
 	{% endfor %}

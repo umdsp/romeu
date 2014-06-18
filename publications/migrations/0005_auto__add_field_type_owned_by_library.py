@@ -8,6 +8,11 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
+        # Adding field 'Publication.prologue'
+        db.add_column(u'publications_publication', 'prologue',
+                      self.gf('django.db.models.fields.TextField')(null=True, blank=True),
+                      keep_default=False)
+
         # Adding field 'Type.owned_by_library'
         db.add_column(u'publications_type', 'owned_by_library',
                       self.gf('django.db.models.fields.BooleanField')(default=False),
@@ -15,6 +20,9 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
+        # Deleting field 'Publication.prologue'
+        db.delete_column(u'publications_publication', 'prologue')
+
         # Deleting field 'Type.owned_by_library'
         db.delete_column(u'publications_type', 'owned_by_library')
 
@@ -79,6 +87,7 @@ class Migration(SchemaMigration):
             'pages': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
             'pdf': ('django.db.models.fields.files.FileField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'price': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '6', 'decimal_places': '2', 'blank': 'True'}),
+            'prologue': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'pub_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
             'publisher': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'rights': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),

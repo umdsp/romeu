@@ -55,7 +55,7 @@ msgstr "contraseña debe tener %s carácteres minimo"
 
 #: apps/accounts/forms.py:59 apps/accounts/forms.py:113
 msgid "Username"
-msgstr "nombre de usuario"
+msgstr "Nombre de usuario"
 
 #: apps/accounts/forms.py:61 apps/accounts/forms.py:81
 #: apps/accounts/forms.py:118
@@ -2146,7 +2146,7 @@ msgstr "Registro de Cuenta"
 
 #: templates/accounts/register.html:39
 msgid "Become a Member"
-msgstr "Conviértete en un miembro"
+msgstr "Para hacerse miembro"
 
 #: templates/accounts/register.html:43
 msgid "Fill out the registration form."
@@ -2154,7 +2154,7 @@ msgstr "Llene el formulario de registro."
 
 #: templates/accounts/register.html:58
 msgid "Register"
-msgstr "Registrar"
+msgstr "Registrarse"
 
 #: templates/accounts/request-new-password.html:33
 msgid "Reset your Password"

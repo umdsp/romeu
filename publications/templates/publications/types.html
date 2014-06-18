@@ -26,7 +26,7 @@
 	{% endif %}
 
 	{% for year, issue in years_for_type %}
-		<a href="/publications/year/{{ year }}/?issue={{ issue }}"><h3>{{ year }} ({{ issue }})</h3></a>
+		<a href="/publications/{{ pub_type }}/{{ year }}/?issue={{ issue }}"><h3>{{ year }} ({{ issue }})</h3></a>
 	{% endfor %}
 
 
