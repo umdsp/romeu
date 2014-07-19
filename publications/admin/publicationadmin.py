@@ -8,6 +8,9 @@ from archive.models import Creator, Production, WorkRecord
 from django.utils.translation import ugettext
 from django.utils.translation import ugettext_lazy as _
 
+
+from publications.admin import forms as pubForms
+
 class CustomLinkInline(admin.StackedInline):
 	model = CustomLink
 	extra = 1
@@ -19,41 +22,10 @@ class CustomFileInline(admin.StackedInline):
 	extra = 1
 	max_num = 5
 
-class CreatorsInLine(admin.StackedInline):
-	model = Creator.primary_publications.through
-	verbose_name_plural = _('Primary Publication - Creator Relationships')
-	extra = 0
-
-class ProductionsInLine(admin.StackedInline):
-	model = Production.primary_publications.through
-	ordering = ['production__title']
-	verbose_name_plural = _('Primary Publication - Production Relationships')
-	extra = 0
-	
-class WorkRecordInLine(admin.StackedInline):
-	model = WorkRecord.primary_publications.through
-	verbose_name_plural = _('Primary Publication - WorkRecords Relationships')
-	ordering = ['workrecord__title']
-	extra = 0
-
-class SecondaryCreatorsInLine(admin.StackedInline):
-	model = Creator.secondary_publications.through
-	verbose_name_plural = _('Secondary Publication - Creator Relationships')
-	extra = 0
-
-class SecondaryProductionsInLine(admin.StackedInline):
-	model = Production.secondary_publications.through
-	ordering = ['production__title']
-	verbose_name_plural = _('Secondary Publication - Production Relationships')
-	extra = 0
-	
-class SecondaryWorkRecordInLine(admin.StackedInline):
-	model = WorkRecord.secondary_publications.through
-	ordering = ['workrecord__title']
-	verbose_name_plural = _('Secondary Publication - WorkRecords Relationships')
-	extra = 0
 
 class PublicationAdmin(admin.ModelAdmin):
+	
+	form = pubForms.PublicationAdminForm
 	list_display = ('type', 'first_author', 'title',  'year',
 					'journal_or_book_title')
 	list_display_links = ('title',)
@@ -95,12 +67,58 @@ class PublicationAdmin(admin.ModelAdmin):
 					   'system', 'library',
 					   'library_catalog_num', 'external')
 			}),
+		('Relationships', {
+			'fields': ('primary_creators', 'secondary_creators',
+					   'primary_productions','secondary_productions',
+					   'primary_workrecords','secondary_workrecords'
+					   )
+			}),
+		
 	)
-	inlines = [CreatorsInLine, SecondaryCreatorsInLine,
-			   ProductionsInLine, SecondaryProductionsInLine,
-			   WorkRecordInLine, SecondaryWorkRecordInLine,
-			   CustomLinkInline, CustomFileInline]
+	inlines = [CustomLinkInline, CustomFileInline]
+
+	def save_related(self, request, form, formsets, change):
+
+		publication = form.save()
+		primary_creators = form.cleaned_data['primary_creators']
+		secondary_creators = form.cleaned_data['secondary_creators']
+		primary_productions = form.cleaned_data['primary_productions']
+		secondary_productions = form.cleaned_data['secondary_productions']
+		primary_workrecords = form.cleaned_data['primary_workrecords']
+		secondary_workrecords = form.cleaned_data['secondary_workrecords']
+		
+		try:
+			Creator.primary_publications.through.objects.filter(
+				publication__id=publication.pk).delete()
+			Creator.secondary_publications.through.objects.filter(
+				publication__id=publication.pk).delete()
+			Production.primary_publications.through.objects.filter(
+				publication__id=publication.pk).delete()
+			Production.secondary_publications.through.objects.filter(
+				publication__id=publication.pk).delete()
+			WorkRecord.primary_publications.through.objects.filter(
+				publication__id=publication.pk).delete()
+			WorkRecord.secondary_publications.through.objects.filter(
+				publication__id=publication.pk).delete()
 	
+			for pc in primary_creators:
+				pc.primary_publications.add(publication)
+			for sc in secondary_creators:
+				sc.secondary_publications.add(publication)		
+			for pp in primary_productions:
+				pp.primary_publications.add(publication)
+			for sp in secondary_productions:
+				sp.secondary_publications.add(publication)
+			for wp in primary_workrecords:
+				wp.primary_publications.add(publication)
+			for ws in secondary_workrecords:
+				ws.secondary_publications.add(publication)
+		except:
+			pass
+			
+		return super(PublicationAdmin, self).save_related(request, form, formsets, change)
+	
+
 	class Media:
 		js = ('/static/js/tiny_mce/tiny_mce.js', '/static/js/textareas.js', '/static/js/scripts.js',)
 
