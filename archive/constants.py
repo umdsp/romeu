@@ -19,6 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 GENDER_CHOICES = (
 	(u'M', _(u'Male')),
 	(u'F', _(u'Female')),
+	(u'T', _(u'Transgender')),
 	(u'O', _(u'Other')),
 	(u'N', _(u'Not applicable')),
 )

@@ -161,7 +161,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.flatpages',
     'sorl.thumbnail',
-    #'reversion',
+    'reversion',
     'workflow',
     'modeltranslation',
     'django.contrib.admin',

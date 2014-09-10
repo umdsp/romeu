@@ -1178,7 +1178,6 @@ def get_creators_org_name_json_response(request):
     org_name=names['org_name']
 
     if ((org_name == "" or org_name is None)):
-  
       json_response = json.dumps([])
       return HttpResponse(json_response, mimetype='application/json')
   
@@ -1204,7 +1203,12 @@ def get_cities_json_response(request):
     json_object = json.loads(request.GET.get('jobj'))
     city=json_object['city']
     country=json_object['country']
-
+    if ((city == "" or city is None) or
+      (country == "" or country is None)):
+      json_response = json.dumps([])
+      return HttpResponse(json_response, mimetype='application/json')
+    
+    city_qs = []
     city_qs = City.objects.filter(name=city,
                                   country__id=country)
     city_list = []
@@ -1233,6 +1237,12 @@ def get_locations_json_response(request):
     title=title_en if title_en else title_es
     city=json_object['city']
     country=json_object['country']
+    
+    if ( (city == "" or city is None) or
+         (country == "" or country is None) or
+         (title == "" or title is None)):
+      json_response = json.dumps([])
+      return HttpResponse(json_response, mimetype='application/json')
 
     location_qs = Location.objects.filter(title__icontains=title,
                                           city__id=city,
@@ -1261,6 +1271,10 @@ def get_festival_json_response(request):
     title_en=json_object['title_en']
     title_es=json_object['title_es']
     title=title_en if title_en else title_es
+    
+    if ( (title == "" or title is None) ):
+     json_response = json.dumps([])
+     return HttpResponse(json_response, mimetype='application/json')
 
     festival_qs = Festival.objects.filter(title__icontains=title)
     festival_list = []

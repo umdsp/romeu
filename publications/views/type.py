@@ -16,19 +16,19 @@ def type(request, pub_type=None):
 		if tablas_type_id:
 			publications = Publication.objects.filter(
 				type_id=tablas_type_id[0].id, external=False
-				).order_by('-year', 'number',)
+				).order_by('-year', '-number')
 	else:
 		publications = Publication.objects.filter(
 			external=False
-			).order_by('-year', 'authors', '-id')
+			).order_byorder_by('-year', '-number')
 
 	for publication in publications:
 		if publication.type.hidden:
 			continue
-		year_issue = (publication.year, publication.number)
+		year_issue = (publication.year, publication.number.strip(' '))
 		years_for_type.add(year_issue)
 	a_list = list(years_for_type)
-	list_of_years = sorted(a_list, key=lambda year: year[0], reverse=True)
+	list_of_years = sorted(a_list, key=lambda year: year, reverse=True)
 
 	return render_to_response('publications/types.html',
 							  {'pub_type':pub_type,

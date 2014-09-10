@@ -1039,6 +1039,8 @@ class Production(models.Model):
             return True
         elif DigitalObject.objects.filter(related_production=self).exists():
             return True
+        elif self.source_work.count():
+            return True
         else:
             return False
 
@@ -1292,9 +1294,9 @@ class FestivalOccurrence(models.Model):
     end_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', verbose_name=_("Precision"))
     end_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
     
-    venue = models.ManyToManyField(Location, verbose_name=_("venue"))
+    venue = models.ManyToManyField(Location, blank=True, default=None, verbose_name=_("venue"))
     participants = models.ManyToManyField(Creator, through="FestivalParticipant", null=True, blank=True, verbose_name=_("participants"))
-    productions = models.ManyToManyField(Production, verbose_name=_("productions"))
+    productions = models.ManyToManyField(Production, blank=True, default=None, verbose_name=_("productions"))
     primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="festival_primary_bibliography_for", verbose_name=_("primary bibliography"))
     
     awards_text = models.TextField(null=True, blank=True, verbose_name=_("awards"))
