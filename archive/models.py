@@ -961,7 +961,6 @@ class Production(models.Model):
     needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
     theater_companies = models.ManyToManyField(Creator, null=True, blank=True, related_name="company_productions")
-    
     profiler_name = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profiler name"))
     profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
     tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
