@@ -42,6 +42,16 @@ STATIC_URL = '/static/'
 
 # Deprecated, but some plugins still use it.
 ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_URL_PREFIX = '/static/admin/'
+
+# List of finder classes that know how to find static files in
+# various locations.
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'dajaxice.finders.DajaxiceFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
 
 # IMPORTANT: Change the secret key below to your own random string.
 SECRET_KEY = 'lgb,ov3$u{SI&47Z`8D$@YZ:)j@,CpaW8AL@u91j5BCGwk3wqf*az'
@@ -49,17 +59,20 @@ SECRET_KEY = 'lgb,ov3$u{SI&47Z`8D$@YZ:)j@,CpaW8AL@u91j5BCGwk3wqf*az'
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates". Always use forward slashes, even on Windows. Don't forget to 
     # use absolute paths, not relative paths.
-    '/templates', )
+    '/templates',
+    'publications/templates')
 
-HAYSTACK_SITECONF = 'archive.search_sites'
-HAYSTACK_SEARCH_ENGINE = 'whoosh'
-HAYSTACK_WHOOSH_PATH = '/django_whoosh_index'
+HAYSTACK_SOLR_URL = 'http://localhost:8983/solr/collection1'   #this is your local solr installation url
+
+HAYSTACK_SITECONF = 'search_sites'
+HAYSTACK_SEARCH_ENGINE = 'solr'
 HAYSTACK_INCLUDE_SPELLING = False
 
 # Dajax settings
-DAJAXICE_MEDIA_PREFIX="dajaxice"
+DAJAXICE_MEDIA_PREFIX='dajaxice'
 
 # Thumbnail settings
 THUMBNAIL_ENGINE = 'sorl.thumbnail.engines.pil_engine.Engine'
+
 
 
