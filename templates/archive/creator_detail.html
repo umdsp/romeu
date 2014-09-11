@@ -56,8 +56,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
             
             {% if creator.biography %}
-                <div class="comment more">
-                {{ creator.biography }}
+                <div id="readmorecontent">
+                {{ creator.biography|autop }}
                 </div>
             {% endif %}
 
@@ -314,22 +314,36 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   {% endblock %}
 
   {% block extra_js %}
-  <script>
-    $(document).ready(function() {
-//        $(".moretext").shorten();
-      {% for vid in videos %}
-      $('#{{ vid.object_id }}').fancybox({
-content: '<video id="vid-{{vid.object_id}}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001002.mp4" width={% if vid.hidef %}1280{% else %}720{% endif %} height={% if vid.hidef %}720{% else %}480{% endif %}></video>',
-        maxWidth: {% if vid.hidef %}1310{% else %}750{% endif %},
-        maxHeight: {% if vid.hidef %}775{% else %}535{% endif %},
-        afterShow: function() {
-          $('#vid-{{vid.object_id}}').mediaelementplayer();
-        }
+    <script>
+      $(document).ready(function() {
+  //        $(".moretext").shorten();
+        {% for vid in videos %}
+        $('#{{ vid.object_id }}').fancybox({
+          content: '<video id="vid-{{vid.object_id}}" src="http://streaming.miami.edu:8080/flash/ctda/{{ vid.object_id }}0001002.mp4" width={% if vid.hidef %}1280{% else %}720{% endif %} height={% if vid.hidef %}720{% else %}480{% endif %}></video>',
+          maxWidth: {% if vid.hidef %}1310{% else %}750{% endif %},
+          maxHeight: {% if vid.hidef %}775{% else %}535{% endif %},
+          afterShow: function() {
+            $('#vid-{{vid.object_id}}').mediaelementplayer();
+          }
+        });
+        {% endfor %}
+        $('.fancy').fancybox({loop: false});
       });
-      {% endfor %}
-      $('.fancy').fancybox({loop: false});
-    });
-  </script>
+      
+    </script>
+     <script>
+	$('#readmorecontent').readmore({
+	  moreLink: '<a href="#">Read More</a>',
+      lessLink: '<a href="#">Read Less</a>',
+	  maxHeight: 30,
+	  afterToggle: function(trigger, element, expanded) {
+		if(! expanded) { // The "Close" link was clicked
+		  $('html, body').animate( { scrollTop: element.offset().top }, {duration: 100 } );
+		}
+	  }
+	});
+    </script>
+    
   {% endblock %}
 
 
