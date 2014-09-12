@@ -1447,12 +1447,15 @@ def object_upload_path(instance, filename):
     return '/'.join(['digitalobjects', rep_code, col_code, new_filename])
 
 def setup_new_object(sender, **kwargs):
+    print 'in setup new object'
     instance = kwargs['instance']
+    print instance
     if not instance.object_id:
         try:
             biggest_id = DigitalObject.objects.filter(collection=instance.collection).aggregate(Max('object_id'))
-            biggest_id = '%06d' % (biggest_id['object_id__max'] + 1)
+            biggest_id = '%06d' % (int(biggest_id['object_id__max']) + 1)
             instance.object_id = biggest_id
+            print 'biggest id: ', biggest_id
         except:
             instance.object_id = '000001'
 
