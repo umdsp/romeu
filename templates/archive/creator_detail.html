@@ -333,8 +333,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     </script>
      <script>
 	$('#readmorecontent').readmore({
-	  moreLink: '<a href="#">Read more</a>',
-      lessLink: '<a href="#">Read Less</a>',
+	  moreLink: '<a href="#">{% trans "Read more" %}</a>',
+      lessLink: '<a href="#">{% trans "Read less" %}</a>',
 	  maxHeight: 30,
 	  afterToggle: function(trigger, element, expanded) {
 		if(! expanded) { // The "Close" link was clicked
