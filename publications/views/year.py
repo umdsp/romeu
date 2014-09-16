@@ -20,9 +20,9 @@ def year(request, pub_type=None, year=None, issue=None):
 	if year:
 		publications = publications.filter(year=year)
 	if issue:
-		publications = publications.filter(number=issue)
+		publications = publications.filter(number__contains=issue)
 
-	publications = publications.order_by('-year', 'number', '-id')
+	publications = publications.order_by('-year', '-number', '-id')
 
 	for publication in publications:
 		if publication.type.hidden:
