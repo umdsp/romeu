@@ -1,20 +1,24 @@
-# Copyright (C) 2012  University of Miami
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-# See the GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software Foundation,
-# Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-# coding: utf-8
+"""
+    # Copyright (C) 2012  University of Miami
+    #
+    # This program is free software; you can redistribute it and/or
+    # modify it under the terms of the GNU General Public License
+    # as published by the Free Software Foundation; either version 2
+    # of the License, or (at your option) any later version.
+    #
+    # This program is distributed in the hope that it will be useful,
+    # but WITHOUT ANY WARRANTY; without even the implied warranty of
+    # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    # See the GNU General Public License for more details.
+    #
+    # You should have received a copy of the GNU General Public License
+    # along with this program; if not, write to the Free Software Foundation,
+    # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+    # coding: utf-8
+"""
+
 import os
 
 from django.contrib.auth import models as auth_models
@@ -46,26 +50,16 @@ from taggit_autocomplete_modified.managers import TaggableManager
 
 try:
     from south.modelsinspector import add_introspection_rules
-    
-    add_introspection_rules(
-    [
-        (
-            (TaggableManager, ), [], {},
-        ),
-        (
-            (PagesField,), [], {},
-        )
-    ],
-    ["^taggit_autocomplete_modified\.managers\.TaggableManager",
-     "^publications\.fields\.PagesField",
-     ])
-    
+    add_introspection_rules([((TaggableManager, ), [], {}, ),
+        ((PagesField,), [], {}, )],
+        ["^taggit_autocomplete_modified\.managers\.TaggableManager",
+         "^publications\.fields\.PagesField", ])
 except ImportError:
     pass
 
 class SpecialPerformanceType(models.Model):
     type = models.CharField(max_length=24, verbose_name=_("Type"))
-    
+
     class Meta:
         verbose_name = _("special performance type")
         verbose_name_plural = _("special performance types")
@@ -73,11 +67,11 @@ class SpecialPerformanceType(models.Model):
 
     def __unicode__(self):
         return self.type
-    
+
 class OverwriteStorage(FileSystemStorage):
     """
     Returns same name for existing file and deletes existing file on save.
-    """                                                              
+    """
     def _save(self, name, content):
         if self.exists(name):
             self.delete(name)
@@ -99,20 +93,20 @@ def check_attention(sender, **kwargs):
 pre_save.connect(check_attention)
 
 
-def make_unique(seq, idfun=None):  
-    # order preserving 
-    if idfun is None: 
-        def idfun(x): return x 
-    seen = {} 
-    result = [] 
-    for item in seq: 
-        marker = idfun(item) 
-        # in old Python versions: 
-        # if seen.has_key(marker) 
-        # but in new ones: 
-        if marker in seen: continue 
-        seen[marker] = 1 
-        result.append(item) 
+def make_unique(seq, idfun=None):
+    # order preserving
+    if idfun is None:
+        def idfun(x): return x
+    seen = {}
+    result = []
+    for item in seq:
+        marker = idfun(item)
+        # in old Python versions:
+        # if seen.has_key(marker)
+        # but in new ones:
+        if marker in seen: continue
+        seen[marker] = 1
+        result.append(item)
     return result
 
 # Subject heading models
@@ -124,92 +118,195 @@ class SubjectSource(models.Model):
         return self.title
 
 class SubjectHeading(models.Model):
-    title = models.CharField(max_length=200, verbose_name=_("title"))
-    subject_type = models.CharField(max_length=10, choices=constants.SUBJECT_TYPE_CHOICES, verbose_name=_("subject type"))
-    source = models.ForeignKey(SubjectSource, related_name="headings", verbose_name=_("source"))
-    parent_subject = models.ForeignKey("self", null=True, blank=True, related_name="child_subjects", verbose_name=_("parent subject"))
-    
+    title = models.CharField(max_length=200,
+                             verbose_name=_("title"))
+    subject_type = models.CharField(max_length=10,
+                                    choices=constants.SUBJECT_TYPE_CHOICES,
+                                    verbose_name=_("subject type"))
+    source = models.ForeignKey(SubjectSource,
+                               related_name="headings",
+                               verbose_name=_("source"))
+    parent_subject = models.ForeignKey("self", null=True, blank=True,
+                                       related_name="child_subjects",
+                                       verbose_name=_("parent subject"))
     def __unicode__(self):
         return "%s (%s)" % (self.title, self.get_subject_type_display())
 
 class Creator(models.Model):
-    creator_type = models.CharField(max_length=10, choices=constants.CREATOR_TYPE_CHOICES, default=u'person', verbose_name=_("creator type"))
-    prefix = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("name prefix"))
-    given_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("given name(s)"))
-    middle_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("middle name(s)"))
-    family_name = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("family name(s)"))
-    suffix = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("name suffix"))
-    org_name = models.CharField(max_length=255, null=True, blank=True, help_text=_("For corporate creators, enter an organization name here instead of using the other name fields."), verbose_name=_("organization / corporate name"))
-    creator_name = models.CharField(max_length=255, verbose_name=_("creator name"))
-    creator_ascii_name = models.CharField(max_length=255, verbose_name=_("creator ASCII name"))
-    creator_display_name = models.CharField(max_length=255, verbose_name=_("creator display name"))
-    creator_display_ascii_name = models.CharField(max_length=255, verbose_name=_("creator display ASCII name"))
-    name_variants = models.CharField(max_length=200, null=True, blank=True, verbose_name=_("name variants"))
-    # Dates
-#    birth_location = models.ForeignKey("Location", null=True, blank=True, related_name="born_here", verbose_name=_("birth location"))
-    birth_city = models.ForeignKey("City", null=True, blank=True, related_name="born_here", verbose_name=_("City of birth"))
-    birth_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("birth date"))
-    birth_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', null=True, blank=True, verbose_name=_("Precision"))
-    birth_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
-#    death_location = models.ForeignKey("Location", null=True, blank=True, related_name="died_here", verbose_name=_("death location"))
-    death_city = models.ForeignKey("City", null=True, blank=True, related_name="died_here", verbose_name=_("City of death"))
-    death_date = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("death date"))
-    death_date_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'f', null=True, blank=True, verbose_name=_("Precision"))
-    death_date_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
-    earliest_active = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("earliest active"))
-    earliest_active_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'y', null=True, blank=True, verbose_name=_("Precision"))
-    earliest_active_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
-    latest_active = models.DateField(null=True, blank=True, help_text="Click 'Today' to see today's date in the proper date format.", verbose_name=_("latest active"))
-    latest_active_precision = models.CharField(max_length=1, choices=constants.DATE_PRECISION_CHOICES, default=u'y', null=True, blank=True, verbose_name=_("Precision"))
-    latest_active_BC = models.BooleanField(default=False, verbose_name=_("Is B.C. date"))
-    # More info
-    gender = models.CharField(max_length=2, choices=constants.GENDER_CHOICES, default=u'N', verbose_name=_("gender"))
-    nationality = models.ForeignKey("Country", null=True, blank=True, verbose_name=_("nationality"))
-
-#    location = models.ForeignKey("Location", null=True, blank=True, help_text=_("Office / headquarters location (for corporate creators only)"), verbose_name=_("office / headquarters"))
-    headquarter_city = models.ForeignKey("City", null=True, blank=True, help_text=_("Office / headquarters location (for corporate creators only)"), verbose_name=_("office / headquarters"))
-    
-    related_creators = models.ManyToManyField("self", through="RelatedCreator", symmetrical=False, null=True, blank=True, verbose_name=_("related creators"))
-    biography = models.TextField(null=True, blank=True, verbose_name=_("biographical / historical note"))
-    website = models.URLField(null=True, blank=True, verbose_name=_("website"))
-    photo = models.ForeignKey("DigitalObject", null=True, blank=True, verbose_name=_("photo"))
- #   primary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="primary_bibliography_for", verbose_name=_("primary bibliography"))
- #   secondary_bibliography = models.ManyToManyField("BibliographicRecord", null=True, blank=True, related_name="secondary_bibliography_for", verbose_name=_("secondary bibliography"))
-    primary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="primary_bibliography_for", verbose_name=_("primary bibliography"))
-    secondary_publications = models.ManyToManyField(Publication, null=True, blank=True, related_name="secondary_bibliography_for", verbose_name=_("secondary bibliography"))
-    awards_text = models.TextField(null=True, blank=True, verbose_name=_("awards (plain text)"))
-    biblio_text = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text)"))
-    biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("bibliography (plain text, Spanish)"))
-    secondary_biblio_text = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text)"))
-    secondary_biblio_text_es = models.TextField(null=True, blank=True, verbose_name=_("secondary bibliography (plain text, Spanish)"))
+    creator_type = models.CharField(max_length=10,
+                                    choices=constants.CREATOR_TYPE_CHOICES,
+                                    default=u'person',
+                                    verbose_name=_("creator type"))
+    prefix = models.CharField(max_length=100, null=True, blank=True,
+                              verbose_name=_("name prefix"))
+    given_name = models.CharField(max_length=255, null=True, blank=True,
+                                  verbose_name=_("given name(s)"))
+    middle_name = models.CharField(max_length=255, null=True, blank=True,
+                                   verbose_name=_("middle name(s)"))
+    family_name = models.CharField(max_length=255, null=True, blank=True,
+                                   verbose_name=_("family name(s)"))
+    suffix = models.CharField(max_length=100, null=True, blank=True,
+                              verbose_name=_("name suffix"))
+    org_name = models.CharField(max_length=255, null=True, blank=True,
+                                help_text=_("For corporate creators, \
+                                            enter an organization name here \
+                                            instead of using the other \
+                                            name fields."),
+                                verbose_name=_("organization / corporate name")
+                                )
+    creator_name = models.CharField(max_length=255,
+                                    verbose_name=_("creator name"))
+    creator_ascii_name = models.CharField(max_length=255,
+                                          verbose_name=_("creator ASCII name"))
+    creator_display_name = models.CharField(max_length=255,
+                                            verbose_name=_("creator display name"))
+    creator_display_ascii_name = models.CharField(
+        max_length=255,verbose_name=_("creator display ASCII name"))
+    name_variants = models.CharField(max_length=200, null=True, blank=True,
+                                     verbose_name=_("name variants"))
+    birth_city = models.ForeignKey("City", null=True, blank=True,
+                                   related_name="born_here",
+                                   verbose_name=_("City of birth"))
+    birth_date = models.DateField(null=True, blank=True,
+                                  help_text="Click 'Today' to see today's date \
+                                            in the proper date format.",
+                                  verbose_name=_("birth date"))
+    birth_date_precision = models.CharField(
+        max_length=1,
+        choices=constants.DATE_PRECISION_CHOICES,
+        default=u'f',
+        null=True, blank=True,
+        verbose_name=_("Precision"))
+    birth_date_BC = models.BooleanField(default=False,
+                                        verbose_name=_("Is B.C. date"))
+    death_city = models.ForeignKey("City", null=True, blank=True,
+                                   related_name="died_here",
+                                   verbose_name=_("City of death"))
+    death_date = models.DateField(null=True, blank=True,
+                                  help_text="Click 'Today' to see today's date \
+                                            in the proper date format.",
+                                  verbose_name=_("death date"))
+    death_date_precision = models.CharField(
+        max_length=1,
+        choices=constants.DATE_PRECISION_CHOICES,
+        default=u'f', null=True, blank=True,
+        verbose_name=_("Precision"))
+    death_date_BC = models.BooleanField(default=False,
+                                        verbose_name=_("Is B.C. date"))
+    earliest_active = models.DateField(
+        null=True, blank=True,
+        help_text="Click 'Today' to see today's \
+                  date in the proper date format.",
+        verbose_name=_("earliest active"))
+    earliest_active_precision = models.CharField(
+        max_length=1,
+        choices=constants.DATE_PRECISION_CHOICES,
+        default=u'y', null=True, blank=True,
+        verbose_name=_("Precision"))
+    earliest_active_BC = models.BooleanField(default=False,
+                                             verbose_name=_("Is B.C. date"))
+    latest_active = models.DateField(
+        null=True, blank=True,
+        help_text="Click 'Today' to see today's \
+                  date in the proper date format.",
+        verbose_name=_("latest active"))
+    latest_active_precision = models.CharField(
+        max_length=1,
+        choices=constants.DATE_PRECISION_CHOICES,
+        default=u'y', null=True, blank=True,
+        verbose_name=_("Precision"))
+    latest_active_BC = models.BooleanField(default=False,
+                                           verbose_name=_("Is B.C. date"))
+    gender = models.CharField(max_length=2,
+                              choices=constants.GENDER_CHOICES,
+                              default=u'N', verbose_name=_("gender"))
+    nationality = models.ForeignKey("Country", null=True, blank=True,
+                                    verbose_name=_("nationality"))
+    headquarter_city = models.ForeignKey(
+        "City", null=True, blank=True,
+        help_text=_("Office / headquarters \
+                    location (for corporate \
+                    creators only)"),
+        verbose_name=_("office / headquarters"))
+    related_creators = models.ManyToManyField(
+        "self", through="RelatedCreator",
+        symmetrical=False, null=True, blank=True,
+        verbose_name=_("related creators"))
+    biography = models.TextField(
+        null=True, blank=True,
+        verbose_name=_("biographical / historical note"))
+    website = models.URLField(null=True, blank=True,
+                              verbose_name=_("website"))
+    photo = models.ForeignKey("DigitalObject", null=True, blank=True,
+                              verbose_name=_("photo"))
+    primary_publications = models.ManyToManyField(
+        Publication,
+        null=True, blank=True,
+        related_name="primary_bibliography_for",
+        verbose_name=_("primary bibliography"))
+    secondary_publications = models.ManyToManyField(
+        Publication,
+        null=True, blank=True,
+        related_name="secondary_bibliography_for",
+        verbose_name=_("secondary bibliography"))
+    awards_text = models.TextField(null=True, blank=True,
+                                   verbose_name=_("awards (plain text)"))
+    biblio_text = models.TextField(null=True, blank=True,
+                                   verbose_name=_("bibliography (plain text)"))
+    biblio_text_es = models.TextField(
+        null=True, blank=True,
+        verbose_name=_("bibliography (plain text, Spanish)"))
+    secondary_biblio_text = models.TextField(
+        null=True, blank=True,
+        verbose_name=_("secondary bibliography (plain text)"))
+    secondary_biblio_text_es = models.TextField(
+        null=True, blank=True,
+        verbose_name=_("secondary bibliography (plain text, Spanish)"))
     notes = models.TextField(null=True, blank=True, verbose_name=_("notes"))
-    attention = models.TextField(null=True, blank=True, verbose_name=_("attention"))
+    attention = models.TextField(null=True, blank=True,
+                                 verbose_name=_("attention"))
     has_attention = models.BooleanField(default=False)
-    needs_editing = models.BooleanField(default=True, verbose_name=_("needs editing"))
+    needs_editing = models.BooleanField(default=True,
+                                        verbose_name=_("needs editing"))
     published = models.BooleanField(default=True, verbose_name=_("published"))
-    profiler_name = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profiler name"))
-    profiler_entry_date = models.CharField(max_length=255, null=True, blank=True, default='', verbose_name=_("profile entry date"))
-    tags = TaggableManager(verbose_name="Tags", help_text="A comma-separated list of tags.", blank=True)
+    profiler_name = models.CharField(max_length=255, null=True, blank=True,
+                                     default='',
+                                     verbose_name=_("profiler name"))
+    profiler_entry_date = models.CharField(
+        max_length=255,
+        null=True, blank=True, default='',
+        verbose_name=_("profile entry date"))
+    tags = TaggableManager(verbose_name="Tags",
+                           help_text="A comma-separated list of tags.",
+                           blank=True)
 
     class Meta:
         ordering = ['creator_name']
-    
+
     def birth_date_display(self):
-        return display_date(self.birth_date, self.birth_date_precision, self.birth_date_BC)
+        return display_date(self.birth_date,
+                            self.birth_date_precision,
+                            self.birth_date_BC)
     birth_date_display.short_description = _("Birth date")
-        
+
     def death_date_display(self):
-        return display_date(self.death_date, self.death_date_precision, self.death_date_BC)
+        return display_date(self.death_date,
+                            self.death_date_precision,
+                            self.death_date_BC)
     death_date_display.short_description = _("Death date")
-        
+
     def earliest_active_display(self):
-        return display_date(self.earliest_active, self.earliest_active_precision, self.earliest_active_BC)
+        return display_date(self.earliest_active,
+                            self.earliest_active_precision,
+                            self.earliest_active_BC)
     earliest_active_display.short_description = _("Earliest active")
-    
+
     def latest_active_display(self):
-        return display_date(self.latest_active, self.latest_active_precision, self.latest_active_BC)
+        return display_date(self.latest_active,
+                            self.latest_active_precision,
+                            self.latest_active_BC)
     latest_active_display.short_description = _("Latest active")
-    
+
     def display_name_lastfirst(self):
         if self.creator_type == u'corp':
             name = self.org_name
@@ -231,7 +328,7 @@ class Creator(models.Model):
                 name += self.middle_name + ' '
             name = name.rstrip(', ')
         return name
-    
+
     def display_name(self):
         if self.creator_type == u'corp':
             name = self.org_name
@@ -251,7 +348,7 @@ class Creator(models.Model):
                 name += self.suffix
             name = name.rstrip()
         return name
-    
+
     def has_system_links(self):
         if RelatedCreator.objects.filter(first_creator=self).exists():
             return True
@@ -286,7 +383,7 @@ class Creator(models.Model):
         if Production.objects.filter(related_organizations=self).exists():
             return True
         return False
-    
+
     def system_links(self):
         works = ''
         if RelatedCreator.objects.filter(first_creator=self).exists():
@@ -341,25 +438,29 @@ class Creator(models.Model):
             return False
         else:
             return works
-    
+
     def has_works(self):
-        if WorkRecordCreator.objects.filter(creator=self, work_record__published=True).exists():
+        if WorkRecordCreator.objects.filter(
+            creator=self, work_record__published=True).exists():
             return True
         else:
             return False
-            
+
     def works(self):
         records = []
-        wrc = WorkRecordCreator.objects.filter(creator=self, work_record__published=True)
+        wrc = WorkRecordCreator.objects.filter(creator=self,
+                                               work_record__published=True)
         for record in wrc:
             if record.work_record.creation_date:
                 date = record.work_record.creation_date_display()
             else:
                 date = ""
-            x = { 'record_id': record.work_record.pk, 'record_title': record.work_record.title, 'function': record.function.title, 'date': date }
+            x = {'record_id': record.work_record.pk,
+                 'record_title': record.work_record.title,
+                 'function': record.function.title, 'date': date}
             records.append(x)
         return records
-    
+
     def has_productions(self):
         result = False
         if self.directing_team_for.filter(published=True).count() > 0:
@@ -381,76 +482,136 @@ class Creator(models.Model):
         elif self.productions_related_to.filter(published=True).count() > 0:
             result = True
         return result
-    
+
     def productions(self):
         prods = []
         if self.directing_team_for.exists():
-            for dt in self.directing_team_for.filter(published=True).distinct().order_by('-begin_date'):
-                dms = DirectingMember.objects.filter(person=self, production=dt, production__published=True)
+            for dt in self.directing_team_for.filter(
+                published=True).distinct().order_by('-begin_date'):
+                dms = DirectingMember.objects.filter(
+                    person=self, production=dt,
+                    production__published=True)
                 roles = []
                 for dm in dms:
                     roles.append(dm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = {'prod_id': dt.pk,
+                     'prod_title': dt.title,
+                     'venue': dt.venue,
+                     'date_range': dt.display_date_range(),
+                     'role': ', '.join(roles)}
                 prods.append(x)
         if self.cast_member_for.exists():
-            for cm in self.cast_member_for.filter(published=True).distinct().order_by('-begin_date'):
-                cms = CastMember.objects.filter(person=self, production=cm, production__published=True)
+            for cm in self.cast_member_for.filter(
+                published=True).distinct().order_by('-begin_date'):
+                cms = CastMember.objects.filter(person=self,
+                                                production=cm
+                                                , production__published=True)
                 roles = []
                 for member in cms:
-                    if member.function.title == "Actor / actress" and member.role:
+                    if member.function.title == "Actor / actress" \
+                    and member.role:
                         roles.append(member.role.title)
                     else:
                         roles.append(member.function.title)
-                x = { 'prod_id': cm.pk, 'prod_title': cm.title, 'venue': cm.venue, 'date_range': cm.display_date_range(), 'role': ', '.join(roles) }
+                x = {'prod_id': cm.pk,
+                     'prod_title': cm.title,
+                     'venue': cm.venue,
+                     'date_range': cm.display_date_range(),
+                     'role': ', '.join(roles)}
                 prods.append(x)
         if self.design_team_for.exists():
-          for dt in self.design_team_for.filter(published=True).distinct().order_by('-begin_date'):
-                dms = DesignMember.objects.filter(person=self, production=dt, production__published=True)
+          for dt in self.design_team_for.filter(
+            published=True).distinct().order_by('-begin_date'):
+                dms = DesignMember.objects.filter(person=self,
+                                                  production=dt,
+                                                  production__published=True)
                 roles = []
                 for dm in dms:
                     for role in dm.functions.all():
                         roles.append(role.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = {'prod_id': dt.pk,
+                     'prod_title': dt.title,
+                     'venue': dt.venue,
+                     'date_range': dt.display_date_range(),
+                     'role': ', '.join(roles)}
                 prods.append(x)
         if self.technical_team_for.exists():
-            for dt in self.technical_team_for.filter(published=True).distinct().order_by('-begin_date'):
-                tms = TechMember.objects.filter(person=self, production=dt, production__published=True)
+            for dt in self.technical_team_for.filter(
+                published=True).distinct().order_by('-begin_date'):
+                tms = TechMember.objects.filter(person=self,
+                                                production=dt,
+                                                production__published=True)
                 roles = []
                 for tm in tms:
                     roles.append(tm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = {'prod_id': dt.pk,
+                     'prod_title': dt.title,
+                     'venue': dt.venue,
+                     'date_range': dt.display_date_range(),
+                     'role': ', '.join(roles)}
                 prods.append(x)
         if self.production_team_for.exists():
-            for dt in self.production_team_for.filter(published=True).distinct().order_by('-begin_date'):
-                pms = ProductionMember.objects.filter(person=self, production=dt, production__published=True)
+            for dt in self.production_team_for.filter(
+                published=True).distinct().order_by('-begin_date'):
+                pms = ProductionMember.objects.filter(person=self,
+                                                      production=dt,
+                                                      production__published=True)
                 roles = []
                 for pm in pms:
                     roles.append(pm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = {'prod_id': dt.pk,
+                     'prod_title': dt.title,
+                     'venue': dt.venue,
+                     'date_range': dt.display_date_range(),
+                     'role': ', '.join(roles)}
                 prods.append(x)
         if self.documentation_team_for.exists():
-            for dt in self.documentation_team_for.filter(published=True).distinct().order_by('-begin_date'):
-                dms = DocumentationMember.objects.filter(person=self, production=dt, production__published=True)
+            for dt in self.documentation_team_for.filter(
+                published=True).distinct().order_by('-begin_date'):
+                dms = DocumentationMember.objects.filter(person=self,
+                                                         production=dt,
+                                                         production__published=True)
                 roles = []
                 for dm in dms:
                     roles.append(dm.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = {'prod_id': dt.pk,
+                     'prod_title': dt.title,
+                     'venue': dt.venue,
+                     'date_range': dt.display_date_range(),
+                     'role': ', '.join(roles)}
                 prods.append(x)
         if self.advisory_team_for.exists():
-            for dt in self.advisory_team_for.filter(published=True).distinct().order_by('-begin_date'):
-                ams = AdvisoryMember.objects.filter(person=self, production=dt, production__published=True)
+            for dt in self.advisory_team_for.filter(
+                published=True).distinct().order_by('-begin_date'):
+                ams = AdvisoryMember.objects.filter(person=self,
+                                                    production=dt,
+                                                    production__published=True)
                 roles = []
                 for am in ams:
                     roles.append(am.function.title)
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': ', '.join(roles) }
+                x = {'prod_id': dt.pk,
+                     'prod_title': dt.title,
+                     'venue': dt.venue,
+                     'date_range': dt.display_date_range(),
+                     'role': ', '.join(roles)}
                 prods.append(x)
         if self.company_productions.exists():
-            for dt in self.company_productions.filter(published=True).distinct().order_by('-begin_date'):
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': 'Theater company' }
+            for dt in self.company_productions.filter(
+                published=True).distinct().order_by('-begin_date'):
+                x = {'prod_id': dt.pk,
+                     'prod_title': dt.title,
+                     'venue': dt.venue,
+                     'date_range': dt.display_date_range(),
+                     'role': 'Theater company' }
                 prods.append(x)
         if self.productions_related_to.exists():
-            for dt in self.productions_related_to.filter(published=True).distinct().order_by('-begin_date'):
-                x = { 'prod_id': dt.pk, 'prod_title': dt.title, 'venue': dt.venue, 'date_range': dt.display_date_range(), 'role': 'Related organization' }
+            for dt in self.productions_related_to.filter(
+                published=True).distinct().order_by('-begin_date'):
+                x = {'prod_id': dt.pk,
+                     'prod_title': dt.title,
+                     'venue': dt.venue,
+                     'date_range': dt.display_date_range(),
+                     'role': 'Related organization'}
                 prods.append(x)
         return prods
         
@@ -508,18 +669,19 @@ class Creator(models.Model):
             return False
         
     def related_creators_relationship(self):
-        return RelatedCreator.objects.filter(first_creator=self).order_by('function__ordinal')
+        return RelatedCreator.objects.filter(
+            first_creator=self).order_by('function__ordinal')
     
     def creator_relationship(self):
         relationship = []
         relatedCreator_qs = RelatedCreator.objects.filter(first_creator=self)
         for relatedCreator in relatedCreator_qs:
-            a_dict = {'Relationship': relatedCreator.get_relationship_display,
-                      'CreatorName': relatedCreator.second_creator.display_name,
-                      'Function': relatedCreator.function,
-                      'Since': relatedCreator.relationship_since_display,
-                      'Until': relatedCreator.relationship_until_display
-                      }
+            a_dict = {
+                'Relationship': relatedCreator.get_relationship_display,
+                'CreatorName': relatedCreator.second_creator.display_name,
+                'Function': relatedCreator.function,
+                'Since': relatedCreator.relationship_since_display,
+                'Until': relatedCreator.relationship_until_display}
             relationship.append(a_dict)
         return relationship
 
@@ -561,34 +723,50 @@ class Creator(models.Model):
             return { 'title': p.title, 'creators': people }
 
     def has_digital_objects(self):
-        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+        if DigitalObject.objects.filter(
+            related_creator=self,
+            digi_object_format=DigitalObjectType.objects.get(
+                title="Image")).exists():
             return True
         else:
             return False
 
     def has_images(self):
-        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Image")).exists():
+        if DigitalObject.objects.filter(
+            related_creator=self,
+            digi_object_format=DigitalObjectType.objects.get(
+                title="Image")).exists():
             return True
         else:
             return False
 
     def has_videos(self):
-        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Video recording"), ready_to_stream=True).exists():
+        if DigitalObject.objects.filter(
+            related_creator=self,
+            digi_object_format=DigitalObjectType.objects.get(
+                title="Video recording"), ready_to_stream=True).exists():
             return True
         else:
             return False
 
     def has_audio(self):
-        if DigitalObject.objects.filter(related_creator=self, digi_object_format=DigitalObjectType.objects.get(title="Audio recording")).exists():
+        if DigitalObject.objects.filter(
+            related_creator=self,
+            digi_object_format=DigitalObjectType.objects.get(
+                title="Audio recording")).exists():
             return True
         else:
             return False
 
     def __unicode__(self):
         if self.birth_date and self.death_date:
-            return "%s, %s-%s (%s)" % (self.creator_name, self.birth_date_display(), self.death_date_display(), self.pk)
+            return "%s, %s-%s (%s)" % (self.creator_name,
+                                       self.birth_date_display(),
+                                       self.death_date_display(), self.pk)
         if self.birth_date:
-            return "%s, %s- (%s)" % (self.creator_name, self.birth_date_display(), self.pk)
+            return "%s, %s- (%s)" % (self.creator_name,
+                                     self.birth_date_display(),
+                                     self.pk)
         else:
             return "%s (%s)" % (self.creator_name, self.pk)
 
