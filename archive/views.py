@@ -929,7 +929,7 @@ class FestivalOccurrenceDetailView(DetailView):
         audios = DigitalObject.objects.filter(
             published=True,
             related_festival=self.object,
-            digi_object_format=videotype,
+            digi_object_format=audiotype,
             ready_to_stream=True).distinct()
         for audio in audios:
             item = {}
