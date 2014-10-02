@@ -125,7 +125,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <tr>
                   <th>{% trans "Year" %}</th>
                   <th>{% trans "Category" %}</th>
-                  <th>{% trans "Recipient" %}</th>
+                  <th>{% trans "Award" %}</th>
                   <th>{% trans "Result" %}</th>
                 </tr>
               </thead>
@@ -134,8 +134,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     <tr>
                         <td>{{ award_candidate.year }}</td>
                         <td>{{ award_candidate.category }}</td>
-                        <td>{% if award_candidate.recipient %}
-                          <a href="{{ SITE_URL }}{% url 'creator_detail_view' award_candidate.recipient.id %}">{{ award_candidate.recipient }}</a>{% endif %}
+                        <td>
+                          <a href="{{ SITE_URL }}{% url 'award_detail_view' award_candidate.award.id %}">{{ award_candidate.award }}</a>
                         </td>
                         <td>{{ award_candidate.get_result_display }}</td>
                     </tr>

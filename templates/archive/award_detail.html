@@ -56,8 +56,10 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <tr>
                   <th>{% trans "Year" %}</th>
                   <th>{% trans "Category" %}</th>
+                  <th>{% trans "Creator" %}</th>
                   <th>{% trans "Production" %}</th>
-                  <th>{% trans "Recipient" %}</th>
+                  <th>{% trans "Written Work" %}</th>
+                  <th>{% trans "Festival %}</th>
                   <th>{% trans "Result" %}</th>
                 </tr>
               </thead>
@@ -66,11 +68,17 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     <tr>
                         <td>{{ award_candidate.year }}</td>
                         <td>{{ award_candidate.category }}</td>
+                        <td>{% if award_candidate.recipient %}
+                          <a href="{{ SITE_URL }}{% url 'creator_detail_view' award_candidate.recipient.id %}">{{ award_candidate.recipient }}</a>{% endif %}
+                        </td>
                         <td>{% if award_candidate.production %}
                           <a href="{{ SITE_URL }}{% url 'production_detail_view' award_candidate.production.id %}">{{ award_candidate.production }}</a>{% endif %}
                         </td>
-                        <td>{% if award_candidate.recipient %}
-                          <a href="{{ SITE_URL }}{% url 'creator_detail_view' award_candidate.recipient.id %}">{{ award_candidate.recipient }}</a>{% endif %}
+                        <td>{% if award_candidate.work_record %}
+                          <a href="{{ SITE_URL }}{% url 'workrecord_detail_view' award_candidate.work_record.id %}">{{ award_candidate.work_record }}</a>{% endif %}
+                        </td>
+                        <td>{% if award_candidate.festival %}
+                          <a href="{{ SITE_URL }}{% url 'festival_detail_view' award_candidate.festival.id %}">{{ award_candidate.festival }}</a>{% endif %}
                         </td>
                         <td>{{ award_candidate.get_result_display }}</td>
                     </tr>
