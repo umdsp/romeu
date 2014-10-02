@@ -42,11 +42,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <img src="{{ festivalphoto.url }}" />
           {% endif %}
 
-          {% if festival.notes %}
-          <h4>{% trans "Notes" %}:</h4>
-          {{ festival.notes|safe }}
-        {% endif %}
-        
+          {% if festival.notes %}   
+          <div class="linkeditems">
+              <h3>{% trans "Notes" %}: +</h3>
+              <ul>
+              {{ festival.notes|autop }}
+              </ul>
+          </div>
+          {% endif %}      
         
             {% if festival.festival.exists %}
               <div class="linkeditems">
