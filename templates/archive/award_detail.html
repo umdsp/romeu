@@ -59,7 +59,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   <th>{% trans "Creator" %}</th>
                   <th>{% trans "Production" %}</th>
                   <th>{% trans "Written Work" %}</th>
-                  <th>{% trans "Festival %}</th>
+                  {% comment %}
+                  <th>{% trans "Festival" %}</th> {% endcomment %}
                   <th>{% trans "Result" %}</th>
                 </tr>
               </thead>
@@ -76,10 +77,10 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                         </td>
                         <td>{% if award_candidate.work_record %}
                           <a href="{{ SITE_URL }}{% url 'workrecord_detail_view' award_candidate.work_record.id %}">{{ award_candidate.work_record }}</a>{% endif %}
-                        </td>
+                        </td> {% comment %}
                         <td>{% if award_candidate.festival %}
                           <a href="{{ SITE_URL }}{% url 'festival_detail_view' award_candidate.festival.id %}">{{ award_candidate.festival }}</a>{% endif %}
-                        </td>
+                        </td> {% endcomment %}
                         <td>{{ award_candidate.get_result_display }}</td>
                     </tr>
                 {% endfor %}

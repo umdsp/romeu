@@ -138,6 +138,7 @@ class CreatorDetailView(DetailView):
         imagetype = DigitalObjectType.objects.get(title='Image')
         videotype = DigitalObjectType.objects.get(title='Video recording')
         audiotype = DigitalObjectType.objects.get(title='Audio recording')
+        context['tags'] = sorted(self.object.tags.names())
 
         alldos = DigitalObject.objects.filter(
             published=True,
@@ -269,6 +270,7 @@ class ProductionDetailView(DetailView):
         imagetype = DigitalObjectType.objects.get(title='Image')
         videotype = DigitalObjectType.objects.get(title='Video recording')
         audiotype = DigitalObjectType.objects.get(title='Audio recording')
+        context['tags'] = sorted(self.object.tags.names())
 
         alldos = DigitalObject.objects.filter(
             published=True,
@@ -399,6 +401,7 @@ class WorkRecordDetailView(DetailView):
         imagetype = DigitalObjectType.objects.get(title='Image')
         videotype = DigitalObjectType.objects.get(title='Video recording')
         audiotype = DigitalObjectType.objects.get(title='Audio recording')
+        context['tags'] = sorted(self.object.tags.names())
 
         alldos = DigitalObject.objects.filter(
             published=True,
@@ -539,6 +542,7 @@ class VenueDetailView(DetailView):
         imagetype = DigitalObjectType.objects.get(title='Image')
         videotype = DigitalObjectType.objects.get(title='Video recording')
         audiotype = DigitalObjectType.objects.get(title='Audio recording')
+        context['tags'] = sorted(self.object.tags.names())
 
         alldos = DigitalObject.objects.filter(
             published=True,
@@ -735,6 +739,7 @@ class DigitalObjectDetailView(DetailView):
                         self).get_context_data(**kwargs)
         digifiles = self.object.files.order_by('seq_id')
         context['digifiles'] = digifiles
+        context['tags'] = sorted(self.object.tags.names())
         return context
 
 
@@ -885,7 +890,7 @@ class FestivalOccurrenceDetailView(DetailView):
         published=True).select_related()
     context_object_name = "festival_occurrence"
     template_name = "archive/festival_occurrence_detail.html"
-
+    
     def get_context_data(self, **kwargs):
 
         context = super(FestivalOccurrenceDetailView,
@@ -893,6 +898,7 @@ class FestivalOccurrenceDetailView(DetailView):
         imagetype = DigitalObjectType.objects.get(title='Image')
         videotype = DigitalObjectType.objects.get(title='Video recording')
         audiotype = DigitalObjectType.objects.get(title='Audio recording')
+        context['tags'] = sorted(self.object.tags.names())
 
         objects_list = []
         video_list = []

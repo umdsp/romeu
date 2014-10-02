@@ -244,11 +244,11 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
               </div>
             {% endif %}
-            {% if digital_object.tags.names %}
+            {% if tags %}
              <h4>{% trans "Tag(s)" %}:</h4>
             <ul>
-                {% for tag in digital_object.tags.names %}
-                    <a href="/taggeditems?tag={{ tag }}"><li>{{ tag }}</li></a>
+                {% for tag in tags %}
+                    <a href="/taggeditems?tag={{ tag }}"><li>{{ tag }}</li></a><br />
                 {% endfor %}
             </ul>
             {% endif %}
