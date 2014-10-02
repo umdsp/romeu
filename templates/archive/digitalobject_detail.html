@@ -88,35 +88,41 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
                 <h3>{% trans "Object details" %}:</h3>
                 <dl class="objectdata">
-                  {% if digital_object.phys_object_type %}
-                  <dt>{% trans "Physical object type" %}:</dt>
-                  <dd>{{ digital_object.phys_object_type.title }}</dd>
-                  {% endif %}
-                  
-                  {% if digital_object.donor %}
+                {% if digital_object.object_creator %}
+                    <dt>{% trans "Physical object creator" %}:</dt>
+                    <dd><a href="{% url 'creator_detail_view' digital_object.object_creator.pk %}">{{ digital_object.object_creator }}</a></dd>  
+                {% endif %}
+
+                {% if digital_object.donor %}
                   <dt>{% trans "Donor" %}:</dt>
                   <dd>{{ digital_object.donor }}</dd>
-                  {% endif %}
-
-                  {% if digital_object.sponsor_note %}
+                {% endif %}
+                
+                {% if digital_object.sponsor_note %}
                   <dt>{% trans "Sponsor note" %}:</dt>
                   <dd>{{ digital_object.sponsor_note }}</dd>
-                  {% endif %}
-
-                  {% if digital_object.phys_obj_date %}
+                {% endif %}
+                
+                {% if digital_object.phys_obj_date %}
                   <dt>{% trans "Physical object date" %}:</dt>
                   <dd>{{ digital_object.phys_obj_date_display }}</dd>
-                  {% endif %}
+                  
+                {% endif %}
+                
+                {% if digital_object.phys_obj_city %}
+                  <dt>{% trans "Physical object city" %}:</dt>
+                  <dd>{{ digital_object.phys_obj_city }}</dd>
+                {% endif %}
+              
+                {% if digital_object.phys_object_type %}
+                  <dt>{% trans "Physical object type" %}:</dt>
+                  <dd>{{ digital_object.phys_object_type.title }}</dd>
+                {% endif %}
 
-                  {% if digital_object.phys_obj_location %}
-                  <dt>{% trans "Physical object location" %}:</dt>
-                  <dd>{{ digital_object.phys_obj_location.display_name }}</dd>
-                  {% endif %}
-
-                  {% if digital_object.digi_object_format %}
+                {% if digital_object.digi_object_format %}
                   <dt>{% trans "Digital object format" %}:</dt>
                   <dd>{{ digital_object.digi_object_format }}</dd>
-                  {% endif %}
+                {% endif %}
 
                   <dt>{% trans "Object ID" %}:</dt>
                   <dd>{{ digital_object.object_number }}</dd>
@@ -129,15 +135,15 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                   <dd>{{ digital_object.rights_holders }}</dd>
                   {% endif %}
                   
-                  {% if digital_object.license_type %}
+                {% if digital_object.license_type %}
                   <dt>{% trans "License" %}:</dt>
                   <dd><a href="{{ digital_object.license_type.more_info_link }}">{{ digital_object.license_type.title }}</a></dd>
-                  {% endif %}
+                {% endif %}
                   
-                  {% if digital_object.identifier %}
+                {% if digital_object.identifier %}
                   <dt>{% trans "Identifier (e.g. ISBN, DOI)" %}:</dt>
                   <dd>{{ digital_object.identifier }}</dd>
-                  {% endif %}
+                {% endif %}
                   
                   {% if digital_object.marks %}
                   <dt>{% trans "Marks / inscriptions" %}:</dt>
